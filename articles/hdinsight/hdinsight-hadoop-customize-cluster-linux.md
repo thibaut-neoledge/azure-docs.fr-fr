@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 908531e791b3634cb9986946212b8ad8b447b8ce
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b615f97484033bb406022e84fbcf50f88458de3c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -543,7 +543,7 @@ Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure Po
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Appliquer une action de script sur un cluster en cours d’exécution à partir de l'interface de ligne de commande Azure (CLI)
 
-Avant de poursuivre, assurez-vous que vous avez installé et configuré l'interface de ligne de commande Azure (CLI). Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md).
+Avant de poursuivre, assurez-vous que vous avez installé et configuré l'interface de ligne de commande Azure (CLI). Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 

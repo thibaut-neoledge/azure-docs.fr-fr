@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,15 +17,15 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ba238a5d18dd83e4adb9e5ba737ec0cff135d34e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 36b7aaf99db48efa1b56b84ac0616cf9ee2830ac
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser les outils de BI avec un cluster Apache Spark sur Azure HDInsight
 
-Découvrez comment utiliser Apache Spark dans Azure HDInsight pour analyser un ensemble d’exemples de données brutes, puis utiliser des outils décisionnels pour visualiser les données. Cet article explique comment utiliser les outils décisionnels comme Power BI et Tableau avec les clusters HDInsight Spark. 
+Découvrez comment utiliser Apache Spark dans Azure HDInsight pour analyser un ensemble d’exemples de données brutes, puis utiliser des outils décisionnels pour visualiser les données. Cet article explique comment utiliser les outils décisionnels comme Power BI et Tableau avec les clusters HDInsight Spark.
 
 > [!NOTE]
 > La connectivité avec les outils décisionnels décrite dans cet article n’est pas prise en charge sur Spark 2.1 avec Azure HDInsight 3.6 version préliminaire. Seules les versions Spark 1.6 et 2.0 (HDInsight 3.4, 3.5 respectivement) sont prises en charge.
@@ -86,7 +87,7 @@ Une fois que vos données sont enregistrées sous forme de table, dans la sectio
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Vérifiez que la table a bien été créée. Vous pouvez utiliser `%%sql` pour exécuter directement des interrogations Hive. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+7. Vérifiez que la table a bien été créée. Vous pouvez utiliser `%%sql` pour exécuter directement des interrogations Hive. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SHOW TABLES
@@ -160,7 +161,7 @@ Une fois que vous avez enregistré les données dans une table, vous pouvez util
 >
 >
 
-1. Installez [Tableau Desktop](http://www.tableau.com/products/desktop) sur l’ordinateur où vous exécutez ce didacticiel. 
+1. Installez [Tableau Desktop](http://www.tableau.com/products/desktop) sur l’ordinateur où vous exécutez ce didacticiel.
 
 2. Vérifiez que l’ordinateur est également équipé du pilote ODBC de Microsoft Spark. Pour installer le pilote, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=616229).
 

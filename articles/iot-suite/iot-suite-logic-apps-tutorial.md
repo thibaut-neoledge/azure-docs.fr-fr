@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/09/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,6 +31,8 @@ Avant de commencer ce didacticiel, vous devez :
 
 * Configurer la solution préconfigurée de surveillance à distance dans votre abonnement Azure.
 * Créez un compte SendGrid pour pouvoir envoyer un courrier électronique qui déclenche le processus d’entreprise. Vous pouvez vous inscrire à un compte d’évaluation gratuit sur [SendGrid](https://sendgrid.com/) en cliquant sur **Essai gratuit**. Une fois que vous avez enregistré votre compte d’évaluation gratuite, vous devez créer une [clé d’API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) dans SendGrid qui accorde les autorisations d’envoi de courrier. Cette clé d’API vous sera nécessaire ultérieurement dans le didacticiel.
+
+Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015 ou Visual Studio 2017 pour modifier les actions dans le serveur principal de la solution préconfigurée.
 
 En supposant que vous avez déjà approvisionné votre solution préconfigurée de surveillance à distance, accédez au groupe de ressources de cette solution dans le [portail Azure][lnk-azureportal]. Le groupe de ressources a le même nom que celui de la solution choisi lorsque vous avez configuré votre solution de surveillance à distance. Dans le groupe de ressources, vous pouvez voir toutes les ressources Azure approvisionnées pour votre solution (à l’exception de l’application Azure Active Directory que vous pouvez trouver dans le portail Azure Classic). La capture d’écran suivante montre un exemple de panneau **Groupe de ressources** pour une solution préconfigurée de surveillance à distance :
 
@@ -91,7 +93,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
 10. Entrez un nom pour la connexion, tel que **SendGridConnection**, entrez la **clé d’API SendGrid** créée lorsque vous configurez votre compte SendGrid, puis cliquez sur **Créer**.
     
     ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
-11. Ajoutez les adresses de messagerie que vous possédez aux champs **De** et **À**. Ajoutez **Remote monitoring alert [DeviceId]** (Alerte de surveillance à distance [DeviceId]) au champ **Objet**. Dans le champ **Corps du message**, ajoutez **Device [DeviceId] has reported [measurementName] with value [measuredValue] (L’appareil [DeviceId] a renvoyé [measurementName] avec la valeur [measuredValue]).** Vous pouvez ajouter **[DeviceId]**, **[measurementName]** et **[measuredValue]** en cliquant dans la section **Vous pouvez insérer des données à partir des étapes précédentes**.
+11. Ajoutez les adresses de messagerie que vous possédez aux champs **De** et **À**. Ajoutez **Remote monitoring alert [DeviceId]** (Alerte de surveillance à distance [DeviceId]) au champ **Objet**. Dans le champ **Corps du message**, ajoutez **L’appareil [DeviceId] a renvoyé [measurementName] avec la valeur [measuredValue].** Vous pouvez ajouter **[DeviceId]**, **[measurementName]** et **[measuredValue]** en cliquant dans la section **Vous pouvez insérer des données à partir des étapes précédentes**.
     
     ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
 12. Cliquez sur **Enregistrer** dans le menu supérieur.
@@ -117,8 +119,8 @@ Dans cette section, vous connectez votre solution préconfigurée à l’applica
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Enregistrez les modifications dans la solution et quittez Visual Studio.

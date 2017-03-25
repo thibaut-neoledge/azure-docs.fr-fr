@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -145,7 +147,7 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 * **Copiez le fichier JAR d'application sur l'objet blob Azure Storage** associé au cluster. Pour ce faire, vous pouvez utiliser l’utilitaire de ligne de commande [**AzCopy**](../storage/storage-use-azcopy.md). De nombreux autres clients permettent également de télécharger des données. Pour en savoir plus à leur sujet, consultez [Téléchargement de données pour les travaux Hadoop dans HDInsight](hdinsight-upload-data.md).
 * **Utilisez Livy pour soumettre une tâche de l'application à distance** au cluster Spark. Les clusters Spark sur HDInsight incluent Livy qui expose des points de terminaison REST permettant d’envoyer à distance des travaux Spark. Pour plus d’informations, consultez [Envoi de travaux Spark à distance en utilisant Livy avec les clusters Spark sur HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -169,10 +171,5 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

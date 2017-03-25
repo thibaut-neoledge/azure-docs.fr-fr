@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 03/07/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -40,11 +40,11 @@ Les exemples suivants montrent comment envoyer et recevoir des événements à l
 
 ### <a name="send-events"></a>Envoyer des événements 
 
-L’exemple de [prise en main de l’envoi](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender) montre comment écrire une application console .NET Core qui envoie des événements vers un hub d’événements.
+L’exemple de [prise en main de l’envoi](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) montre comment écrire une application console .NET Core qui envoie des événements vers un hub d’événements.
 
 ### <a name="receive-events"></a>Recevoir des événements 
 
-L’exemple de [prise en main de la réception avec l’hôte du processeur d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) est une application console .NET Core qui reçoit des messages à partir d’un hub d’événements à l’aide de [l’hôte du processeur d’événements](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+L’exemple de [prise en main de la réception avec l’hôte du processeur d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) est une application console .NET Core qui reçoit des messages à partir d’un hub d’événements à l’aide de `Event Processor Host`.
 
 ## <a name="net-framework"></a>.NET Framework    
 

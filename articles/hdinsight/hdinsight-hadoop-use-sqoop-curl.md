@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
-ms.openlocfilehash: 02674646a0dac8a468b8c4f9f079630103058a3a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eabcd8b70411a915722a2f1b8e8b70271cd8c7c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -94,7 +96,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
    > 
 2. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasb:///exemple/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
    
-    Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
+    Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](../cli-install-nodejs.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
    
         azure storage blob list <container-name> example/curl
    
@@ -152,10 +154,5 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

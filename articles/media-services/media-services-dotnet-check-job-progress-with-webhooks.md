@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 ou version ultérieure.
-* Visual Studio.
 * Comprendre [l’utilisation des fonctions Azure](../azure-functions/functions-overview.md). Consultez également [Liaisons HTTP et webhook d’Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
 
 Cette rubrique explique comment effectuer les opérations suivantes
@@ -54,9 +52,9 @@ Le webhook s’attend à une clé de signature (informations d’identification)
 
 Dans le code suivant, la méthode **VerifyWebHookRequestSignature** effectue la vérification sur le message de notification. L’objectif de cette validation consiste à s’assurer que le message a été envoyé par Azure Media Services et qu’il n’a pas été falsifié. La signature est facultative pour les fonctions Azure car elle comporte la valeur **Code** comme paramètre de requête sur le protocole TLS (Transport Layer Security). 
 
-Vous trouverez la définition de la fonction Media Services .NET Azure suivante [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+Vous trouverez la définition des différentes fonctions Media Services .NET Azure (y compris elle dont il est question dans cette rubrique) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-La liste de codes suivante affiche les définitions des paramètres de fonction Azure et de trois fichiers qui sont associés à la fonction Azure : function.json, project.json et run.csx.
+La liste de codes suivante affiche les définitions des paramètres de fonction Azure et de trois fichiers qui sont associés à la fonction Azure : function.json, project.json et run.csx.
 
 ### <a name="application-settings"></a>Paramètres de l’application 
 
@@ -115,6 +113,10 @@ Le fichier project.json contient des dépendances.
 ### <a name="runcsx"></a>run.csx
 
 Le code C# suivant montre une définition d’une fonction Azure qui est un webhook. La fonction attend le rappel du webhook à partir des notifications Media Services et publie la ressource en sortie une fois que le travail se termine. 
+
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -345,7 +347,7 @@ L’exemple ci-dessus produit le résultat suivant ; vos valeurs peuvent varier.
 Dans cette section, le code qui ajoute une notification webhook à une tâche est indiqué. Vous pouvez également ajouter une notification au niveau du travail, ce qui est plus utile pour un travail avec des tâches chaînées.  
 
 1. Créez une application console C# dans Visual Studio. Entrez le nom, l’emplacement et le nom de solution, puis cliquez sur OK.
-2. Utilisez [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) pour installer Azure Media Services.
+2. Utilisez [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) pour installer Azure Media Services.
 3. Mettez à jour le fichier App.config avec les valeurs appropriées : 
     
     * nom et clé Azure Media Services qui enverront les notifications, 

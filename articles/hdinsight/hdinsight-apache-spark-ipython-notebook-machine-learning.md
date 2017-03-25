@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -32,7 +34,7 @@ Vous devez disposer des éléments suivants :
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
-## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Afficher les données
+## <a name="data"></a>Afficher les données
 Avant de créer l’application, nous devons comprendre la structure des données et le type d’analyse que nous allons effectuer sur ces données. 
 
 Dans cet article, nous utilisons l’exemple de fichier de données **HVAC.csv** qui est disponible dans le compte de stockage Azure que vous avez associé au cluster HDInsight. Dans le compte de stockage, le fichier se trouve sous **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Téléchargez et ouvrez le fichier CSV pour obtenir un instantané des données.  
@@ -43,7 +45,7 @@ Les données indiquent la température cible et la température réelle d’un b
 
 Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plus froid en fonction de la température cible, étant donné un ID système et une ancienneté du système.
 
-## <a name="a-nameappawrite-a-machine-learning-application-using-spark-mllib"></a><a name="app"></a>Écrire une application d’apprentissage automatique à l’aide de Spark MLlib
+## <a name="app"></a>Écrire une application d’apprentissage automatique à l’aide de Spark MLlib
 Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une classification de documents. Dans le pipeline, nous fractionnons le document en mots, que nous convertissons en vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les vecteurs et étiquettes de fonctionnalité. Procédez comme suit pour créer l’application.
 
 1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
@@ -193,10 +195,10 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
    Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC avec l’ID 20 et une ancienneté du système de 25 ans, le bâtiment sera chaud (**prediction=1,0**). La première valeur de DenseVector (0,49999) correspond à la prédiction 0.0, et la seconde valeur (0,5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
 4. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
-## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour l’apprentissage automatique
+## <a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour l’apprentissage automatique
 Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -233,9 +235,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

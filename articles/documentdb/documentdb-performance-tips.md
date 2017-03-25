@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d1ff26fd2d93881d028728bf86197c2dc9835ad7
-ms.openlocfilehash: 01f250b218e348a8bad046ac1ddb8c532aa8267f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3124185a486335d978634281b63d2475981e57f8
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -97,7 +97,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     Les requêtes DocumentDB sont effectuées par le biais de HTTPS/REST lors de l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxConnections sur une valeur plus élevée (100 à&1000;) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à DocumentDB. Dans le kit de développement logiciel (SDK) .NET 1.8.0 et versions ultérieures, la valeur par défaut pour [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) est 50. Pour modifier la valeur, vous pouvez définir [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) sur une valeur plus élevée.   
 4. **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
-     La version 1.9.0 et les versions ultérieures du Kit de développement logiciel (SDK) .NET de DocumentDB prennent en charge les requêtes parallèles, qui vous permettent d’interroger une collection partitionnée en parallèle (pour plus d’informations, voir [Utilisation des kits de développement logiciel (SDK)](documentdb-partition-data.md#working-with-the-sdks) et les [exemples de code](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) connexes). Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série. Les requêtes parallèles fournissent deux paramètres que les utilisateurs peuvent paramétrer en fonction de leurs besoins, (a) MaxDegreeOfParallelism, pour contrôler le nombre maximal de partitions qui peuvent être interrogées en parallèle, et (b) MaxBufferedItemCount, pour contrôler le nombre de résultats pré-extraits.
+     La version 1.9.0 et les versions ultérieures du Kit de développement logiciel (SDK) .NET de DocumentDB prennent en charge les requêtes parallèles, qui vous permettent d’interroger une collection partitionnée en parallèle (pour plus d’informations, voir [Utilisation des kits de développement logiciel (SDK)](documentdb-partition-data.md#working-with-the-documentdb-sdks) et les [exemples de code](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) connexes). Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série. Les requêtes parallèles fournissent deux paramètres que les utilisateurs peuvent paramétrer en fonction de leurs besoins, (a) MaxDegreeOfParallelism, pour contrôler le nombre maximal de partitions qui peuvent être interrogées en parallèle, et (b) MaxBufferedItemCount, pour contrôler le nombre de résultats pré-extraits.
 
     (a) La requête parallèle ***Tuning MaxDegreeOfParallelism\:***
     interroge plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. La définition du paramètre MaxDegreeOfParallelism sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez définir le paramètre MaxDegreeOfParallelism sur un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme paramètre MaxDegreeOfParallelism.
@@ -133,17 +133,17 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 10. **Augmentation du nombre de threads/tâches**
 
     Consultez [Augmentation du nombre de threads/tâches](#increase-threads) à la section Mise en réseau.
-    
+
 11. **Utilisation du processus hôte 64 bits**
 
     Le kit de développement logiciel (SDK) DocumentDB fonctionne dans un processus hôte 32 bits lorsque vous utilisez le kit de développement logiciel (SDK) DocumentDB .NET version 1.11.4 et ultérieures. Toutefois, que si vous utilisez des requêtes entre les partitions, le processus hôte 64 bits est recommandé pour améliorer les performances. Les types d’applications suivants utilisent des processus hôte 32 bits par défaut. Pour les remplacer par des processus 64 bits, procédez comme suit, selon le type de votre application :
-    
-    - Pour les applications exécutables, désactivez l’option **Préférer 32 bits** dans la fenêtre **Propriétés du projet**, dans l’onglet **Générer**. 
-    
+
+    - Pour les applications exécutables, désactivez l’option **Préférer 32 bits** dans la fenêtre **Propriétés du projet**, dans l’onglet **Générer**.
+
     - Pour les projets basés sur VSTest, cette opération peut être effectuée en sélectionnant **Test**->**Paramètres de test**->**Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir de l’option de menu **Visual Studio Test**.
-    
+
     - Pour les applications web ASP.NET déployées localement, cette opération peut être effectuée en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web**, sous **Outils**->**Options**->**Projects and Solutions (Projets et solutions)**->**Projets Web**.
-    
+
     - Pour les applications web ASP.NET déployées sur Azure, cette opération peut être effectuée en choisissant la **plate-forme 64 bits** dans les **paramètres de l’application** sur le portail Azure.
 
 ## <a name="indexing-policy"></a>Stratégie d'indexation

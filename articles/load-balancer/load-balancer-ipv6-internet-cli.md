@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d009cf50be1f597c266fd565c9ff4799c9df6dbb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -62,7 +63,7 @@ Pour plus d’informations, consultez [Prise en charge d’un équilibreur de ch
 
 Pour cet exemple, nous utilisons les outils d’interface de ligne de commande dans une fenêtre de commande PowerShell. Nous n’utilisons pas les applets de commande Microsoft Azure PowerShell mais utilisons les fonctionnalités de script PowerShell afin d’améliorer la lisibilité et la réutilisation.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** afin d’activer le mode Resource Manager.
 
     ```azurecli
@@ -342,9 +343,4 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/14/2017
 L’interface de ligne de commande Azure (CLI Azure) est l’un des nombreux outils que vous pouvez utiliser pour déployer et gérer des ressources avec Azure Resource Manager. Cet article présente des méthodes courantes pour gérer des ressources et groupes de ressources Azure en utilisant l’interface de ligne de commande Azure en mode Azure Resource Manager. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande afin de déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md). Pour plus d’informations sur les ressources Azure et Resource Manager, voir [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
 > [!NOTE]
-> Pour gérer les ressources Azure avec l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) et vous [connecter à Azure](../xplat-cli-connect.md) en utilisant la commande `azure login`. Assurez-vous que l’interface de ligne de commande est en mode Resource Manager (exécutez `azure config mode arm`). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
+> Pour gérer les ressources Azure avec l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et vous [connecter à Azure](../xplat-cli-connect.md) en utilisant la commande `azure login`. Assurez-vous que l’interface de ligne de commande est en mode Resource Manager (exécutez `azure config mode arm`). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
 > 
 > 
 

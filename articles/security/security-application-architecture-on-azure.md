@@ -1,6 +1,6 @@
 ---
 title: "Intégrer la sécurité dans vos conceptions architecturales Azure | Microsoft Docs"
-description: " Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et la mise en œuvre.. "
+description: " Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et l’implémentation. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
-ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -48,16 +49,11 @@ Chaque plan inclut les éléments suivants :
 [Visionnez la vidéo de formation sur Visio et les symboles](http://aka.ms/CnESymbolsVideo), puis [téléchargez le jeu de symboles Cloud et Enterprise](http://aka.ms/CnESymbols) pour créer des documents techniques qui décrivent Azure, Windows Server, SQL Server, etc. Vous pouvez utiliser les symboles dans les diagrammes d’architecture, les supports de formation, les présentations, les fiches techniques, les infographies, les livres blancs et même les ouvrages tiers si le livre est destiné à former des personnes à l’utilisation des produits Microsoft. Toutefois, ils ne sont pas destinés à être utilisés dans les interfaces utilisateur.
 
 ## <a name="3d-blueprint-visio-template"></a>Modèle&3;D Blueprint Visio
-Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 (et versions ultérieures) a été publié le 5 août 2015 dans le cadre d’un [cours de certification d’architecture Microsoft distribué sur EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
+Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 (et versions ultérieures) a été publié le 5 août 2015 dans le cadre d’un [cours de certification d’architecture Microsoft distribué sur EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 Le modèle est également disponible en dehors du cours.
 
 * [visionner la vidéo de formation](http://aka.ms/3dBlueprintTemplateVideo) afin de savoir ce qu'il peut faire.
 * Téléchargez le [modèle Microsoft 3D Blueprint Visio](http://aka.ms/3DBlueprintTemplate)
-* Téléchargez les [symboles Cloud et Enterprise](../architecture-overview.md#drawing-symbol-and-icon-sets) à utiliser avec le modèle 3D.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Téléchargez les [symboles Cloud et Enterprise](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) à utiliser avec le modèle 3D.
 

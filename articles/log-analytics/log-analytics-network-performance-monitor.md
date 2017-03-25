@@ -1,6 +1,6 @@
 ---
-title: "Solution Analyseur de performances réseau dans OMS | Microsoft Docs"
-description: "L’Analyseur de performances réseau vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau."
+title: "Solution Analyseur de performances réseau dans Azure Log Analytics | Microsoft Docs"
+description: "L’Analyseur de performances réseau d’Azure Log Analytics vous aide à surveiller les performances de vos réseaux en quasi temps réel afin de détecter et de localiser d’éventuels goulots d’étranglement affectant les performances réseau."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,21 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
-ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
+ms.lasthandoff: 03/11/2017
 
 
 ---
-# <a name="network-performance-monitor-preview-solution-in-oms"></a>Solution Analyseur de performances réseau (version préliminaire) dans OMS
-> [!NOTE]
-> Il s’agit d’une [solution en version préliminaire](log-analytics-add-solutions.md#preview-management-solutions-and-features).
->
->
+# <a name="network-performance-monitor-solution-in-log-analytics"></a>Solution Analyseur de performances réseau dans Log Analytics
 
-Ce document décrit comment installer et utiliser dans OMS la solution Analyseur de performances réseau qui vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau. La solution Analyseur de performances réseau vous permet de surveiller la perte et la latence entre deux réseaux, sous-réseaux ou serveurs. L’Analyseur de performances réseau détecte divers problèmes réseau, tels que des pertes de trafic, des erreurs de routage et d’autres problèmes que les méthodes de surveillance réseau classiques ne sont pas en mesure de détecter. L’Analyseur de performances réseau génère des alertes et des notifications en cas de dépassement d’un seuil pour une liaison réseau. Le système peut apprendre ces seuils automatiquement, et vous pouvez également les configurer pour utiliser des règles d’alerte personnalisées. L’Analyseur de performances réseau détecte en temps opportun les problèmes de performances réseau, et en localise la source en identifiant un segment ou un appareil réseau particuliers.
+Ce document décrit l’installation et l’utilisation de la solution Analyseur de performances réseau de Log Analytics, qui vous aide à surveiller les performances de vos réseaux en quasi temps réel afin de détecter et de localiser d’éventuels goulots d’étranglement affectant les performances réseau. La solution Analyseur de performances réseau vous permet de surveiller la perte et la latence entre deux réseaux, sous-réseaux ou serveurs. L’Analyseur de performances réseau détecte divers problèmes réseau, tels que des pertes de trafic, des erreurs de routage et d’autres problèmes que les méthodes de surveillance réseau classiques ne sont pas en mesure de détecter. L’Analyseur de performances réseau génère des alertes et des notifications en cas de dépassement d’un seuil pour une liaison réseau. Le système peut apprendre ces seuils automatiquement, et vous pouvez également les configurer pour utiliser des règles d’alerte personnalisées. L’Analyseur de performances réseau détecte en temps opportun les problèmes de performances réseau, et en localise la source en identifiant un segment ou un appareil réseau particuliers.
 
 Vous pouvez détecter les problèmes de réseau avec le tableau de bord de la solution qui affiche des informations récapitulatives sur le réseau, dont des événements récents affectant l’intégrité réseau, des liaisons réseau défectueuses, et des liens de sous-réseau confrontés à une latence et a des pertes de paquets élevées. Vous pouvez examiner de près une liaison de réseau pour voir l’état d’intégrité actuel des liens de sous-réseau ainsi que des liens de nœud à nœud. Vous pouvez également afficher la tendance historique de perte et de latence au niveau du réseau et des sous-réseaux, ou de nœud à nœud. Vous pouvez détecter des problèmes réseau temporaires en affichant des graphiques de tendance historique de pertes de paquets et de latence, et localiser les goulots d’étranglement du réseau sur une carte topologique. Le graphique topologique interactif permet de visualiser les itinéraires réseau tronçon par tronçon, et de déterminer la source du problème. Comme dans d’autres solutions, vous pouvez utiliser la fonction de recherche de journal à diverses fins d’analyse, pour créer des rapports personnalisés basés sur les données collectées par l’Analyseur de performances réseau.
 
@@ -63,7 +60,20 @@ Si vous n’êtes pas certain de la topologie de votre réseau, installez les ag
 Les agents surveillent la connectivité (les liaisons) réseau entre les hôtes, pas les hôtes proprement dits. Par conséquent, pour surveiller une liaison réseau, vous devez installer des agents sur les deux points de terminaison de celle-ci.
 
 ### <a name="configure-agents"></a>Configurer les agents
-Une fois les agents installés, vous devrez ouvrir des ports de pare-feu pour ces ordinateurs afin de vous assurer que les agents puissent communiquer. Vous devez télécharger et exécuter le [script PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
+
+Si vous avez l’intention d’utiliser le protocole ICMP pour les transactions synthétiques, vous devez activer les règles de pare-feu suivantes pour pouvoir utiliser ICMP de manière fiable :
+
+```
+netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
+```
+
+
+Si vous envisagez d’utiliser le protocole TCP, vous devez ouvrir des ports de pare-feu pour ces ordinateurs afin de veiller à ce que les agents puissent communiquer. Vous devez télécharger et exécuter le [script PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
 
 Le script crée les clés de Registre requises par l’Analyseur de performances réseau, ainsi que des règles de pare-feu Windows pour autoriser les agents à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés étant définies automatiquement par le script, vous n’avez pas à les modifier manuellement.
 
@@ -77,8 +87,11 @@ Le port ouvert par défaut est 8084. Vous pouvez utiliser un port personnalisé 
 ## <a name="configuring-the-solution"></a>Configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-1. La solution Analyseur de performances réseau acquiert des données à partir d’ordinateurs exécutant Windows Server 2008 SP 1 ou version ultérieure, ou Windows 7 SP1 ou version ultérieure, qui répondent aux mêmes exigences que Microsoft Monitoring Agent (MMA).
-2. Ajoutez la solution Analyseur de performances réseau à votre espace de travail OMS en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  
+1. La solution Analyseur de performances réseau acquiert des données à partir d’ordinateurs exécutant Windows Server 2008 SP 1 ou version ultérieure, ou Windows 7 SP1 ou version ultérieure, qui répondent aux mêmes exigences que Microsoft Monitoring Agent (MMA). Des agents de la solution Analyseur de performances réseau peuvent également s’exécuter sur les systèmes d’exploitation clients/de bureau Windows (Windows 10, Windows 8.1, Windows 8 et Windows 7).
+    >[!NOTE]
+    >Les agents des systèmes d’exploitation serveur Windows prennent en charge les protocoles de transaction synthétique TCP et ICMP. Les agents des systèmes d’exploitation client Windows prennent en charge uniquement le protocole de transaction synthétique ICMP.
+
+2. Ajoutez la solution Analyseur de performances réseau à votre espace de travail depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  
    ![Symbole de l’Analyseur de performances réseau](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. Dans le portail OMS, vous voyez une nouvelle vignette libellée **Analyseur de performances réseau**, avec le message *La solution nécessite une configuration supplémentaire*. Vous devez configurer la solution pour ajouter des réseaux basés sur les sous-réseaux et les nœuds découverts par les agents. Cliquez sur **Analyseur de performances réseau** pour commencer à configurer le réseau par défaut.  
    ![La solution nécessite une configuration supplémentaire](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -143,11 +156,14 @@ La *Règle par défaut* est créée par le système. Elle crée un événement d
 2. Sélectionnez la paire de liaisons réseau ou sous-réseau à surveiller dans les listes.
 3. Commencez par sélectionner le réseau contenant le(s) premier(s) sous-réseau(x) d’intérêt dans la liste déroulante de réseau, puis sélectionnez le(s) sous-réseau(x) dans la liste déroulante de sous-réseaux correspondante.
    Sélectionnez **Tous les sous-réseaux** si vous souhaitez analyser tous les sous-réseaux dans une liaison réseau. Sélectionnez de la même manière les autres sous-réseaux d’intérêt. Vous pouvez également cliquer sur **Ajouter une Exception** pour exclure l’analyse de liens de sous-réseau spécifiques de la sélection que vous avez faite.
-4. Si vous ne souhaitez pas créer d’événements d’intégrité pour les éléments que vous avez sélectionnés, désactivez l’option **Activer la surveillance de l’intégrité sur les liens couverts par cette règle**.
-5. Choisissez les conditions d’analyse.
+4. Choisissez entre le protocole ICMP et le protocole TCP pour l’exécution des transactions synthétiques.
+5. Si vous ne souhaitez pas créer d’événements d’intégrité pour les éléments que vous avez sélectionnés, désactivez l’option **Activer la surveillance de l’intégrité sur les liens couverts par cette règle**.
+6. Choisissez les conditions d’analyse.
    Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en tapant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux/sous-réseaux sélectionnée, un événement d’intégrité est généré.
-6. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
+7. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
    ![Créer un règle d’analyse personnalisée](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+
+Vous pouvez intégrer la règle d’analyse que vous avez enregistrée à Gestion des alertes en cliquant sur **Créer une alerte**. Une règle d’alerte est créée automatiquement avec la requête de recherche et d’autres paramètres requis renseignés automatiquement. En utilisant une règle d’alerte, vous pouvez recevoir des alertes par e-mail en plus des alertes existant dans la solution Analyseur de performances réseau. Les alertes peuvent également déclencher des actions correctives avec les runbooks ou elles peuvent s’intégrer aux solutions existantes de gestion des services à l’aide des webhooks. Vous pouvez cliquer sur **Manage Alert (Gérer une alerte)** pour modifier les paramètres d’alerte.
 
 ### <a name="choose-the-right-protocol-icmp-or-tcp"></a>Choisir le bon protocole : ICMP ou TCP
 
@@ -183,27 +199,25 @@ Contrairement à TCP, le protocole ICMP n’utilise pas de port. Dans la plupart
 Si vous avez choisi ICMP durant le déploiement, vous pouvez basculer vers TCP à tout moment en modifiant la règle de surveillance par défaut.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>Pour modifier la règle de surveillance par défaut
-1.  Accédez à **Performances réseau** > **Moniteur** > **Configurer** > **Moniteur**, puis cliquez sur **Règle par défaut**.
-2.  Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser.
-3.  Cliquez sur **Enregistrer** pour appliquer le paramètre.
+1.    Accédez à **Performances réseau** > **Moniteur** > **Configurer** > **Moniteur**, puis cliquez sur **Règle par défaut**.
+2.    Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser.
+3.    Cliquez sur **Enregistrer** pour appliquer le paramètre.
 
 Même si la règle par défaut utilise un protocole spécifique, vous pouvez créer des règles avec un autre protocole. Vous pouvez même créer une combinaison de règles : certaines règles utilisant ICMP et d’autres TCP.
 
 
 
 
-
-
 ## <a name="data-collection-details"></a>Détails sur la collecte de données
-L’Analyseur de performances réseau utilise les paquets d’établissements de liaisons TCP SYN-SYNACK-ACK pour collecter les informations relatives aux pertes et à la latence, et une détermination d’itinéraire est également utilisée pour obtenir les informations de topologie.
+L’Analyseur de performances réseau utilise des paquets de transfert TCP SYN-SYNACK-ACK si le protocole TCP est choisi, et ICMP ECHO ICMP ECHO REPLY si ICMP est choisi comme protocole pour collecter les informations de latence et de perte. La détermination d’itinéraire permet également d’obtenir des informations de topologie.
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur la manière dont l’Analyseur de performances réseau collecte des données.
 
 | plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Établissements de liaisons TCP toutes les 5 secondes, données envoyées toutes les 3 minutes |
+| Windows |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Liaisons TCP/Messages ICMP ECHO toutes les 5 secondes, données envoyées toutes les 3 minutes |
 
-La solution utilise des transactions synthétiques pour évaluer l’intégrité du réseau. Des agents OMS installés en différents points du réseau échangent des paquets TCP entre eux et, dans le cadre de ce processus, découvrent la durée des boucles et les pertes de paquets éventuelles. Périodiquement, chaque agent effectue également une détermination d’itinéraire d’autres agents afin de trouver tous les itinéraires à tester au sein du réseau. Ces données permettent aux agents de déduire les chiffres relatifs à la latence et aux pertes de paquets du réseau. Les tests sont répétés toutes les cinq secondes, et les données sont agrégées pendant une période de trois minutes par les agents avant leur chargement vers OMS.
+La solution utilise des transactions synthétiques pour évaluer l’intégrité du réseau. Les agents OMS installés à différents points du réseau échangent des paquets TCP ou un écho ICMP (en fonction du protocole sélectionné pour l’analyse) les uns avec les autres. Au cours du processus, les agents détectent, le cas échéant, la durée des boucles et la perte de paquets. Périodiquement, chaque agent effectue également une détermination d’itinéraire d’autres agents afin de trouver tous les itinéraires à tester au sein du réseau. Ces données permettent aux agents de déduire les chiffres relatifs aux pertes de paquets et à la latence du réseau. Les tests sont répétés toutes les cinq secondes, et les données sont agrégées pendant une période de trois minutes par les agents avant leur chargement vers le service Log Analytics.
 
 > [!NOTE]
 > Bien que les agents communiquent fréquemment entre eux, ils ne génèrent pas beaucoup de trafic réseau lors des tests. Pour déterminer les pertes et la latence, les agents s’appuient uniquement sur les paquets d’établissements de liaisons TCP SYN-SYNACK-ACK. Aucun paquet de données n’est échangé. Durant ce processus, les agents communiquent entre eux uniquement si nécessaire, et la topologie de communication des agents est optimisée pour réduire le trafic réseau.
@@ -238,6 +252,12 @@ Vous pouvez cliquer sur **Afficher la topologie** pour afficher la topologie, tr
 
 ![Explorer les données en détail](./media/log-analytics-network-performance-monitor/npm-drill.png)
 
+### <a name="network-state-recorder"></a>Enregistreur de l’état du réseau
+
+Chaque vue affiche une capture instantanée de l’intégrité de votre réseau à un moment précis dans le temps. Par défaut, c’est l’état le plus récent qui s’affiche. La barre située en haut de la page affiche le point dans le temps pour lequel l’état est affiché. Vous pouvez choisir de revenir en arrière et d’afficher la capture instantanée de l’intégrité de votre réseau en cliquant sur la barre dans **Actions**. Vous pouvez également activer ou désactiver l’actualisation automatique pour n’importe quelle page pendant que vous consultez le dernier état.
+
+![état du réseau](./media/log-analytics-network-performance-monitor/network-state.png)
+
 #### <a name="trend-charts"></a>Graphiques de tendances
 À chaque niveau exploré, vous pouvez consulter la tendance des pertes et de la latence pour une liaison réseau. Des graphiques de tendances sont également disponibles pour les liens de sous-réseau et de nœud. Vous pouvez modifier l’intervalle de temps à tracer sur le graphique à l’aide du contrôle de temps en haut de celui-ci.
 
@@ -252,7 +272,7 @@ L’Analyseur de performances réseau affiche, tronçon par tronçon, la topolog
 
 La carte topologique affiche le nombre d’itinéraires existant entre les deux nœuds, et les chemins d’accès qu’empruntent les paquets de données. Les goulots d’étranglement des performances réseau sont marqués en rouge sur la carte topologique. Vous pouvez localiser une connexion réseau ou un appareil réseau défectueux en examinant les éléments colorés en rouge sur la carte topologique.
 
-Lorsque vous cliquez sur un nœud ou pointez dessus sur la carte topologique, vous pouvez voir des propriétés du nœud telles que son adresse IP et son nom de domaine complet. Cliquez sur un tronçon pour voir son adresse IP. Vous pouvez mettre en surbrillance des itinéraires particuliers en effaçant les itinéraires, puis en sélectionnant uniquement ceux que vous voulez afficher en surbrillance sur la carte. Vous pouvez effectuer un zoom avant ou arrière sur la carte topologique à l’aide de la molette de votre souris.
+Lorsque vous cliquez sur un nœud ou pointez dessus sur la carte topologique, vous pouvez voir des propriétés du nœud telles que son adresse IP et son nom de domaine complet. Cliquez sur un tronçon pour voir son adresse IP. Vous pouvez choisir de filtrer des itinéraires particuliers à l’aide des filtres du volet Actions réductible. Vous pouvez également simplifier les topologies réseau en masquant les sauts intermédiaires à l’aide du curseur du volet Actions. Vous pouvez effectuer un zoom avant ou arrière sur la carte topologique à l’aide de la roulette de la souris.
 
 Notez que la topologie cartographiée est celle de la couche 3 et qu’elle ne contient pas les connexions et appareils de la couche 2.
 
@@ -271,26 +291,26 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Rechercher la cause première d’une alerte d’intégrité
 À présent que vous savez ce qu’est le moniteur de performances réseau, voyons comment identifier simplement la cause première d’un événement d’intégrité.
 
-1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Moniteur de performances réseau**. Vous pouvez constater que, sur les 80 liens de sous-réseau analysés, 43 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.  
+1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Moniteur de performances réseau**. Vous pouvez constater que sur les 6 liens de sous-réseau analysés, 2 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.  
    ![Vignette Moniteur de performances réseau](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. Dans l’image d’exemple ci-dessous, vous pouvez remarquer la présence de 4 événements d’intégrité et de 4 liaisons réseau défectueuses. Vous décidez d’analyser le problème et cliquez sur la liaison réseau **Web Sharepoint** pour déterminer la cause du problème.  
+2. Dans l’exemple d’image ci-dessous, vous remarquerez qu’il existe un événement d’intégrité dans un lien réseau qui n’est pas intègre. Vous décidez d’analyser le problème et cliquez sur le lien réseau **DMZ2-DMZ1** pour déterminer la cause du problème.  
    ![Exemple de liaison réseau défectueuse](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. La page détaillée affiche tous les liens de sous-réseau dans la liaison réseau **Web Sharepoint**. Vous pouvez remarquer que, pour les deux liens le sous-réseau, la latence a dépassé le seuil au-delà duquel la liaison réseau est jugée défectueuse. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. Le contrôle de sélection du temps dans le graphe vous permet de vous concentrer sur la plage de temps requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Vous pouvez ensuite effectuer une recherche dans les journaux correspondant à cette période pour étudier le problème. Cliquez sur **Afficher les liens de nœud** pour consulter des détails supplémentaires.  
+3. La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Vous pouvez remarquer que, pour les deux liens le sous-réseau, la latence a dépassé le seuil au-delà duquel la liaison réseau est jugée défectueuse. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. Le contrôle de sélection du temps dans le graphe vous permet de vous concentrer sur la plage de temps requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Vous pouvez ensuite effectuer une recherche dans les journaux correspondant à cette période pour étudier le problème. Cliquez sur **Afficher les liens de nœud** pour consulter des détails supplémentaires.  
    ![Exemple de liens de sous-réseau défectueux](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
 4. Comme la page précédente, la page détaillée relative au lien de sous-réseau concerné répertorie les liens de nœud qui le composent. Vous pouvez effectuer ici des actions similaires à celles que vous avez faites à l’étape précédente. Cliquez sur **Afficher la topologie** pour afficher la topologie entre les 2 nœuds.  
    ![Exemple de liens de nœud défectueux](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
 5. Tous les chemins entre les 2 nœuds sélectionnés sont représentés dans la carte topologique. Vous pouvez visualiser, tronçon par tronçon, la topologie des itinéraires entre deux nœuds sur la carte topologique. Vous obtenez ainsi une vision claire du nombre d’itinéraires existant entre les nœuds et des chemins qu’empruntent les paquets de données. Les goulots d’étranglement des performances du réseau sont marqués en rouge. Vous pouvez localiser une connexion réseau ou un appareil réseau défectueux en examinant les éléments colorés en rouge sur la carte topologique.  
    ![Exemple d’affichage topologique défectueux](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
-6. Vous pouvez consulter les pertes, la latence et le nombre de tronçons de chaque chemin dans le volet **Détails des chemins**. Dans cet exemple, le volet présente 3 chemins défectueux. Utilisez la barre de défilement pour afficher les détails de ces chemins défectueux.  Utilisez les cases à cocher pour sélectionner l’un des chemins afin de tracer la topologie de ce seul chemin. Vous pouvez utiliser la roulette de votre souris pour effectuer un zoom avant ou arrière sur la carte topologique.
+6. Vous pouvez consulter les pertes, la latence et le nombre de sauts de chaque chemin dans le volet **Actions**. Utilisez la barre de défilement pour afficher les détails de ces chemins défectueux.  Utilisez les filtres pour sélectionner les chemins d’accès avec le saut défectueux afin de tracer uniquement la topologie des chemins d’accès sélectionnés. Vous pouvez utiliser la roulette de votre souris pour effectuer un zoom avant ou arrière sur la carte topologique.
 
    Dans l’image ci-dessous, vous pouvez voir clairement la cause première des aspects problématiques d’une section spécifique du réseau en examinant les chemins et les tronçons marqués de rouge. Un clic sur un nœud dans la carte topologique révèle les propriétés du nœud, dont son nom de domaine complet et son adresse IP. Un clic sur un tronçon affiche l’adresse IP de celui-ci.  
    ![topologie défectueuse : exemple de détails d’un chemin](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+- **UserVoice** : vous pouvez publier vos idées concernant les fonctions de l’Analyseur de performances réseau que vous aimeriez voir améliorer. Visitez notre [page UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
+- **Rejoignez notre cohorte** : nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et nous aider à améliorer l’Analyseur de performances réseau. Si vous souhaitez y participer, répondez à cette [enquête rapide](https://aka.ms/npmcohort).
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

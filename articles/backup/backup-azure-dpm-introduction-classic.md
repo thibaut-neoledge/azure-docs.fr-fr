@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 03/10/2017
 ms.author: nkolli;giridham;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d1e68b0e73c60542de566c32c92caf0b3c4630c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -61,11 +62,13 @@ Une fois l’instantané capturé, les données sont transférées par le servic
 ## <a name="prerequisites"></a>Conditions préalables
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
-1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
+1. **Créer un coffre de sauvegarde**
+
+  > [!IMPORTANT]
+  > Depuis mars 2017, vous ne pouvez plus utiliser le portail classique pour créer des coffres de sauvegarde. Les coffres de sauvegarde existants sont toujours pris en charge, et il est possible [d’utiliser Azure PowerShell pour créer des coffres de sauvegarde](./backup-client-automation-classic.md#create-a-backup-vault). Toutefois, Microsoft vous recommande de créer des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services.
+
 2. **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
 3. **Installer l'Agent Azure Backup et inscrire le serveur** : à partir d'Azure Backup, installez l'agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre de sauvegarde.
-
-[!INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -102,9 +105,4 @@ Et les types suivants ne sont pas pris en charge :
 > À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

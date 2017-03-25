@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,13 +27,13 @@ Cette page explique les considérations relatives aux performances de Traffic Ma
 
 Vous avez des instances de votre site web dans les régions WestUS et EastAsia. Une des instances ne réussit pas la vérification d’intégrité du sondage Traffic Manager. Le trafic de l’application est dirigé vers la région saine. Ce basculement est attendu, mais les performances peuvent constituer un problème en fonction de la latence du trafic qui transite maintenant vers une région distante.
 
-## <a name="how-traffic-manager-works"></a>Fonctionnement de Traffic Manager
+## <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
 Le seul impact sur les performances que Traffic Manager peut avoir sur votre site web est la recherche DNS initiale. Une requête DNS pour le nom de votre profil Traffic Manager est gérée par le serveur racine Microsoft DNS qui héberge la zone trafficmanager.net. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS en fonction de la stratégie Traffic Manager et des résultats du sondage. Donc, même pendant la recherche DNS initiale, aucune requête DNS n’est envoyée à Traffic Manager.
 
 Traffic Manager est constitué de plusieurs composants : des serveurs de noms DNS, un service d’API, la couche de stockage et le service de surveillance des points de terminaison. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
 
-La résolution de noms DNS est rapide et les résultats sont mis en cache. La vitesse de la recherche DNS initiale dépend des serveurs DNS que le client utilise pour la résolution de noms. En règle générale, un client peut effectuer une recherche DNS en environ 50 ms. Les résultats de la recherche sont mis en cache pour la durée de vie (TTL) du DNS. La durée de vie par défaut de Traffic Manager est de 300 secondes.
+La résolution de noms DNS est rapide et les résultats sont mis en cache. La vitesse de la recherche DNS initiale dépend des serveurs DNS que le client utilise pour la résolution de noms. En règle générale, un client peut effectuer une recherche DNS en environ&50; ms. Les résultats de la recherche sont mis en cache pour la durée de vie (TTL) du DNS. La durée de vie par défaut de Traffic Manager est de 300 secondes.
 
 Le trafic N’est PAS transmis via Traffic Manager. Au terme de la recherche DNS, le client a une adresse IP pour une instance de votre site web. Le client se connecte directement à cette adresse et ne passe pas par le biais de Traffic Manager. La stratégie Traffic Manager que vous choisissez n’a aucune influence sur les performances du DNS. Toutefois, une méthode de routage des performances peut affecter négativement l’expérience de l’application. Par exemple, si votre stratégie redirige le trafic d’Amérique du Nord vers une instance hébergée en Asie, la latence du réseau pour ces sessions peut constituer un problème de performances.
 
@@ -85,10 +86,5 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

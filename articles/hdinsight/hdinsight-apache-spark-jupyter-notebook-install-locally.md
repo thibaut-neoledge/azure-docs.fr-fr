@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -144,7 +146,7 @@ Plusieurs raisons peuvent motiver l’installation de Jupyter sur votre ordinate
 >
 >
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -168,9 +170,4 @@ Plusieurs raisons peuvent motiver l’installation de Jupyter sur votre ordinate
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

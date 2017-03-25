@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -205,7 +207,7 @@ Pour l’instant, la visualisation directe des sorties Spark n’est pas prise e
 
 Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des problèmes lors de l’utilisation de cet outil, n’hésitez pas à nous envoyer un e-mail à l’adresse hdivstool@microsoft.com.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -230,10 +232,5 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

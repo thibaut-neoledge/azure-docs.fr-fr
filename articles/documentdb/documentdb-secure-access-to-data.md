@@ -12,119 +12,128 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
-ms.openlocfilehash: 4d84c11a4b91727f60c4c266a23cc5f3946898f5
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="securing-access-to-documentdb-data"></a>Sécurisation de l'accès aux données DocumentDB
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-Après avoir lu cette présentation, vous serez en mesure de répondre aux questions suivantes :  
+DocumentDB utilise deux types de clés pour authentifier les utilisateurs et fournir un accès à ses données et à ses ressources. 
 
-* Que sont les clés principales DocumentDB ?
-* Que sont les clés en lecture seule DocumentDB ?
-* Que sont les jetons de ressource DocumentDB ?
-* Comment puis-je utiliser les utilisateurs et les autorisations DocumentDB pour sécuriser l'accès aux données DocumentDB ?
+|Type de clé|Ressources|
+|---|---|
+|[Clés principales](#master-keys) |Utilisées pour les ressources d’administration : comptes de base de données, bases de données, utilisateurs et autorisations|
+|[Jetons de ressource](#resource-tokens)|Utilisés pour les ressources de l’application : collections, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur|
 
-## <a name="documentdb-access-control-concepts"></a>Concepts du contrôle d'accès DocumentDB
-DocumentDB fournit des concepts de premier ordre pour contrôler l'accès aux ressources DocumentDB.  Aux fins de cette rubrique, les ressources DocumentDB sont divisées en deux catégories :
+<a id="master-keys"></a>
 
-* Ressources d'administration
-  * Compte
-  * Base de données
-  * Utilisateur
-  * Autorisation
-* Ressources d'application
-  * Collection
-  * Offer
-  * Document
-  * Pièce jointe
-  * Procédure stockée
-  * Déclencheur
-  * Fonction définie par l'utilisateur
+## <a name="master-keys"></a>Clés principales 
 
-Dans le cadre de ces deux catégories, DocumentDB prend en charge trois types de rôle de contrôle d'accès : administrateur de compte, administrateur en lecture seule et utilisateur de base de données.  Les droits pour chaque rôle de contrôle d'accès sont les suivants :
+Les clés principales fournissent un accès à toutes les ressources d’administration du compte de base de données. Clés principales :  
+- Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
+- Ne peuvent pas être utilisées pour fournir un accès précis aux collections et aux documents.
+- Sont créées lors de la création d’un compte.
+- Peuvent être régénérées à tout moment.
 
-* Administrateur de compte : accès complet à toutes les ressources (d’administration et d’application) au sein d’un compte DocumentDB donné.
-* Administrateur en lecture seule : accès en lecture seule à toutes les ressources (d’administration et d’application) au sein d’un compte DocumentDB donné. 
-* Utilisateur de la base de données : ressources utilisateur DocumentDB associées à un ensemble spécifique de ressources de base de données DocumentDB (collections, documents, scripts, etc.).  Une ou plusieurs ressources utilisateur peuvent être associées à une base de données et chaque ressource utilisateur peut avoir une ou plusieurs autorisations associées.
+Chaque compte comporte deux clés principales : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données. 
 
-Le modèle de contrôle d'accès DocumentDB définit trois types de construction d'accès en prenant en compte les catégories et les ressources susmentionnées :
+Outre les deux clés principales du compte DocumentDB, il existe deux clés en lecture seule. Ces clés en lecture seule autorisent uniquement les opérations de lecture sur le compte. Les clés en lecture seule ne permettent pas de lire les ressources d’autorisation.
 
-* Clés principales : Lors de la création d’un compte DocumentDB, deux clés principales (primaire et secondaire) sont créées.  Ces clés permettent l'accès administratif complet à toutes les ressources au sein du compte DocumentDB.
+Les clés principales primaire, secondaire, en lecture seule et en lecture-écriture peuvent être récupérées et régénérées à l’aide du portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 
-![Illustration des clés principales DocumentDB](./media/documentdb-secure-access-to-data/masterkeys.png)
+![Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-* Clés en lecture seule : Lors de la création d’un compte DocumentDB, deux clés en lecture seule (primaire et secondaire) sont créées.  Ces clés permettent l'accès en lecture seule à toutes les ressources au sein du compte DocumentDB.
+Le processus de rotation de votre clé principale est simple. Accédez au portail Azure pour récupérer votre clé secondaire, puis remplacez votre clé primaire par votre clé secondaire dans votre application. Enfin, faites pivoter la clé primaire dans le portail Azure.
 
-![Illustration des clés en lecture seule DocumentDB](./media/documentdb-secure-access-to-data/readonlykeys.png)
+![Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-* Jetons de ressource : Un jeton de ressource est associé à une ressource d’autorisation DocumentDB et capture la relation entre l’utilisateur d’une base de données et l’autorisation dont cet utilisateur dispose pour une ressource d’application DocumentDB spécifique (collection, document, etc.).
+### <a name="code-sample-to-use-a-master-key"></a>Exemple de code pour utiliser une clé principale
 
-![Illustration des jetons de ressource DocumentDB](./media/documentdb-secure-access-to-data/resourcekeys.png)
+L’exemple de code suivant indique comment utiliser une clé principale et un point de terminaison de compte DocumentDB pour instancier un DocumentClient et créer une base de données. 
 
-## <a name="working-with-documentdb-master-and-read-only-keys"></a>Utilisation des clés principales et en lecture seule DocumentDB
-Comme indiqué précédemment, les clés principales DocumentDB fournissent un accès administratif complet à toutes les ressources au sein d'un compte DocumentDB tandis que les clés en lecture seule permettent l'accès en lecture à toutes les ressources du compte.  L'extrait de code suivant indique comment utiliser une clé principale et un point de terminaison de compte DocumentDB pour instancier un DocumentClient et créer une base de données. 
+```csharp
+//Read the DocumentDB endpointUrl and authorization keys from config.
+//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
-    //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
-    //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
 
-    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-    private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
-    client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
+// Create Database
+Database database = await client.CreateDatabaseAsync(
+    new Database
+    {
+        Id = databaseName
+    });
+```
 
-    // Create Database
-    Database database = await client.CreateDatabaseAsync(
-        new Database
-        {
-            Id = databaseName
-        });
+<a id="resource-tokens"></a>
 
+## <a name="resource-tokens"></a>Jetons de ressource
 
-## <a name="overview-of-documentdb-resource-tokens"></a>Vue d'ensemble des jetons de ressource DocumentDB
-Vous pouvez utiliser un jeton de ressource (en créant des utilisateurs et des autorisations DocumentDB) lorsque vous voulez fournir un accès aux ressources dans votre compte DocumentDB à un client qui ne peut pas être approuvé avec la clé principale. Vos clés principales DocumentDB incluent une clé principale et une clé secondaire, qui octroient toutes deux un accès administratif à votre compte et à toutes ses ressources. En exposant l’une ou l’autre de vos clés principales, vous courez le risque d’une utilisation malveillante ou négligente de votre compte. 
+Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
+- Fournissent un accès à des collections, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
+- Sont créés lorsqu’un [utilisateur](#users) dispose des [autorisations](#permissions) sur une ressource spécifique.
+- Sont recréés lorsqu’une ressource d’autorisation est exécutée par un appel POST, GET ou PUT.
+- Utilisent un jeton de ressource de hachage créé spécifiquement pour l’utilisateur, la ressource et les autorisations.
+- Sont liés à une période de validité personnalisable. La durée de validité par défaut est d’une heure. La durée de vie du jeton peut cependant être définie de manière explicite (cinq heures maximum).
+- Offrent une alternative sûre pour céder la clé principale. 
+- Permettent aux clients de lire, d’écrire et de supprimer des ressources dans le compte DocumentDB en fonction des autorisations qui leur ont été accordées.
 
-De même, les clés en lecture seule DocumentDB fournissent un accès en lecture à toutes les ressources (à l'exception des ressources d'autorisation, bien sûr) au sein d'un compte DocumentDB et ne peuvent être utilisées pour fournir un accès plus granulaire à des ressources DocumentDB spécifiques.
+Vous pouvez utiliser un jeton de ressource (en créant des utilisateurs et des autorisations DocumentDB) lorsque vous voulez fournir un accès aux ressources dans votre compte DocumentDB à un client qui ne peut pas être approuvé avec la clé principale.  
 
 Les jetons de ressource DocumentDB offrent une alternative sûre qui permet aux clients de lire, d’écrire et de supprimer des ressources dans votre compte DocumentDB en fonction des autorisations que vous avez octroyées, sans avoir besoin d’une clé principale ou en lecture seule.
 
 Voici un modèle de conception standard dans le cadre duquel des jetons de ressource peuvent être demandés, générés et fournis aux clients :
 
-1. Un service de niveau intermédiaire est configuré pour servir une application mobile pour partager les photos de l'utilisateur.
+1. Un service de niveau intermédiaire est configuré pour servir une application mobile pour partager les photos de l'utilisateur. 
 2. Le service de niveau intermédiaire dispose de la clé principale du compte DocumentDB.
-3. L'application photo est installée sur les appareils mobiles des utilisateurs finaux. 
+3. L’application photo est installée sur les appareils mobiles des utilisateurs finaux. 
 4. Lors de la connexion, l'application photo établit l'identité de l'utilisateur avec le service de niveau intermédiaire. Ce mécanisme d'identification dépend totalement de l'application.
 5. Une fois l'identité établie, le service de niveau intermédiaire demande des autorisations en fonction de l'identité.
 6. Le service de niveau intermédiaire renvoie un jeton de ressource à l'application du téléphone.
 7. Cette dernière peut continuer à utiliser le jeton de ressource pour accéder directement aux ressources DocumentDB avec les autorisations définies et pendant l'intervalle autorisé. 
 8. À expiration du jeton de ressource, les demandes suivantes reçoivent une exception non autorisée 401.  L'application du téléphone établit alors de nouveau l'identité de l'utilisateur et demande un nouveau jeton de ressource.
 
-![Flux de travail des jetons de ressource DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+    ![Flux de travail des jetons de ressource DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-## <a name="working-with-documentdb-users-and-permissions"></a>Utilisation des autorisations et des utilisateurs DocumentDB
-Une ressource utilisateur DocumentDB est associée à une base de données DocumentDB.  Chaque base de données peut contenir zéro utilisateur DocumentDB ou plus.  L'extrait de code suivant indique comment créer une ressource utilisateur DocumentDB.
+ La gestion et la génération des jetons de ressource est prise en charge par les bibliothèques clientes natives DocumentDB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources DocumentDB) ou le [code source de nos Kits de développement logiciel (SDK)](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+ 
+ Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-    //Create a user.
-    User docUser = new User
-    {
-        Id = "mobileuser"
-    };
+<a id="users"></a>
 
-    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+## <a name="users"></a>Utilisateurs
+Les utilisateurs DocumentDB sont associés à une base de données DocumentDB.  Chaque base de données peut contenir zéro utilisateur DocumentDB ou plus.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
+
+```csharp
+//Create a user.
+User docUser = new User
+{
+    Id = "mobileuser"
+};
+
+docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+```
 
 > [!NOTE]
-> Chaque utilisateur DocumentDB dispose d'une propriété PermissionsLink qui peut être utilisée pour récupérer la liste des autorisations associées à l'utilisateur.
+> Chaque utilisateur DocumentDB dispose d’une propriété PermissionsLink qui peut être utilisée pour récupérer la liste des [autorisations](#permissions) associées à l’utilisateur.
 > 
 > 
 
+<a id="permissions"></a>
+
+## <a name="permissions"></a>Autorisations
 Une ressource d'autorisation DocumentDB est associée à un utilisateur DocumentDB.  Chaque utilisateur peut contenir zéro autorisation DocumentDB ou plus.  Une ressource d'autorisation donne accès à un jeton de sécurité dont l'utilisateur a besoin lorsqu'il tente d'accéder à une ressource d'application spécifique.
-Il y a deux niveaux d'accès disponibles qui peuvent être fournis par une ressource d'autorisation :
+Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
 * Tout : L’utilisateur dispose de toutes les autorisations sur la ressource.
 * Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
@@ -134,49 +143,46 @@ Il y a deux niveaux d'accès disponibles qui peuvent être fournis par une resso
 > 
 > 
 
-L’extrait de code suivant indique comment créer une ressource d’autorisation, lire le jeton de ressource de la ressource d’autorisation et associer les autorisations à l’utilisateur créé ci-dessus.
+### <a name="code-sample-to-create-permission"></a>Exemple de code pour créer une autorisation
 
-    // Create a permission.
-    Permission docPermission = new Permission
-    {
-        PermissionMode = PermissionMode.Read,
-        ResourceLink = documentCollection.SelfLink,
-        Id = "readperm"
-    };
-    
-    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+L’exemple de code suivant indique comment créer une ressource d’autorisation, lire le jeton de ressource de la ressource d’autorisation et associer les autorisations à [l’utilisateur](#users) créé ci-dessus.
+
+```csharp
+// Create a permission.
+Permission docPermission = new Permission
+{
+    PermissionMode = PermissionMode.Read,
+    ResourceLink = documentCollection.SelfLink,
+    Id = "readperm"
+};
+  
+docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```
 
 Si vous avez spécifié une clé de partition pour votre collection, l’autorisation pour les ressources de collection, de document et de pièce jointe doit inclure l’élément ResourcePartitionKey en plus de l’élément ResourceLink.
 
-Pour obtenir facilement toutes les ressources d'autorisation associées à un utilisateur spécifique, DocumentDB met à disposition un flux d'autorisations pour chaque objet utilisateur.  L'extrait de code suivant indique comment récupérer l'autorisation associée à l'utilisateur créé ci-dessus, créer une liste d'autorisations et instancier un nouveau DocumentClient pour l'utilisateur.
+### <a name="code-sample-to-read-permissions-for-user"></a>Exemple de code pour les autorisations de lecture de l’utilisateur
 
-    //Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
-      UriFactory.CreateUserUri("db", "myUser"));
+Pour obtenir facilement toutes les ressources d’autorisation associées à un utilisateur spécifique, DocumentDB met à disposition un flux d’autorisations pour chaque objet utilisateur.  L'extrait de code suivant indique comment récupérer l'autorisation associée à l'utilisateur créé ci-dessus, créer une liste d'autorisations et instancier un nouveau DocumentClient pour l'utilisateur.
 
-    List<Permission> permList = new List<Permission>();
+```csharp
+//Read a permission feed.
+FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+  UriFactory.CreateUserUri("db", "myUser"));
+ List<Permission> permList = new List<Permission>();
 
-    foreach (Permission perm in permFeed)
-    {
-        permList.Add(perm);
-    }
+foreach (Permission perm in permFeed)
+{
+    permList.Add(perm);
+}
 
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
-
-> [!TIP]
-> Les jetons de ressource ont une durée de validité par défaut d'une heure.  La durée de vie du jeton peut cependant être définie de manière explicite (cinq heures maximum).
-> 
-> 
+DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
-* Pour en savoir plus sur la gestion des clés principales et en lecture seule, cliquez [ici](documentdb-manage-account.md).
-* Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Pour en savoir plus sur la sécurité de la base de données DocumentDB, consultez [DocumentDB: NoSQL database security](documentdb-nosql-database-security.md) (DocumentDB : sécurité de la base de données NoSQL).
+* Pour en savoir plus sur la gestion des clés principales et en lecture seule, consultez [Gestion d’un compte DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Pour savoir comment créer des jetons d’autorisation DocumentDB, consultez [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources DocumentDB).
 
 

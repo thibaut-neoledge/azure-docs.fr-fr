@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
-ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,13 +35,13 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 |Name|Limite|Remarques|
 |----|----|----|
-|Délai d’expiration de la demande|90 secondes|Un [modèle asynchrone](../logic-apps/logic-apps-create-api-app.md) ou une [boucle Until](logic-apps-loops-and-scopes.md) peuvent compenser en fonction des besoins.|
+|Délai d’expiration de la demande|120 secondes|Un [modèle asynchrone](../logic-apps/logic-apps-create-api-app.md) ou une [boucle Until](logic-apps-loops-and-scopes.md) peuvent compenser en fonction des besoins.|
 
 #### <a name="message-size"></a>Taille des messages
 
 |Name|Limite|Remarques|
 |----|----|----|
-|Taille des messages|50 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 50 Mo. |
+|Taille des messages|100 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 100 Mo |
 |Limite d’évaluation des expressions|131&072; caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
@@ -50,7 +50,7 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 |----|----|----|
 |Nouvelles tentatives|4|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Délai maximal avant nouvelle tentative|1 heure|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Délai minimal avant nouvelle tentative|20 secondes|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Délai minimal avant nouvelle tentative|5 secondes|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Durée d’exécution et rétention
 
@@ -93,7 +93,7 @@ Voici les limites pour la définition d’une application logique.
 |----|----|----|
 |Actions par flux de travail|250|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Niveaux d’imbrication d’actions autorisés|5|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
-|Flux par région et par abonnement|1 000||
+|Flux de travail par région et par abonnement|1 000||
 |Déclencheurs par flux de travail|10||
 |Caractères max par expression|8&192;||
 |Taille max de `trackedProperties` en caractères|16&000;|
@@ -134,6 +134,8 @@ Les appels effectués directement à partir d’une application logique (c'est-�
 |Est de l’Australie|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Sud-Est de l’Australie|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Sud du Brésil|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
+|Centre du Canada|52.233.29.92,52.228.39.241,52.228.39.244|
+|Est du Canada|52.232.128.155,52.229.120.45,52.229.126.25|
 |Inde centrale|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Centre des États-Unis|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Est de l'Asie|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -159,6 +161,8 @@ Les appels effectués à partir d’un [connecteur](../connectors/apis-list.md) 
 |Est de l’Australie|40.126.251.213|
 |Sud-Est de l’Australie|40.127.80.34|
 |Sud du Brésil|191.232.38.129|
+|Centre du Canada|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
+|Est du Canada|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
 |Inde centrale|104.211.98.164|
 |Centre des États-Unis|40.122.49.51|
 |Est de l'Asie|23.99.116.181|

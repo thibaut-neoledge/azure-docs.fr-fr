@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 91a2ac08f6daac8cba195454e09bb07afe265046
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -83,27 +83,27 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Géographie de la banque de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
 |:--- |:--- |:--- |
 | États-Unis | Est des États-Unis | Est des États-Unis |
-| . | Est des États-Unis 2 | Est des États-Unis 2 |
-| . | Centre des États-Unis | Centre des États-Unis |
-| . | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale |
-| . | Centre-Sud des États-Unis | Centre-Sud des États-Unis |
-| . | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
-| . | Ouest des États-Unis | Ouest des États-Unis |
-| . | Ouest des États-Unis 2 | Ouest des États-Unis |
+| &nbsp; | Est des États-Unis 2 | Est des États-Unis 2 |
+| &nbsp; | Centre des États-Unis | Centre des États-Unis |
+| &nbsp; | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale |
+| &nbsp; | Centre-Sud des États-Unis | États-Unis - partie centrale méridionale |
+| &nbsp; | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
+| &nbsp; | Ouest des États-Unis | Ouest des États-Unis |
+| &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis |
 | Canada | Est du Canada | Centre du Canada |
-| . | Centre du Canada | Centre du Canada |
+| &nbsp; | Centre du Canada | Centre du Canada |
 | Brésil | Sud du Brésil | Sud du Brésil |
 | Europe | Europe du Nord | Europe du Nord |
-| . | Europe de l'Ouest | Europe de l'Ouest |
+| &nbsp; | Europe de l'Ouest | Europe de l'Ouest |
 | Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
-| . | Est de l'Asie | Asie du Sud-Est |
+| &nbsp; | Est de l'Asie | Asie du Sud-Est |
 | Australie | Est de l’Australie | Est de l’Australie |
-| . | Sud-Est de l’Australie | Sud-Est de l’Australie |
+| &nbsp; | Sud-est de l’Australie | Sud-Est de l’Australie |
 | Japon | Est du Japon | Est du Japon |
-| . | Ouest du Japon | Est du Japon |
+| &nbsp; | Ouest du Japon | Est du Japon |
 | Inde | Inde centrale | Inde centrale |
-| . | Inde occidentale | Inde centrale |
-| . | Inde du Sud | Inde centrale |
+| &nbsp; | Inde occidentale | Inde centrale |
+| &nbsp; | Inde du Sud | Inde centrale |
 
 Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour copier entre les banques Azure au Royaume-Uni, vous pouvez spécifier `"executionLocation": "North Europe"` pour un acheminement via l’Europe du Nord (voir [exemple JSON](#by-using-json-scripts) en tant que référence).
 

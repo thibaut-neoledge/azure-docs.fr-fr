@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: af1bb9618492827bfae5f55a30fd165dbd5be11e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c8d5fe6177b36aa73febe308b47b1fc330181924
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -35,18 +35,18 @@ Cette fonctionnalité rend les informations de topologie plus polyvalentes, car 
 
 L’interconnexion est modélisée sous deux relations.
 
-- **Relation d’imbrication** - exemple : le réseau virtuel contient un sous-réseau qui contient une carte réseau
-- **Associé** - exemple : une carte réseau est associée à une machine virtuelle
+- **Relation d’imbrication** - exemple : le réseau virtuel contient un sous-réseau qui contient une carte réseau
+- **Associé** - exemple : une carte réseau est associée à une machine virtuelle
 
 La liste suivante répertorie les propriétés renvoyées lors de l’interrogation de l’API REST Topologie.
 
-* **name** : nom du groupe de ressources
-* **id** : URI de la ressource.
-* **location** : emplacement de la ressource.
-* **associations** : liste des associations réalisées vis-à-vis de l’objet référencé.
-    * **name** : nom de la ressource référencée.
-    * **resourceId** : URI de la ressource référencée dans l’association.
-    * **associationType** : cette valeur fait référence à la relation entre l’objet enfant et le parent. Les valeurs valides sont **Contains** et **Associated**.
+* **name** : nom du groupe de ressources
+* **id** : URI de la ressource.
+* **location** : emplacement de la ressource.
+* **associations** : liste des associations réalisées vis-à-vis de l’objet référencé.
+    * **name** : nom de la ressource référencée.
+    * **resourceId** : URI de la ressource référencée dans l’association.
+    * **associationType** : cette valeur fait référence à la relation entre l’objet enfant et le parent. Les valeurs valides sont **Contains** et **Associated**.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -60,7 +60,7 @@ Le scénario décrit dans cet article récupère la réponse de la topologie pou
 
 ## <a name="retrieve-network-watcher"></a>Récupérer Network Watcher
 
-La première étape consiste à récupérer l’instance Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `Get-AzureRmNetworkWatcherTopology`.
+La première étape consiste à récupérer l’instance de Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `Get-AzureRmNetworkWatcherTopology`.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }

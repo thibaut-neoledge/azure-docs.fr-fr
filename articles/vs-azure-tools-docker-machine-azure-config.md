@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
-ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +33,7 @@ Cette rubrique décrit comment utiliser la commande [docker-machine](https://doc
 ## <a name="create-vms-with-docker-machine"></a>Créer des machines virtuelles avec Docker Machine
 Créez des machines virtuelles d’hôte Docker sans Azure avec la commande `docker-machine create` en utilisant le pilote `azure`. 
 
-Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser l’[interface de ligne de commande Azure](xplat-cli-install.md) ou le [Portail Azure](https://portal.azure.com) pour récupérer votre abonnement Azure. 
+Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser l’[interface de ligne de commande Azure](cli-install-nodejs.md) ou le [Portail Azure](https://portal.azure.com) pour récupérer votre abonnement Azure. 
 
 **Utilisation du portail Azure**
 
@@ -120,10 +121,5 @@ Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dan
 Pour l’hébergement de production de conteneurs, consultez le [Service de conteneur Azure](http://aka.ms/AzureContainerService)
 
 Pour développer des applications .NET Core avec Visual Studio, consultez [Outils Docker pour Visual Studio](http://aka.ms/DockerToolsForVS)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

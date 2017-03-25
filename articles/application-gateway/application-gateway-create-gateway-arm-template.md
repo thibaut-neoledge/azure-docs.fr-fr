@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 5cdd26529ed06b7903ae232ab8da4527e79a8a68
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 02b758b06332abe190b322c83da7c4135d358fa4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -164,7 +165,7 @@ Pour déployer le modèle Azure Resource Manager que vous avez téléchargé à 
 
 ### <a name="step-1"></a>Étape 1 :
 
-Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 ### <a name="step-2"></a>Étape 2 :
 
@@ -246,10 +247,5 @@ Si vous souhaitez plus d’informations sur les options d’équilibrage de char
 
 * [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

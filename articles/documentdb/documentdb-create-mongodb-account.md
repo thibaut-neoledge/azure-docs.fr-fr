@@ -2,15 +2,15 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: dbd15e0d2b1bc3b5f559d19961e3c45b5079e1c4
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 21a388894278c9086b40812e5cfa7dc9b662a5ef
+ms.lasthandoff: 03/10/2017
 
 
 
 ---
 
-# <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Créer un compte DocumentDB à utiliser avec les applications MongoDB
+# <a name="create-a-documentdb-account-with-mongodb-api"></a>Créer un compte DocumentDB avec l’API MongoDB
 Les bases de données DocumentDB peuvent désormais être utilisées comme magasins de données pour les applications écrites pour MongoDB. Pour utiliser cette fonctionnalité, vous avez besoin d’un compte Azure et d'un compte DocumentDB. Ce didacticiel vous guide dans le processus de création d’un compte DocumentDB à utiliser avec les applications de MongoDB. 
 
 Vous pouvez créer un compte DocumentDB avec prise en charge pour compte MongoDB avec le portail Azure ou avec l’interface de ligne de commande Azure (CLI) avec les modèles Azure Resource Manager. Cet article décrit la procédure de création d’une base de données DocumentDB avec prise en charge des comptes MongoDB avec le portail Azure. Pour créer un compte à l’aide d’Azure CLI avec Azure Resource Manager, consultez l’article [Automatiser la création du compte DocumentDB à l’aide de l’interface CLI Azure et de modèles Azure Resource Manager](documentdb-automation-resource-manager-cli.md).

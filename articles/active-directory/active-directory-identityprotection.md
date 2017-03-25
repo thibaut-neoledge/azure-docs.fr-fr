@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
-ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -40,7 +40,7 @@ La grande majorité des violations de sécurité ont lieu lorsque des cybercrimi
 
 Par conséquent, vous devez :
 
-- Protéger toutes les identités, quel que soit leur niveau de privilège 
+- Protéger toutes les identités, quel que soit leur niveau de privilège
 
 - Empêcher proactivement le détournement des identités compromises
 
@@ -75,12 +75,12 @@ Mais Azure Active Directory Identity Protection est bien plus qu’un outil de s
 
 ### <a name="vulnerabilities"></a>Vulnérabilités
 
-Azure Active Directory Identity Protection analyse votre configuration et détecte les vulnérabilités qui peuvent avoir un impact sur les identités de vos utilisateurs. Pour en savoir plus, consultez [Vulnérabilités détectées par Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+Azure Active Directory Identity Protection analyse votre configuration et détecte les vulnérabilités qui peuvent avoir un impact sur les identités de vos utilisateurs. Pour en savoir plus, consultez [Vulnérabilités détectées par Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### <a name="risk-events"></a>Événements à risque
 
 Azure Active Directory utilise les algorithmes de Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux identités de votre utilisateur. Le système crée un enregistrement pour chaque action suspecte détectée. Ces enregistrements sont également appelés événements à risque.  
-Pour en savoir plus, consultez [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Pour en savoir plus, consultez [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md).
 
 
 ## <a name="investigation"></a>Investigation
@@ -102,11 +102,11 @@ Les sections suivantes fournissent plus de détails, ainsi que les étapes liée
 
 ## <a name="risky-sign-ins"></a>Connexions risquées
 
-Azure Active Directory détecte certains [types d’événement à risque](active-directory-identity-protection-risk-events.md#risk-event-types) en temps réel. Tous les événements à risque en temps réel qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé *connexion risquée*. Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Le cycle de vie d’une connexion risquée se termine lorsqu’un utilisateur se déconnecte.
+Azure Active Directory détecte certains [types d’événement à risque](active-directory-reporting-risk-events.md#risk-event-types) en temps réel. Tous les événements à risque en temps réel qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé *connexion risquée*. Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Le cycle de vie d’une connexion risquée se termine lorsqu’un utilisateur se déconnecte.
 
 ### <a name="sign-in-risk-level"></a>Niveau de risque d’une connexion
 
-Un niveau de risque de connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. 
+Un niveau de risque de connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur.
 
 ### <a name="mitigating-sign-in-risk-events"></a>Atténuation des événements à risque à la connexion
 

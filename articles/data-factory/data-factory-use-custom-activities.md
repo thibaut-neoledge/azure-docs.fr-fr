@@ -15,23 +15,25 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
-ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procédure stockée](data-factory-stored-proc-activity.md)
-> * [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md)
-> * [.NET personnalisé](data-factory-use-custom-activities.md)
+> * [Activité Hive](data-factory-hive-activity.md) 
+> * [Activité pig](data-factory-pig-activity.md)
+> * [Activité MapReduce](data-factory-map-reduce.md)
+> * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Activité Spark](data-factory-spark.md)
+> * [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
+> * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
+> * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 
 Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
@@ -253,7 +255,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path    
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -289,7 +291,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset    
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {

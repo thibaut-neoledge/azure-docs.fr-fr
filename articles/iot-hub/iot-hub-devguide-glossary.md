@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
-ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +28,7 @@ Cet article répertorie certains termes courants utilisés dans les articles rel
 [Advanced Message Queuing Protocol (AMQP)](https://www.amqp.org/) est l’un des protocoles de messagerie que [IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-L’[interface de ligne de commande Azure (Azure CLI)](../xplat-cli-install.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
+L’[interface de ligne de commande Azure (Azure CLI)](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
 L’[interface de ligne de commande Azure 2.0 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.

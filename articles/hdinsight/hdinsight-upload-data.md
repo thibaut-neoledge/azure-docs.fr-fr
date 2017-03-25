@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -64,7 +65,7 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Installation et configuration de l'interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md).
+1. [Installation et configuration de l'interface de ligne de commande Azure pour Mac, Linux et Windows](../cli-install-nodejs.md).
 2. Ouvrez une invite de commandes, un bash ou un autre shell et procédez comme suit pour vous authentifier auprès de votre abonnement Azure.
 
         azure login
@@ -302,7 +303,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png

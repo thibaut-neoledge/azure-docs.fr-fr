@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 10b1998789feafaf0c28155bc8a96a28ff78cf02
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51aabf4938714c597ae0cfb2ec524f326b6e355a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -233,7 +233,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Commandes de l’interface de ligne de commande Azure pour les emplacements de déploiement
 L’interface de ligne de commande (CLI) Azure fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement d’App Service.
 
-* Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+* Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
 * Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
 
 > [!NOTE] 

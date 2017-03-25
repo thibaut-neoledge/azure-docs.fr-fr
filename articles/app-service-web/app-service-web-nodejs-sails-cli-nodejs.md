@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1818f48b94754589a2dc5d89c2ba24d2ff2681bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +46,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Interface de ligne de commande Azure](../xplat-cli-install.md)
+* [Interface de ligne de commande Azure](../cli-install-nodejs.md)
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

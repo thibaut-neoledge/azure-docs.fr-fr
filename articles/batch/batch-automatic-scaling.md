@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -240,7 +240,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Il est également important, en raison du délai de disponibilité des échantillons dont nous avons parlé ci-dessus, de toujours spécifier une plage horaire avec une heure de début différée antérieure à une minute. En effet, il faut environ une minute aux échantillons pour se propager dans le système, ce qui signifie que les échantillons situés dans la plage `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` ne seront généralement pas disponibles. Là encore, vous pouvez utiliser le paramètre pourcentage de `GetSample()` pour forcer une exigence de pourcentage d’échantillon particulière.
 
 > [!IMPORTANT]
-> Nous vous **déconseillons fortement** ** de vous appuyer *uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « Donne-moi le dernier échantillon disponible, quelle que soit son ancienneté ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
+> Nous vous **déconseillons fortement** **de vous appuyer*uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « Donne-moi le dernier échantillon disponible, quelle que soit son ancienneté ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
 > 
 > 
 
@@ -355,7 +355,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Outre l’API REST Batch et le SDK .NET, vous pouvez utiliser d’autres [SDK Batch](batch-technical-overview.md#batch-development-apis), des [applets de commande Batch PowerShell](batch-powershell-cmdlets-get-started.md) et l’[interface CLI Batch](batch-cli-get-started.md) avec la mise à l’échelle automatique.
+Outre l’API REST Batch et le SDK .NET, vous pouvez utiliser d’autres [SDK Batch](batch-apis-tools.md#batch-development-apis), des [applets de commande Batch PowerShell](batch-powershell-cmdlets-get-started.md) et l’[interface CLI Batch](batch-cli-get-started.md) avec la mise à l’échelle automatique.
 
 > [!IMPORTANT]
 > Quand vous créez un pool avec mise à l’échelle automatique, le paramètre `targetDedicated` **ne doit pas** être spécifié. De même, si vous souhaitez redimensionner manuellement un pool compatible avec une mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.

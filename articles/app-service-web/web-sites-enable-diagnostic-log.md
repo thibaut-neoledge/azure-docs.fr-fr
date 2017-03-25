@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerSh
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-namewhatisdiagaweb-server-diagnostics-and-application-diagnostics"></a><a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
+## <a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
 Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en **diagnostics de serveur web** et en **diagnostics d’application**.
 
 ### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
@@ -48,7 +48,7 @@ Lors de l'exécution, vous pouvez récupérer ces journaux pour vous aider lors 
 
 Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
 
-## <a name="a-nameenablediagahow-to-enable-diagnostics"></a><a name="enablediag"></a>Activation des diagnostics
+## <a name="enablediag"></a>Activation des diagnostics
 Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez au panneau de votre application web, cliquez sur **Paramètres > Journaux de diagnostics**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
@@ -90,7 +90,7 @@ Bien que ces trois emplacements de stockage fournissent les mêmes informations 
 >
 >
 
-## <a name="a-namedownloada-how-to-download-logs"></a><a name="download"></a> Téléchargement de journaux
+## <a name="download"></a> Téléchargement de journaux
 Les informations de diagnostic stockées dans le système de fichiers d’application web sont directement accessibles via FTP. Vous pouvez également les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure.
 
 La structure de répertoires dans laquelle les journaux sont stockés est la suivante :
@@ -129,7 +129,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
 >
 >
 
@@ -145,7 +145,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 
 [En savoir plus sur le suivi des performances avec Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="a-namestreamlogsa-how-to-stream-logs"></a><a name="streamlogs"></a> Diffusion en continu des journaux
+## <a name="streamlogs"></a> Diffusion en continu des journaux
 Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Pour ce faire, vous pouvez diffuser ces informations vers votre environnement de développement en utilisant soit Azure PowerShell, soit l’interface de ligne de commande Azure.
 
 > [!NOTE]
@@ -194,11 +194,11 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
 >
 >
 
-## <a name="a-nameunderstandlogsa-how-to-understand-diagnostics-logs"></a><a name="understandlogs"></a> Présentation des journaux de diagnostic
+## <a name="understandlogs"></a> Présentation des journaux de diagnostic
 ### <a name="application-diagnostics-logs"></a>Journaux de diagnostic d'application
 Le diagnostic d'application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers, le stockage de tables ou le stockage d'objets blob. L'ensemble de base des données stockées est le même dans les trois types de stockage, à savoir : date et heure auxquelles l'événement s'est produit, ID de processus qui a généré l'événement, type d'événement (informations, avertissement, erreur) et message d'événement.
 
@@ -274,7 +274,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 >
 >
 
-## <a name="a-namenextstepsa-next-steps"></a><a name="nextsteps"></a> Étapes suivantes
+## <a name="nextsteps"></a> Étapes suivantes
 * [Surveillance d’applications Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyse des journaux d’application Web dans HDInsight (en anglais)](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

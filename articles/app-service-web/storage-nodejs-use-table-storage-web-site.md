@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0183c2c88819dfc67886676fd8c69b246537b6
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -398,7 +399,7 @@ Dans le dossier **views**, ouvrez le fichier **layout.jade** et remplacez son co
         block content
 
 ### <a name="create-a-config-file"></a>Création d’un fichier de configuration
-Pour exécuter l'application localement, nous allons copier les informations d'identification d’Azure Storage dans un fichier de configuration. Créez un fichier nommé **config.json* * à l’aide du code JSON suivant :
+Pour exécuter l'application localement, nous allons copier les informations d'identification d’Azure Storage dans un fichier de configuration. Créez un fichier nommé **config.json** à l’aide du code JSON suivant :
 
     {
         "STORAGE_NAME": "<storage account name>",
@@ -567,7 +568,7 @@ Bien que les étapes de cet article décrivent l’utilisation du service de Tab
 [for free]: http://windowsazure.com
 [Git distant]: http://git-scm.com/docs/git-remote
 
-[interface de ligne de commande Azure]: ../xplat-cli-install.md
+[interface de ligne de commande Azure]:../cli-install-nodejs.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
@@ -591,9 +592,4 @@ Bien que les étapes de cet article décrivent l’utilisation du service de Tab
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 625f4cc08ba023309ac4a9a8b7834d9ab4f4c116
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -55,7 +55,7 @@ Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour
 ## <a name="prerequisites"></a>Composants requis
 * **Agent Microsoft Azure Linux version 2.0.6 ou ultérieure**.
   Notez que la plupart des images de la galerie Linux de machines virtuelles Azure comprennent la version 2.0.6 ou ultérieure. Vous pouvez exécuter **WAAgent -version** pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure à 2.0.6, vous pouvez suivre [ces instructions sur GitHub](https://github.com/Azure/WALinuxAgent "instructions") pour la mettre à jour.
-* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../xplat-cli-install.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
+* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../cli-install-nodejs.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
   
   * Exécutez **azure vm extension set --help** pour obtenir une aide détaillée.
   * Exécutez **azure login** pour vous connecter à Azure.
