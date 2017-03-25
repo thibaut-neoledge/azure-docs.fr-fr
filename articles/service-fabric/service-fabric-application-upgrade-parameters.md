@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
-ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -64,6 +64,10 @@ Les critères MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerServi
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
+
+[Mise à niveau de votre application avec l’interface de ligne de commande Azure sous Linux](service-fabric-azure-cli.md#upgrading-your-application) vous guide à travers une mise à niveau de l’application avec l’interface CLI Azure.
+
+[Mise à niveau de votre application avec le plug-in Eclipse Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
 Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 

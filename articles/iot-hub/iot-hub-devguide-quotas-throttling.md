@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,6 +74,9 @@ IoT Hub applique d’autres limites à ses différentes fonctionnalités.
 | Points de terminaison supplémentaires | Les hubs avec SKU payants peuvent avoir 10 points de terminaison supplémentaires. Les hubs avec SKU gratuits peuvent avoir un point de terminaison supplémentaire. |
 | Règles de routage de messages | Les hubs avec SKU payants peuvent avoir 100 règles de routage. Les hubs avec SKU gratuits peuvent avoir cinq règles de routage. |
 
+> [!NOTE]
+> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/en-us/support/options/).
+
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
@@ -87,9 +91,4 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

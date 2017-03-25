@@ -3,7 +3,7 @@ title: Activer la synchronisation hors connexion pour votre application de plate
 description: "Découvrez comment utiliser une application Azure Mobile pour mettre en cache et synchroniser les données hors connexion dans votre application de plateforme Windows universelle (UWP)."
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7da4d87c6225754fe878a1812701c4dbafaea07a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -35,11 +36,11 @@ Ce didacticiel nécessite les prérequis suivants :
 
 * Visual Studio 2013 s’exécutant sous Windows 8.1 ou version ultérieure.
 * finalisation de [Créer une application Windows][Créer une application Windows].
-* [Azure Mobile Services SQLite Store][NuGet du magasin SDLite]
+* [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite pour développement sur plateforme Windows universelle](http://www.sqlite.org/downloads)
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Mettre à jour l’application cliente pour prendre en charge les fonctionnalités hors connexion
-Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez un [SyncContext][synccontext] dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite est utilisé comme magasin local sur l’appareil.
+Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour utiliser ces fonctionnalités dans votre application, vous initialisez un [SyncContext][synccontext] dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite est utilisé comme magasin local sur l’appareil.
 
 1. Installez le [Runtime SQLite pour la plateforme Windows universelle](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. Dans Visual Studio, ouvrez le gestionnaire de package NuGet du projet d’application UWP que vous avez finalisé dans le didacticiel [Créer une application Windows].
@@ -50,7 +51,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 4. Ouvrez le fichier MainPage.xaml.cs et supprimez les marques de commentaires de la définition `#define OFFLINE_SYNC_ENABLED`.
 5. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application cliente. L’application fonctionne comme elle le faisait avant l’activation de la synchronisation hors connexion. Toutefois, la base de données locale est maintenant remplie avec des données qui peuvent être utilisées dans un scénario hors connexion.
 
-## <a name="a-nameupdate-syncaupdate-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
+## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
 Dans cette section, vous rompez la connexion avec l’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les nouveaux éléments ajoutés au magasin local seront synchronisés avec le backend de l’application mobile lors de la prochaine opération Push en état connecté.
 
 1. Modifiez App.xaml.cs dans le projet partagé. Mettez en commentaire l’initialisation de **MobileServiceClient** et ajoutez les lignes suivantes qui utilisent une URL d’application mobile incorrecte :
@@ -64,7 +65,7 @@ Dans cette section, vous rompez la connexion avec l’application mobile afin de
 5. (Facultatif) Dans Visual Studio, ouvrez l’ **Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu. Vérifiez que les données dans la base de données backend n’ont pas changé.
 6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l’aide d’une requête GET au format `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="a-nameupdate-online-appaupdate-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’applications mobiles
+## <a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’applications mobiles
 Dans cette section, vous reconnectez l’application au serveur principal d’applications mobiles. Ces modifications simulent une reconnexion du réseau sur l’application.
 
 Lors de la première exécution de l’application, le gestionnaire d’événements `OnNavigatedTo` appelle `InitLocalStoreAsync`. Cette méthode appelle ensuite `SyncAsync` pour permettre la synchronisation de votre magasin local avec la base de données du serveur principal. L’application fait une tentative de synchronisation au démarrage.
@@ -94,9 +95,9 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 * [SDK HOWTO Azure Mobile Apps .NET][8]
 
 <!-- Anchors. -->
-[Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion]: #enable-offline-app
-[Mettre à jour le comportement de synchronisation de l'application]: #update-sync
-[Mettre à jour l’application pour la reconnecter à votre serveur principal d’applications mobiles]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]:#next-steps
 
 <!-- Images -->
@@ -108,24 +109,19 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 <!-- URLs. -->
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Créer une application Windows]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite pour Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite pour Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
-[NuGet du magasin SDLite]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx
 [IMobileServiceTableQuery]: https://msdn.microsoft.com/library/azure/dn250631(v=azure.10).aspx
 [IMobileServicesSyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
 [MobileServicePushFailedException]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
-[État]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
+[Status]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
 [CancelledByNetworkError]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
 [PullAsync]: https://msdn.microsoft.com/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

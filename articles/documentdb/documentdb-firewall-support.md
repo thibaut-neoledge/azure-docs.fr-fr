@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/10/2017
 ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
-ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -47,25 +48,32 @@ Lorsque vous ajoutez des instances de machine virtuelle supplémentaires au grou
 ## <a name="connections-from-the-internet"></a>Connexions à partir d’Internet
 Lorsque vous accédez à un compte de base de données DocumentDB à partir d’un ordinateur sur Internet, l’adresse IP ou la plage d’adresses IP de l’ordinateur doit être ajoutée à la liste d’adresses IP autorisées pour le compte de base de données DocumentDB. 
 
-## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> Configuration de la stratégie de contrôle d’accès IP
-La stratégie de contrôle d’accès IP peut être définie par programmation avec [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure PowerShell](documentdb-manage-account-with-powershell.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) en mettant à jour la propriété `ipRangeFilter`. Les plages/adresses IP doivent être séparées par des virgules et ne doivent pas contenir d’espaces. Exemple : « 13.91.6.132,13.91.6.1/24 ». Lors de la mise à jour de votre compte de base de données avec ces méthodes, veillez à renseigner toutes les propriétés afin d’éviter le rétablissement des paramètres par défaut.
+## <a id="configure-ip-policy"></a> Configuration de la stratégie de contrôle d’accès IP
+La stratégie de contrôle d’accès IP peut être définie dans le portail Azure ou par programmation avec [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md)ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) en mettant à jour la propriété `ipRangeFilter`. Les plages/adresses IP doivent être séparées par des virgules et ne doivent pas contenir d’espaces. Exemple : « 13.91.6.132,13.91.6.1/24 ». Lors de la mise à jour de votre compte de base de données avec ces méthodes, veillez à renseigner toutes les propriétés afin d’éviter le rétablissement des paramètres par défaut.
 
 > [!NOTE]
 > En activant une stratégie de contrôle d’accès IP pour votre compte de base de données DocumentDB, tous les accès à votre compte de base de données DocumentDB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. En vertu de ce modèle, la navigation dans le plan de données à partir du portail sera également bloquée pour assurer l’intégrité du contrôle d’accès.
 
+Pour simplifier le développement, le portail Azure vous aide à identifier et à ajouter l’adresse IP de votre ordinateur client à la liste autorisée, afin que les applications qui exécutent votre machine puissent accéder au compte DocumentDB. Dans ce cas, l’adresse IP du client est détectée comme indiquée par le portail. Il peut s’agir de l’adresse IP client de votre ordinateur, mais il peut également s’agir de l’adresse IP de votre passerelle réseau. N’oubliez pas de la supprimer avant de passer à la production.
+
+Pour définir la stratégie de contrôle d’accès IP dans le portail Azure, accédez au panneau du compte DocumentDB, cliquez sur **Pare-feu** dans le menu de navigation, puis cliquez sur **ACTIVÉ**. 
+
+![Capture d’écran montrant comment ouvrir le panneau Pare-feu dans le portail Azure](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+
+Dans le volet Nouveau, indiquez si le portail Azure peut accéder au compte et ajoutez d’autres adresses et plages si nécessaire, puis cliquez sur **Enregistrer**.  
+
+![Capture d’écran montrant comment configurer les paramètres du pare-feu dans le portail Azure](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
+
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Dépannage de la stratégie de contrôle d’accès IP
 ### <a name="portal-operations"></a>Opérations du portail
-En activant une stratégie de contrôle d’accès IP pour votre compte de base de données DocumentDB, tous les accès à votre compte de base de données DocumentDB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. En vertu de ce modèle, la navigation dans le plan de données à partir du portail sera également bloquée pour assurer l’intégrité du contrôle d’accès. 
+En activant une stratégie de contrôle d’accès IP pour votre compte de base de données DocumentDB, tous les accès à votre compte de base de données DocumentDB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. Par conséquent, si vous souhaitez activer les opérations de plan de données du portail telles que la navigation dans les collections et l’interrogation des documents, vous devez autoriser explicitement l’accès au portail Azure à l’aide du panneau **Pare-feu** dans le portail. 
+
+![Capture d’écran montrant comment activer l’accès au portail Azure](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
 
 ### <a name="sdk--rest-api"></a>Kit de développement logiciel (SDK) et API REST
 Pour des raisons de sécurité, l’accès via le Kit de développement logiciel (SDK) ou l’API REST à partir d’ordinateurs ne figurant pas dans la liste autorisée renverra une réponse générique 404 Introuvable, ainsi que des détails supplémentaires. Consultez la liste d’adresses IP autorisées configurée pour votre compte de base de données DocumentDB afin de vérifier que la configuration de la stratégie appropriée est appliquée à votre compte de base de données DocumentDB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les conseils sur les performances relatives au réseau, consultez [Conseils relatifs aux performances](documentdb-performance-tips.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

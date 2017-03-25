@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Pour plus d’informations, consultez [Prise en charge d’un équilibreur de ch
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Configurer l’interface de ligne de commande pour utiliser le gestionnaire de ressources
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez la section [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md). Suivez les instructions jusqu’à l’étape de sélection du compte et de l’abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez la section [Installer l’interface de ligne de commande Microsoft Azure](../cli-install-nodejs.md). Suivez les instructions jusqu’à l’étape de sélection du compte et de l’abonnement Azure.
 2. Exécutez la commande **azure config mode** afin de passer au mode Resource Manager, comme suit :
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Configurer le mode de distribution d’équilibrage de charge à l’aide de l’affinité d’IP source](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

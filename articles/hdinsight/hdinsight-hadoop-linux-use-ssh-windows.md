@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +111,7 @@ Cela crée une connexion pour l'utilisateur indiqué et active l'authentificatio
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Interface de ligne de commande Azure pour Mac, Linux et Windows
 
-Vous pouvez utiliser [l’interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
+Vous pouvez utiliser [l’interface de ligne de commande Azure pour Mac, Linux et Windows](../cli-install-nodejs.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
 Pour plus d’informations sur l’utilisation de cette commande, consultez la rubrique [Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -221,7 +222,7 @@ Si vous devez ajouter des comptes à votre cluster, procédez comme suit :
 
 6. Vous devriez maintenant pouvoir vous authentifier au serveur avec le nouveau compte d'utilisateur et la clé privée.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunneling SSH
+## <a id="tunnel"></a>Tunneling SSH
 
 Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
 
@@ -239,9 +240,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

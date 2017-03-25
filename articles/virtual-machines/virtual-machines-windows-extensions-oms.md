@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 140dd5f165b88a1b0d0771b0360769a340d082cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9ce257eac44e51b7303016d993bc8d71e270629e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,50 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
 ```json
 {
     "type": "extensions",
-    "name": "Microsoft.EnterpriseCloud.Monitoring",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
+### <a name="property-values"></a>Valeurs de propriétés
+
+| Nom | Valeur/Exemple |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+## <a name="template-deployment"></a>Déploiement de modèle
+
+Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension d’agent OMS pendant un déploiement de modèle Azure Resource Manager. Vous trouverez un exemple de modèle qui inclut l’extension de machine virtuelle d’agent OMS dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../azure-resource-manager/resource-manager-template-child-resource.md). 
+
+L’exemple suivant suppose que l’extension OMS est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
+
+
+```json
+{
+    "type": "extensions",
+    "name": "OMSExtension",
     "apiVersion": "[variables('apiVersion')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -62,20 +105,31 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
 }
 ```
 
-### <a name="property-values"></a>Valeurs de propriétés
+Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente, et le type reflète la configuration imbriquée. 
 
-| Nom | Valeur/Exemple |
-| ---- | ---- |
-| apiVersion | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
-| workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
-
-## <a name="template-deployment"></a>Déploiement de modèle
-
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension d’agent OMS pendant un déploiement de modèle Azure Resource Manager. Vous trouverez un exemple de modèle qui inclut l’extension de machine virtuelle d’agent OMS dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 

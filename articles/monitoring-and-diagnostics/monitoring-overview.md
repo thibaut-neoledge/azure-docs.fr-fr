@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
-ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,13 +32,13 @@ Les applications cloud sont complexes, et se composent de nombreux éléments mo
 
 Le diagramme suivant présente une vue conceptuelle de l’analyse Azure, notamment le type de journaux que vous pouvez collecter et ce que vous pouvez faire avec ces données.   
 
-![Modèle logique pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modèle pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 Figure 1 : modèle conceptuel pour l’analyse et le diagnostic pour les ressources non liées au calcul
 
 <br/>
 
-![Modèle logique pour l’analyse et le diagnostic pour les ressources de calcul](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modèle pour l’analyse et le diagnostic pour les ressources liées au calcul](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 Figure 2 : modèle conceptuel pour l’analyse et le diagnostic pour les ressources liées au calcul
 
@@ -114,7 +114,8 @@ Voici quelques exemples :
 * Envoi vers Event Hubs afin de router les outils tiers pour l’exécution d’une analyse en temps réel.
 
 ### <a name="automate"></a>Automatisation
-Vous pouvez utiliser les données d’analyse pour déclencher des alertes ou encore des processus complets. Voici quelques exemples :
+Vous pouvez utiliser les données d’analyse pour déclencher des alertes ou encore des processus complets.
+Voici quelques exemples :
 
 * Utilisation des données pour la mise à l’échelle automatique des instances de calcul, vers le haut ou vers le bas selon le chargement de l’application.
 * Envoi de messages électroniques lorsqu’une mesure dépasse un seuil prédéfini.

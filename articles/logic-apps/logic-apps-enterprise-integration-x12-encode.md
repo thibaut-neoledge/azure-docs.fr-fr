@@ -1,6 +1,6 @@
 ---
-title: Encoder des messages X12 dans Azure Logic Apps | Microsoft Docs
-description: "Comment utiliser l’encodeur X12 dans Enterprise Integration Pack, dans vos applications logiques"
+title: Encoder des messages X12 - Azure Logic Apps | Microsoft Docs
+description: "Valider des documents EDI et convertir des messages encodés en XML avec l’encodeur de messages X12 dans Enterprise Integration Pack pour Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,54 +15,70 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: bd339e60aff1edca7f86e0ae82746f55eb67b296
-ms.openlocfilehash: 9f7b53cfafa8c14ab46cf80015afc8da4e0fda2b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b319970e0fd744b21bd0362f1de500a0f182d52e
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-encode-x12-message"></a>Prise en main d’Encode X12 Message
-Valide l’EDI et les propriétés spécifiques au partenaire, convertit les messages codés au format XML en documents informatisés EDI au sein de l’échange et demande un accusé de réception technique et/ou fonctionnel
+# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encodez des messages X12 pour Azure Logic Apps avec Enterprise Integration Pack
 
-## <a name="prereqs"></a>Conditions préalables
+Avec le connecteur Encode X12 Message, vous pouvez valider l’EDI et les propriétés spécifiques au partenaire, convertir des messages codés au format XML en documents informatisés EDI au sein de l’échange, et demander un accusé de réception technique et/ou fonctionnel.
+Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Voici les éléments dont vous avez besoin :
+
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
-* Un compte d’intégration est nécessaire pour utiliser le connecteur Encode X12 Message. Plus d’informations sur la création d’un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md), de [partenaires](logic-apps-enterprise-integration-partners.md) et d’un [contrat X12](logic-apps-enterprise-integration-x12.md)
+* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) déjà défini et associé à votre abonnement Azure. Vous devez disposer d’un compte d’intégration pour pouvoir utiliser le connecteur Encode X12 Message.
+* Au moins deux [partenaires](logic-apps-enterprise-integration-partners.md) déjà définis dans votre compte d’intégration
+* Un [contrat X12](logic-apps-enterprise-integration-x12.md) déjà défini dans votre compte d’intégration
 
 ## <a name="encode-x12-messages"></a>Encoder des messages X12
 
-1. [Créez une application logique](logic-apps-create-a-logic-app.md).
-2. Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, tel qu’un déclencheur de demande.  Dans le concepteur d’applications logiques, ajoutez un déclencheur et une action.  Sélectionnez Afficher les API gérées par Microsoft dans la liste déroulante, puis saisissez « x12 » dans la zone de recherche.  Sélectionnez X12 - Encode X12 Message par nom de contrat ou X12 - Encode to X 12 message par identités :  
+1. [Créer une application logique](logic-apps-create-a-logic-app.md).
+
+2. Le connecteur Encode X12 Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
+
+3.    Dans la zone de recherche, entrez le filtre « x12 ». Sélectionnez **X12 - Encode X12 Message par nom de contrat** ou **X12 - Encode to X&12; message par identités**.
    
-    ![recherche x12](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
-3. Si vous n’avez pas encore créé de connexion aux comptes d’intégration, vous êtes invité à saisir les informations de connexion :
+    ![Recherchez « x12 »](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
+
+3. Si vous n’avez pas encore créé de connexions à votre compte d’intégration, vous êtes invité à le faire à cette étape. Donnez un nom à votre connexion, puis sélectionnez le compte d’intégration auquel vous souhaitez vous connecter. 
    
-    ![connexion de compte d’intégration](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png) 
-4. Entrez les détails du compte d’intégration.  Les propriétés marquées d’un astérisque sont obligatoires :
-   
-   | Propriété | Détails |
-   | --- | --- |
-   | Nom de connexion * |Entrez un nom pour votre connexion |
-   | Compte d’intégration * |Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure |
-   
-    Une fois complets, les détails de votre connexion se présentent comme suit :
-   
-    ![connexion de compte d’intégration créée](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png) 
-5. Sélectionnez **Créer**.
-6. Vous pouvez voir que la connexion a été créée.
-   
+    ![connexion de compte d’intégration](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png)
+
+    Les propriétés marquées d’un astérisque sont obligatoires.
+
+    | Propriété | Détails |
+    | --- | --- |
+    | Nom de connexion * |Entrez un nom pour votre connexion. |
+    | Compte d’intégration * |Entrez un nom pour votre compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
+
+5.    Lorsque vous avez terminé, les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant. Pour terminer la création de votre connexion, sélectionnez l’option **Créer**.
+
+    ![connexion de compte d’intégration créée](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
+
+    Votre connexion est maintenant créée.
+
     ![détails de connexion de compte d’intégration](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### <a name="encode-x12-messages-by-agreement-name"></a>Encode X12 message par nom de contrat
-Sélectionnez le contrat X12 dans la liste déroulante et le message XML à encoder :     
-    ![remplir les champs obligatoires](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png) 
+
+Si vous choisissez d’encoder des messages X12 par nom du contrat, ouvrez la liste **Nom de l’accord X12**, entrez ou sélectionnez votre contrat X12 existant. Saisissez le message XML à encoder.
+
+![Entrez le nom du contrat X12 et le nom du message XML à encoder](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png)
 
 #### <a name="encode-x12-messages-by-identities"></a>Encode X12 message par identités
-Indiquez l’identificateur et le qualificateur de l’expéditeur ainsi que l’identificateur et le qualificateur du récepteur tels que configurés dans l’accord X12.  Sélectionnez le message XML à encoder :
+
+Si vous choisissez d’encoder des messages X12 par identités, indiquez l’identificateur et le qualificateur de l’expéditeur ainsi que l’identificateur et le qualificateur du récepteur tels que configurés dans votre contrat X12. Sélectionnez le message XML à encoder.
    
-   ![remplir les champs obligatoires](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
+![Renseigner les identités de l’expéditeur et du destinataire, sélectionner le message XML à encoder](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
 
 ## <a name="x12-encode-details"></a>Détails sur X12 Encode
 
-Le connecteur X12 Encode exécute ce qui suit :
+Le connecteur X12 Encode effectue les tâches suivantes :
 
 * Résolution du contrat en faisant correspondre les propriétés de contexte de l’expéditeur et du récepteur.
 * Sérialise l’échange EDI en convertissant les messages codés au format XML en documents informatisés EDI au sein de l’échange.
@@ -79,10 +95,5 @@ Le connecteur X12 Encode exécute ce qui suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

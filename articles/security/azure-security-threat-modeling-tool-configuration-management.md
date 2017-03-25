@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 translationtype: Human Translation
-ms.sourcegitcommit: e0c0d40cc0c198000264623476c05473d9d24eaf
-ms.openlocfilehash: 34c29cb8a6289ab4dcb489e6cb83e7f16a748177
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 66465e74298c08d64b37ab0ede86f3d187068555
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/15/2017
 | Azure Storage | <ul><li>[Garantir une gestion sécurisée des clés d’accès de stockage Azure](#secure-keys)</li><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur le stockage Azure](#cors-storage)</li></ul> |
 | WCF | <ul><li>[Activer la fonctionnalité de limitation de service WCF](#throttling)</li><li>[Divulgation d’informations WCF par le biais des métadonnées](#info-metadata)</li></ul> | 
 
-## <a name="a-idcsp-jsaimplement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implémenter la stratégie de sécurité de contenu (CSP) et désactiver l’exécution de scripts JavaScript inline
+## <a id="csp-js"></a>Implémenter la stratégie de sécurité de contenu (CSP) et désactiver l’exécution de scripts JavaScript inline
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -67,7 +67,7 @@ Les chaînes ne seront pas évaluées en tant que code.
 Example: var str="alert(1)"; eval(str);
 ```
 
-## <a name="a-idxss-filteraenable-browsers-xss-filter"></a><a id="xss-filter"></a>Activer le filtre XSS du navigateur
+## <a id="xss-filter"></a>Activer le filtre XSS du navigateur
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 | Références              | [XSS Protection Filter (Filtre de protection anti-XSS)](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
 | Étapes | <p>La configuration de l’en-tête de réponse X-XSS-Protection contrôle le filtre de protection contre l’exécution de scripts intersites du navigateur. Cet en-tête de réponse peut présenter les valeurs suivantes :</p><ul><li>`0:`. Le filtre est désactivé.</li><li>`1: Filter enabled`. En cas de détection d’une attaque par exécution de script intersites, le navigateur assainit la page afin de neutraliser l’attaque.</li><li>`1: mode=block : Filter enabled`. En cas de détection d’une attaque XSS, le navigateur empêche le rendu de la page au lieu d’assainir la page.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Le navigateur assainit la page et signale la violation.</li></ul><p>Il s’agit d’une fonction Chrome utilisant les rapports de violation CSP pour envoyer des détails à un URI de votre choix. Les 2 dernières options sont considérées comme des valeurs sûres.</p>|
 
-## <a name="a-idtrace-deployaaspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>Désactiver le traçage et le débogage dans les applications ASP.NET avant le déploiement
+## <a id="trace-deploy"></a>Désactiver le traçage et le débogage dans les applications ASP.NET avant le déploiement
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -89,7 +89,7 @@ Example: var str="alert(1)"; eval(str);
 | Références              | [Vue d’ensemble du débogage ASP.NET](http://msdn2.microsoft.com/library/ms227556.aspx), [Vue d’ensemble du traçage ASP.NET](http://msdn2.microsoft.com/library/bb386420.aspx), [Comment : activer le traçage d’une application ASP.NET](http://msdn2.microsoft.com/library/0x5wc973.aspx), [Comment : activer le débogage pour les applications ASP.NET](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | Étapes | Lorsque le traçage est activé pour la page, chaque navigateur demandant la page obtient également les informations de traçage qui contiennent des données sur l’état et le workflow du serveur interne. Ces informations peuvent être liées à la sécurité. Lorsque le débogage est activé pour la page, les erreurs qui surviennent sur le serveur entraînent la présentation de données de trace de la pile complètes au navigateur. Ces données peuvent exposer des informations liées à la sécurité concernant le workflow du serveur. |
 
-## <a name="a-idjs-trustedaaccess-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>Accéder aux scripts JavaScript tiers émanant uniquement de sources approuvées
+## <a id="js-trusted"></a>Accéder aux scripts JavaScript tiers émanant uniquement de sources approuvées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -100,7 +100,7 @@ Example: var str="alert(1)"; eval(str);
 | Références              | N/A  |
 | Étapes | Les scripts JavaScript tiers doivent uniquement être référencés à partir de sources approuvées. Les points de terminaison de référence doivent toujours se trouver sur SSL. |
 
-## <a name="a-idui-defensesaensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-clickjacking-defenses"></a><a id="ui-defenses"></a>S’assurer que les pages ASP.NET authentifiées incorporent des techniques de défense contre les attaques par redirection d’interface utilisateur ou détournement de clics
+## <a id="ui-defenses"></a>S’assurer que les pages ASP.NET authentifiées incorporent des techniques de défense contre les attaques par redirection d’interface utilisateur ou détournement de clics
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -135,7 +135,7 @@ Code du fichier web.config pour les sites qui ne doivent être chargés dans un 
     </system.webServer>
 ```
 
-## <a name="a-idcors-aspnetaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-applications"></a><a id="cors-aspnet"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur les applications web ASP.NET
+## <a id="cors-aspnet"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur les applications web ASP.NET
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -147,7 +147,7 @@ Code du fichier web.config pour les sites qui ne doivent être chargés dans un 
 | Étapes | <p>La sécurité des navigateurs empêche une page web d’adresser des demandes AJAX à un autre domaine. Cette restriction est appelée stratégie de même origine et empêche un site malveillant de lire des données sensibles à partir d’un autre site. Toutefois, il est parfois nécessaire d’exposer en toute sécurité des API que d’autres sites peuvent consommer. CORS (Cross Origin Resource Sharing, partage des ressources multi-origines) est une norme W3C qui permet à un serveur d’assouplir la stratégie de même origine. Grâce au mécanisme CORS, un serveur peut autoriser explicitement certaines demandes multi-origines tout en en refusant d’autres.</p><p>CORS est plus sûr et plus flexible que les techniques précédentes telles que JSONP. L’activation de CORS se traduit essentiellement par l’ajout d’un petit nombre d’en-têtes de réponse HTTP (Access-Control-*) à l’application web, cette opération pouvant être effectuée de deux manières.</p>|
 
 ### <a name="example"></a>Exemple
-Si le fichier web.config est accessible, CORS peut être ajouté par le biais du nœud suivant : 
+Si le fichier Web.config est accessible, CORS peut être ajouté par le biais du code suivant : 
 ```XML
 <system.webServer>
     <httpProtocol>
@@ -166,7 +166,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 Notez qu’il est indispensable de s’assurer que la liste d’origines dans l’attribut « Access-Control-Allow-Origin » est définie sur un ensemble d’origines fini et approuvé. Une configuration inappropriée de cet attribut (par exemple, la définition de la valeur "*") autorisera les sites malveillants à adresser des demandes multi-origines à l’application web sans aucune restriction, exposant ainsi l’application à des risques d’attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery). 
 
-## <a name="a-idvalidate-aspnetaenable-validaterequest-attribute-on-aspnet-pages"></a><a id="validate-aspnet"></a>Activer l’attribut ValidateRequest sur les pages ASP.NET
+## <a id="validate-aspnet"></a>Activer l’attribut ValidateRequest sur les pages ASP.NET
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -192,7 +192,7 @@ ou au niveau de l’application :
 ```
 Notez que la fonctionnalité de validation des demandes n’est pas prise en charge et ne fait pas partie intégrante du pipeline MVC6. 
 
-## <a name="a-idlocal-jsause-locally-hosted-latest-versions-of-javascript-libraries"></a><a id="local-js"></a>Utiliser les dernières versions des bibliothèques JavaScript hébergées localement
+## <a id="local-js"></a>Utiliser les dernières versions des bibliothèques JavaScript hébergées localement
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -203,7 +203,7 @@ Notez que la fonctionnalité de validation des demandes n’est pas prise en cha
 | Références              | N/A  |
 | Étapes | <p>Les développeurs ayant recours aux bibliothèques JavaScript standard telles que JQuery doivent utiliser des versions approuvées des bibliothèques JavaScript courantes qui ne présentent aucun défaut de sécurité connu. Une bonne pratique consiste à utiliser la toute dernière version de ces bibliothèques, car ces versions intègrent des correctifs de sécurité pour les vulnérabilités répertoriées dans les versions antérieures.</p><p>Si la version la plus récente n’est pas utilisable pour des raisons de compatibilité, il convient de recourir aux versions minimales ci-dessous.</p><p>Versions minimales acceptables :</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery Validate 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery Cycle 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web Forms et Ajax**<ul><li>ASP.NET Web Forms et Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Ne chargez jamais une bibliothèque JavaScript à partir de sites externes tels que des réseaux de distribution de contenu (CDN) publics.</p>|
 
-## <a name="a-idmime-sniffadisable-automatic-mime-sniffing"></a><a id="mime-sniff"></a>Désactiver la détection MIME automatique
+## <a id="mime-sniff"></a>Désactiver la détection MIME automatique
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -268,7 +268,7 @@ Vous pouvez activer l’en-tête requis uniquement pour des pages spécifiques e
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
-## <a name="a-idstandard-fingeraremove-standard-server-headers-on-windows-azure-web-sites-to-avoid-fingerprinting"></a><a id="standard-finger"></a>Supprimer les en-têtes de serveur standard de l’offre Sites Web Microsoft Azure pour éviter la création d’une empreinte numérique
+## <a id="standard-finger"></a>Supprimer les en-têtes de serveur standard de l’offre Sites Web Microsoft Azure pour éviter la création d’une empreinte numérique
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -279,7 +279,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Références              | [Removing standard server headers on Windows Azure Web Sites (Supprimer les en-têtes de serveur standard de l’offre Sites Web Microsoft Azure)](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) |
 | Étapes | Les en-têtes tels que Server, X-Powered-By et X-AspNet-Version affichent des informations relatives au serveur et aux technologies sous-jacentes. Il est donc recommandé de supprimer ces en-têtes afin d’empêcher la création d’une empreinte numérique de l’application. |
 
-## <a name="a-idfirewall-dbaconfigure-a-windows-firewall-for-database-engine-access"></a><a id="firewall-db"></a>Configurer un pare-feu Windows pour accéder au moteur de base de données
+## <a id="firewall-db"></a>Configurer un pare-feu Windows pour accéder au moteur de base de données
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -290,7 +290,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Références              | [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurer un pare-feu Windows pour accéder au moteur de base de données](https://msdn.microsoft.com/library/ms175043) |
 | Étapes | Les systèmes de pare-feu contribuent à empêcher les accès non autorisés aux ressources informatiques. Pour accéder à une instance du moteur de base de données SQL Server de l’autre côté d’un pare-feu, vous devez configurer le pare-feu sur l’ordinateur exécutant SQL Server de façon à autoriser cet accès. |
 
-## <a name="a-idcors-apiaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur API Web ASP.NET
+## <a id="cors-api"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur API Web ASP.NET
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -478,7 +478,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
     }
 ```
 
-## <a name="a-idconfig-sensitiveaencrypt-sections-of-web-apis-configuration-files-that-contain-sensitive-data"></a><a id="config-sensitive"></a>Chiffrer les sections des fichiers de configuration de l’API Web qui contiennent des données sensibles
+## <a id="config-sensitive"></a>Chiffrer les sections des fichiers de configuration de l’API Web qui contiennent des données sensibles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -489,7 +489,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI (Chiffrement des sections de configuration dans ASP.NET 2.0 à l’aide de DPAPI)](https://msdn.microsoft.com/library/ff647398.aspx), [Spécification d’un fournisseur de configuration protégée](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets (Utilisation d’Azure Key Vault pour protéger la confidentialité de l’application)](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | Étapes | Les fichiers de configuration tels que web.config et appsettings.json sont souvent utilisés pour stocker des informations sensibles, comme les noms d’utilisateur, les mots de passe, les chaînes de connexion de base de données et les clés de chiffrement. Si vous ne protégez pas ces informations, votre application est vulnérable aux attaquants ou aux personnes malveillantes qui veulent obtenir des informations sensibles, comme les noms d’utilisateur et les mots de passe de comptes, les noms de bases de données et les noms de serveurs. Selon le type de déploiement (Azure/local), chiffrez les sections sensibles des fichiers de configuration à l’aide de DPAPI ou de services tels qu’Azure Key Vault. |
 
-## <a name="a-idadmin-strongaensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>S’assurer que toutes les interfaces d’administration sont sécurisées avec des informations d’identification fortes
+## <a id="admin-strong"></a>S’assurer que toutes les interfaces d’administration sont sécurisées avec des informations d’identification fortes
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -500,7 +500,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Toutes les interfaces d’administration exposées par la passerelle d’appareil ou de champ doivent être sécurisées à l’aide d’informations d’identification fortes. Il en est de même pour toutes les autres interfaces exposées telles que WiFi, SSH, Partages de fichiers et FTP. Les mots de passe faibles par défaut ne doivent pas être utilisés. |
 
-## <a name="a-idunknown-exeaensure-that-unknown-code-cannot-execute-on-devices"></a><a id="unknown-exe"></a>S’assurer que le code inconnu ne peut pas s’exécuter sur les appareils
+## <a id="unknown-exe"></a>S’assurer que le code inconnu ne peut pas s’exécuter sur les appareils
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -511,7 +511,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | [Enabling Secure Boot and BitLocker Device Encryption on Windows 10 IoT Core (Activation du démarrage sécurisé et du chiffrement d’appareil BitLocker sur Windows 10 IoT Standard)](https://developer.microsoft.com/windows/iot/win10/sb_bl) |
 | Étapes | Le démarrage sécurisé UEFI contraint le système à autoriser uniquement l’exécution de fichiers binaires signés par une autorité spécifiée. Cette fonctionnalité empêche un code inconnu de s’exécuter sur la plateforme et d’affaiblir potentiellement la sécurisation de cette dernière. Activez le démarrage sécurisé UEFI et restreignez la liste des autorités de certification aux autorités approuvées pour la signature du code. Signez l’ensemble du code déployé sur l’appareil à l’aide de l’une des autorités de confiance. |
 
-## <a name="a-idpartition-iotaencrypt-os-and-additional-partitions-of-iot-device-with-bitlocker"></a><a id="partition-iot"></a>Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de l’appareil IoT avec Bitlocker
+## <a id="partition-iot"></a>Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de l’appareil IoT avec Bitlocker
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -522,7 +522,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Windows 10 IoT Standard implémente une version allégée du chiffrement d’appareil BitLocker, qui dépend fortement de la présence d’un module de plateforme sécurisée (TPM) sur la plateforme, et notamment du protocole preOS nécessaire dans UEFI qui prend les mesures requises. Ces mesures preOS vérifient que le système d’exploitation possède par la suite un enregistrement définitif de son mode de lancement. Chiffrez également les partitions du système d’exploitation à l’aide de Bitlocker, ainsi que toutes les partitions supplémentaires susceptibles de stocker des données sensibles. |
 
-## <a name="a-idmin-enableaensure-that-only-the-minimum-servicesfeatures-are-enabled-on-devices"></a><a id="min-enable"></a>S’assurer que seuls les services/fonctionnalités minimaux sont activés sur les appareils
+## <a id="min-enable"></a>S’assurer que seuls les services/fonctionnalités minimaux sont activés sur les appareils
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -533,7 +533,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Évitez d’activer ou désactivez les fonctionnalités ou services du système d’exploitation qui ne sont pas requis pour le fonctionnement de la solution. Par exemple, si l’appareil ne nécessite pas le déploiement d’une interface utilisateur, installez Windows IoT Standard sans périphérique de contrôle. |
 
-## <a name="a-idfield-bitlockeraencrypt-os-and-additional-partitions-of-iot-field-gateway-with-bitlocker"></a><a id="field-bitlocker"></a>Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de la passerelle de champ IoT avec Bitlocker
+## <a id="field-bitlocker"></a>Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de la passerelle de champ IoT avec Bitlocker
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -544,7 +544,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Windows 10 IoT Standard implémente une version allégée du chiffrement d’appareil BitLocker, qui dépend fortement de la présence d’un module de plateforme sécurisée (TPM) sur la plateforme, et notamment du protocole preOS nécessaire dans UEFI qui prend les mesures requises. Ces mesures preOS vérifient que le système d’exploitation possède par la suite un enregistrement définitif de son mode de lancement. Chiffrez également les partitions du système d’exploitation à l’aide de Bitlocker, ainsi que toutes les partitions supplémentaires susceptibles de stocker des données sensibles. |
 
-## <a name="a-iddefault-changeaensure-that-the-default-login-credentials-of-the-field-gateway-are-changed-during-installation"></a><a id="default-change"></a>S’assurer que les informations d’identification de connexion par défaut de la passerelle de champ sont modifiées lors de l’installation
+## <a id="default-change"></a>S’assurer que les informations d’identification de connexion par défaut de la passerelle de champ sont modifiées lors de l’installation
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -555,18 +555,18 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Assurez-vous que les informations d’identification de connexion par défaut de la passerelle de champ sont modifiées lors de l’installation. |
 
-## <a name="a-idcloud-firmwareaensure-that-the-cloud-gateway-implements-a-process-to-keep-the-connected-devices-firmware-up-to-date"></a><a id="cloud-firmware"></a>S’assurer que la passerelle cloud implémente un processus garantissant la mise à jour continue du micrologiciel des appareils connectés
+## <a id="cloud-firmware"></a>S’assurer que la passerelle cloud implémente un processus garantissant la mise à jour continue du micrologiciel des appareils connectés
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| Composant               | Passerelle cloud IoT | 
+| Composant               | Passerelle de cloud IoT | 
 | Phase SDL               | Créer |  
 | Technologies applicables | Générique |
 | Attributs              | Choix de passerelle - Azure IoT Hub |
 | Références              | [Vue d’ensemble de la gestion des appareils avec IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware (Mise à jour du micrologiciel des appareils)](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
 | Étapes | LWM2M est un protocole défini par l’organisme Open Mobile Alliance pour la gestion des appareils IoT. La gestion des appareils IoT Azure permet d’interagir avec les appareils physiques à l’aide de travaux d’appareil. Assurez-vous que la passerelle cloud implémente un processus pour garantir la mise à jour continue des données de l’appareil et d’autres données de configuration à l’aide de la gestion des appareils Azure IoT Hub. |
 
-## <a name="a-idcontrols-policiesaensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>S’assurer que les appareils disposent de contrôles de sécurité des points de terminaison configurés conformément aux directives organisationnelles
+## <a id="controls-policies"></a>S’assurer que les appareils disposent de contrôles de sécurité des points de terminaison configurés conformément aux directives organisationnelles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -577,7 +577,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | N/A  |
 | Étapes | Assurez-vous que les appareils disposent de contrôles de sécurité pour les points de terminaison, tels que l’outil BitLocker pour le chiffrement au niveau disque, un antivirus avec des signatures mises à jour, un pare-feu basé sur l’hôte, des mises à niveau du système d’exploitation, des stratégies de groupe, etc., qui sont configurés conformément aux stratégies de sécurité organisationnelles. |
 
-## <a name="a-idsecure-keysaensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Garantir une gestion sécurisée des clés d’accès de stockage Azure
+## <a id="secure-keys"></a>Garantir une gestion sécurisée des clés d’accès de stockage Azure
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -588,7 +588,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | [Guide de sécurité de Stockage Azure - Gestion des clés de compte de stockage](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
 | Étapes | <p>Stockage des clés : il est recommandé de stocker les clés d’accès du service Stockage Azure dans Azure Key Vault sous la forme d’un secret et de demander aux applications de récupérer la clé à partir d’Azure Key Vault. Cette approche est recommandée pour les raisons suivantes :</p><ul><li>L’application ne disposera jamais de la clé de stockage codée en dur dans un fichier de configuration, ce qui rend impossible l’accès aux clés par une personne sans autorisation spécifique.</li><li>L’accès aux clés peut être contrôlé à l’aide d’Azure Active Directory. Cela signifie que le propriétaire d’un compte peut accorder l’accès aux seules applications qui doivent récupérer les clés à partir d’Azure Key Vault. Les autres applications ne pourront pas accéder aux clés sans avoir bénéficié d’une autorisation en particulier.</li><li>Régénération des clés : il est recommandé de mettre en place un processus de régénération des clés d’accès de stockage Azure pour des raisons de sécurité. Des informations détaillées sur les motifs et la procédure de planification d’une régénération des clés sont fournies dans l’article de référence du Guide de sécurité du service Stockage Azure.</li></ul>|
 
-## <a name="a-idcors-storageaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur le stockage Azure
+## <a id="cors-storage"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur le stockage Azure
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -599,7 +599,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | Références              | [CORS Support for the Azure Storage Services (Prise en charge du mécanisme Partage des ressources multi-origines (CORS) pour les services Stockage Azure)](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
 | Étapes | Azure Storage vous permet d’activer le Partage des ressources cross-origin (CORS, Cross Origin Resource Sharing). Pour chaque compte de stockage, vous pouvez spécifier les domaines qui peuvent accéder aux ressources de ce compte de stockage. Par défaut, CORS est désactivé sur tous les services. Vous pouvez activer CORS à l’aide de l’API REST ou de la bibliothèque cliente de stockage afin d’appeler l’une des méthodes pour définir les stratégies de service. |
 
-## <a name="a-idthrottlingaenable-wcfs-service-throttling-feature"></a><a id="throttling"></a>Activer la fonctionnalité de limitation de service WCF
+## <a id="throttling"></a>Activer la fonctionnalité de limitation de service WCF
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -622,7 +622,7 @@ Voici un exemple de configuration dans lequel la limitation est activée :
 </system.serviceModel> 
 ```
 
-## <a name="a-idinfo-metadataawcf-information-disclosure-through-metadata"></a><a id="info-metadata"></a>Divulgation d’informations WCF par le biais des métadonnées
+## <a id="info-metadata"></a>Divulgation d’informations WCF par le biais des métadonnées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -651,3 +651,4 @@ smb.HttpGetEnabled = false;
 smb.HttpGetUrl = new Uri(EndPointAddress); 
 Host.Description.Behaviors.Add(smb);
 ```
+

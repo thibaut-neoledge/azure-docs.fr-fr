@@ -1,6 +1,6 @@
 ---
 title: "Modèles de mise en réseau d’Azure Service Fabric | Microsoft Docs"
-description: "Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster à l’aide des fonctionnalités de mise en réseau d’Azure."
+description: "Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster avec les fonctionnalités de mise en réseau d’Azure."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,38 +15,40 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 030114fa1ea9b76c0ed48baeffb8859260fc8e52
-ms.openlocfilehash: 78012ae1552c01690b0ad5b1285173ef9faf12bc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
-L’une des questions que nous avons constatées le plus souvent lors de la création de clusters Service Fabric concerne l’intégration du cluster avec différentes fonctionnalités de mise en réseau Azure.  Cet article explique comment créer des clusters à l’aide des fonctionnalités suivantes :
+Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
 
-- [Réseau virtuel / sous-réseau existant](#existingvnet)
+- [Réseau virtuel ou sous-réseau existant](#existingvnet)
 - [Adresse IP publique statique](#staticpublicip)
 - [Équilibreur de charge interne uniquement](#internallb)
-- [Équilibreur de charge interne + externe](#internalexternallb)
+- [Équilibreur de charge interne et externe](#internalexternallb)
 
-Il est important de garder à l’esprit que Service Fabric s’exécute dans un groupe de machines virtuelles identiques standard : par conséquent, toutes les fonctionnalités que vous pouvez utiliser dans un groupe de machines virtuelles identiques peuvent également être utilisées avec un cluster Service Fabric. Les parties du modèle Resource Manager qui concernent la mise en réseau sont identiques.  Et, une fois que vous avez effectué le déploiement dans un réseau virtuel existant, il est facile d’intégrer d’autres fonctionnalités de mise en réseau, comme ExpressRoute, la passerelle VPN, le groupe de sécurité réseau (NSG) et l’homologation du réseau virtuel.
+Service Fabric s’exécute dans un groupe de machines virtuelles identiques standard. Toutes les fonctionnalités que vous pouvez utiliser dans un groupe de machines virtuelles identiques sont utilisables avec un cluster Service Fabric. Les sections de mise en réseau des modèles Azure Resource Manager pour Service Fabric et les groupes de machines virtuelles identiques sont strictement les mêmes. Après avoir effectué le déploiement sur un réseau virtuel existant, il est facile d’intégrer d’autres fonctionnalités de mise en réseau, comme Azure ExpressRoute, la passerelle VPN Azure, un groupe de sécurité réseau et l’homologation de réseau virtuel.
 
-Le seul aspect spécifique de Service Fabric est le fait que le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric (SFRP) pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications.  SFRP requiert un accès entrant accessible publiquement au port de la passerelle HTTP (19080 par défaut) sur le point de terminaison de gestion, utilisé par [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pour gérer votre cluster. Ce port est également utilisé par le fournisseur de ressources Service Fabric pour demander des informations sur votre cluster à des fins d’affichage sur le Portail Azure.  Si ce port n’est pas accessible à partir de SFRP, un message du type « Nœuds introuvables » s’affiche sur le Portail de gestion et votre liste de nœuds et d’applications apparaît vide.  Si vous souhaitez avoir une certaine visibilité dans votre cluster par le biais du Portail Azure, votre équilibreur de charge doit exposer une adresse IP publique et votre groupe de sécurité réseau doit autoriser le trafic 19080 entrant.  Si vous ne respectez pas ces conditions, le Portail Azure n’affiche pas l’état actuel de votre cluster.  Dans le cas contraire, votre cluster n’est pas affecté et vous pouvez utiliser [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pour obtenir l’état actuel, ce qui peut être une limitation acceptable en fonction de vos impératifs de mise en réseau.  Il s’agit d’une limitation temporaire que nous prévoyons de supprimer dans une mise à jour ultérieure, qui prévoira que votre cluster pourra être inaccessible publiquement sans perte de fonctionnalités du Portail de gestion.
+Service Fabric se distingue d’autres fonctionnalités de mise en réseau sur un aspect. Le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications. Le fournisseur de ressources Service Fabric requiert un accès entrant accessible publiquement au port de la passerelle HTTP (port 19080, par défaut) sur le point de terminaison de gestion. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utilise le point de terminaison de gestion pour gérer votre cluster. Le fournisseur de ressources Service Fabric utilise également ce port pour demander des informations sur votre cluster, à afficher sur le Portail Azure. 
+
+Si le port 190980 n’est pas accessible à partir du fournisseur de ressources Service Fabric, un message du type *Nœuds introuvables* apparaît sur le portail, et votre liste de nœuds et d’applications apparaît vide. Si vous souhaitez voir votre cluster sur le Portail Azure, votre équilibreur de charge doit exposer une adresse IP publique et votre groupe de sécurité réseau doit autoriser le trafic entrant du port 19080. Si votre configuration ne respecte pas ces conditions, le Portail Azure n’affiche pas l’état de votre cluster.
 
 ## <a name="templates"></a>Modèles
 
-Tous les modèles se trouvent [ici](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Vous devriez pouvoir déployer les modèles tels quels avec les commandes PowerShell suivantes.  Si vous déployez le modèle de réseau virtuel existant ou le modèle d’adresse IP publique statique, veillez à parcourir la section [Configuration initiale](#initialsetup) au préalable.
+Tous les modèles Service Fabric se trouvent dans [un même fichier de téléchargement](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Vous devriez pouvoir déployer les modèles tels quels avec les commandes PowerShell suivantes. Si vous déployez le modèle de réseau virtuel Azure existant ou le modèle d’adresse IP publique statique, commencez par lire la section [Configuration initiale](#initialsetup) de cet article.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configuration initiale
 
 ### <a name="existing-virtual-network"></a>Réseau virtuel existant
 
-Commençons avec un réseau virtuel existant nommé « ExistingRG-vnet » dans le groupe de ressources *ExistingRG*, avec un sous-réseau nommé « default ».  Il s’agit des ressources par défaut, créées lors de l’élaboration d’une machine virtuelle standard avec le Portail Azure.  Vous pouvez également créer le réseau virtuel et le sous-réseau sans créer de machine virtuelle. Cependant, l’objectif principal de l’ajout d’un cluster à un réseau virtuel existant est de fournir une connectivité réseau à d’autres machines virtuelles. Par conséquent, la création de la machine virtuelle donne un exemple concret d’utilisation courante.  Si votre cluster Service Fabric utilise seulement un équilibreur de charge interne sans adresse IP publique, la machine virtuelle avec son adresse IP publique peut également être utilisée comme jump box.
+Dans l’exemple suivant, nous commençons avec un réseau virtuel existant nommé ExistingRG-vnet, dans le groupe de ressources **ExistingRG**. Le sous-réseau est nommé default. Ces ressources par défaut sont créées lors de l’élaboration d’une machine virtuelle standard avec le Portail Azure. Vous pouvez créer le réseau virtuel et le sous-réseau sans créer la machine virtuelle, mais l’objectif principal de l’ajout d’un cluster à un réseau virtuel existant est de fournir une connectivité réseau à d’autres machines virtuelles. La création de la machine virtuelle offre un bon exemple d’utilisation courante d’un réseau virtuel existant. Si votre cluster Service Fabric utilise seulement un équilibreur de charge interne sans adresse IP publique, vous pouvez utiliser la machine virtuelle et son adresse IP publique comme *jump box* sécurisée.
 
 ### <a name="static-public-ip-address"></a>Adresse IP publique statique
 
-Une adresse IP publique statique est généralement une ressource dédiée, gérée de façon distincte de la ou des machines virtuelles auxquelles elle est affectée. Par conséquent, elle est approvisionnée dans un groupe de ressources réseau dédié (et non au sein du groupe de ressources du cluster Service Fabric proprement dit).  Créez une adresse IP publique statique nommée « staticIP1 » dans le même groupe de ressources *ExistingRG*, avec soit le Portail Azure soit PowerShell :
+Une adresse IP publique statique est généralement une ressource dédiée gérée de façon distincte de la ou des machines virtuelles auxquelles elle est affectée. Elle est approvisionnée dans un groupe de ressources réseau dédié (et non dans le groupe de ressources du cluster Service Fabric proprement dit). Créez une adresse IP publique statique nommée staticIP1 dans le même groupe de ressources ExistingRG, soit sur le Portail Azure soit avec PowerShell :
 
 ```powershell
 PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
@@ -72,14 +74,12 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modèle Service Fabric
 
-Utilisons le modèle Service Fabric template.json, téléchargeable sur le portail, avant de créer un cluster à l’aide de l’Assistant du portail standard. Vous pouvez également utiliser l’un des modèles de la [galerie de modèles](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), comme le [Cluster Service Fabric à cinq nœuds](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+Dans les exemples de cet article, nous utilisons le modèle Service Fabric template.json. Vous pouvez utiliser l’Assistant du portail standard pour télécharger le modèle sur le portail avant de créer un cluster. Vous pouvez également utiliser l’un des modèles de la [galerie de modèles](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), comme le [cluster Service Fabric à cinq nœuds](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
-## <a name="existing-virtual-networksubnet"></a>Réseau virtuel / sous-réseau existant
+## <a name="existing-virtual-network-or-subnet"></a>Réseau virtuel ou sous-réseau existant
 
-[24 janvier 2016 : il existe un autre exemple, qui sort du champ d’application de Service Fabric, à l’adresse [https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet)]
-
-1. Modifiez le paramètre du sous-réseau et donnez-lui le nom du sous-réseau existant, puis ajoutez deux nouveaux paramètres pour référencer le réseau virtuel existant :
+1. Modifiez le paramètre du sous-réseau et donnez-lui le nom du sous-réseau existant, puis ajoutez deux nouveaux paramètres pour faire référence au réseau virtuel existant :
 
     ```
         "subnet0Name": {
@@ -107,14 +107,14 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     ```
 
 
-2. Modifiez la variable *vnetID* pour qu’elle pointe vers le réseau virtuel existant :
+2. Modifiez la variable `vnetID` pour qu’elle pointe vers le réseau virtuel existant :
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. Supprimez *Microsoft.Network/virtualnetworks* des Ressources afin d’éviter qu’Azure ne crée un nouveau réseau virtuel :
+3. Supprimez `Microsoft.Network/virtualNetworks` de vos ressources, afin qu’Azure ne crée pas de nouveau réseau virtuel :
 
     ```
     /*{
@@ -144,7 +144,7 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     },*/
     ```
 
-4. Mettez en commentaire le réseau virtuel dans l’attribut *dependsOn* de *Microsoft.Compute/virtualMachineScaleSets* afin d’éviter de dépendre de la création d’un nouveau réseau virtuel :
+4. Commentez le réseau virtuel à partir de l’attribut `dependsOn` de `Microsoft.Compute/virtualMachineScaleSets`, de façon à ne pas dépendre de la création d’un réseau virtuel :
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -165,17 +165,20 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
-    Après le déploiement, votre réseau virtuel doit inclure les nouvelles machines virtuelles du groupe identique et le type de nœud du groupe de machines virtuelles identiques doit afficher le réseau virtuel et le sous-réseau existants.  Vous pouvez également vous connecter par RDP à la machine virtuelle existante qui était déjà dans le réseau virtuel et exécuter une commande ping sur les nouvelles machines virtuelles du groupe identique :
+    Après le déploiement, votre réseau virtuel doit normalement inclure les nouvelles machines virtuelles du groupe identique. Le type de nœud du groupe de machines virtuelles identiques doit afficher le réseau virtuel et le sous-réseau existants. Vous pouvez également utiliser le protocole RDP (Remote Desktop) pour accéder à la machine virtuelle qui était déjà dans le réseau virtuel, et exécuter une commande ping sur les nouvelles machines virtuelles du groupe identique :
 
     ```
     C:>\Users\users>ping 10.0.0.5 -n 1
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
+Vous pouvez également consulter un [exemple qui n’est pas propre à Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+
+
 <a id="staticpublicip"></a>
 ## <a name="static-public-ip-address"></a>Adresse IP publique statique
 
-1. Ajoutez les paramètres du groupe de ressources d’adresses IP statiques existant, du nom et du nom de domaine complet :
+1. Ajoutez les paramètres du groupe de ressources d’adresses IP statiques existant, du nom et du nom de domaine complet (FQDN) :
 
     ```
     "existingStaticIPResourceGroup": {
@@ -189,23 +192,23 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     }
     ```
 
-2. Supprimez le paramètre *dnsName*, étant donné que l’adresse IP statique en a déjà un :
+2. Supprimez le paramètre `dnsName`. (L’adresse IP statique en comporte déjà un.)
 
     ```
     /*
     "dnsName": {
         "type": "string"
-    }, 
+    },
     */
     ```
 
-3. Ajoutez une variable pour référencer l’adresse IP statique existante :
+3. Ajoutez une variable pour faire référence à l’adresse IP statique existante :
 
     ```
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
-4. Supprimez *Microsoft.Network/publicIPAddresses* des *Ressources* afin d’éviter qu’Azure ne crée une nouvelle adresse IP :
+4. Supprimez `Microsoft.Network/publicIPAddresses` de vos ressources, afin qu’Azure ne crée pas de nouvelle adresse IP :
 
     ```
     /*
@@ -227,7 +230,7 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     }, */
     ```
 
-5. Mettez en commentaire l’adresse IP dans l’attribut *dependsOn* de *Microsoft.Network/loadBalancers* afin d’éviter de dépendre de la création d’une nouvelle adresse IP :
+5. Commentez l’adresse IP à partir de l’attribut `dependsOn` de `Microsoft.Network/loadBalancers`, de façon à ne pas dépendre de la création d’une adresse IP :
 
     ```
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -241,7 +244,7 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
     "properties": {
     ```
 
-6. Modifiez l’élément *publicIPAddress* de *frontendIPConfigurations* dans la ressource *Microsoft.Network/loadBalancers* pour référencer l’adresse IP statique existante au lieu d’une adresse IP nouvellement créée :
+6. Dans la ressource `Microsoft.Network/loadBalancers`, modifiez l’élément `publicIPAddress` de `frontendIPConfigurations` pour faire référence à l’adresse IP statique existante au lieu d’une adresse nouvellement créée :
 
     ```
                 "frontendIPConfigurations": [
@@ -257,7 +260,7 @@ Utilisons le modèle Service Fabric template.json, téléchargeable sur le porta
                     ],
     ```
 
-7. Remplacez *managementEndpoint* dans la ressource *Microsoft.ServiceFabric/clusters* par le nom de domaine complet du DNS de l’adresse IP statique.  **Si vous utilisez un cluster sécurisé, veillez à remplacer « http:// » par « https:// ».** (Remarque : Cette instruction vaut uniquement pour les clusters Service Fabric.  Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape) :
+7. Dans la ressource `Microsoft.ServiceFabric/clusters`, remplacez `managementEndpoint` par le nom de domaine complet du DNS de l’adresse IP statique. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```
                     "fabricSettings": [],
@@ -282,9 +285,9 @@ Après le déploiement, votre équilibreur de charge est lié à l’adresse IP 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Équilibreur de charge interne uniquement
 
-Ce scénario remplace l’équilibreur de charge externe dans le modèle Service Fabric par défaut par un équilibreur de charge interne uniquement.  Consultez la section précédente pour connaître les implications pour le Portail Azure et SFRP.
+Ce scénario remplace l’équilibreur de charge externe dans le modèle Service Fabric par défaut par un équilibreur de charge interne uniquement. Pour connaître les implications pour le Portail Azure et le fournisseur de ressources Service Fabric, consultez la section précédente.
 
-1. Supprimez le paramètre *dnsName*, qui n’est pas nécessaire :
+1. Supprimez le paramètre `dnsName`. (Il n’est pas nécessaire.)
 
     ```
     /*
@@ -294,7 +297,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
     */
     ```
 
-2. Ajoutez éventuellement un paramètre d’adresse IP statique, si vous utilisez la méthode d’allocation statique. Si vous utilisez la méthode d’allocation dynamique, ce n’est pas nécessaire :
+2. Si vous utilisez une méthode d’allocation statique, vous pouvez éventuellement ajouter un paramètre d’adresse IP statique. Si vous utilisez une méthode d’allocation dynamique, il n’est pas nécessaire d’effectuer cette étape.
 
     ```
             "internalLBAddress": {
@@ -303,7 +306,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
             }
     ```
 
-3. Supprimez *Microsoft.Network/publicIPAddresses* des Ressources afin d’éviter qu’Azure ne crée une nouvelle adresse IP :
+3. Supprimez `Microsoft.Network/publicIPAddresses` de vos ressources, afin qu’Azure ne crée pas de nouvelle adresse IP :
 
     ```
     /*
@@ -325,7 +328,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
     }, */
     ```
 
-4. Supprimez l’attribut *dependsOn* de l’adresse IP de *Microsoft.Network/loadBalancers* afin d’éviter de dépendre de la création d’une nouvelle adresse IP.  Ajoutez l’attribut *dependsOn* de réseau virtuel, étant donné que l’équilibreur de charge dépend désormais du sous-réseau du réseau virtuel :
+4. Supprimez l’attribut `dependsOn` de l’adresse IP de `Microsoft.Network/loadBalancers`, de façon à ne pas dépendre de la création d’une adresse IP. Ajoutez l’attribut `dependsOn` du réseau virtuel, car l’équilibreur de charge dépend à présent du sous-réseau du réseau virtuel :
 
     ```
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -338,7 +341,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
                 ],
     ```
 
-5. Modifiez les configurations *frontendIPConfigurations* de l’équilibreur de charge : remplacez l’utilisation d’une *publicIPAddress* par l’utilisation d’un sous-réseau et d’une *privateIPAddress*, qui utilise une adresse IP interne statique prédéfinie.  Vous pouvez utiliser une adresse IP dynamique en supprimant l’élément *privateIPAddress* et en donnant la valeur « Dynamic » à *privateIPAllocationMethod*.
+5. Modifiez le paramètre `frontendIPConfigurations` de l’équilibreur de charge : remplacez l’utilisation d’une `publicIPAddress` par l’utilisation d’un sous-réseau et d’une `privateIPAddress`. `privateIPAddress` utilise une adresse IP interne statique prédéfinie. Pour utiliser une adresse IP dynamique, supprimez l’élément `privateIPAddress`, puis donnez la valeur **Dynamic** à `privateIPAllocationMethod`.
 
     ```
                 "frontendIPConfigurations": [
@@ -359,7 +362,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
                     ],
     ```
 
-6. Dans la ressource *Microsoft.ServiceFabric/clusters*, modifiez *managementEndpoint* pour qu’il pointe vers l’adresse de l’équilibreur de charge interne.  **Si vous utilisez un cluster sécurisé, veillez à remplacer « http:// » par « https:// ».** (Remarque : Cette instruction vaut uniquement pour les clusters Service Fabric.  Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape) :
+6. Dans la ressource `Microsoft.ServiceFabric/clusters`, modifiez `managementEndpoint` pour qu’il pointe vers l’adresse de l’équilibreur de charge interne. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```
                     "fabricSettings": [],
@@ -375,16 +378,16 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-Après le déploiement, votre équilibreur de charge utilise l’adresse IP statique privée 10.0.0.250. Si vous disposez d’une autre machine dans ce même réseau virtuel, vous pouvez également accéder au point de terminaison [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) interne et vérifier qu’il se connecte à un des nœuds derrière l’équilibreur de charge.
+Après le déploiement, votre équilibreur de charge utilise l’adresse IP statique privée 10.0.0.250. Si vous avez un autre ordinateur dans le même réseau virtuel, vous pouvez accéder au point de terminaison [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) interne. Notez qu’il se connecte à l’un des nœuds derrière l’équilibreur de charge.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Équilibreur de charge interne et externe
 
-Ce scénario prend l’équilibreur de charge externe à type de nœud unique existant et ajoute un équilibreur de charge interne supplémentaire pour le même type de nœud.  Un port back-end associé à un pool d’adresses back-end ne peut être affecté qu’à un seul équilibreur de charge : vous devez donc décider quel équilibreur de charge doit avoir les ports de votre application et lequel doit avoir vos points de terminaison de gestion (port 19000/19080).  Gardez à l’esprit les restrictions SFRP ci-dessus si vous décidez de mettre les points de terminaison de gestion sur l’équilibreur de charge interne.  Cet exemple conserve les points de terminaison de gestion sur l’équilibreur de charge externe. Il ajoute un port 80 d’application et le place sur l’équilibreur de charge interne.
+Dans ce scénario, vous commencez avec l’équilibreur de charge externe à type de nœud unique existant et vous ajoutez un équilibreur de charge interne pour le même type de nœud. Un port back-end associé à un pool d’adresses back-end ne peut être affecté qu’à un seul équilibreur de charge. Choisissez quel équilibreur de charge doit avoir vos ports d’application et lequel doit avoir vos points de terminaison de gestion (ports 19000 et 19080). Si vous placez les points de terminaison de gestion sur l’équilibreur de charge interne, gardez à l’esprit les restrictions du fournisseur de ressources Service Fabric décrites précédemment dans cet article. Dans l’exemple que nous utilisons, les points de terminaison de gestion restent sur l’équilibreur de charge externe. Vous ajoutez également un port d’application 80 et le placez sur l’équilibreur de charge interne.
 
-Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreur de charge externe et l’autre sur l’équilibreur de charge interne, prenez simplement le modèle à deux types de nœuds créé sur le portail (fourni avec deux équilibreurs de charge) et faites du deuxième équilibreur de charge un équilibreur de charge interne suivant la section « Équilibreur de charge interne uniquement » ci-dessus.
+Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’équilibreur de charge externe. L’autre type de nœud est sur l’équilibreur de charge interne. Pour utiliser un cluster à deux types de nœuds, modifiez le deuxième équilibreur de charge en équilibreur de charge interne dans le modèle à deux types de nœuds créé sur le portail (fourni avec deux équilibreurs de charge). Pour plus d’informations, consultez la section [Équilibreur de charge interne uniquement](#internallb).
 
-1. Ajoutez le paramètre d’adresse IP de l’équilibreur de charge interne statique (consultez les remarques ci-dessus si vous souhaitez une adresse IP dynamique) :
+1. Ajoutez le paramètre d’adresse IP statique de l’équilibreur de charge interne. (Pour lire les notes portant sur l’utilisation d’une adresse IP dynamique, consultez les sections précédentes de cet article.)
 
     ```
             "internalLBAddress": {
@@ -393,22 +396,22 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
             }
     ```
 
-2. Ajoutez le paramètre port d’application 80 :
+2. Ajoutez un paramètre port d’application 80.
 
-3. Ajoutez des versions internes des variables de mise en réseau existantes en effectuant un copier/coller et en ajoutant « -Int » aux noms :
+3. Pour ajouter des versions internes des variables de mise en réseau existantes, copiez et collez-les et ajoutez « -Int » au nom :
 
     ```
-    /* Add internal LB networking variables */
+    /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
             "lbPoolID0-Int": "[concat(variables('lbID0-Int'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
             "lbProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricGatewayProbe')]",
             "lbHttpProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricHttpGatewayProbe')]",
             "lbNatPoolID0-Int": "[concat(variables('lbID0-Int'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
-            /* internal LB networking variables end */
+            /* Internal load balancer networking variables end */
     ```
 
-4. Si vous commencez avec le modèle généré par le portail et avec un port d’application 80, le modèle du portail par défaut ajoute *AppPort1* (port 80) sur l’équilibreur de charge externe.  Dans ce cas, supprimez-le des sondes et des règles *loadBalancingRules* de l’équilibreur de charge externe pour pouvoir l’ajouter à l’équilibreur de charge interne :
+4. Si vous commencez avec le modèle généré par le portail qui utilise le port d’application 80, le modèle du portail par défaut ajoute AppPort1 (port 80) sur l’équilibreur de charge externe. Dans ce cas, supprimez AppPort1 des sondes et des règles `loadBalancingRules` de l’équilibreur de charge externe pour pouvoir l’ajouter à l’équilibreur de charge interne :
 
     ```
     "loadBalancingRules": [
@@ -430,7 +433,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
                 },
                 "protocol": "tcp"
             }
-        } /* remove the AppPort1 from the external LB,
+        } /* Remove AppPort1 from the external load balancer.
         {
             "name": "AppPortLBRule1",
             "properties": {
@@ -454,7 +457,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
     ],
     "probes": [
         {
-            "name": "FabricGatewayProbe", 
+            "name": "FabricGatewayProbe",
             "properties": {
                 "intervalInSeconds": 5,
                 "numberOfProbes": 2,
@@ -470,7 +473,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
                 "port": "[parameters('nt0fabricHttpGatewayPort')]",
                 "protocol": "tcp"
             }
-        } /* remove the AppPort1 from the external LB,,
+        } /* Remove AppPort1 from the external load balancer.
         {
             "name": "AppPortProbe1",
             "properties": {
@@ -481,18 +484,18 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
             }
         } */
 
-    ], 
+    ],
     "inboundNatPools": [
     ```
 
-5. Ajoutez une deuxième ressource *Microsoft.Network/loadBalancers*, très similaire à l’équilibreur de charge interne créé dans la section précédente [Équilibreur de charge interne uniquement](#internallb), mais qui utilise les variables d’équilibreur de charge « -Int » et implémente uniquement le port d’application 80.  Cela supprime également *inboundNatPools* afin de conserver les points de terminaison RDP sur l’équilibreur de charge public ; pour qu’ils soient dans l’équilibreur de charge interne, déplacez *inboundNatPools* de l’équilibreur de charge externe vers cet équilibreur de charge interne.
+5. Ajoutez une deuxième ressource `Microsoft.Network/loadBalancers`. Elle ressemble à l’équilibreur de charge interne créé dans la section [Équilibreur de charge interne uniquement](#internallb), mais utilise les variables d’équilibreur de charge « -Int » et implémente uniquement le port d’application 80. Cela supprime également `inboundNatPools`, de façon à maintenir les points de terminaison RDP sur l’équilibreur de charge public. Pour qu’ils soient sur l’équilibreur de charge interne, déplacez `inboundNatPools` de l’équilibreur de charge externe vers cet équilibreur de charge interne :
 
     ```
-            /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" LB variables */
+            /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
-                /* Add '-Internal' to name */
+                /* Add "-Internal" to the name. */
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal')]",
                 "location": "[parameters('computeLocation')]",
                 "dependsOn": [
@@ -527,7 +530,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
                         }
                     ],
                     "loadBalancingRules": [
-                        /* Add the AppPort rule, making sure to reference the "-Int" versions of the backendAddressPool, frontendIPConfiguration, and probe variables */
+                        /* Add the AppPort rule. Be sure to reference the "-Int" versions of backendAddressPool, frontendIPConfiguration, and the probe variables. */
                         {
                             "name": "AppPortLBRule1",
                             "properties": {
@@ -549,7 +552,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
                         }
                     ],
                     "probes": [
-                    /* Add the probe for the app port */
+                    /* Add the probe for the app port. */
                     {
                             "name": "AppPortProbe1",
                             "properties": {
@@ -570,7 +573,7 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
             },
     ```
 
-6. Dans le profil *networkProfile* de la ressource *Microsoft.Compute/virtualMachineScaleSets*, ajoutez le pool d’adresses back-end interne :
+6. Dans le `networkProfile` de la ressource `Microsoft.Compute/virtualMachineScaleSets`, ajoutez le pool d’adresses back-end interne :
 
     ```
     "loadBalancerBackendAddressPools": [
@@ -592,8 +595,8 @@ Si vous souhaitez un cluster à deux types de nœuds, l’un sur l’équilibreu
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources ; si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (port 19000/19080) affectés à l’adresse IP publique, ainsi que l’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne, de même que les deux équilibreurs de charge utilisant le même pool back-end de groupe de machines virtuelles identiques.
+Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez intégrer des clusters Service Fabric avec les fonctionnalités de mise en réseau d’Azure, [créez un cluster](service-fabric-cluster-creation-via-arm.md). 
+[Créer un cluster](service-fabric-cluster-creation-via-arm.md)
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
-ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -37,8 +38,8 @@ Les fichiers de l'élément multimédia sont appelés **fichiers d'élément mul
 > 
 > * Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de streaming (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un ’.’ pour l’extension de nom de fichier.
 > * La longueur du nom ne doit pas dépasser 260 caractères.
-> * Une limite est appliquée à la taille maximale de fichier prise en charge pour le traitement dans Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur la taille limite des fichiers.
->
+> * Une limite est appliquée à la taille maximale de fichier prise en charge pour le traitement dans Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur les limites de taille des fichiers.
+> * Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 > 
 
 Lorsque vous créez des éléments multimédias, vous pouvez spécifier les options de chiffrement suivantes : 
@@ -60,13 +61,8 @@ Si votre élément multimédia est chiffré avec l'option **StorageEncrypted**, 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET, ainsi que les extensions du SDK Media Services pour .NET, pour charger des fichiers vers un élément multimédia Media Services.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Téléchargement d’un fichier unique avec le Kit de développement logiciel (SDK) .NET de Media Services
-L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .NET pour effectuer les tâches suivantes : 
+L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .NET pour charger un fichier unique. AccessPolicy et Locator sont créés et détruits par la fonction de chargement. 
 
-* création d’un élément multimédia vide ;
-* Création d'une instance AssetFile que nous voulons associer à l'élément multimédia.
-* Création d'une instance AccessPolicy qui définit les autorisations et la durée de l'accès à l'élément multimédia.
-* Création d'une instance Locator qui fournit l'accès à l'élément multimédia.
-* chargement d’un seul fichier multimédia dans Media Services. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -77,29 +73,18 @@ L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Téléchargement de plusieurs fichiers avec le Kit de développement logiciel (SDK) .NET de Media Services
 Le code qui suit présente la création d’un élément multimédia et le chargement de plusieurs fichiers.
@@ -182,7 +167,7 @@ Lorsque vous téléchargez un grand nombre d'éléments multimédias, prenez en 
 * Augmentez la valeur par défaut (2) de NumberOfConcurrentTransfers à une valeur supérieure à 5. Cette propriété affecte toutes les instances de **CloudMediaContext**. 
 * Conservez la valeur par défaut de 10 pour ParallelTransferThreadCount.
 
-## <a name="a-idingestinbulkaingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Réception d’éléments multimédias en bloc à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+## <a id="ingest_in_bulk"></a>Réception d’éléments multimédias en bloc à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 Le téléchargement de fichiers multimédias volumineux peut entraîner un goulot d’étranglement lors de la création de l'élément multimédia. La réception des éléments multimédias en bloc ou « réception en bloc » implique de découpler la création des éléments multimédias du processus de téléchargement. Pour utiliser une approche de réception en bloc, créez un manifeste (IngestManifest) qui décrit l'élément multimédia et ses fichiers associés. Utilisez ensuite la méthode de téléchargement de votre choix pour télécharger les fichiers associés sur le conteneur d’objets blob du manifeste. Microsoft Azure Media Services surveille le conteneur d’objets blob associé au manifeste. Une fois qu’un fichier est téléchargé vers le conteneur d’objets blob, Microsoft Azure Media Services termine la création des éléments multimédias selon la configuration de l'élément multimédia du manifeste (IngestManifestAsset).
 
 Pour créer un IngestManifest, appelez la méthode Create exposée par la collection IngestManifests sur le CloudMediaContext. Cette méthode crée un IngestManifest avec le nom de manifeste que vous fournissez.
@@ -314,10 +299,5 @@ Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche 
 Après avoir chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d’un processeur multimédia][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
-ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: be485debb4d8a2d1f64e1752bc204f1634d53c97
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -89,14 +90,11 @@ Vous pouvez consulter la [page de documentation de Power BI Embedded](http://go.
 Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez approvisionner Power BI Embedded directement à partir du portail Azure.  Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez approvisionné le service Power BI Embedded, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le kit de développement logiciel (SDK) disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
 
 ## <a name="see-also"></a>Voir aussi
-* [Présentation de Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-* [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
+[Qu’est-ce que Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+[Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+[Prise en main avec un exemple](power-bi-embedded-get-started-sample.md)   
+[Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

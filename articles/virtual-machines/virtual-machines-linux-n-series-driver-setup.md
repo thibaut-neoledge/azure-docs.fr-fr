@@ -13,85 +13,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 03/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 0d7eba02757fb1b2263cf11c561b374eab837f21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1701646ce8cb9494561c37d46cd435b4e7608fe8
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-linux-vms"></a>Configuration de pilotes GPU pour les machines virtuelles Linux série N
-Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant une distribution Linux prise en charge, vous devez installer des pilotes graphiques NVIDIA sur chaque machine virtuelle après le déploiement. Cet article est également disponible pour les [machines virtuelles Windows](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Pour plus d’informations sur les spécifications, les capacités de stockage et les disques des machines virtuelles série N, consultez l’article [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="set-up-gpu-drivers-for-n-series-vms-running-linux"></a>Configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Linux
+
+Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant une distribution Linux prise en charge, vous devez installer des pilotes graphiques NVIDIA sur chaque machine virtuelle après le déploiement. Des informations de configuration du pilote sont également disponibles pour [les machines virtuelles Windows](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+
+> [!IMPORTANT]
+> Actuellement, la prise en charge de GPU Linux est uniquement disponible sur les machines virtuelles NC Azure exécutant Ubuntu Server 16.04 LTS.
+> 
+
+Pour plus d’informations sur les spécifications, les capacités de stockage et les disques des machines virtuelles série N, consultez l’article [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Consultez aussi [Considérations générales pour les machines virtuelles de série N](#general-considerations-for-n-series-vms).
 
 
 
-## <a name="supported-gpu-drivers"></a>Pilotes GPU pris en charge
+## <a name="install-nvidia-cuda-drivers"></a>Installation des pilotes CUDA NVIDIA
+
+Voici les étapes pour installer les pilotes NVIDIA sur des machines virtuelles Linux NC à partir du kit d’outils CUDA NVIDIA 8.0. Les développeurs C et C++ peuvent éventuellement installer le kit d’outils complet pour créer des applications avec accélération GPU. Pour plus d’informations, consultez le [Guide d’installation de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Actuellement, la prise en charge de GPU Linux est uniquement disponible sur les machines virtuelles NC Azure exécutant Ubuntu Server 16.04 LTS.
+> Les liens de téléchargement de pilotes fournis ici sont à jour au moment de la publication. Pour les pilotes les plus récents, visitez le site Web de [NVIDIA](http://www.nvidia.com/).
 
-### <a name="nvidia-tesla-drivers-for-nc-vms"></a>Pilotes Tesla NVIDIA pour les machines virtuelles NC
-
-* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899) (programme d’installation .run à extraction automatique)
-
-## <a name="tesla-driver-installation-on-ubuntu-1604-lts"></a>Installation du pilote Tesla sur Ubuntu 16.04 LTS
-
-1. Établissez une connexion SSH à la machine virtuelle série N Azure.
-
-2. Pour vérifier que le système dispose d’un GPU compatible CUDA, exécutez la commande suivante :
-
-    ```bash
-    lspci | grep -i NVIDIA
-    ```
-    Vous verrez une sortie similaire à l’exemple suivant (illustrant une carte K80 Tesla NVIDIA) :
-
-    ![Sortie de commande Ispci](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
-
-3. Téléchargez le fichier .run pour le pilote de votre distribution. L’exemple de commande suivant télécharge le pilote Tesla Ubuntu 16.04 LTS dans le répertoire /tmp :
-
-    ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
-    ```
-
-4. Si vous devez installer `gcc` et `make` sur votre système (requis pour les pilotes Tesla), tapez la commande suivante :
-
-    ```bash
-    sudo apt-get update
-    
-    sudo apt install gcc
-
-    sudo apt install make
-    ```
-
-4. Accédez au répertoire contenant le programme d’installation du pilote et exécutez des commandes similaires à ce qui suit :
-
-    ```bash
-    chmod +x NVIDIA-Linux-x86_64-367.48.run
-    
-    sudo sh ./NVIDIA-Linux-x86_64-367.48.run
-    ```
-
-## <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
-
-
-Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne de commande [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installé avec le pilote. 
-
-![État de l’appareil NVIDIA](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
-
-## <a name="optional-installation-of-nvidia-cuda-toolkit-on-ubuntu-1604-lts"></a>Installation facultative du kit d’outils CUDA NVIDIA sur Ubuntu 16.04 LTS
-
-Vous pouvez éventuellement installer le kit d’outils CUDA NVIDIA 8.0 sur les machines virtuelles CN exécutant Ubuntu 16.04 LTS. Outre les pilotes GPU, le kit d’outils fournit un environnement de développement complet pour les développeurs C et C++ qui créent des applications avec accélération GPU.
-
-Exécutez des commandes similaires à ce qui suit pour installer le kit d’outils CUDA :
+Pour installer le kit d’outils CUDA, établissez une connexion SSH à chaque machine virtuelle. Pour vérifier que le système dispose d’un GPU compatible CUDA, exécutez la commande suivante :
 
 ```bash
-CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+lspci | grep -i NVIDIA
+```
+Vous verrez une sortie similaire à l’exemple suivant (illustrant une carte K80 Tesla NVIDIA) :
+
+![Sortie de commande Ispci](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
+
+Ensuite, exécutez les commandes spécifiques à votre distribution.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+```bash
+CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 
 wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -102,9 +70,49 @@ rm -f /tmp/${CUDA_REPO_PKG}
 sudo apt-get update
 
 sudo apt-get install cuda-drivers
+
+```
+L’installation peut prendre plusieurs minutes.
+
+Pour éventuellement installer le kit d’outils CUDA complet, saisissez :
+
+```bash
+sudo apt-get install cuda
 ```
 
-L’installation peut prendre plusieurs minutes.
+Redémarrez la machine virtuelle et vérifiez l’installation.
+
+## <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
+
+
+Pour interroger l’état de l’appareil GPU, connectez-vous par SSH à la machine virtuelle et exécutez l’utilitaire de ligne de commande [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installé avec le pilote. 
+
+![État de l’appareil NVIDIA](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## <a name="cuda-driver-updates"></a>Mises à jour de pilote CUDA
+
+Nous vous recommandons de régulièrement mettre à jour les pilotes CUDA après le déploiement.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+```
+
+Une fois la mise à jour terminée, redémarrez la machine virtuelle.
+
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
+
+* Nous ne recommandons pas l’installation d’un serveur spécifique ou d’autres systèmes qui utilisent le pilote nouveau sur les machines virtuelles Ubuntu NC. Avant d’installer les pilotes GPU NVIDIA, vous devez désactiver le pilote nouveau.  
+
+* Si vous souhaitez capturer l’image d’une machine virtuelle Linux sur laquelle vous avez installé des pilotes NVIDIA, consultez [Généraliser et capturer une machine virtuelle Linux](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

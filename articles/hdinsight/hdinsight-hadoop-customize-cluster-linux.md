@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 49bec6125bcd76c3bb52f1237b0f0e0ceff85ffb
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 908531e791b3634cb9986946212b8ad8b447b8ce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -55,7 +56,7 @@ Pour plus d’informations sur le fonctionnement de la gestion des accès, consu
 
 ## <a name="understanding-script-actions"></a>Comprendre les actions de script
 
-Une action de script est tout simplement un script Bash auquel vous apportez une URI et des paramètres. Il est ensuite exécuté sur les nœuds du cluster HDInsight. Les éléments suivants constituent les caractéristiques et les fonctionnalités des actions de script.
+Une action de script est tout simplement un script Bash auquel vous apportez une URI et des paramètres. Le script s’exécute sur les nœuds du cluster HDInsight. Les éléments suivants constituent les caractéristiques et les fonctionnalités des actions de script.
 
 * Elles doivent être stockées sur un URI accessible à partir du cluster HDInsight. Voici les emplacements de stockage possibles :
 
@@ -66,12 +67,14 @@ Une action de script est tout simplement un script Bash auquel vous apportez une
         > [!NOTE]
         > Le principal de service que HDInsight utilise pour accéder au Data Lake Store doit avoir accès en lecture au script.
 
-    * Un **compte de stockage d’objets blob** considéré comme compte de stockage principal ou supplémentaire pour le cluster HDInsight. Dans la mesure où HDInsight peut accéder à ces deux types de comptes de stockage lors de la création du cluster, une action de script de non publique peut être utilisée.
+    * Un blob est un **compte de stockage Azure** considéré comme compte de stockage principal ou supplémentaire pour le cluster HDInsight. Dans la mesure où HDInsight peut accéder à ces deux types de comptes de stockage lors de la création du cluster, une action de script de non publique peut être utilisée.
 
-    * Un https://docs.microsoft.com/en-us/azure/service-bus/ tel que Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    * Un service de partage de fichiers public, comme un Blob Azure, GitHub, OneDrive, Dropbox, etc.
 
         Pour obtenir des exemples d’URI pour les scripts stockés dans le conteneur d’objets blob (lisibles publiquement), consultez la section [Exemple de script d’action de script](#example-script-action-scripts) .
 
+        > [!WARNING]
+        > HDInsight prend uniquement en charge les comptes de stockage Azure à __usage général__. Il ne prend actuellement pas en charge le type de compte __stockage Blob__.
 
 * Ils peuvent être limités de manière à **s’exécuter sur certains types de nœuds uniquement**, par exemple des nœuds principaux ou des nœuds de travail (worker).
 
@@ -80,7 +83,7 @@ Une action de script est tout simplement un script Bash auquel vous apportez une
 
 * Son état peut être **persistant** ou **ad hoc**.
 
-    Les scripts **persistants** sont appliqués aux nœuds Worker et sont automatiquement exécutés sur les nœuds créés lors de la mise à l’échelle d’un cluster.
+    Les scripts **persistants** sont appliqués aux nœuds Worker et automatiquement exécutés sur les nœuds créés lors de la mise à l’échelle d’un cluster.
 
     Un script persistant peut également apporter des modifications à un autre type de nœud, tel que le nœud principal. Cependant, la seule raison d’utiliser un script persistant, d’un point de vue fonctionnel, est de l’appliquer aux nœuds de travail créés lorsqu’un cluster est monté en charge.
 
@@ -95,7 +98,7 @@ Une action de script est tout simplement un script Bash auquel vous apportez une
   > Les scripts qui échouent ne sont pas rendus persistants, même si vous précisez qu’ils doivent l’être.
 
 * Ils peuvent accepter les **paramètres** utilisés par le script lors de l’exécution.
-* Sont exécutés avec des **privilèges au niveau de la racine** sur les nœuds du cluster.
+* Ils sont exécutés avec des **privilèges au niveau de la racine** sur les nœuds du cluster.
 * Ils peuvent être utilisés par le biais du **portail Azure**, **d’Azure PowerShell**, de **l’interface de ligne de commande Azure (CLI)** ou du **Kit de développement logiciel (SDK) HDInsight .NET**
 
 Le cluster conserve l’historique de tous les scripts ayant été exécutés ; cela vous aide à comprendre quels scripts ont été appliqués à un cluster et à déterminer les ID des scripts devant faire l’objet de promotion ou de rétrogradation.
@@ -115,7 +118,7 @@ Le diagramme suivant illustre le moment de l’exécution de l’action de scrip
 
 ![Personnalisation du cluster HDInsight et procédure de création d’un cluster][img-hdi-cluster-states]
 
-Le script est exécuté pendant la configuration de HDInsight. À ce stade, le script est exécuté en parallèle sur tous les nœuds spécifiés dans le cluster, et s’exécute avec des privilèges root complets sur les nœuds.
+Le script est exécuté pendant la configuration de HDInsight. À ce stade, le script s’exécute en parallèle sur tous les nœuds spécifiés dans le cluster, et s’exécute avec des privilèges root complets sur les nœuds.
 
 > [!NOTE]
 > Étant donné que le script est exécuté avec des privilèges root sur les nœuds du cluster, vous pouvez effectuer des opérations comme arrêter et démarrer des services, notamment des services liés à Hadoop. Si vous arrêtez les services, vous devez vous assurer que le service Ambari et d’autres services liés à Hadoop sont en cours d’exécution avant la fin de l’exécution du script. Ces services sont requis pour établir correctement l’intégrité et l’état du cluster pendant sa création.
@@ -126,7 +129,7 @@ Pendant la création du cluster, vous pouvez spécifier plusieurs actions de scr
 > [!IMPORTANT]
 > Les actions de script doivent se terminer dans les 60 minutes, faute de quoi elles expirent. Lors de l’approvisionnement du cluster, le script est exécuté en même temps que les autres processus d’installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 >
-> Pour réduire le temps nécessaire à l’exécution du script, évitez les tâches comme le téléchargement et la compilation d’applications à partir de la source. Au lieu de cela, précompilez l'application et stockez le fichier binaire dans le stockage d’objets blob Azure afin de pouvoir le télécharger rapidement vers le cluster.
+> Pour réduire le temps nécessaire à l’exécution du script, évitez les tâches comme le téléchargement et la compilation d’applications à partir de la source. Au lieu de cela, précompilez l’application et stockez le fichier binaire dans le stockage Azure afin de pouvoir le télécharger rapidement vers le cluster.
 
 
 ### <a name="script-action-on-a-running-cluster"></a>Action de script sur un cluster en cours d’exécution
@@ -544,7 +547,7 @@ Avant de poursuivre, assurez-vous que vous avez installé et configuré l'interf
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. Ouvrez une session de l'interpréteur de commandes, une fenêtre de terminal, une invite de commandes ou toute autre ligne de commande de votre système et utilisez la commande suivante pour passer en mode Azure Resource Manager.
+1. Ouvrez une session de l’interpréteur de commandes, une fenêtre de terminal, une invite de commandes ou toute autre ligne de commande de votre système et utilisez la commande suivante pour passer en mode Azure Resource Manager.
 
         azure config mode arm
 
@@ -681,7 +684,7 @@ Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composan
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les informations consignées par des actions de script. Si le script a été utilisé pendant la création du cluster et que la création du cluster a échoué en raison d’une erreur dans le script, les journaux sont également disponibles dans le compte de stockage par défaut associé au cluster. Cette section fournit des informations sur la façon de récupérer les journaux à l'aide de ces deux options.
+Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les informations consignées par des actions de script. Si le script est utilisé pendant la création du cluster et que la création du cluster a échoué en raison d’une erreur dans le script, les journaux sont également disponibles dans le compte de stockage par défaut associé au cluster. Cette section fournit des informations sur la façon de récupérer les journaux à l'aide de ces deux options.
 
 ### <a name="using-the-ambari-web-ui"></a>À l'aide de l'interface utilisateur Web d’Ambari
 
@@ -697,7 +700,7 @@ Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les i
 
     ![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    Sélectionnez cette entrée et explorez les liens pour afficher les sorties STDOUT et STDERR générées au moment où le script a été exécuté sur le cluster.
+    Sélectionnez cette entrée run\customscriptaction et explorez les liens pour afficher les sorties STDOUT et STDERR. Cette sortie est générée lorsque le script s’exécute et peut contenir des informations utiles.
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Accès aux journaux à partir du compte de stockage par défaut
 
@@ -783,9 +786,4 @@ Consultez la rubrique suivante pour obtenir des informations et des exemples sur
 * [Ajouter un stockage supplémentaire à un cluster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure de création d’un cluster"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

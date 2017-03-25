@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dde5397405b64d394cdff9c69c05a565c5427f56
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 | DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
 | DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
 | DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
-| DW3000 |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
-| DW6000 |45 |60 |2 700 |180 000 000 |10 800 000 000 |
+| DW3000 |22,5 |60 |1&350; |90&000;&000; |5&400;&000;&000; |
+| DW6000 |45 |60 |2&700; |180&000;&000; |10&800;&000;&000; |
 
 La limite de taille de transaction est appliquée par transaction ou opération. Elle n’est pas appliquée à toutes les transactions simultanées. Par conséquent, chaque transaction est autorisée à écrire cette quantité de données dans le journal. 
 
-Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article [bonnes pratiques relatives aux transactions][bonnes pratiques relatives aux transactions].
+Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article [Meilleures pratiques relatives aux transactions][Transactions best practices].
 
 > [!WARNING]
 > La taille de transaction maximale ne peut être obtenue que pour les tables distribuées HASH ou ROUND_ROBIN où la répartition des données est égale. Si la transaction écrit les données de manière asymétrique dans les distributions, alors la limite est susceptible d’être atteinte avant la taille de transaction maximale.
@@ -153,7 +154,7 @@ Le comportement attendu est maintenant examiné. L’erreur dans la transaction 
 La seule chose qui a changé est que l’opération `ROLLBACK` de la transaction doit se produire avant la lecture des informations sur l’erreur, dans le bloc `CATCH`.
 
 ## <a name="errorline-function"></a>Fonction Error_Line()
-Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés][libellés] pour en savoir plus.
+Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article [LIBELLÉ][LABEL] pour plus d’informations.
 
 ## <a name="using-throw-and-raiserror"></a>Utilisation des paramètres THROW et RAISERROR
 Le paramètre THROW est l’implémentation la plus moderne du déclenchement d’exceptions dans SQL Data Warehouse. Toutefois, le paramètre RAISERROR est également pris en charge. Il existe cependant quelques différences, qu’il est préférable de prendre en compte.
@@ -175,23 +176,18 @@ Les voici :
 * Aucune prise en charge de DDL comme `CREATE TABLE` dans une transaction définie par l’utilisateur
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur l’optimisation des transactions, consultez les [bonnes pratiques relatives aux transactions][bonnes pratiques relatives aux transactions].  Pour en savoir plus sur les bonnes pratiques relatives à SQL Data Warehouse, consultez [correspondant][correspondant].
+Pour plus d’informations sur l’optimisation des transactions, consultez la page [Meilleures pratiques relatives aux transactions][Transactions best practices].  Pour plus d’informations sur les meilleures pratiques relatives à SQL Data Warehouse, consultez l’article [correspondant][SQL Data Warehouse best practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[vue d’ensemble sur le développement]: ./sql-data-warehouse-overview-develop.md
-[bonnes pratiques relatives aux transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[correspondant]: ./sql-data-warehouse-best-practices.md
-[libellés]: ./sql-data-warehouse-develop-label.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

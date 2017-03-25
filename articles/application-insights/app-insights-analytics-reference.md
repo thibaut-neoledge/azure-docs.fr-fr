@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
-ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,9 +32,9 @@ Sources d’information supplémentaires :
  
 
 ## <a name="index"></a>Index
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Requêtes et opérateurs** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce ](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Requêtes et opérateurs** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -108,17 +108,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Jointure réflexive :
+### <a name="materialize"></a>materialize
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+Utilisez materialize() pour améliorer les performances, où le résultat d’une clause let est utilisé plusieurs fois en aval. Materialize() évalue et met en cache le résultat d’une clause let tabulaire au moment de l’exécution de la requête, garantissant ainsi que la requête n’est pas exécutée plusieurs fois.
 
+**Syntaxe**
+
+    materialize(expression)
+
+**Arguments**
+
+* `expresion` : expression tabulaire à évaluer et mettre en cache pendant l’exécution de la requête.
+
+**Conseils**
+
+* Utilisez materialize lorsque vous disposez de joint/union, où leurs opérandes incluent des sous-requêtes mutuelles ne pouvant être exécutées qu’une seule fois (voir les exemples ci-dessous).
+* Utile également dans des scénarios lorsque nous avons besoin de branchements join/union.
+* Materialize ne peut être utilisé que dans des instructions let en donnant un nom au résultat mis en cache.
+* Materialize a une limite de taille de cache de 5 Go. Cette limite s’entend par nœud de cluster et est mutuelle pour toutes les requêtes.
+
+**Exemple : self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+La version non mise en cache utilise deux fois le résultat `scope` :
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## <a name="queries-and-operators"></a>Requêtes et opérateurs
 Une requête sur vos données de télémétrie est constituée d’une référence à un flux source, suivie d’un pipeline de filtres. Par exemple :
@@ -149,6 +206,30 @@ Une requête peut être précédée d’une ou de plusieurs [clauses let](#let-c
 > `T` est utilisé dans les exemples de requête ci-dessous pour désigner la table source ou le pipeline précédent.
 > 
 > 
+
+### <a name="as-operator"></a>opérateur as
+
+Lit temporairement un nom à l’expression tabulaire d’entrée.
+
+**Syntaxe**
+
+    T | as name
+
+**Arguments**
+
+* *name :* nom temporaire de la table
+
+**Remarques**
+
+* Utilisez [let](#let-clause) au lieu de *as* si vous souhaitez utiliser le nom dans une sous-expression ultérieure.
+* Utilisez *as* pour spécifier le nom de la table tel qu’il apparaît dans le résultat d’une requête [union](#union-operator), [find](#find-operator) ou [search](#search-operator).
+
+**Exemple**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### <a name="count-operator"></a>opérateur count
 L’opérateur `count` retourne le nombre d’enregistrements (lignes) dans le jeu d’enregistrements d’entrée.
@@ -464,7 +545,7 @@ Rechercher les lignes qui correspondent à un prédicat dans un ensemble de tabl
 
 Par défaut, la table de sortie contient :
 
-* `source_` - Indicateur de la table source pour chaque ligne.
+* `source_` - Indicateur de la table source pour chaque ligne. Utilisez [as](#as-operator) à la fin de chaque expression de table si vous souhaitez spécifier le nom qui apparaît dans cette colonne.
 * Colonnes explicitement mentionnées dans le prédicat
 * Colonnes non vides communes à toutes les tables d’entrée.
 * `pack_` - Un jeu de propriétés contenant les données des autres colonnes.
@@ -505,7 +586,19 @@ Recherchez les données de télémétrie les plus récentes, dans lesquelles un 
 * Ajoutez des critères temporels au prédicat `where`.
 * Utilisez des clauses `let` au lieu d’écrire des requêtes en ligne.
 
+### <a name="getschema-operator"></a>opérateur getschema
 
+   T | getschema
+   
+Génère une table qui affiche les noms de colonnes et les types de la table d’entrée.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Résultats de getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### <a name="join-operator"></a>opérateur join
     Table1 | join (Table2) on CommonColumn
@@ -593,6 +686,37 @@ Retourne au maximum le nombre spécifié de lignes de la table d’entrée. Il n
 `Take` est un moyen simple et efficace d’afficher un échantillon de vos résultats quand vous travaillez de manière interactive. N’oubliez pas qu’il ne garantit pas de produire des lignes spécifiques ou de les afficher dans un ordre particulier.
 
 Il existe une limite implicite quant au nombre de lignes renvoyées au client, même si vous n’utilisez pas `take`. Pour relever cette limite, utilisez l’option de requête client `notruncation` .
+
+### <a name="make-series-operator"></a>opérateur make-series
+
+Effectue une agrégation. Contrairement à [summarize](#summarize-operator), il existe une ligne de sortie pour chaque groupe. Dans les colonnes de résultats, les valeurs dans chaque groupe sont regroupées dans des tableaux. 
+
+**Syntaxe**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Arguments**
+
+* *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression.
+* *DefaultValue :* s’il n’existe aucune ligne avec des valeurs spécifiques AxisColumn et GroupExpression, DefaultValue est attribué dans les résultats de l’élément correspondant du tableau. 
+* *Aggregation :* expression numérique utilisant une [fonction d’agrégation](#aggregations). 
+* *AxisColumn :* colonne sur laquelle la série est triée. Elle peut être considérée comme une chronologie, mais tous les types numériques sont acceptés.
+*start, stop, step :* définit la liste des valeurs AxisColumn pour chaque ligne. Chaque autre colonne d’agrégation du résultat inclut un tableau de même longueur. 
+* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. Il existe une ligne dans la sortie pour chaque valeur de GroupExpression. En règle générale, il s’agit d’un nom de colonne qui fournit déjà un ensemble limité de valeurs. 
+
+**Conseil**
+
+Les tableaux de résultats sont rendus dans un graphique Analytics de la même manière que l’opération summarize correspondante.
+
+**Exemple**
+
+requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+
+![Résultats de make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### <a name="mvexpand-operator"></a>opérateur mvexpand
     T | mvexpand listColumn 
@@ -695,7 +819,7 @@ Les éléments de la clause `with` sont ensuite mis en correspondance avec le te
 * Dans une analyse regex, une expression régulière peut utiliser l’opérateur de réduction « ? » pour passer dès que possible à la correspondance suivante.
 * Un nom de colonne comportant un type analyse le texte en tant que type spécifié. Une analyse infructueuse invalide la correspondance avec le modèle entier, sauf si kind=relaxed.
 * Un nom de colonne sans type ou comportant le type « string », copie le nombre minimal de caractères pour parvenir à la correspondance suivante.
-* « * » Ignore le nombre minimal de caractères pour parvenir à la correspondance suivante. Vous pouvez utiliser « * » au début et à la fin du modèle, ou après un type autre que « string » ou entre les correspondances de chaîne.
+* « *» Ignore le nombre minimal de caractères pour parvenir à la correspondance suivante. Vous pouvez utiliser «* » au début et à la fin du modèle, ou après un type autre que « string » ou entre les correspondances de chaîne.
 
 Dans un modèle d’analyse, tous les éléments doivent correspondre correctement ; dans le cas contraire, aucun résultat n’est produit. Il existe une exception à cette règle : lorsque kind=relaxed, si l’analyse d’une variable typée échoue, le reste de l’analyse continue.
 
@@ -961,6 +1085,45 @@ Si vous souhaitez échantillonner des lignes de données (au lieu des valeurs d�
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### <a name="search-operator"></a>opérateur search
+
+Recherchez des chaînes dans plusieurs tables et colonnes.
+
+**Syntaxe**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Recherche des occurrences de la chaîne de jeton donnée dans n’importe quelle colonne d’une table.
+ 
+* *TableName* : nom d’une table définie globalement (requêtes, exceptions, ...) ou par une [clause let](#let-clause). Vous pouvez utiliser des caractères génériques tels que r*.
+* *SearchToken :* chaîne de jeton qui doit correspondre à un mot entier. Vous pouvez utiliser des caractères génériques de fin. « Amster* » correspond à « Amsterdam », mais pas « Amster ».
+* *SearchPredicate :* expression booléenne sur les colonnes dans les tables. Vous pouvez utiliser « * » comme caractère générique dans les noms de colonnes.
+
+**Exemples**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### <a name="sort-operator"></a>opérateur sort
     T | sort by country asc, price desc
@@ -1011,7 +1174,7 @@ Une table indiquant le nombre d’éléments ayant un prix dans chaque intervall
 **Arguments**
 
 * *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
-* *Aggregation :`avg()` appel d’une fonction d’agrégation telle que * ou `count()`, avec des noms de colonne comme arguments. Voir [Agrégations](#aggregations).
+* *Aggregation :* appel d’une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonne comme arguments. Voir [Agrégations](#aggregations).
 * *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou horaire en tant qu’argument. 
 
 Si vous fournissez une expression numérique ou horaire sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
@@ -1026,6 +1189,32 @@ Le résultat contient autant de lignes qu’il existe de combinaisons de valeurs
 
 > [!NOTE]
 > Bien que vous puissiez fournir des expressions arbitraires pour les expressions d’agrégation et de regroupement, il est plus efficace d’utiliser des noms de colonne simples ou d’appliquer `bin()` à une colonne numérique.
+
+### <a name="table-operator"></a>Opérateur table
+
+    table('pageViews')
+
+La table nommée dans la chaîne d’argument.
+
+**Syntaxe**
+
+    table(tableName)
+
+**Arguments**
+
+* *tableName :* chaîne. Le nom d’une table qui peut être statique ou le résultat d’une clause let.
+
+**Exemples**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
 
 ### <a name="take-operator"></a>opérateur take
 Alias de [limit](#limit-operator)
@@ -1089,7 +1278,7 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
 * `kind`: 
   * `inner` : le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
   * `outer` : le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée prennent la valeur `null`.
-* `withsource=`*ColumnName :* si cet élément est spécifié, la sortie contient une colonne nommée *ColumnName*, dont la valeur indique la table source correspondant à chaque ligne.
+* `withsource=`*ColumnName :* si cet élément est spécifié, la sortie contient une colonne nommée *ColumnName*, dont la valeur indique la table source correspondant à chaque ligne. Utilisez [as](#as-operator) à la fin de chaque expression de table si vous souhaitez spécifier le nom qui apparaît dans cette colonne.
 
 **Retourne**
 
@@ -1097,38 +1286,28 @@ Une table comportant autant de lignes que l’ensemble des tables d’entrée et
 
 Les lignes n’ont pas d’ordre garanti.
 
-**Exemple**
-
-Union de toutes les tables dont le nom commence par « tt » :
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Exemple**
 
-Le nombre d’utilisateurs ayant produit un événement `exceptions` ou un événement `traces` au cours de la journée précédente. Dans le résultat, la colonne « SourceTable » indique « Requête » ou « Commande » :
+Le nombre d’utilisateurs ayant produit un événement `exceptions` ou un événement `traces` au cours des 12 dernières heures. Dans le résultat, la colonne « SourceTable » indique des « exceptions » ou des « suivis » :
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 Cette version plus efficace génère le même résultat. Elle filtre chaque table avant la création de l’union :
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Utilisez [as](#as-operator) pour spécifier le nom qui apparaîtra dans la colonne source.
 
 #### <a name="forcing-an-order-of-results"></a>Forcer l’ordre des résultats
 
@@ -1159,7 +1338,7 @@ Filtre une table d’après le sous-ensemble de lignes correspondant à un préd
 **Arguments**
 
 * *T* : entrée tabulaire dont les enregistrements doivent être filtrés.
-* *Predicate :* expression `boolean` [ ](#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
+* *Predicate :* `boolean` [expression](#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
 * *Terme* : chaîne qui doit correspondre à la totalité d’un mot dans une colonne.
 
 **Retourne**

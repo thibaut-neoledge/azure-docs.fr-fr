@@ -13,16 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Nouveautés de Power BI Embedded
+
 Les mises à jour de **Power BI Embedded** sont publiées régulièrement. Toutefois, comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Nous décrirons les nouvelles fonctionnalités orientées utilisateur ici. Veillez à consulter cette page régulièrement.
+
+## <a name="march-2017"></a>Mars 2017
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**Fonctionnalités libre-service**
+
+* [Créer un rapport](power-bi-embedded-create-report-from-dataset.md)
+* [Enregistrer un rapport sous](power-bi-embedded-save-reports.md)
+* Incorporer un rapport dans le nouveau mode Lecture/Édition/Création 
+* [Basculer un rapport entre les modes Édition/Lecture](power-bi-embedded-toggle-mode.md)
+
+**Connectivité des données avec les API REST**
+
+* [Créer un jeu de données](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* Effectuer une transmission des données de type push 
+
+**API de gestion**
+
+* Cloner un rapport et un jeu de données
+* Lier un rapport à un autre jeu de données
+
+**Exemples**
+
+* [Exemple mis à jour d’incorporation de rapport JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>Décembre 2016
 
@@ -50,10 +76,5 @@ Inclus dans cette version :
 * Prise en charge de Power BI Embedded pour le kit de développement logiciel (SDK) Azure, PowerShell et l’interface de ligne de commande.
 * Les utilisateurs peuvent exporter des données de visualisation vers un **.csv**.
 * Power BI Embedded est désormais pris en charge dans les mêmes langues/paramètres régionaux que Microsoft Azure. Pour plus d’informations, consultez [Azure - Langues](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

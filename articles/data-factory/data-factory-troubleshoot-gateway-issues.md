@@ -2,7 +2,6 @@
 title: "Résoudre les problèmes de la passerelle de gestion des données | Microsoft Docs"
 description: "Fournit des conseils pour résoudre les problèmes liés à la passerelle de gestion des données."
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
@@ -91,10 +91,12 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 ![La clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Cause :
-La clé de passerelle a été régénérée ou la passerelle a été supprimée dans le portail.
+La clé de passerelle a été régénérée ou la passerelle a été supprimée dans le portail Azure. Cela peut également se produire si vous n’utilisez pas la configuration de passerelle de gestion des données la plus récente.
 
 #### <a name="resolution"></a>Résolution :
-Si la passerelle existe encore, régénérez la clé de passerelle dans le portail et utilisez le bouton Copier pour copier la clé entière. Collez-la dans la fenêtre pour inscrire la passerelle. Sinon, recréez la passerelle et recommencez.
+Vérifiez que la configuration de la passerelle de gestion des données correspond à la dernière version (vous trouverez la dernière version dans le [centre de téléchargement](https://go.microsoft.com/fwlink/p/?LinkId=271260) Microsoft).
+
+Si la configuration est à jour/correspond à la dernière version et que la passerelle existe encore sur le portail, régénérez la clé de la passerelle dans le portail Azure, utilisez le bouton Copier pour copier la clé et collez-la dans cette fenêtre pour inscrire la passerelle. Sinon, recréez la passerelle et recommencez.
 
 ### <a name="6-problem"></a>6. Problème
 Le message d’erreur suivant peut s’afficher lors de l’inscription d’une passerelle.
@@ -284,9 +286,4 @@ Vous pouvez accéder à des informations détaillées sur les journaux de la pas
  Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.
 
 ![Journaux de la passerelle de gestion des données dans l’Observateur d’événements](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

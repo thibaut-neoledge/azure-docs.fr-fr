@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ea363667db5a4ef0dd6c3f06a13f3f8f6c192714
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,10 +31,10 @@ Il existe de nombreux [modèles dans la galerie](https://azure.microsoft.com/doc
 
 Cet exemple montre une section de ressources standard d’un modèle pour la création d’un nombre spécifié de machines virtuelles :
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
@@ -63,10 +63,6 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -75,10 +71,6 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -165,7 +157,7 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
 Lorsque vous déployez des ressources à l’aide d’un modèle, vous devez spécifier une version de l’API à utiliser. L’exemple montre la ressource de la machine virtuelle en utilisant cet élément apiVersion :
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 La version de l'API que vous spécifiez dans votre modèle affecte les propriétés que vous pouvez définir dans le modèle. En général, vous devez sélectionner la version de l'API la plus récente lorsque vous créez des modèles. Pour les modèles existants, vous pouvez choisir soit de continuer d’utiliser une version de l'API antérieure, soit de mettre à jour votre modèle à la dernière version afin de tirer parti des nouvelles fonctionnalités.
@@ -236,15 +228,20 @@ Lorsque vous avez besoin de plusieurs machines virtuelles pour votre application
 },
 ```
 
-En outre, notez dans l’exemple que l’index de la boucle est utilisé pour spécifier les valeurs de la ressource. Par exemple, si vous avez entré un nombre d’instances de trois, la définition des résultats du disque dur virtuel nomme les disques myOSDisk1, myOSDisk2 et myOSDisk3 :
+En outre, notez dans l’exemple que l’index de la boucle est utilisé pour spécifier les valeurs de la ressource. Par exemple, si vous avez entré un nombre d’instances de trois, les noms des disques du système d’exploitation sont myOSDisk1, myOSDisk2 et myOSDisk3 :
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>Cet exemple utilise des disques gérés pour les machines virtuelles.
+>
+>
 
 N’oubliez pas que pour créer une boucle pour une ressource dans le modèle, vous devez utiliser la boucle lors de la création ou de l’accès à d’autres ressources. Par exemple, plusieurs machines virtuelles ne peuvent pas utiliser la même interface réseau. Par conséquent, si votre modèle effectue une boucle en créant trois machines virtuelles, il doit également effectuer une boucle en créant trois interfaces réseau. Lorsque vous affectez une interface réseau à une machine virtuelle, l’index de la boucle est utilisé pour l’identifier :
 
@@ -278,23 +275,7 @@ Comment savoir si une dépendance est nécessaire ? Examinez les valeurs que vo
 }
 ```
 
-Pour définir cette propriété, l’interface réseau doit exister. Vous avez donc besoin d’une dépendance. Vous devez également définir une dépendance lorsqu’une ressource (un enfant) est définie dans une autre ressource (un parent). Par exemple, les paramètres de diagnostic et les extensions de script personnalisé sont définies en tant que ressources enfants de la machine virtuelle. Ils ne peuvent pas être créés tant que la machine virtuelle n'existe pas. Par conséquent, les deux ressources sont marquées comme dépendantes de la machine virtuelle. 
-
-Vous vous demandez peut-être pourquoi la ressource de la machine virtuelle n’a pas de dépendance sur le compte de stockage. La machine virtuelle contient des éléments qui pointent vers le compte de stockage.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-Dans ce cas, nous supposons que le compte de stockage existe déjà. Si le compte de stockage est déployé dans le même modèle, vous devez définir une dépendance sur le compte de stockage.
+Pour définir cette propriété, l’interface réseau doit exister. Vous avez donc besoin d’une dépendance. Vous devez également définir une dépendance lorsqu’une ressource (un enfant) est définie dans une autre ressource (un parent). Par exemple, les paramètres de diagnostic et les extensions de script personnalisé sont définies en tant que ressources enfants de la machine virtuelle. Ils ne peuvent pas être créés tant que la machine virtuelle n'existe pas. Par conséquent, les deux ressources sont marquées comme dépendantes de la machine virtuelle.
 
 ## <a name="profiles"></a>Profils
 
@@ -334,83 +315,64 @@ Si vous souhaitez créer un système d’exploitation Linux, vous pouvez utilise
 },
 ```
 
-Les paramètres de configuration pour le disque sont affectés avec l’élément osDisk. L’exemple définit l’emplacement de stockage des disques, le mode de mise en cache des disques, et spécifie que les disques sont en cours de création à partir d’une [image de plateforme](virtual-machines-windows-cli-ps-findimage.md):
+Les paramètres de configuration pour le disque du système d’exploitation sont affectés avec l’élément osDisk. L’exemple définit un nouveau disque géré avec le mode cache défini sur **ReadWrite**, et spécifie que les disques sont en cours de création à partir d’une [image de plateforme](virtual-machines-windows-cli-ps-findimage.md) :
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-disks"></a>Créer de nouvelles machines virtuelles à partir de disques existants
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Créer de nouvelles machines virtuelles à partir de disques gérés existants
 
 Si vous souhaitez créer des machines virtuelles à partir de disques existants, supprimez les éléments imageReference et osProfile puis définissez ces paramètres de disque :
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-Dans cet exemple, l’URI pointe vers des fichiers de disque dur virtuel existants au lieu d’un emplacement contenant de nouveaux fichiers. L'élément createOption est défini pour connecter les disques existants.
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>Créer de nouvelles machines virtuelles à partir d'une image gérée
 
-### <a name="create-new-virtual-machines-from-a-custom-image"></a>Créer de nouvelles machines virtuelles à partir d'une image personnalisée
-
-Si vous souhaitez créer une machine virtuelle à partir d’une [image personnalisée](virtual-machines-windows-upload-image.md), supprimez l’élément imageReference puis définissez ces paramètres de disque :
+Si vous souhaitez créer une machine virtuelle à partir d’une image gérée, modifiez l’élément imageReference puis définissez ces paramètres de disque :
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-Dans cet exemple, l’URI de disque dur virtuel pointe vers un emplacement où les nouveaux disques sont stockés et l’URI de l’image pointe vers l’image personnalisée à utiliser.
-
 ### <a name="attach-data-disks"></a>Connecter des disques de données
 
-Vous pouvez aussi ajouter des disques de données aux machines virtuelles. Le [nombre de disques](virtual-machines-windows-sizes.md) dépend de la taille du disque de système d’exploitation que vous utilisez. Si la taille des machines virtuelles est définie sur Standard_DS1_v2, le nombre maximal de disques de données qui peuvent leur être ajoutés est de deux. Dans l’exemple, un disque de données est ajouté à chaque machine virtuelle :
+Vous pouvez aussi ajouter des disques de données aux machines virtuelles. Le [nombre de disques](virtual-machines-windows-sizes.md) dépend de la taille du disque de système d’exploitation que vous utilisez. Si la taille des machines virtuelles est définie sur Standard_DS1_v2, le nombre maximal de disques de données qui peuvent leur être ajoutés est de deux. Dans l’exemple, un disque de données géré est ajouté à chaque machine virtuelle :
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-Le disque dur virtuel dans cet exemple est un nouveau fichier créé pour le disque. Vous pouvez définir l’URI sur un disque dur virtuel existant et la valeur createOption sur **Attacher**.
 
 ## <a name="extensions"></a>Extensions
 

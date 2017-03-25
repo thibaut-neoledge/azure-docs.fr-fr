@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ca15248d7ac5232e6308d8188332975f1d21c09b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,7 +28,7 @@ Cet article fournit des instructions pour créer une base de données SQL Azure
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour importer une base de données SQL à partir d’un fichier BACPAC, vous avez besoin des éléments suivants :
+Pour importer une base de données SQL à partir d’un fichier BACPAC, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. 
 * Un serveur V12 de base de données SQL Azure. Si vous n’avez pas de serveur V12, créez-en un en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
@@ -83,9 +84,4 @@ La commande **Créer** envoie une demande d’importation de la base de données
 [4]: ./media/sql-database-import/create.png
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

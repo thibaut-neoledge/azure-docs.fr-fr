@@ -1,8 +1,8 @@
 ---
 title: "Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs"
-description: "Vue d’ensemble des mesures et de leurs utilisations dans Microsoft Azure"
+description: "Vue d’ensemble des mesures et de leur utilisation dans Microsoft Azure"
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: b1c3eb101a6eebf43237d1f08a30721e80616adc
-ms.lasthandoff: 03/03/2017
-
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.lasthandoff: 03/09/2017
 
 ---
+
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
 
@@ -40,20 +40,24 @@ Les mesures sont une source précieuse de télémétrie et vous permettent d’e
 Les mesures présentent les caractéristiques suivantes :
 
 * Toutes les mesures ont **une fréquence d’une minute**. Vous recevez une valeur de mesure chaque minute à partir de votre ressource, pour une visibilité en quasi temps réel de l’intégrité de votre ressource.
-* Créer une API **prête à l’emploi. Cela signifie que vous n’avez pas besoin de vous abonner à** ou de configurer des diagnostics supplémentaires.
+* Les mesures sont **disponibles immédiatement**. Vous n’avez pas besoin de vous abonner à ou de configurer des diagnostics supplémentaires.
 * Vous pouvez accéder à **30 jours d’historique** pour chaque mesure. Vous pouvez consulter rapidement les tendances récentes et mensuelles de performances ou d’intégrité de vos ressources.
 
 Vous pouvez également :
 
-* Découvrir facilement, accéder à et **afficher toutes les mesures** via le portail Azure lorsque vous sélectionnez une ressource, et tracer les mesures sur un graphique.
 * Configurer une **règle d’alerte qui envoie une notification ou prend une action de façon automatique** pour une mesure lorsque celle-ci dépasse le seuil que vous avez défini. La mise à l’échelle automatique est une action automatique spéciale qui vous permet de faire évoluer votre ressource afin de répondre aux requêtes entrantes ou à la charge sur votre site web ou vos ressources de calcul. Vous pouvez configurer une règle de paramètre de mise à l’échelle automatique sur la base d’une mesure qui dépasse un seuil.
-* **Archiver** les mesures plus longtemps ou les utiliser pour les rapports en mode hors connexion. Vous pouvez acheminer vos mesures de stockage Azure Blob lorsque vous configurez les paramètres de diagnostic pour votre ressource.
-* **Diffuser** des mesures vers un hub d’événements, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez le faire en définissant des paramètres de diagnostic.
-* **Acheminer** toutes les mesures vers Log Analytics (OMS) pour obtenir instantanément des analyses, la recherche et des alertes personnalisées sur les données de mesure de vos ressources.
+
+* **Acheminer** toutes les mesures vers Application Insights ou Log Analytics (OMS) pour activer instantanément des analyses, la recherche et des alertes personnalisées sur les données de mesure de vos ressources. Vous pouvez également diffuser des mesures vers un hub d’événements, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez paramétrer la diffusion vers un hub d’événements à l’aide des paramètres de diagnostic.
+
+* **Archiver les mesures dans le stockage** pour les conserver plus longtemps ou les utiliser pour les rapports en mode hors connexion. Vous pouvez acheminer vos mesures de stockage Azure Blob lorsque vous configurez les paramètres de diagnostic pour votre ressource.
+
+* Découvrir facilement, accéder à et **afficher toutes les mesures** via le portail Azure lorsque vous sélectionnez une ressource, et tracer les mesures sur un graphique.
+
 * **Utiliser** les mesures via les nouvelles API REST Azure Monitor.
+
 * **Interroger** les mesures en utilisant les applets de commande PowerShell ou l’API REST multiplateforme.
-  
-  ![Acheminement des mesures dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview0.png)
+
+  ![Acheminement des mesures dans Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
 ## <a name="access-metrics-via-the-portal"></a>Accès aux mesures via le portail
 Voici un bref aperçu de la création d’un graphique de mesures à l’aide du portail Azure.
@@ -63,7 +67,7 @@ Voici un bref aperçu de la création d’un graphique de mesures à l’aide du
 2. Créez un site Azure App Service.
 3. Après avoir créé un site web, accédez au panneau **Vue d’ensemble** du site web.
 4. Vous pouvez afficher les nouvelles mesures sous forme de vignette **Surveillance**. Vous pouvez modifier la vignette et sélectionner d’autres mesures.
-   
+
    ![Mesures sur une ressource dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Pour accéder à toutes les mesures en un seul emplacement
@@ -72,13 +76,13 @@ Voici un bref aperçu de la création d’un graphique de mesures à l’aide du
 3. Sélectionnez votre abonnement, le groupe de ressources et le nom de la ressource dans la liste déroulante.
 4. Affichez la liste des mesures disponibles. Sélectionnez la mesure qui vous intéresse et tracez-la.
 5. Vous pouvez l’épingler au tableau de bord en cliquant sur l’épingle dans le coin supérieur droit.
-   
+
    ![Accéder à toutes les mesures dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
 > Vous pouvez accéder aux mesures à partir de machines virtuelles (basées sur Azure Resource Manager) et aux groupes de machines virtuelles identiques sans aucune installation de diagnostic supplémentaire. Ces nouvelles mesures au niveau hôte sont disponibles pour les instances Windows et Linux. Ces mesures ne doivent pas être confondues avec les mesures de niveau système d’exploitation invité auxquelles vous avez accès lorsque vous activez les Diagnostics Azure sur vos machines virtuelles ou groupes de machines virtuelles identiques. Pour en savoir plus sur la configuration de Diagnostics, consultez [Qu’est-ce que Microsoft Azure Diagnostics](../azure-diagnostics.md).
-> 
-> 
+>
+>
 
 ## <a name="access-metrics-via-the-rest-api"></a>Accès aux mesures via l’API REST
 Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API qui vous aident à découvrir et accéder aux mesures :
@@ -88,8 +92,8 @@ Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API
 
 > [!NOTE]
 > Cet article décrit les mesures via la [nouvelle API pour les mesures](https://msdn.microsoft.com/library/dn931930.aspx) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2016-03-01 et la version pour les mesures est 2016-09-01. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
-> 
-> 
+>
+>
 
 Pour une description plus détaillée à l’aide de l’API REST d’Azure Monitor, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](monitoring-rest-api-walkthrough.md).
 
@@ -114,7 +118,7 @@ Certaines ressources Azure prennent en l’augmentation ou la diminution de la t
  ![Mesures et règles de mise à l’échelle automatique dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Découvrez les services et mesures pris en charge
-Azure Monitor est une nouvelle infrastructure de mesures. Il propose la prise en charge des services Azure suivants dans le portail Azure et la nouvelle version de l’API Azure Monitor :
+Azure Monitor est une nouvelle infrastructure de mesures. Il prend en charge les services Azure suivants dans le portail Azure et la nouvelle version de l’API Azure Monitor :
 
 * Machines virtuelles (basées sur Azure Resource Manager)
 * jeux de mise à l’échelle de machine virtuelle
@@ -138,5 +142,5 @@ Consultez les liens dans cet article. De plus, consultez :
 
 * [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md)
 * [Guide de création de règles d’alertes](insights-alerts-portal.md)
-
+* [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

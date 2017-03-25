@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
-ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +32,7 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+* **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
   * Téléchargez et installez les **outils d’interface de ligne de commande Azure** [version préliminaire](https://github.com/MicrosoftBigData/AzureDataLake/releases) pour effectuer cette démonstration.
 * **Authentication**, en utilisant la commande  suivante :
   
@@ -161,10 +162,5 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 * Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 * Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

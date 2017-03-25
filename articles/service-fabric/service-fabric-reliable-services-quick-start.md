@@ -1,5 +1,5 @@
 ---
-title: "Créer votre premier microservice Azure fiable en C# | Microsoft Docs"
+title: "Créer votre première application Service Fabric en C# | Microsoft Docs"
 description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 41823b962caf25e1826fc06bc49887fd99876fc4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,14 +36,14 @@ Une application Azure Service Fabric contient un ou plusieurs services qui exéc
 Pour prendre en main Reliable Services, il vous suffit de comprendre quelques concepts de base :
 
 * **Type de service** : il s’agit de l’implémentation de votre service. Elle est définie par la classe que vous écrivez qui étend `StatelessService` et tout autre code ou dépendances utilisés ici, ainsi qu’un nom et un numéro de version.
-* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d’objet d’un type de classe. Les instances de service sont en fait des instanciations d’objet de votre classe de service que vous écrivez. 
-* **Hôte de service** : les instances de service nommées que vous créez doivent s’exécuter au sein d’un ordinateur hôte. L’hôte de service est simplement un processus dans lequel les instances de votre service peuvent s’exécuter.
+* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d’objet d’un type de classe. Une instance de service a un nom qui se présente sous la forme d’un URI utilisant le schéma « fabric:/ », par exemple « fabric:/MyApp/MyService ».
+* **Hôte de service** : les instances de service nommées que vous créez doivent s’exécuter au sein d’un processus hôte. L’hôte de service est simplement un processus dans lequel les instances de votre service peuvent s’exécuter.
 * **Inscription du service** : l’inscription rassemble tous les éléments. Le type de service doit être inscrit auprès du runtime Service Fabric dans un hôte de service pour autoriser Service Fabric à créer des instances de ce type à exécuter.  
 
 ## <a name="create-a-stateless-service"></a>Création d'un service sans état
 Un service sans état est un type de service qui correspond actuellement à la norme pour les applications cloud. Le service lui-même est considéré comme étant sans état, car il ne contient pas de données à stocker de manière fiable ou à rendre hautement disponibles. Si une instance d’un service sans état est arrêtée, tout son état interne est perdu. Dans ce type de service, l’état doit être conservé dans un magasin externe, comme des tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
 
-Lancez Visual Studio 2015 en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld*:
+Lancez Visual Studio 2015 ou Visual Studio 2017 en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld*:
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -67,7 +68,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* Un point d’entrée de communication où vous pouvez connecter votre pile de communication, notamment l’API Web ASP.NET : C’est là que vous pouvez commencer à recevoir des demandes des utilisateurs et des autres services.
+* Un point d’entrée de communication où vous pouvez connecter votre pile de communication, notamment ASP.NET Core. C’est là que vous pouvez commencer à recevoir des demandes des utilisateurs et des autres services.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -113,7 +114,7 @@ La plateforme appelle cette méthode quand une instance d’un service est plac�
 
 Cette orchestration est gérée par le système afin de maintenir une haute disponibilité et un équilibrage correct de votre service.
 
-`RunAsync()` ne doit pas se bloquer de façon synchrone. Votre implémentation de RunAsync doit retourner une tâche ou await sur toutes les opérations de longue durée ou de blocage pour permettre au runtime de continuer : notez que dans la boucle `while(true)` de l’exemple précédent, une commande `await Task.Delay()` renvoyant une tâche est utilisée. Si votre charge de travail doit se bloquer de façon synchrone, vous devez planifier une tâche avec `Task.Run()` dans votre implémentation de `RunAsync`.
+`RunAsync()` ne doit pas se bloquer de façon synchrone. Votre implémentation de RunAsync doit retourner une tâche ou await sur toutes les opérations de longue durée ou de blocage pour permettre au runtime de continuer. Remarque : Dans la boucle `while(true)` de l’exemple précédent, une commande `await Task.Delay()` renvoyant une tâche est utilisée. Si votre charge de travail doit se bloquer de façon synchrone, vous devez planifier une tâche avec `Task.Run()` dans votre implémentation de `RunAsync`.
 
 L'annulation de votre charge de travail est un effort conjoint orchestré par le jeton d'annulation fourni. Le système attend la fin de la tâche (suite à sa réussite, son annulation ou sa défaillance) avant de poursuivre. Il est important de respecter le jeton d’annulation, de terminer le travail et de quitter `RunAsync()` aussi rapidement que possible quand le système demande une annulation.
 
@@ -227,10 +228,5 @@ Une fois que les services commencent à s’exécuter, vous pouvez afficher les 
 [Mise à niveau de l’application](service-fabric-application-upgrade.md)
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

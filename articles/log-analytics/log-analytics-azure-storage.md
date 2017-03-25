@@ -1,5 +1,5 @@
 ---
-title: "Collecte des journaux et des métriques pour les services Azure dans Log Analytics | Microsoft Docs"
+title: "Collecte des journaux et des métriques des services Azure pour Log Analytics | Microsoft Docs"
 description: "Configuration des diagnostics sur les ressources Azure pour écrire des journaux et métriques dans Log Analytics."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/09/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
-ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="collecting-logs-and-metrics-for-azure-services-in-log-analytics"></a>Collecte des journaux et des mesures pour les services Azure dans Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics
 
 Il existe quatre façons différentes de collecter des journaux et des métriques pour les services Azure :
 
@@ -46,14 +48,16 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 | Équilibreurs de charge          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
 | Groupes de sécurité réseau | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Coffres de récupération         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (version préliminaire)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Services de recherche         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
-| Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
+| Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (version préliminaire)](log-analytics-azure-sql.md) |
+| Storage                 |                                         |             | Script      | [Azure Storage Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Machines virtuelles        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Groupes de machines virtuelles identiques | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Batteries de serveurs web        | Microsoft.Web/serverfarms               |             | Diagnostics | |
-| Sites web               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Plus d’informations](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring) |
+| Sites web               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Azure Web Apps Analytics (version préliminaire)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
 
 
 > [!NOTE]
@@ -149,9 +153,4 @@ La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Aut
 * [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) afin de lire les journaux pour les services Azure qui écrivent des diagnostics dans Stockage Table ou les journaux IIS écrits dans le Stockage Blob.
 * [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

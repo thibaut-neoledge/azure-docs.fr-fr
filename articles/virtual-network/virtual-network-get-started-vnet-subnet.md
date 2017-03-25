@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 071ef9c0784bdb24c7d29f49c36aee2271f4b524
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -160,7 +160,7 @@ Si vous avez créé un réseau virtuel et deux machines virtuelles, le portail A
 
     ![Contenu du groupe de ressources](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Pour en savoir plus sur les machines virtuelles, les disques et les comptes de stockage, consultez les articles généraux [Machine virtuelle](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disque](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Compte de stockage](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez voir les deux groupes de sécurité réseau par défaut que le portail a créé pour vous. Vous pouvez également voir que le portail a créé deux ressources d’interface réseau. Une carte réseau permet à une machine virtuelle de se connecter à d’autres ressources sur le réseau virtuel. Consultez l’article [Carte réseau](virtual-network-network-interface-overview.md) pour en savoir plus sur les cartes réseau. Le portail a également créé une ressource d’adresse IP publique. Les adresses IP publiques correspondent à un paramètre de configuration d’une ressource d’adresse IP publique. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Pour en savoir plus sur les machines virtuelles, les disques et les comptes de stockage, consultez les articles généraux [Machine virtuelle](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disque](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Compte de stockage](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez voir les deux groupes de sécurité réseau par défaut que le portail a créé pour vous. Vous pouvez également voir que le portail a créé deux ressources d’interface réseau. Une carte réseau permet à une machine virtuelle de se connecter à d’autres ressources sur le réseau virtuel. Consultez l’article [Carte réseau](virtual-network-network-interface.md) pour en savoir plus sur les cartes réseau. Le portail a également créé une ressource d’adresse IP publique. Les adresses IP publiques correspondent à un paramètre de configuration d’une ressource d’adresse IP publique. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Se connecter aux machines virtuelles
 
@@ -250,7 +250,7 @@ Dans cet exercice, vous avez créé un réseau virtuel et deux machines virtuell
 
 - [Réseaux virtuels](virtual-networks-overview.md)
 - [Adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Interfaces réseau](virtual-network-network-interface-overview.md)
+- [Interfaces réseau](virtual-network-network-interface.md)
 - [Groupes de sécurité réseau](virtual-networks-nsg.md)
 - [Machines virtuelles](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

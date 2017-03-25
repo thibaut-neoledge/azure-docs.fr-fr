@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
-ms.openlocfilehash: 52cc3c74e05dc3934e0536dea02b4870f6ed86c2
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 878bb6e792cff555747912a57c1a15632f06b2f7
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Créer et gérer un pool élastique avec le Portail Azure
-Cette rubrique montre comment créer et gérer des [pools élastiques](sql-database-elastic-pool.md) évolutifs avec le portail Azure. Vous pouvez également créer et gérer un pool élastique Azure avec [PowerShell](sql-database-elastic-pool-manage-powershell.md), l’API REST ou [C#][Créer et gérer un pool élastique avec C#](sql-database-elastic-pool-manage-csharp.md). Vous pouvez également créer et déplacer des bases de données vers et depuis des pools élastiques à l’aide de [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Cette rubrique montre comment créer et gérer des [pools élastiques](sql-database-elastic-pool.md) évolutifs avec le portail Azure. Vous pouvez également créer et gérer un pool élastique Azure avec [PowerShell](sql-database-elastic-pool-manage-powershell.md), l’API REST ou [C#](sql-database-elastic-pool-manage-csharp.md). Vous pouvez également créer et déplacer des bases de données vers et depuis des pools élastiques à l’aide de [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## <a name="create-an-elastic-pool"></a>Créer un pool élastique 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: ae28e4a009e7fbf40d8fc2f3c10d3dadc7407819
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 29cb2faa2e2d6cb9f45242794d88d3c8f881539d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -81,7 +82,7 @@ Une fois installés, ils sont accessibles à l'aide de la commande « azure »
 Pour accéder aux informations de diagnostic via FTP, visitez le [portail Azure](https://portal.azure.com), sélectionnez votre application web, puis sélectionnez le **TABLEAU DE BORD**. Dans la section **liens rapides**, les liens **Journaux de diagnostic FTP** et **Journaux de diagnostic FTPS** permettent d’accéder aux journaux à l’aide du protocole FTP.
 
 > [!NOTE]
-> Si vous n’avez pas déjà configuré un nom d’utilisateur et un mot de passe pour le FTP ou le déploiement, vous pouvez le faire à partir de la page de gestion **Démarrage rapide** en sélectionnant **Configurer les informations d’identification du déploiement**.
+> Si vous n’avez pas encore configuré un nom d’utilisateur et un mot de passe pour le FTP ou le déploiement, vous pouvez le faire sur la page de gestion **Démarrage rapide**, en sélectionnant **Configurer les informations d’identification du déploiement**.
 > 
 > 
 
@@ -131,15 +132,10 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [fichier Lisez-moi IISNode]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
+[How to Use The Azure Command-Line Interface]:../cli-install-nodejs.md
 [Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Spécification d'une version de Node.js dans une application Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
-ms.openlocfilehash: 2d7592680289d9f222f5e0aa36aa66d12f4fa517
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0f8fc929ad0812e7729f146da7851d5acad55ba9
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,12 +49,12 @@ L’extension de l’agent OMS pour Linux nécessite que la machine virtuelle ci
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible.
+Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **workspaceId** et **workspaceKey** respectent la casse.
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "<extension-deployment-name>",
+  "type": "extensions",
+  "name": "OMSExtension",
   "apiVersion": "2015-06-15",
   "location": "<location>",
   "dependsOn": [
@@ -89,6 +90,58 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement, comme l’intégration dans OMS. Vous trouverez un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle d’agent OMS dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
+Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../azure-resource-manager/resource-manager-template-child-resource.md). 
+
+L’exemple suivant suppose que l’extension OMS est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
+
+```json
+{
+  "type": "extensions",
+  "name": "OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
+    }
+  }
+}
+```
+
+Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente, et le type reflète la configuration imbriquée.  
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "<parentVmResource>/OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
+    }
+  }
+}
+```
+
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent OMS sur une machine virtuelle existante. Avant de déployer l’extension d’agent OMS, créez un fichier public.json et un fichier protected.json. Le schéma pour ces fichiers est détaillé plus haut dans ce document.
@@ -112,16 +165,11 @@ azure vm extension get myResourceGroup myVM
 
 La sortie de l’exécution de l’extension est enregistrée dans le fichier suivant :
 
-`
+```
 /opt/microsoft/omsagent/bin/stdout
-`
+```
 
 ### <a name="support"></a>Support
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/en-us/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

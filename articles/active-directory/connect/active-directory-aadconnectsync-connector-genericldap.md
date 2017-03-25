@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -228,10 +229,18 @@ Pour chaque espace de noms, il est également possible de configurer les paramè
 
 Il est également possible de sélectionner les conteneurs et les unités opérationnelles depuis lesquelles importer ou vers lesquelles exporter.
 
+Lorsque vous effectuez une recherche, cette opération est effectuée sur tous les conteneurs de la partition. Si le nombre de conteneurs est important, ce comportement entraîne une dégradation des performances.
+
+>[!NOTE]
+À compter de la mise à jour du connecteur LDAP générique de mars 2017, l’étendue des recherches peut être limitée pour ne porter que sur les conteneurs sélectionnés. Pour cela, cochez la case « Search only in selected containers » (Rechercher uniquement dans les conteneurs sélectionnés), comme indiqué dans l’image ci-dessous.
+
+![Rechercher uniquement dans les conteneurs sélectionnés](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>Configuration de points d’ancrage
 Cette page a toujours une valeur préconfigurée et ne peut pas être modifiée. Si le fournisseur du serveur a été identifié, l’ancrage peut afficher un attribut non modifiable, comme l’identificateur global unique d’un objet. S’il n’a pas été détecté ou s’il est connu pour ne pas avoir d’attribut non modifiable, le connecteur utilise le nom unique (DN) comme point d’ancrage.
 
 ![Points d’ancrage](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 Voici une liste de serveurs LDAP et du point d’ancrage utilisé :
 
@@ -261,9 +270,4 @@ Dans les annuaires avec un journal des modifications différentielles basé sur 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 * Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

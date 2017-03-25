@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a42dbefe6805cff5fb2df604265f0e62e2c25f69
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
-
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procédure stockée](data-factory-stored-proc-activity.md)
-> * [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md)
-> * [.NET personnalisé](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Activité Hive](data-factory-hive-activity.md) 
+> * [Activité pig](data-factory-pig-activity.md)
+> * [Activité MapReduce](data-factory-map-reduce.md)
+> * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Activité Spark](data-factory-spark.md)
+> * [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
+> * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
+> * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 Vous utilisez des activités de transformation dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 

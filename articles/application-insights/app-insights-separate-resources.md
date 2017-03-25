@@ -4,18 +4,19 @@ description: "Surveillez les performances et l&quot;utilisation de votre applica
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ Les données de télémétrie de différents composants et différentes versions
 
 Tout d’abord, essayons de comprendre la question. Les données reçues de votre application sont stockées et traitées par Application Insights dans une *ressource*Microsoft Azure. Chaque ressource est identifiée par une *clé d’instrumentation* (iKey). Dans votre application, la clé est fournie au SDK Application Insights afin qu'il puisse envoyer les données collectées à la ressource appropriée. La clé peut être fournie dans le code ou dans ApplicationInsights.config. En modifiant la clé dans le SDK, vous pouvez diriger les données vers différentes ressources. 
 
-Dans un cas simple, lorsque vous créez le code d’une nouvelle application, vous créez également une ressource dans Application Insights. Dans Visual Studio, la boîte de dialogue *Nouveau projet* le fait pour vous.
+Dans un cas simple, lorsque vous inscrivez une application auprès d’Application Insights, vous créez une nouvelle ressource dans Application Insights. Dans Visual Studio, la boîte de dialogue *Configurer Application Insights* ou *Ajouter Application Insights* le fait pour vous.
 
 S’il s’agit d’un site web volumineux, il peut être déployé sur plusieurs instances de serveur.
 
@@ -61,7 +62,7 @@ Pour faciliter le changement automatique de clé lorsque votre application est p
 
 (Si votre système est un service cloud Azure, il existe [une autre méthode pour configurer des iKeys distinctes](app-insights-cloudservices.md).)
 
-### <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Clé d'instrumentation dynamique
+### <a name="dynamic-ikey"></a> Clé d'instrumentation dynamique
 Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.cs dans un service ASP.NET :
 
 *C#*
@@ -115,10 +116,5 @@ La clé d'instrumentation identifie la ressource que vous avez créée.
 ![Cliquez sur Essentials, sur la clé d'instrumentation, puis appuyez sur CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 Vous avez besoin des clés d’instrumentation de toutes les ressources auxquelles votre application envoie des données.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
-ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d9c56697a022fac2ad84b7688445cad3e489658
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,33 +64,13 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 ## <a name="create-a-backup-vault-for-a-vm"></a>Création d’un coffre de sauvegarde pour une machine virtuelle
 Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre de sauvegarde contient également les stratégies de sauvegarde qui seront appliquées aux machines virtuelles en cours de sauvegarde.
 
+> [!IMPORTANT]
+> Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde. Les coffres de sauvegarde existants sont toujours pris en charge, et il est possible [d’utiliser Azure PowerShell pour créer des coffres de sauvegarde](./backup-client-automation-classic.md#create-a-backup-vault). Toutefois, Microsoft vous recommande de créer des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services.
+
+
 Cette image illustre les relations entre les différentes entités de sauvegarde Azure :     ![Entités et relations de la Sauvegarde Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-Pour créer un archivage de sauvegarde :
 
-1. Connectez-vous au [portail Azure](http://manage.windowsazure.com/).
-2. Dans le Portail Azure, cliquez sur **Nouveau** > **Intégration hybride** > **Sauvegarde**. Lorsque vous cliquez sur **Sauvegarde**, vous accédez automatiquement à la version classique du portail (illustrée après la remarque).
-
-    ![Portail Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > Si la dernière utilisation de votre abonnement s’est déroulée dans le portail classique, alors il est possible que votre abonnement s’ouvre dans le portail classique. Dans ce cas, pour créer un coffre de sauvegarde, cliquez sur **Nouveau** > **Data Services** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide** (voir l’image ci-dessous).
-   >
-   >
-
-    ![Créer un archivage de sauvegarde](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
-4. Dans **Region**, sélectionnez la région géographique du coffre. L’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un coffre de sauvegarde dans chaque région. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : l’archivage de sauvegarde et le service Azure Backup s’en chargent automatiquement.
-5. Sous **Abonnement** , sélectionnez l’abonnement à associer au coffre de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
-6. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
-
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-prepare/creating-vault.png)
-7. Un message confirme que le coffre a été correctement créé. Celui-ci est répertorié sur la page **Recovery Services** comme étant **Actif**. Veillez à choisir l’option de redondance de stockage appropriée juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#create-a-recovery-services-vault).
-
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. Cliquez sur l’archivage de sauvegarde pour accéder à la page **Démarrage rapide** où sont affichées les instructions pour la sauvegarde des machines virtuelles Azure.
-
-    ![Instructions de sauvegarde de machines virtuelles dans la page Tableau de bord](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 Afin de gérer les instantanés de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès (via un groupe de sécurité réseau (NSG), par exemple), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :

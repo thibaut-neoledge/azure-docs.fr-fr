@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
-ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -156,29 +157,29 @@ Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateu
   >
 
 ### <a name="data-source"></a>Source de données
-Le système de fichiers distribués Hadoop (HDFS) d’origine utilise de nombreux disques locaux sur le cluster. HDInsight utilise le stockage d’objets blob Azure pour stocker les données. Le stockage d’objets blob Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut fonctionner directement sur les données structurées ou non structurées dans le stockage d’objets blob. Le stockage de données dans le stockage d’objets blob vous permet de supprimer les clusters HDInsight servant aux calculs, sans perte de données utilisateur.
 
-Durant la configuration, vous devez spécifier un compte de stockage Azure, ainsi qu’un conteneur de stockage d’objets blob Azure sur le compte de stockage Azure. Certains processus de création requièrent le compte de stockage Azure et le conteneur de stockage d’objets blob qui a été créé au préalable. Le conteneur de stockage d’objets blob est utilisé par le cluster comme emplacement de stockage par défaut. Vous pouvez éventuellement spécifier des comptes Azure Storage supplémentaires (stockage lié) auxquels le cluster peut accéder. Le cluster peut également accéder aux conteneurs de stockage d’objets blob qui sont configurés avec un accès en lecture public complet ou un accès en lecture public pour les objets blob uniquement.  Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](../storage/storage-manage-access-to-resources.md).
+Le système de fichiers distribués Hadoop (HDFS) d’origine utilise de nombreux disques locaux sur le cluster. HDInsight utilise des objets blob dans le stockage Azure. Le stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut fonctionner directement sur les données structurées ou non structurées stockées dans les objets blob. Le stockage de données dans Stockage Azure vous permet de supprimer les clusters HDInsight servant aux calculs, sans perte de données utilisateur.
+
+> [!WARNING]
+> HDInsight prend uniquement en charge les comptes de stockage Azure à __usage général__. Il ne prend actuellement pas en charge le type de compte __stockage Blob__.
+
+Durant la configuration, vous devez spécifier un compte de stockage Azure, ainsi qu’un conteneur d’objets blob sur le compte de stockage Azure. Certains processus de création requièrent que le compte de stockage Azure et le conteneur d’objets blob soient créés au préalable. Le conteneur d’objets blob est utilisé par le cluster comme emplacement de stockage par défaut. Vous pouvez éventuellement spécifier des comptes de stockage Azure supplémentaires (stockage lié) auxquels le cluster peut accéder. Le cluster peut également accéder aux conteneurs d’objets blob qui sont configurés avec un accès en lecture public complet ou un accès en lecture public pour les objets blob uniquement.  Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](../storage/storage-manage-access-to-resources.md).
 
 ![Stockage HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 > [!NOTE]
-> Un conteneur de stockage d’objets blob regroupe un ensemble d’objets blob, comme illustré dans l’image suivante.
->
->
+> Un conteneur d’objets blob regroupe un ensemble d’objets blob, comme illustré dans l’image suivante.
 
-![Stockage des objets blob](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Objet blob Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur de stockage d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Veuillez noter que le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
+Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Veuillez noter que le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
 
 > [!WARNING]
-> Le partage d’un conteneur de stockage d’objets blob sur plusieurs clusters n’est pas pris en charge.
->
->
+> Le partage d’un conteneur d’objets blob sur plusieurs clusters n’est pas pris en charge.
 
-Pour plus d’informations sur l’utilisation du stockage d’objets blob secondaire, consultez [Utilisation du stockage d’objets blob Azure compatible avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Pour plus d’informations sur l’utilisation d’un compte de stockage Azure secondaire, consultez [Utilisation du stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-En plus du stockage d’objets blob Azure, vous pouvez utiliser [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) comme compte de stockage par défaut pour le cluster HBase dans HDInsight, et comme stockage lié pour les quatre types de cluster HDInsight. Pour plus d’informations, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+En plus du stockage Azure, vous pouvez utiliser [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) comme compte de stockage par défaut pour le cluster HBase dans HDInsight, et comme stockage lié pour les quatre types de cluster HDInsight. Pour plus d’informations, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ### <a name="location-region"></a>Emplacement (région)
 Le cluster HDInsight et son compte de stockage par défaut doivent être situés au même emplacement Azure.
@@ -250,7 +251,7 @@ Dans certains cas, vous pouvez ajouter un stockage supplémentaire au cluster. P
 
 Vous pouvez ajouter des comptes de stockage lorsque vous créez un cluster HDInsight ou après la création d’un cluster.  Consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Pour plus d’informations sur l’utilisation du stockage d’objets blob secondaire, consultez [Utilisation du stockage d’objets blob Azure compatible avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md). Pour plus d’informations sur l’utilisation d’un Data Lake Store secondaire, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Pour plus d’informations sur le compte de stockage Azure secondaire, consultez [Utilisation du stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md). Pour plus d’informations sur l’utilisation d’un Data Lake Store secondaire, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="use-hiveoozie-metastore"></a>Utiliser un metastore Hive/Oozie
 Nous vous recommandons d’utiliser un metastore personnalisé si vous souhaitez conserver vos tables Hive après la suppression de votre cluster HDInsight. Vous pourrez joindre ce metastore à un autre cluster HDInsight.
@@ -314,12 +315,12 @@ Pour conserver les modifications apportées pendant la durée de vie d’un clus
 ## <a name="customize-clusters-using-script-action"></a>Personnalisation de clusters à l’aide d’une action de script
 Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **action de script**, une option de configuration qui peut être utilisée à partir du portail Azure, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Certains composants Java natifs, comme Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers Java Archive (JAR). Ces derniers peuvent être distribués au stockage d’objets blob Azure et envoyés aux clusters HDInsight à l’aide des mécanismes d’envoi de tâches Hadoop. Pour plus d’informations, consultez la rubrique [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md).
+Certains composants Java natifs, comme Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers Java Archive (JAR). Ces derniers peuvent être distribués au stockage Azure et envoyés aux clusters HDInsight à l’aide des mécanismes d’envoi de tâches Hadoop. Pour plus d’informations, consultez la rubrique [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 >
-> Cascading n’est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight.](hdinsight-component-versioning.md).
+> Cascading n’est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight](hdinsight-component-versioning.md).
 >
 >
 

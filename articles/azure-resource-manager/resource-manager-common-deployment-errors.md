@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ Les codes d’erreur suivants sont décrits dans cette rubrique :
 * [Échec de l’autorisation](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -122,6 +124,40 @@ Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous ave
   ```
 
 Si vous ne parvenez pas à trouver une référence appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+Si vous recevez cette erreur, vous utilisez un abonnement qui n’est pas autorisé à accéder à des services Azure autres qu’Azure Active Directory. Vous pouvez avoir ce type d’abonnement lorsque vous avez besoin d’accéder au Portail Classic mais que vous n’êtes pas autorisé à déployer des ressources. Pour résoudre ce problème, vous devez utiliser un abonnement qui dispose de l’autorisation de déployer des ressources.  
+
+Pour afficher vos abonnements disponibles avec PowerShell, utilisez :
+
+```powershell
+Get-AzureRmSubscription
+```
+
+Pour définir l’abonnement actif, utilisez :
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Pour afficher vos abonnements disponibles avec Azure CLI 2.0, utilisez :
+
+```azurecli
+az account list
+```
+
+Pour définir l’abonnement actif, utilisez :
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Cette erreur peut résulter de différents types d’erreurs.
@@ -387,19 +423,19 @@ Pour obtenir les versions d’API prises en charge d’un type particulier de re
 Pour voir si le fournisseur est inscrit, utilisez la commande `azure provider list` .
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Pour inscrire un fournisseur de ressources, utilisez la commande `azure provider register` et indiquez *l’espace de noms* à inscrire.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-Pour afficher les emplacements et les versions d’API pris en charge pour un fournisseur de ressources, utilisez la commande suivante :
+Pour afficher les emplacements et les versions d’API pris en charge pour un type de ressources, utilisez la commande suivante :
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ Pour obtenir des informations complètes sur les quotas, consultez [Abonnement A
 Pour examiner les quotas de cœurs de votre abonnement, vous pouvez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure. L’exemple suivant montre que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Résultat :
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 Si vous déployez un modèle qui crée plus de quatre cœurs dans la région ouest des États-Unis, vous obtenez une erreur de déploiement similaire à la suivante :
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 Dans **PowerShell**, fournissez cet identificateur de stratégie en tant que paramètre **Id** pour extraire des informations sur la stratégie qui a bloqué votre déploiement.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-Dans **Interface de ligne de commande Azure**, indiquez le nom de la définition de stratégie :
+Dans **Azure CLI 2.0**, indiquez le nom de la définition de stratégie :
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
@@ -522,21 +563,13 @@ Vous pouvez découvrir des informations précieuses sur le traitement de votre d
 
    Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
-- Interface de ligne de commande Azure
+- Azure CLI 2.0
 
-   Dans l’interface de ligne de commande Azure, définissez le paramètre **--debug-setting** sur All, ResponseContent ou RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Examinez le contenu de la demande et de la réponse journalisé à l’aide de la commande suivante :
+   Examinez les opérations de déploiement avec la commande suivante :
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
 - Modèle imbriqué
 
@@ -662,7 +695,7 @@ Le tableau suivant répertorie les rubriques de dépannage des autres services A
 | Automation |[Conseils de dépannage pour les erreurs courantes dans Azure Automation](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Dépannage de Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
 | Data Factory |[Résolution des problèmes liés à Data Factory](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Résoudre les problèmes courants rencontrés pendant le déploiement de services dans Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Surveiller et diagnostiquer les applications Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
 | Site Recovery |[Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Storage |[Analyser, diagnostiquer et dépanner Microsoft Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Résolution des problèmes de déploiement d’un appareil StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
@@ -672,9 +705,4 @@ Le tableau suivant répertorie les rubriques de dépannage des autres services A
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -12,7 +12,7 @@
 | Taille minimale d'un partage épinglé localement |50 Go | |
 | Taille minimale d'un volume épinglé localement |50 Go | |
 | Taille maximale d'un partage épinglé localement |2 To | |
-| Taille maximale d'un volume épinglé localement |500 Go | |
+| Taille maximale d'un volume épinglé localement |200 Go | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs |512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil |64 | |
 | Nombre maximal de sauvegardes conservées par l'appareil virtuel dans le dossier *.backups* pour le serveur de fichiers |5 |Cela inclut les sauvegardes les plus récentes planifiées (générées par la stratégie de sauvegarde par défaut) et les sauvegardes manuelles. |
@@ -21,9 +21,4 @@
 | Nombre maximal de fichiers par partage |1 million |Lorsque vous effectuez une restauration d’appareil, les délais de restauration sont proportionnels au nombre de fichiers se trouvant sur tous les partages de l’appareil. |
 | Nombre maximal de fichiers par baie virtuelle |4 millions | |
 | Délai de récupération après restauration |Restauration rapide |La restauration est basée sur la carte thermique et dépend de la taille du volume.<br>Les opérations de sauvegarde peuvent se produire lorsqu’une opération de restauration est en cours. |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

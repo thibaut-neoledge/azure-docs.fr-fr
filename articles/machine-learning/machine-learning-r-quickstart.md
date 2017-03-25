@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
-ms.openlocfilehash: 6a02bb20ff2ed10ed528bfe2a3aae51ab20e4a60
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -51,7 +51,7 @@ Les données utilisées dans cet article et les scripts R peuvent être [téléc
 * Après avoir préparé nos données, nous procéderons à l’analyse des corrélations entre plusieurs variables figurant dans notre jeu de données.
 * Enfin, nous créerons un modèle de prévision chronologique saisonnier pour la production de lait.
 
-## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio
+## <a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio
 Cette section vous fait découvrir certains concepts de base de l'interaction avec le langage de programmation R dans l'environnement Machine Learning Studio. Le langage R offre un outil efficace pour créer des modules d’analyse et de manipulation de données personnalisés au sein de l’environnement Azure Machine Learning.
 
 Nous utiliserons RStudio pour développer, tester et déboguer du code R à petite échelle. Ce code sera ensuite coupé et collé dans un module d’exécution de script R (ou [Execute R script][execute-r-script]) dans Studio Machine Learning, prêt à être exécuté.  
@@ -132,13 +132,13 @@ Un didacticiel de présentation de RStudio est disponible à l’adresse https:/
 
 Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans [l’Annexe A][appendixa].  
 
-## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
+## <a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
 Dans cette section, nous allons voir comment obtenir des données dans et hors du module [d’exécution de script R][execute-r-script]. Nous examinerons les façons de gérer les différents types de données lus dans et hors du module [d’exécution de script R][execute-r-script].
 
 Le code complet de cette section se trouve dans le fichier zip téléchargé précédemment.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>Chargement et vérification des données dans Machine Learning Studio
-#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>Chargement du jeu de données
+#### <a id="loading"></a>Chargement du jeu de données
 Nous allons commencer par charger le fichier **csdairydata.csv** dans Azure Machine Learning Studio.
 
 * Démarrez votre environnement Azure Machine Learning Studio.
@@ -315,7 +315,7 @@ En faisant défiler l'écran vers le bas, nous voyons la sortie graphique de not
 
 *Figure 8 : sortie graphique du port d’appareil R.*  
 
-## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>Filtrage et transformation des données
+## <a id="filtering"></a>Filtrage et transformation des données
 Dans cette section, nous allons effectuer certaines opérations de filtrage et de transformation de données de base sur les données du secteur laitier californien. À la fin de cette section, les données seront dans un format idoine pour générer un modèle d'analyse.  
 
 Plus particulièrement, nous allons effectuer dans cette section plusieurs tâches courantes de nettoyage et de transformation de données ; de transformation de types, de filtrage sur des tableaux de données, d’ajout de nouvelles colonnes calculées et de transformation de valeurs. Cette expérience vous aidera à faire face aux diverses cas de figure rencontrés dans les problèmes réels.
@@ -598,7 +598,7 @@ Comme nous pouvons le constater, les valeurs ont été transformées. À présen
 
 À ce stade, nos données sont nettoyées et nous sommes prêts à procéder à une modélisation. Au vu de l’aperçu de visualisation de la sortie du jeu de données de résultat du module [d’exécution de script R][execute-r-script], vous pouvez constater que la colonne « Month » est de type « catégorique » et qu’elle contient 12 valeurs uniques, là encore comme prévu.
 
-## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
+## <a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
 Dans cette section, nous allons explorer quelques objets de série chronologique R de base et analyser les corrélations entre certaines variables. Notre objectif est ici de sortir un tableau de données contenant les informations de corrélation par paire à plusieurs décalages.
 
 Le code complet de cette section se trouve dans le fichier zip que vous avez téléchargé précédemment.
@@ -879,7 +879,7 @@ L’exécution du code génère la sortie présentée dans la figure 19 après 
 
 *Figure 19 : résultats générés par l’analyse des corrélations.*
 
-## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
+## <a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
 Les données se trouvent maintenant dans un format adapté à l’analyse et nous avons déterminé qu’il n’y avait pas de corrélations significatives entre les variables. Continuons et créons un modèle de prévision chronologique. Nous nous servirons de ce modèle pour établir des prévisions concernant la production de lait californienne au cours des 12 mois de 2013.
 
 Notre modèle de prévision aura deux composantes : une tendancielle et une saisonnière. La prévision complète est le fruit de ces deux composantes. Ce type de modèle est connu sous le nom de modèle multiplicatif. Le modèle alternatif est appelé modèle additif. Nous avons déjà appliqué une transformation logarithmique aux variables qui nous intéressent, ce qui rend cette analyse malléable.
@@ -1209,7 +1209,7 @@ L'exécution de ce code génère la sortie présentée dans la figure 27 au niv
 
 Ces résultats nous montrent que l’ajout des facteurs saisonniers au modèle a pour effet de réduire sensiblement l’erreur RMS. Fort logiquement, l'erreur RMS au niveau des données d'apprentissage est plus limitée qu'au niveau de la prévision.
 
-## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>ANNEXE A : guide de RStudio
+## <a id="appendixa"></a>ANNEXE A : guide de RStudio
 RStudio étant très bien documenté, vous trouverez dans cette annexe des liens vers les principales sections de la documentation RStudio, qui vous aideront dans la prise en main du produit.
 
 1. Création de projets
@@ -1226,7 +1226,7 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
    
    Les fonctionnalités de résolution des problèmes de point d’arrêt sont documentées à l’adresse https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>ANNEXE B : informations supplémentaires
+## <a id="appendixb"></a>ANNEXE B : informations supplémentaires
 Ce didacticiel sur la programmation R couvre les concepts de base de ce qu'il vous faut pour utiliser le langage R avec Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
 * « R pour les débutants » d'Emmanuel Paradis constitue un bon point de départ, à l'adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_fr.pdf.  
@@ -1246,7 +1246,8 @@ L’ouvrage « Introductory Time Series with R » de Paul Cowpertwait et Andre
 
 Quelques ressources Internet particulièrement utiles :
 
-* DataCamp : apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez le didacticiel R interactif gratuit à l’adresse https://www.datacamp.com/courses/introduction-to-r  
+* DataCamp : apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez le didacticiel R interactif gratuit à l’adresse https://www.datacamp.com/courses/introduction-to-r
+* Guide de prise en main de R à partir de Programiz https://www.programiz.com/r-programming
 * Un bref didacticiel sur le langage R par Kelly Black de l’Université de Clarkson : http://www.cyclismo.org/tutorial/R/
 * Plus de&60; ressources sur le langage R : http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 

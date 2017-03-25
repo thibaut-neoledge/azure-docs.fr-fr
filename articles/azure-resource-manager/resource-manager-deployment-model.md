@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: d6ac6253caaf5af1f8a14a499653c8afcbb7a2d8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -217,10 +218,5 @@ Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de d�
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour connaître la procédure pas à pas de création d’un modèle qui définit une machine virtuelle, un compte de stockage et un réseau virtuel, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 * Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

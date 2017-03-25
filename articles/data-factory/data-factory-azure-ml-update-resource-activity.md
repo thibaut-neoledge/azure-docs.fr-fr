@@ -14,13 +14,26 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
-ms.openlocfilehash: c06b8d6010ca6ddf562df99dcb7bf61ad9648f07
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: f78c735ec9a0bb34921e2ce03a4b96478480bcd0
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Mettre à jour les modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
+
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Activité Hive](data-factory-hive-activity.md) 
+> * [Activité pig](data-factory-pig-activity.md)
+> * [Activité MapReduce](data-factory-map-reduce.md)
+> * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Activité Spark](data-factory-spark.md)
+> * [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
+> * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
+> * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
+
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
 
 ## <a name="overview"></a>Vue d'ensemble

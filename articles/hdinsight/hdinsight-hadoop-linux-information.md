@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1d2d3d9d6c8dee02f2eb96ba20894e1d52541102
-ms.openlocfilehash: 584af73f3f2d428f7551de0b12b498b1a118e5dc
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 207eb60a359be1d9d9b68a92ac0c8255e7217a97
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -51,13 +51,13 @@ En interne, chaque nœud du cluster porte un nom qui est attribué pendant la co
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Remplacez **PASSWORD** par le mot de passe du compte d’administrateur et **CLUSTERNAME** par le nom de votre cluster. Ainsi sera retourné un document JSON qui contient la liste des hôtes du cluster. Ensuite, jq extrait la valeur de l’élément `host_name` pour chaque hôte du cluster.
+Remplacez **PASSWORD** par le mot de passe du compte d’administrateur et **CLUSTERNAME** par le nom de votre cluster. Cette commande retourne un document JSON qui contient la liste des hôtes du cluster. Ensuite, jq extrait la valeur de l’élément `host_name` pour chaque hôte du cluster.
 
-Si vous avez besoin de trouver le nom du nœud d’un service spécifique, vous pouvez interroger Ambari pour obtenir ce composant. Par exemple, pour trouver les hôtes du nœud de nom HDFS, utilisez ce qui suit.
+Si vous avez besoin de trouver le nom du nœud d’un service spécifique, vous pouvez interroger Ambari pour obtenir ce composant. Par exemple, pour trouver les hôtes du nœud de nom HDFS, utilisez la commande suivante :
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-Cette demande renvoie un document JSON qui décrit le service. Ensuite, jq extrait uniquement la valeur `host_name` des hôtes.
+Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extrait uniquement la valeur `host_name` des hôtes.
 
 ## <a name="remote-access-to-services"></a>Accès à distance aux services
 
@@ -68,7 +68,7 @@ Cette demande renvoie un document JSON qui décrit le service. Ensuite, jq extra
     L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
     > [!IMPORTANT]
-    > Bien qu'Ambari pour votre cluster soit accessible directement sur Internet, certaines fonctionnalités dépendent de l'accès aux nœuds via le nom de domaine interne utilisé par le cluster. Puisqu’il s’agit d’un nom de domaine interne, et non public, des erreurs vous indiquant que le serveur est introuvable sont susceptibles d’apparaître lorsque vous essayerez d’accéder à certaines fonctionnalités sur Internet.
+    > Bien qu'Ambari pour votre cluster soit accessible directement sur Internet, certaines fonctionnalités dépendent de l'accès aux nœuds via le nom de domaine interne utilisé par le cluster. Étant donné que les noms de domaine interne ne sont pas accessibles publiquement, des erreurs vous indiquant que le serveur est introuvable sont susceptibles d’apparaître lorsque vous essayerez d’accéder à certaines fonctionnalités sur Internet.
     >
     > Pour bénéficier de toutes les fonctionnalités de l’interface utilisateur Web Ambari, vous devez utiliser un tunnel SSH pour assurer l’acheminement proxy vers le nœud principal cluster. Consultez [Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -96,25 +96,25 @@ Cette demande renvoie un document JSON qui décrit le service. Ensuite, jq extra
 Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr/hdp`. Le répertoire contient les sous-répertoires suivants :
 
 * **2.2.4.9-1** : ce répertoire est nommé en fonction de la version de la plateforme de données Hortonworks utilisée par HDInsight. Le numéro de votre cluster peut être différent de celui qui figure ici.
-* **En cours** : ce répertoire contient des liens vers des répertoires contenus dans le dossier **2.2.4.9-1** et existe afin que vous n’ayez pas à saisir de numéro de version (qui peut changer) à chaque fois que vous souhaitez accéder à un fichier.
+* **current** : ce répertoire contient des liens vers des sous-répertoire sous le répertoire **2.2.4.9-1**. Ce répertoire existe afin que vous ne soyez pas obligé de taper un numéro de version (qui peut changer) à chaque fois que vous souhaitez accéder à un fichier.
 
-Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop HDFS Distributed File System) ou le stockage Blob Azure dans `/example` et `/HdiSamples`.
+Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop Distributed File System) dans `/example` et `/HdiSamples`.
 
-## <a name="hdfs-blob-storage-and-data-lake-store"></a>HDFS, stockage Blob et Data Lake Store
+## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, stockage Azure et Data Lake Store
 
-Dans la plupart des distributions Hadoop, le système HDFS est sauvegardé par un stockage local sur les machines dans le cluster. Bien que cela soit efficace, cette méthode peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
+Dans la plupart des distributions Hadoop, le système HDFS est sauvegardé par un stockage local sur les machines dans le cluster. Bien que l’utilisation du stockage local soit efficace, cette méthode peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
 
-HDInsight utilise le stockage Blob Azure ou Azure Data Lake Store comme magasin par défaut. Cela permet de bénéficier des avantages suivants :
+HDInsight utilise des objets Blob dans le stockage Azure ou Azure Data Lake Store comme magasin par défaut. Ces services offrent les avantages suivants :
 
 * Un stockage à long terme peu coûteux
 * Un accès à partir de services externes tels que les sites Web, les utilitaires de téléchargement de fichier, les kits de développement logiciel (SDK) en différentes langues et les navigateurs Web
 
-> [!IMPORTANT]
-> Le stockage Blob peut contenir jusqu’à 4,75 To, même si les objets blob individuels (ou les fichiers du point de vue de HDInsight) ne peuvent pas dépasser 195 Go. Azure Data Lake Store peut évoluer de manière dynamique pour contenir des milliers de milliards de fichiers, avec des fichiers individuels d’une taille supérieure à un pétaoctet.
->
-> Pour plus d’informations, voir [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+> [!WARNING]
+> HDInsight prend uniquement en charge les comptes de stockage Azure à __usage général__. Il ne prend actuellement pas en charge le type de compte __stockage Blob__.
 
-Lorsque vous utilisez le stockage Azure ou Data Lake Store, vous n’avez normalement aucune opération particulière à effectuer à partir de HDInsight pour accéder aux données. Par exemple, la commande suivante listera les fichiers dans le dossier `/example/data`, qu’il soit stocké sur le stockage Blob Azure ou sur Data Lake Store :
+Un compte de stockage Azure peut contenir jusqu’à 4,75 To, même si les objets blob individuels (ou les fichiers du point de vue de HDInsight) ne peuvent pas dépasser 195 Go. Azure Data Lake Store peut évoluer de manière dynamique pour contenir des milliers de milliards de fichiers, avec des fichiers individuels d’une taille supérieure à un pétaoctet. Pour plus d’informations, voir [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+
+Lorsque vous utilisez le stockage Azure ou Data Lake Store, vous n’avez aucune opération particulière à effectuer à partir de HDInsight pour accéder aux données. Par exemple, la commande suivante liste les fichiers dans le dossier `/example/data`, qu’il soit stocké sur le stockage Azure ou sur Data Lake Store :
 
     hdfs dfs -ls /example/data
 
@@ -122,7 +122,7 @@ Lorsque vous utilisez le stockage Azure ou Data Lake Store, vous n’avez normal
 
 Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI lorsque vous accédez à un fichier. Par exemple, le composant Storm-HDFS requiert la spécification du schéma. Lorsque vous n’utilisez pas le stockage par défaut (stockage ajouté en tant que stockage « supplémentaire » au cluster), vous devez toujours indiquer le schéma dans l’URI.
 
-Lorsque vous utilisez le __stockage Blob__, le schéma peut être l’un des suivants :
+Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI suivants :
 
 * `wasb:///` : accès au stockage par défaut via une communication non chiffrée.
 
@@ -130,7 +130,7 @@ Lorsque vous utilisez le __stockage Blob__, le schéma peut être l’un des sui
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net/` : utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
-Lorsque vous utilisez __Data Lake Store__, le schéma peut être l’un des suivants :
+Lorsque vous utilisez __Data Lake Store__, utilisez l’un des schémas d’URI suivants :
 
 * `adl:///` : accès au Data Lake Store par défaut pour le cluster.
 
@@ -150,7 +150,7 @@ Vous pouvez utiliser Ambari pour récupérer la configuration de stockage par d�
 > [!NOTE]
 > Cette commande renvoie la première configuration appliquée au serveur (`service_config_version=1`), qui contient ces informations. Si vous récupérez une valeur qui a été modifiée après la création du cluster, vous devrez peut-être lister les versions de configuration et récupérer la plus récente.
 
-Cette commande renvoie une valeur semblable à ce qui suit :
+Cette commande retourne une valeur semblable à ce qui suit :
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net` si vous utilisez un compte de stockage Azure.
 
@@ -160,17 +160,17 @@ Cette commande renvoie une valeur semblable à ce qui suit :
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
-    Cette commande renvoie le nom d’hôte suivant : `<data-lake-store-account-name>.azuredatalakestore.net`.
+    Cette commande renvoie le nom d’hôte suivant : `<data-lake-store-account-name>.azuredatalakestore.net`.
 
     Pour obtenir le répertoire du magasin qui correspond à la racine de HDInsight, utilisez l’appel REST suivant :
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
-    Cette commande renvoie un chemin d’accès semblable au suivant : `/clusters/<hdinsight-cluster-name>/`.
+    Cette commande renvoie un chemin d’accès semblable à ce qui suit : `/clusters/<hdinsight-cluster-name>/`.
 
 Vous pouvez également rechercher les informations de stockage à l’aide du portail Azure en suivant les étapes ci-dessous :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com/)et sélectionnez votre cluster HDInsight.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre cluster HDInsight.
 
 2. Dans la section **Propriétés**, sélectionnez **Comptes de stockage**. Les informations de stockage du cluster s’affichent.
 
@@ -203,7 +203,7 @@ Si vous utilisez __Azure Data Lake Store__, consultez les liens suivants pour d�
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
-## <a name="a-namescalingascaling-your-cluster"></a><a name="scaling"></a>Mise à l’échelle de votre cluster
+## <a name="scaling"></a>Mise à l’échelle de votre cluster
 
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de données utilisés par un cluster sans avoir à supprimer puis recréer ce cluster. Vous pouvez effectuer des opérations de mise à l’échelle pendant que d’autres travaux ou processus s’exécutent sur un cluster.
 
@@ -240,15 +240,15 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
 Pour obtenir des informations spécifiques sur la mise à l’échelle de votre cluster HDInsight, consultez :
 
-* [Gérer les clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Comment installer Hue (ou un autre composant Hadoop) ?
 
-HDInsight est un service géré, ce qui signifie que les nœuds dans un cluster peuvent être détruits et automatiquement reconfigurés par Azure en cas de problème. Pour cette raison, il est déconseillé d’installer manuellement des éléments directement sur les nœuds de cluster. Utilisez plutôt des [actions de script HDInsight](hdinsight-hadoop-customize-cluster.md) si vous devez installer les éléments suivants :
+HDInsight est un service géré. Si Azure détecte un problème avec le cluster, il peut supprimer le nœud défaillant et créer un nœud pour le remplacer. Si vous installez manuellement des éléments sur le cluster, ils ne sont pas conservés lorsque cette opération se produit. Utilisez plutôt [Actions de script HDInsight](hdinsight-hadoop-customize-cluster.md). Une action de script peut être utilisée pour effectuer les modifications suivantes :
 
-* Un service ou un site web comme Spark ou Hue.
-* Un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster. Par exemple, une variable d’environnement nécessaire, la création d’un répertoire de journalisation ou la création d’un fichier de configuration.
+* Installer et configurer un service ou un site web comme Spark ou Hue.
+* Installer et configurer un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster. Par exemple, une variable d’environnement nécessaire, la création d’un répertoire de journalisation ou la création d’un fichier de configuration.
 
 Les actions de script sont des scripts Bash exécutés pendant l’approvisionnement de cluster et peuvent être utilisées pour installer et configurer des composants supplémentaires sur le cluster. Des exemples de scripts sont fournis pour l’installation des composants suivants :
 
@@ -271,7 +271,7 @@ Par exemple, si vous souhaitez utiliser la dernière version de [DataFu](http://
 >
 > Cette commande renvoie le chemin d’accès de tous les fichiers jar correspondants.
 
-Si le cluster fournit déjà une version d’un composant sous la forme d’un fichier jar autonome, mais que vous souhaitez utiliser une autre version, vous pouvez charger une nouvelle version du composant vers le cluster et essayer de l’utiliser dans vos travaux.
+Si vous souhaitez utiliser une version différente de celle qui est fournie avec le cluster, vous pouvez charger une nouvelle version du composant et essayer de l’utiliser dans vos travaux.
 
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.

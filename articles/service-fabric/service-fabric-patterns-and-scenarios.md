@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/30/2016
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e96941bebe07553f8575be4f5dd4ead3271225c9
-ms.openlocfilehash: 924f3287a2b34103eba56310e8e4c4e3e063a44b
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -31,7 +32,7 @@ Découvrez les meilleures pratiques et plus d’informations sur le choix d’un
 <table><tr><th>Vidéo</th><th>Présentation PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=N2KwbbSGD_6405167344">
 <img src="./media/service-fabric-patterns-and-scenarios/intro.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344">Introduction à Service Fabric</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344">Présentation de Service Fabric</a></td></tr>
 </table>
 
 ## <a name="cluster-planning-and-management"></a>Planification et gestion des clusters
@@ -67,7 +68,7 @@ Découvrez des jeux au tour par tour, des jeux interactifs et l’hébergement d
 <table><tr><th>Vidéo</th><th>Présentation PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=6wECzeSGD_3805167344">
 <img src="./media/service-fabric-patterns-and-scenarios/gaming.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=kfqFWMSGD_6205167344">Jeux</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=kfqFWMSGD_6205167344">Gaming</a></td></tr>
 </table>
 
 ## <a name="continuous-delivery"></a>Livraison continue
@@ -94,14 +95,9 @@ Obtenez la réponse à la question « Pourquoi des conteneurs ? » Découvrez
 <table><tr><th>Vidéo</th><th>Présentation PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
 <img src="./media/service-fabric-patterns-and-scenarios/containers.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Prise en charge de Linux et conteneurs</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Support Linux et conteneurs</a></td></tr>
 </table>
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez découvert les modèles et scénarios de Service Fabric, apprenez à [créer et gérer des clusters](service-fabric-deploy-anywhere.md), [migrer des applications de services cloud vers Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurer la livraison continue](service-fabric-set-up-continuous-integration.md) et [déployer des conteneurs](service-fabric-containers-overview.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

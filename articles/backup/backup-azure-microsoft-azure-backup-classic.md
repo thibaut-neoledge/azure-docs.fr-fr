@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -52,31 +53,19 @@ La première étape de la mise en service d’Azure Backup Server consiste à se
 >
 >
 
-Si vous envisagez d’ajouter ce serveur à un domaine à un moment donné, il est conseillé d’exécuter l’activité du domaine associé avant l’installation du serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
+Si vous envisagez de joindre le serveur de sauvegarde Azure à un domaine, il est recommandé de joindre le serveur physique ou une machine virtuelle au domaine avant d’installer le logiciel de sauvegarde du serveur Azure. Le déplacement d’un serveur de sauvegarde Azure vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
 ## <a name="2-backup-vault"></a>2. Archivage de sauvegarde
 ![étape 2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Que vous envoyiez des données de sauvegarde à Azure, ou que vous les conserviez en local, le logiciel doit être connecté à Azure. Pour être plus précis, l’ordinateur Azure Backup Server doit être enregistré dans un coffre de sauvegarde.
+Que vous envoyiez des données de sauvegarde vers Azure ou que vous les conserviez localement, le serveur de sauvegarde Azure doit être inscrit dans un coffre.
 
-Pour créer un archivage de sauvegarde :
+> [!IMPORTANT]
+> Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde. Les coffres de sauvegarde existants sont toujours pris en charge, et il est possible [d’utiliser Azure PowerShell pour créer des coffres de sauvegarde](./backup-client-automation-classic.md#create-a-backup-vault). Toutefois, Microsoft vous recommande de créer des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services.
+>
+>
 
-1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com/).
-2. Cliquez sur **Nouveau** > **Services de données** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer au coffre de sauvegarde.
-3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Celui-ci doit être unique pour chaque abonnement.
-4. Dans **Region**, sélectionnez la région géographique du coffre. En règle générale, la région dans laquelle le coffre se trouve est choisie en fonction de la souveraineté ou des contraintes de latence réseau.
 
-    ![Créer un archivage de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
-
-    ![Créer une notification toast l’archivage](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. Un message confirme que l’archivage a été correctement créé et l’archivage est affiché dans la page Services de récupération avec l’état Actif.
-    ![Liste des coffres de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur les options [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) dans cette [présentation](../storage/storage-redundancy.md).
-   >
-   >
 
 ## <a name="3-software-package"></a>3. Package logiciel
 ![étape 3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -124,6 +113,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
    > Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
    >
    >
+
 4. Fournissez un emplacement pour l’installation des fichiers de serveur Microsoft Azure Backup, puis cliquez sur **Suivant**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -209,9 +199,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 * [Sauvegarde SQL Server](backup-azure-backup-sql.md)
 * [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 * [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

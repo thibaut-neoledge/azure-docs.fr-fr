@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fe38c16f94faa3e7a5a2622ff4eb8a1ae93fba20
-ms.openlocfilehash: 1bf1e323798a702029663953d3a30de174aefc4c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -65,6 +65,7 @@ Lorsque vous utilisez une adresse IP publique en tant que point de terminaison, 
 **Q. Est-ce que l’adresse IP ou le DNS changent au cours de la vie d’Application Gateway ?**
 
 L’adresse IP virtuelle peut changer si la passerelle est arrêtée et démarrée par le client. Le DNS associé à Application Gateway ne change pas au cours du cycle de vie de la passerelle. Pour cette raison, il est recommandé d’utiliser un alias CNAME et de le pointer vers l’adresse DNS d’Application Gateway.
+
 
 **Q. Application Gateway prend-il en charge les adresses IP statiques ?**
 
@@ -123,6 +124,10 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 **Q. À quoi correspond le champ Hôte pour les sondes personnalisées ?**
 
 Le champ Hôte indique le nom auquel envoyer la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de machine virtuelle et se trouve au format suivant : \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>. 
+
+**Q. Application Gateway prend-elle également en charge les serveurs principaux mutualisés ?**
+
+Non, Application Gateway conserve pour l’instant l’en-tête d’hôte entrant et envoie le même en-tête au serveur principal. Si le serveur principal nécessite un en-tête différent, cela ne fonctionnera pas. De même, si le serveur principal est mutualisé et que le protocole SSL de bout en bout est activé, le serveur principal attend un nom du serveur dans l’extension SNI. Application Gateway n’envoie pas actuellement d’en-tête SNI dans les demandes de serveur principal dans les scénarios SSL de bout en bout susceptible d’entraîner des problèmes de sonde et d’accès aux données. 
 
 ## <a name="performance"></a>Performances
 
@@ -283,3 +288,4 @@ La raison la plus courante est le blocage de l’accès au serveur principal par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Application Gateway, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+

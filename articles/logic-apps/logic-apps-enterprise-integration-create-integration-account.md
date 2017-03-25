@@ -12,90 +12,123 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/23/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: dca762854f22721de76f69cbc28c0377d563fe28
-ms.openlocfilehash: e26271a1291fc76e3ea8f93a7aa9ab8c811ff604
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 # <a name="what-is-an-integration-account"></a>Qu’est-ce qu'un compte d’intégration ?
+
 Un compte d’intégration permet aux applications Enterprise Integration de gérer des artefacts, y compris des schémas, des mappages, des certificats, des partenaires et des contrats. Toutes les applications d’intégration que vous créez utilisent un compte d’intégration pour accéder à ces schémas, mappages, certificats, et ainsi de suite.
 
 ## <a name="create-an-integration-account"></a>Création d’un compte d’intégration
-1. Sélectionnez **Parcourir** :   
-   ![](./media/logic-apps-enterprise-integration-accounts/account-1.png)  
-2. Saisissez **intégration** dans la zone de recherche de filtre, puis sélectionnez **Comptes d’intégration** dans la liste des résultats :     
-   ![](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
-3. Cliquez sur le bouton *Ajouter* dans le menu situé en haut de la page :      
-   ![](./media/logic-apps-enterprise-integration-accounts/account-3.png)  
-4. Entrez le **nom**, sélectionnez **l’abonnement** à utiliser, créez un nouveau **groupe de ressources** ou sélectionnez-en un déjà existant, sélectionnez un **emplacement** où votre compte d’intégration sera hébergé, puis un **niveau tarifaire**, et enfin cliquez sur le bouton **Créer**.   
-   
-   À ce stade, le compte d’intégration sera déployé dans l’emplacement sélectionné. Il devrait se terminer en moins d'une minute.    
-   ![](./media/logic-apps-enterprise-integration-accounts/account-4.png)  
-5. Actualisez la page. Votre nouveau compte d’intégration apparaît désormais dans la liste :  
-   ![](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
+
+1.    Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Plus de services**.
+
+    ![Sélectionnez « Plus de services »](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+
+2. Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+
+    ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
+
+3. En haut de la page, choisissez **Ajouter**.
+
+    ![Choisir Ajouter](./media/logic-apps-enterprise-integration-accounts/account-3.png)
+
+4. Nommez votre compte d’intégration et sélectionnez l’abonnement Azure que vous voulez utiliser. Vous pouvez créer un **groupe de ressources** ou sélectionner un groupe de ressources existant. Sélectionnez un **Emplacement** pour l’hébergement de votre compte d’intégration et un **Niveau tarifaire**. 
+
+    Une fois ces opérations effectuées, sélectionnez **Créer**.
+
+    ![Indiquez les détails de votre compte d’intégration](./media/logic-apps-enterprise-integration-accounts/account-4.png)
+
+    Azure configure votre compte d’intégration à l’emplacement sélectionné en moins d’une minute.
+
+5. Actualisez la page. Votre nouveau compte d’intégration apparaît désormais dans la liste.
+
+    ![Votre nouveau compte d’intégration apparaît](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
 
 Ensuite, liez le compte d’intégration que vous venez de créer à votre application logique. 
 
 ## <a name="link-an-integration-account-to-a-logic-app"></a>Lier un compte d’intégration à une application logique
+
 Pour que vos applications logiques puissent accéder à des mappages, des schémas, des contrats et autres artefacts de votre compte d’intégration, liez le compte d’intégration à votre application logique.
 
-#### <a name="prereqs"></a>Conditions préalables
+### <a name="prerequisites"></a>Composants requis
+
 * Un compte d’intégration
 * Une application logique
 
 > [!NOTE] 
-> Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le **même emplacement Azure** avant de commencer.
+> Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le *même emplacement Azure* avant de commencer.
 
-1. Cliquez sur le lien **Paramètres** dans le menu de votre application logique :  
-   ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)   
-2. Sélectionnez l’élément **Compte d’intégration** dans le panneau Paramètres :  
-   ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)   
-3. Sélectionnez le compte d’intégration que vous souhaitez lier à votre application logique dans la liste déroulante **Sélectionner un compte d’intégration** :  
-   ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)   
-4. Enregistrez votre travail :  
-   ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-4.png)   
-5. Une notification vous indique que votre compte d’intégration a été lié à votre application logique et que tous les artefacts de votre compte d’intégration sont désormais disponibles pour votre application logique :  
-   ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)   
+
+1. Dans le portail Azure, sélectionnez votre application logique, puis vérifiez son emplacement.
+
+    ![Sélectionnez votre application logique, vérifiez l’emplacement](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
+
+2. Sous **Paramètres**, sélectionnez **Compte d’intégration**.
+
+    ![Sélectionner « Compte d’intégration »](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)
+
+3. Dans la liste **Sélectionner un compte d’intégration**, sélectionnez le compte d’intégration que vous souhaitez lier à votre application logique. Pour terminer la liaison, choisissez **Enregistrer**.
+
+    ![Sélectionnez votre compte d’intégration](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)
+
+    Une notification indique que votre compte d’intégration a été lié à votre application logique et que tous les artefacts de votre compte d’intégration sont désormais disponibles pour votre application logique.
+
+    ![Votre application logique est liée à votre compte d’intégration](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
 
 Maintenant que votre compte d’intégration est lié à votre application logique, vous pouvez utiliser les connecteurs B2B dans votre application logique. Parmi les connecteurs B2B les plus courants figurent la validation XML, et l’encodage et le décodage de fichiers plats.  
 
-## <a name="how-to-delete-an-integration-account"></a>Comment supprimer un compte d’intégration ?
-1. Sélectionnez **Parcourir** :  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
-2. Saisissez **intégration** dans la zone de recherche de filtre, puis sélectionnez **Comptes d’intégration** dans la liste des résultats :     
-   ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-3. Sélectionnez le **compte d’intégration** que vous voulez supprimer :  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Cliquez sur le lien **Supprimer** situé dans le menu :   
-   ![](./media/logic-apps-enterprise-integration-accounts/delete.png)  
-5. Confirmez votre choix.    
+## <a name="delete-your-integration-account"></a>Supprimez votre compte d’intégration
 
-## <a name="how-to-move-an-integration-account"></a>Comment déplacer un compte d’intégration ?
-Vous pouvez facilement déplacer un compte d’intégration vers un nouvel abonnement et un nouveau groupe de ressources. Procédez comme suit si vous devez déplacer votre compte d’intégration :
+1. Sélectionnez **Plus de services**.
+
+    ![Sélectionnez « Plus de services »](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+
+2. Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+
+    ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
+
+3. Sélectionnez le compte d’intégration que vous voulez supprimer.
+
+    ![Sélectionner un compte d’intégration à supprimer](./media/logic-apps-enterprise-integration-accounts/account-5.png)
+
+4. Dans le menu, choisissez **Supprimer**.
+
+    ![Choisir « Supprimer »](./media/logic-apps-enterprise-integration-accounts/delete.png)
+
+5. Confirmez la suppression du compte d’intégration.
+
+## <a name="move-your-integration-account"></a>Déplacer votre compte d’intégration
+
+Pour déplacer un compte d’intégration vers un autre abonnement ou groupe de ressources Azure, procédez comme suit.
 
 > [!IMPORTANT]
 > Quand vous déplacez un compte d’intégration, vous devez mettre à jour tous les scripts pour qu’ils utilisent les nouveaux ID de ressource.
 
-1. Sélectionnez **Parcourir** :  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
-2. Saisissez **intégration** dans la zone de recherche de filtre, puis sélectionnez **Comptes d’intégration** dans la liste des résultats :     
-   ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-3. Sélectionnez le **compte d’intégration** que vous voulez supprimer :  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Cliquez sur le lien **Déplacer** qui se trouve dans le menu :   
-   ![](./media/logic-apps-enterprise-integration-accounts/move.png)  
-5. Confirmez votre choix.    
+1. Sélectionnez **Plus de services**.
+
+    ![Sélectionnez « Plus de services »](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+
+2. Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+
+    ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-accounts/account-2.png)
+
+3. Sélectionnez le compte d’intégration que vous voulez déplacer. Sous **Paramètres**, choisissez **Propriétés**.
+
+    ![Sélectionner un compte d’intégration à déplacer. Sous Paramètres, choisir Propriétés](./media/logic-apps-enterprise-integration-accounts/move.png)
+
+5. Modifiez le groupe de ressources ou l’abonnement Azure associé à votre compte d’intégration.
+
+    ![Sélectionner Modifier le groupe de ressources ou Modifier l’abonnement](./media/logic-apps-enterprise-integration-accounts/move-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

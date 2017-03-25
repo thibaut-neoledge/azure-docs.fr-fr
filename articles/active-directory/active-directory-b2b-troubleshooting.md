@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: f85c6bcc2abbd14c7879462f7013a97f550fdca5
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,6 +35,11 @@ Si l’utilisateur externe que vous invitez a déjà un objet de contact existan
 
 Dans les cas où les utilisateurs externes ne sont pas renseignés dans la liste, la réplication de l’objet peut prendre quelques minutes.
 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utilisateur invité B2B ne s’affiche pas dans le sélecteur de personnes SharePoint Online/OneDrive 
+ 
+La fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online est désactivée par défaut pour correspondre au comportement hérité.
+Vous pouvez l’activer à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Elle peut être définie à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
+
 ## <a name="invitations-have-been-disabled-for-directory"></a>Des invitations ont été désactivées pour le répertoire
 
 Si vous recevez un message d’erreur indiquant que vous n'êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes. Pour cela, accédez aux Paramètres utilisateur :
@@ -46,9 +52,9 @@ Si vous avez récemment modifié ces paramètres ou affecté le rôle d’invite
 
 Les erreurs courantes sont les suivantes :
 
-### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>L'administrateur de l’inviteur n’autorise pas la création d'utilisateurs EmailVerified dans leur locataire :
+### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>L’administrateur de l’invité n’autorise pas la création d’utilisateurs EmailVerified dans leur client
 
-Si vous invitez des utilisateurs dont l’organisation utilise un Azure Active Directory dans lequel le compte d’utilisateur spécifique n’existe pas (l’utilisateur n’existe pas dans AAD contoso.com). L’administrateur de contoso.com peut avoir mis en place une stratégie empêchant la création d'utilisateurs. Dans le cas où les utilisateurs externes sont autorisés, l’utilisateur externe doit vérifier auprès de son administrateur si l'administrateur de l’utilisateur externe devra peut-être autoriser les utilisateurs d'e-mails vérifiés dans le domaine (voir cet [article](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters) sur l'autorisation d'utilisateurs EmailVerified).
+Si vous invitez des utilisateurs dont l’organisation utilise un Azure Active Directory dans lequel le compte d’utilisateur spécifique n’existe pas (par exemple, l’utilisateur n’existe pas dans Azure AD contoso.com). L’administrateur de contoso.com peut avoir mis en place une stratégie empêchant la création d'utilisateurs. L’utilisateur doit contacter son administrateur pour déterminer si les utilisateurs externes sont autorisés. L’administrateur de l’utilisateur externe devra peut-être autoriser les utilisateurs vérifiés par e-mail dans son domaine (consultez cet [article](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters) sur l’autorisation d’utilisateurs vérifiés par e-mail).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -58,7 +64,7 @@ Dans les cas où l’utilisateur externe utilise une solution de fédération o�
 
 Pour résoudre ce problème, administrateur de l’utilisateur externe doit synchroniser le compte d’utilisateur sur Azure Active Directory.
 
-## <a name="how-does--which-is-normally-an-invalid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui est normalement un caractère non valide, avec Azure AD ?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui n’est normalement pas un caractère valide, avec Azure AD ?
 
 « \# » est un caractère réservé dans les UPN pour Azure AD B2B Collaboration ou des utilisateurs externes (autrement dit, &lt;user@contoso.com&gt; devient &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt; une fois invité), donc \# dans des UPN locaux ne sont pas autorisés pour la connexion au portail Azure.
 
@@ -78,7 +84,7 @@ Dans certains cas, lorsque le destinataire de l’invitation a plusieurs alias p
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
 * [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 * [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)
@@ -89,9 +95,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Authentification multifacteur pour les utilisateurs B2B Collaboration](active-directory-b2b-mfa-instructions.md)
 * [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
-ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,10 +55,26 @@ Les ordinateurs peuvent être développés sur le mappage de manière à affiche
 
 Par défaut, les mappages Carte de service affichent les 10 dernières minutes des informations de dépendance.  À l’aide des contrôles de temps en haut à gauche, les mappages peuvent être interrogés selon des plages horaires d’historique, jusqu’à une échelle d’une heure, pour montrer l’aspect passé des dépendances, par exemple, pendant un incident ou avant une modification.    Les données Carte de service sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
-## <a name="status-badges"></a>Badges d’état
+## <a name="status-badges-and-border-coloring"></a>Badges d’état et couleur de bordure
 En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur.  Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d'une des intégrations de solutions OMS.  En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit.  Les badges d’état actuellement disponibles incluent les alertes, les modifications, la sécurité et les mises à jour.
 
-![Connexions ayant échoué](media/oms-service-map/status-badges.png)
+Selon la gravité des badges d’état, les bordures de nœud de machine peuvent être affichées en rouge (critique), jaune (avertissement) ou bleu (informatif).  La couleur est celle du badge d’état dont la gravité est la plus critique.  Une bordure grise indique un nœud sans indicateur de statut actuel.
+
+![Badges d’état](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>Icônes de rôle
+Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, serveurs de base de données, etc.  La carte de service annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
+
+| Icône de rôle | Description |
+|:--|:--|
+| ![Serveur web](media/oms-service-map/role-web-server.png) | Serveur web |
+| ![App Server](media/oms-service-map/role-application-server.png) | Serveur d’applications |
+| ![Serveur de base de données](media/oms-service-map/role-database.png) | Serveur de base de données |
+| ![Serveur LDAP](media/oms-service-map/role-ldap.png) | Serveur LDAP |
+| ![Serveur SMB](media/oms-service-map/role-smb.png) | Serveur SMB |
+
+![Icônes de rôle](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>Connexions ayant échoué
 Les connexions ayant échoué sont affichées dans les mappages Carte de service des processus et ordinateurs, avec une ligne rouge en pointillés qui indique si un système client ne parvient pas à atteindre un processus ou un port.  Les connexions ayant échoué sont signalées par n’importe quel système ayant un agent Carte de service déployé si ce système est celui qui a tenté d’établir de telles connexions.  Carte de service mesure cela en observant les sockets TCP qui ne parviennent pas à établir une connexion.  Cela peut être dû à un pare-feu, à une configuration incorrecte du client ou serveur ou à un service distant non disponible.
@@ -138,7 +154,7 @@ Voici une vue détaillée de l’événement de modification de la configuration
 
 
 ## <a name="oms-performance-integration"></a>Intégration des performances OMS
-Le panneau Performances de la machine affiche les mesures de performances standard pour le serveur sélectionné.  Les mesures incluent l’utilisation du processeur, l’utilisation de la mémoire, les octets réseau envoyés et reçus, et une liste des principaux processus en octets réseau envoyés et reçus.
+Le panneau Performances de la machine affiche les mesures de performances standard pour le serveur sélectionné.  Les mesures incluent l’utilisation du processeur, l’utilisation de la mémoire, les octets réseau envoyés et reçus, et une liste des principaux processus en octets réseau envoyés et reçus.  Notez que pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans OMS.
 ![Volet de suivi des modifications de l’ordinateur](media/oms-service-map/machine-performance.png)
 
 
