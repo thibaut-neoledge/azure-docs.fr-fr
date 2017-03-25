@@ -25,9 +25,9 @@
 #### [Mettre à niveau à partir de PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Gestion des utilisateurs
-### [Attribuer des licences](multi-factor-authentication-get-started-assign-licenses.md)
 ### [Activer ou désactiver MFA](multi-factor-authentication-get-started-user-states.md)
 ### [Paramètres de l’appareil et utilisateur](multi-factor-authentication-manage-users-and-devices.md)
+### [Guide d’utilisation MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrate
 ### [Services de fédération](multi-factor-authentication-get-started-adfs.md)

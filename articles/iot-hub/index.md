@@ -13,13 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/18/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>Documentation IoT Hub
+# <a name="iot-hub-documentation"></a>Documentation IoT Hub
 
 Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Les didacticiels, références d’API, vidéos et autres documents vous aident à déployer une communication fiable et bidirectionnelle entre des appareils IoT et une solution back-end. 
 
@@ -142,8 +142,8 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (appareils)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (appareils)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Nœud (Service)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Nœud (Appareils)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Nœud (Service)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Nœud (Appareils)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Kits de développement logiciel (SDK) Azure IoT</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Kit de développement logiciel (SDK) Gateway</a></p>
                     </div>
