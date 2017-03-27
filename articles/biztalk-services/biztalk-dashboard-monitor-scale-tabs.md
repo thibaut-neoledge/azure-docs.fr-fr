@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,12 +28,12 @@ La première fois que vous ouvrez le portail Azure Classic, l’onglet **TOUS LE
 
 Une nouvelle fenêtre apparaît avec les onglets suivants : Cette rubrique décrit ces onglets.
 
-## <a name="quick-start-quick-startquickstart"></a>Démarrage rapide (![Quick Start][QuickStart])
+## <a name="quickstart-quickstartquickstart"></a>Démarrage rapide (![Démarrage rapide][Quickstart])
 Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles. 
 
 <table border="1">
     <tr>
-        <td><strong>Obtenir les outils</strong></td>
+        <td><strong>Obtention des outils</strong></td>
         <td>Téléchargez le Kit SDK de BizTalk Services pour installer les modèles de projet Visual Studio sur votre ordinateur de développement local. Ces modèles créent les projets Visual Studio <strong>BizTalk Services</strong> (pont) et <strong>Artefacts de service BizTalk</strong> (Transformation) qui sont déployés sur votre service BizTalk.
         <br/><br/>Les rubriques 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> et <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> présentent les procédures de prise en main.
@@ -113,7 +114,7 @@ Pour obtenir une description de ces mesures de performances, accédez à la sect
 <table border="1">
 
 <tr>
-<td><strong>Mettre à jour les informations d'identification de la base de données de suivi</strong></td>
+<td><strong>Mettre à jour les informations d’identification de la base de données de suivi</strong></td>
 <td>Modifie le nom d'utilisateur et le mot de passe utilisés pour se connecter à la base de données de suivi.</td>
 </tr>
 <tr>
@@ -149,7 +150,7 @@ Pour obtenir une description de ces mesures de performances, accédez à la sect
 <td>Affiche la région géographique hébergeant votre service BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Date de création</strong></td>
+<td><strong>Créé</strong></td>
 <td>Affiche la date et l'heure de la création du service BizTalk.</td>
 </tr>
 <tr>
@@ -165,7 +166,7 @@ Pour obtenir une description de ces mesures de performances, accédez à la sect
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Explication des exigences</a> fournit des détails sur le compte de stockage.</td>
 </tr>
 <tr>
-<td><strong>Nom d'abonnement</strong></td>
+<td><strong>Nom d’abonnement</strong></td>
 <td>Répertorie l’abonnement qui héberge votre service BizTalk. L’abonnement régit l’accès au portail Azure Classic.</td>
 </tr>
 <tr>
@@ -243,7 +244,7 @@ Vous pouvez également spécifier les valeurs **Relatives** et **Absolues**, ain
    ![La mesure Utilisation du processeur est activée][EnabledMetric]
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure, puis cochez la case pour revenir à l’onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
-## <a name="a-namemetricsaavailable-metrics"></a><a name="Metrics"></a>Mesures disponibles
+## <a name="Metrics"></a>Mesures disponibles
 Les mesures/compteurs de performances suivants sont disponibles :
 
 <table border="1">
@@ -325,7 +326,7 @@ Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défin
 
 [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) fournit les détails. 
 
-## <a name="a-namehybridconnectionsahybrid-connections"></a><a name="HybridConnections"></a>Connexions hybrides
+## <a name="HybridConnections"></a>Connexions hybrides
 Les connexions hybrides connectent une application Azure, telle que Web Apps ou Mobile Services dans Azure App Service, à une ressource locale utilisant un port TCP statique, tel que SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services au sein du portail Azure Classic.
 
 Pour créer des connexions hybrides dans Azure App Service, voir [Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
@@ -346,14 +347,9 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 * [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

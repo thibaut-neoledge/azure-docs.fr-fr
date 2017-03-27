@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
-ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -115,5 +115,5 @@ Une fois qu’un référentiel de modèles Azure Resource Manager a été config
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après la création d’une machine virtuelle, vous pouvez vous connecter à celle-ci en sélectionnant **Connexion** dans le panneau de la machine virtuelle.
-* Parcourir les [modèles Azure Resource Manager de la galerie de modèles Azure QuickStart](https://github.com/Azure/azure-quickstart-templates)
+* Explorez les [modèles Azure Resource Manager de la galerie de modèles Azure QuickStart](https://github.com/Azure/azure-quickstart-templates)
 

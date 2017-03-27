@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 70614f7d97466fb7e8a2f325d744f5e1632640a6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Les comptes de base de données DocumentDB sont actuellement la seule ressource 
 
 ## <a name="getting-ready"></a>Préparation
 
-Pour pouvoir utiliser l’interface Azure CLI 1.0 avec les groupes de ressources Azure, vous devez disposer de la version appropriée de cette interface et d’un compte Azure. Si vous ne disposez pas de l’interface Azure CLI 1.0, [installez-la](../xplat-cli-install.md).
+Pour pouvoir utiliser l’interface Azure CLI 1.0 avec les groupes de ressources Azure, vous devez disposer de la version appropriée de cette interface et d’un compte Azure. Si vous ne disposez pas de l’interface Azure CLI 1.0, [installez-la](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Mettre à jour votre version d’Azure CLI 1.0
 
@@ -39,7 +39,7 @@ Pour pouvoir utiliser l’interface Azure CLI 1.0 avec les groupes de ressourc
     azure --version
     0.10.4 (node: 4.2.4)
 
-Si vous disposez d’une version antérieure à la version 0.10.4, vous devez [installer l’interface Azure CLI 1.0](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs. Vous pouvez également utiliser **npm** en entrant `npm update -g azure-cli` pour la mettre à jour ou `npm install -g azure-cli` pour l’installer.
+Si vous disposez d’une version antérieure à la version 0.10.4, vous devez [installer l’interface Azure CLI 1.0](../cli-install-nodejs.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs. Vous pouvez également utiliser **npm** en entrant `npm update -g azure-cli` pour la mettre à jour ou `npm install -g azure-cli` pour l’installer.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Configurer votre compte et votre abonnement Microsoft Azure
 

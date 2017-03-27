@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -35,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Inscrire Data Lake Store comme source pour Data Catalog
 
-> [!VIDÉO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
+> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
 1. Accédez à `https://azure.microsoft.com/services/data-catalog`, puis cliquez sur **Prise en main**.
 2. Connectez-vous au portail Azure Data Catalog, puis cliquez sur **Publier des données**.
@@ -82,9 +83,4 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 * [Annoter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documenter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Intégrer Data Lake Store à d’autres services Azure](data-lake-store-integrate-with-other-services.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

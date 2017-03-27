@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1821aa2a3d6428ca98cad14b0bf5e8b37ec6cb9c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,25 +40,27 @@ Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-
    
     ![Sélection d’un réseau virtuel existant](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 9. Sur le panneau **Choisissez un réseau virtuel** , sélectionnez le réseau virtuel souhaité. Le panneau affiche tous les réseaux virtuels sous la même région de l'abonnement que le labo.  
-10. Après avoir sélectionné un réseau virtuel, vous revenez au panneau **réseau virtuel** , et plusieurs champs sont activés.  
+10. Après avoir sélectionné un réseau virtuel, vous êtes redirigé vers le **Réseau virtuel**. Cliquez sur le sous-réseau dans la liste située en bas du panneau.
+
+    ![Liste des sous-réseaux](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-     ![Sélection d’un réseau virtuel existant](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-11. Spécifiez une description de votre combinaison réseau virtuel / labo.
-12. Pour permettre l’utilisation d’un sous-réseau dans le labo de création de machines virtuelles, sélectionnez **UTILISER DANS LA CRÉATION DE MACHINES VIRTUELLES**.
-13. Pour autoriser les adresses IP publiques dans un sous-réseau, sélectionnez **AUTORISER LES ADRESSES IP PUBLIQUES**.
-14. Dans le champ **NOMBRE MAXIMAL DE MACHINES VIRTUELLES PAR UTILISATEUR** , spécifiez le nombre maximal de machines virtuelles par utilisateur pour chaque sous-réseau. Si vous souhaitez un nombre illimité de machines virtuelles, laissez ce champ vide.
-15. Sélectionnez **Enregistrer**.
-16. Maintenant que le réseau virtuel est configuré, il peut être sélectionné lors de la création d'une machine virtuelle. 
+    Le panneau Lab Subnet (Sous-réseau de laboratoire) s’affiche.
+
+    ![Panneau Lab Subnet (Sous-réseau de laboratoire)](./media/devtest-lab-configure-vnet/lab-subnet.png)
+
+11. Spécifiez un **nom de sous-réseau de laboratoire**.
+12. Pour permettre l’utilisation d’un sous-réseau dans le laboratoire de création de machines virtuelles, sélectionnez **Utiliser dans la création de machines virtuelles**.
+13. Pour activer une [adresse IP publique partagée](devtest-lab-shared-ip.md), sélectionnez **Enable shared public IP** (Activer l’adresse IP publique partagée).
+14. Pour autoriser les adresses IP publiques dans un sous-réseau, sélectionnez **Allow public IP creation** (Autoriser la création d’adresses IP publiques).
+15. Dans le champ **Nombre maximal de machines virtuelles par utilisateur**, spécifiez le nombre maximal de machines virtuelles par utilisateur pour chaque sous-réseau. Si vous souhaitez un nombre illimité de machines virtuelles, laissez ce champ vide.
+16. Cliquez sur **OK** pour fermer le panneau Lab Subnet (Sous-réseau de laboratoire).
+17. Sélectionnez **Enregistrer** pour fermer le panneau Réseau virtuel.
+18. Maintenant que le réseau virtuel est configuré, il peut être sélectionné lors de la création d'une machine virtuelle. 
     Pour voir comment créer une machine virtuelle et spécifier un réseau virtuel, consultez l’article [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md). 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez ajouté le réseau virtuel souhaité à votre laboratoire, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

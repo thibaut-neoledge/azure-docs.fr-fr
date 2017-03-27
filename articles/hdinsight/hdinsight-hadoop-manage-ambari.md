@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
 ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -29,7 +31,7 @@ Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fou
 
 Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Ambari avec un cluster HDInsight.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>Présentation d'Ambari
+## <a id="whatis"></a>Présentation d'Ambari
 
 [Apache Ambari](http://ambari.apache.org) simplifie la gestion de Hadoop en fournissant une interface utilisateur web conviviale qui peut être utilisée pour approvisionner, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -196,7 +198,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
      > [!NOTE]
      > N'utilisez pas cette action sur les clusters HDInsight.
 
-### <a name="a-idserviceaservices"></a><a id="service"></a>Services
+### <a id="service"></a>Services
 
 Dans la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions** situé au bas de la liste des services pour arrêter et démarrer tous les services.
 
@@ -240,10 +242,5 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 * Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Affichage Tez : l’affichage Tez vous permet de mieux comprendre et optimiser les tâches en affichant des informations sur le mode d’exécution des tâches Tez et les ressources utilisées par la tâche.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -59,7 +59,7 @@ Il n’existe aucune limite à la quantité totale de données qu’une collecti
 Il n’existe aucune limite à la quantité totale de débit qu’une collection peut prendre en charge dans DocumentDB, si votre charge de travail peut être distribuée à peu près uniformément entre un nombre suffisant de clés de partition.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Combien coûte Microsoft Azure DocumentDB ?
-Pour plus d’informations, consultez la page [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) . Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne, le stockage utilisé et le débit approvisionné pour chaque collection.
+Pour plus d’informations, consultez la page [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) . Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections configurées, le nombre d’heures durant lequel les collections sont en ligne et le débit configuré pour chaque collection.
 
 ### <a name="is-there-a-free-account-available"></a>Un compte gratuit est-il disponible ?
 Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [compte Azure gratuit](https://azure.microsoft.com/free/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.  
@@ -122,6 +122,26 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>Une instance locale de DocumentDB est-elle disponible ?
 Oui. [L’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) fournit une émulation haute fidélité du service DocumentDB. Il prend en charge les mêmes fonctionnalités qu’Azure DocumentDB, notamment la prise en charge de la création et de l’interrogation des documents JSON, l’approvisionnement et la mise à l’échelle des collections, et l’exécution des procédures stockées et des déclencheurs. Vous pouvez développer et tester des applications à l’aide de l’émulateur DocumentDB et les déployer vers Azure à l’échelle mondiale en apportant une seule modification à la configuration du point de terminaison de connexion pour DocumentDB.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>Questions à propos du développement avec l’API pour MongoDB
+### <a name="what-is-documentdbs-api-for-mongodb"></a>Qu’est-ce que l’API pour MongoDB de DocumentDB ?
+L’API Microsoft Azure DocumentDB pour MongoDB est une couche de compatibilité qui permet aux applications de communiquer facilement et en toute transparence avec le moteur de base de données DocumentDB natif en utilisant des API et des pilotes MongoDB communautaires existants. Les développeurs peuvent maintenant utiliser les chaînes et compétences de l’outil MongoDB pour créer des applications qui tirent parti de DocumentDB et exploitent des fonctionnalités uniques, comme l’indexation automatique, la maintenance de sauvegarde, les contrats SLA, etc..
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>Comment me connecter à mon API de base de données MongoDB ?
+Pour se connecter à l’API de DocumentDB pour MongoDB, le plus rapide est d’accéder au [portail Azure](https://portal.azure.com). Naviguez jusqu’à votre compte. Dans la barre de *navigation gauche*, cliquez sur *Démarrage rapide*. *Démarrage rapide* est le meilleur moyen d’obtenir des extraits de code pour vous connecter à votre base de données. 
+
+DocumentDB se conforme à des normes et des exigences strictes en matière de sécurité. Les comptes DocumentDB requièrent une authentification et une communication sécurisée via *SSL*. Assurez-vous donc d’utiliser TLSv1.2.
+
+Pour plus d’informations, consultez [Connexion à votre API de base de données MongoDB](documentdb-connect-mongodb-account.md).
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>Existe-t-il des codes d’erreur supplémentaires pour une API de base de données MongoDB ?
+L’API pour MongoDB a ses propres codes d’erreur spécifiques en plus des codes d’erreur MongoDB habituels.
+
+
+| Error               | Code  | Description  | Solution  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | Le nombre total d’unités de requête consommées a dépassé le taux d’unités de requête configuré pour la collection et a été limité. | Envisagez de mettre à l’échelle le débit de la collection à partir du portail Azure ou faites une nouvelle tentative. |
+| ExceededMemoryLimit | 16501 | En tant que service mutualisé, l’opération a dépassé les unités de mémoire du client. | Réduire l’étendue de l’opération via un critère de requête plus restrictif ou contactez le support à partir du [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex :  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

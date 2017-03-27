@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b246d8813a41d353a9c0fa31fe838e025fc93046
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2017
 
 La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com) , ainsi que des fonctions étendues d’accès aux données.
 
-Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli-install.md) pour effectuer diverses tâches de développement et d’administration avec Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
+Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../cli-install-nodejs.md) pour effectuer diverses tâches de développement et d’administration avec Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
 
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
@@ -47,7 +47,7 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 
 **Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
-1. Téléchargez et installez la CLI Azure en suivant les instructions fournies dans la section [Installer la CLI Azure](../xplat-cli-install.md).
+1. Téléchargez et installez la CLI Azure en suivant les instructions fournies dans la section [Installer la CLI Azure](../cli-install-nodejs.md).
 2. Une fois la CLI Azure installée, vous serez à même d’utiliser la commande azure à partir de l’interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal) afin d’accéder aux commandes de la CLI Azure. Saisissez la commande _azure_. La sortie suivante doit s’afficher.
 
     ![Sorte de commande Microsoft Azure][Image1]
@@ -239,7 +239,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 Vous pouvez trouver la référence des commandes de la CLI Azure 1.0 pour travailler avec des ressources de stockage ici :
 
 * [Commandes de la CLI Azure en mode Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../xplat-cli-install.md)
+* [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../cli-install-nodejs.md)
 
 Vous pouvez également essayer [Azure CLI 2.0](storage-azure-cli.md), une interface Azure CLI nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
 

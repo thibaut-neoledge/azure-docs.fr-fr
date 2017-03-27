@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
-ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c30203120a155fd3fc431009baa3e8b318e1330f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -250,8 +250,8 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 1. Identifiez les données à importer. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
 2. Déterminez le nombre de disques nécessaires en fonction de la taille totale des données. Procurez-vous le nombre requis de disques durs SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces.
 3. Identifiez le compte de stockage cible, le conteneur, les répertoires virtuels et les objets blob.
-4.  Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
-5.  Créez les fichiers CSV du jeu de données et du jeu de disques.
+4.    Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
+5.    Créez les fichiers CSV du jeu de données et du jeu de disques.
     
     **Fichier CSV du jeu de données**
     
@@ -285,8 +285,8 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 
     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de disques ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
-7.  Vous pouvez spécifier « Encrypt » pour le champ Encryption dans le fichier CSV du jeu de disques afin d’activer le chiffrement BitLocker sur le disque dur. Vous pouvez également activer le chiffrement BitLocker manuellement sur le disque dur, spécifier « AlreadyEncrypted » pour ce même champ et fournir la clé dans le fichier CSV du jeu de disques lors de l’exécution de l’outil.
+6.    Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
+7.    Vous pouvez spécifier « Encrypt » pour le champ Encryption dans le fichier CSV du jeu de disques afin d’activer le chiffrement BitLocker sur le disque dur. Vous pouvez également activer le chiffrement BitLocker manuellement sur le disque dur, spécifier « AlreadyEncrypted » pour ce même champ et fournir la clé dans le fichier CSV du jeu de disques lors de l’exécution de l’outil.
 
 8. Ne modifiez ni les données ni le fichier journal après la préparation du disque.
 
@@ -423,7 +423,7 @@ Non, le service Azure Import/Export ne prend en charge que les objets blob de bl
 
 **Le service Azure Import/Export est-il disponible pour les abonnements de fournisseur de services de chiffrement ?**
 
-Non, le service Azure Import/Export ne prend pas en charge les abonnements de fournisseur de services de chiffrement. Pour l’instant, du moins.
+Le service Azure Import/Export prend en charge les abonnements de fournisseur de services de chiffrement.
 
 **Puis-je ignorer l’étape de préparation de disque pour un travail d’importation ou préparer un disque sans effectuer la copie ?**
 

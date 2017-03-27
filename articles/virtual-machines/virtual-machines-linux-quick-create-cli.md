@@ -1,202 +1,94 @@
 ---
-title: "Création d’une machine virtuelle Linux à l’aide de l’interface Azure CLI 2.0 | Microsoft Azure"
-description: "Créez une machine virtuelle Linux à l’aide de l&quot;interface Azure CLI 2.0."
+title: "Démarrage rapide avec Azure - Commande pour la création d’une machine virtuelle | Microsoft Docs"
+description: "Apprenez à créer rapidement des machines virtuelles avec Azure CLI."
 services: virtual-machines-linux
-documentationcenter: 
-author: squillace
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
-ms.assetid: 82005a05-053d-4f52-b0c2-9ae2e51f7a7e
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: NA
-ms.topic: hero-article
+ms.devlang: na
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2017
-ms.author: rasquill
+ms.date: 03/10/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
-ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3ad45837a8c3f0e37e8571fb9b894df53ecb5f56
+ms.lasthandoff: 03/14/2017
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Création d'une machine virtuelle Linux à l’aide de l'interface Azure CLI 2.0
-Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande [az vm create](/cli/azure/vm#create) au moyen de l’interface Azure CLI 2.0 et avec des disques gérés ainsi que des disques de comptes de stockage natifs. Vous pouvez également effectuer ces étapes à l’aide [d’Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Créer une machine virtuelle Linux avec Azure CLI 2.0
 
-Pour créer une machine virtuelle, vous devez disposer des éléments suivants : 
+Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de l’interface de ligne de commande Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu 14.04 LTS.
 
-* un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
-* l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) installée
-* Une connexion à votre compte Azure (par le biais de la commande [az login](/cli/azure/#login))
+Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-(Vous pouvez également déployer une machine virtuelle Linux via le [portail Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
+## <a name="log-in-to-azure"></a>Connexion à Azure 
 
-L’exemple suivant montre comment déployer une machine virtuelle Debian et s’y connecter à l’aide d’une clé SSH (Secure Shell). Vos arguments peuvent être différents ; si vous voulez une autre image, vous [pouvez en rechercher une](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-## <a name="using-managed-disks"></a>Utilisation de disques gérés
-
-Pour utiliser des disques gérés Azure, vous devez utiliser une région qui les prend en charge. Commencez par taper la commande [az group create](/cli/azure/group#create) pour créer votre groupe de ressources contenant la totalité de vos ressources déployées :
+Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
 
 ```azurecli
- az group create -n myResourceGroup -l westus
+az login
 ```
 
-La sortie se présente comme suit (vous pouvez spécifier une autre option `--output` si vous souhaitez obtenir un format différent) :
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "westus",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-### <a name="create-your-vm"></a>Créer votre machine virtuelle 
-Vous pouvez désormais créer votre machine virtuelle et son environnement. N’oubliez pas de remplacer la valeur `--public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+
+L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westeurope`.
 
 ```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+az group create --name myResourceGroup --location westeurope
 ```
 
+## <a name="create-virtual-machine"></a>Create virtual machine
 
-La sortie se présente comme suit. Notez la valeur `publicIpAddress` ou `fqdn` pour utiliser **ssh** dans votre machine virtuelle.
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). 
 
+L’exemple suivant crée une machine virtuelle nommée `myVM` et crée des clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
-```json
+```azurecli
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
+
+Lorsque la machine virtuelle a été créée, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant. Prenez note de l’adresse IP publique. Cette adresse est utilisée pour accéder à la machine virtuelle.
+
+```azurecli
 {
-  "fqdn": "manageddisks.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-32-E9-41",
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westeurope",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "104.42.127.53",
+  "publicIpAddress": "52.174.34.95",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-Connectez-vous à votre machine virtuelle à l’aide de l’adresse IP publique ou du nom de domaine complet (FQDN) indiqués dans la sortie.
+## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
-```bash
-ssh ops@manageddisks.westus.cloudapp.azure.com
+Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle. Remplacez l’adresse IP par l’adresse IP publique de votre machine virtuelle.
+
+```bash 
+ssh <Public IP Address>
 ```
 
-Vous devriez obtenir une sortie comparable à ce qui suit, selon la distribution que vous avez choisie :
+## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle
 
-```bash
-The authenticity of host 'manageddisks.westus.cloudapp.azure.com (134.42.127.53)' can't be established.
-RSA key fingerprint is c9:93:f5:21:9e:33:78:d0:15:5c:b2:1a:23:fa:85:ba.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'manageddisks.westus.cloudapp.azure.com' (RSA) to the list of known hosts.
-Enter passphrase for key '/home/ops/.ssh/id_rsa':
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-Last login: Fri Jan 13 14:44:21 2017 from net-37-117-240-123.cust.vodafonedsl.it
-ops@myVM:~$ 
-```
-
-Pour savoir ce que vous pouvez faire d’autre avec votre nouvelle machine virtuelle utilisant des disques gérés, consultez la section [Étapes suivantes](#next-steps).
-
-## <a name="using-unmanaged-disks"></a>Utilisation de disques non gérés 
-
-Les machines virtuelles qui utilisent des disques de stockage non gérés ont des comptes de stockage non gérés. Commencez par taper la commande [az group create](/cli/azure/group#create) pour créer votre groupe de ressources contenant la totalité de vos ressources déployées :
+Lorsque vous n’en avez plus besoin, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
-az group create --name nativedisks --location westus
-```
-
-La sortie se présente comme suit (vous pouvez choisir une autre option `--output` si vous le souhaitez) :
-
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/nativedisks",
-  "location": "westus",
-  "managedBy": null,
-  "name": "nativedisks",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-
-### <a name="create-your-vm"></a>Créer votre machine virtuelle 
-
-Vous pouvez désormais créer votre machine virtuelle et son environnement. Utilisez l’indicateur `--use-unmanaged-disk` pour créer la machine virtuelle avec des disques non gérés. Un compte de stockage non géré est également créé. N’oubliez pas de remplacer la valeur `--public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
-
-```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name nativedisks \
---resource-group nativedisks \
---location westus \
---name myVM \
---use-unmanaged-disk
-```
-
-La sortie se présente comme suit. Notez la valeur `publicIpAddress` ou `fqdn` pour utiliser **ssh** dans votre machine virtuelle.
-
-```json
-{
-  "fqdn": "nativedisks.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/nativedisks/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-33-24-3C",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "13.91.91.195",
-  "resourceGroup": "nativedisks"
-}
-```
-
-Connectez-vous à votre machine virtuelle à l’aide de l’adresse IP publique ou du nom de domaine complet (FQDN), qui sont tous deux indiqués dans la sortie ci-dessus.
-
-```bash
-ssh ops@nativedisks.westus.cloudapp.azure.com
-```
-
-Vous devriez obtenir une sortie comparable à ce qui suit, selon la distribution que vous avez choisie :
-
-```
-The authenticity of host 'nativedisks.westus.cloudapp.azure.com (13.91.93.195)' can't be established.
-RSA key fingerprint is 3f:65:22:b9:07:c9:ef:7f:8c:1b:be:65:1e:86:94:a2.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'nativedisks.westus.cloudapp.azure.com,13.91.93.195' (RSA) to the list of known hosts.
-Enter passphrase for key '/home/ops/.ssh/id_rsa':
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-ops@myVM:~$ ls /
-bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-La commande `az vm create` permet de déployer rapidement une machine virtuelle pour se connecter à un shell bash et être opérationnel. Toutefois, l’utilisation de `az vm create` ne vous confère pas un contrôle étendu et ne vous permet pas de créer un environnement plus complexe.  Pour déployer une machine virtuelle Linux personnalisée en fonction de votre infrastructure, lisez l’un des articles ci-dessous :
 
-* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Didacticiel de création de machines virtuelles hautement disponibles](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Vous pouvez également [utiliser le pilote Azure `docker-machine` avec plusieurs commandes pour créer rapidement une machine virtuelle Linux comme un hôte Docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et, si vous utilisez Java, essayez la méthode [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
+[Découvrir des exemples de commande de déploiement de machine virtuelle](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

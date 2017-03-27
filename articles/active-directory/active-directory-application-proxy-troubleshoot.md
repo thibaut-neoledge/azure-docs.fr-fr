@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 * Ouvrez l’Observateur d’événements et recherchez les événements du proxy d’application sous **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** > **Admin**.
 * Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application.
 
-Pour plus d’informations sur l’outil de dépannage d’Azure AD, voir [Troubleshooting tool to validate connector networking prerequisites}(https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Outil de dépannage pour valider la configuration requise pour la mise en réseau du connecteur).
+Pour plus d’informations sur l’outil de dépannage d’Azure AD, consultez [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Outil de dépannage pour valider la configuration requise pour la mise en réseau d’un connecteur).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La page ne s’affiche pas correctement
 Vous pouvez rencontrer des problèmes d’affichage ou de fonctionnement de votre application sans recevoir de message d’erreur spécifique. Cela peut se produire si vous avez publié le chemin d’accès de l’article, mais que l’application requiert un contenu qui se trouve en dehors de ce chemin d’accès.
@@ -42,6 +42,8 @@ Par exemple, si vous publiez le chemin d’accès https://yourapp/app mais que l
 Si vous modifiez votre chemin d’accès pour inclure le contenu référencé, mais que les utilisateurs doivent quand même accéder à un lien plus détaillé du chemin d’accès, consultez le billet du blog intitulé [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Définir le bon lien pour les applications Application Proxy dans le panneau d’accès Azure AD et le lanceur d’applications Office 365).
 
 ## <a name="connector-errors"></a>Erreurs de connecteur
+
+Utilisez [l’outil de test des ports du connecteur de proxy d’application Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) pour vous assurer que votre connecteur peut joindre le service de proxy d’application. Au minimum, assurez-vous d’avoir coché les États-Unis du Centre et les régions les plus proches de vous. En outre, un nombre plus élevé de coches vertes signifie une résilience accrue. 
 
 Si l’inscription échoue au cours de l’installation de l’assistant Connecteur, il existe deux façons d’afficher la raison de l’échec. Vous pouvez effectuer une recherche dans le journal des événements sous **Journaux des applications et des services\Microsoft\AadApplicationProxy\Connecteur\Admin**, ou exécuter la commande Windows PowerShell suivante.
 

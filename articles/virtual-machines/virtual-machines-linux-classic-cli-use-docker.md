@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ Le processus d'utilisation de Docker sur Azure est relativement simple :
 * Utilisez les commandes Docker locales pour gérer vos conteneurs dans votre machine virtuelle Docker sous Azure.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
-Pour installer et configurer l’interface de ligne de commande Azure, consultez [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Pour confirmer l’installation, tapez `azure` à l’invite de commandes. Après quelques secondes, l’illustration ASCII azure-cli doit normalement apparaître. Elle répertorie les commandes de base mises à votre disposition. Si l’installation s’est déroulée correctement, vous pouvez taper `azure help vm` et voir que l’une des commandes répertoriées est « docker ».
+Pour installer et configurer l’interface de ligne de commande Azure, consultez [Installation de l’interface de ligne de commande Azure](../cli-install-nodejs.md). Pour confirmer l’installation, tapez `azure` à l’invite de commandes. Après quelques secondes, l’illustration ASCII azure-cli doit normalement apparaître. Elle répertorie les commandes de base mises à votre disposition. Si l’installation s’est déroulée correctement, vous pouvez taper `azure help vm` et voir que l’une des commandes répertoriées est « docker ».
 
 > [!NOTE]
 > Docker présente des outils pour Windows, [Docker Machine](https://docs.docker.com/installation/windows/), qui vous permet également d’automatiser la création d’un client Docker, à mettre à profit pour utiliser des machines virtuelles Azure en tant qu’hôtes Docker.

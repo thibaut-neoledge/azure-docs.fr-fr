@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,12 +41,12 @@ Dans la version 2.3 actuelle, les données comprennent :
 Cette extension fonctionne avec les modèles de déploiement Classic et Resource Manager.
 
 ### <a name="current-version-of-the-extension-and-deprecation-of-old-versions"></a>Version actuelle de l’extension et obsolescence des anciennes versions
-La dernière version de l’extension est **2.3**, et **les anciennes versions (2.0, 2.1 et 2.2) seront déconseillées et supprimées d’ici à la fin de l’année (2016)**. Si vous avez installé l’extension de diagnostic Linux avec la mise à niveau automatique de version mineure désactivée, nous vous conseillons fortement de désinstaller cette extension et de la réinstaller en activant la mise à niveau automatique de version mineure. Sur des machines virtuelles classiques (ASM), vous pouvez obtenir cela en spécifiant « 2.* » comme version si vous installez l’extension via l’interface CLI Azure XPLAT ou Powershell. Sur les machines virtuelles ARM, vous pouvez y parvenir en incluant « "autoUpgradeMinorVersion": true » dans le modèle de déploiement de machine virtuelle. En outre, toute nouvelle installation de l’extension doit s’effectuer avec l’option de mise à niveau automatique de version mineure activée.
+La dernière version de l’extension est **2.3**, et **les anciennes versions (2.0, 2.1 et 2.2) seront déconseillées et supprimées d’ici à la fin de l’année (2016)**. Si vous avez installé l’extension de diagnostic Linux avec la mise à niveau automatique de version mineure désactivée, nous vous conseillons fortement de désinstaller cette extension et de la réinstaller en activant la mise à niveau automatique de version mineure. Sur des machines virtuelles classiques (ASM), vous pouvez obtenir cela en spécifiant «&2;.* » comme version si vous installez l’extension via l’interface CLI Azure XPLAT ou Powershell. Sur les machines virtuelles ARM, vous pouvez y parvenir en incluant « "autoUpgradeMinorVersion": true » dans le modèle de déploiement de machine virtuelle. En outre, toute nouvelle installation de l’extension doit s’effectuer avec l’option de mise à niveau automatique de version mineure activée.
 
 ## <a name="enable-the-extension"></a>Activer l’extension
 Vous pouvez activer cette extension via le [portail Azure](https://portal.azure.com/#), Azure PowerShell ou les scripts de l’interface CLI Azure.
 
-Pour afficher et configurer les données du système et de performances directement depuis le portail Azure, suivez [ces étapes du blog Azure] (https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/).
+Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes sur le blog d’Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Cet article se concentre sur la procédure permettant d’activer et de configurer l’extension à l’aide des commandes de la CLI Azure. Cela vous permet de lire et d’afficher les données directement à partir de la table de stockage.
 
@@ -54,7 +55,7 @@ Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour
 ## <a name="prerequisites"></a>Composants requis
 * **Agent Microsoft Azure Linux version 2.0.6 ou ultérieure**.
   Notez que la plupart des images de la galerie Linux de machines virtuelles Azure comprennent la version 2.0.6 ou ultérieure. Vous pouvez exécuter **WAAgent -version** pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure à 2.0.6, vous pouvez suivre [ces instructions sur GitHub](https://github.com/Azure/WALinuxAgent "instructions") pour la mettre à jour.
-* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../xplat-cli-install.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
+* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../cli-install-nodejs.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
   
   * Exécutez **azure vm extension set --help** pour obtenir une aide détaillée.
   * Exécutez **azure login** pour vous connecter à Azure.
@@ -138,8 +139,8 @@ Les données de performance et de diagnostic sont stockées dans une table Azure
 
 Vous pouvez aussi utiliser les outils d’interface utilisateur suivants pour accéder aux données :
 
-1. Explorateur de serveurs Visual Studio. Accédez à votre compte de stockage. Après environ 5 minutes d’exécution de la machine virtuelle, quatre tables par défaut doivent s’afficher : « LinuxCpu », « LinuxDisk », « LinuxMemory » et « Linuxsyslog ». Double-cliquez sur le nom de chaque table pour afficher les données.
-2. [Azure Storage Explorer](https://azurestorageexplorer;codeplex;com/ "Azure Storage Explorer");
+1. Explorateur de serveurs Visual Studio. Accédez à votre compte de stockage. Après environ&5; minutes d’exécution de la machine virtuelle, quatre tables par défaut doivent s’afficher : « LinuxCpu », « LinuxDisk », « LinuxMemory » et « Linuxsyslog ». Double-cliquez sur le nom de chaque table pour afficher les données.
+2. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer");
 
 ![image](./media/virtual-machines-linux-classic-diagnostic-extension/no1.png)
 
@@ -147,10 +148,5 @@ Si vous avez activé fileCfg ou perfCfg (comme décrit dans les scénarios 2 et 
 
 ## <a name="known-issues"></a>Problèmes connus
 * Dans la version actuelle (2.3) de l’extension de diagnostic Linux, les informations de Rsyslog et du fichier journal spécifié par l’utilisateur sont accessibles uniquement via un script.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
-ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7ad7dce6fc7025a6a6e7935d74b3b71a7bfee097
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -130,7 +131,7 @@ Pour activer la modification de profil dans votre application, vous devez créer
 2. Cliquez sur **Stratégies de modification du profil**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Le **Nom** détermine le nom de la stratégie de modification de profil utilisé par votre application. Par exemple, entrez « SiPe ».
-5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais du compte local ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 6. Cliquez sur **Attributs de profil**. Ici, vous choisissez les attributs que le client peut afficher et modifier. Par exemple, sélectionnez « Pays/région », « Nom d’affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de modification de profil réussie. Par exemple, sélectionnez « Nom d'affichage » et « Code postal ».
 8. Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme « **B2C_1_SiPe** » (le fragment **B2C\_1\_** est ajouté automatiquement) dans le panneau **Stratégies de modification du profil**.
@@ -168,10 +169,5 @@ Quand vous créez une stratégie d’inscription ou de connexion (avec des compt
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 * [Désactiver la vérification par courrier électronique lors de l’inscription du consommateur](active-directory-b2c-reference-disable-ev.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

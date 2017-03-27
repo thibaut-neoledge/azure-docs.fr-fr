@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -98,7 +99,7 @@ class Program
 > 
 
 ## <a name="other-methods"></a>Autres méthodes
-* [Interface de ligne de commande Azure](../xplat-cli-install.md)
+* [Interface de ligne de commande Azure](../cli-install-nodejs.md)
   
     Lors du chargement de l’objet blob, définissez la propriété *cacheControl* à l’aide du switch `-p`.  Cet exemple définit la durée de vie sur une heure (3&600; secondes).
   
@@ -118,10 +119,5 @@ Vous pouvez facilement vérifier la durée de vie de vos objets BLOB.  À l’ai
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les en-têtes *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Comment gérer l’expiration des contenus de service cloud dans Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

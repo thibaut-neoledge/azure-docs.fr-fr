@@ -78,8 +78,8 @@
 ### [Contrôle de l’utilisation](logic-apps-pricing.md)
 
 # Référence
-## [Langage de définition de flux de travail](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Actions et déclencheurs de flux de travail](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Langage de définition de flux de travail](logic-apps-workflow-definition-language.md)
+## [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md)
 ## [API REST](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historique de schéma

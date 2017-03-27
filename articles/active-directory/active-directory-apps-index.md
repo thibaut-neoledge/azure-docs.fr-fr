@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ed8ef101a0757fd32585f5b3249e49d4fb0e09b4
-ms.openlocfilehash: ea3aa0b94c6a74747f7efa8633d5b6bfff75a230
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
 
-Vous trouverez une brève introduction à chaque domaine de fonctionnalités principal, ainsi que des conseils sur les articles à lire suivant les informations recherchées. 
+Vous trouverez une brève introduction à chaque domaine de fonctionnalités principal, ainsi que des conseils sur les articles à lire suivant les informations recherchées.
 
 ## <a name="overview-articles"></a>Articles généraux
 Les articles ci-dessous constituent de bons points de départ pour les personnes souhaitant simplement une brève explication des fonctionnalités de gestion d’applications Azure AD.
@@ -100,7 +100,7 @@ Si votre organisation gère un annuaire Windows Server Active Directory local pa
 | Aide sur l’utilisation de fournisseurs d’identité tiers pour activer l’authentification unique |[Liste des fournisseurs d’identité de tiers compatibles pouvant être utilisés pour activer l’authentification unique](https://aka.ms/ssoproviders) |
 | Comment les utilisateurs de Windows 10 peuvent profiter des avantages de l’authentification unique par le biais d’Azure AD Join |[Extension des fonctionnalités du cloud aux appareils Windows 10 par le biais d’Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). La réinitialisation du mot de passe libre-service Azure AD est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). L’écriture différée du mot de passe sur Active Directory en local est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) . 
+Azure AD Connect est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). La réinitialisation du mot de passe libre-service Azure AD est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). L’écriture différée du mot de passe sur Active Directory en local est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>Accès conditionnel : appliquer des exigences de sécurité supplémentaires pour les applications à haut risque
 Une fois que vous avez défini l’authentification unique pour vos applications et ressources, vous pouvez sécuriser davantage les applications sensibles en imposant des exigences de sécurité spécifiques à chaque connexion à l’application concernée. Par exemple, vous pouvez utiliser Azure AD pour imposer que tout accès à une application particulière exige le recours systématique à l’authentification multifacteur, même si cette application ne prend pas en charge intrinsèquement cette fonctionnalité. De même, vous pouvez imposer que les utilisateurs soient connectés au réseau approuvé de l’entreprise pour accéder à une application particulièrement sensible.
@@ -108,8 +108,8 @@ Une fois que vous avez défini l’authentification unique pour vos applications
 | Guide des articles |  |
 |:---:| --- |
 | Présentation des fonctionnalités d’accès conditionnel offertes dans Azure AD, Office 365 et Intune |[Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) |
-| Comment activer l’accès conditionnel pour les types de ressources suivants |[Accès conditionnel pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accès conditionnel pour les services Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accès conditionnel pour des applications locales](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Accès conditionnel pour les applications locales publiées par le biais du proxy d’application Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil |[Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Activation de l’inscription automatique des appareils pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Comment activer l’accès conditionnel pour les types de ressources suivants |[Accès conditionnel pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accès conditionnel pour les services Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accès conditionnel pour des applications locales](active-directory-conditional-access.md)<br /><br />[Accès conditionnel pour les applications locales publiées par le biais du proxy d’application Azure AD](active-directory-application-proxy-conditional-access.md) |
+| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil |[Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Activation de l’inscription automatique des appareils pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Étapes pour les appareils Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />— [Étapes pour les appareils Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
 | Utilisation de l’application Microsoft Authenticator pour la vérification en deux étapes |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 L’accès conditionnel est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -142,7 +142,7 @@ Automatisez la création, la maintenance et la suppression d’identités utilis
 L’approvisionnement automatique des utilisateurs est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour gérer les utilisateurs pouvant être approvisionnés](#managing-access-to-applications).
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Création d’applications qui s’intègrent à Azure AD
-Si votre organisation développe ou gère des applications métiers, ou que vous développez des applications pour des clients qui utilisent Azure Active Directory, les didacticiels suivants vous aident à intégrer vos applications à Azure AD. 
+Si votre organisation développe ou gère des applications métiers, ou que vous développez des applications pour des clients qui utilisent Azure Active Directory, les didacticiels suivants vous aident à intégrer vos applications à Azure AD.
 
 | Guide des articles |  |
 |:---:| --- |
@@ -178,7 +178,7 @@ Si votre entreprise a noué des partenariats avec d’autres sociétés, vous de
 La version préliminaire de B2B Collaboration est actuellement disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Volet d’accès : portail pour accéder aux applications et fonctionnalités de libre-service
-Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leurs applications et accéder aux fonctionnalités de libre-service qui leur permettent de gérer leurs applications et les appartenances aux groupes. Outre le volet d’accès, d’autres options d’accès aux applications prenant en charge l’authentification unique sont incluses dans la liste ci-dessous. 
+Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leurs applications et accéder aux fonctionnalités de libre-service qui leur permettent de gérer leurs applications et les appartenances aux groupes. Outre le volet d’accès, d’autres options d’accès aux applications prenant en charge l’authentification unique sont incluses dans la liste ci-dessous.
 
 | Guide des articles |  |
 |:---:| --- |
@@ -210,5 +210,4 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 [Services de domaine Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
 

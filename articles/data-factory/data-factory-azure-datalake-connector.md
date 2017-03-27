@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
-ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -425,7 +425,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 Pour utiliser l’authentification d’un principal du service, vous devez commencer par inscrire une entité d’application dans Azure Active Directory (AAD) et lui accorder l’accès dans Data Lake Store. Ensuite, vous pouvez spécifier les propriétés ci-dessous dans Azure Data Factory avec l’ID d’application, la clé d’application et les informations de locataire correspondantes pour copier des données depuis/vers Data Lake Store. Reportez-vous à [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) portant sur la configuration et la récupération des informations requises.
 
 > [!IMPORTANT]
-> Lorsque vous utilisez l’Assistant Copie, veillez à accorder au principal du service au minimum l’autorisation de lecture de votre racine ADLS (« / ») ou le rôle de lecteur du compte ADLS, afin de naviguer correctement entre les dossiers. Sinon, l’erreur « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
+> Lorsque vous utilisez l’Assistant Copie dans le cadre de création, veillez à accorder au principal du service au minimum le rôle Lecteur dans Access Control (IAM) pour le compte ADLS ET au moins l’autorisation Lecture et exécution sur votre racine ADLS (« / »), afin de naviguer correctement entre les dossiers. Sinon, l’erreur « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
 >
 > Si vous venez de créer ou de mettre à jour un principal du service à partir d’AAD, l’opération peut prendre quelques minutes. Revérifiez la configuration du principal du service et de la liste ACL ADLS. Si vous voyez toujours le message d’erreur indiquant « Les informations d’identification fournies ne sont pas valides », patientez, puis réessayez.
 >
@@ -484,7 +484,7 @@ Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** 
 
 | Type d’utilisateur | Expire après |
 |:--- |:--- |
-| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com,, etc.). |12 heures |
+| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.). |12 heures |
 | Comptes d’utilisateurs gérés par Azure Active Directory (AAD) |14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
 
 Si vous modifiez votre mot de passe avant cette date d’expiration du jeton, le jeton expirera immédiatement et vous verrez l’erreur mentionnée dans cette section.
@@ -527,7 +527,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | folderPath |Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake |Oui |
-| fileName |Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
+| fileName |Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : Data<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la propriété partitionedBy](#using-partitionedby-property) pour obtenir plus d’informations et des exemples. |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |

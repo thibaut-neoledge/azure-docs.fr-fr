@@ -1,5 +1,5 @@
 ---
-title: "Implémentation d’un scénario de basculement de diffusion en continu | Microsoft Docs"
+title: "Implémentation d’un basculement de diffusion en continu avec Azure Media Services | Microsoft Docs"
 description: "Cette rubrique montre comment implémenter un scénario de basculement de diffusion en continu."
 services: media-services
 documentationcenter: 
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
-ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="implementing-failover-streaming-scenario"></a>Implémentation d’un scénario de basculement de diffusion en continu
+# <a name="implement-failover-streaming-with-azure-media-services"></a>Implémentation d’un basculement de diffusion en continu avec Azure Media Services
 
-Cette procédure pas à pas montre comment copier le contenu (objets blob) d'une ressource à une autre afin de gérer la redondance dans le cadre d’une diffusion en continu à la demande. Ce scénario est utile pour les clients qui souhaitent configurer leur CDN pour basculer entre deux centres de données en cas de panne d’un de nos centres de données.
-Cette procédure pas à pas utilise Microsoft Azure Media Services SDK, Microsoft Azure Media Services REST API et Azure Storage SD pour effectuer les tâches suivantes.
+Cette procédure pas à pas montre comment copier le contenu (objets blob) d'une ressource à une autre afin de gérer la redondance dans le cadre d’une diffusion en continu à la demande. Ce scénario est utile si vous souhaitez configurer le réseau de distribution de contenu Azure pour effectuer un basculement entre deux centres de données dans l’éventualité où une panne se produirait dans l’un d’eux. Cette procédure pas à pas utilise le SDK Microsoft Azure Media Services, l’API REST Microsoft Azure Media Services et le SDK Azure Storage pour effectuer les tâches suivantes :
 
-1. Configurez un compte Media Services dans le « Centre de données A ».
+1. Configurez un compte Media Services dans le « Centre de données A ».
 2. Téléchargez un fichier mezzanine dans une ressource source.
 3. Encodez la ressource en fichiers MP4 à débit binaire multiple. 
-4. Créez un localisateur SAP en lecture seule pour la ressource source afin d’avoir accès en lecture au conteneur du compte de stockage associé à la ressource source.
-5. Obtenez le nom du conteneur de la ressource source à partir du localisateur SAP en lecture seule créé à l'étape précédente. Ces informations sont nécessaires pour la copie des objets blob entre les comptes de stockage (procédure expliquée plus loin dans cette rubrique.)
+4. Créez un localisateur de signature d’accès partagé en lecture seule. Ceci permet à la ressource source d’avoir un accès en lecture au conteneur du compte de stockage associé à la ressource source.
+5. Obtenez le nom du conteneur de la ressource source à partir du localisateur de signature d’accès partagé en lecture seule créé à l'étape précédente. Ces informations sont nécessaires pour la copie des objets blob entre les comptes de stockage (procédure expliquée plus loin dans cette rubrique.)
 6. Créez un localisateur d'origine pour la ressource créée par la tâche d'encodage. 
 
 Ensuite, pour gérer le basculement :
 
-1. Configurez un compte Media Services dans le « Centre de données B ».
+1. Configurez un compte Media Services dans le « Centre de données B ».
 2. Créez une ressource vide cible dans le compte Media Services cible.
-3. Créez un localisateur SAP en écriture pour la ressource vide cible afin d’avoir accès en écriture au conteneur du compte de stockage associé à la ressource cible.
-4. Utilisez le Kit de développement logiciel (SDK) Azure Storage pour copier des objets blob (fichiers de ressources) du compte de stockage source du « Centre de données A » vers le compte de stockage cible du « Centre de données B » (ces comptes de stockage sont associés aux ressources correspondantes).
+3. Créez un localisateur de signature d’accès partagé en écriture. Ceci permet à la ressource vide cible d’avoir accès en écriture au conteneur du compte de stockage associé à la ressource cible.
+4. Utilisez le Kit de développement logiciel (SDK) Azure Storage pour copier des objets blob (fichiers de ressources) du compte de stockage source du « Centre de données A » vers le compte de stockage cible du « Centre de données B ». Ces comptes de stockage sont associés aux ressources correspondantes.
 5. Associez les objets blob (fichiers de ressources) qui ont été copiés vers le conteneur d'objets blob cible avec la ressource cible. 
-6. Créez un localisateur d'origine pour la ressource dans le « Centre de données B » et spécifiez l’ID de localisateur qui a été généré pour la ressource dans le « Centre de données A ». 
-7. Cela vous donne les URL de diffusion en continu dans lesquelles les chemins d'accès relatifs des URL sont identiques (seules les URL de base sont différentes). 
+6. Créez un localisateur d'origine pour la ressource dans le « Centre de données B » et spécifiez l’ID de localisateur qui a été généré pour la ressource dans le « Centre de données A ».
 
-Ensuite, pour gérer les éventuelles pannes, vous pouvez créer un CDN par-dessus ces localisateurs d'origine. 
+Cela vous donne les URL de diffusion en continu dans lesquelles les chemins d'accès relatifs des URL sont identiques (seules les URL de base sont différentes). 
+
+Ensuite, pour gérer les éventuelles pannes, vous pouvez créer un réseau de distribution de contenu par-dessus ces localisateurs d’origine. 
 
 Les considérations suivantes s'appliquent :
 
-* La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour effectuer cette tâche, nous utiliserons l'API REST CreateFileInfos Media Services. 
-* Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (dans la mesure où la clé de chiffrement sera différente dans les deux comptes Media Services). 
+* La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour cela, utilisez l’API REST CreateFileInfos Media Services. 
+* Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (puisque la clé de chiffrement est différente dans les deux comptes Media Services). 
 * Si vous souhaitez tirer parti de l’empaquetage dynamique, assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
 > [!NOTE]
@@ -58,18 +58,18 @@ Les considérations suivantes s'appliquent :
 
 ## <a name="prerequisites"></a>Conditions préalables
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez [Comment créer un compte Media Services](media-services-portal-create-account.md).
-* Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
+* Systèmes d’exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou .NET Framework 4.
 * Visual Studio 2010 SP1 ou version ultérieure (Professional, Premium, Ultimate ou Express).
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 Dans cette section, vous aller créer et configurer un projet d'application console C#.
 
-1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. Entrez le nom HandleRedundancyForOnDemandStreaming, puis cliquez sur OK.
-2. Créez le dossier SupportFiles au même niveau que le fichier de projet HandleRedundancyForOnDemandStreaming.csproj. Sous le dossier SupportFiles, créez les dossiers OutputFiles et MP4Files. Copiez un fichier .mp4 dans le dossier MP4Files (dans cet exemple, le fichier BigBuckBunny.mp4 est utilisé). 
-3. Utilisez **Nuget** pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
+1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. Entrez le nom **HandleRedundancyForOnDemandStreaming**, puis cliquez sur **OK**.
+2. Créez le dossier **SupportFiles** au même niveau que le fichier de projet **HandleRedundancyForOnDemandStreaming.csproj**. Sous le dossier **SupportFiles**, créez les dossiers **OutputFiles** et **MP4Files**. Copiez un fichier .mp4 dans le dossier **MP4Files**. (Dans cet exemple, le fichier **BigBuckBunny.mp4** est utilisé.) 
+3. Utilisez **Nuget** pour ajouter des références aux DLL associées à Media Services. Dans le **menu principal de Visual Studio**, sélectionnez **OUTILS** > **Gestionnaire de package de bibliothèques** > **Console du Gestionnaire de package**. Dans la fenêtre de la console, tapez **Install-Package windowsazure.mediaservices**, puis appuyez sur Entrée.
 4. Ajoutez les autres références requises pour ce projet : System.Configuration, System.Runtime.Serialization et System.Web.
-5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
+5. Remplacez les instructions **using** qui ont été ajoutées au fichier **Programs.cs** par défaut par les suivantes :
    
         using System;
         using System.Configuration;
@@ -88,7 +88,7 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de vos valeurs de clé et de nom Media Services et de stockage. 
+6. Ajoutez la section **appSettings** au fichier **.config** et mettez à jour les valeurs en fonction de vos valeurs de clé et de nom Media Services et de stockage. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,7 +101,9 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Ajoutez le code qui gère la redondance pour le streaming à la demande.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Ajouter le code qui gère la redondance pour le streaming à la demande
+Dans cette section, vous allez créer un moyen de gérer la redondance.
+
 1. Ajoutez les champs de niveau classe à la classe Program :
        
         // Read values from the App.config file.
@@ -207,8 +209,11 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
                 writeSasLocator.Delete();
         }
 
-3. Définitions de méthode appelées à partir de Main.
-   
+3. Les définitions de méthode suivantes sont appelées à partir de Main.
+
+    >[!NOTE]
+    >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies Media Services (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours et les mêmes autorisations d’accès. Par exemple, utilisez le même ID de stratégie pour les localisateurs destinés à demeurer en place pendant une longue période (stratégies autres que de type chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies).
+
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
                                                         string singleFilePath)
@@ -471,8 +476,8 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
-                    // In AMS, the files are stored as block blobs. 
-                    // Page blobs are not supported by AMS.  
+                    // In Azure Media Services, the files are stored as block blobs. 
+                    // Page blobs are not supported by Azure Media Services.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 

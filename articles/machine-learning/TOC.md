@@ -159,6 +159,7 @@
 #### [Utiliser Excel](machine-learning-consuming-from-excel.md)
 #### [Utiliser le complément Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Utiliser un modèle d’application web](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Utliser un pool Batch](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Exemples
 ### [Exemples d'expérimentations](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Obtenir de l’aide de conversation en direct](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

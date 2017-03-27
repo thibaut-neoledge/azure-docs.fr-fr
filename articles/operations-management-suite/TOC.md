@@ -1,7 +1,6 @@
 # Vue d'ensemble
 ## [Présentation d’Operations Management Suite (OMS)](operations-management-suite-overview.md)
 ## [Architecture OMS](operations-management-suite-architecture.md)
-## [Liste des solutions de gestion](operations-management-suite-solutions.md)
 
 # Prise en main
 ## Insight & Analytics
@@ -15,15 +14,18 @@
 ### [Sécurité des données](oms-security-data-security.md)
 
 # Procédures
+
 ## Analyser
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Analyse de comparaison de produits](operations-management-suite-monitoring-product-comparison.md)
 ### [Gérer les alertes](operations-management-suite-monitoring-alerts.md)
 ## Automatisation
 ### [Vue d’ensemble d’Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Sauvegarde
 ### [Présentation de la sauvegarde](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Vue d’ensemble de Microsoft Azure Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Sécuriser
 ### [Surveiller les ressources](oms-security-monitoring-resources.md)
 ### [Répondre à des alertes de sécurité](oms-security-responding-alerts.md)
@@ -31,17 +33,9 @@
 ### [Évaluation des logiciels malveillants](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Évaluation des mises à jour du système](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connecter des produits de sécurité](oms-security-connect-products.md)
-## Créer des solutions
-### [Liste des solutions de gestion](operations-management-suite-solutions-creating.md)
-### [Ressources Automation](operations-management-suite-solutions-resources-automation.md)
-### [Recherches de journaux et alertes](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Views](operations-management-suite-solutions-resources-views.md)
-## [Intégrer avec OMS](operations-management-suite-integration.md)
 
-
-# Référence
-## [Foundation](operations-management-suite-sdk.md)
-## Solutions
+## Utiliser des solutions
+### [Liste des solutions de gestion](operations-management-suite-solutions.md)
 ### Insight & Analytics
 #### [Évaluation d'AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [État de la réplication AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -64,8 +58,15 @@
 ### Security & Compliance
 #### [Analyse anti-programme malveillant](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
+## Créer des solutions
+### [Conception et création](operations-management-suite-solutions-creating.md)
+### [Fichier de solution](operations-management-suite-solutions-solution-file.md)
+### [Ressources Automation](operations-management-suite-solutions-resources-automation.md)
+### [Recherches de journaux et alertes](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Views](operations-management-suite-solutions-resources-views.md)
 
+## [Intégrer avec OMS](operations-management-suite-integration.md)
 
-<!--HONumber=Feb17_HO1-->
-
+# Référence
+## [Foundation](operations-management-suite-sdk.md)
 

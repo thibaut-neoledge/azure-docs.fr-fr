@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
-ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -286,13 +286,13 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Modification d’un circuit ExpressRoute
+## <a name="modify"></a>Modification d’un circuit ExpressRoute
 Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité.
 
 Vous pouvez effectuer les opérations suivantes sans entraîner d’interruption de service :
 
 * Activer ou désactiver le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
-* Augmenter la bande passante de votre circuit ExpressRoute. Notez que la rétrogradation de la bande passante d'un circuit n'est pas prise en charge.
+* Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. Notez que la rétrogradation de la bande passante d'un circuit n'est pas prise en charge. 
 * Modifiez le plan de mesure de Données limitées à Données illimitées. Notez que la modification du plan de limitation de Données illimitées à Données limitées n’est pas prise en charge.
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
 
@@ -337,8 +337,9 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium dans votr
 Pour connaître les options de bande passante prises en charge par votre fournisseur, consultez le [FAQ ExpressRoute](expressroute-faqs.md). Vous pouvez choisir n'importe quelle taille supérieure à la taille de votre circuit existant.
 
 > [!IMPORTANT]
+> Vous devrez peut-être recréer le circuit ExpressRoute si la capacité sur le port existant est inappropriée. Vous ne pouvez pas mettre le circuit à niveau si aucune capacité supplémentaire n’est disponible à cet emplacement.
+>
 > Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. Le fait de passer à un niveau inférieur de bande passante vous oblige à annuler l’approvisionnement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
-> 
 > 
 
 Une fois que vous avez décidé de la taille dont vous avez besoin, utilisez la commande suivante pour redimensionner votre circuit :

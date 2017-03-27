@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 1209acfb13d53288b1ff0ed232c44c3fdcd3a9f4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UP
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportement avec une résilience d’attribut en double
 Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est  
-“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+« ***<OriginalPrefix>+<4chiffres>@<InitialTenantDomain>.onmicrosoft.com*** ».  
 Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne sont pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
@@ -50,7 +51,8 @@ Il s’agit d’un attribut à valeurs multiples utilisé pour stocker les attri
 ### <a name="enabling-duplicate-attribute-resiliency"></a>Activer la résilience d’attribut en double
 La résilience d’attribut en double sera le nouveau comportement par défaut sur tous les locataires Azure Active Directory. Elle sera activée par défaut pour tous les clients qui ont activé la synchronisation pour la première fois le 22 août 2016 ou plus tard. Les clients qui ont activé la synchronisation avant cette date verront cette fonctionnalité activée par lots. Ce déploiement a commencé en septembre 2016, et une notification par courrier électronique sera envoyée au contact de notification technique de chaque client la date d’activation de la fonctionnalité.
 
-Une fois que la résilience des attributs en double a été activée, elle ne peut pas être désactivée.
+> [!NOTE]
+> Une fois que la résilience des attributs en double a été activée, elle ne peut pas être désactivée.
 
 Vous pouvez vérifier si cette fonctionnalité est activée sur votre client en téléchargeant la dernière version du module Azure Active Directory PowerShell, puis en exécutant ce qui suit :
 
@@ -58,11 +60,8 @@ Vous pouvez vérifier si cette fonctionnalité est activée sur votre client en 
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
-Si vous souhaitez assurer l’activation de la fonctionnalité avant son démarrage sur votre client, vous pouvez le faire en téléchargeant la dernière version du module Azure Active Directory PowerShell, puis en exécutant ce qui suit :
-
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
-
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
+> [!NOTE]
+> Vous pouvez n’est plus utiliser l’applet de commande Set-MsolDirSyncFeature pour activer de manière proactive la fonctionnalité de résilience des attributs en double avant qu’elle ne soit activée pour votre locataire. Pour pouvoir tester la fonctionnalité, vous devez créer un nouveau locataire Azure Active Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identification des objets avec DirSyncProvisioningErrors
 Il existe actuellement deux méthodes pour identifier les objets qui comportent ces erreurs en raison de conflits de propriété dupliquée : Azure Active Directory PowerShell et le portail d’administration Office 365. Il est prévu d’augmenter la capacité de génération de rapports dans le portail.
@@ -174,10 +173,5 @@ Il doit pointer vers [https://aka.ms/duplicateattributeresiliency](https://aka.m
 * [Synchronisation d’Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 * [Identifier les erreurs de synchronisation d’annuaires dans Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4505bb5f572add13c21df06fc7997358eaae6352
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 * **Machine virtuelle Azure créée dans le modèle de déploiement Resource Manager** : si vous n’avez pas créé une machine virtuelle Linux, vous pouvez utiliser le [portail](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [l’interface CLI Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou les [modèles Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
     Configurez la machine virtuelle en fonction de vos besoins. Par exemple, [ajoutez des disques de données](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), appliquez des mises à jour et installez des applications. 
-* **Interface CLI Azure** : installez [l’interface CLI Azure](../xplat-cli-install.md) sur un ordinateur local.
+* **Interface CLI Azure** : installez [l’interface CLI Azure](../cli-install-nodejs.md) sur un ordinateur local.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Étape 1 : supprimer l’agent Linux Azure
 Commencez par exécuter la commande **waagent** avec le paramètre **deprovision** sur la machine virtuelle Linux. Cette commande supprime les fichiers et les données pour préparer la machine virtuelle à la généralisation. Pour plus d’informations, consultez le [Guide d’utilisation de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da949459f734ea08527fe2380ab2a6a06e6976e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -146,6 +147,11 @@ Dans la page Global Parameters, configurez le fuseau horaire et les options des 
 Le paramètre **Domino Server Time Zone** définit l’emplacement de votre serveur Domino.
 
 Cette option de configuration est requise pour prendre en charge les opérations d’ **importation différentielle** , car elle permet au service de synchronisation de déterminer les modifications entre les deux dernières importations.
+
+>[!Note]
+À compter de la mise à jour de mars 2017, l’écran Paramètres globaux inclut l’option de suppression de la base de données de messagerie de l’utilisateur pendant la suppression de l’utilisateur.
+
+![Suppression de la boîte aux lettres de l’utilisateur](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
 #### <a name="import-settings-method"></a>Paramètres d’importation, méthode
 Le paramètre **Perform Full Import By** présente les options suivantes :
@@ -489,9 +495,4 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma pour le faire a
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 * Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +66,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 > 
 > 
 
-1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
 2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de l’interface de ligne de commande Azure, entrez la commande suivante :
    
         azure site deployment user set [username] [password]
@@ -283,7 +284,7 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centre pour développeurs Node.js]: /develop/nodejs/
 [Essayer App Service]: https://azure.microsoft.com/try/app-service/
@@ -299,9 +300,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

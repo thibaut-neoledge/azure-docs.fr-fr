@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -47,7 +47,16 @@ Le tableau suivant vous permet de prendre de décision lors du choix entre les d
 * Si vous utilisez le pool partagé, c’est-à-dire sans aucune unité réservée, alors vos tâches d’encodage ont les mêmes performances que les unités de requête S1. Toutefois, il n’existe aucune limite supérieure à la durée que vos tâches peuvent passer en file d’attente et, à tout moment, une seule tâche maximum s’exécutera.
 * Les centres de données suivants ne proposent pas le type d’unité réservée **S2** : Sud du Brésil et Inde-Ouest.
 * Le centre de données suivant ne propose pas le type d’unité réservée **S3** : Inde-Ouest.
-* C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
+
+## <a name="billing"></a>Facturation
+
+Vous êtes facturé en fonction des minutes réelles d’utilisation des unités réservées Multimédia. Voici un exemple plus détaillé. Supposons que Pierre n’a aucune unité réservée Multimédia pour démarrer et qu’à 10 h 00 le jour en question, il configure son compte pour qu’il utilise 2 unités réservées S1. D’autres vidéos arrivent dans l’après-midi. Pierre modifie donc son compte pour qu’il utilise 4 unités réservées S3 à 13 h 15. Toutes ses vidéos sont traitées avant 16 h 00, puis Pierre désactive les unités réservées de ce compte (en mettant à zéro le nombre d’unités réservées). L’utilisation de Pierre est calculée comme suit.
+
+Unités réservées Multimédia S1 : 2 unités x 3,25 heures (de 10 h à 13 h 15) x 0,02 $/ h = 0,13 $ Unités réservées Multimédia S3 : 4 unités x 2,75 heures (de 13 h 15 à 16 h) x 0,08 $/ h = 0,88 $
+
+Le coût total de l’utilisation des unités réservées Multipliées ce jour-là serait donc de&0;,13 $ +&0;,88 $ =&1;,01 $. Contrairement aux unités réservées Multimédia, les unités de streaming sont facturées en fonction du nombre le plus élevé d’unités de streaming configurées chaque jour (limite supérieure).
+
+Pour plus d’informations, consultez la page [Tarification – Media Services](https://azure.microsoft.com/pricing/details/media-services/). La section FAQ contient des explications détaillées.  
 
 ## <a name="quotas-and-limitations"></a>Quotas et limitations
 Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).

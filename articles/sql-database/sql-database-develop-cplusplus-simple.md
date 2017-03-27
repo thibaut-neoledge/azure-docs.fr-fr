@@ -40,7 +40,7 @@ Azure propose actuellement deux options pour l’hébergement des charges de tra
 ## <a id="ODBC"></a>Technologies d’accès aux données : ODBC et OLE DB
 La connexion à Azure SQL DB se fait de façon classique. Actuellement, il existe deux moyens de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne. 
 
-## <a id="Create">Étape 1 : création de votre base de données SQL Azure</a>
+## <a id="Create"></a>Étape 1 : création de votre base de données SQL Azure
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données.  Sinon, vous pouvez suivre cette [vidéo de deux minutes](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) pour créer une base de données SQL Azure à l’aide du portail Azure.
 
 ## <a id="ConnectionString"></a>Étape 2 : obtention de la chaîne de connexion

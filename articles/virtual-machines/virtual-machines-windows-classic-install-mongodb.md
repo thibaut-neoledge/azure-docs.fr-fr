@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
-ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8245ff39ce191e741fdc54fee0ca039e8571ba8e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour installer et configurer MongoDB à l’aide du modèle de déploiement Resource Manager, consultez [cet article](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[MongoDB][MongoDB] est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous guide dans la création d’une machine virtuelle Windows Server à l’aide du [portail Azure Classic][AzurePortal]. Vous devez ensuite créer et attacher un disque de données à la machine virtuelle avant de procéder à l’installation et à la configuration de MongoDB. Si vous souhaitez utiliser une machine virtuelle existante dans Azure, vous pouvez passer directement à l’étape [d’installation et de configuration de MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
+[MongoDB][MongoDB] est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous guide dans la création d’une machine virtuelle Windows Server à l’aide du [portail Azure][AzurePortal]. Vous devez ensuite créer et attacher un disque de données à la machine virtuelle avant de procéder à l’installation et à la configuration de MongoDB. Si vous souhaitez utiliser une machine virtuelle existante dans Azure, vous pouvez passer directement à l’étape [d’installation et de configuration de MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 
 ## <a name="create-a-virtual-machine-running-windows-server"></a>Création d’une machine virtuelle exécutant Windows Server
 Pour créer une machine virtuelle, procédez comme suit :
@@ -34,8 +35,8 @@ Pour créer une machine virtuelle, procédez comme suit :
 
 > [!NOTE]
 > Vous pouvez ajouter un point de terminaison pour MongoDB lors de la création de la machine virtuelle et le configurer comme suit : attribuez-lui le nom **Mongo**, utilisez **TCP** comme protocole et attribuez aux ports publics et privés la valeur **27017**.
-> 
-> 
+>
+>
 
 ## <a name="attach-a-data-disk"></a>Association d’un disque de données
 Pour fournir un stockage pour la machine virtuelle, associez un disque de données, puis initialisez-le de façon à ce qu'il puisse être utilisé par Windows. Si vous disposez déjà d’un disque de données, vous pouvez attacher ce disque existant. Sinon, vous pouvez attacher un disque vide.
@@ -52,10 +53,8 @@ Ce didacticiel vous a montré comment créer une machine virtuelle exécutant Wi
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: https://portal.azure.com/
 
-
-
-<!--HONumber=Jan17_HO2-->
-
+<!-- Classic portal. Removed 03/07/2017 -->
+<!-- [AzurePortal]: http://manage.windowsazure.com  -->
 

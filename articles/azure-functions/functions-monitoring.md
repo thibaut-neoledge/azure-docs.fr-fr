@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -78,7 +79,7 @@ Vous pouvez diffuser des fichiers journaux vers une session de ligne de commande
 
 ### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Analyse des fichiers journaux Function App avec l’interface CLI Azure
 
-Pour commencer, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md)
+Pour commencer, [installez l’interface de ligne de commande Azure](../cli-install-nodejs.md)
 
 Connectez-vous à votre compte Azure à l’aide de la commande suivante, ou n’importe quelle autre des options couvertes dans [Connexion à Azure à partir de l’interface de ligne de commande (CLI) Azure](../xplat-cli-connect.md).
 
@@ -124,10 +125,5 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Test d’une fonction](functions-test-a-function.md)
 * [Mettre à l’échelle une fonction](functions-scale.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

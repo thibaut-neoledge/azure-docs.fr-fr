@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c214e37fb4211e8a2686a2beb18cf84ee77d5783
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5ef5cfeb82eed86fd0a9b6328c803d6a88cd2822
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -270,7 +270,7 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 * [Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog de David Ebbo](http://blog.davidebbo.com/)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Outils en ligne de commande multiplateforme Azure](../xplat-cli-install.md)
+* [Outils en ligne de commande multiplateforme Azure](../cli-install-nodejs.md)
 * [Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 

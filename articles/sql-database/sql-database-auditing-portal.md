@@ -13,39 +13,42 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 2/25/2017
+ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 2882c41ced74c35e28a9237f3f08b6e6f687b846
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
+ms.lasthandoff: 03/10/2017
 
 
 ---
+
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configurer et gérer l’audit de base de données SQL dans le portail Azure
 
-La section suivante explique comment configurer et gérer l’audit à l’aide du portail Azure. Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit avec PowerShell](sql-database-auditing-powershell.md). Pour configurer et gérer l’audit à l’aide de l’API REST, consultez [Configurer l’audit avec l’API REST](sql-database-auditing-rest.md).
+La section suivante explique comment configurer et gérer l’audit avec le Portail Azure. Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit avec PowerShell](sql-database-auditing-powershell.md). 
 
 Pour une présentation de l’audit, consultez [Audit de base de données SQL](sql-database-auditing.md).
 
 ## <a name="configure-blob-auditing"></a>Configurer l’audit d’objets blob
 
-1. Lancez le [portail Azure ](https://portal.azure.com) à l’adresse https://portal.azure.com.
+1. Ouvrez le [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com.
 2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
 
     ![Volet de navigation](./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png)
-3. Dans le panneau de configuration de l’audit de la base de données, vous pouvez cocher la case **Hériter des paramètres du serveur** pour indiquer que cette base de données doit être auditée en fonction des paramètres de son serveur. SI cette option est sélectionnée, vous voyez un lien **Afficher les paramètres d’audit du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
+3. Dans le panneau de configuration de l’audit de la base de données, vous pouvez cocher la case **Hériter des paramètres du serveur** pour indiquer que cette base de données doit être auditée en fonction des paramètres de son serveur. Si cette option est sélectionnée, vous voyez un lien **Afficher les paramètres d’audit du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
 
     ![Volet de navigation][2]
 4. Si vous préférez activer l’audit Objet blob sur le niveau base de données (en plus ou au lieu de l’audit au niveau serveur), **décochez** l’option **Hériter des paramètres du serveur**, définissez Audit sur **ACTIVÉ** et choisissez le type d’audit **Objet blob**.
 
     ![Volet de navigation][3]
-5. Sélectionnez **Détails du stockage** pour ouvrir le panneau Stockage des journaux d’audit. Sélectionnez le compte de stockage Azure où les journaux sont enregistrés et la période de rétention après laquelle les anciens journaux sont supprimés, puis cliquez sur **OK** dans le bas. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
+5. Sélectionnez **Détails du stockage** pour ouvrir le panneau Stockage des journaux d’audit. Sélectionnez le compte de stockage Azure où les journaux sont enregistrés et la période de rétention après laquelle les anciens journaux sont supprimés, puis cliquez sur **OK** en bas. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
 
     <a id="storage-screenshot"></a>
     ![Volet de navigation][4]
-6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire via [PowerShell](sql-database-auditing-powershell.md) ou l’[API REST](sql-database-auditing-rest.md).
-7. Cliquez sur **Save**.
+6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST.
+7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité Détection des menaces (préversion) et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Consultez la section [Détection de menaces](sql-database-threat-detection.md) pour plus de détails.
+8. Cliquez sur **Save**.
+
 
 ## <a name="table-auditing"></a>Audit de table
 
@@ -53,9 +56,9 @@ Pour une présentation de l’audit, consultez [Audit de base de données SQL](s
 > Avant de configurer **l’audit Table**, vérifiez que vous utilisez bien un [« Client de niveau inférieur »](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). En outre, si vous avez des paramètres de pare-feu stricts, notez que le [point de terminaison IP de votre base de données change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) lors de l’activation de l’audit Table.
 >
 
-1. Lancez le [portail Azure ](https://portal.azure.com) à l’adresse https://portal.azure.com.
+1. Ouvrez le [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com.
 2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces** (*[voir la capture d’écran dans la section Audit Objet blob](#auditing-screenshot)*).
-3. Dans le panneau de configuration de l’audit de la base de données, vous pouvez cocher la case **Hériter des paramètres du serveur** pour indiquer que cette base de données doit être auditée en fonction des paramètres de son serveur. SI cette option est sélectionnée, vous voyez un lien **Afficher les paramètres d’audit du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
+3. Dans le panneau de configuration de l’audit de la base de données, vous pouvez cocher la case **Hériter des paramètres du serveur** pour indiquer que cette base de données doit être auditée en fonction des paramètres de son serveur. Si cette option est sélectionnée, vous voyez un lien **Afficher les paramètres d’audit du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
 
     ![Volet de navigation][2]
 4. Si vous préférez ne pas hériter des paramètres d’audit du serveur, **décochez** l’option **Hériter des paramètres d’audit du serveur**, définissez Audit sur **ACTIVÉ** et choisissez le type d’audit **Table**.
@@ -80,10 +83,10 @@ Quand vous utilisez des bases de données géorépliquées, il est possible de c
 2. **Base de données secondaire** : l’audit Objet blob ne peut pas être activé/désactivé depuis les paramètres d’audit de la base de données primaire.
 
    * Activez l’audit Objet blob sur la base de données primaire. L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
-   * Une fois que l’audit Objet blob est activé sur la base de données primaire, il devient également activé sur la base de données secondaire.
+   * Une fois que l’audit Blob est activé sur la base de données primaire, il devient également activé sur la base de données secondaire.
 
     > [!IMPORTANT]
-    > Par défaut, les paramètres de stockage pour la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui provoque un trafic entre régions. Vous pouvez éviter cela en activant l’audit Objet blob sur le serveur secondaire et en configurant un stockage local dans les paramètres de stockage du serveur secondaire (ceci remplace l’emplacement de stockage pour la base de données secondaire et fait que chaque base de données enregistre les journaux d’audit dans un stockage local).  
+    > Par défaut, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui provoque un trafic entre régions. Vous pouvez éviter cela en activant l’audit Blob sur le serveur secondaire et en configurant le stockage local dans les paramètres de stockage du serveur secondaire (ceci remplace l’emplacement de stockage de la base de données secondaire et fait que chaque base de données enregistre les journaux d’audit dans le stockage local).  
 
 ## <a name="viewing-blob-auditing-logs"></a>Affichage des journaux d’audit Objet blob
 
@@ -93,11 +96,11 @@ Pour plus d’informations sur la hiérarchie des dossiers de stockage des journ
 
 Il existe plusieurs méthodes pour afficher des journaux d’audit Objet blob :
 
-* Via le [portail Azure](https://portal.azure.com) - ouvrez la base de données correspondante. En haut du panneau Audit et détection des menaces de la base de données, cliquez sur **Afficher les journaux d’audit**.
+* Via le [portail Azure](https://portal.azure.com) : ouvrez la base de données correspondante. En haut du panneau Audit et détection des menaces de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
     ![Volet de navigation][10]
 
-    Un panneau Enregistrements d’audit s’ouvre, dans lequel vous pouvez afficher les journaux.
+    Un panneau Enregistrements d’audit s’ouvre, dans lequel s’affichent les journaux.
 
     - Vous pouvez choisir d’afficher des dates spécifiques en cliquant sur **Filtrer** en haut du panneau Enregistrements d’audit
     - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la stratégie de serveur ou par l’audit de stratégie de base de données
@@ -129,11 +132,11 @@ Pour plus d’informations sur le format des journaux d’audit Table, consultez
 
 Il existe plusieurs méthodes pour afficher des journaux d’audit Table :
 
-* Via le [portail Azure](https://portal.azure.com) - ouvrez la base de données correspondante. En haut du panneau Audit et détection des menaces de la base de données, cliquez sur **Afficher les journaux d’audit**.
+* Via le [portail Azure](https://portal.azure.com) : ouvrez la base de données correspondante. En haut du panneau Audit et détection des menaces de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
     ![Volet de navigation][10]
 
-    Un panneau Enregistrements d’audit s’ouvre, dans lequel vous pouvez afficher les journaux.
+    Un panneau Enregistrements d’audit s’ouvre, dans lequel s’affichent les journaux.
 
     * Vous pouvez choisir d’afficher des dates spécifiques en cliquant sur **Filtrer** en haut du panneau Enregistrements d’audit
     * Vous pouvez télécharger et afficher les journaux d’audit au format Excel en cliquant sur **Ouvrir dans Excel** en haut du panneau Enregistrements d’audit
@@ -186,7 +189,6 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit de base de données avec PowerShell](sql-database-auditing-powershell.md).
-* Pour configurer et gérer l’audit à l’aide de l’API REST, consultez [Configurer l’audit de base de données avec l’API REST](sql-database-auditing-rest.md).
 * Pour une présentation de l’audit, consultez [Audit de base de données](sql-database-auditing.md).
 
 

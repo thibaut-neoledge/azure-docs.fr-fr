@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ Une base de données DocumentDB est un conteneur logique d'une ou plusieurs coll
 ![Compte de base de données et modèle hiérarchique de regroupements][2]  
 **Une base de données est un conteneur logique d’utilisateurs et de collections**
 
-Une base de données peut contenir un stockage de documents pratiquement illimité, partitionné en collections, qui forment les domaines de transaction pour les documents qu'elles contiennent. 
+Une base de données peut contenir un stockage de documents presque illimité partitionné dans des collections.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>Évolutivité flexible d'une base de données DocumentDB
 Une base de données DocumentDB est flexible par défaut : elle peut aller de quelques Go à plusieurs pétaoctets de stockage de documents SSD et de débit approvisionné. 
@@ -175,7 +175,7 @@ Une base de données DocumentDB est également un conteneur d'utilisateurs. De m
 Comme pour les autres ressources du modèle de ressource DocumentDB, les bases de données peuvent être facilement créées, remplacées, supprimées, lues ou répertoriées avec des [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB garantit une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une ressource de base de données. La suppression d'une base de données garantit automatiquement que vous ne pouvez pas accéder ni aux collections ni aux utilisateurs qui y sont inclus.   
 
 ## <a name="collections"></a>Collections
-Une collection DocumentDB est un conteneur pour vos documents JSON. Une collection est également une unité de mise à l'échelle pour les transactions et les requêtes. 
+Une collection DocumentDB est un conteneur pour vos documents JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Stockage de documents SSD flexible
 Une collection est intrinsèquement flexible : elle augmente ou diminue à mesure que vous ajoutez ou supprimez des documents. Les collections sont des ressources logiques. Elles peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions dans une collection est déterminé par DocumentDB en fonction de la taille de stockage et du débit approvisionné de votre collection. Chaque partition dans DocumentDB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure DocumentDB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les collections DocumentDB sont **pratiquement illimitées** en termes de débit et de stockage. 
@@ -206,7 +206,7 @@ Le modèle de requête DocumentDB tente de garantir un équilibre entre les fonc
 > 
 > 
 
-### <a name="multi-document-transactions"></a>Transactions multi-documents
+## <a name="multi-document-transactions"></a>Transactions multi-documents
 Les transactions de bases de données offrent un modèle de programmation prédictif et sécurisé pour la gestion des modifications simultanées des données. Dans SGBDR, la méthode classique d’écriture de logique métier consiste à écrire des **procédures stockées** et/ou des **déclencheurs**, puis à les expédier vers le serveur de base de données pour exécuter la transaction. Dans SGBDR, le programmateur de l'application doit gérer deux langages de programmation différents : 
 
 * le langage de programmation d'application (non transactionnel) (par exemple, JavaScript, Python, C#, Java, etc.) ;

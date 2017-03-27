@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Cet article fournit la syntaxe et les options des commandes de l’interface de 
 >En savoir plus sur [les ancienne et nouvelle interfaces de ligne de commande Azure](/cli/azure/old-and-new-clis).
 >
 
-Pour commencer, [installez l’interface de ligne de commande (CLI) Azure](../xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md).
+Pour commencer, [installez l’interface de ligne de commande (CLI) Azure](../cli-install-nodejs.md) et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md).
 
 Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Resource Manager, tapez `azure help` ou, pour afficher de l’aide concernant une commande particulière, `azure help [command]`. Dans la documentation, vous trouverez également des exemples d’interface CLI permettant de créer et de gérer certains services Azure.
 

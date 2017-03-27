@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ Une fois le compte créé, vous pouvez ouvrir le **Panneau du compte Batch** pou
 
 ![Panneau de compte Batch dans le portail Azure][account_blade]
 
-* **URL de compte Batch** : lorsque vous développez une application avec des [API Batch](batch-technical-overview.md#batch-development-apis), vous avez besoin d’une URL de compte pour accéder aux ressources de votre Batch. Une URL de compte Batch a le format suivant :
+* **URL de compte Batch** : lorsque vous développez une application avec des [API Batch](batch-apis-tools.md#batch-development-apis), vous avez besoin d’une URL de compte pour accéder aux ressources de votre Batch. Une URL de compte Batch a le format suivant :
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ De plus, il est possible de relever la plupart de ces quotas simplement en envoy
 Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mais aussi avec les éléments suivants :
 
 * [Applets de commande PowerShell pour Batch](batch-powershell-cmdlets-get-started.md)
-* [Interface de ligne de commande Azure](../xplat-cli-install.md)
+* [Interface de ligne de commande Azure](../cli-install-nodejs.md)
 * [Gestion de lots .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

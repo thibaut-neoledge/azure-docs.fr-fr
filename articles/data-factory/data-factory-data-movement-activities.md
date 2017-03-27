@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
-ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -73,7 +74,7 @@ L’activité de copie peut également lire dans et écrire dans des fichiers de
 * Copier les données dans le SQL Server local et les écrire dans Azure Data Lake Store au format ORC.
 * Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Store.
 
-## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>Déplacement des données disponible globalement
+## <a name="global"></a>Déplacement des données disponible globalement
 Azure Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copier des données entre des banques de données cloud
@@ -82,29 +83,29 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Géographie de la banque de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
 |:--- |:--- |:--- |
 | États-Unis | Est des États-Unis | Est des États-Unis |
-| . | Est des États-Unis 2 | Est des États-Unis 2 |
-| . | Centre des États-Unis | Centre des États-Unis |
-| . | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale |
-| . | Centre-Sud des États-Unis | Centre-Sud des États-Unis |
-| . | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
-| . | Ouest des États-Unis | Ouest des États-Unis |
-| . | Ouest des États-Unis 2 | Ouest des États-Unis |
+| &nbsp; | Est des États-Unis 2 | Est des États-Unis 2 |
+| &nbsp; | Centre des États-Unis | Centre des États-Unis |
+| &nbsp; | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale |
+| &nbsp; | Centre-Sud des États-Unis | États-Unis - partie centrale méridionale |
+| &nbsp; | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
+| &nbsp; | Ouest des États-Unis | Ouest des États-Unis |
+| &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis |
 | Canada | Est du Canada | Centre du Canada |
-| . | Centre du Canada | Centre du Canada |
+| &nbsp; | Centre du Canada | Centre du Canada |
 | Brésil | Sud du Brésil | Sud du Brésil |
 | Europe | Europe du Nord | Europe du Nord |
-| . | Europe de l'Ouest | Europe de l'Ouest |
+| &nbsp; | Europe de l'Ouest | Europe de l'Ouest |
 | Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
-| . | Est de l'Asie | Asie du Sud-Est |
+| &nbsp; | Est de l'Asie | Asie du Sud-Est |
 | Australie | Est de l’Australie | Est de l’Australie |
-| . | Sud-Est de l’Australie | Sud-Est de l’Australie |
+| &nbsp; | Sud-est de l’Australie | Sud-Est de l’Australie |
 | Japon | Est du Japon | Est du Japon |
-| . | Ouest du Japon | Est du Japon |
+| &nbsp; | Ouest du Japon | Est du Japon |
 | Inde | Inde centrale | Inde centrale |
-| . | Inde occidentale | Inde centrale |
-| . | Inde du Sud | Inde centrale |
+| &nbsp; | Inde occidentale | Inde centrale |
+| &nbsp; | Inde du Sud | Inde centrale |
 
-Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour copier entre les banques Azure au Royaume-Uni, vous pouvez spécifier `executionLocation` comme « Europe du Nord » pour un acheminement via l’Europe du Nord.
+Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour copier entre les banques Azure au Royaume-Uni, vous pouvez spécifier `"executionLocation": "North Europe"` pour un acheminement via l’Europe du Nord (voir [exemple JSON](#by-using-json-scripts) en tant que référence).
 
 > [!NOTE]
 > Si la région de la banque de données de destination ne figure pas dans la liste précédente ou n’est pas détectable, par défaut, l’activité de copie échoue au lieu de passer par une autre région, sauf si `executionLocation` est spécifié. La liste des régions prises en charge sera développée au fil du temps.
@@ -124,7 +125,7 @@ Vous pouvez utiliser Data Factory Editor dans le portail Azure, Visual Studio ou
 
 Les propriétés JSON (le nom, la description, les tables d'entrée et de sortie et les différentes stratégies) sont disponibles pour tous les types d'activités. Les propriétés qui sont disponibles dans la section `typeProperties` de l’activité varient avec chaque type d’activité.
 
-Pour une activité de copie, la section `typeProperties` varie selon les types de source et de récepteur. Cliquez sur une source/un récepteur dans la section sur les [sources/récepteurs pris en charge](#supported-data-stores) pour en savoir plus sur les propriétés de type prises en charge par l’activité de copie de cette banque de données.   
+Pour une activité de copie, la section `typeProperties` varie selon les types de source et de récepteur. Cliquez sur une source/un récepteur dans la section sur les [sources/récepteurs pris en charge](#supported-data-stores-and-formats) pour en savoir plus sur les propriétés de type prises en charge par l’activité de copie de cette banque de données.
 
 Voici un exemple de définition JSON :
 
@@ -152,10 +153,9 @@ Voici un exemple de définition JSON :
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "North Europe"          
         },
         "Policy": {
           "concurrency": 1,
@@ -191,9 +191,4 @@ Le mappage d’un système de type natif donné en .NET pour une banque de donn�
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md)pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

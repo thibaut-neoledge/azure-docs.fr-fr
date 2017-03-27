@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -146,7 +146,7 @@ Des extensions de version d’évaluation pour les clients sont disponibles en l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les scénarios avancés de gestion des licences via les groupes, lisez cet article 
+Pour plus d’informations sur les scénarios avancés de gestion des licences via les groupes, lisez cet article
 
 Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Azure AD Premium.
 

@@ -1,5 +1,5 @@
 ---
-title: "Restaurer automatiquement des machines virtuelles VMware à partir d’Azure vers votre site local | Microsoft Docs"
+title: "Restaurer automatiquement en local des machines virtuelles VMware à partir d’Azure | Microsoft Docs"
 description: "Découvrez la restauration automatique sur le site local après le basculement des machines virtuelles VMware et des serveurs physiques vers Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/05/2016
+ms.date: 03/27/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local
 > [!div class="op_single_selector"]
-> * [Portail Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Portail Azure Classic](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Portail Azure Classic (version héritée)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Machines VMware / machines physiques d’Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Machines virtuelles Hyper-V d’Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-Cet article explique comment restaurer automatiquement des machines virtuelles Azure à partir d’Azure vers votre site local. Suivez ces instructions lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows ou Linux après leur basculement du site local vers Azure en suivant ce [didacticiel](site-recovery-vmware-to-azure-classic.md).
+Cet article explique comment restaurer automatiquement des machines virtuelles Azure à partir d’Azure vers le site local. Suivez ces instructions lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows ou Linux après avoir protégé à nouveau vos machines en suivant cette [référence](site-recovery-how-to-reprotect.md).
+
+>[!NOTE]
+>Si vous utilisez le Portail Azure Classic, reportez-vous aux instructions mentionnées [ici](site-recovery-failback-azure-to-vmware-classic.md) pour l’architecture VMware vers Azure améliorée et [ici](site-recovery-failback-azure-to-vmware-classic-legacy.md) pour l’architecture héritée.
 
 ## <a name="overview"></a>Vue d'ensemble
 Le diagramme de cette section illustre l’architecture de restauration automatique correspondant à ce scénario.

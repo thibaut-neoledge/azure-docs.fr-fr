@@ -53,7 +53,7 @@ Exécutez les commandes suivantes pour créer le groupe de ressources et le dép
 Lorsque vous exécutez la commande **New-AzureRMResourceGroupDeployment** , vous êtes invité à entrer les valeurs des paramètres du modèle. Selon le modèle, le déploiement des ressources par Azure peut prendre un certain temps.
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-[Installez l’interface de ligne de commande Azure](../articles/xplat-cli-install.md), connectez-vous et veillez à activer les commandes Resource Manager. Pour plus d’informations sur la façon de procéder, consultez l’article [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md)(Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager).
+[Installez l’interface de ligne de commande Azure](../articles/cli-install-nodejs.md), connectez-vous et veillez à activer les commandes Resource Manager. Pour plus d’informations sur la façon de procéder, consultez l’article [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md)(Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager).
 
 Exécutez les commandes suivantes pour créer le groupe de ressources et le déploiement, après que vous avez remplacé le texte entre crochets par le nom du groupe de ressources, l’emplacement, le nom du déploiement et le nom du modèle :
 
@@ -66,9 +66,4 @@ Lorsque vous exécutez la commande **Azure group deployment create** , vous ête
 Découvrez tous les modèles à votre disposition sur [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 En savoir plus sur [Azure Resource Manager](../articles/resource-group-template-deploy.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

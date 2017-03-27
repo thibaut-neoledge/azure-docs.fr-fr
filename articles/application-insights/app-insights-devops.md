@@ -4,18 +4,19 @@ description: "Comment Application Insights s’intègre dans le cycle des opéra
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -156,7 +157,7 @@ Si vous utilisez Visual Studio Team Services pour générer et déployer votre a
 ![Annotations de build](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>Éléments de travail
-Lorsqu’une alerte est émise, Application Insights peut automatiquement créer un élément de travail dans votre système de suivi du travail (Visual Studio Team Services uniquement pour l’instant).
+Lorsqu’une alerte est émise, Application Insights peut automatiquement créer un élément de travail dans votre système de suivi du travail.
 
 ## <a name="but-what-about"></a>Mais qu’en est-il de... ?
 * [Confidentialité et stockage](app-insights-data-retention-privacy.md) - Vos données télémétriques sont conservées sur des serveurs Azure sécurisés.
@@ -170,10 +171,5 @@ La prise en main d’Application Insights est simple. Les principales options so
 * Instrumenter une application web déjà en cours d’exécution. Cela vous donne toutes les données télémétriques de performance intégrées. Elles sont disponibles pour [Java](app-insights-java-live.md) et les [serveurs IIS](app-insights-monitor-performance-live-website-now.md), ainsi que pour les [applications web Azure](app-insights-azure.md).
 * Instrumenter votre projet pendant le développement. Vous pouvez effectuer cette tâche pour des applications [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) et [Node.js](app-insights-nodejs.md) et une multitude d’[autres types](app-insights-platforms.md). 
 * Instrumenter [n’importe quelle page web](app-insights-javascript.md) en y ajoutant un court extrait de code.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

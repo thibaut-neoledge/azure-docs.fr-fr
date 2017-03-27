@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 97b5e4c3bda8d66297a43b4e430fec92d9588686
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 ## <a name="quick-commands"></a>Commandes rapides
 Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes de base qui vous permettront de charger une machine virtuelle dans Azure. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](#requirements).
 
-Veillez à ce que [l’interface de ligne de commande 1.0 Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager :
+Veillez à ce que [l’interface de ligne de commande 1.0 Azure](../cli-install-nodejs.md) soit connectée et utilise le mode Resource Manager :
 
 ```azurecli
 azure config mode arm
@@ -102,7 +102,7 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
   * Créez un compte de stockage et un conteneur pour stocker les machines virtuelles créées et votre image personnalisée.
   * Après avoir créé toutes vos machines virtuelles, vous pouvez supprimer votre image en toute sécurité.
 
-Veillez à ce que [l’interface de ligne de commande 1.0 Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager :
+Veillez à ce que [l’interface de ligne de commande 1.0 Azure](../cli-install-nodejs.md) soit connectée et utilise le mode Resource Manager :
 
 ```azurecli
 azure config mode arm

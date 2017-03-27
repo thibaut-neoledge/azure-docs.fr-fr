@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -89,49 +90,11 @@ Pour plus d’informations, consultez la rubrique relative à la [surveillance d
 
 Si tous les points de terminaison d’un profil sont désactivés, ou si le profil lui-même est désactivé, Traffic Manager envoie une réponse NXDOMAIN à une nouvelle requête DNS.
 
-## <a name="faq"></a>Forum Aux Questions
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Puis-je utiliser Traffic Manager avec des points de terminaison de plusieurs abonnements ?
-
-L’utilisation de points de terminaison à partir de plusieurs abonnements n’est pas possible avec Azure Web Apps. Azure Web Apps requiert que tout nom de domaine personnalisé utilisé avec Web Apps ne soit utilisé que dans un seul abonnement. Il n’est pas possible d’utiliser des applications web à partir de plusieurs abonnements portant le même nom de domaine.
-
-Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. La procédure à suivre pour configurer Traffic Manager varie selon que vous utilisez le modèle de déploiement Classic ou Resource Manager.
-
-* Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC)](../active-directory/role-based-access-control-configure.md).
-* Dans l’interface modèle de déploiement Classic, Traffic Manager exige que les services cloud ou applications web configurés en tant que points de terminaison Azure résident dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud dans d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes ». Ces derniers sont facturés comme points de terminaison Azure, plutôt qu’au tarif des points de terminaison externes.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
-
-Oui. Les emplacements intermédiaires de services cloud peuvent être configurés dans Traffic Manager en tant que points de terminaison externes. Les contrôles d’intégrité sont toujours facturés au tarif des points de terminaison Azure. Comme le type de point de terminaison externe est utilisé, les modifications apportées au service sous-jacent ne sont pas sélectionnées automatiquement. Avec les points de terminaison externes, Traffic Manager ne peut pas détecter lorsque le service cloud est arrêté ou supprimé. Par conséquent, Traffic Manager continue de facturer les vérifications d’intégrité jusqu’à ce que le point de terminaison soit désactivé ou supprimé.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager prend-il en charge les points de terminaison IPv6 ?
-
-Traffic Manager ne fournit pas actuellement de serveurs de noms adressables en IPv6. Toutefois, il prend en charge les clients IPv6 connectés à des points de terminaison IPv6. Un client n’effectue pas de requêtes DNS directement vers Traffic Manager. Au lieu de cela, il utilise un service DNS récursif. Un client utilisant uniquement IPv6 envoie des requêtes au service DNS récursif via IPv6. Après quoi le service récursif doit être en mesure de contacter les serveurs de noms Traffic Manager à l’aide du protocole IPv4.
-
-Traffic Manager répond avec le nom DNS du point de terminaison. Pour prendre en charge un point de terminaison IPv6, un enregistrement AAAA DNS pointant le nom DNS du point de terminaison vers l’adresse IPv6 doit exister. Les contrôles d’intégrité Traffic Manager n’acceptent que les adresses IPv4. Le service doit exposer un point de terminaison IPv4 sur le même nom DNS.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?
-
-En règle générale, Traffic Manager est utilisé pour diriger le trafic vers des applications déployées dans des régions différentes. Vous pouvez toutefois l’utiliser dans les applications comportant plusieurs déploiements dans la même région. Les points de terminaison Azure Traffic Manager ne permettent pas d’ajouter au même profil Traffic Manager plusieurs points de terminaison d’application web provenant de la même région Azure.
-
-Les étapes suivantes proposent une solution de contournement :
-
-1. Vérifiez que vos points de terminaison sont dans une autre unité d’échelle d’application web. Un nom de domaine doit correspondre à un seul site dans une unité d’échelle donnée. Par conséquent, deux applications web dans la même unité d’échelle ne peuvent pas partager un profil Traffic Manager.
-2. Ajoutez votre nom de domaine personnel en tant que nom d’hôte personnalisé à chaque application web. Chaque application web doit être dans une unité d’échelle différente. Toutes les applications web doivent appartenir au même abonnement.
-3. Ajoutez un (et un seul) point de terminaison d’application web à votre profil Traffic Manager et configurez-le en tant que point de terminaison Azure.
-4. Ajoutez chaque point de terminaison d’application web supplémentaire à votre profil Traffic Manager en tant que point de terminaison externe. Les points de terminaison externes peuvent être ajoutés uniquement avec le modèle de déploiement Resource Manager.
-5. Créez un enregistrement DNS CNAME dans votre domaine personnel qui pointe vers le nom DNS de votre profil Traffic Manager (<...>.trafficmanager.net).
-6. Accédez à votre site via le nom de domaine personnel, et non en utilisant le nom DNS du profil Traffic Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
 * En savoir plus sur le [basculement automatique et la surveillance des points de terminaison](traffic-manager-monitoring.md)de Traffic Manager.
 * En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md)avec Traffic Manager.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: fff43da07603be1e54cb9948dfd442491bb8f35a
-ms.openlocfilehash: 8103c85cf27c46acf2a46d87d73ecc7227723479
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ En général, si vous recevez des erreurs lors de l’importation de votre docum
 
 * **Nom d’hôte** : nous exigeons un attribut de nom d’hôte.
 * **Chemin d’accès de base** : nous exigeons un attribut de chemin d’accès de base.
-* **Schémas** : nous exigeons un tableau de schéma.
+* **Schémas** : nous exigeons un tableau de schéma. 
 
 ## <a name="wsdl"> </a>WSDL
 Les fichiers WSDL servent à générer des API Pass-through SOAP ou constituent le back-end d’une API SOAP à REST.
@@ -38,6 +39,7 @@ Les fichiers WSDL servent à générer des API Pass-through SOAP ou constituent 
 * Les **messages en plusieurs parties** ne sont actuellement pas pris en charge.
 * **WCF wsHttpBinding** : les services SOAP créés avec Windows Communication Foundation doivent utiliser basicHttpBinding - wsHttpBinding.
 * **MTOM** : les services utilisant MTOM <em>peuvent</em> fonctionner. Aucune prise en charge officielle n’est disponible pour l’instant.
+* Les types de **récursivité** qui sont définis de manière récursive (par exemple, qui font référence à leur propre tableau) ne sont pas pris en charge.
 
 ## <a name="wadl"> </a>WADL
 Il n’existe actuellement aucun problème connu relatif à l’importation WADL.
@@ -79,9 +81,4 @@ Il n’existe actuellement aucun problème connu relatif à l’importation WADL
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

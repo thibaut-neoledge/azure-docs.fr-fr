@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ Pour exécuter les étapes suivantes, vous aurez besoin des éléments suivants�
 
 * Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez obtenir une version d’essai sur [azure.com](https://azure.microsoft.com/).
 * Un ID professionnel ou scolaire afin de pouvoir utiliser des groupes de ressources Azure. Si vous avez un compte personnel et que vous vous connectez avec un ID Microsoft, vous devez [créer un ID de travail à partir de votre ID personnel](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Il vous faut également l’outil [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou la [CLI Azure pour Mac, Linux et Windows](../xplat-cli-install.md) de votre système d’exploitation client.
+* Il vous faut également l’outil [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou la [CLI Azure pour Mac, Linux et Windows](../cli-install-nodejs.md) de votre système d’exploitation client.
 * [OpenSSL](https://www.openssl.org/). OpenSSL est utilisé pour générer les certificats nécessaires.
 * Un client Git, comme [Git Bash](https://git-scm.com/).
 * Vous devez également configurer un serveur DNS pour pouvoir tester l’exemple d’application. Vous pouvez utiliser les serveurs ou services DNS qui prennent en charge les enregistrements DNS de caractères génériques A Record.
@@ -250,7 +250,7 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [Utilisation de l’interface de ligne de commande Azure][azure-command-line-tools]  
 [Utilisation d’Azure PowerShell avec Azure Resource Manager][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 

@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
-ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d3cd3ea3823c2aefcaaad7cdfdf25c6bd91644d2
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="virtual-networks"></a>Réseaux virtuels
-Un réseau virtuel Azure (VNet) est une représentation de votre propre réseau dans le cloud.  Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Vous pouvez également segmenter votre réseau en plusieurs sous-réseaux et lancer des machines virtuelles IaaS Azure et/ou des [services Cloud (instances de rôle PaaS)](../cloud-services/cloud-services-choose-me.md). En outre, vous pouvez connecter le réseau virtuel à votre réseau local à l’aide des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) disponibles dans Azure. En bref, vous pouvez développer votre réseau sur Azure et maîtriser totalement vos blocs d’adresses IP avec les que procurent la mise à l’échelle d’entreprise d’Azure.
+Un réseau virtuel Azure (VNet) est une représentation de votre propre réseau dans le cloud.  Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Vous pouvez également segmenter votre réseau en plusieurs sous-réseaux et lancer des machines virtuelles IaaS Azure et/ou des [services Cloud (instances de rôle PaaS)](../cloud-services/cloud-services-choose-me.md). En outre, vous pouvez connecter le réseau virtuel à votre réseau local à l’aide des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponibles dans Azure. En bref, vous pouvez développer votre réseau sur Azure et maîtriser totalement vos blocs d’adresses IP avec les que procurent la mise à l’échelle d’entreprise d’Azure.
 
 Pour mieux comprendre les réseaux virtuels, examinez la figure ci-dessous, qui illustre un réseau local simplifié.
 
@@ -46,7 +46,7 @@ Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant vot
 * **Accès aux machines virtuelles dans le réseau virtuel**. Les instances de rôle PaaS et les machines virtuelles IaaS peuvent être démarrées dans le même réseau virtuel et se connecter entre elles avec des adresses IP privées, même si elles se trouvent dans des sous-réseaux différents, et ce, sans avoir recours à la configuration d’une passerelle ou sans utiliser d’adresse IP publique.
 * **Résolution de noms**. Azure fournit la [résolution de noms](virtual-networks-name-resolution-for-vms-and-role-instances.md) interne pour les machines virtuelles IaaS et les instances de rôle PaaS déployées dans votre réseau virtuel. Vous pouvez également déployer vos propres serveurs DNS et configurer le réseau virtuel pour les utiliser.
 * **Sécurité**. Le trafic entrant et sortant des machines virtuelles et des instances de rôle PaaS dans un réseau virtuel peut être contrôlé à l’aide de groupes de sécurité du réseau.
-* **Connectivité**. Les réseaux virtuels peuvent être connectés entre eux à l’aide de passerelles réseau ou d’une homologation de réseau virtuel. Les réseaux virtuels peuvent être connectés à des centres de données locaux via des réseaux VPN site à site ou via Azure ExpressRoute. Pour en savoir plus sur la connectivité VPN site à site, visitez [À propos de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md). Pour en savoir plus sur l’homologation de réseaux virtuels, visitez [Homologation de réseaux virtuels](virtual-network-peering-overview.md).
+* **Connectivité**. Les réseaux virtuels peuvent être connectés entre eux à l’aide de passerelles réseau ou d’une homologation de réseau virtuel. Les réseaux virtuels peuvent être connectés à des centres de données locaux via des réseaux VPN site à site ou via Azure ExpressRoute. Pour en savoir plus sur la connectivité VPN site à site, visitez [À propos de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md). Pour en savoir plus sur l’homologation de réseaux virtuels, visitez [Homologation de réseaux virtuels](virtual-network-peering-overview.md).
 
   > [!NOTE]
   > Assurez-vous de créer un réseau virtuel avant de déployer des machines virtuelles IaaS ou des instances de rôle PaaS dans votre environnement Azure. Les machines virtuelles sur ARM requièrent un réseau virtuel et, si vous ne spécifiez pas de réseau virtuel existant, Azure crée un réseau virtuel par défaut dont le bloc d’adresses CIDR peut entrer en conflit avec votre réseau local. Ce qui empêche la connexion de votre réseau virtuel à votre réseau local.

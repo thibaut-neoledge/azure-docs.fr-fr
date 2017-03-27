@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c6acdf97ee5e947ac48866c003480e393dd4bf35
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +27,7 @@ Pour renforcer la sécurité et la conformité de la machine virtuelle , les dis
 ## <a name="quick-commands"></a>Commandes rapides
 Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes de base pour chiffrer des disques virtuels sur votre machine virtuelle. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](#overview-of-disk-encryption).
 
-La [dernière version de l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
+La [dernière version de l’interface de ligne de commande Azure (CLI)](../cli-install-nodejs.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
 
 ```azurecli
 azure config mode arm
@@ -156,7 +157,7 @@ Le chiffrement de disque n’est actuellement pas pris en charge dans les scéna
 * Mise à jour des clés de chiffrement sur une machine virtuelle Linux déjà chiffrée.
 
 ## <a name="create-the-azure-key-vault-and-keys"></a>Créer le coffre de clés Azure et les clés
-Pour effectuer les étapes restantes de ce guide, la [dernière version de l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
+Pour effectuer les étapes restantes de ce guide, la [dernière version de l’interface de ligne de commande Azure (CLI)](../cli-install-nodejs.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
 
 ```azurecli
 azure config mode arm
@@ -308,10 +309,5 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la gestion du coffre de clés Azure, y compris la suppression des clés de chiffrement et des coffres, consultez [Gérer le coffre de clés à l’aide de l’interface de ligne de commande](../key-vault/key-vault-manage-with-cli.md).
 * Pour plus d’informations sur le chiffrement de disque, notamment la préparation d’une machine virtuelle personnalisée chiffrée à télécharger vers Azure, consultez [Chiffrement de disque Azure](../security/azure-security-disk-encryption.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

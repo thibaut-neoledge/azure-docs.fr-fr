@@ -1,5 +1,5 @@
 ---
-title: "Connecter Raspberry Pi (C) à Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
+title: "Connecter Arduino à Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
 description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscrivez votre carte Adafruit Feather M0 WiFi dans Azure IoT Hub à l’aide de l’interface de ligne de commande Azure."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e81ff09443b8d4930f20d0bbeb100c4a90f92a7f
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ac9421be9211d53f8b5239c356201ee3efd27999
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -103,8 +104,3 @@ Vous avez créé un IoT Hub et enregistré votre carte Arduino sous une identit�
 
 [troubleshoot]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

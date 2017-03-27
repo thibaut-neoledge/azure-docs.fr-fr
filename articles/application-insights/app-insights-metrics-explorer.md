@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ Voici un exemple de jeu de graphiques :
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Tous les graphiques de mesures se trouvent dans le portail Application Insights. Dans la plupart des cas, ils peuvent être personnalisés, et vous pouvez ajouter plusieurs graphiques dans le panneau. Dans le volet d’aperçu, cliquez pour accéder aux graphiques plus détaillés (ayant des titres tels que « Server responses »), ou cliquez sur **Metrics Explorer** pour ouvrir un nouveau panneau où vous pouvez créer des graphiques personnalisés.
+Tous les graphiques de mesures se trouvent dans le portail Application Insights. Dans la plupart des cas, ils peuvent être personnalisés, et vous pouvez ajouter plusieurs graphiques dans le panneau. Dans le volet d’aperçu, cliquez pour accéder aux graphiques plus détaillés (ayant des titres tels que « Server »), ou cliquez sur **Metrics Explorer** pour ouvrir un nouveau panneau où vous pouvez créer des graphiques personnalisés.
 
 ## <a name="time-range"></a>Période
 Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques et les grilles dans n’importe quel panneau.
@@ -175,16 +175,6 @@ Pour être averti par courrier électronique en cas de valeurs inhabituelles pou
 
 [En savoir plus sur les alertes][alerts].
 
-## <a name="export-to-excel"></a>Exporter vers Excel
-Vous pouvez exporter les données de mesures affichées dans l’Explorateur de mesures vers un fichier Excel. Les données exportées incluent les données de tous les graphiques et de toutes les tables, comme indiqué dans le portail.
-
-![Dans Metrics Explorer, sélectionnez Règles d'alerte, Ajouter une alerte](./media/app-insights-metrics-explorer/31-export.png)
-
-Les données de chaque graphique ou de chaque table sont exportées dans une feuille distincte dans le fichier Excel.
-
-Vous voyez ce qui doit être exporté. Si vous voulez modifier la plage des données exportées, modifiez la plage de temps ou les filtres. Pour les tables, si la commande **charger davantage** est affichée, vous pouvez cliquer dessus avant de cliquer sur Exporter, pour pouvoir exporter des données supplémentaires.
-
-*Pour le moment, Excel est uniquement compatible avec Internet Explorer et Chrome. Nous travaillons sur l’ajout de la prise en charge d’autres navigateurs.*
 
 ## <a name="continuous-export"></a>Exportation continue
 Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l [’Exportation continue](app-insights-export-telemetry.md).
@@ -193,9 +183,11 @@ Si vous souhaitez mettre en place une exportation continue des données pour les
 Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [exporter vers Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analyse
-[Analyse](app-insights-analytics.md) est un moyen plus souple d’analyser vos données de télémétrie à l’aide d’un langage de requête puissant. Utilisez l’analyse si vous souhaitez combiner ou calculer les résultats à partir des mesures ou effectuer une exploration approfondie des performances récentes de votre application. En revanche, utilisez Metrics Explorer si vous souhaitez obtenir l’actualisation automatique, les graphiques sur le tableau de bord et les alertes.
+[Analyse](app-insights-analytics.md) est un moyen plus souple d’analyser vos données de télémétrie à l’aide d’un langage de requête puissant. Utilisez l’analyse si vous souhaitez combiner ou calculer les résultats à partir des mesures ou effectuer une exploration approfondie des performances récentes de votre application. 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+Dans un graphique de mesures, vous pouvez cliquer sur l’icône Analyse pour accéder directement à la requête d’analyse correspondante.
+
+## <a name="troubleshooting"></a>résolution des problèmes
 *Mon graphique ne contient aucune donnée.*
 
 * Les filtres s’appliquent à tous les graphiques du panneau. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique.

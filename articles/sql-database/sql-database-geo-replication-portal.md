@@ -1,6 +1,6 @@
 ---
-title: "Configuration de la géo-réplication pour Azure SQL Database avec le portail Azure | Microsoft Docs"
-description: "Configuration de la géo-réplication pour Azure SQL Database à l’aide du portail Azure"
+title: "Portail Azure : géoréplication SQL Database | Microsoft Docs"
+description: "Configurer la géoréplication pour Azure SQL Database dans le portail Azure et initier le basculement"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
+ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configuration de la géo-réplication active pour Base de données SQL Azure avec le portail Azure
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
-Cet article montre comment configurer la géo-réplication active pour la SQL Database à l’aide du [portail Azure](http://portal.azure.com).
+Cet article montre comment configurer la géoréplication active pour SQL Database dans le [portail Azure](http://portal.azure.com) et initier le basculement.
 
 Pour lancer un basculement avec le portail Azure, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-failover-portal.md).
 
@@ -51,9 +51,7 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 > [!NOTE]
 > Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication précédente), la commande échoue.
 > 
-> 
 
-### <a name="add-secondary"></a>Ajouter une base de données secondaire
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
 2. Dans la page Base de données SQL, sélectionnez **Géoréplication**, puis la région dans laquelle créer la base de données secondaire. Bien que vous puissiez sélectionner n’importe quelle région autre que la région qui héberge la base de données primaire, nous vous recommandons de sélectionner la [région jumelée](../best-practices-availability-paired-regions.md).
    
@@ -69,6 +67,26 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 7. Lorsque le processus d’amorçage est terminé, la base de données secondaire affiche son état.
    
     ![Amorçage terminé](./media/sql-database-geo-replication-portal/seeding-complete.png)
+
+## <a name="initiate-a-failover"></a>Initialisation d’un basculement
+
+La base de données secondaire peut être basculée en base de données primaire.  
+
+1. Dans le [portail Azure](http://portal.azure.com) , accédez à la base de données primaire dans le partenariat de géoréplication.
+2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géoréplication**.
+3. Dans la liste **SECONDAIRES**, sélectionnez la base de données qui doit devenir la nouvelle base primaire et cliquez sur **Basculement**.
+   
+    ![Basculement](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Cliquez sur **Oui** pour commencer le basculement.
+
+La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire. 
+
+Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. 
+
+> [!NOTE]
+> Si la base de données primaire est en ligne et valide des transactions lorsque la commande est émise, une perte de données peut se produire.
+> 
+> 
 
 ## <a name="remove-secondary-database"></a>Supprimer une base de données secondaire
 Cette opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.  

@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -64,7 +64,7 @@ Pour simplifier l’exécution de la procédure, l’exemple 5-VM-1-NodeTypes-Se
 
 **Suivez bien toutes les étapes**
 
-**Étape 1 :** Ouvrez le modèle Resource Manager que vous avez utilisé pour déployer votre cluster.  (Si vous avez téléchargé l’exemple à partir du référentiel ci-dessus, utilisez 5-VM-1-NodeTypes-Secure_Step1.JSON pour déployer un cluster sécurisé, puis ouvrez ce modèle.)
+**Étape 1 :** Ouvrez le modèle Resource Manager que vous avez utilisé pour déployer votre cluster. (Si vous avez téléchargé l’exemple à partir du référentiel ci-dessus, utilisez 5-VM-1-NodeTypes-Secure_Step1.JSON pour déployer un cluster sécurisé, puis ouvrez ce modèle.)
 
 **Étape 2 :** Ajoutez les **deux nouveaux paramètres** "secCertificateThumbprint" et "secCertificateUrlValue", de type "string", dans la section des paramètres de votre modèle. Vous pouvez copier l’extrait de code suivant et l’ajouter au modèle. Selon la source de votre modèle, il se peut que ces paramètres soient déjà définis. Si c’est le cas, passez à l’étape suivante. 
  
@@ -84,7 +84,7 @@ Pour simplifier l’exécution de la procédure, l’exemple 5-VM-1-NodeTypes-Se
 
 ```
 
-**Étape 3 :** Apportez des modifications à la ressource **Microsoft.ServiceFabric/clusters** : Recherchez la définition de ressource « Microsoft.ServiceFabric/clusters » dans votre modèle. Sous les propriétés de cette définition, vous trouverez la balise JSON "certificate", qui doit ressembler à l’extrait de code JSON suivant.
+**Étape 3 :** Apportez des modifications à la ressource **Microsoft.ServiceFabric/clusters** : Recherchez la définition de ressource « Microsoft.ServiceFabric/clusters » dans votre modèle. Sous les propriétés de cette définition, vous trouverez la balise JSON « certificate », qui doit ressembler à l’extrait de code JSON suivant :
 
    
 ```JSON
@@ -108,7 +108,7 @@ La définition de ressource doit maintenant ressembler à l’extrait de code ci
      }
 ``` 
 
-Si vous souhaitez **substituer le certificat**, spécifiez le nouveau certificat comme certificat principal et transformez le certificat principal actuel en certificat secondaire.  Cela entraîne la substitution de votre certificat principal actuel par le nouveau certificat en une seule étape de déploiement.
+Si vous souhaitez **substituer le certificat**, spécifiez le nouveau certificat comme certificat principal et transformez le certificat principal actuel en certificat secondaire. Cela entraîne la substitution de votre certificat principal actuel par le nouveau certificat en une seule étape de déploiement.
 
 ```JSON
       "properties": {

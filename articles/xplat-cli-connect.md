@@ -17,8 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ La CLI Azure offre un ensemble de commandes multiplateforme open-source pour l�
 * Exécutez la commande CLI `azure login` pour vous authentifier via Azure Active Directory. Cette méthode vous permet d’accéder aux commandes CLI dans les deux [modes de commande](#cli-command-modes). Lorsque vous exécutez la commande sans options supplémentaires, `azure login` vous invite à poursuivre la procédure de connexion de manière interactive via un portail web. Pour plus d’options de commande `azure login`, consultez les scénarios décrits dans cet article, ou tapez `azure login --help`.
 * Si vous devez uniquement utiliser les commandes CLI en mode Azure Service Management (non recommandé pour la plupart des nouveaux déploiements), vous pouvez télécharger et installer un fichier de paramètres de publication sur votre ordinateur.
 
-Si vous n'avez pas déjà installé l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/free/) en quelques minutes.
+Si vous n'avez pas déjà installé l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](cli-install-nodejs.md). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/free/) en quelques minutes.
 
 Pour obtenir des informations sur les différentes identités de comptes et des différents abonnements Azure, consultez la rubrique [Association des abonnements Azure avec Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -165,9 +166,4 @@ Si les abonnements associés au compte sont authentifiés uniquement avec Active
 * Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez les pages [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
 * Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

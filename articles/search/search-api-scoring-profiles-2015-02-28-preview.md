@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 076e97d1a264216d7f51914ed53dc70450aa2677
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -244,7 +245,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 
 | Propriété | Description |
 | --- | --- |
-| `name` |Obligatoire. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l’expression « azureSearch » (avec respect de la casse). |
+| `name` |Obligatoire. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l'expression « azureSearch » (avec respect de la casse). |
 | `text` |Contient la propriété Weights |
 | `weights` |facultatif. Paire nom-valeur spécifiant un nom de champ et une pondération relative. La pondération relative doit être un entier positif ou un nombre à virgule flottante. Vous pouvez spécifier le nom du champ sans pondération correspondante. Les pondérations permettent d'indiquer l'importance d'un champ par rapport à d'autres. |
 | `functions` |facultatif. Notez que vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables. |
@@ -257,7 +258,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 | `magnitude:boostingRangeEnd` |Définit la valeur de fin de la plage sur laquelle les scores de magnitude sont calculés. La valeur doit être un entier ou un nombre à virgule flottante. Pour les évaluations de 1 à 4, il s'agit de 4. |
 | `magnitude:constantBoostBeyondRange` |Les valeurs autorisées sont true ou false (par défaut). Quand la valeur est true, la valorisation complète continue de s'appliquer aux documents dont la valeur pour le champ cible est supérieure à la limite supérieure de la plage. Quand la valeur est false, la valorisation de cette fonction ne s'applique pas aux documents dont la valeur pour le champ cible se situe en dehors de la plage. |
 | `freshness` |La fonction de calcul de score freshness permet de modifier les scores de classement d'éléments en fonction des valeurs des champs DateTimeOffset. Par exemple, un élément dont la date est plus récente peut être classé plus haut que des éléments plus anciens. (Notez qu’il est également possible de classer les éléments tels que les événements de calendrier comportant des dates futures afin que les éléments plus proches de la date du jour soient classés plus haut que les éléments plus éloignés dans le temps). Dans la version de service actuelle, une extrémité de la plage doit être définie sur l'heure réelle. L’autre extrémité est une heure dans le passé selon l’attribut `boostingDuration`. Pour privilégier une plage d’heures à venir, utilisez un attribut `boostingDuration`négatif. La vitesse à laquelle la valorisation passe d'une plage maximale à une plage minimale est déterminée par l'interpolation appliquée au profil de calcul de score (voir la figure ci-dessous). Pour inverser le facteur de valorisation appliqué, choisissez un facteur inférieur à 1. |
-| `freshness:boostingDuration` |Définit une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Pour en savoir plus sur la syntaxe et découvrir des exemples, consultez [Set boostingDuration][#bkmk_boostdur] dans la section suivante. |
+| `freshness:boostingDuration` |Définit une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Pour plus d’informations sur la syntaxe et des exemples, consultez [Set boostingDuration](#bkmk_boostdur) dans la section suivante. |
 | `distance` |La fonction de calcul de score à distance est utilisée pour affecter le score de documents sur la base de leur proximité ou de l'éloignement par rapport à un emplacement géographique de référence. L’emplacement de référence est indiqué comme partie intégrante de la requête dans un paramètre (à l’aide du paramètre de requête `scoringParameter` ) en tant qu’argument lon,lat. |
 | `distance:referencePointParameter` |Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Rechercher des documents](search-api-2015-02-28-preview.md#SearchDocs) . |
 | `distance:boostingDistance` |Nombre indiquant la distance en kilomètres par rapport à l'emplacement de référence où la valorisation se termine. |
@@ -304,9 +305,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
