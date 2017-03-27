@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -145,10 +145,25 @@ Sur cette page, pour tous les attributs de référence, vous configurez la parti
 
 Si vous utilisez **Le nom unique est le point d’ancrage**, vous devez utiliser le même type d’objet que celui à partir duquel la référence est établie. Vous ne pouvez pas référencer un autre type d’objet.
 
+>[!NOTE]
+À compter de la mise à jour de mars 2017, il existe désormais une option pour « * ». Lorsque cette option est sélectionnée, tous les types de membres possibles seront importés.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+Après l’importation, vous obtiendrez un résultat similaire à ce qui suit :
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### <a name="global-parameters"></a>Paramètres globaux
 La page Paramètres globaux sert à configurer l’importation différentielle, le format Date/heure et la méthode de mot de passe.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ « * », également désigné par**toutes les options** ne peut pas être utilisé lors des opérations d’exportation/suppression.
 
 Le connecteur SQL générique prend en charge les méthodes suivantes pour l’importation différentielle :
 

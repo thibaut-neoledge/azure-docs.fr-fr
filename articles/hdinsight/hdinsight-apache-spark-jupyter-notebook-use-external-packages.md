@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -97,7 +99,7 @@ Vous devez disposer des éléments suivants :
    
         df.select("Time").count()
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -123,10 +125,5 @@ Vous devez disposer des éléments suivants :
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

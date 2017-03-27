@@ -12,35 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/12/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="overview-of-azure-diagnostic-logs"></a>Présentation des journaux de diagnostic Azure
-Les **journaux de diagnostic Azure** sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes relatives à l’opération de cette ressource. Le contenu de ces journaux varie selon le type de ressource (p. ex. les journaux d’événements Windows du système sont une catégorie de journaux de diagnostic pour les machines virtuelles et les objets blob ; les journaux de files d’attente et de tables sont des catégories de journaux de diagnostic pour les comptes de stockage) et diffère du [journal d’activité (autrefois appelé journal d’audit ou journal des opérations)](monitoring-overview-activity-logs.md), qui fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Toutes les ressources ne prennent pas en charge le nouveau type de journal de diagnostic décrit ici. La liste des services pris en charge ci-dessous indique quels types de ressources prennent en charge les nouveaux journaux de diagnostic.
+# <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Collecte et utilisation des données de diagnostic à partir de vos ressources Azure
 
-![Positionnement logique des journaux de diagnostic](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## <a name="what-are-azure-diagnostic-logs"></a>Présentation des journaux de diagnostic Azure
+Les **journaux de diagnostic Azure** sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes relatives à l’opération de cette ressource. Le contenu de ces journaux varie en fonction du type de ressource. Par exemple, les journaux des événements système Windows sont une catégorie de journal de diagnostic pour les machines virtuelles et les objets blob, les tables, et les journaux de file d’attente sont les catégories de journaux de diagnostic pour les comptes de stockage.
+
+Les journaux de diagnostic diffèrent du [journal d’activité (anciennement appelé journal d’audit ou journal des opérations)](monitoring-overview-activity-logs.md). Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Les journaux de diagnostic fournissent des informations sur les opérations effectuées par votre ressource.
+
+Toutes les ressources ne prennent pas en charge le nouveau type de journal de diagnostic décrit ici. Cet article contient une section répertoriant les types de ressources prenant en charge les nouveaux journaux de diagnostic.
+
+![Journaux de diagnostics et autres types de journaux ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+Figure 1 : Journaux de diagnostics et autres types de journaux
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Ce que vous pouvez faire avec les journaux de diagnostic
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
+
+![Positionnement logique des journaux de diagnostic](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Enregistrez-les dans un [**compte de stockage**](monitoring-archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic**.
 * [Diffusez-les en streaming sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
 * Analysez-les avec [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-Il n’est pas nécessaire que l’espace de noms du compte de stockage ou du hub d’événements se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les journaux de diagnostic pour les ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic. **Paramètres de diagnostic** pour un contrôle de ressource :
 
 * L’emplacement où les journaux de diagnostic sont envoyés (compte de stockage, Event Hubs et/ou OMS Log Analytics).
 * Les catégories de journal qui sont envoyées.
-* La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Dans le cas contraire, cette valeur peut être comprise entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
+* Durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
+    - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
+    - Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+    - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
 
 Ces paramètres sont facilement configurés via le panneau Diagnostics pour une ressource dans le portail Azure, via les commandes d’interface de ligne de commande et Azure PowerShell ou via [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -141,13 +155,13 @@ Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 Pour modifier les paramètres de diagnostic via l’API REST Azure Monitor, consultez [ce document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Gérer les paramètres de diagnostic dans le portail
-Pour vérifier que toutes vos ressources sont correctement configurées avec les paramètres de diagnostic, vous pouvez accéder au panneau **Analyse** du portail et ouvrir le panneau **Journaux de diagnostic**.
+Assurez-vous que toutes vos ressources sont configurées avec des paramètres de diagnostic. Accédez au panneau **Surveillance** dans le portail et ouvrez le panneau **Journaux de Diagnostic**.
 
 ![Panneau Journaux de diagnostic dans le portail](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 Vous devrez peut-être cliquer sur « Plus de services » pour trouver le panneau Analyse.
 
-Dans ce panneau, vous pouvez afficher et filtrer toutes les ressources qui prennent en charge les journaux de diagnostic pour voir s’ils ont des diagnostics activés et le compte de stockage, hub d’événement et/ou espace de travail Log Analytics vers lesquels ces journaux circulent.
+Dans ce panneau, vous pouvez afficher et filtrer toutes les ressources qui prennent en charge les journaux de diagnostic pour voir si les diagnostics y sont activés. Vous pouvez également vérifier le compte de stockage, le hub d’événements et/ou l’espace de travail Log Analytics vers lesquels ces journaux circulent.
 
 ![Résultats du panneau Journaux de diagnostic dans le portail](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
@@ -160,14 +174,14 @@ Cliquer sur une ressource affiche tous les journaux qui ont été stockés dans 
 >
 >
 
-Cliquer sur le lien pour les **Paramètres de diagnostic** fera apparaître le panneau Paramètres de diagnostic, où vous pourrez activer, désactiver ou modifier vos paramètres de diagnostic pour la ressource sélectionnée.
+Cliquer sur le lien pour les **Paramètres de diagnostic** affiche le panneau Paramètres de diagnostic, où vous pouvez activer, désactiver ou modifier vos paramètres de diagnostic pour la ressource sélectionnée.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Schéma et services pris en charge pour les journaux de diagnostic
-Le schéma pour les journaux de diagnostic varie en fonction de la ressource et de la catégorie de journal. Vous trouverez ci-dessous les services pris en charge et leur schéma.
+Le schéma pour les journaux de diagnostic varie en fonction de la ressource et de la catégorie de journal.   
 
 | Service | Schéma et documentation |
 | --- | --- |
-| Load Balancer |[Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
 | Groupes de sécurité réseau |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
@@ -211,7 +225,8 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Diffuser en streaming les journaux de diagnostic sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modification des paramètres de diagnostic via l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyser les journaux avec OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

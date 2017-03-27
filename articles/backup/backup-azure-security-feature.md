@@ -65,7 +65,7 @@ Les utilisateurs qui créent un coffre Recovery Services peuvent profiter de tou
    Dans le cadre des fonctionnalités de sécurité, lorsque des opérations critiques sont exécutées dans la Sauvegarde Azure, vous devez entrer un code PIN de sécurité disponible sur le portail Azure. L’activation d’Azure Multi-Factor Authentication ajoute une couche de sécurité supplémentaire, garantissant ainsi que seuls les utilisateurs autorisés avec des informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure et exécuter des opérations critiques.
 6. Utilisez le bouton bascule **Activer** et cliquez sur **Enregistrer** en haut de la page pour enregistrer les paramètres de sécurité, comme illustré dans la figure. Vous ne pouvez sélectionner **Activer** que si vous avez sélectionné une valeur dans la liste « Avez-vous configuré Azure Multi-Factor Authentication ? » .
 
-    ![Activation des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![Activation des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recovering-deleted-backup-data"></a>Récupération de données de sauvegarde supprimées
 Par mesure de sécurité, la Sauvegarde Azure conserve les données de sauvegarde supprimées pendant 14 jours supplémentaires et ne les supprime pas immédiatement si l’opération Arrêter la sauvegarde avec suppression des données de sauvegarde est effectuée. Pour restaurer ces données dans le délai de 14 jours, procédez comme suit :

@@ -1,9 +1,9 @@
 ---
-title: "Personnalisation : gestion des mots de passe Azure AD | Microsoft Docs"
+title: "Personnalisation : gestion des mots de passe Azure Active Directory | Microsoft Docs"
 description: "Comment personnaliser l’apparence, le comportement et les notifications de gestion de mot de passe dans Azure AD en fonction de vos besoins."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
@@ -12,38 +12,43 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b6794425e233508ae72cb3b541738e56044453c1
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personnalisation de la gestion des mots de passe en fonction des besoins de votre organisation
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
-Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous recommandons d’explorer et de tester les options de configuration de la gestion de mot de passe qui sont à votre disposition. De fait, vous pouvez de suite commencer cette exploration en ouvrant l’onglet de configuration de **l’extension Active Directory** dans le [portail Azure Classic](https://manage.windowsazure.com). Cette rubrique vous présente toutes les possibilités de personnalisation de la gestion des mots de passe que vous appliquez en tant qu’administrateur depuis l’onglet **Configurer** de votre annuaire, sur le [portail Azure Classic](https://manage.windowsazure.com). Par exemple :
+Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous recommandons d’explorer et de tester les options de configuration de la gestion de mot de passe qui sont à votre disposition. De fait, vous pouvez de suite commencer cette exploration en ouvrant l’onglet de configuration de **l’extension Active Directory** dans le [portail Azure Classic](https://manage.windowsazure.com). Cette rubrique vous présente toutes les possibilités de personnalisation de la gestion des mots de passe que vous appliquez en tant qu’administrateur depuis l’onglet **Configurer** de votre répertoire sur le [portail Azure Classic](https://manage.windowsazure.com).
 
-| Rubrique |  |
-| --- | --- |
-| Comment activer ou désactiver la réinitialisation des mots de passe ? |[Paramétrage : utilisateurs autorisés à réinitialiser leur mot de passe](#users-enabled-for-password-reset) |
-| Comment appliquer la réinitialisation de mot de passe à un ensemble spécifique d’utilisateurs ? |[Restreindre la réinitialisation de mot de passe à certains utilisateurs](#restrict-access-to-password-reset) |
-| Comment modifier la liste des méthodes d’authentification prises en charge ? |[Paramètre : méthodes d'authentification accessibles aux utilisateurs](#authentication-methods-available-to-users) |
-| Comment modifier le nombre de méthodes d’authentification requis ? |[Paramètre : nombre de méthodes d’authentification requis](#number-of-authentication-methods-required) |
-| Comment configurer les questions de sécurité personnalisées ? |[Paramétrage : questions de sécurité personnalisées](#custom-security-questions) |
-| Comment définir des questions de sécurité localisées prédéfinies ? |[Paramètre : questions de sécurité basées sur des informations](#knowledge-based-security-questions) |
-| Comment modifier le nombre de questions de sécurité requis ? |[Paramétrage : nombre de questions de sécurité pour l’inscription ou la réinitialisation](#number-of-questions-required-to-register) |
-| Comment obliger les utilisateurs à s’inscrire lorsqu’ils se connectent ? |[Inscription obligatoire lors de la réinitialisation de mot de passe](#require-users-to-register-when-signing-in) |
-| Comment obliger mes utilisateurs à confirmer périodiquement qu'ils sont bien inscrits ? |[Paramétrage : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](#number-of-days-before-users-must-confirm-their-contact-data) |
-| Comment personnaliser la façon dont un utilisateur contacte un administrateur ? |[Paramètre : personnaliser le lien « Contactez votre administrateur »](#customize-the-contact-your-administrator-link) |
-| Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? |[Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? |[Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? |[Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? |[Paramètre : nom, marque et logo de la société ](#password-management-look-and-feel) |
+## <a name="what-customization-options-are-available"></a>Quelles sont les options de personnalisation disponibles ?
+Le tableau ci-dessous répertorie toutes les options de personnalisation disponibles avec la fonction Réinitialisation du mot de passe d’Azure Active Directory.
+
+| Rubrique | Paramètre | Licences requises |
+| --- | --- | --- |
+| Comment activer ou désactiver la réinitialisation des mots de passe ? |[Paramétrage : utilisateurs autorisés à réinitialiser leur mot de passe](#users-enabled-for-password-reset) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment appliquer la réinitialisation de mot de passe à un ensemble spécifique d’utilisateurs ? |[Restreindre la réinitialisation de mot de passe à certains utilisateurs](#restrict-access-to-password-reset) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment modifier la liste des méthodes d’authentification prises en charge ? |[Paramètre : méthodes d'authentification accessibles aux utilisateurs](#authentication-methods-available-to-users) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment modifier le nombre de méthodes d’authentification requis ? |[Paramètre : nombre de méthodes d’authentification requis](#number-of-authentication-methods-required) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment configurer les questions de sécurité personnalisées ? |[Paramétrage : questions de sécurité personnalisées](#custom-security-questions) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment définir des questions de sécurité localisées prédéfinies ? |[Paramètre : questions de sécurité basées sur des informations](#knowledge-based-security-questions) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment modifier le nombre de questions de sécurité requis ? |[Paramétrage : nombre de questions de sécurité pour l’inscription ou la réinitialisation](#number-of-questions-required-to-register) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment obliger les utilisateurs à s’inscrire lorsqu’ils se connectent ? |[Inscription obligatoire lors de la réinitialisation de mot de passe](#require-users-to-register-when-signing-in) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment obliger mes utilisateurs à confirmer périodiquement qu'ils sont bien inscrits ? |[Paramétrage : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](#number-of-days-before-users-must-confirm-their-contact-data) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment personnaliser la façon dont un utilisateur contacte un administrateur ? |[Paramètre : personnaliser le lien « Contactez votre administrateur »](#customize-the-contact-your-administrator-link) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment activer ou désactiver l’écriture différée du mot de passe depuis l’expérience administrateur de cloud ? |[Paramètre : activer ou désactiver l’écriture différée du mot de passe](#write-back-passwords-to-on-premises-directory) | <ul><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory locaux sans réinitialiser un mot de passe ? |[Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) | <ul><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? |[Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |  <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? |[Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) | <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
+| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? |[Paramètre : nom, marque et logo de la société ](#password-management-look-and-feel) |  <ul><li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li><li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li><li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Mobility Suite [utilisateurs sur le cloud ou locaux]</li><li>Enterprise Cloud Suite [utilisateurs sur le cloud ou locaux]</li></ul> |
 
 ## <a name="password-management-look-and-feel"></a>Interface de gestion des mots de passe
 Le tableau suivant décrit comment chaque contrôle affecte l’expérience des utilisateurs qui s’inscrivent pour réinitialiser leur mot de passe.  Vous pouvez configurer ces options dans la section **Propriétés de l’annuaire** de l’onglet **Configurer**, sur le [portail de gestion Azure](https://manage.windowsazure.com).
@@ -74,6 +79,15 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               </td>
               <td>
                 <p>Détermine le nom que voient les utilisateurs et les administrateurs dans les différentes communications relatives à la réinitialisation du mot de passe.</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -102,10 +116,16 @@ Détermine le nom convivial de l’adresse d’expédition, par exemple « Micr
               </td>
               <td>
                 <p>Détermine si les utilisateurs qui accèdent à la page de réinitialisation du mot de passe voient le logo Microsoft ou votre propre logo.  Cet élément de configuration ajoute également votre marque au panneau d’accès et à la page de connexion.</p>
-                <p>
-
-                </p>
                 <p>Pour plus d’informations sur la fonctionnalité de personnalisation et sur l’ajout d’une marque, consultez <a href="https://technet.microsoft.com/library/dn532270.aspx">Ajout d’une marque de société aux pages de connexion et aux pages du panneau d’accès</a>.</p>
+                                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -113,9 +133,10 @@ Détermine le nom convivial de l’adresse d’expédition, par exemple « Micr
                 </p>
                 <ul>
                   <li class="unordered">
-Détermine si votre logo apparaît en haut du portail de réinitialisation du mot de passe, à la place du logo Microsoft par défaut.<br><br></li>
-                  <li class="unordered">
-                    <strong>Remarque :</strong> il est possible que vous ne voyiez pas votre logo sur la première page du portail de réinitialisation du mot de passe si vous arrivez directement de la page de réinitialisation du mot de passe.  Une fois que l’utilisateur entre son ID&#160;utilisateur et clique sur Suivant, votre logo apparaît.  Vous pouvez forcer l’affichage du logo lors du chargement de la page avec le paramètre whr pour la page de réinitialisation du mot de passe, comme suit : <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
+Détermine si votre logo apparaît en haut du portail de réinitialisation du mot de passe, à la place du logo Microsoft par défaut.<br><br>
+                    <strong>Remarque :</strong> il est possible que vous ne voyiez pas votre logo sur la première page du portail de réinitialisation du mot de passe si vous arrivez directement de la page de réinitialisation du mot de passe. Une fois que l’utilisateur entre son nom d’utilisateur et clique sur Suivant, votre logo apparaît.<br><br>
+Vous pouvez forcer l’affichage de votre logo au chargement de la page en transmettant le paramètre <code>whr</code> à la page de réinitialisation du mot de passe, comme suit : <code><a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a></code><br><br>
+Vous pouvez générer un lien qui pré-remplit le champ du nom d’utilisateur, en transmettant le paramètre <code>username</code>. Le logo de votre organisation (si configuré) est également chargé :<code><a href="https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com">https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com</a></code></li>
                 </ul>
                 <p>
                   <strong>Messages « Contactez votre administrateur » :</strong>
@@ -140,8 +161,8 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
 
 > [!NOTE]
 > Le compte d’administrateur que vous utilisez doit posséder une licence AAD Premium pour voir ces contrôles de stratégie.<br><br>Ces contrôles ne s’appliquent qu’aux utilisateurs qui réinitialisent leur mot de passe, et non aux administrateurs.  **Les administrateurs ont une stratégie de messagerie et/ou téléphone portable spécifiée par défaut par Microsoft et qui ne peut pas être modifiée.**
-> 
-> 
+>
+>
 
 <table>
             <tbody><tr>
@@ -169,6 +190,15 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               </td>
               <td>
                 <p>Détermine si la réinitialisation du mot de passe est activée pour les utilisateurs de cet annuaire. </p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -203,6 +233,15 @@ Si la valeur est Oui, les utilisateurs peuvent réinitialiser leur mot de passe 
               </td>
               <td>
                 <p>Détermine si seul un groupe d’utilisateurs en particulier est autorisé à utiliser la réinitialisation du mot de passe. (Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -232,10 +271,16 @@ Si la valeur est Oui, seuls les utilisateurs spécifiés dans le contrôle <stro
               </td>
               <td>
                 <p>Détermine quel groupe d’utilisateurs est autorisé à utiliser la réinitialisation du mot de passe. </p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Limiter l’accès à la réinitialisation des mots de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -272,10 +317,16 @@ Si <strong>Limiter l’accès à la réinitialisation des mots de passe</strong>
               </td>
               <td>
                 <p>Détermine les vérifications que les utilisateurs sont autorisés à utiliser pour réinitialiser leur mot de passe.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -332,10 +383,16 @@ Détermine quelles méthodes d’authentification l’utilisateur peut utiliser 
               </td>
               <td>
                 <p>Détermine le nombre minimal de méthodes d’authentification disponibles que l’utilisateur doit appliquer pour réinitialiser son mot de passe.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -372,6 +429,15 @@ Affecte le nombre d’étapes de vérification par lesquelles doit passer l’ut
               <td>
                 <p>Détermine le nombre minimal de questions auxquelles un utilisateur doit répondre lors de l’inscription pour l’option des questions de sécurité.</p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -402,10 +468,16 @@ Détermine le nombre minimal de questions auxquelles un utilisateur doit répond
               </td>
               <td>
                 <p>Détermine le nombre minimal de questions auxquelles un utilisateur doit répondre lors de la réinitialisation du mot de passe.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -436,10 +508,16 @@ Au moment de la réinitialisation du mot de passe, ce nombre de questions est s�
               </td>
               <td>
                 <p>Définit les questions préconçues de sécurité que vos utilisateurs peuvent choisir au moment de l’inscription à la réinitialisation du mot de passe et au moment de la réinitialisation de leur mot de passe.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -487,10 +565,16 @@ Détermine les questions que l’utilisateur peut utiliser pour réinitialiser s
               </td>
               <td>
                 <p>Définit les questions de sécurité que vos utilisateurs peuvent choisir lors de l’inscription à la réinitialisation du mot de passe et lors de la réinitialisation de leur mot de passe.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -537,31 +621,25 @@ Détermine les questions que l’utilisateur peut utiliser pour réinitialiser s
                 <div id="require-users-to-register-when-signing-in">
                   <p>Obliger les utilisateurs à s’inscrire durant la connexion ?</p>
                 </div>
-                <p>
-
-                </p>
               </td>
               <td>
                 <p>Détermine si les utilisateurs doivent fournir leurs coordonnées pour la réinitialisation du mot de passe la prochaine fois qu’ils se connecteront.  
                 </p>
                 <p>Cette fonctionnalité fonctionne sur n’importe quelle page de connexion qui utilise un compte professionnel ou scolaire.  Ces pages incluent toutes les applications Office 365, le portail de gestion Azure, le panneau d’accès et toutes les applications fédérées ou personnalisées qui utilisent Azure AD pour se connecter.
                 </p>
-                <p>
-
-                </p>
                 <p>L’inscription obligatoire s’applique uniquement aux utilisateurs qui sont autorisés à réinitialiser le mot de passe, ce qui signifie que vous avez utilisé la fonctionnalité « Limiter l’accès à la réinitialisation des mots de passe » et étendu la réinitialisation des mots de passe à certains utilisateurs, qui devront donc s’inscrire à la réinitialisation de mot de passe lors de la connexion.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Remarque :</strong>
                 </p>
@@ -590,18 +668,18 @@ Ce paramètre n’affecte pas le comportement du portail d’inscription, mais d
               </td>
               <td>
                 <p>Lorsque <strong>Demander aux utilisateurs de s’inscrire</strong> est activé, ce paramètre détermine le temps qui peut s’écouler avant que l’utilisateur ne doive reconfirmer ses coordonnées. </p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent au panneau d’accès</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Remarque : </strong>
                 </p>
@@ -626,10 +704,16 @@ Ce paramètre n’affecte pas le comportement du portail d’inscription, mais d
               </td>
               <td>
                 <p>Contrôle si le lien Contactez votre administrateur (illustré à gauche) apparaît sur le portail de réinitialisation du mot de passe lorsqu’une erreur se produit, lorsque l’utilisateur attend trop longtemps ou lorsqu’une opération pointe vers une URL ou une adresse électronique personnalisée.</p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -672,10 +756,16 @@ Si vous spécifiez une adresse électronique, un lien mailto vers cette adresse 
               </td>
               <td>
                 <p>Contrôle l’adresse électronique ou l’URL à laquelle renvoie le lien <strong>Contactez votre administrateur</strong>. </p>
-                <p>
-
-                </p>
                 <p>(Visible uniquement si l’option <strong>Personnaliser le lien « Contactez votre administrateur »</strong> est défini sur <strong>Oui</strong>).</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -706,15 +796,16 @@ Si vous fournissez une URL, le lien devient un lien href standard pointant vers 
               </td>
               <td>
                 <p>Contrôle si l’écriture différée de mot de passe est activée ou non pour cet annuaire. Si elle l’est, indique l’état du service d’écriture différée local.</p>
-                <p>
-
-                </p>
                 <p>C’est utile si vous voulez désactiver temporairement le service sans reconfigurer Azure AD Connect.</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
                 <p>
                   <strong>Remarque :</strong>
                 </p>
@@ -744,22 +835,25 @@ Si l’écriture différée du mot de passe est déployée et configurée et que
                   <li class="unordered">
 Si le commutateur est défini sur <strong>Oui</strong>, l’écriture différée est activée et les utilisateurs fédérés et synchronisés par hachage du mot de passe pourront s’inscrire pour réinitialiser leur mot de passe.<br><br></li>
                 </ul>
-              </td>
+              </td
             </tr>
              <tr>
               <td>
                 <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
-                  <p>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe</p>
+                  <p>Autoriser les utilisateurs à déverrouiller les comptes Active Directory locaux sans réinitialiser leur mot de passe</p>
                 </div>
               </td>
               <td>
-
               <p>Indique si les utilisateurs qui visitent le portail de réinitialisation de mot de passe doivent ou non avoir la possibilité de déverrouiller leurs comptes Active Directory locaux sans réinitialiser leur mot de passe. Par défaut, Azure AD déverrouille toujours les comptes sans procéder à la réinitialisation de mot de passe. Ce paramétrage permet donc de différencier ces deux opérations.</p>
-
               <p>Si la valeur est « Oui », les utilisateurs auront la possibilité de réinitialiser leur mot de passe et de déverrouiller le compte ou de déverrouiller celui-ci sans réinitialiser le mot de passe. </p>
-
               <p>Si la valeur est « Non », les utilisateurs devront réinitialiser leur mot de passe lorsqu’ils déverrouilleront leur compte.</p>
-
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -768,7 +862,6 @@ Si le commutateur est défini sur <strong>Oui</strong>, l’écriture différée
                 <ul>
                   <li class="unordered">
 Pour utiliser cette fonctionnalité, vous devez installer la version d’août 2015 ou une version postérieure d’Azure AD Connect (version 1.0.8667.0.x ou supérieure).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Cliquez ici pour télécharger la dernière version d’Azure AD Connect.</a></li>
-
                   <li class="unordered">
                     <strong>Remarque :</strong> pour tester cette fonctionnalité, vous devez activer l’écriture différée du mot de passe et utiliser un compte provenant d’un utilisateur du site local (comme un utilisateur fédéré ou un utilisateur à mot de passe synchronisé) et possédant un compte verrouillé.  Les utilisateurs qui ne proviennent pas du site local et qui n’ont pas de compte verrouillé ne verront pas l’option de déverrouillage de leurs comptes.</li>
                 </ul>
@@ -783,7 +876,7 @@ Une fois cette option activée, lorsqu’un utilisateur avec un compte local ver
             </tr>
           </tbody></table>
 
-## <a name="password-management-notifications"></a>Notifications de gestion du mot de passe
+## <a name="password-management-notifications"></a>Notifications de gestion des mots de passe
 Le tableau suivant décrit comment chaque contrôle affecte l’expérience des utilisateurs et des administrateurs qui reçoivent les notifications de réinitialisation des mots de passe.  Vous pouvez configurer ces options dans la section **Notifications** de l’onglet **Configurer** du [portail de gestion Azure](https://manage.windowsazure.com).
 
 <table>
@@ -812,6 +905,15 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               </td>
               <td>
                 <p>Détermine si tous les généraux sont informés par courrier électronique à leur adresse électronique principale lorsqu’un autre administrateur de n’importe quel type réinitialise son mot de passe.</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -842,6 +944,15 @@ Si cette option est activée quand l’administrateur A réinitialise son mot d
               </td>
               <td>
                 <p>Détermine si les utilisateurs et les administrateurs qui ont réinitialisé leur mot de passe doivent recevoir une notification les informant que leur mot de passe a été réinitialisé.</p>
+                <br>
+                <p><b><u>Requiert une des licences suivantes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">pour en savoir plus</a></u></b></p>
+                 <ul>
+                   <li>O365 (toute référence payante) [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Standard [utilisateurs sur le cloud uniquement]</li>
+                   <li>Azure AD Premium P1 ou P2 [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Mobility Suite [utilisateurs sur le cloud et locaux]</li>
+                   <li>Enterprise Cloud Suite [utilisateurs sur le cloud et locaux]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -864,10 +975,10 @@ Cette notification est envoyée via un courrier électronique au nom d’utilisa
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Liens vers la documentation de réinitialisation du mot de passe
+## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation
@@ -877,9 +988,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 * [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

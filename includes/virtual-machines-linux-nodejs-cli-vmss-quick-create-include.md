@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Composants requis
 
-Si vous ne l’avez pas encore fait, vous pouvez obtenir un [essai gratuit d’abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) et connecter [Azure CLI 1.0](../articles/xplat-cli-install.md) [à votre compte Azure](../articles/xplat-cli-connect.md). Assurez-vous que l’interface de ligne de commande Azure est en mode Resource Manager comme indiqué ci-après :
+Si vous ne l’avez pas encore fait, vous pouvez obtenir un [essai gratuit d’abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) et connecter [Azure CLI 1.0](../articles/cli-install-nodejs.md) [à votre compte Azure](../articles/xplat-cli-connect.md). Assurez-vous que l’interface de ligne de commande Azure est en mode Resource Manager comme indiqué ci-après :
 
 ```azurecli
 azure config mode arm

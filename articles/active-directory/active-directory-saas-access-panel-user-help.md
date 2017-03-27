@@ -12,17 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: d99920e1f39567834f7721c6afec6adfceb512f4
-ms.openlocfilehash: 7464d02b94d8119bb932508e0dfcd36bcbfaed3b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="common-access-panel-tasks"></a>Tâches courantes du Panneau d’accès
+# <a name="do-you-need-help-with-myapps"></a>Avez-vous besoin d’aide avec MyApps ?
 
-Le Panneau d’accès est un portail web qui vous permet d’effectuer les tâches suivantes :
+Si vous vous trouvez dans cette page, c’est probablement parce que vous avez malheureusement rencontré un problème alors que vous utilisez le portail MyApps. S’il existe des cas qui vous obligent à contacter le support technique ou votre administrateur pour résoudre un problème, nous vous proposons dans cette rubrique des réponses aux questions courantes que vous pouvez essayer vous-même en premier lieu. 
+
+Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
+  
+
+## <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
+
+
+MyApps est un portail web qui vous permet d’effectuer les tâches suivantes :
 
 - Gérer et lancer des applications basées sur le cloud
 - Gérer vos appartenances à des groupes
@@ -30,66 +39,53 @@ Le Panneau d’accès est un portail web qui vous permet d’effectuer les tâch
 
 ![Volet d'accès][1] 
 
-Cette rubrique vous fournit des instructions pour effectuer des tâches courantes et résoudre des problèmes.
 
 
 
-## <a name="how-to-troubleshoot-accessing-an-app"></a>Comment résoudre les problèmes d’accès à une application
+## <a name="how-can-i-change-my-password"></a>Comment modifier mon mot de passe ?
 
-1.  Vérifiez que l’extension du Panneau d’accès est correctement installée dans votre navigateur.  
-Suivez [cette procédure](active-directory-saas-ie-troubleshooting.md) pour résoudre les problèmes de votre extension Internet Explorer.
-2.  Assurez-vous que votre navigateur n’est pas en mode privé ou incognito.
-3.  Contactez votre administrateur ou le support technique pour obtenir une assistance si vous ne pouvez toujours pas accéder à vos applications.
+1.    Dans **MyApps**, cliquez sur le contrôle utilisateur en haut à droite, puis sur **Profil**.
+2.    Sous **Gérer le compte**, cliquez sur **Modifier le mot de passe**.
+3.    Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
+4.    Cliquez sur **Envoyer**.
 
-## <a name="how-to-change-your-password"></a>Comment modifier votre mot de passe
-
-1.  Dans le **Panneau d’accès**, cliquez sur le contrôle utilisateur dans le coin supérieur droit, puis cliquez sur **Profil**.
-2.  Sous **Gérer le compte**, cliquez sur **Modifier le mot de passe**.
-3.  Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
-4.  Cliquez sur **Envoyer**.
-
-Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md).
+Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
-## <a name="how-to-setup-password-reset"></a>Comment configurer la réinitialisation du mot de passe
+## <a name="how-do-i-setup-password-reset"></a>Comment configurer la réinitialisation du mot de passe ?
 
-1.  Dans le **Panneau d’accès**, cliquez sur le contrôle utilisateur dans le coin supérieur droit, puis cliquez sur **Profil**.
-2.  Sous **Gérer le compte**, cliquez sur **Configurer la réinitialisation du mot de passe libre-service**.
-3.  Suivez les étapes de la boîte de dialogue, puis soumettez.
+1.    Dans **MyApps**, cliquez sur le contrôle utilisateur en haut à droite, puis sur **Profil**.
+2.    Sous **Gérer le compte**, cliquez sur **Configurer la réinitialisation du mot de passe libre-service**.
+3.    Suivez les étapes de la boîte de dialogue, puis soumettez.
 
 Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
-## <a name="how-to-add-new-apps-or-request-permission-to-app-access"></a>Comment ajouter de nouvelles applications ou demander l’autorisation d’accéder aux applications
+## <a name="how-can-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?
 
-1.  Dans le **Panneau d’accès**, cliquez sur **Ajouter une application**.
-2.  Recherchez une application que vous souhaitez ajouter, puis cliquez sur **Ajouter**.  
-Si l’application requiert une autorisation, vous devrez peut-être attendre l’approbation de l’administrateur.
+1.    Dans **MyApps**, cliquez sur **Ajouter une application**.
+2.    Recherchez une application que vous souhaitez ajouter, puis cliquez sur **Ajouter**.
 
-Si vous ne trouvez pas l’application recherchée, contactez votre administrateur pour obtenir de l’aide.
+**Remarques :**
+
+- Vous n’avez accès à cette option que si votre administrateur l’a activée pour votre compte.
+- Si l’application requiert une autorisation, vous devrez peut-être attendre l’approbation de l’administrateur.
 
 
-## <a name="how-to-manage-your-group-memberships"></a>Comment gérer vos appartenances à des groupes
 
-1. Dans le **Panneau d’accès**, cliquez sur la vignette de l’application **Groupes**.
-2. Pour créer un groupe, sous **Groupes dont je suis propriétaire**, cliquez sur **Créer un groupe**, puis suivez les instructions.
-3. Pour joindre un groupe, sous **Groupes auxquels j’appartiens**, cliquez sur **Rejoindre le groupe**, puis suivez les instructions.
+## <a name="how-can-i-manage-group-memberships"></a>Comment gérer l’appartenance aux groupes ?
 
-**Remarques** :
-  
+1.    Dans **MyApps**, cliquez sur la vignette de l’application **Groupes**.
+2.    Pour créer un groupe, sous **Groupes dont je suis propriétaire**, cliquez sur **Créer un groupe**, puis suivez les instructions.
+3.    Pour joindre un groupe, sous **Groupes auxquels j’appartiens**, cliquez sur **Rejoindre le groupe**, puis suivez les instructions.
+
+**Remarques :**
+
 - Cliquer sur un groupe dont vous êtes membre vous permet d’afficher les détails et de quitter le groupe.
 - Cliquer sur un groupe qui vous appartient vous permet d’afficher les détails, d’ajouter ou de supprimer des membres et de quitter le groupe.
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

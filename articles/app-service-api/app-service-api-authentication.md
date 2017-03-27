@@ -3,7 +3,7 @@ title: Authentification et autorisation pour API Apps dans Azure App Service | M
 description: "En savoir plus sur les services d’authentification et d’autorisation qu’Azure App Service fournit pour API Apps."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
@@ -77,7 +77,7 @@ Pour les options 1 et 2, activez **l’authentification App Service** puis, dan
 
 Pour plus d’informations sur la procédure de configuration de l’authentification, consultez l’article [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Cet article s’applique aux applications API et aux applications mobiles, et fait référence à des articles relatifs à d’autres fournisseurs d’authentification.
 
-## <a name="a-idinternala-service-account-authentication"></a><a id="internal"></a> Authentification du compte de service
+## <a id="internal"></a> Authentification du compte de service
 L’authentification App Service est utile pour les scénarios internes, notamment pour l’appel d’une application API à une autre application API. Dans ce scénario, vous pouvez obtenir un jeton en utilisant les informations d’identification correspondant à un compte de service au lieu des informations d’identification de l’utilisateur final. Un compte de service est également appelé *principal de service* dans Azure Active Directory, et l’authentification pratiquée avec ce type de compte est également appelée « scénario de service à service ». 
 
 Pour les scénarios service à service, protégez l’application API en utilisant Azure Active Directory et fournir un jeton d’autorisation du principal de service AAD lorsque vous appelez l’application API. Pour obtenir le jeton, renseignez l’ID client et la clé secrète du client à partir de l’application AAD. Aucun code spécial propre à Azure n’est nécessaire, comme c’était le cas pour la gestion du jeton Zumo Mobile Services. Vous trouverez un exemple de ce scénario utilisant ASP.NET API apps dans le didacticiel [Authentification par principal du service pour les applications API](app-service-api-dotnet-service-principal-auth.md).

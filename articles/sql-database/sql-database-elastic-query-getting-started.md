@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
-ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -122,15 +122,12 @@ Vous remarquerez que la requête regroupe les résultats de toutes les partition
 
 Toutes les lignes de la table **Clients** , stockées dans des partitions différentes, remplissent la feuille Excel.
 
-## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant utiliser les fonctions de visualisation de données puissantes d’Excel. Vous pouvez utiliser la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour vous connecter vos outils d’intégration BI et de données dans la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Vous pouvez vous traiter la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### <a name="cost"></a>Coût
 La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires.
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-## <a name="next-steps"></a>Étapes suivantes
 
 ## <a name="next-steps"></a>Étapes suivantes
 

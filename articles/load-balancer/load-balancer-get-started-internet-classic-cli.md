@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 Ce guide indique comment créer un équilibreur de charge Internet selon le scénario ci-dessus.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande CLI Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande CLI Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode classique, comme illustré ci-dessous.
 
     ```azurecli
@@ -151,9 +152,4 @@ azure vm endpoint delete web1 tcp-80-80
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

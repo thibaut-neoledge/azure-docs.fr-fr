@@ -1,6 +1,6 @@
 ---
-title: "Utiliser des modèles Visual Studio pour lancer votre projet Azure Batch | Microsoft Docs"
-description: "Découvrez comment ces modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch"
+title: "Création de solutions Batch avec les modèles de projet Visual Studio - Azure | Microsoft Docs"
+description: "Découvrez comment des modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch."
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Modèles de projet Visual Studio pour Azure Batch
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
+
 Les **modèles Visual Studio du gestionnaire de travaux** et du **processeur de tâches** pour Batch fournissent le code vous permettant d’implémenter et d’exécuter sans effort vos charges de travail nécessitant beaucoup de ressources sur Batch. Ce document décrit ces modèles et fournit des conseils pour leur utilisation.
 
 > [!IMPORTANT]
@@ -52,7 +55,7 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 ## <a name="prerequisites"></a>Composants requis
 Voici les composants requis pour utiliser les modèles Batch :
 
-* Un ordinateur disposant de Visual Studio 2015 ou d’une version plus récente.
+* Un ordinateur disposant de Visual Studio 2015 ou d’une version plus récente.
 * Les modèles Batch, qui sont disponibles dans la [galerie Visual Studio][vs_gallery] en tant qu’extensions Visual Studio. Il existe deux façons de se procurer les modèles :
   
   * Les installer à l’aide de la boîte de dialogue **Extensions et mises à jour** dans Visual Studio (pour plus d’informations, consultez [Recherche et utilisation des extensions Visual Studio][vs_find_use_ext]). Dans la boîte de dialogue **Extensions et mises à jour** , recherchez et téléchargez les deux extensions suivantes :
@@ -65,7 +68,7 @@ Voici les composants requis pour utiliser les modèles Batch :
 ## <a name="preparation"></a>Préparation
 Nous vous recommandons de créer une solution pouvant contenir à la fois votre gestionnaire de travaux et votre processeur de tâches, afin de faciliter le partage du code entre leurs programmes. Pour créer cette solution, procédez comme suit :
 
-1. Ouvrez Visual Studio 2015 et sélectionnez **Fichier** > **Nouveau** > **Projet**.
+1. Ouvrez Visual Studio et sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sous **Modèles**, développez **Autres Types de projets**, cliquez sur **Solutions Visual Studio**, puis sélectionnez **Nouvelle Solution**.
 3. Entrez un nom décrivant votre application et l’objectif de cette solution (par exemple, « ProgrammesTâchesBatchLitware »).
 4. Cliquez sur **OK**pour créer la solution.
@@ -84,7 +87,7 @@ Le modèle du gestionnaire de travaux vous permet d’implémenter une tâche du
 ### <a name="create-a-job-manager-using-the-template"></a>Créer un gestionnaire de travaux à l’aide du modèle
 Pour ajouter un gestionnaire de travaux à la solution que vous avez créée précédemment, procédez comme suit :
 
-1. Ouvrez votre solution existante dans Visual Studio 2015.
+1. Ouvrez votre solution existante dans Visual Studio.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution et cliquez sur **Ajouter** > **Nouveau projet**.
 3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Job Manager with Job Splitter** (Gestionnaire de travaux Azure Batch avec outil de fractionnement du travail).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le gestionnaire de travaux (par exemple, « GestionnaireTravauxLitware »).
@@ -253,7 +256,7 @@ Les actions effectuées par le processeur de tâches peuvent être simples ou co
 ### <a name="create-a-task-processor-using-the-template"></a>Créer un processeur de tâches à l’aide du modèle
 Pour ajouter un processeur de tâches à la solution que vous avez créée précédemment, procédez comme suit :
 
-1. Ouvrez votre solution existante dans Visual Studio 2015.
+1. Ouvrez votre solution existante dans Visual Studio.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, cliquez sur **Ajouter**, puis sur **Nouveau projet**.
 3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Task Processor** (Processeur de tâches Azure Batch).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le processeur de tâches (par exemple, « ProcesseurLitwareTask »).
@@ -451,9 +454,4 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

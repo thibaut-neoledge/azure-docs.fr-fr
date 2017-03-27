@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 9d20050dada974c0c2a54399e2db7b9a289f7e89
-ms.openlocfilehash: 48cc9c7181d83d2fe851b454eaf887b0483d3a01
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc22bfee0471da2d61d1d3d720e26d5fc785f832
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ Apache Oozie est un système de workflow/coordination qui gère les tâches Hado
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Une interface de ligne de commande Azure**: consultez la page [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md)
+* **Une interface de ligne de commande Azure**: consultez la page [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md)
 
 * **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 

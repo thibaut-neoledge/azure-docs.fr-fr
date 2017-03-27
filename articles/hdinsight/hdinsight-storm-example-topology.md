@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 46bc5b3b70120cd631523fd2b27ad8b9a47e3c6d
 ms.openlocfilehash: 21c25e4579a440b13c3201ee8f6c4e1db7a2aa46
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -62,10 +64,5 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Plusieurs topologies pour illustrer le débit lors de la lecture à partir d’Azure Event Hubs et du stockage dans SQL Database à l’aide d’Apache Storm dans HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Découvrez comment lire des données à partir d’Azure Event Hubs, les agréger et les transformer, puis les stocker dans HBase sous HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Ce projet contient des modèles de spouts, bolts et topologies permettant d’interagir avec divers services Azure tels que Event Hubs, DocumentDB et SQL Database."
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

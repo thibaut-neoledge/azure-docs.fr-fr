@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -177,7 +177,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
   > Azure Disk Encryption n’est pas pris en charge dans le [Kit de développement logiciel (SDK) Azure PowerShell version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Si vous recevez une erreur liée à l’utilisation d’Azure PowerShell 1.1.0, consultez la rubrique [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erreur Azure Disk Encryption liée à Azure PowerShell 1.1.0).
 
 * Pour exécuter les commandes de l’interface de ligne de commande Azure et les associer à votre abonnement Azure, vous devez d’abord installer l’interface de ligne de commande Azure :
-  * Pour installer l’interface de ligne de commande Azure et l’associer à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+  * Pour installer l’interface de ligne de commande Azure et l’associer à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
   * Pour utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager, consultez la rubrique [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
 * La solution Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Si vos machines virtuelles sont jointes au domaine, ne distribuez pas les politiques de groupe qui appliquent les protecteurs de module de plateforme sécurisée. Pour en savoir plus sur la stratégie de groupe pour « Autoriser BitLocker sans module de plateforme sécurisée compatible », consultez la rubrique [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521) (Référence de stratégie de groupe BitLocker).
 * Pour créer l’application Azure AD, créer un coffre de clés ou en configurer un existant et activer le chiffrement, consultez la rubrique [Script PowerShell prérequis pour Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -338,7 +338,7 @@ Reportez-vous au tableau de terminologie suivant pour comprendre certains des te
 | ARM | Azure Resource Manager |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) est une technologie de chiffrement de volume Windows qui permet d’activer le chiffrement de disque sur des machines virtuelles IaaS Windows. |
 | BEK | Les clés de chiffrement BitLocker servent à chiffrer le volume de démarrage du système d’exploitation et les volumes de données. Les clés BitLocker sont sauvegardées dans un coffre de clés en tant que clés secrètes. |
-| Interface de ligne de commande | Voir [Interface de ligne de commande Azure](../xplat-cli-install.md). |
+| Interface de ligne de commande | Voir [Interface de ligne de commande Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) est le sous-système de chiffrement de disque transparent Linux utilisé pour activer le chiffrement de disque sur les machines virtuelles IaaS Linux. |
 | KEK | La clé de chiffrement à clé est la clé asymétrique (RSA 2048) que vous pouvez utiliser pour protéger ou encapsuler la clé secrète. Vous pouvez fournir une clé protégée par le module HSM ou une clé protégée par le logiciel. Pour plus d’informations, consultez la documentation relative à [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | Applets de commande PS | Voir [Applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs). |
@@ -560,7 +560,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 > _KeyEncryptionKeyURL_ est un paramètre facultatif. Vous pouvez apporter vos propres clés de chiffrement à clé (KEK) pour renforcer la clé de chiffrement des données (clé secrète de chiffrement) dans votre coffre de clés.
 
 #### <a name="cli-commands"></a>Commandes CLI
-Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré en installant et en utilisant les [commandes CLI](../xplat-cli-install.md). Pour activer le chiffrement sur des machines virtuelles IaaS Linux existantes ou en cours d’exécution dans Azure à l’aide des commandes CLI, procédez comme suit :
+Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré en installant et en utilisant les [commandes CLI](../cli-install-nodejs.md). Pour activer le chiffrement sur des machines virtuelles IaaS Linux existantes ou en cours d’exécution dans Azure à l’aide des commandes CLI, procédez comme suit :
 
 1. Définissez des stratégies d’accès dans le coffre de clés :
 

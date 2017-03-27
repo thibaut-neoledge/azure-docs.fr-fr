@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: d8ea4fb54db5c114aa886a6267b18eba6563d231
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 05e8c264376b976bcdc8f3e1f03ed79cb712991e
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -241,7 +242,7 @@ Pour plus d’informations sur la création d’un cluster HDInsight et l’exé
 
 - - -
 
-## <a name="a-idappendix-aaappendix-a---upload-flight-delay-data-to-azure-blob-storage"></a><a id="appendix-a"></a>Annexe A - Téléchargement de données de retard de vol vers le stockage d’objets blob Azure
+## <a id="appendix-a"></a>Annexe A - Téléchargement de données de retard de vol vers le stockage d’objets blob Azure
 Le téléchargement du fichier de données et des fichiers de script HiveQL (voir l’ [annexe B](#appendix-b)) nécessite un minimum de planification. Il s’agit de stocker les fichiers de données et le fichier HiveQL avant de créer un cluster HDInsight et d’exécuter la tâche Hive. Deux options s'offrent à vous :
 
 * **Utiliser le même compte Azure Storage qui sera utilisé par le cluster HDInsight en tant que système de fichier par défaut.** Étant donné que le cluster HDInsight disposera de la clé d’accès au compte de stockage, vous n’avez pas besoin d’effectuer des modifications supplémentaires.
@@ -361,7 +362,7 @@ Le chemin d’accès tutorials/flightdelay/data correspond au dossier virtuel qu
 
 - - -
 
-## <a name="a-idappendix-baappendix-b---create-and-upload-a-hiveql-script"></a><a id="appendix-b"></a>Annexe B - Création et téléchargement d’un script HiveQL
+## <a id="appendix-b"></a>Annexe B - Création et téléchargement d’un script HiveQL
 À l'aide d'Azure PowerShell, vous pouvez exécuter plusieurs instructions HiveQL, une par une, ou empaqueter l'instruction HiveQL dans un fichier de script. Cette section explique comment créer un script HiveQL et télécharger celui-ci vers le stockage d’objets blob Azure en utilisant Azure PowerShell. Hive requiert le stockage de scripts HiveQL dans le stockage d’objets blob Azure.
 
 Le script HiveQL exécutera les opérations suivantes :
@@ -560,7 +561,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
    * **$srcDataFolder** et **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"
 
 - - -
-## <a name="a-idappendix-caappendix-c---prepare-an-azure-sql-database-for-the-sqoop-job-output"></a><a id="appendix-c"></a>Annexe C - Préparation d’une base de données SQL Azure pour le résultat de tâche Sqoop
+## <a id="appendix-c"></a>Annexe C - Préparation d’une base de données SQL Azure pour le résultat de tâche Sqoop
 **Pour préparer la base de données SQL (fusionnez celle-ci avec le script Sqoop)**
 
 1. Préparez les paramètres :
@@ -710,10 +711,10 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 4. Appuyez sur **F5** pour exécuter le script.
 5. Validez la sortie du script. Vérifiez que le script s'est correctement exécuté.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Étapes suivantes
+## <a id="nextsteps"></a> Étapes suivantes
 Vous savez à présent télécharger un fichier vers le stockage d’objets blob Azure, renseigner une table Hive à l’aide des données du stockage d’objets blob Azure, exécuter des requêtes Hive et utiliser Sqoop pour exporter des données entre HDFS et une base de données SQL Azure. Pour en savoir plus, consultez les articles suivants :
 
-* [Bien démarrer avec HDInsight][hdinsight-get-started]
+* [Prise en main de HDInsight][hdinsight-get-started]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 * [Utilisation d’Oozie avec HDInsight][hdinsight-use-oozie]
 * [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Création d’un équilibreur de charge Internet à l’aide de l’interface de ligne de commande Azure
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez [Prise en charge d’un équilibrage de ch
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Configurer l’interface de ligne de commande pour utiliser le gestionnaire de ressources
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
     ```azurecli

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: bf6ef38ba28d11d7894a30115174582903f84580
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -86,7 +87,7 @@ Utilisez les étapes suivantes pour copier des données à partir du cluster de 
 Vous pouvez également utiliser l’applet de commande `Start-AzureStorageBlobCopy` Azure PowerShell pour copier des blobs entre des comptes de stockage externes à HDInsight. Pour plus d’informations, consultez la section Gestion des objets blob Azure dans Utilisation d’Azure PowerShell avec Azure Storage.
 
 ## <a name="client-side-technologies"></a>Technologies côté client
-En général, les technologies côté client telles que les [applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs), [l’interface de ligne de commande Azure](../xplat-cli-install.md) ou le [Kit de développement logiciel (SDK) .NET pour Hadoop](https://hadoopsdk.codeplex.com/) continuent de fonctionner de la même façon avec les clusters Linux, car elles s’appuient sur des API REST qui sont identiques sur les deux types de systèmes d’exploitation de clusters.
+En général, les technologies côté client telles que les [applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs), [l’interface de ligne de commande Azure](../cli-install-nodejs.md) ou le [Kit de développement logiciel (SDK) .NET pour Hadoop](https://hadoopsdk.codeplex.com/) continuent de fonctionner de la même façon avec les clusters Linux, car elles s’appuient sur des API REST qui sont identiques sur les deux types de systèmes d’exploitation de clusters.
 
 ## <a name="server-side-technologies"></a>Technologies côté serveur
 Le tableau suivant fournit des conseils sur la migration des composants côté serveur qui sont spécifiques à Windows.
@@ -94,7 +95,7 @@ Le tableau suivant fournit des conseils sur la migration des composants côté s
 | Si vous utilisez cette technologie... | Procédez comme suit... |
 | --- | --- |
 | **PowerShell** (scripts côté serveur, notamment les actions de script utilisées lors de la création du cluster) |Réécrivez-les en tant que scripts Bash. En ce qui concerne les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) et [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Interface de ligne de commande Azure** (scripts côté serveur) |Même si l’interface de ligne de commande Azure est disponible sous Linux, elle n’est pas préinstallée sur les nœuds principaux du cluster HDInsight. Si vous en avez besoin pour les scripts côté serveur, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour plus d’informations sur l’installation sur les plateformes Linux. |
+| **Interface de ligne de commande Azure** (scripts côté serveur) |Même si l’interface de ligne de commande Azure est disponible sous Linux, elle n’est pas préinstallée sur les nœuds principaux du cluster HDInsight. Si vous en avez besoin pour les scripts côté serveur, consultez [Installer l’interface de ligne de commande Azure](../cli-install-nodejs.md) pour plus d’informations sur l’installation sur les plateformes Linux. |
 | **Composants .NET** |.NET n’est pas intégralement pris en charge sur tous les types de clusters HDInsight Linux. Les clusters Storm sur HDInsight basés sur Linux créés après le 28/10/2016 prennent en charge les topologies Storm C# à l’aide de l’infrastructure SCP.NET. Une prise en charge supplémentaire pour .NET sera ajouté dans les mises à jour ultérieures. |
 | **Composants Win32 ou autre technologie propre à Windows** |Les conseils varient selon le composant ou la technologie. Vous pouvez trouver une version compatible avec Linux ou être amené à trouver une autre solution ou réécrire ce composant. |
 

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -100,7 +100,7 @@ Les accolades sont des caractères spéciaux dans les modèles de nom. Pour spé
 
 Ce chemin trouverait un objet blob nommé *{20140101}-soundfile.mp3* dans le conteneur *images*, et la valeur de la variable `name` dans le code de fonction serait *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Reçus d’objets blob
 Le runtime Azure Functions vérifie qu’aucune fonction de déclencheur d’objet blob n’est appelée plusieurs fois pour un même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* pour déterminer si la version d’un objet blob donné a été traitée.

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ En plus de ces ressources de base, vous devez également envisager d’utiliser 
 
 ## <a name="network-interfaces"></a>Interfaces réseau
 
-Une [carte d’interface réseau](../virtual-network/virtual-network-network-interface-overview.md) est l’interconnexion entre une machine virtuelle et un réseau virtuel. Une machine virtuelle doit posséder au moins une carte d’interface réseau. Plusieurs cartes d’interface réseau peuvent être nécessaires en fonction de la taille de la machine virtuelle que vous créez. Consultez l’article [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md) pour savoir combien de cartes d’interface réseau sont requises en fonction de chaque taille de machine virtuelle. 
+Une [carte d’interface réseau](../virtual-network/virtual-network-network-interface.md) est l’interconnexion entre une machine virtuelle et un réseau virtuel. Une machine virtuelle doit posséder au moins une carte d’interface réseau. Plusieurs cartes d’interface réseau peuvent être nécessaires en fonction de la taille de la machine virtuelle que vous créez. Consultez l’article [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md) pour savoir combien de cartes d’interface réseau sont requises en fonction de chaque taille de machine virtuelle. 
 
 Si vous souhaitez créer une machine virtuelle avec plusieurs cartes d’interface réseau, vous devez la créer avec deux cartes d’interface réseau minimum.  Après sa création, vous pouvez ajouter des cartes d’interface réseau jusqu’à la limite prise en charge par la taille de la machine virtuelle. Toutefois, vous ne pouvez pas ajouter de cartes d’interface réseau à une machine virtuelle initialement créée avec une seule carte d’interface réseau, quel que soit le nombre de cartes d’interface réseau pris en charge par la machine virtuelle. 
 
@@ -180,3 +180,4 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une ma
 - Découvrez comment configurer les [itinéraires définis par l’utilisateur et le transfert IP](../virtual-network/virtual-networks-udr-overview.md). 
 - Découvrez comment configurer [les connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Découvrez comment [résoudre les problèmes relatifs aux itinéraires](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

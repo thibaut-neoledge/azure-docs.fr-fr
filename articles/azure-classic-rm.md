@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,15 +62,10 @@ Avec [PowerShell](/powershell/azureps-cmdlets-docs) vous pouvez utiliser une lig
 * **Applets de commande PowerShell avec un modèle Azure Resource Manager :** vous pouvez utiliser PowerShell pour créer des ressources Azure à l’aide d’un modèle Azure Resource Manager. Les modèles peuvent être enregistrés et gérés. Pour en savoir plus, lisez l’article [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). Plusieurs [modèles Azure Quickstart](https://azure.microsoft.com/documentation/templates/) existent pour les solutions courantes. Ils peuvent également être téléchargés et modifiés.
 
 ## <a name="cli"></a>Interface de ligne de commande
-Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Windows, OS X ou Linux à l'aide de l'interface de ligne de commande.  Lisez l’article [Installer l’interface de ligne de commande Azure](xplat-cli-install.md) pour installer l'interface de ligne de commande sur le système d'exploitation de votre choix. Comme pour PowerShell, il existe différentes commandes à utiliser selon que vous créez des ressources à l’aide des modèles de déploiement [Resource Manager](xplat-cli-azure-resource-manager.md) ou [classique (Service Management)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Windows, OS X ou Linux à l'aide de l'interface de ligne de commande.  Lisez l’article [Installer l’interface de ligne de commande Azure](cli-install-nodejs.md) pour installer l'interface de ligne de commande sur le système d'exploitation de votre choix. Comme pour PowerShell, il existe différentes commandes à utiliser selon que vous créez des ressources à l’aide des modèles de déploiement [Resource Manager](xplat-cli-azure-resource-manager.md) ou [classique (Service Management)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Voici quelques informations supplémentaires sur [Resource Manager](azure-resource-manager/resource-group-overview.md).
 * Découvrez comment [concevoir des modèles](best-practices-resource-manager-design-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

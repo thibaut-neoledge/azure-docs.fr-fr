@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
-ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -56,7 +56,7 @@ Quand vous créez un compte de stockage, vous sélectionnez un modèle de déplo
 Ce guide porte essentiellement sur le modèle Resource Manager, qui est la méthode recommandée pour créer des comptes de stockage. Au lieu d’accorder l’accès à l’ensemble de l’abonnement, les comptes de stockage Resource Manager vous permettent de contrôler l’accès au plan de gestion à un niveau plus limité en utilisant le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)
-Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Avec le modèle Gestionnaire de ressources, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.
 
@@ -340,7 +340,7 @@ La solution prend en charge les scénarios de machines virtuelles IaaS suivants 
 * Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
 * Activation du chiffrement sur les machines virtuelles IaaS exécutant le système d’exploitation client Windows
 * Activation du chiffrement sur les volumes avec chemins d’accès de montage
-* Activation du chiffrement sur les machines virtuelles Linux configurées avec entrelacement (RAID) à l’aide de mdadm
+* Activation du chiffrement sur les machines virtuelles Linux configurées avec entrelacement de disques (RAID) à l’aide de mdadm
 * Activation du chiffrement sur les machines virtuelles Linux à l’aide de LVM pour les disques de données
 * Activation du chiffrement sur les machines virtuelles Windows configurées à l’aide d’espaces de stockage
 * Toutes les régions publiques Azure sont prises en charge

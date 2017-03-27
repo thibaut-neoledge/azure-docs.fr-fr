@@ -18,9 +18,9 @@ ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: bcad35fe1df9da06e02eceae6a221c40a9d10bac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 69bce31b59ba3a70b69ab17f91272b45a4f05afc
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/01/2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -441,7 +441,7 @@ ms.lasthandoff: 03/01/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
@@ -1241,6 +1241,12 @@ La configuration d’un témoin de partage de fichiers de cluster implique les t
 
   _**Figure 38 :** Confirmation de la reconfiguration du cluster_
 
+Après avoir installé le cluster de basculement Windows avec succès, des modifications doivent être apportées à certains seuils pour adapter la détection de basculement aux conditions dans Azure. Les paramètres à modifier sont documentés sur ce billet de blog : https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. En supposant que les deux machines virtuelles qui génèrent la configuration du cluster Windows pour ASCS/SCS se trouvent sur le même sous-réseau, les paramètres suivants doivent être modifiés avec ces valeurs :
+- SameSubNetDelay = 2
+- SameSubNetThreshold = 15
+
+Ces paramètres ont été testés avec nos clients et ont offert un bon compromis pour être suffisamment résilients d’un côté. D’autre part, ces paramètres proposent un basculement suffisamment rapide dans les conditions d’erreur réelles en cas de problème sur le nœud/la machine virtuelle ou les logiciels SAP. 
+
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Installer SIOS DataKeeper Cluster Edition pour le disque de partage en cluster SAP ASCS/SCS
 
 Vous disposez maintenant d’une configuration fonctionnelle de clustering de basculement Windows Server dans Azure. Cependant, pour installer une instance SAP ASCS/SCS, vous avez besoin d’une ressource de disque partagé. Il n’est pas possible de créer les ressources de disque partagé requises dans Azure. SIOS DataKeeper Cluster Edition est une solution tierce que vous pouvez utiliser pour créer des ressources de disque partagé.
@@ -1551,7 +1557,7 @@ Pour ajouter un port de sondage :
   }
   ```
 
-  Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que **ProbePort** est réglé sur la nouvelle valeur.
+  Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que**ProbePort** est réglé sur la nouvelle valeur.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1651,3 +1657,4 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de cl
   ![Figure 64 : SIOS DataKeeper réplique le volume local du nœud de cluster B vers le nœud de cluster A][sap-ha-guide-figure-5003]
 
   _**Figure 64 :** SIOS DataKeeper réplique le volume local du nœud de cluster B vers le nœud de cluster A_
+

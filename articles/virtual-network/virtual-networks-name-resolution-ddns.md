@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: garbrad
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,8 +58,8 @@ Vous pouvez utiliser les raccordements fournis par le client DHCP pour créer et
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 Vous pouvez également utiliser la commande *nsupdate* pour effectuer des mises à jour DNS dynamiques sécurisées. Par exemple, quand vous utilisez un serveur DNS Bind, une paire de clés publique/privée est [générée](http://linux.yyz.us/nsupdate/).  Le serveur DNS est [configuré](http://linux.yyz.us/dns/ddns-server.html) avec la partie publique de la clé, ce qui lui permet de vérifier la signature sur la demande. Vous devez utiliser l’option *-k* pour fournir la paire de clés à *nsupdate* afin de signer la demande de mise à jour DNS dynamique.
 
@@ -67,10 +68,5 @@ Quand vous utilisez un serveur DNS Windows, l’authentification Kerberos peut �
 Si nécessaire, vous pouvez ajouter un suffixe de recherche DNS à vos machines virtuelles. Le suffixe DNS est spécifié dans le fichier */etc/resolv.conf* . Comme la plupart des distributions Linux gèrent automatiquement le contenu de ce fichier, il ne peut généralement pas être modifié. Toutefois, vous pouvez remplacer le suffixe à l’aide de la commande *supersede* du client DHCP. Pour ce faire, dans */etc/dhcp/dhclient.conf*, ajoutez :
 
         supersede domain-name <required-dns-suffix>;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

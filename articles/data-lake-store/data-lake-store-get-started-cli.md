@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +47,7 @@ L’interface de ligne de commande Azure est implémentée dans Node.js. Elle pe
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration. N'oubliez pas de redémarrer votre ordinateur une fois l'interface de ligne de commande installée.
+* **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) pour obtenir des informations sur l’installation et la configuration. N'oubliez pas de redémarrer votre ordinateur une fois l'interface de ligne de commande installée.
 
 ## <a name="authentication"></a>Authentification
 Pour l’authentification auprès de Data Lake Store, cet article utilise une approche plus simple où vous vous connectez en tant qu’utilisateur final. Le niveau d’accès au compte et au système de fichiers Data Lake Store est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Store, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
@@ -178,10 +179,5 @@ Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[azure-command-line-tools]: ../xplat-cli-install.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[azure-command-line-tools]: ../cli-install-nodejs.md
 

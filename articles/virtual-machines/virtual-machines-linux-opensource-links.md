@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 80630ec6762ccd00e1e199460703a128f96c1c37
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 * [Connexion à une machine virtuelle exécutant Linux à l’aide du Portail Azure Classic](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="set-up"></a>Installation
-* [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md)
+* [Installer l’interface de ligne de commande Microsoft Azure](../cli-install-nodejs.md)
 
 ## <a name="tutorials"></a>Didacticiels
 * [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -1,5 +1,5 @@
 ---
-title: "Optimiser votre environnement avec la solution d’évaluation Active Directory dans Log Analytics | Microsoft Docs"
+title: Optimisation de votre environnement Active Directory avec Azure Log Analytics | Microsoft Docs
 description: "La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
-ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
+ms.lasthandoff: 03/11/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimiser votre environnement avec la solution d’évaluation Active Directory dans Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution d’évaluation Active Directory dans Log Analytics
+
 La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers. Cet article vous aidera à installer et à utiliser la solution pour vous permettre de prendre les mesures correctives pour régler des problèmes potentiels.
 
 Cette solution fournit une liste hiérarchisée de recommandations propres à votre infrastructure de serveurs déployée. Les recommandations sont classées en quatre domaines pour vous aider à rapidement mesurer les risques et prendre les mesures appropriées.
@@ -41,7 +43,7 @@ Utilisez les informations suivantes pour installer et configurer les solutions.
 
 * Des agents doivent être installés sur les contrôleurs de domaine qui sont membres du domaine à évaluer.
 * La solution d'évaluation Active Directory nécessite une version prise en charge de .NET Framework 4 (4.5.2 ou version ultérieure) sur chaque ordinateur qui dispose d'un agent OMS.
-* Ajoutez la solution d’évaluation Active Directory à votre espace de travail OMS en utilisant le processus décrit dans la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  Aucune configuration supplémentaire n’est requise.
+* Ajoutez la solution d’évaluation Active Directory à votre espace de travail OMS à partir de [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) ou en utilisant le processus décrit dans l’article [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Ajouter des solutions Log Analytics à partir de la galerie de solutions).  Aucune configuration supplémentaire n’est requise.
 
   > [!NOTE]
   > Une fois que vous avez ajouté la solution, le fichier AdvisorAssessment.exe est ajouté aux serveurs comportant des agents. Les données de configuration sont lues puis envoyées au service OMS dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données.

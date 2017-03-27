@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -132,9 +133,4 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 | lbName |Spécifiez le nom de l’équilibrage de charge. Le nom est affiché dans le portail ou utilisé lors d’une référence à l’aide d’une commande CLI ou PowerShell. |
 
 Les variables restantes du modèle contiennent des valeurs dérivées qui sont affectées lorsqu’Azure crée les ressources. Ne modifiez pas ces variables.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

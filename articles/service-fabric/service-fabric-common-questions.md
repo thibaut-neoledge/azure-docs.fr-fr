@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/08/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
-ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -42,6 +43,16 @@ Avec les mises à jour du système d’exploitation, le défi réside dans le fa
 À l’avenir, nous prendrons en charge une stratégie de mise à jour du système d’exploitation, totalement automatisée et coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
 
 En attendant, nous [fournissons un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) qu’un administrateur de cluster peut utiliser pour lancer manuellement la correction de chaque nœud de manière sécurisée.
+
+### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>Puis-je utiliser de grands groupes identiques de machines virtuelles dans mon cluster Service Fabric ? 
+
+**Réponse courte** : Non. 
+
+**Réponse longue** : Bien que les grands groupes identiques de machines virtuelles (VMSS) puissent évoluer jusqu’à 1 000 instances de machines virtuelles, ils utilisent pour cela des groupes de positionnement (PG). Les domaines d’erreur (FD) et les domaines de mise à niveau (UD) ne sont cohérents qu’au sein d’un groupe de placement. Service Fabric utilise des domaines d’erreur et des domaines de mise à niveau pour prendre des décisions de placement de vos instances/réplicas de service. Étant donné que les domaines d’erreur et de mise à niveau ne sont comparables qu’au sein d’un groupe de placement, Service Fabric ne peut pas les utiliser. Par exemple, si VM1 dans PG1 a une topologie de FD =&0; et VM9 dans PG2 a une topologie de FD =&4;, cela ne signifie pas que VM1 et VM2 se trouvent sur deux racks matériels différents. Par conséquent, Service Fabric ne peut pas dans ce cas utiliser les valeurs FD pour prendre des décisions de placement.
+
+Il y a actuellement d’autres problèmes avec les groupes identiques de machines virtuelles volumineux, notamment l’absence de prise en charge de l’équilibrage de charge de niveau&4;. Pour plus d’informations, consultez la page [Grands groupes identiques de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md).
+
+
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Quelle est la taille minimale d’un cluster Service Fabric ? Pourquoi ne peut-il pas être plus petit ?
 
@@ -118,9 +129,4 @@ Pour l’instant, il n’est pas prévu de diffuser le code du runtime Service F
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur les principaux concepts et les meilleures pratiques de Service Fabric](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

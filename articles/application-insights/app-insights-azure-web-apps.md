@@ -4,18 +4,19 @@ description: "Analyse des performances des applications pour les applications we
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: c5869c2f4f593d8ffd1992ec2a7dbc473898f3ad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 17eadb8e502c0836b38661caf2a275af0e90bdfe
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,22 +51,22 @@ Plus tard, vous pourrez générer et redéployer l’application avec Applicatio
 ## <a name="build-the-app-with-application-insights"></a>Générez l’application avec Application Insights
 Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application. En particulier, vous pouvez collecter les journaux de suivi, [écrire une télémétrie personnalisée](app-insights-api-custom-events-metrics.md), et obtenir des rapports d’exception plus détaillées.
 
-1. **Dans Visual Studio** (2013 mise à jour 2 ou ultérieure), ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet.
+1. **Dans Visual Studio** (2013 mise à jour 2 ou ultérieure), configurez Application Insights pour votre projet.
    
-    ![Cliquez avec le bouton droit sur le projet web et sélectionnez Ajouter Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
+    ![Cliquez avec le bouton droit sur le projet web et sélectionnez Ajouter ou Configurer Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
    
     Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
    
     Cette opération a deux effets :
    
    1. Création d’une ressource Application Insights dans Azure, à l’endroit où vos données de télémétrie sont stockées, analysées et affichées.
-   2. Ajout du package NuGet Application Insights à votre code, et configuration du package pour l’envoi de données de télémétrie à la ressource Azure.
+   2. Ajout du package NuGet Application Insights à votre code (si ce n’est pas déjà fait), et configuration du package pour l’envoi de données de télémétrie à la ressource Azure.
 2. **Testez la télémétrie** en exécutant l’application sur votre ordinateur de développement (F5).
 3. **Publiez l’application** sur Azure comme d’habitude. 
 
 *Comment modifier la configuration pour envoyer des données vers une autre ressource Application Insights ?*
 
-* Dans Visual Studio, cliquez avec le bouton droit sur le projet, choisissez **Application Insights > Configurer** et sélectionnez la ressource de votre choix. Vous avez la possibilité de créer une nouvelle ressource. Procédez maintenant à la régénération et au redéploiement.
+* Dans Visual Studio, cliquez avec le bouton droit sur le projet, choisissez **Configurer Application Insights** et sélectionnez la ressource de votre choix. Vous avez la possibilité de créer une nouvelle ressource. Procédez maintenant à la régénération et au redéploiement.
 
 ## <a name="explore-the-data"></a>Exploration des données
 1. Dans le panneau Application Insights du panneau de configuration de l’application web, des mesures actives, indiquant les demandes et les échecs ou les deux survenant au cours d’une seconde, s’affichent. L’affichage de ces informations est très utile lorsque vous republiez votre application. Vous pouvez voir immédiatement les problèmes.
@@ -96,10 +97,5 @@ Pour des recherches plus abouties sur vos données de télémétrie, utilisez le
 * [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](app-insights-web-track-usage.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
 * [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

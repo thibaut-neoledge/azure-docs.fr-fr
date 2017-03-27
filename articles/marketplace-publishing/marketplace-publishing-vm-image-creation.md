@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 27f49a7c0c2736423d73930a1865f7b542f54da4
-ms.openlocfilehash: 63c1591db91a2ffeaced8ac775525291f0fd033f
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e801d966e7461be7ec6101941c7b70912ad8c403
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +188,7 @@ Pour en savoir plus sur les images de machine virtuelle, consultez les articles 
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurer les outils nécessaires, PowerShell et l’interface de ligne de commande Azure
 * [Guide pratique pour configurer PowerShell](/powershell/azureps-cmdlets-docs)
-* [Guide pratique pour configurer l’interface de ligne de commande Azure](../xplat-cli-install.md)
+* [Guide pratique pour configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Créer une image de machine virtuelle d’utilisateur
 #### <a name="capture-vm"></a>Capturer la machine virtuelle
@@ -231,7 +232,7 @@ Pour déployer une grande machine virtuelle, vous pouvez utiliser les applets de
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
-> Pour obtenir une assistance supplémentaire, consultez [Troubleshooting common issues encountered during VHD creation] (Résolution des problèmes courants rencontrés durant la création du disque dur virtuel).
+> Pour obtenir une assistance supplémentaire, consultez [Troubleshooting common issues encountered during VHD creation] \(Résolution des problèmes courants rencontrés durant la création du disque dur virtuel).
 >
 >
 
@@ -426,7 +427,7 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 Voici les étapes pour générer des URL SAS à l’aide de l’interface de ligne de commande Azure
 
-1.    Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour ** [Windows](http://aka.ms/webpi-azure-cli) ** et ** [Mac OS](http://aka.ms/mac-azure-cli)**.
+1.    Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et **[Mac OS](http://aka.ms/mac-azure-cli)**.
 
 2.    Après le téléchargement, veuillez effectuer l’installation
 
@@ -567,9 +568,4 @@ Une fois que vous avez terminé avec les détails de la référence SKU, vous po
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: dc1ca3ce8befb0c5b707d6db2fb16178afe3de1e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Pour créer un jeu d'équilibrage de charge interne et les serveurs qui y enverr
 
 Ce guide indique comment créer un équilibreur de charge interne selon le scénario ci-dessus.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode classique, comme illustré ci-dessous.
 
     ```azurecli
@@ -179,9 +180,4 @@ Pour plus d'informations, consultez `azure vm endpoint --help` .
 [Configurer le mode de distribution d’équilibreur de charge à l’aide de l’affinité d’IP source](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: b74fbba254f73c1df388b2b0ff9134cc7b8a31e8
-ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14bdbe593d8c6ec5297ce37ce57b759deb533cec
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -150,6 +151,9 @@ Le code suivant utilise la méthode d’extension **IAsset.Copy** pour copier to
 ### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS
 
 Le code suivant copie des blobs d’un compte de stockage dans un élément multimédia Media Services. 
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
     using System;
     using System.Configuration;
@@ -289,10 +293,5 @@ Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche 
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

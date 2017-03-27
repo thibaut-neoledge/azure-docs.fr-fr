@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
-ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procédure stockée](data-factory-stored-proc-activity.md)
-> * [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md)
-> * [.NET personnalisé](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Activité Hive](data-factory-hive-activity.md) 
+> * [Activité pig](data-factory-pig-activity.md)
+> * [Activité MapReduce](data-factory-map-reduce.md)
+> * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Activité Spark](data-factory-spark.md)
+> * [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
+> * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
+> * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
 
@@ -78,7 +81,7 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 
 | Type d’utilisateur | Expire après |
 |:--- |:--- |
-| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com,, etc.). |12 heures |
+| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) |12 heures |
 | Comptes d’utilisateurs gérés par Azure Active Directory (AAD) |14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
 
 Pour éviter ou résoudre cette erreur, accordez une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de **l’expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante. 
@@ -299,10 +302,5 @@ Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple
 ```
 
 Dans ce cas, les fichiers d’entrée sont toujours récupérés à partir du dossier /datalake/input et les fichiers de sortie sont générés dans le dossier /datalake/output. Les noms de fichiers sont dynamiques et basés sur l’heure de début de la tranche horaire.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

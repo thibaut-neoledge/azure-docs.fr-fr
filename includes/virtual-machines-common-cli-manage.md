@@ -1,6 +1,6 @@
 Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
 
-Si vous n’avez pas encore installé l’interface de ligne de commande Azure et connecté cette dernière à votre abonnement, consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../articles/xplat-cli-install.md), définissez le mode sur `arm` avec `azure config mode arm`, puis connectez-vous à Azure avec la commande `azure login`.
+Si vous n’avez pas encore installé l’interface de ligne de commande Azure et connecté cette dernière à votre abonnement, consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../articles/cli-install-nodejs.md), définissez le mode sur `arm` avec `azure config mode arm`, puis connectez-vous à Azure avec la commande `azure login`.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Commandes de base Basic Azure Resource Manager de l’interface de ligne de commande Azure
 Cet article traite des commandes de base que vous utiliserez avec l’interface de ligne de commande Azure pour gérer et interagir avec vos ressources ARM (principalement des machines virtuelles) dans votre abonnement Azure.  Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
@@ -36,9 +36,4 @@ Cet article traite des commandes de base que vous utiliserez avec l’interface 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour d'autres exemples de commandes de l'interface CLI dépassant la gestion de base des machines virtuelles, consultez la page [Utilisation de l'interface CLI Azure avec Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

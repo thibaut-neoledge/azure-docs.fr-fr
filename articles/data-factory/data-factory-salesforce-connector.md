@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
-ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +34,11 @@ Ce connecteur prend en charge les éditions suivantes de Salesforce : Developer
 * Pour copier des données depuis Salesforce vers des magasins de données locaux, la passerelle de gestion des données version 2.0 doit être au moins installée dans votre environnement local.
 
 ## <a name="salesforce-request-limits"></a>Limites des requêtes Salesforce
-Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce). Notez que si le nombre de requêtes simultanées dépasse la limite, la limitation est appliquée et des défaillances aléatoires peuvent se produire. Si le nombre total de requêtes dépasse la limite, le compte Salesforce sera bloqué pendant 24 heures. Vous pourriez également recevoir l’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios.
+Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Notez les points suivants :
+* Si le nombre de requêtes simultanées dépasse la limite autorisée, les nouvelles requêtes seront bloquées avec un risque de défaillances aléatoires.
+* Si le nombre total de requêtes dépasse la limite autorisée, le compte Salesforce sera bloqué pendant 24 heures.
+
+Vous pouvez également recevoir l’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
 
 ## <a name="copy-data-wizard"></a>Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données à partir de Salesforce vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -250,8 +255,10 @@ Dans l’activité de copie, lorsque la source est de type **RelationalSource** 
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Récupération de données à l’aide de la clause where sur la colonne DateTime
 Lorsque vous spécifiez une requête SOQL ou SQL, faites attention à la différence de format DateTime. Par exemple :
 
-* **Exemple SOQL** : $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **Exemple SQL** : $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **Exemple SOQL** : `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Exemple SQL** :
+    * **Utilisation de l’Assistant de copie pour spécifier la requête :**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Utilisation de la modification JSON pour spécifier la requête (caractère d’échappement correct) :**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Récupération de données à partir d’un rapport Salesforce
 Vous pouvez récupérer des données à partir de rapports Salesforce en spécifiant la requête en tant que `{call "<report name>"}`, par exemple, `"query": "{call \"TestReport\"}"`.
@@ -259,8 +266,8 @@ Vous pouvez récupérer des données à partir de rapports Salesforce en spécif
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Récupération d’enregistrements supprimés dans la Corbeille Salesforce
 Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier **« IsDeleted = 1 »** dans votre requête. Par exemple,
 
-* Pour interroger uniquement les enregistrements supprimés, spécifiez « select * from MyTable__c **where IsDeleted= 1** »
-* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1** »
+* Pour interroger uniquement les enregistrements supprimés, spécifiez « select *from MyTable__c**where IsDeleted= 1** »
+* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select *from MyTable__c**where IsDeleted = 0 or IsDeleted = 1** »
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -293,9 +300,4 @@ Pour interroger les enregistrements supprimés de manière réversible dans la C
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

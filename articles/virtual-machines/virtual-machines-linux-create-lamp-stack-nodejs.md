@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 59af3469a5b2d5cca68bf18dca1aa1e3ab684adb
-ms.openlocfilehash: 0675b6471e37e89e426df85e2fb696fcff2927fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c216b573e91894f2b9e17bf870c03b7d2a0f7161
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>Déployer la pile LAMP avec Azure CLI 1.0
-Cet article vous guide à travers le déploiement d’un serveur web Apache, de MySQL et de PHP (la pile LAMP) sur Azure. Vous aurez besoin d’un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et de [l’interface de ligne de commande Azure](../xplat-cli-install.md) [connectée à votre compte Azure](../xplat-cli-connect.md).
+Cet article vous guide à travers le déploiement d’un serveur web Apache, de MySQL et de PHP (la pile LAMP) sur Azure. Vous aurez besoin d’un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et de [l’interface de ligne de commande Azure](../cli-install-nodejs.md) [connectée à votre compte Azure](../xplat-cli-connect.md).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :

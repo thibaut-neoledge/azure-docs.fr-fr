@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 Lorsque cette commande renvoie `Succeeded`, le déploiement est terminé et vous pouvez procéder à la connexion SSH à la machine virtuelle à l’étape suivante.
 
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
-Installez la dernière version [d’Azure CLI 1.0](../xplat-cli-install.md) et connectez-vous à un compte Azure. Assurez-vous que vous utilisez le mode Resource Manager pour créer la machine virtuelle (`azure config mode arm`).
+Installez la dernière version [d’Azure CLI 1.0](../cli-install-nodejs.md) et connectez-vous à un compte Azure. Assurez-vous que vous utilisez le mode Resource Manager pour créer la machine virtuelle (`azure config mode arm`).
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine virtuelle avec l’extension de machine virtuelle Azure Docker. Un [modèle Azure Resource Manager issu de Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) est utilisé pour déployer l’environnement :
 

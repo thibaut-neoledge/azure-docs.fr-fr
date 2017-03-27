@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c3959babbfa6d7d512248e262060d44390de28a4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ Vous pouvez créer des machines virtuelles dans Azure à l’aide d’une des ve
 - Azure CLI 1.0 : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
 - [Azure CLI 2.0](virtual-machines-linux-creation-choices.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
-L’interface de ligne de commande Azure 1.0 est disponible sur les plateformes via un package npm, des packages fournis par un distributeur ou un conteneur Docker. Vous pouvez en savoir plus sur [la manière d’installer et de configurer l’interface de ligne de commande Azure](../xplat-cli-install.md). Les didacticiels suivants fournissent des exemples d’utilisation de l’interface de commande Azure 1.0. Lisez chaque article pour en savoir plus sur les commandes de démarrage rapide de l’interface de ligne de commande indiquées :
+L’interface de ligne de commande Azure 1.0 est disponible sur les plateformes via un package npm, des packages fournis par un distributeur ou un conteneur Docker. Vous pouvez en savoir plus sur [la manière d’installer et de configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md). Les didacticiels suivants fournissent des exemples d’utilisation de l’interface de commande Azure 1.0. Lisez chaque article pour en savoir plus sur les commandes de démarrage rapide de l’interface de ligne de commande indiquées :
 
 * [Créer une machine virtuelle Linux à partir de l’interface CLI Azure pour le développement et le test](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   

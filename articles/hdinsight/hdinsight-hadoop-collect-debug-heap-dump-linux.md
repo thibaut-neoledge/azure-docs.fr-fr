@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ Les dumps de tas contiennent un instantané de la mémoire de l’application, y
 > [!IMPORTANT]
 > Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
+## <a name="whichServices"></a>Services
 Vous pouvez activer des dumps de tas pour les services suivants :
 
 * **hcatalog** - tempelton
@@ -42,7 +44,7 @@ Vous pouvez activer des dumps de tas pour les services suivants :
 
 Vous pouvez également activer les dumps de tas du mappage et réduire les processus exécutés par HDInsight.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Présentation de la configuration du dump du tas
+## <a name="configuration"></a>Présentation de la configuration du dump du tas
 Les dumps de tas sont activés par la transmission d’options (parfois appelées options ou paramètres) à la machine virtuelle Java au démarrage d’un service. Pour la plupart des services Hadoop, cela peut être accompli en modifiant le script shell utilisé pour démarrer le service.
 
 Dans chaque script, il existe une exportation pour **\*\_OPTS**, qui contient les options transmises à la machine virtuelle Java. Par exemple, dans le script **hadoop-env.sh**, la ligne qui commence par `export HADOOP_NAMENODE_OPTS=` contient les options du service NameNode.
@@ -130,10 +132,5 @@ Pour modifier la configuration d’un service, procédez comme suit :
    > 
    > 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

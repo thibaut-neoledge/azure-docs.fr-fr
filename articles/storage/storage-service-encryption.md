@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
-ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,8 +42,9 @@ Storage Service Encryption : Files Preview SSE est désormais disponible pour le
 Pour participer à Files Preview SSE, contactez ssediscussions@microsoft.com.
 
 Pour plus d’informations, consultez la FAQ.
+
 ### <a name="availability-for-file-storage"></a>Disponibilité pour Stockage Fichier
-Le chiffrement du service de stockage pour Stockage Fichier est actuellement disponible dans les régions Asie de l’Est, Europe du Nord et Est des États-Unis 2.
+Le chiffrement du service de stockage pour le stockage de fichiers est actuellement disponible dans les régions États-Unis de l’Est, États-Unis de l’Est2, États-Unis du Centre, Nord du centre des États-Unis, Sud du centre des États-Unis, États-Unis de l’Ouest et du Centre, États-Unis de l’Ouest, États-Unis de l’Ouest2, Asie de l’Est, Europe du Nord, Europe de l’Ouest, Est de l’Australie et Sud-Est de l’Australie.
 
 
 Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://azure.portal.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.
@@ -174,7 +175,7 @@ R : Pas pour l’instant. Les clés sont entièrement gérées par Microsoft.
 
 R : SSE n’étant pas activé par défaut, utilisez le portail Azure pour l’activer. Vous pouvez également l’activer par programme à l’aide de l’API REST du fournisseur de ressources de stockage.
 
-**Q : En quoi est-ce différent du chiffrement de lecteur Azure ?**
+**Q : En quoi est-ce différent d’Azure Disk Encryption ?**
 
 R : Cette fonctionnalité permet de chiffrer les données dans Azure Blob Storage. Azure Disk Encryption permet de chiffrer les disques de système d’exploitation et de données dans les machines virtuelles IaaS. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 

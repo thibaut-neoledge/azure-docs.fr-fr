@@ -1,6 +1,6 @@
 ---
-title: "Connexion à la passerelle de données locale à partir d’applications logiques | Microsoft Docs"
-description: "Informations sur la création d’une connexion à la passerelle de données locale à partir d’une application logique."
+title: "Accès aux données locales - Azure Logic Apps | Microsoft Docs"
+description: "Comment se connecter à une passerelle de données locale pour permettre à vos applications logiques d’accéder aux données locales."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,48 +15,74 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 0a16f22b6e3bb60091409c64b631afcba3d6db10
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Se connecter à la passerelle de données locale pour les applications logiques
-Les connecteurs d’applications logiques pris en charge vous permettent de configurer votre connexion pour accéder aux données locales via la passerelle de données locale.  La procédure suivante vous guidera tout au long de l’installation et de la configuration de la passerelle de données locale à utiliser avec une application logique.
+# <a name="connect-to-on-premises-data-from-logic-apps"></a>Connexion à des données locales à partir d’applications logiques
 
-## <a name="prerequisites"></a>Composants requis
-  * Vous devez utiliser une adresse de messagerie professionnelle ou scolaire dans Azure pour associer la passerelle de données locale à votre compte (compte Azure Active Directory)
-  * Si vous utilisez un compte Microsoft (par exemple, @outlook.com, @live.com)), vous pouvez utiliser votre compte Azure pour créer une adresse de messagerie professionnelle ou scolaire en [suivant les étapes décrites ici](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
-  * La passerelle de données locale doit être [installée sur un ordinateur local](logic-apps-gateway-install.md).
-  * La passerelle ne doit pas avoir été revendiquée par une autre passerelle de données locale Azure ([cette revendication se produit lors de la création à l’étape 2 ci-dessous](#2-create-an-azure-on-premises-data-gateway-resource)), car une installation ne peut être associée qu’à une seule ressource de passerelle.
+Pour accéder à des données locales, vous pouvez configurer une connexion à une passerelle de données locale pour les connecteurs Azure Logic Apps pris en charge. La procédure suivante vous guidera tout au long de l’installation et de la configuration de la passerelle de données locale à utiliser avec vos applications logiques.
+La passerelle de données locale prend en charge les connexions de source de données suivantes :
 
-## <a name="installing-and-configuring-the-connection"></a>Installation et configuration de la connexion
+*   BizTalk Server
+*    DB2  
+*   Système de fichiers
+*   Informix
+*   MQ
+*    Oracle Database 
+*   Serveur d’applications SAP 
+*   Serveur de messagerie SAP
+*    SQL Server
+
+Pour plus d’informations sur ces connexions, consultez la [liste des connecteurs Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+
+## <a name="requirements"></a>Configuration requise
+
+* Vous devez utiliser une adresse de messagerie professionnelle ou scolaire dans Azure pour associer la passerelle de données locale à votre compte (compte Azure Active Directory).
+
+* Si vous utilisez un compte Microsoft (par exemple, @outlook.com), vous pouvez utiliser votre compte Azure pour [créer une adresse de messagerie professionnelle ou scolaire](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+
+* La passerelle de données locale doit être déjà [installée sur un ordinateur local](logic-apps-gateway-install.md).
+
+* Vous ne pouvez associer votre installation qu’à une seule ressource de passerelle. Votre passerelle ne peut pas être revendiquée par une autre passerelle de données locale Azure. La revendication intervient (au moment de la [création, à l’étape 2 de cette rubrique](#2-create-an-azure-on-premises-data-gateway-resource)).
+
+## <a name="install-and-configure-the-connection"></a>Installer et configurer la connexion
+
 ### <a name="1-install-the-on-premises-data-gateway"></a>1. Installation de la passerelle de données locale
-Vous trouverez des informations sur l’installation de la passerelle de données locale [dans cet article](logic-apps-gateway-install.md).  La passerelle doit être installée sur un ordinateur local avant de pouvoir effectuer le reste des étapes.
+
+Si vous ne l’avez pas encore fait, suivez ces étapes pour [installer la passerelle de données locale](logic-apps-gateway-install.md). Avant de passer aux étapes suivantes, assurez-vous que vous avez installé la passerelle de données sur un ordinateur local.
 
 ### <a name="2-create-an-azure-on-premises-data-gateway-resource"></a>2. Création d’une ressource de passerelle de données locale Azure
-Une fois la passerelle installée, vous devez associer votre abonnement Azure à la passerelle de données locale.
 
-1. Connectez-vous à Azure en utilisant la même adresse de messagerie professionnelle ou scolaire utilisée lors de l’installation de la passerelle
-2. Cliquez sur le bouton de ressource **Nouveau** .
-3. Recherchez et sélectionnez la **passerelle de données locale**
-4. Complétez les informations pour associer la passerelle à votre compte, notamment en sélectionnant un **nom d’installation**
+Une fois la passerelle installée, vous devez associer votre abonnement Azure à la passerelle.
+
+1. Connectez-vous à Azure en utilisant la même adresse de messagerie professionnelle ou scolaire que celle utilisée lors de l’installation de la passerelle.
+2. Sélectionnez **Nouveau**.
+3. Recherchez et sélectionnez la **passerelle de données locale**.
+4. Complétez les informations pour associer la passerelle à votre compte, notamment en sélectionnant un **nom d’installation**.
    
     ![Connexion à la passerelle de données locale][1]
-5. Cliquez sur le bouton **Créer** pour créer la ressource
 
-### <a name="3-create-a-logic-app-connection-in-the-designer"></a>3. Création d’une connexion à l’application logique dans le concepteur
-Maintenant que votre abonnement Azure est associé à une instance de la passerelle de données locale, vous pouvez créer une connexion à cette passerelle à partir d’une application logique.
+5. Cliquez sur **Créer** pour créer la ressource.
 
-1. Ouvrez une application logique et choisissez un connecteur prenant en charge la connectivité locale (à ce jour, SQL Server)
-2. Cochez la case **Se connecter via la passerelle de données locale**
+### <a name="3-create-a-logic-app-connection-in-logic-app-designer"></a>3. Création d’une connexion à l’application logique dans le concepteur d’applications logiques
+
+Maintenant que votre abonnement Azure est associé à une instance de la passerelle de données locale, vous pouvez créer une connexion à cette passerelle à partir de votre application logique.
+
+1. Ouvrez une application logique et choisissez un connecteur prenant en charge la connectivité locale (par exemple, SQL Server).
+2. Sélectionnez l’option **Se connecter via la passerelle de données locale**.
    
     ![Création de la passerelle à l’aide du concepteur d’application logique][2]
-3. Sélectionnez la **passerelle** à laquelle vous souhaitez vous connecter et fournissez toutes les autres informations de connexion requises
-4. Cliquez sur **Créer** pour créer la connexion
 
-La connexion devrait maintenant être correctement configurée pour une utilisation dans votre application logique.  
+3. Sélectionnez la **passerelle** à laquelle vous souhaitez vous connecter et fournissez toutes les autres informations de connexion requises.
+4. Cliquez sur **Créer** pour créer la connexion.
+
+Votre connexion est maintenant configurée pour être utilisée par votre application logique.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Exemples et scénarios courants pour les applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
@@ -64,9 +90,4 @@ La connexion devrait maintenant être correctement configurée pour une utilisat
 [1]: ./media/logic-apps-gateway-connection/createblade.png
 [2]: ./media/logic-apps-gateway-connection/blankconnection.png
 [3]: ./media/logic-apps-logic-gateway-connection/checkbox.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
-ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -421,7 +421,7 @@ Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont
 | ABS(x) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | EXP(x) | Retourne la valeur exponentielle de l'expression numérique spécifiée (e^x). |
 | POWER(x,y) | Retourne la valeur de l’expression spécifiée élevée à la puissance spécifiée (x^y).|
-| SQUARE(x) | Retourne le carré de la valeur numérique spécifiée. |
+| SQUARE(x)    | Retourne le carré de la valeur numérique spécifiée. |
 | CEILING(x) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
 | FLOOR(x) | Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée. |
 | SIGN(x) | Retourne le signe positif (+1), nul (0) ou négatif (-1) de l'expression numérique spécifiée.|

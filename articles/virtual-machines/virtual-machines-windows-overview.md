@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 | [Compte de stockage](../storage/storage-create-storage-account.md) |Oui |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
 | [Réseau virtuel](../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
 | [Adresse IP publique](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
-| [Interface réseau](../virtual-network/virtual-network-network-interface-overview.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
+| [Interface réseau](../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
 | [Disques de données](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?

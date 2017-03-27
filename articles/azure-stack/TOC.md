@@ -32,6 +32,7 @@
 ### [Surveiller l’intégrité et des alertes](azure-stack-monitor-health.md)
 ### [Gérer les ressources réseau](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Gérer les ressources de stockage](azure-stack-manage-storage-accounts.md)
+### [Gérer les machines virtuelles Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Security & Compliance
 ## Procédures
@@ -86,7 +87,6 @@
 #### [Gérer avec le portail](azure-stack-kv-manage-portal.md)
 #### [Gérer avec PowerShell](azure-stack-kv-manage-powershell.md)
 ### Procédures
-#### [Déployer une machine virtuelle avec un mot de passe](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Créer une machine virtuelle avec un certificat](azure-stack-kv-push-secret-into-vm.md)
 #### [Exemple d’application Key Vault](azure-stack-kv-sample-app.md)
 

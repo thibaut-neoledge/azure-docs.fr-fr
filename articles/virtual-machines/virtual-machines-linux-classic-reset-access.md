@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ccd4dda3d7077c9884331c7bfa8021ade398ea42
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,14 +45,14 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 ## <a name="prerequisites"></a>Composants requis
 Vous devrez effectuer les opérations suivantes :
 
-* Vous devrez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md), et [vous connecter à votre abonnement](../xplat-cli-connect.md) pour utiliser des ressources Azure associées à votre compte.
+* Vous devrez [installer l’interface de ligne de commande Azure](../cli-install-nodejs.md), et [vous connecter à votre abonnement](../xplat-cli-connect.md) pour utiliser des ressources Azure associées à votre compte.
 * Définissez le mode approprié pour le modèle de déploiement Classic en tapant ce qui suit à l’invite de commandes :
     ``` 
         azure config mode asm
     ```
 * Définissez un nouveau mot de passe ou des clés SSH, si vous souhaitez réinitialiser l’un des deux. Vous n’avez pas besoin de ces derniers si vous souhaitez corriger la configuration SSH.
 
-## <a name="a-namepwresetcliareset-the-password"></a><a name="pwresetcli"></a>Réinitialisation du mot de passe
+## <a name="pwresetcli"></a>Réinitialisation du mot de passe
 1. Sur votre ordinateur local, créez un fichier appelé PrivateConf.json avec ces lignes. Remplacez **myUserName** et **myP@ssW0rd** par vos propres nom d’utilisateur et mot de passe, et définissez votre propre date d’expiration.
 
     ```   
@@ -68,7 +69,7 @@ Vous devrez effectuer les opérations suivantes :
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="a-namesshkeyresetcliareset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Réinitialisation de la clé SSH
+## <a name="sshkeyresetcli"></a>Réinitialisation de la clé SSH
 1. Créez un fichier appelé PrivateConf.json avec ces éléments. Remplacez les valeurs **myUserName** et **mySSHKey** par vos propres informations.
 
     ```   
@@ -81,7 +82,7 @@ Vous devrez effectuer les opérations suivantes :
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="a-nameresetbothcliareset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Réinitialisation du mot de passe et de la clé SSH
+## <a name="resetbothcli"></a>Réinitialisation du mot de passe et de la clé SSH
 1. Créez un fichier appelé PrivateConf.json avec ces éléments. Remplacez les valeurs **myUserName**, **mySSHKey** et **myP@ssW0rd** par vos propres informations.
 
     ``` 
@@ -98,7 +99,7 @@ Vous devrez effectuer les opérations suivantes :
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namecreatenewsudocliacreate-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Création d’un nouveau compte utilisateur sudo
+## <a name="createnewsudocli"></a>Création d’un nouveau compte utilisateur sudo
 
 Si vous avez oublié votre nom utilisateur, utilisez VMAccess pour en créer un nouveau, avec autorité sudo. Le cas échéant, le nom d’utilisateur et le mot de passe existants ne sont pas modifiés.
 
@@ -108,7 +109,7 @@ Pour créer un nouvel utilisateur sudo avec accès par clé SSH, utilisez le sc
 
 Vous pouvez également utiliser [Réinitialisation du mot de passe et de la clé SSH](#resetbothcli) pour créer un nouvel utilisateur avec accès par mot de passe et clé SSH.
 
-## <a name="a-namesshconfigresetcliareset-the-ssh-configuration"></a><a name="sshconfigresetcli"></a>Réinitialisation de la configuration SSH
+## <a name="sshconfigresetcli"></a>Réinitialisation de la configuration SSH
 Si la configuration SSH se trouve dans un état non souhaité, vous pouvez également perdre l’accès à la machine virtuelle. Pour redéfinir l’état par défaut de la configuration, utilisez l’extension VMAccess. Pour ce faire, réinitialisez la clé reset_ssh sur la valeur True. L’extension redémarre le serveur SSH, ouvre le port SSH sur votre machine virtuelle et rétablit la configuration SSH par défaut. Le compte d’utilisateur (nom, mot de passe ou clés SSH) ne sera pas modifié.
 
 > [!NOTE]
@@ -130,7 +131,7 @@ Si la configuration SSH se trouve dans un état non souhaité, vous pouvez égal
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namedeletecliadelete-a-user"></a><a name="deletecli"></a>Suppression d’un utilisateur
+## <a name="deletecli"></a>Suppression d’un utilisateur
 Si vous souhaitez supprimer un compte utilisateur sans vous connecter directement à la machine virtuelle, vous pouvez utiliser ce script.
 
 1. Créez un fichier appelé PrivateConf.json avec ces éléments, en remplaçant le nom d’utilisateur à supprimer par **removeUserName**. 
@@ -147,14 +148,14 @@ Si vous souhaitez supprimer un compte utilisateur sans vous connecter directemen
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namestatuscliadisplay-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Affichage de l’état de l’extension VMAccess
+## <a name="statuscli"></a>Affichage de l’état de l’extension VMAccess
 Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 
 ```
         azure vm extension get
 ```
 
-## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'></a>Vérification de la cohérence des disques ajoutés
+## <a name='checkdisk'></a>Vérification de la cohérence des disques ajoutés
 Pour exécuter la commande fsck sur tous les disques de votre machine virtuelle Linux, vous devez effectuer les opérations suivantes :
 
 1. Créez un fichier nommé PublicConf.json avec ces éléments. Vérifiez que le disque prend une valeur booléenne pour vérifier les disques attachés à votre machine virtuelle ou non. 
@@ -171,7 +172,7 @@ Pour exécuter la commande fsck sur tous les disques de votre machine virtuelle 
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
-## <a name="a-namerepairdiskarepair-disks"></a><a name='repairdisk'></a>Réparation de disques
+## <a name='repairdisk'></a>Réparation de disques
 Pour réparer les disques qui ne se montent pas ou dont la configuration de montage présente des erreurs, utilisez l’extension VMAccess pour réinitialiser la configuration de montage sur votre machine virtuelle Linux. Remplacez le nom de votre disque par **myDisk**.
 
 1. Créez un fichier nommé PublicConf.json avec ces éléments. 
@@ -193,10 +194,5 @@ Pour réparer les disques qui ne se montent pas ou dont la configuration de mont
 * Si vous souhaitez utiliser des applets de commande Azure PowerShell ou des modèles Azure Resource Manager pour réinitialiser le mot de passe ou la clé SSH, corrigez la configuration SSH et vérifiez la cohérence des disques, consultez la [documentation de l’extension VMAccess sur GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Vous pouvez également utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le mot de passe ou la clé SSH d’une machine virtuelle Linux déployée dans le modèle de déploiement Classic. Vous ne pouvez pas utiliser actuellement le portail dans ce but pour une machine virtuelle Linux déployée dans le modèle de déploiement Resource Manager.
 * Consultez la page [À propos des extensions et des fonctionnalités des machines virtuelles](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations sur l’utilisation des extensions de machine virtuelle pour les machines virtuelles Azure.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

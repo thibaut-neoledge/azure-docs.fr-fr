@@ -1,6 +1,6 @@
 ---
 title: "Concepts et exigences en matière de sécurité de réseau dans Azure | Microsoft Docs"
-description: " Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau, et vous explique ce que propose Azure sur ces deux aspects.. "
+description: " Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau et vous explique ce que propose Azure dans chacun de ces domaines. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -203,7 +204,7 @@ En savoir plus :
 ## <a name="logging"></a>Journalisation
 La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les groupes de sécurité réseau afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
 
-* Journaux d’audit : ces journaux consignent toutes les opérations envoyées à vos abonnements Azure. Ils sont activés par défaut et peuvent être affichés dans le portail Azure.
+* [Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) : ces journaux consignent toutes les opérations envoyées à vos abonnements Azure. Ils sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
 * Journaux des événements : ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
 * Journaux des compteurs : ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
@@ -267,9 +268,4 @@ Azure Security Center vous permet d’optimiser et de surveiller la sécurité r
 En savoir plus :
 
 * [Présentation d’Azure Security Center](../security-center/security-center-intro.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

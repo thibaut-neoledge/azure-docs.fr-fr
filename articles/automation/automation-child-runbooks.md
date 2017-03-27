@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,7 +69,7 @@ Les paramètres d’un runbook enfant démarré avec une applet de commande sont
 Dans l’exemple suivant, un Runbook enfant avec paramètres est démarré et exécuté avec le paramètre Start-AzureRmAutomationRunbook -wait. À l’issue de l’exécution du Runbook, sa sortie est collectée à partir du runbook enfant.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparaison des méthodes pour l’appel d’un Runbook enfant
@@ -86,10 +87,5 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 ## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

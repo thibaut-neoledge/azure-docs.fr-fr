@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Réplication vers un site secondaire appartenant au client](site-recovery-support-matrix-to-sec-site.md)
 
 
-Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur la configuration requise pour Azure Site Recovery, consultez [Meilleures pratiques relatives à Site Recovery](site-recovery-best-practices.md).
+Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez la [configuration requise](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Prise en charge des options de déploiement
@@ -49,7 +50,7 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 **Hyper-V (avec VMM)** | System Center Virtual Machine Manager 2016 et System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge.
+  > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge. 
 
 ### <a name="host-servers"></a>Serveurs hôtes
 
@@ -60,11 +61,11 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 **Hyper-V (avec VMM)** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >Les sites Hyper-V qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.
+  >Les sites Hyper-V qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge. La récupération vers un autre emplacement pour les machines virtuelles sur un hôte Windows Server 2016 n’est pas prise en charge pour le moment.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
 
-Les machines virtuelles qui sont protégées doivent répondre aux [conditions requises pour Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) lors de la réplication vers Azure.
+Les machines virtuelles qui sont protégées doivent répondre aux [conditions requises pour Azure](#failed-over-azure-vm-requirements) lors de la réplication vers Azure.
 Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation répliqués dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est applicable pour toutes les charges de travail en cours d’exécution sur le système d’exploitation mentionné.
 
  **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
@@ -147,7 +148,7 @@ Chemins d’accès multiples (MPIO) | N/A | Oui | Oui
 
 **Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
-LRS | Oui | Oui | Oui 
+LRS | Oui | Oui | Oui
 GRS | Oui | Oui | Oui
 Stockage froid | Non | Non | Non
 Stockage chaud| Non | Non | Non
@@ -206,10 +207,5 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Préparer le déploiement](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Vérifiez les composants requis](site-recovery-prereq.md)
 

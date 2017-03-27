@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré da
 ![IU DC/OS](./media/dcos/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Découverte de l’interface utilisateur Marathon
-Pour afficher l’interface utilisateur Marathon, accédez à http://localhost/Marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.  
+Pour afficher l’interface utilisateur Marathon, accédez à http://localhost/marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.  
 
 ![IU Marathon](./media/dcos/dcos3.png)
 
@@ -110,9 +111,4 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

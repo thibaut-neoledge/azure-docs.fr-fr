@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -47,7 +47,7 @@ Managed Disks accroît la fiabilité des groupes à haute disponibilité en gara
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
-Utilisez le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression, l’exportation et la récupération d’un [URI de signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
+Utilisez le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation 
 

@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f2de2b3f4deb702f6cdc4e36b988ef6ea2697787
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -137,9 +138,9 @@ Utilisez les [adaptateurs de journaux Java](app-insights-java-trace-logs.md).
 ### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Aucune option d’adaptateur dans l’outil de configuration
 * Vous devez d’abord installer l’infrastructure de journalisation.
 * Si vous utilisez System.Diagnostics.Trace, assurez-vous que vous l’avez [configuré dans `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Avez-vous la dernière version des outils Application Insights ? Dans le menu **Outils** de Visual Studio, choisissez **Extensions et mises à jour**, puis ouvrez l’onglet **Mises à jour**. Si les outils Application Insights sont visibles, cliquez dessus pour les mettre à jour.
+* Disposez-vous de la dernière version d’Application Insights ? Dans le menu **Outils** de Visual Studio, choisissez **Extensions et mises à jour**, puis ouvrez l’onglet **Mises à jour**. Si les outils Developer Analytics sont visibles, cliquez dessus pour les mettre à jour.
 
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
+### <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
 Vous avez peut-être installé le package Nuget de l'enregistreur de données sans installer Application Insights.
 
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config` , puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante. Ceci devrait résoudre le problème.
@@ -147,13 +148,13 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 ### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Je peux voir des suivis dans la recherche de diagnostic, mais pas les autres événements
 Le passage des événements et des demandes dans le pipeline peut prendre un certain temps.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
+### <a name="limits"></a>Quelle est la quantité de données conservée ?
 Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Certaines entrées du journal ne sont pas affichées
 Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Étapes suivantes
+## <a name="add"></a>Étapes suivantes
 * [Configuration des tests de disponibilité et de réactivité][availability]
 * [Résolution des problèmes][qna]
 
@@ -165,9 +166,4 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

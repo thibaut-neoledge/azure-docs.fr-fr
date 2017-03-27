@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -72,8 +72,6 @@ Vous pouvez bloquer l’accès au [portail Azure](https://portal.azure.com) par 
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  Si cette vidéo n’est pas incorporée, vous pouvez la consulter [ici](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>Quand la prise en charge de l’authentification MFA et des comptes de messagerie de consommateurs par Azure AD B2B Collaboration démarrera-t-elle ?
 L’authentification MFA et les comptes de messagerie de consommateurs sont désormais pris en charge dans cette actualisation de la version préliminaire publique.
 
@@ -89,14 +87,22 @@ Pas actuellement.
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>Microsoft CRM fournit-il un support en ligne pour Azure AD B2B Collaboration ?
 CRM fournira un support pour Azure AD B2B Collaboration après la mise à disposition générale.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>Les utilisateurs invités Collaboration B2B sont-ils visibles dans le sélecteur de personnes SharePoint Online/OneDrive ?
+ 
+Oui. La fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online est cependant désactivée par défaut pour correspondre au comportement hérité. Vous pouvez l’activer à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Elle peut être définie à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SharePoint Online déjà configurés.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Quelle est la durée de vie d’un mot de passe initial pour un utilisateur B2B Collaboration nouvellement créé ?
 Azure AD dispose d’un ensemble fixe d'exigences en matière de nombre de caractères, de force du mot de passe et de verrouillage de compte qui s’appliquent à tous les comptes d’utilisateur cloud Azure AD. Les comptes d’utilisateur cloud sont les comptes qui ne sont pas fédérés avec un autre fournisseur d’identité tel que Microsoft Account, Facebook, ADFS ou même un autre locataire cloud (dans le cas de B2B Collaboration). Pour les comptes fédérés, la stratégie de mot de passe dépend de la stratégie dans la location locale et des paramètres de compte Microsoft de l’utilisateur.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Les applications cherchent à différencier leurs expériences entre un utilisateur client et un utilisateur invité. Une assistance standard est-elle disponible pour cela ? La présence de la revendication de fournisseur d’identité est-elle le modèle approprié ?
+ 
+Un utilisateur invité peut utiliser n’importe quel fournisseur d’identité pour s’authentifier comme décrit dans [Propriétés d’un utilisateur Collaboration B2B](active-directory-b2b-user-properties.md). La propriété UserType est donc la propriété appropriée pour le déterminer. La revendication UserType n’est actuellement pas incluse dans le jeton. Les applications doivent utiliser l’API Graph pour interroger le répertoire de l’utilisateur et obtenir leur UserType.
 
 ### <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
 * [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 * [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)

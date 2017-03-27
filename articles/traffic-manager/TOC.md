@@ -1,29 +1,30 @@
 # Vue d'ensemble
 ## [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
-## [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md)
-## [Points de terminaison Traffic Manager](traffic-manager-endpoint-types.md)
-## [Surveillance et basculement des points de terminaison Traffic Manager](traffic-manager-monitoring.md)
-## [Méthodes de routage du trafic](traffic-manager-routing-methods.md)
-## [Profils imbriqués](traffic-manager-nested-profiles.md)
-## [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
-## [Prise en charge d’Azure Resource Manager](traffic-manager-powershell-arm.md)
+## [Méthodes de routage](traffic-manager-routing-methods.md)
+### [Hiérarchie par pays/région utilisée par Traffic Manager](traffic-manager-geographic-regions.md)
+## [Types de point de terminaison](traffic-manager-endpoint-types.md)
+## [Surveillance de point de terminaison](traffic-manager-monitoring.md)
+## [FAQ](traffic-manager-FAQs.md)
 
 # Prise en main
-## [Gérer les points de terminaison](traffic-manager-manage-endpoints.md)
-## [Gérer les profils](traffic-manager-manage-profiles.md)
-## [Faire pointer votre domaine Internet vers Traffic Manager](traffic-manager-point-internet-domain.md)
+## [Créer un profil Traffic Manager](traffic-manager-create-profile.md)
 
 # Procédure
-## [Configurer une méthode de routage](traffic-manager-configure-routing-method.md)
-## [Tester vos paramètres](traffic-manager-testing-settings.md)
+
+## [Configurer la méthode de routage géographique](traffic-manager-configure-geographic-routing-method.md)
+## [Configurer la méthode de routage en fonction de la priorité](traffic-manager-configure-priority-routing-method.md)
+## [Configurer la méthode de routage en fonction de la pondération](traffic-manager-configure-weighted-routing-method.md)
+## [Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
+## [Gérer les points de terminaison](traffic-manager-manage-endpoints.md)
+## [Gérer les profils](traffic-manager-manage-profiles.md)
+## [vérifier les paramètres de Traffic Manager](traffic-manager-testing-settings.md)
 ## [Combiner les services d’équilibrage de charge](traffic-manager-load-balancing-azure.md)
-## [Utiliser des ressources réseau](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Résolution des problèmes
-### [Résoudre les problèmes d’un point de terminaison détérioré](traffic-manager-troubleshooting-degraded.md)
+## [Mesurer les performances de Traffic Manager](traffic-manager-performance-considerations.md)
+## [Utiliser PowerShell pour gérer Traffic Manager](traffic-manager-powershell-arm.md)
+## [Faire pointer votre domaine Internet vers Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (classique)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Interface de ligne de commande Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

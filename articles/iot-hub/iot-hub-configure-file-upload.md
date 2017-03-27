@@ -17,10 +17,14 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
 ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
+ms.lasthandoff: 12/06/2016
 
 
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurer les chargements de fichiers IoT Hub à l’aide du portail Azure
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
+
 ## <a name="file-upload"></a>Chargement de fichiers
 Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-upload], vous devez d’abord associer un compte de stockage Azure à votre concentrateur. Sélectionnez les paramètres de **chargement de fichiers** pour afficher une liste de propriétés de fichier pour l’IoT Hub en cours de modification.
 
@@ -68,9 +72,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

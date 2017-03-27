@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
-ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 756c9fa079782f8f0cb194ca07c637d083f9ebd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -69,7 +70,7 @@ Avant de publier votre application, vous devez d’abord configurer vos paramèt
 2. Lorsque la boîte de dialogue Structure de projet s’affiche :
 
    a. Cliquez sur **Artefacts** dans la liste des **Paramètres du projet**.
-   b. Modifiez le nom de l’artefact dans la zone **Nom** pour qu’il contienne des espaces blancs ou des caractères spéciaux. Cela est nécessaire dans la mesure où le nom est utilisé dans l’URI.
+   b. Modifiez le nom de l’artefact dans la zone **Nom** pour qu’il ne contienne pas d’espaces blancs ou des caractères spéciaux. Cela est nécessaire dans la mesure où le nom est utilisé dans l’URI.
    c. Définissez le **Type** sur **Web Application: Archive** (Application Web : Archive).
    d. Cliquez sur **OK** pour fermer la boîte de dialogue Structure de projet.
 
@@ -254,9 +255,4 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,14 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9075b2da7a4caa88328ef7220c4d543ff7cdebdf
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 71c2d5cff0a2deb1f44127a3483b696d1a695898
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentation Azure Web Apps
 
+<div class="introHolder">
+    <div class="intro">
 Découvrez comment utiliser App Service Web Apps pour créer et héberger des sites et des applications web. Des didacticiels, des vidéos, des références d’API et d’autres documents vous montrent comment procéder à des développements sur cette plateforme de calcul entièrement gérée.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Formation vidéo gratuite PluralSight - Développement avec .NET sur Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

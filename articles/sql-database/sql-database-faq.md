@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
-ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,4 +119,9 @@ La zone géographique secondaire est un réplica asynchrone et nous n’essayons
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
 Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
+## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Pour déplacer une base de données sur un autre serveur dans le même abonnement
+* Dans le [portail Azure](https://portal.azure.com), cliquez sur **Bases de données SQL**, sélectionnez une base de données dans la liste, puis cliquez sur **Copier**. Pour plus d’informations, consultez [Copier une base de données SQL Azure](sql-database-copy.md) .
+
+## <a name="to-move-a-database-between-subscriptions"></a>Pour déplacer une base de données entre des abonnements
+* Dans le [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, puis sélectionnez le serveur qui héberge votre base de données dans la liste. Cliquez sur **Déplacer**, puis sélectionnez les ressources à déplacer et l’abonnement cible.
 

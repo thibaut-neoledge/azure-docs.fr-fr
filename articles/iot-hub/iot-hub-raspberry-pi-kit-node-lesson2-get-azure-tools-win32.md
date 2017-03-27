@@ -1,5 +1,5 @@
 ---
-title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 1 : Obtenir des outils (Windows) | Microsoft Docs"
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 2 : Obtenir des outils (Windows) | Microsoft Docs"
 description: "Sur Windows 7 et versions ultérieures, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 822ec5c36203a6de5efb25249c2c4a93794b759d
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b2ed91fa40247f188b5f461439807e0dfa573152
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -71,10 +72,5 @@ Vous avez installé l’interface de ligne de commande Azure. La tâche suivante
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer votre IoT Hub et inscrire Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

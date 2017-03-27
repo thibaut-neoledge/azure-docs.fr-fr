@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
-ms.openlocfilehash: dc76f22214ab8467705b6420e8362a419a468bd6
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -33,7 +33,7 @@ Le schéma suivant illustre les relations entre les différents hôtes de conten
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-Ajoutez la solution Conteneurs à votre espace de travail OMS en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+Ajoutez la solution Conteneurs à votre espace de travail OMS depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 
 Il existe différentes façons d’installer et d’utiliser Docker avec OMS :
 

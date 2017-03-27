@@ -6,7 +6,7 @@
 
 # [Prise en main](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Créer une machine virtuelle Linux à l’aide du portail](../../virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-## [Installation de l’interface de ligne de commande Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Créer des clés SSH](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Procédures
@@ -47,7 +47,7 @@
 ## Exécuter des applications
 ### [Application web Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Client Node.js et Cassandra](../../virtual-machines-linux-classic-cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [LAMP Stack 5.4](../../virtual-machines-linux-classic-lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [LAMP Stack&5;.4](../../virtual-machines-linux-classic-lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Tomcat](../../virtual-machines-linux-classic-setup-tomcat.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Application web avec Visual Studio](../../virtual-machines-linux-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Cluster RDMA pour exécuter des applications MPI](../../virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

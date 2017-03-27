@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Classic - Portail Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement et du portail classiques. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
 
@@ -50,25 +52,25 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 * Une adresse IP publique exposée en externe pour votre appareil VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 * Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
 
-## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Créer votre réseau virtuel
+## <a name="CreateVNet"></a>Créer votre réseau virtuel
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l’Assistant Configuration.
 3. Pour créer votre réseau virtuel, entrez vos paramètres de configuration dans les pages suivantes :
 
-## <a name="a-namedetailsavirtual-network-details-page"></a><a name="Details"></a>Page de détails du réseau virtuel
+## <a name="Details"></a>Page de détails du réseau virtuel
 Entrez les informations suivantes :
 
 * **Nom**: nommez votre réseau virtuel. Par exemple, *NordFranceVNet*. Sachant que vous utiliserez ce nom de réseau virtuel au moment de déployer vos machines virtuelles et vos instances PaaS, vous préféreriez probablement avoir un nom qui n’est pas trop compliqué.
 * **Emplacement**: l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans le *nord de la France*, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
 
-## <a name="a-namednsadns-servers-and-vpn-connectivity-page"></a><a name="DNS"></a>Page des serveurs DNS et connectivité VPN
+## <a name="DNS"></a>Page des serveurs DNS et connectivité VPN
 Saisissez les informations ci-dessous, puis cliquez sur la flèche Suivant située en bas à droite.
 
 * **Serveurs DNS**: entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans le menu contextuel. Ce paramètre n’entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel.
 * **Configurer une connexion VPN de site à site** : cochez la case **Configuration d’un VPN de site à site**.
 * **Réseau local**: un réseau local représente votre emplacement physique local. Vous pouvez sélectionner un réseau local que vous avez précédemment créé, ou vous pouvez créer un nouveau réseau local. Toutefois, si vous choisissez d’utiliser un réseau local que vous avez précédemment créé, accédez à la page de configuration **Réseaux locaux** et vérifiez que l’adresse IP (adresse IPv4 publique) de l’appareil VPN est exacte.
 
-## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Page de connectivité de site à site
+## <a name="Connectivity"></a>Page de connectivité de site à site
 Si vous créez un nouveau réseau local, vous verrez la page **Connectivité site à site** . Si vous souhaitez utiliser un réseau local que vous avez précédemment créé, cette page n’apparaîtra pas dans l’Assistant ; vous pouvez alors passer à la section suivante.
 
 Entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
@@ -78,7 +80,7 @@ Entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
 * **Espace d’adressage**: comprend l’adresse IP de départ et le CIDR (nombre d’adresses). Spécifiez la ou les plages d’adresses que vous voulez envoyer via la passerelle de réseau virtuel à l’emplacement de votre site local. Si une adresse IP de destination se situe dans les plages que vous spécifiez ici, elle est routée via la passerelle de réseau virtuel.
 * **Ajouter un espace d’adressage**: si vous souhaitez envoyer plusieurs plages d’adresses via la passerelle de réseau virtuel, spécifiez chacune d’elles. Vous pouvez ajouter ou supprimer des plages par la suite sur la page **Réseau local** .
 
-## <a name="a-nameaddressavirtual-network-address-spaces-page"></a><a name="Address"></a>Page d’espaces d’adressage du réseau virtuel
+## <a name="Address"></a>Page d’espaces d’adressage du réseau virtuel
 Indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel.
 
 Il est particulièrement important de sélectionner une plage qui ne chevauche aucune des plages utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau. Pour ce faire, votre administrateur réseau peut avoir besoin d’extraire une plage d’adresses IP de l’espace d’adressage de votre réseau local pour que vous puissiez l’utiliser pour votre réseau virtuel.
@@ -93,15 +95,10 @@ Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fo
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="a-namevnetgatewayaconfigure-your-virtual-network-gateway"></a><a name="VNetGateway"></a>Configurer votre passerelle de réseau virtuel
+## <a name="VNetGateway"></a>Configurer votre passerelle de réseau virtuel
 Configurez la passerelle du réseau virtuel pour créer une connexion de site à site sécurisée. Consultez [Configurer une passerelle VPN pour le modèle de déploiement classique](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
  Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

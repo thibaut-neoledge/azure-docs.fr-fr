@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -49,8 +50,8 @@ Exemple de table ARP :
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 La section suivante fournit des informations sur l’affichage des tables ARP vues par les routeurs de bordure ExpressRoute. 
@@ -83,8 +84,8 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Tables ARP pour l’homologation publique Azure
@@ -105,8 +106,8 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Tables ARP pour l’homologation Microsoft
@@ -127,8 +128,8 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## <a name="how-to-use-this-information"></a>Utilisation de ces informations
@@ -142,19 +143,29 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes côté fournisseur de connectivité/local
-* Une seule entrée apparaîtra dans la table ARP. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
+Si vous rencontrez des problèmes liés au site ou au fournisseur de connectivité, vous pouvez constater qu’une seule entrée apparaîtra dans la table ARP ou l’adresse MAC locale sera incomplète. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+ou
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
-> Ouvrez une demande de support avec votre fournisseur de connectivité pour déboguer ces problèmes. 
+> Ouvrez une demande de support avec votre fournisseur de connectivité pour déboguer ces problèmes. Si la table ARP ne comprend pas les adresses IP des interfaces mappées sur des adresses MAC, passez en revue les informations suivantes :
 > 
+> 1. Si la première adresse IP du sous-réseau /30 affecté pour la liaison entre les MSEE-PR et MSEE est utilisée dans l’interface de MSEE-PR. Azure utilise toujours la deuxième adresse IP pour les MSEE.
+> 2. Vérifiez si les balises VLAN du client (C-Tag) et du service (S-Tag) correspondent à la paire MSEE-PR et MSEE.
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Table ARP en cas de problèmes côté Microsoft
@@ -167,10 +178,5 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
   * Obtenir une table d’itinéraires pour déterminer quels préfixes sont publiés sur ExpressRoute
 * Valider le transfert des données en examinant les octets en entrée/sortie
 * Ouvrez un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

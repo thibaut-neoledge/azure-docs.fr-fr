@@ -15,17 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f27a98894e3414479ce10adabbabe0f32a8cae54
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
+ms.lasthandoff: 03/09/2017
 
 ---
 
 # <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale via des passerelles VPN
 
-La passerelle VPN Azure vous permet de créer des solutions hybrides qui répondent aux besoins d’une connexion sécurisée entre votre réseau local et votre réseau virtuel Azure. Vos besoins étant uniques, le choix du périphérique VPN local l’est également. Azure prend actuellement en charge [plusieurs périphériques VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) qui sont validés en permanence en partenariat avec les fournisseurs de périphériques. Passez en revue les paramètres de configuration spécifiques au périphérique avant de configurer votre périphérique VPN local. De même, la passerelle VPN Azure est configurée avec un ensemble de [paramètres IPsec pris en charge](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters) qui sont utilisés pour établir des connexions. Actuellement, il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de paramètres IPsec à partir de la passerelle VPN Azure. Pour établir une connexion correcte entre le site et Azure, les paramètres du périphérique VPN local doivent être conformes aux paramètres IPsec prescrits par la passerelle VPN Azure. Dans le cas contraire, vous perdez la connectivité et, jusqu’à maintenant, la résolution de ces problèmes n’est pas simple et plusieurs heures sont généralement nécessaires pour identifier et corriger le problème.
+La passerelle VPN Azure vous permet de créer des solutions hybrides qui répondent aux besoins d’une connexion sécurisée entre votre réseau local et votre réseau virtuel Azure. Vos besoins étant uniques, le choix du périphérique VPN local l’est également. Azure prend actuellement en charge [plusieurs périphériques VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) qui sont validés en permanence en partenariat avec les fournisseurs de périphériques. Passez en revue les paramètres de configuration spécifiques au périphérique avant de configurer votre périphérique VPN local. De même, la passerelle VPN Azure est configurée avec un ensemble de [paramètres IPsec pris en charge](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) qui sont utilisés pour établir des connexions. Actuellement, il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de paramètres IPsec à partir de la passerelle VPN Azure. Pour établir une connexion correcte entre le site et Azure, les paramètres du périphérique VPN local doivent être conformes aux paramètres IPsec prescrits par la passerelle VPN Azure. Dans le cas contraire, vous perdez la connectivité et, jusqu’à maintenant, la résolution de ces problèmes n’est pas simple et plusieurs heures sont généralement nécessaires pour identifier et corriger le problème.
 
 Avec la fonctionnalité de résolution des problèmes d’Azure Network Watcher, vous êtes en mesure de diagnostiquer les problèmes en lien avec vos connexions et votre passerelle. En quelques minutes, vous avez suffisamment d’informations pour prendre une décision éclairée et corriger le problème.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scénario
 
@@ -57,7 +59,7 @@ Ces problèmes sont difficiles à résoudre et les causes premières sont souven
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Résolution des problèmes à l’aide d’Azure Network Watcher
 
-Pour diagnostiquer votre connexion, connectez-vous à Azure PowerShell et lancez l’applet de commande `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Vous trouverez des détails sur l’utilisation de cette applet de commande à la page Troubleshoot Virtual Network Gateway and connections - PowerShell (Résoudre les problèmes de connexions et de passerelle de réseau virtuel - PowerShell). L’exécution de cette applet de commande peut prendre plusieurs minutes. 
+Pour diagnostiquer votre connexion, connectez-vous à Azure PowerShell et lancez l’applet de commande `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Vous trouverez des détails sur l’utilisation de cette applet de commande à la page [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md) (Résoudre les problèmes de connexions et de passerelle de réseau virtuel - PowerShell). L’exécution de cette applet de commande peut prendre plusieurs minutes. 
 
 Suite à son exécution, vous pouvez accéder à l’emplacement de stockage spécifié dans l’applet de commande pour obtenir des informations détaillées sur le problème et les journaux. Azure Network Watcher crée un dossier zip qui contient les fichiers journaux suivants :
 
@@ -81,11 +83,11 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Impossible de trouver la passerelle ou la passerelle n’est pas approvisionnée. |Non|
-| PlannedMaintenance |  L’instance de passerelle est en maintenance.  |Non|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
+| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non|
 | UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non |
 | VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
-| PlatformInActive | Il existe un problème avec la plate-forme. | Non|
+| PlatformInActive | Il existe un problème avec la plateforme. | Non|
 | ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
 | NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
 | ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| Oui|
@@ -96,21 +98,22 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Impossible de trouver la passerelle ou la passerelle n’est pas approvisionnée. |Non|
-| PlannedMaintenance | L’instance de passerelle est en maintenance.  |Non|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
+| PlannedMaintenance | Instance de passerelle en maintenance.  |Non|
 | UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
 | VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
 | ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
 | ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| Oui|
-| Authentification | Incohérence des clés prépartagées. | Oui|
+| Authentification | Non-concordance des clés prépartagées. | Oui|
 | PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
-| IkePolicyMismatch | La passerelle homologue a des stratégies IKE qui ne sont pas prises en charge par Azure. | Oui|
-| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal WFP. |Oui|
+| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
+| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez à vérifier la connectivité de la passerelle VPN avec PowerShell et Azure Automation en consultant [Monitor VPN gateways with Network Watcher troubleshooting](network-watcher-monitor-with-azure-automation.md) (Surveiller les passerelles VPN avec la résolution des problèmes Network Watcher).
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
+

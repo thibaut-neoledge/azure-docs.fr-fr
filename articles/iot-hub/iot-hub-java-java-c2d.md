@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 017e6942bc49717f98836a2465824c0a42ff8a81
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 624f5947e31f08f689ceb6c48bc572447acd64ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -97,15 +97,19 @@ Dans cette section, vous créez une application de console Java qui envoie des m
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.2.16</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven][lnk-maven-service-search].
+
 4. Enregistrez et fermez le fichier pom.xml.
 5. À l’aide d’un éditeur de texte, ouvrez le fichier send-c2d-messages\src\main\java\com\mycompany\app\App.java.
 6. Ajoutez les instructions **import** suivantes au fichier :
    
     ```
-    import com.microsoft.azure.sdk.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -192,4 +196,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portail Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

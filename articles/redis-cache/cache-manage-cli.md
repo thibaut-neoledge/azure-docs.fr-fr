@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
-ms.openlocfilehash: 940210325c28252de2f38cfe56e56d4c3ecd28ed
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ L'interface de ligne de commande Azure est un excellent moyen de gérer votre in
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.
 
 * Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
-* [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+* [Installer l’interface de ligne de commande Microsoft Azure](../cli-install-nodejs.md).
 * Connectez votre installation d’interface de ligne de commande Azure à un compte Azure personnel ou à un compte Azure professionnel ou scolaire, puis connectez-vous à partir de l’interface de ligne de commande Azure à l’aide de la commande `azure login` . Pour comprendre les différences et faire votre choix, consultez [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 * Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm` . Pour plus d’informations, consultez [Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure](../xplat-cli-azure-resource-manager.md).
 
@@ -266,9 +267,4 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

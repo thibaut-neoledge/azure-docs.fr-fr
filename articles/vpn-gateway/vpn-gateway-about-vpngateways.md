@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 3be72ac862650d2381a56c4ab682e41a8aaa8a27
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -41,8 +41,6 @@ Vous pouvez commencer par créer et configurer des ressources à l’aide de l�
 ###<a name="deployment-model"></a>Modèle de déploiement
 Lorsque vous configurez votre passerelle VPN, les étapes à suivre varient en fonction du modèle de déploiement que vous avez utilisé pour créer votre réseau virtuel. Par exemple, si vous avez créé votre réseau virtuel à l’aide du modèle de déploiement classique, vous utilisez les recommandations et les instructions pour le modèle de déploiement classique afin de créer et configurer les paramètres de votre passerelle VPN. Pour plus d’informations sur les modèles de déploiement, voir [Comprendre les modèles de déploiement Resource Manager et de déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
-
-
 ## <a name="diagrams"></a>Diagrammes de topologie de connexion
 Il est important de savoir qu’il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Vous devez déterminer la configuration qui correspond le mieux à vos besoins. Dans les sections ci-dessous, vous pouvez afficher des informations et des diagrammes de topologie sur les connexions de passerelle VPN suivantes : Les sections suivantes contiennent des tableaux qui répertorient les éléments ci-dessous :
 
@@ -51,7 +49,6 @@ Il est important de savoir qu’il existe différentes configurations disponible
 * Liens vous redirigeant directement vers un article, si disponibles
 
 Utilisez les graphiques et les descriptions pour sélectionner la topologie de connexion répondant à vos besoins. Le graphique présente les principales topologies de base, mais il est possible de créer des configurations plus complexes à l’aide des diagrammes.
-
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site à site et multi-sites (tunnel VPN IPsec/IKE)
 ### <a name="S2S"></a>Site à site
@@ -96,7 +93,9 @@ Vous pouvez utiliser l’homologation de réseau virtuel pour créer votre conne
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## <a name="ExpressRoute"></a>ExpressRoute (connexion privée dédiée)
-[!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation.
+
+Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 
 Une connexion ExpressRoute n’utilise pas de passerelle VPN, mais une passerelle de réseau virtuel dans le cadre de sa configuration requise. Dans une connexion ExpressRoute, la passerelle de réseau virtuel est configurée avec le type de passerelle « ExpressRoute » plutôt que « Vpn ». Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 

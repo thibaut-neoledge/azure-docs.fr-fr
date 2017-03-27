@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/01/2017
 Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide d’un modèle Azure.  L’article requiert :
 
 * un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)).
-* [l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) connectée à `azure login` ;
-* l’interface de ligne de commande (CLI) Azure *doit être en *mode Azure Resource Manager`azure config mode arm`.
+* [l’interface de ligne de commande Azure (CLI)](../cli-install-nodejs.md) connectée à `azure login` ;
+* l’interface de ligne de commande (CLI) Azure *doit être en*mode Azure Resource Manager`azure config mode arm`.
 
 Vous pouvez également déployer rapidement un modèle de machine virtuelle Linux à l’aide du [Portail Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

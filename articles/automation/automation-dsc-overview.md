@@ -32,7 +32,7 @@ Azure Automation DSC vous permet de [créer et de gérer des configurations d’
 
 Lire de la documentation vous enchante moyennement ? Jetez un œil à la vidéo ci-dessous, publiée en mai 2015 à l’occasion de l’annonce d’Azure Automation DSC. **Remarque :** bien que les concepts et le cycle de vie abordés dans cette vidéo soient corrects, Azure Automation DSC a beaucoup progressé depuis l’enregistrement de cette vidéo. Désormais disponible au public, il dispose d’une interface utilisateur plus étendue dans le portail Azure et prend en charge des fonctionnalités supplémentaires.
 
-> [VIDÉO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="azure-automation-dsc-terms"></a>Conditions d'utilisation d'Azure Automation DSC
 

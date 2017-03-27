@@ -1,5 +1,5 @@
 ---
-title: "Conserver la sortie à partir des travaux et des tâches - Azure Batch | Microsoft Docs"
+title: "Conserver la sortie d’un travail et d’une tâche dans le stockage Azure - Azure Batch | Microsoft Docs"
 description: "Découvrez comment utiliser Azure Storage comme banque de données durable pour les sorties des tâches et des travaux Batch, et comment activer l’affichage de ces sorties conservées dans le portail Azure."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Conserver une sortie de tâche et de travail Azure Batch
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Conserver les résultats de travaux et tâches terminés dans le stockage Azure
+
 Les tâches que vous exécutez dans Batch produisent généralement une sortie qui doit être stockée, puis récupérée ultérieurement par d’autres tâches dans le travail et/ou l’application cliente qui a exécuté le travail. Cette sortie peut correspondre aux fichiers créés par le traitement des données d’entrée ou aux fichiers journaux associés à l’exécution des tâches. Cet article présente une bibliothèque de classes .NET qui utilise une technique basée sur des conventions pour conserver une sortie de tâche de ce type dans le stockage d’objets blob Azure, la rendant ainsi disponible même après que vous avez supprimé vos pools, travaux et nœuds de calcul.
 
 À l’aide de la technique présentée dans cet article, vous pouvez également afficher la sortie de votre tâche dans **Saved output files** (Fichiers de sortie enregistrés) et dans **Journaux enregistrés** dans le [Portail Azure][portal].
@@ -207,9 +210,9 @@ Pour afficher les sorties des tâches et les journaux dans le portail Azure, acc
 ![Panneau des sorties des tâches dans le Portail Azure][2]
 
 ## <a name="code-sample"></a>Exemple de code
-L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio 2015 montre comment utiliser la bibliothèque Azure Batch File Conventions pour conserver une sortie de tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
+L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque Azure Batch File Conventions pour conserver une sortie de tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
 
-1. Ouvrez le projet dans **Visual Studio 2015**.
+1. Ouvrez le projet dans **Visual Studio 2015 ou version ultérieure**.
 2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.
 3. **Générez** la solution sans l’exécuter. Restaurez les packages NuGet si vous y êtes invité.
 4. Utilisez le portail Azure pour charger un [package d’application](batch-application-packages.md) pour **PersistOutputsTask**. Insérez le fichier `PersistOutputsTask.exe` et ses assemblys dépendants dans le package .zip, puis définissez l’ID de l’application sur PersistOutputsTask et la version du package d’application sur&1;.0.
@@ -248,9 +251,4 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 
 [1]: ./media/batch-task-output/task-output-01.png "Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail"
 [2]: ./media/batch-task-output/task-output-02.png "Panneau des sorties des tâches dans le Portail Azure"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

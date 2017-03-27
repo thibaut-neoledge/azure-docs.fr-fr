@@ -14,13 +14,14 @@ ms.topic: article
 ms.date: 05/07/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 89e3cb3a7e9185d4a2944c1aa9aaf5aee4bd2b24
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
-Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans Visual Studio [Application Insights][start] à l’aide du [Contrôle d’accès basé sur les rôles dans Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans Azure [Application Insights][start], à l’aide du [Contrôle d’accès basé sur les rôles dans Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!IMPORTANT]
 > Accordez l’accès aux utilisateurs dans le **groupe de ressources ou l’abonnement** auquel appartient votre ressource d’application et non dans la ressource elle-même. Affectez le rôle de **collaborateur de composants Application Insights** . Cela garantit un contrôle d’accès uniforme aux tests et aux alertes Web, ainsi qu’aux ressources de votre application. [En savoir plus](#access).
@@ -45,7 +46,7 @@ Quelques définitions pour commencer :
 * [**Abonnement**](https://manage.windowsazure.com) : pour utiliser Application Insights ou d’autres ressources Azure, vous vous connectez à un abonnement Azure. Chaque groupe de ressources appartient à un abonnement Azure, où vous choisissez votre package de prix et, s’il s’agit d’un abonnement d’organisation, sélectionnez les membres et leurs autorisations d’accès.
 * [**Compte Microsoft**][account] : le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter aux abonnements Microsoft Azure, XBox Live, Outlook.com et autres services Microsoft.
 
-## <a name="a-nameaccessa-control-access-in-the-resource-group"></a><a name="access"></a> Contrôle de l’accès dans le groupe de ressources
+## <a name="access"></a> Contrôle de l’accès dans le groupe de ressources
 Il est important de comprendre qu’en plus de la ressource que vous avez créée pour votre application, il existe également des ressources distinctes masquées pour les alertes et les tests Web. Elles sont associées au même [groupe de ressources](#resource-group) que votre application. Vous pouvez également placer d’autres services Azure ici, comme des sites Web ou du stockage.
 
 ![Ressources dans Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -58,7 +59,7 @@ Pour contrôler l’accès à ces ressources, il est donc recommandé de :
 ## <a name="to-provide-access-to-another-user"></a>Pour fournir l’accès à un autre utilisateur
 Vous devez disposer des droits du propriétaire de l’abonnement ou du groupe de ressources.
 
-L’utilisateur doit avoir un [compte Microsoft][account] ou un accès à son [compte professionnel Microsoft](../active-directory/sign-up-organization.md). Vous pouvez fournir l’accès aux personnes et aux groupes d’utilisateurs définis dans Azure Active Directory.
+L’utilisateur doit avoir un [compte Microsoft][account] ou disposer d’un accès à son [compte professionnel Microsoft](../active-directory/sign-up-organization.md). Vous pouvez fournir l’accès aux personnes et aux groupes d’utilisateurs définis dans Azure Active Directory.
 
 #### <a name="navigate-to-the-resource-group"></a>Accédez au groupe de ressources
 Ajoutez l’utilisateur à cet endroit.
@@ -99,9 +100,4 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 [group]: ../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

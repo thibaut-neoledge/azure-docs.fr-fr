@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ Lorsque vous avez une application ou un script qui doit accéder à des ressourc
 * Il est inutile de modifier les informations d’identification de l’application si vos responsabilités évoluent. 
 * Vous pouvez utiliser un certificat pour automatiser l’authentification lors de l’exécution d’un script sans assistance.
 
-Cette rubrique vous montre comment utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) pour configurer une application qui s’exécute sous ses propres informations d’identification et sous sa propre identité.
+Cette rubrique vous montre comment utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../cli-install-nodejs.md) pour configurer une application qui s’exécute sous ses propres informations d’identification et sous sa propre identité.
 
 L’interface de ligne de commande Azure vous propose deux options pour authentifier votre application AD :
 
@@ -372,10 +373,5 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 * Pour obtenir des informations supplémentaires sur l’utilisation de certificats et de l’interface de ligne de commande Azure, consultez l’article [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)(Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

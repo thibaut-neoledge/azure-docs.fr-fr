@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 42d9e68c3c18d04c02ab818d84a653ece811fc52
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,14 +27,6 @@ ms.lasthandoff: 02/11/2017
 
 
 Cette section vous aide à migrer vos machines virtuelles Azure existantes à partir du modèle de déploiement Classic vers [Managed Disks](../storage/storage-managed-disks-overview.md) dans le modèle de déploiement Resource Manager.
-
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
 
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planification de la migration vers Managed Disks
@@ -48,14 +40,14 @@ Choisissez un emplacement où Azure Managed Disks est disponible. Si vous effect
 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle
 
-Si vous effectuez une migration vers des disques gérés Premium, vous devez mettre à jour la taille de la machine virtuelle par rapport à la capacité de stockage Premium disponible dans la région où se trouve la machine virtuelle. Consultez les tailles de machine virtuelle compatibles avec le stockage Premium. Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](virtual-machines-windows-sizes.md).
+Si vous effectuez une migration vers des disques gérés Premium, vous devez mettre à jour la taille de la machine virtuelle par rapport à la capacité de stockage Premium disponible dans la région où se trouve la machine virtuelle. Passez en revue les tailles de machine virtuelle compatibles avec le stockage Premium. Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](virtual-machines-windows-sizes.md).
 Passez en revue les caractéristiques de performances des machines virtuelles fonctionnant avec Premium Storage et choisissez la taille de machine virtuelle la mieux adaptée à votre charge de travail. Assurez-vous que la bande passante disponible est suffisante sur votre machine virtuelle pour gérer le trafic du disque.
 
 ### <a name="disk-sizes"></a>Tailles du disque
 
 **Disques gérés Premium**
 
-Il existe trois types de disques gérés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
+Il existe trois types de disques gérés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun d’eux présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
 
 | Type de disque Premium  | P10               | P20               | P30               |
 |---------------------|-------------------|-------------------|-------------------|
@@ -65,7 +57,7 @@ Il existe trois types de disques gérés Premium qui peuvent être utilisés ave
 
 **Disques gérés Standard**
 
-Il existe cinq types de disques gérés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’IOPS et de débit. Choisissez le type de disque géré Standard en fonction des besoins de votre application.
+Il existe cinq types de disques gérés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’E/S par seconde et de débit. Choisissez le type de disque géré Standard selon les besoins en capacité de votre application.
 
 | Type de disque Standard  | S4               | S6               | S10              | S20              | S30              |
 |---------------------|------------------|------------------|------------------|------------------|------------------|
@@ -81,7 +73,7 @@ Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les di
 
 ### <a name="pricing"></a>Tarification
 
-Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). La tarification des disques gérés Premium est identique à celle des disques Premium non gérés. En revanche, la tarification des disques gérés Standard diffère de celle des disques Standard non gérés.
+Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). La tarification des disques gérés Premium est identique à celle des disques non gérés Premium. En revanche, la tarification des disques gérés Standard diffère de celle des disques Standard non gérés.
 
 
 ## <a name="checklist"></a>Liste de contrôle

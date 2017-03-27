@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 576d8663f61d344628a38a98bf9902f4194949d0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 09860b34bf4b1664e8d82af0e049cfd1a2d8defa
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -172,7 +172,7 @@ Une fois que votre travail en cours d’exécution traite le flux Twitter en tem
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## <a name="another-query-of-interest--in-this-scenario"></a>Une autre requête d’intérêt dans ce scénario
+## <a name="another-query-of-interest-in-this-scenario"></a>Une autre requête d’intérêt dans ce scénario
 
 Un autre exemple de requête que nous avons créé pour ce scénario est basé sur les [Fenêtres glissantes](https://msdn.microsoft.com/library/azure/dn835051.aspx). Pour identifier les tendances, nous allons rechercher des sujets dépassant une valeur de seuil de mention dans un laps de temps donné. Pour les besoins de ce didacticiel, nous allons consulter les rubriques mentionnées plus de 20 fois pendant les 5 dernières secondes.
 
@@ -182,6 +182,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## <a name="table-of-the-field-headers"></a>Tableau des en-têtes de champ
+
+Pour une divulgation complète, les étiquettes des champs que vous pouvez utiliser dans cet exercice sont répertoriées dans cette table. N’hésitez pas à faire des essais dans l’éditeur de requête.
+
+Propriété JSON | Définition
+--- | ---
+CreatedAt | heure de création du tweet
+Rubrique | Rubrique qui correspond au mot clé spécifié
+SentimentScore | score des sentiments à partir de Sentiment140
+Auteur | Nom d’utilisateur Twitter qui a envoyé le tweet
+Texte | corps complet du tweet
+
 
 ## <a name="get-support"></a>Obtenir de l'aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

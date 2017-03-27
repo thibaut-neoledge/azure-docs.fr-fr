@@ -1,5 +1,5 @@
 ---
-title: "Intégrer Key Vault à SQL Server sur des machines virtuelles Windows dans Azure | Microsoft Docs"
+title: "Intégrer Key Vault à SQL Server sur des machines virtuelles Windows dans Azure Resource Manager | Microsoft Docs"
 description: "Apprenez à automatiser la configuration du chiffrement de SQL Server pour une utilisation avec Azure Key Vault. Cette rubrique explique comment utiliser l’intégration de coffre de clés Azure avec des machines virtuelles SQL Server créées avec Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/25/2016
+ms.date: 03/14/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7a285920888bdfb46922d8708cf778229efff0a3
-ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f42e1934ce163e26c1a3f526b4589fb175aac446
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Classique](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -64,10 +65,5 @@ Lorsque vous avez terminé, cliquez sur le bouton **OK** au bas du panneau **Con
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

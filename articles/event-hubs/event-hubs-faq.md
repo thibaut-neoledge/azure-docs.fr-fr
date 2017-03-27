@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7bae4ae6d41e6dc6515a3fcdf574ffd193ae1aa3
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -26,7 +26,13 @@ ms.lasthandoff: 03/03/2017
 ## <a name="general"></a>Généralités
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Quelle est la différence entre les niveaux De Base et Standard pour les hubs d’événements ?
-Le niveau Standard de Event Hubs fournit des fonctionnalités au-delà de ce qui est disponible au niveau De base, ainsi que dans certains systèmes concurrents. Ces fonctionnalités incluent des périodes de rétention de plus de 24 heures et la possibilité d’utiliser une connexion AMQP unique pour envoyer des commandes à un grand nombre d’appareils avec des latences de moins d’une seconde, ainsi que pour envoyer la télémétrie de ces appareils vers Event Hubs. Le niveau Standard offre également la fonctionnalité [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) Event Hubs. Pour obtenir la liste des fonctionnalités, consultez la [Tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Le niveau Standard d’Azure Event Hubs fournit des fonctionnalités supérieures à celles disponibles dans le niveau de base. Les fonctionnalités suivantes sont incluses dans le niveau Standard :
+* Rétention plus longue des événements
+* Connexions réparties supplémentaires, avec frais supplémentaires pour le dépassement du nombre inclus
+* Plus d’un seul groupe de consommateurs
+* [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+Pour plus d’informations concernant les niveaux de tarification, y compris la tarification Dedicated Event Hubs, consultez les [informations sur la tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>Que sont les unités de débit des hubs d'événements ?
 Vous devez sélectionner explicitement les unités de débit Event Hubs via le portail Azure ou les modèles Resource Manager Event Hubs. Les unités de débit s’appliquent à tous les Event Hubs dans un espace de noms Event Hubs, et chaque unité de débit fournit à l’espace de noms les fonctionnalités suivantes :

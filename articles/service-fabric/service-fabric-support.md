@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 03/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
-ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -81,7 +81,7 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | --- | --- |
 | Toutes les versions de clusters antérieures à 5.3.121 |20 janvier 2017 |
 | 5.3.* |24 février 2017 |
-| 5.4.* |17 avril 2017     |
+| 5.4.* |10 mai 2017     |
 | 5.5.* |Version actuelle ; par conséquent, pas de date de fin
 
 

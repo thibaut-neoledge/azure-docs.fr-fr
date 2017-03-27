@@ -16,9 +16,9 @@ ms.date: 01/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: a7d6cad6faa5fc3a64fe416b44a03ad3992c7862
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -110,13 +110,13 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 | --- | --- | --- |
 | deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
-| etag |obligatoire, en lecture seule |Une chaîne représentant un etag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232]. |
+| etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232]. |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
 | auth.symkey |facultatif |Un objet composite contenant une clé primaire et une clé secondaire, stockées au format base64. |
 | status |required |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason |facultatif |Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime |en lecture seule |Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
-| connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important ** : ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |
+| connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important** : ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |
 | connectionStateUpdatedTime |en lecture seule |Un indicateur temporel, indiquant la date et la dernière heure de mise à jour de l’état de la connexion. |
 | lastActivityTime |en lecture seule |Un indicateur temporel, indiquant la date et la dernière heure de connexion de l’appareil, de réception d’un message ou d’envoi d’un message. |
 

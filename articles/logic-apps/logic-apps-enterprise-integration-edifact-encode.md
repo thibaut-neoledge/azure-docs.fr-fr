@@ -1,6 +1,6 @@
 ---
-title: Encoder des messages EDIFACT dans Azure Logic Apps | Microsoft Docs
-description: "Comment utiliser l’encodeur EDIFACT dans Enterprise Integration Pack avec vos applications logiques"
+title: Encoder des messages EDIFACT - Azure Logic Apps | Microsoft Docs
+description: "Validation EDI et génération du code XML avec l’encodeur EDIFACT Message dans Enterprise Integration Pack pour Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,52 +15,70 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 5bc7011d7b0d22a7f8c11a2fee8d002c24d3467c
-ms.openlocfilehash: 94d120cd8a5e33733ecc39af96d2719ad59ab090
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 75eeca842cc31be6807dd6071de6d9a5c327fad3
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-encode-edifact-message"></a>Prise en main d’Encode EDIFACT Message
-Valide l’EDI et les propriétés spécifiques au partenaire 
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encoder des messages EDIFACT pour Azure Logic Apps avec Enterprise Integration Pack
 
-## <a name="prereqs"></a>Conditions préalables
+Avec le connecteur Encode EDIFACT Message, vous pouvez valider l’EDI et les propriétés spécifiques au partenaire, générer un document XML pour chaque document informatisé et demander un accusé de réception technique ou fonctionnel, ou les deux.
+Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Voici les éléments dont vous avez besoin :
+
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
-* Un compte d’intégration est nécessaire pour utiliser le connecteur Encode EDIFACT Message. Plus d’informations sur la création d’un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), de [partenaires](logic-apps-enterprise-integration-partners.md) et d’un [contrat EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)
+* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) déjà défini et associé à votre abonnement Azure. Vous devez disposer d’un compte d’intégration pour pouvoir utiliser le connecteur Encode EDIFACT Message. 
+* Au moins deux [partenaires](logic-apps-enterprise-integration-partners.md) déjà définis dans votre compte d’intégration
+* Un [contrat EDIFACT](logic-apps-enterprise-integration-edifact.md) déjà défini dans votre compte d’intégration
 
 ## <a name="encode-edifact-messages"></a>Encoder des messages EDIFACT
-1. [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
-2. Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, tel qu’un déclencheur de demande.  Dans le concepteur d’applications logiques, ajoutez un déclencheur et une action.  Sélectionnez Afficher les API gérées par Microsoft dans la liste déroulante, puis saisissez « EDIFACT » dans la zone de recherche.  Sélectionnez Encode EDIFACT Message par nom de contrat ou Encode to EDIFACT message par identités :
+
+1. [Créer une application logique](logic-apps-create-a-logic-app.md).
+
+2. Le connecteur Encode EDIFACT Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
+
+3.    Dans la zone de recherche, entrez « EDIFACT » comme filtre. Sélectionnez **Encode EDIFACT Message par nom de contrat** ou **Encode to EDIFACT message par identités**.
    
     ![recherche EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
-3. Si vous n’avez pas encore créé de connexion aux comptes d’intégration, vous êtes invité à saisir les informations de connexion :
-   
+
+3. Si vous n’avez pas encore créé de connexions à votre compte d’intégration, vous êtes invité à le faire à cette étape. Donnez un nom à votre connexion, puis sélectionnez le compte d’intégration auquel vous souhaitez vous connecter.
+
     ![créer une connexion de compte d’intégration](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
-4. Entrez les détails du compte d’intégration.  Les propriétés marquées d’un astérisque sont obligatoires :
-   
-   | Propriété | Détails |
-   | --- | --- |
-   | Nom de connexion * |Entrez un nom pour votre connexion |
-   | Compte d’intégration * |Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure |
-   
-    Une fois complets, les détails de votre connexion se présentent comme suit :
-   
-    ![connexion de compte d’intégration](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
-5. Sélectionnez **Créer**.
-6. Vous pouvez voir que la connexion a été créée :
-   
-    ![détails de connexion de compte d’intégration](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
+
+    Les propriétés marquées d’un astérisque sont obligatoires.
+
+    | Propriété | Détails |
+    | --- | --- |
+    | Nom de connexion * |Entrez un nom pour votre connexion. |
+    | Compte d’intégration * |Entrez un nom pour votre compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
+
+5.    Lorsque vous avez terminé, les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant. Pour terminer la création de votre connexion, sélectionnez l’option **Créer**.
+
+    ![détails de connexion de compte d’intégration](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
+
+    Votre connexion est maintenant créée.
+
+    ![connexion de compte d’intégration créée](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Encode EDIFACT Message par nom de contrat
-Indiquez le nom du contrat EDIFACT et le nom du message xml à encoder :
-   
-   ![remplir les champs obligatoires](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
+
+Si vous choisissez d’encoder des messages EDIFACT par nom du contrat, ouvrez la liste **Nom de l’accord X12**, entrez ou sélectionnez votre nom de contrat EDIFACT existant. Saisissez le message XML à encoder.
+
+![Indiquez le nom du contrat EDIFACT et le nom du message XML à encoder](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### <a name="encode-edifact-message-by-identities"></a>Encode EDIFACT Message par identités
-Saisissez l’identificateur et le qualificateur de l’expéditeur, ainsi que l’identificateur et le qualificateur du récepteur, tels qu’ils sont configurés dans le contrat EDIFACT. Sélectionnez le message XML à encoder :  
-    ![remplir les champs obligatoires](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
+
+Si vous choisissez d’encoder des messages EDIFAC par identités, indiquez l’identificateur et le qualificateur de l’expéditeur ainsi que l’identificateur et le qualificateur du récepteur tels que configurés dans votre contrat EDIFACT. Sélectionnez le message XML à encoder.
+
+![Renseigner les identités de l’expéditeur et du destinataire, sélectionner le message XML à encoder](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
 ## <a name="edifact-encode-details"></a>Détails sur l’encodage EDIFACT
-Le connecteur Encode EDIFACT effectue les opérations suivantes : 
+
+Le connecteur Encode EDIFACT effectue les tâches suivantes : 
 
 * Résout le contrat en mettant en correspondance les identificateurs et les qualificateurs de l’expéditeur et du récepteur
 * Sérialise l’échange EDI en convertissant les messages codés au format XML en documents informatisés EDI au sein de l’échange.
@@ -78,10 +96,5 @@ Le connecteur Encode EDIFACT effectue les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

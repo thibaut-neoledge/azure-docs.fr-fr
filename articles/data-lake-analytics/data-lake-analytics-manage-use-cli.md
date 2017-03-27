@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3f1d941f08141df34e5557391ee6740de4cbb7d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+* **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
   * Téléchargez et installez les **outils d’interface de ligne de commande Azure** [version préliminaire](https://github.com/MicrosoftBigData/AzureDataLake/releases) pour effectuer cette démonstration.
 * **Authentication**, en utilisant la commande  suivante :
   
@@ -198,10 +199,5 @@ Le groupe ARM peut cependant se trouver dans un autre centre de données.
 * [Prise en main des analyses Data Lake à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 * [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 * [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

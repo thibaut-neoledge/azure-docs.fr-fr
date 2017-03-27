@@ -9,6 +9,7 @@ author: mumian
 documentationcenter: 
 ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
 ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -278,10 +280,5 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

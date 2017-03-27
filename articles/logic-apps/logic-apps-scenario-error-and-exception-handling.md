@@ -17,13 +17,13 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 03467542669d9719d2634d20d4c0e7bba265ac6f
-ms.openlocfilehash: dff2c67f5e529d40d31e9bad1af00938ddf547b8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="scenario-exception-handling-and-logging-errors-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
 Ce scénario décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Nous avons utilisé un cas d’utilisation réel, et cet article répond à la question « Azure Logic Apps prend-il en charge la gestion des exceptions et des erreurs ? »
 
@@ -429,9 +429,7 @@ Pour afficher les journaux, nous avons également créé une application web MVC
 
 #### <a name="logic-apps-exception-management-api"></a>API de gestion des exceptions Logic Apps
 
-Notre application API de gestion des exceptions Azure Logic Apps en open source fournit les fonctionnalités suivantes.
-
-Elle compte deux contrôleurs :
+Notre application API de gestion des exceptions Azure Logic Apps en open source fournit les fonctionnalités décrites ici (il y a deux contrôleurs) :
 
 * **ErrorController** insère un enregistrement d’erreur (document) dans une collection DocumentDB.
 * **LogController** insère un enregistrement de journal (document) dans une collection DocumentDB.

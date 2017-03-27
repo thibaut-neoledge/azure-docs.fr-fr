@@ -10,7 +10,7 @@
 ## [Créer une machine virtuelle à l’aide du portail](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Se connecter à une machine virtuelle](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Installation d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
-## [Installation de l’interface de ligne de commande Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Procédures
 
@@ -85,6 +85,7 @@
 ### [Accéder à une application](../../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Problèmes de déploiement classique liés à la création d’une machine virtuelle](../../virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle existante](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Réinitialiser le mot de passe RDP](../../virtual-machines-windows-classic-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Référence
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
@@ -102,8 +103,3 @@
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

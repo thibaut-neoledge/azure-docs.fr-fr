@@ -5,7 +5,7 @@
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
 
 * Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Installez la dernière version de l’interface de ligne de commande Azure, disponible pour Windows, Linux ou MAC. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../articles/xplat-cli-install.md).
+* Installez la dernière version de l’interface de ligne de commande Azure, disponible pour Windows, Linux ou MAC. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../articles/cli-install-nodejs.md).
 
 ### <a name="sign-in-to-your-azure-account"></a>Connexion à votre compte Azure
 
@@ -54,9 +54,4 @@ Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Netwo
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1c740ac1f98a07b08bdf922dde99ce54bac23ee5
-ms.openlocfilehash: e41e246b081efbdf5edf70ee5de86cd2a68043b2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,9 +50,15 @@ Le plan de consommation met automatiquement à l’échelle les ressources proce
 
 Lors de l’exécution sur un plan de consommation, si une application de fonction est inactive, il peut y avoir jusqu’à 10 minutes par jour dans le traitement des nouveaux objets blob. Une fois la Function App en cours d’exécution, les objets blob sont traités plus rapidement. Pour éviter ce délai initial, utilisez un plan App Service régulier avec Toujours actif activé ou un autre mécanisme pour déclencher le traitement des objets blob, par exemple un message de file d’attente contenant le nom de l’objet blob. 
 
+Lorsque vous créez une application de fonction, vous devez créer ou lier un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table. En interne, les fonctions Azure utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau du compte de stockage lors de la création d’une nouvelle application de fonction.
+
+Lorsque vous utilisez le plan d’hébergement de la consommation, le contenu de l’application de fonction (par exemple, les fichiers de code de fonction et la configuration de liaison) est stocké sur des partages de fichiers Azure dans le compte de stockage principal. Si vous supprimez le compte de stockage principal, ce contenu sera supprimé et ne peut pas être récupéré.
+
+Pour en savoir plus sur les types de compte de stockage, consultez la page [Présentation des services de stockage Azure] (.. / storage/storage-introduction.md#introducing-the-azure-storage-services).
+
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
-Functions utilise un écouteur central pour évaluer les besoins en calcul sur la base des déclencheurs configurés et décider quand augmenter ou diminuer la taille des instances. L’écouteur central traite en continu des indications pour les besoins en mémoire et des points de données propres aux déclencheurs. Par exemple, dans le cas d’un déclencheur Stockage File d’attente Azure, les points de données comprennent la longueur de la file d’attente et le temps d’attente pour l’entrée la plus ancienne.
+Functions utilise un contrôleur de mise à l’échelle pour évaluer les besoins en calcul sur la base des déclencheurs configurés et décider quand augmenter ou diminuer la taille des instances. Le contrôleur de mise à l’échelle traite en continu des indications pour les besoins en mémoire et des points de données propres aux déclencheurs. Par exemple, dans le cas d’un déclencheur Stockage File d’attente Azure, les points de données comprennent la longueur de la file d’attente et le temps d’attente pour l’entrée la plus ancienne.
 
 ![](./media/functions-scale/central-listener.png)
 

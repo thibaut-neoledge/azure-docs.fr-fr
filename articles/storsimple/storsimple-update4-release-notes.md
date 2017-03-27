@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -57,9 +57,9 @@ Update 4 comporte les principaux correctifs de bogues et améliorations suivant
 
 * **Modifications relatives à FIPS** : à partir de cette version, FIPS est activée par défaut sur tous les appareils StorSimple série 8000 pour les comptes de cloud public Microsoft Azure Government et Azure.
 
-* **Modifications relatives à la mise à jour** : à partir de cette version, FIPS est activée par défaut sur tous les appareils StorSimple série 8000 pour les comptes de cloud public Microsoft Azure Government et Azure.
+* **Modifications de la mise à jour** : dans cette version, les bogues liés aux échecs de mise à jour ont été résolus.
 
-* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version.
+* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version. Si vous rencontrez cette alerte, demandez au support technique de Microsoft de vous livrer un disque de remplacement.
 
 * **Modifications relatives au remplacement du contrôleur** : une applet de commande permettant à l’utilisateur d’interroger l’état du processus de remplacement du contrôleur a été ajoutée dans cette version. Pour plus d’informations, consultez [l’applet de commande pour interroger l’état du remplacement du contrôleur](https://technet.microsoft.com/library/dn688168.aspx).
 

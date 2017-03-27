@@ -17,22 +17,23 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="storing-azure-sql-database-backups-for-up-to-10-years"></a>Stockage des sauvegardes d’Azure SQL Database pendant 10 ans
-De nombreuses applications ont des fins réglementaires, de conformité ou d’autres activités qui vous obligent à conserver les sauvegardes automatiques de la base de données complète au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) de SQL Database.
+De nombreuses applications ont des fins réglementaires, de conformité ou d’autres activités qui vous obligent à conserver les sauvegardes automatiques de la base de données complète au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) de SQL Database. La fonctionnalité de **rétention de sauvegarde à long terme** vous permet de stocker vos sauvegardes de l’Azure SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu'à 1 000 bases de données par coffre. Vous pouvez sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.
 
-La fonctionnalité de **rétention de sauvegarde à long terme** vous permet de stocker vos sauvegardes de l’Azure SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu'à 1 000 bases de données par coffre. Vous pouvez sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.
+> [!IMPORTANT]
+> La rétention de sauvegarde à long terme est actuellement en version préliminaire et disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, États-Unis du Centre, Asie de l’Est, États-Unis de l’Est, États-Unis de l’Est 2, Inde-Centre, Sud de l’Inde, Japon de l’Est, Japon de l’Ouest, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Europe de l’Ouest et États-Unis de l’Ouest.
+>
 
 > [!NOTE]
 > Vous pouvez activer jusqu'à 200 bases de données par coffre pendant une période de 24 heures. Par conséquent, nous vous recommandons d’utiliser un coffre distinct pour chaque serveur afin de minimiser l’impact de cette limite. 
 > 
 > 
-
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Comment fonctionne la rétention de sauvegarde SQL Database à long terme ?
 
 La rétention à long terme des sauvegardes vous permet d’associer un serveur Azure SQL Database à un coffre Azure Recovery Services. 
@@ -40,7 +41,6 @@ La rétention à long terme des sauvegardes vous permet d’associer un serveur 
 * L’archivage doit être créé dans l’abonnement Azure qui a créé le serveur SQL, dans la même région géographique et dans le même groupe de ressources. 
 * Vous configurez ensuite une stratégie de rétention pour une base de données quelconque. La stratégie met en œuvre une copie hebdomadaire des sauvegardes complètes des bases de données dans le coffre Recovery Services et leur conservation pendant la période de rétention spécifiée (jusqu'à 10 ans). 
 * Vous pouvez ensuite restaurer l’une de ces sauvegardes dans une nouvelle base de données dans n’importe quel serveur de l’abonnement. La copie est effectuée par le stockage Azure à partir de sauvegardes existantes et n’a aucun impact sur les performances de la base de données existante.
-
 
 > [!TIP]
 > Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données avec le portail Azure](sql-database-get-started-backup-recovery-portal.md), ou [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données avec PowerShell](sql-database-get-started-backup-recovery-powershell.md)

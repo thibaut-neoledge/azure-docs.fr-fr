@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,6 +28,7 @@ Comparez Apache Storm et Azure Stream Analytics pour vous aider à choisir une p
 Si ces deux plateformes d’analyse fournissent les avantages d’une solution PaaS, il existe quelques fonctionnalités principales qui les différencient. Ces fonctionnalités et les limitations des services sont répertoriées ci-dessous pour vous aider à identifier la solution qui vous permettra d’atteindre vos objectifs.
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparaison de Storm et de Stream Analytics : fonctionnalités générales
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -137,7 +139,9 @@ Pour Apache Storm sur HDInsight, l’unité d’achat est basée sur le cluster 
         </tr>
     </tbody>
 </table>
-## Création sur chaque plateforme d’analyse ##
+
+## <a name="authoring-on-each-analytics-platform"></a>Création sur chaque plateforme d’analyse ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -261,7 +265,9 @@ Oui, il est possible d’écrire du code personnalisé en C#, Java ou dans d’
         </tr>
     </tbody>
 </table>
-## Sources de données et sorties ##
+
+## <a name="data-sources-and-outputs"></a>Sources de données et sorties ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -350,7 +356,9 @@ Tous les formats de codage de données peuvent être implémentés via du code p
         </tr>
     </tbody>
 </table>
-## Gestion et opérations ##
+
+## <a name="management-and-operations"></a>Gestion et opérations ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -509,7 +517,9 @@ Contrat SLA de temps d’activité de 99,9 % du cluster Storm. Apache Storm es
         </tr>
     </tbody>
 </table>
-## Fonctionnalités avancées ##
+
+## <a name="advanced-features"></a>Fonctionnalités avancées ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -585,9 +595,4 @@ Disponible via Storm Bolts.
         </tr>
     </tbody>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

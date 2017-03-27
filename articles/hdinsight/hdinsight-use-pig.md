@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/18/2017
 
 Dans cet article, vous découvrirez comment utiliser Pig avec HDInsight.
 
-## <a name="a-idwhyawhy-use-pig"></a><a id="why"></a>Pourquoi utiliser Pig ?
+## <a id="why"></a>Pourquoi utiliser Pig ?
 Lun des défis de traitement de données à l'aide de MapReduce dans Hadoop consiste à implémenter votre logique de traitement en utilisant uniquement un mappage et une fonction de réduction. Pour un traitement complexe, vous devez souvent interrompre le traitement lors de plusieurs opérations MapReduce qui sont chaînées ensemble pour produire le résultat souhaité.
 
 Au lieu de vous obliger à utiliser uniquement le mappage et des fonctions de réduction, Pig permet de définir un traitement comme une série de transformations via lesquelles les données circulent pour produire le résultat souhaité.
@@ -50,7 +51,7 @@ Pour obtenir un exemple d'utilisation des fonctions définies par l’utilisateu
 * [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 * [Utilisation de C# avec Hive et Pig dans HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>À propos de l'exemple de données
+## <a id="data"></a>À propos de l'exemple de données
 Cet exemple utilise un exemple de fichier *log4j* , qui est stocké dans **/example/data/sample.log** , dans votre conteneur de stockage d'objets blob. Chaque journal à l'intérieur du fichier est constitué d'une ligne de champs qui contient un champ `[LOG LEVEL]` pour indiquer le type et la gravité, par exemple :
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
@@ -73,7 +74,7 @@ L’exemple de données est stocké dans le module de stockage d'objets blob Azu
 > 
 > 
 
-## <a name="a-idjobaabout-the-sample-job"></a><a id="job"></a>À propos de l'exemple de tâche
+## <a id="job"></a>À propos de l'exemple de tâche
 La tâche Pig Latin suivante charge le fichier **sample.log** depuis le stockage par défaut de votre cluster HDInsight. Elle effectue ensuite une série de transformations qui créent un décompte du nombre de fois où chaque niveau du journal s'est produit dans les données d'entrée. Les résultats sont vidés dans STDOUT.
 
     LOGS = LOAD 'wasbs:///example/data/sample.log';
@@ -88,7 +89,7 @@ L’image suivante montre une répartition de ce qu’effectue chaque transforma
 
 ![Représentation graphique des transformations][image-hdi-pig-data-transformation]
 
-## <a name="a-idrunarun-the-pig-latin-job"></a><a id="run"></a>Exécution de la tâche Pig Latin
+## <a id="run"></a>Exécution de la tâche Pig Latin
 HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilisez le tableau suivant pour découvrir la méthode qui vous convient, puis cliquez sur le lien pour obtenir une présentation détaillée.
 
 | **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ...avec ce **système d’exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
@@ -110,7 +111,7 @@ Vous pouvez également utiliser les services SQL Server Integration Services (SS
 
 Pour en savoir plus sur le pack de fonctionnalités Azure pour SSIS, cliquez [ici][ssispack].
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les liens suivants pour découvrir d'autres façons d'utiliser Azure HDInsight.
 
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]

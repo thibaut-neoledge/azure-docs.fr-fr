@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
-ms.openlocfilehash: 93b9ec270ffc69fcfde56bcc56c8953024133fcd
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c47b414cf74401504da4504ae03dfd28f603351f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 
 ## <a name="prerequisites"></a>Composants requis
 * [Git](http://www.git-scm.com/downloads).
-* [Interface de ligne de commande Azure](../xplat-cli-install.md).
+* [Interface de ligne de commande Azure](../cli-install-nodejs.md).
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

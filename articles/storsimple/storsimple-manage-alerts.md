@@ -4,7 +4,7 @@ description: "Décrit les conditions et la gravité des alertes StorSimple, comm
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/08/2017
 ms.author: anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c09a105bd321ec29f4331d2ba4c8cf80a796da45
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -155,6 +156,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |:--- |:--- |:--- |
 | Le composant matériel <*ID composant*> indique l’état <*état*>. | |Les conditions temporaires peuvent parfois provoquer ces alertes. Dans ce cas, l’alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |
 | Dysfonctionnement du contrôleur passif. |Le contrôleur passif (secondaire) ne fonctionne pas. |Votre appareil est opérationnel, mais l’un de vos contrôleurs est défectueux. Essayez de redémarrer ce contrôleur. Si le problème persiste, contactez le Support Microsoft. |
+| Panne de disque imminente détectée. | Panne de disque imminente détectée. |Nous avons détecté une panne de disque imminente pour le composant matériel « Disque <*ID d’emplacement*>, Boîtier <*ID de boîtier*> ». Envisagez de remplacer le disque. <br> Avant de commencer le remplacement du disque, passez en revue les informations suivantes.<br><br>Si votre appareil a plusieurs disques défectueux, ne retirez jamais en même temps plusieurs disques SSD ou disques durs. Ceci peut entraîner la perte de données.<br><br>Veillez à placer un disque SSD de remplacement à un emplacement qui contenait auparavant un disque SSD. Il en est de même pour un disque dur.<br><br>Les emplacements sont numérotés de 0 à 11. Un disque défectueux dans l’emplacement 2 correspond à un disque défectueux dans l’emplacement 3 de l’appareil (à partir du haut à gauche).<br><br>Pour plus d’informations sur le remplacement de disque, consultez la page https://go.microsoft.com/fwlink/?linkid=838653. Si le problème persiste, contactez le support technique Microsoft via https://go.microsoft.com/fwlink/?linkid=838654. |
 
 ### <a name="job-failure-alerts"></a>Alertes d'échec de tâche
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
@@ -179,7 +181,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |:--- |:--- |:--- |
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
-| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP&10;.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 
 ### <a name="performance-alerts"></a>Alertes de performances
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
@@ -213,10 +215,5 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

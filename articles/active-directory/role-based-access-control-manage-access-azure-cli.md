@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: d9ef14d1d83d98de5c1d95b237a2e06ea2506766
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3c8ee4a51d69b7511445d441e28a1014200bdc4a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +32,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) disponible dans le portail A
 
 Pour pouvoir utiliser l’interface de ligne de commande (CLI) Azure afin de gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
-* Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli-install.md).
+* Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../cli-install-nodejs.md).
 * Azure Resource Manager dans l’interface de ligne de commande Azure. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md) .
 
 ## <a name="list-roles"></a>Répertorier les rôles

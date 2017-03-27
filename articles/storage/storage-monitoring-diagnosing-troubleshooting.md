@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -305,7 +305,7 @@ Cette section est destinée à vous aider à diagnostiquer et résoudre certains
 
 **Arbre de décision pour la résolution des problèmes**
 
-- - -
+---
 Votre problème concerne-t-il les performances d'un des services de stockage ?
 
 * [Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible]
@@ -313,39 +313,39 @@ Votre problème concerne-t-il les performances d'un des services de stockage ?
 * [Les métriques indiquent une valeur AverageServerLatency élevée]
 * [Vous constatez des retards inattendus dans la livraison des messages d’une file d’attente]
 
-- - -
+---
 Votre problème concerne-t-il la disponibilité d’un des services de stockage ?
 
 * [Les métriques indiquent une augmentation de la valeur PercentThrottlingError]
 * [Les métriques indiquent une augmentation de la valeur PercentTimeoutError]
 * [Les métriques indiquent une augmentation de la valeur PercentNetworkError]
 
-- - -
-Votre application client reçoit-elle une réponse HTTP 4XX (telle que 404) d’un service de stockage ?
+---
+ Votre application client reçoit-elle une réponse HTTP 4XX (telle que 404) d’un service de stockage ?
 
 * [Le client reçoit des messages HTTP 403 (Forbidden)]
 * [Le client reçoit des messages HTTP 404 (Not found)]
 * [Le client reçoit des messages HTTP 409 (Conflict)]
 
-- - -
-[Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d’analyse incluent des opérations avec un statut de transaction ClientOtherErrors]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage]
 
-- - -
-[Vous constatez des redémarrages inattendus des machines virtuelles associées à un grand nombre de disques durs virtuels]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests]
 
-- - -
-[Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [Vous rencontrez un autre problème avec un service de stockage]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible
 L’illustration de l’outil d’analyse du [portail Azure](https://portal.azure.com) donne un exemple où la valeur **AverageE2ELatency** est nettement supérieure à la valeur **AverageServerLatency**.
 

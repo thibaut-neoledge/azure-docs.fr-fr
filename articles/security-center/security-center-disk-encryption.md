@@ -1,7 +1,24 @@
-le--- title: Chiffrement d’une machine virtuelle Azure | Microsoft Docs description : Cet article vous explique comment chiffrer une machine virtuelle Azure après avoir reçu une alerte du Centre de sécurité Azure.
-services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
+---
+title: "Chiffrement d’une machine virtuelle Azure| Microsoft Docs"
+description: "Cet article vous explique comment chiffrer une machine virtuelle Azure après avoir reçu une alerte du Centre de sécurité Azure."
+services: security, security-center
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
+ms.service: security
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/15/2017
+ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
@@ -80,7 +97,7 @@ Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 5. Identifiez l’abonnement auquel est associée votre machine virtuelle et repérez son emplacement. Accédez à [https://portal.azure.com](ttps://portal.azure.com) et connectez-vous.  À gauche de la page, cliquez sur **Machines virtuelles**. Vous obtenez une liste de vos machines virtuelles ainsi que des abonnements auxquels elles sont rattachées.
 
    ![Machines virtuelles](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
-6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId <ID_de_votre_abonement>** (remplacez ** <ID_de_votre_abonement>** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
+6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId <ID_de_votre_abonement>** (remplacez **<ID_de_votre_abonement>** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
 7. Vous êtes maintenant prêt à exécuter le script. Cliquez sur le bouton **Exécuter le script** ou appuyez sur la touche **F5** du clavier.
 
    ![Exécution du script PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
@@ -162,3 +179,4 @@ Dans ce document, vous avez appris à chiffrer une machine virtuelle Azure. Pour
 * [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 * [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
+

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52d41bbac22c6a20b1632b529b061ed7e640ea1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eec68b1cbfbddf0b72b55376ee11451b25898b68
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial)dès aujourd’hui.
-* Interface de ligne de commande interplateforme Azure, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../xplat-cli-install.md).
+* Interface de ligne de commande interplateforme Azure, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../cli-install-nodejs.md).
 * Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtention d’aide avec l’interface de ligne de commande interplateforme Azure
@@ -59,7 +60,7 @@ Si vous avez des doutes sur les paramètres exigés par une commande, reportez-v
 
 Consultez également les didacticiels suivants afin de vous familiariser avec Azure Resource Manager dans l’interface de ligne de commande interplateforme Azure :
 
-* [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../xplat-cli-install.md)
+* [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../cli-install-nodejs.md)
 * [Utilisation de l’interface de ligne de commande interplateforme Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## <a name="connect-to-your-subscriptions"></a>Connexion à vos abonnements
@@ -94,7 +95,7 @@ Ensuite, pour indiquer l’abonnement, tapez ce qui suit :
 
     azure account set <subscription name>
 
-Pour plus d’informations sur la configuration de l’interface de ligne de commande interplateforme Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../xplat-cli-install.md).
+Pour plus d’informations sur la configuration de l’interface de ligne de commande interplateforme Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../cli-install-nodejs.md).
 
 ## <a name="switch-to-using-azure-resource-manager"></a>Passage au mode Azure Resource Manager
 Key Vault nécessitant Azure Resource Manager, tapez ce qui suit pour passer en mode Azure Resource Manager :
@@ -166,7 +167,7 @@ Les applications qui utilisent un coffre de clés doivent s’authentifier à l�
 Pour inscrire votre application auprès d’Azure Active Directory :
 
 1. Connectez-vous au portail Azure.
-2. Dans le volet gauche, cliquez sur **Active Directory**, puis sélectionnez le répertoire dans lequel vous allez inscrire votre application. <br> <br>  Remarque : vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. Si vous ne savez pas de quel répertoire il s’agit, cliquez sur **Paramètres**, identifiez l’abonnement avec lequel vous avez créé votre coffre de clés et notez le nom du répertoire affiché dans la dernière colonne.
+2. Dans le volet gauche, cliquez sur **Active Directory**, puis sélectionnez le répertoire dans lequel vous allez inscrire votre application. <br> <br> Remarque : vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. Si vous ne savez pas de quel répertoire il s’agit, cliquez sur **Paramètres**, identifiez l’abonnement avec lequel vous avez créé votre coffre de clés et notez le nom du répertoire affiché dans la dernière colonne.
 3. Cliquez sur **APPLICATIONS**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien. Vous pouvez également cliquer sur **AJOUTER** dans la barre de commandes.
 4. Dans l’Assistant **AJOUTER UNE APPLICATION**, dans la page **Que voulez-vous faire ?**, cliquez sur **Ajouter une application développée par mon organisation**.
 5. Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **APPLICATION WEB ET/OU API WEB** (par défaut). Cliquez sur l’icône Suivant.
@@ -251,10 +252,5 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

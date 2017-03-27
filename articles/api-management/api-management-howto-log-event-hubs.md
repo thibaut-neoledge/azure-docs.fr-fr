@@ -100,7 +100,7 @@ Cliquez sur **Stratégies** ans le menu Gestion des API situé à gauche, sélec
 
 ![Add policy][add-policy]
 
-Placez votre curseur dans la section de la stratégie `inbound` et cliquez sur la stratégie **Log to EventHub`log-to-eventhub` pour insérer le modèle de déclaration de stratégie **.
+Placez votre curseur dans la section de la stratégie `inbound` et cliquez sur la stratégie **Log to EventHub`log-to-eventhub` pour insérer le modèle de déclaration de stratégie**.
 
 ![Policy editor][event-hub-policy]
 
@@ -127,7 +127,7 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
   * [Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope](api-management-log-to-eventhub-sample.md)    
 
 ## <a name="watch-a-video-walkthrough"></a>Regarder une procédure pas à pas en vidéo
-> [VIDÉO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
 >
 >
 
