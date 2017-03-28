@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -197,71 +197,11 @@ La lecture de travail vous permet de surveiller la progression de l'exécution d
 Data Lake Tools pour Visual Studio fournit des superpositions en couleurs sélectionnables par l'utilisateur dans la vue du travail pour indiquer la progression, les E/S de données, la durée d'exécution, le débit E/S de chaque étape. Grâce à cela, les utilisateurs peuvent déterminer les problèmes potentiels et la distribution des propriétés du travail directement et de façon intuitive. Vous pouvez choisir une source de données à afficher dans la liste déroulante.  
 
 ## <a name="run-u-sql-locally"></a>Exécuter U-SQL localement
-Grâce à l’exécution locale dU-SQL dans Visual Studio, vous pouvez :
 
-* Exécuter des scripts U-SQL localement, ainsi que des assemblys C#.
-* Déboguer des assemblys C# localement.
-* Créer/supprimer/afficher des tables, schémas, assemblys et bases de données locaux dans l’Explorateur de serveurs, tout comme vous pouvez le faire pour le service Azure Data Lake Analytics.
+Vous pouvez utiliser Azure Data Lake Tools pour Visual Studio et le Kit de développement logiciel (SDK) U-SQL pour exécuter des travaux U-SQL sur votre station de travail, comme vous pouvez le faire dans le service Azure Data Lake. Ces deux fonctionnalités d’exécution locale accélèrent les procédures de test et de débogage de vos travaux U-SQL. 
 
-Un compte *Local* est répertorié dans Visual Studio et le programme d’installation crée un dossier *DataRoot* sous *C:\LocalRunRoot*. Le dossier DataRoot sera utilisé pour :
+* [Tester et déboguer des travaux U-SQL à l’aide d’une exécution locale et du Kit de développement logiciel (SDK) Azure Data Lake U-SQL](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Stocker les métadonnées, notamment des tables, des bases de données, des fonctions à valeurs de tables (TVF), etc.
-* Pour un certain script : si un chemin d'accès relatif est référencé dans les chemins d'entrée/sortie, nous examinerons le dossier DataRoot (ainsi que le chemin du script)
-* Le dossier DataRoot ne sera PAS référencé si vous tentez d'inscrire un assembly et d'utiliser un chemin d'accès relatif (voir la rubrique « Utilisation d'assemblys lors de l'exécution locale » pour plus de détails)
-
-La vidéo suivante présente la fonctionnalité d'exécution locale U-SQL :
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
-* Impossible de créer la table/base de données etc. dans l'Explorateur de serveurs pour le compte local.
-* Lorsqu'un chemin d'accès relatif est référencé :
-
-  * Dans l'entrée du script (EXTRACT * FROM "/path/abc") - le chemin d'accès à DataRoot et le chemin d'accès au script seront explorés.
-  * Dans la sortie du script (OUTPUT TO "path/abc") : le chemin d'accès au dossier DataRoot sera utilisé comme dossier de sortie.
-  * Dans l’enregistrement de l’assembly (CREATE ASSEMBLY xyz FROM "/path/abc") : le chemin d’accès au script est exploré, mais non celui du dossier DataRoot.
-  * Dans les entités TVF/View ou autres entités de métadonnées inscrites : le chemin d’accès au dossier DataRoot est exploré, mais non celui du script.
-
-    Pour les scripts exécutés sur le service Data Lake, le compte de stockage par défaut sera utilisé comme dossier racine et exploré en conséquence.
-
-### <a name="test-u-sql-scripts-locally"></a>Tester les scripts SQL-U localement
-Pour obtenir des instructions sur le développement de scripts SQL-U, consultez [Développer des scripts U-SQL](#develop-and-test-u-sql-scripts). Pour générer et exécuter des scripts U-SQL localement, sélectionnez **(Local)** dans la liste déroulante du cluster, puis cliquez sur **Envoyer**. Vérifiez que vous avez les bonnes données référencées - faites référence au chemin d'accès absolu ou placez les données dans le dossier DataRoot.
-
-![Soumettre localement un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Vous pouvez également cliquer avec le bouton droit sur un script, puis cliquer sur **Exécuter le plan local** dans le menu contextuel, ou appuyer sur**CTRL+F5** pour lancer l’exécution locale.
-
-### <a name="use-assemblies-in-local-run"></a>Utiliser des assemblys dans l'exécution locale
-Il existe deux manières d'exécuter les fichiers C# personnalisés :
-
-* Écrire des assemblys dans fichier code-behind ; les assemblys seront automatiquement inscrits et supprimés une fois le script terminé.
-* Créer un projet d'assembly C# et inscrire la dll de sortie dans le compte local via un script comme ci-dessous. Notez que le chemin d'accès est relatif au script plutôt qu'au dossier DataRoot.
-
-![Utiliser des assemblys dans l'exécution locale de u-sql](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Déboguer localement des scripts et des assemblys C#
-Vous pouvez déboguer des assemblys C# sans les envoyer ni les inscrire auprès du service Azure Data Lake Analytics. Vous pouvez définir des points d'arrêt à la fois dans les fichier code-behind et dans un projet C# référencé.
-
-**Pour déboguer le code local dans le fichier code-behind**
-
-1. Définissez des points d'arrêt dans le fichier code-behind.
-2. Appuyez sur **F5** pour déboguer le script localement.
-
-La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les versions Visual Studio plus anciennes, vous devrez peut-être ajouter manuellement les fichiers pdb.
-
-**Pour déboguer le code local dans un projet C# référencé**
-
-1. Créez un projet d'assembly C# et générez-le pour obtenir la dll de sortie.
-2. Inscrivez la dll à l'aide d'une instruction SQL-U :
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Définissez des points d'arrêt dans le code C#.
-4. Appuyez sur **F5** pour déboguer le script en faisant référence à la dll C# localement.  
 
 ## <a name="see-also"></a>Voir aussi
 Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, consultez :

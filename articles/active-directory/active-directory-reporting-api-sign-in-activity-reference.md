@@ -17,6 +17,7 @@ ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -180,10 +181,5 @@ Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
 ## <a name="next-steps"></a>Étapes suivantes
 * Voulez-vous voir des exemples d’activités de connexion filtrées ? Consultez les [exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Vous souhaitez en savoir plus sur l’API de création de rapports Azure AD ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

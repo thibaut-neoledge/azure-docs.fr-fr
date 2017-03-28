@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -105,7 +105,7 @@ Vous pouvez retrouver la chaîne de connexion dans le portail Azure ou à l’ai
 
 3. Dans le panneau **Historique des déploiements**, cliquez sur le déploiement dont le nom commence par **microsoft-acs**, suivi d’une date de déploiement. Exemple : microsoft-acs-201701310000.  
 
-4. Dans la page **Résumé**, sous **Sorties**, plusieurs liens de cluster sont présentés <provided></provided>. **SSHMaster0** fournit une chaîne de connexion SSH au premier maître dans votre cluster de service du conteneur. 
+4. Dans la page **Résumé**, sous **Sorties**, plusieurs liens de cluster s’affichent. **SSHMaster0** fournit une chaîne de connexion SSH au premier maître dans votre cluster de service du conteneur. 
 
 Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple :
 
@@ -122,3 +122,4 @@ Pour plus d’informations, consultez [Connexion à un cluster Azure Container S
 
 * [En savoir plus](container-service-intro.md) sur Azure Container Service.
 * Déployez un cluster de service de conteneur à l’aide du [portail](container-service-deployment.md) ou [d’Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
+
