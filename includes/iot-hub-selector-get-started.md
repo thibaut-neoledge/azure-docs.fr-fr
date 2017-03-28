@@ -16,10 +16,5 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * Utilisez le portail Azure pour créer un hub IoT.
 * Créer une identité de l’appareil dans votre hub IoT.
-* Créer une application de périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de solution et reçoit des commandes de ce dernier.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* Créer une application de périphérique simulé qui envoie les données de télémétrie au serveur back-end de votre solution.
 

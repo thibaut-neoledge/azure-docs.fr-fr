@@ -11,23 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c0c1eb80685d18794bcae7acaa16b777ff21b3e6
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
-L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
+L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
 
 ![Exemple de fenêtre Tendances](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-> [!NOTE]
-> L’outil Tendances Application Insights est disponible dans Visual Studio 2015 Update 3 et ultérieur, ou avec [l’extension Developer Analytics Tools](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) versions 5.209 et ultérieures.
-> 
-> 
+## <a name="configure-your-web-app-for-application-insights"></a>Configurer votre application web pour Application Insights
+
+Si vous ne l’avez pas encore fait, [configurez votre application web pour Application Insights](app-insights-overview.md). Elle pourra ainsi envoyer les données de télémétrie au portail Application Insights. L’outil Tendances lit les données de télémétrie à partir de ce portail.
+
+L’outil Tendances Application Insights est disponible dans Visual Studio 2015 Update 3 et versions ultérieures.
 
 ## <a name="open-application-insights-trends"></a>Ouvrir Tendances Application Insights
 Pour ouvrir la fenêtre Tendances Application Insights :
@@ -99,16 +101,11 @@ L’outil Tendances peut mettre en évidence des bulles d’événements anormal
 > 
 > 
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
+## <a name="next"></a>Étapes suivantes
 |  |  |
 | --- | --- |
 | **[Utilisation d’Application Insights dans Visual Studio](app-insights-visual-studio.md)**<br/>Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. |![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/app-insights-visual-studio-trends/34.png) |
 | **[Ajouter des données](app-insights-asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

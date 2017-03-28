@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4969b43831a3813a4e76c6447c252a9c458f371a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -37,7 +37,14 @@ Les étapes sont différentes selon que votre organisation a un client Azure AD 
 <br>
 
 ## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé
-Un client Azure AD connecté est défini pour se synchroniser avec le répertoire local de votre organisation à l’aide d’Azure AD Connect. Azure AD Connect ne synchronise pas les hachages des informations d’identification NTLM et Kerberos avec Azure AD par défaut. Pour utiliser les Services de domaine Azure AD, vous devez configurer Azure AD Connect pour synchroniser les hachages d’informations d’identification requis pour l’authentification NTLM et Kerberos. Les étapes suivantes permettent la synchronisation des hachages d’informations d’identification avec votre client Azure AD.
+Un client Azure AD connecté est défini pour se synchroniser avec le répertoire local de votre organisation à l’aide d’Azure AD Connect. Azure AD Connect ne synchronise pas les hachages des informations d’identification NTLM et Kerberos avec Azure AD par défaut. Pour utiliser les Services de domaine Azure AD, vous devez configurer Azure AD Connect pour synchroniser les hachages d’informations d’identification requis pour l’authentification NTLM et Kerberos. 
+
+> [!WARNING]
+> Vous DEVEZ activer la synchronisation du mot de passe aux services de domaine AAD chaque fois que vous activez les services de domaine Azure AD. Vous avez peut-être déjà activé des services de domaine Azure AD pour votre répertoire Azure AD, puis désactivé cette option. Toutefois, vous devez activer la synchronisation du mot de passe lors de la prochaine activation des services de domaine Azure AD pour le répertoire.
+>
+>
+
+Les étapes suivantes permettent la synchronisation des hachages d’informations d’identification avec votre client Azure AD.
 
 ### <a name="install-or-update-azure-ad-connect"></a>Installer ou mettre à jour Azure AD Connect
 Installer la dernière version recommandée d’Azure AD Connect sur un ordinateur joint à un domaine. Si une instance d’Azure AD Connect est déjà configurée, vous devez la mettre à jour pour utiliser la dernière version d’Azure AD Connect. Veillez à utiliser la dernière version d’Azure AD Connect afin d’éviter les problèmes/bogues connus déjà corrigés.

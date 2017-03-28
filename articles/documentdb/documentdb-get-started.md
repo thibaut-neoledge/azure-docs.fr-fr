@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -59,7 +59,6 @@ Vérifiez que vous disposez des éléments suivants :
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 
     * Vous pouvez également utiliser [l’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) pour ce didacticiel.
 * [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
-* .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>Étape 1 : créer un compte DocumentDB
 Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez utiliser, vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS). Si vous utilisez l’émulateur DocumentDB, suivez les étapes de la section [Émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) pour le configurer et passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
@@ -106,15 +105,15 @@ Maintenant, ajoutez ces deux constantes et votre variable *client* dans votre cl
     public class Program
     {
         // ADD THIS PART TO YOUR CODE
-        private const string EndpointUri = "<your endpoint URI>";
-        private const string PrimaryKey = "<your key>";
+        private const string EndpointUrl = "<your endpoint URL>";
+        private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-Ensuite, revenez au [portail Azure](https://portal.azure.com) pour récupérer votre URI et votre clé primaire. L’URI et la clé primaire de DocumentDB sont nécessaires pour que votre application puisse se connecter et que DocumentDB approuve la connexion de votre application.
+Ensuite, revenez au [portail Azure](https://portal.azure.com) pour récupérer l’URL de votre point de terminaison et votre clé primaire. L’URL du point de terminaison et la clé primaire sont nécessaires pour que votre application sache où se connecter et que DocumentDB approuve la connexion de votre application.
 
 Dans le portail Azure, accédez à votre compte DocumentDB, puis cliquez sur **Clés**.
 
-Copiez l’URI à partir du portail et collez-le dans `<your endpoint URI>` dans le fichier program.cs. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `<your key>`.
+Copiez l’URI à partir du portail et collez-le dans `<your endpoint URL>` dans le fichier program.cs. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `<your primary key>`.
 
 ![Capture d’écran du portail Azure utilisée par le didacticiel NoSQL pour créer une application de console C#. Présente un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
@@ -129,7 +128,7 @@ Sous la méthode **Main**, ajoutez la nouvelle tâche asynchrone appelée **GetS
     // ADD THIS PART TO YOUR CODE
     private async Task GetStartedDemo()
     {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
 Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** va intercepter les exceptions et les consigner dans la console.
@@ -175,42 +174,16 @@ Copiez et collez la méthode **WriteToConsoleAndPromptToContinue** après la mé
             Console.ReadKey();
     }
 
-Votre [base de données](documentdb-resources.md#databases) DocumentDB peut être créée à l’aide de la méthode [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
-
-Copiez et collez la méthode **CreateDatabaseIfNotExists** après la méthode **WriteToConsoleAndPromptToContinue**.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDatabaseIfNotExists(string databaseName)
-    {
-            // Check to verify a database with the id=FamilyDB does not exist
-            try
-            {
-                    await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-                    this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
-            }
-            catch (DocumentClientException de)
-            {
-                    // If the database does not exist, create a new database
-                    if (de.StatusCode == HttpStatusCode.NotFound)
-                    {
-                            await this.client.CreateDatabaseAsync(new Database { Id = databaseName });
-                            this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
-                    }
-                    else
-                    {
-                            throw;
-                    }
-            }
-    }
+Votre base de données [DocumentDB](documentdb-resources.md#databases) peut être créée à l’aide de la méthode [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la création du client. Ce faisant, vous créez la base de données *FamilyDB*.
 
     private async Task GetStartedDemo()
     {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -218,56 +191,20 @@ Félicitations ! Vous avez créé une base de données DocumentDB.
 
 ## <a id="CreateColl"></a>Étape 5 : créer une collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionIfNotExistsAsync** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
 > 
 
-Vous pouvez créer une [collection](documentdb-resources.md#collections) à l’aide de la méthode [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
+Vous pouvez créer une [collection](documentdb-resources.md#collections) à l’aide de la méthode [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 
-Copiez et collez la méthode **CreateDocumentCollectionIfNotExists** après votre méthode **CreateDatabaseIfNotExists**.
+Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la création de la base de données. Ce faisant, vous créez la collection de documents *FamilyCollection*.
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-    {
-        try
-        {
-            await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-        }
-        catch (DocumentClientException de)
-        {
-            // If the document collection does not exist, create a new collection
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                DocumentCollection collectionInfo = new DocumentCollection();
-                collectionInfo.Id = collectionName;
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
-                // Configure collections for maximum query flexibility including string range queries.
-                collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
-                // Here we create a collection with 400 RU/s.
-                await this.client.CreateDocumentCollectionAsync(
-                    UriFactory.CreateDatabaseUri(databaseName),
-                    collectionInfo,
-                    new RequestOptions { OfferThroughput = 400 });
-
-                this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
-
-Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la création de la base de données. Ce faisant, vous créez la collection de documents *FamilyCollection_oa*.
-
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
-
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+         await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -299,7 +236,7 @@ Copiez et collez les classes **Family**, **Parent**, **Child**, **Pet** et **Add
         public bool IsRegistered { get; set; }
         public override string ToString()
         {
-                return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this);
         }
     }
 
@@ -330,7 +267,7 @@ Copiez et collez les classes **Family**, **Parent**, **Child**, **Pet** et **Add
         public string City { get; set; }
     }
 
-Copiez et collez la méthode **CreateFamilyDocumentIfNotExists** après votre méthode **CreateDocumentCollectionIfNotExists**.
+Copiez et collez la méthode **CreateFamilyDocumentIfNotExists** sous votre classe **Address**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -358,9 +295,10 @@ Insérez ensuite deux documents, un pour la famille Andersen, l’autre pour la 
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la création de la collection de documents.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
+    
+    await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -389,7 +327,7 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après l
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -426,7 +364,7 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après l
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -475,12 +413,10 @@ Copiez et collez la méthode **ExecuteSimpleQuery** après votre méthode **Crea
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la création du deuxième document.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
-
-Avant d’exécuter l’application, dans le menu **Projet**, cliquez sur *Nom du projet*, **Propriétés…**, puis cliquez sur **Générer**. Décochez la case **32 bits (préféré)**, car les informations de routage de partitions ne peuvent pas être extraites de la requête lors de l’exécution dans un processus 32 bits.
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -500,30 +436,23 @@ Copiez et collez la méthode **ReplaceFamilyDocument** après votre méthode **E
     // ADD THIS PART TO YOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
     {
-        try
-        {
-            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+         await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+         this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
     }
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après l’exécution de la requête, à la fin de la méthode. Après avoir remplacé le document, cela exécutera à nouveau la même requête pour afficher le document modifié.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -537,25 +466,18 @@ Copiez et collez la méthode **DeleteFamilyDocument** après votre méthode **Re
     // ADD THIS PART TO YOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
-        try
-        {
-            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-            Console.WriteLine("Deleted Family {0}", documentName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+         await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+         Console.WriteLine("Deleted Family {0}", documentName);
     }
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après l’exécution de la deuxième requête, à la fin de la méthode.
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
-
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
-
+    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -566,13 +488,13 @@ Supprimer la base de données créée revient à supprimer la base de données e
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la suppression du document, pour supprimer la base de données et toutes ses ressources enfants.
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
 Appuyez sur **F5** pour exécuter votre application.
 
@@ -583,9 +505,9 @@ Appuyez sur F5 dans Visual Studio pour générer l'application en mode débogage
 
 La sortie de votre application de prise en main doit s’afficher. Celle-ci doit présenter les résultats des requêtes que nous avons ajoutées, qui doivent correspondre au texte d'exemple ci-dessous.
 
-    Created FamilyDB_oa
+    Created FamilyDB
     Press any key to continue ...
-    Created FamilyCollection_oa
+    Created FamilyCollection
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -616,8 +538,6 @@ Pour générer la solution GetStarted, vous aurez besoin des éléments suivants
 * La solution [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponible sur GitHub.
 
 Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio, cliquez avec le bouton droit sur la solution **GetStarted** dans l’Explorateur de solutions, puis cliquez sur **Activer la restauration des packages NuGet**. Ensuite, dans le fichier App.config, mettez à jour les valeurs pour EndpointUrl et AuthorizationKey comme décrit à la section [Se connecter à un compte DocumentDB](#Connect).
-
-Avant d’exécuter l’application, dans le menu **Projet**, cliquez sur *Nom du projet*, **Propriétés…**, puis cliquez sur **Générer**. Décochez la case **32 bits (préféré)**.
 
 Voilà, vous n’avez plus qu’à générer l’élément pour être sur la bonne voie !
 

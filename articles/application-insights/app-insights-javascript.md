@@ -1,21 +1,22 @@
 ---
-title: "Application Insights pour les applications Web JavaScript | Microsoft Docs"
+title: Azure Application Insights pour les applications web JavaScript | Microsoft Docs
 description: "Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Les [paramètres disponibles](https://github.com/Microsoft/ApplicationInsights-J
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Exécution de votre application
+## <a name="run"></a>Exécution de votre application
 Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur la touche **F5** de votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
 
 Si vous souhaitez vérifier la télémétrie qu’une application web envoie à Application Insights, utilisez les outils de débogage de votre navigateur (**F12** sur de nombreux navigateurs). Les données sont envoyées à dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Ouvrez le panneau Navigateurs pour afficher la synthèse des données de perform
 
 ![Dans portal.azure.com, ouvrez les ressources de votre application, puis cliquez sur Paramètres, Navigateur.](./media/app-insights-javascript/03.png)
 
-*Pas de données pour le moment ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
+*Pas de données pour le moment ? Cliquez sur**Actualiser**en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
 
 Le panneau navigateur est un [Panneau Metrics Explorer](app-insights-metrics-explorer.md) avec filtres prédéfinis et des sélections de graphique. Si vous le souhaitez, vous pouvez modifier l’intervalle de temps, les filtres et la configuration des graphiques, puis enregistrer le résultat en tant que favori. Cliquez sur **Paramètres par défaut** pour revenir à la configuration d’origine du panneau.
 
@@ -167,6 +168,7 @@ Cliquez sur n’importe quelle ligne pour obtenir des détails spécifiques.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Cliquez sur `...` pour obtenir les données de télémétrie complètes d’un appel Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Aucun appel Ajax n’est signalé ?
@@ -180,6 +182,7 @@ Le panneau Navigateurs présente un graphique récapitulatif des exceptions, ain
 Si les exceptions de navigateur ne sont pas signalées, vérifiez que l’extrait de code ne définit pas le [paramètre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Inspection des événements d’affichage de page individuels
+
 La télémétrie de l'affichage de page est généralement analysée par Application Insights, et vous ne consultez que des rapports cumulés, avec une moyenne entre tous les utilisateurs. Toutefois, à des fins de débogage, vous pouvez également consulter des événements d'affichage de page individuels.
 
 Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page.
@@ -217,19 +220,16 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 * [En savoir plus sur le suivi de l’utilisation](app-insights-web-track-usage.md)
 * [En savoir plus sur les événements personnalisés et les API de métriques](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Vidéo : suivi de l’utilisation
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Vidéo
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Étapes suivantes
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Étapes suivantes
 * [Suivi de l'utilisation](app-insights-web-track-usage.md)
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

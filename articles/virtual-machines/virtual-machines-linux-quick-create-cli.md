@@ -10,21 +10,21 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/10/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3ad45837a8c3f0e37e8571fb9b894df53ecb5f56
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c1d7cfe614ab4e677e7fff989e79eb09acb3feed
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Créer une machine virtuelle Linux avec Azure CLI 2.0
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux avec Azure CLI
 
-Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de l’interface de ligne de commande Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu 14.04 LTS.
+L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de la CLI Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu 16.04 LTS.
 
 Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -92,3 +92,4 @@ az group delete --name myResourceGroup
 [Didacticiel de création de machines virtuelles hautement disponibles](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Découvrir des exemples de commande de déploiement de machine virtuelle](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+

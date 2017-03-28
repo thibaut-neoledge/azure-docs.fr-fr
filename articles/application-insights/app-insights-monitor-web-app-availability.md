@@ -4,19 +4,19 @@ description: "Configurez des tests web dans Application Insights. Recevez des al
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ Il existe deux types de tests web :
 
 Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Créer une ressource pour vos rapports de test
+## <a name="create"></a>1. Créer une ressource pour vos rapports de test
 Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights][start] pour cette application et que vous souhaitez visualiser les rapports de disponibilité au même emplacement.
 
 Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azure](https://portal.azure.com), et créez une ressource Application Insights.
@@ -43,7 +43,7 @@ Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azur
 
 Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de la nouvelle ressource.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Créer un test Ping d’URL
+## <a name="setup"></a>2. Créer un test Ping d’URL
 Dans votre ressource Application Insights, recherchez la vignette de disponibilité. Cliquez dessus pour ouvrir le panneau des tests web de votre application et ajouter un test web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -51,7 +51,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 * **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
 * **Analyser les requêtes dépendantes**: les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test, et le temps de réponse enregistré inclut ces durées. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
 * **Autoriser de nouvelles tentatives**: une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
-* **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de&5; minutes et&5; emplacements de test, votre site sera testé en moyenne une fois par minute.
+* **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
 * **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 * **Critères de réussite**:
 
@@ -67,7 +67,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 ### <a name="test-more-urls"></a>Test d'autres URL
 Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Consulter les résultats des tests web
+## <a name="monitor"></a>3. Consulter les résultats des tests web
 Après 1 à 2 minutes, les résultats s’affichent dans le panneau du test web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -76,7 +76,7 @@ Cliquez sur une barre du graphique de synthèse pour obtenir une vue plus détai
 
 Ces graphiques combinent les résultats de tous les tests web de cette application.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Si vous constatez des erreurs
+## <a name="failures"></a>Si vous constatez des erreurs
 Cliquez sur un point rouge.
 
 ![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -101,16 +101,19 @@ Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple,
 > Les tests web à plusieurs étapes ont un coût. [Mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aide de Visual Studio et téléchargez ensuite l'enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
+Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l’aide de Visual Studio Enterprise et téléchargez ensuite l’enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
 Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Enregistrement d’un scénario
 Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
-1. Créez un projet de test de performances web.
+1. Créez un projet de test de performance web.
 
-    ![Dans Visual Studio, créez un projet à partir du modèle Projet de test de performance Web et de charge.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Dans Visual Studio édition Enterprise, créez un projet à partir du modèle Projet de test de performance Web et de charge.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
+
 2. Ouvrez le fichier .webtest et lancez l'enregistrement.
 
     ![Ouvrez le fichier .webtest et cliquez sur Enregistrer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -162,7 +165,7 @@ Les plug-ins de test web vous permettent de paramétrer les heures.
 
     ![Choisissez Ajouter un plug-in de test web et sélectionnez un type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Dans cet exemple, nous allons utiliser deux instances du plug-in Date Time. Une instance est pour « il y a&15; minutes » et l’autre pour « maintenant ».
+    Dans cet exemple, nous allons utiliser deux instances du plug-in Date Time. Une instance est pour « il y a 15 minutes » et l’autre pour « maintenant ».
 2. Ouvrez les propriétés de chaque plug-in. Donnez-lui un nom et configurez-le de manière à utiliser l’heure actuelle. Pour l'un d'eux, définissez Ajouter des minutes = -15.
 
     ![Définissez le nom, utilisez l’heure actuelle et ajouter des minutes.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
@@ -208,7 +211,7 @@ Si votre test doit se connecter à l’aide d’OAuth, l’approche générale e
 * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site.
   (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Modification ou désactivation d’un test
+## <a name="edit"></a> Modification ou désactivation d’un test
 Ouvrez un test à modifier ou à désactiver.
 
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -257,12 +260,12 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
     Désolé, ce n’est pas pris en charge.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Vidéo
+## <a name="video"></a>Vidéo
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
+## <a name="next"></a>Étapes suivantes
 [Recherche des journaux de diagnostic][diagnostic]
 
 [Résolution des problèmes][qna]
