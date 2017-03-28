@@ -4,18 +4,18 @@ description: "Analyse des performances des applications pour les applications we
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
 
 
 ---
@@ -76,7 +76,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
+* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
 
 #### <a name="if-youre-using-gradle"></a>Si vous utilisez Gradle...
 Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionnez le code suivant dans votre fichier build.gradle.xml.
@@ -97,7 +97,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
 * *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
-  *  Actualisez les dépendances de votre projet.
+  * Actualisez les dépendances de votre projet.
 
 #### <a name="otherwise-"></a>Sinon...
 Ajouter manuellement le Kit de développement logiciel :
@@ -375,6 +375,10 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 ## <a name="questions-problems"></a>Des questions ? Des problèmes ?
 [Résolution des problèmes Java](app-insights-java-troubleshoot.md)
 
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance des appels de dépendance](app-insights-java-agent.md)
 * [Surveillance des compteurs de performances Unix](app-insights-java-collectd.md)
@@ -394,9 +398,4 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

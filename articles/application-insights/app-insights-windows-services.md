@@ -1,5 +1,5 @@
 ---
-title: "Application Insights pour les services Windows et les rôles de travail | Microsoft Docs"
+title: "Azure Application Insights pour les services Windows et les rôles de travail | Microsoft Docs"
 description: "Ajoutez manuellement le Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET pour analyser l’utilisation, la disponibilité et les performances."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Ce dont vous avez besoin :
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
 * Visual Studio 2013 ou une version ultérieure.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Création d’une ressource Application Insights dans Azure
+## <a name="add"></a>1. Création d’une ressource Application Insights dans Azure
 Connectez-vous au [portail Azure](https://portal.azure.com/)et créez une ressource Application Insights. Choisissez le type d'application ASP.NET.
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 
 Les étapes que vous venez de suivre pour créer une nouvelle ressource sont un bon moyen de démarrer l'analyse de l’application de votre choix. Vous pouvez désormais envoyer des données vers celle-ci.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Installation du Kit de développement logiciel (SDK) dans votre application
+## <a name="sdk"></a>2. Installation du Kit de développement logiciel (SDK) dans votre application
 L’installation et la configuration du kit de développement logiciel (SDK) d’Application Insights varient en fonction de la plateforme sur laquelle vous travaillez. Pour les applications ASP.NET, rien de plus simple.
 
 1. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application web.
@@ -84,14 +85,14 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
 Ile est utile de définir la clé d’instrumentation dans le code si vous voulez [changer la clé pour différentes configurations de build](app-insights-separate-resources.md). Si vous définissez la clé dans le code, vous n’êtes pas obligé de la définir dans le fichier `.config`.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Exécution de votre projet
+## <a name="run"></a> Exécution de votre projet
 Exécutez votre application à l’aide de la touche **F5** et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements envoyés s'affiche dans Visual Studio.
 
 ![Nombre d’événements dans Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Affichage de vos données de télémétrie
+## <a name="monitor"></a> Affichage de vos données de télémétrie
 Revenez au [portail Azure](https://portal.azure.com/) et accédez à votre ressource Application Insights.
 
 Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
@@ -124,16 +125,15 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 
 > [!NOTE]
 > Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. 
-> [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+> [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 > 
 > 
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des données de télémétrie](app-insights-asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

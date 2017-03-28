@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
-ms.openlocfilehash: 7311588adcdeb11d0972daa68e832c4f95e60a5a
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Vue d'ensemble de Microsoft Azure Data Lake Analytics
 ## <a name="what-is-azure-data-lake-analytics"></a>Définition d'Azure Data Lake Analytics
-Azure Data Lake Analytics est un nouveau service, conçu pour faciliter l'analyse de Big Data. Ce service vous permet de vous concentrer sur l’écriture, l’exécution et la gestion des travaux, plutôt que sur le fonctionnement de l’infrastructure distribuée. Au lieu de déployer, de configurer et d’optimiser le matériel, vous écrivez des requêtes pour transformer vos données et en extraire des informations pertinentes. Le service d’analyse peut traiter les travaux instantanément, quelle qu’en soit l’échelle, en définissant le compteur sur la puissance requise. Vous payez les travaux uniquement lorsque ceux-ci sont exécutés, ce qui rend le service économique. Le service d’analyse prend en charge Azure Active Directory, ce qui vous permet de gérer les accès et les rôles et de bénéficier d’une intégration à votre système d’identité local. Il inclut également U-SQL, un langage qui associe les avantages de SQL avec la puissance d'expression du code utilisateur. Le runtime distribué et évolutif d’U-SQL vous permet d’analyser efficacement les données situées dans le magasin et sur les serveurs SQL Server dans Azure, Azure SQL Database et Azure SQL Data Warehouse.
+Azure Data Lake Analytics est un service de travaux d’analyse à la demande qui simplifie l’analyse du Big Data. Il vous permet de vous concentrer sur l’écriture, l’exécution et la gestion des travaux, plutôt que sur le fonctionnement de l’infrastructure distribuée. Au lieu de déployer, de configurer et d’optimiser le matériel, vous écrivez des requêtes pour transformer vos données et en extraire des informations pertinentes. Le service d’analyse peut traiter les travaux instantanément, quelle qu’en soit l’échelle, en définissant le compteur sur la puissance requise. Vous payez les travaux uniquement lorsque ceux-ci sont exécutés, ce qui rend le service économique. Le service d’analyse prend en charge Azure Active Directory, ce qui vous permet de gérer les accès et les rôles et de bénéficier d’une intégration à votre système d’identité local. Il inclut également U-SQL, un langage qui associe les avantages de SQL avec la puissance d'expression du code utilisateur. Le runtime distribué et évolutif d’U-SQL vous permet d’analyser efficacement les données situées dans le magasin et sur les serveurs SQL Server dans Azure, Azure SQL Database et Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 * **Mise à l'échelle dynamique**
@@ -71,10 +72,5 @@ Azure Data Lake Analytics est un nouveau service, conçu pour faciliter l'analys
   <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Soumettre une demande de fonctionnalité](http://aka.ms/adlafeedback)
   * [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

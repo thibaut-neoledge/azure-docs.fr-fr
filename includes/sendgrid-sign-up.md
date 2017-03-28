@@ -59,7 +59,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
     ![key][key]
 2. Le mot de passe est celui que vous avez choisi lors de l’installation. Vous pouvez sélectionner **Modifier le mot de passe** ou **Réinitialiser le mot de passe** pour apporter des modifications.
 
-Pour gérer les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage** . Cette action vous redirige vers le [tableau de bord SendGrid][SendGrid dashboard]
+Pour gérer les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage** . Cette action vous redirige vers le tableau de bord SendGrid.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Pour gérer les paramètres de remise des courriers électroniques, cliquez sur 
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Pour gérer les paramètres de remise des courriers électroniques, cliquez sur 
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

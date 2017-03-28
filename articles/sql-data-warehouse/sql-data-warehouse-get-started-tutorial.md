@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ Dans cette étape, vous créez un compte d’utilisateur pour accéder à votre 
 
 - SQL Data Warehouse utilise les rôles de base de données prédéfinis, appelés classes de ressources, pour allouer différentes quantités de mémoire, de ressources processeur et d’emplacements de concurrence aux utilisateurs. Chaque utilisateur peut appartenir à une classe de ressources petite, moyenne, grande ou très grande. La classe de ressources de l’utilisateur détermine les ressources dont l’utilisateur dispose pour exécuter des requêtes et des opérations de chargement.
 
-- Pour optimiser la compression des données, l’utilisateur doit généralement procéder à des chargements avec des allocations de ressources de grande ou de très grande taille. Découvrez plus d’informations sur les classes de ressource [ici](./sql-data-warehouse-develop-concurrency.md#resource-classes) :
+- Pour optimiser la compression des données, l’utilisateur devra parfois procéder à des chargements avec des allocations de ressources de grande ou de très grande taille. Découvrez plus d’informations sur les classes de ressource [ici](./sql-data-warehouse-develop-concurrency.md#resource-classes) :
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Créer un compte pouvant contrôler une base de données
 

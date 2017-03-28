@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/27/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Authentifier des Runbooks avec un compte d’identification Azure
 Cette rubrique vous décrit la configuration d’un compte Automation à partir du portail Azure à l’aide de la fonctionnalité Compte d’identification qui permet d’authentifier les Runbooks gérant les ressources dans Azure Resource Manager ou dans la gestion des services Azure.
 
-Lorsque vous créez un compte Automation dans le portail Azure, il crée automatiquement :
+Lorsque vous créez un compte Automation dans le portail Azure, il crée automatiquement :
 
-* Un compte d’identification, qui crée un principal du service dans Azure Active Directory, un certificat, et attribue le contrôle d’accès en fonction du rôle (RBAC) Collaborateur, qui est utilisé pour gérer les ressources Resource Manager à l’aide de Runbooks.   
-* Un compte d’identification Classic en chargeant un certificat de gestion, qui est utilisé pour gérer les ressources de gestion des services Azure ou les ressources classiques à l’aide de Runbooks.  
+* Un compte d’identification, qui crée un principal du service dans Azure Active Directory, un certificat, et attribue le contrôle d’accès en fonction du rôle (RBAC) Collaborateur, qui sera utilisé pour gérer les ressources Resource Manager à l’aide de Runbooks.   
+* Un compte d’identification Classic en chargeant un certificat de gestion, qui sera utilisé pour gérer les ressources de gestion des services Azure ou les ressources classiques à l’aide de Runbooks.  
 
 Le processus s’en trouve ainsi simplifié, et vous êtes en mesure de commencer rapidement à générer et déployer des Runbooks pour répondre à vos besoins d’automatisation.      
 
@@ -47,11 +47,8 @@ Avant de poursuivre, voici quelques points que vous devez comprendre et prendre 
 
 1. Cela n’affecte pas les comptes Automation existants déjà créés dans le modèle de déploiement classique ou Resource Manager.  
 2. Cela fonctionne uniquement pour les comptes Automation créés via le portail Azure.  Si vous tentez de créer un compte à partir du portail Classic, la configuration du compte d’identification ne sera pas répliquée.
-3. Si vous disposez actuellement de Runbooks et de ressources (c’est-à-dire de planifications, de variables, etc.) créés précédemment pour gérer les ressources classiques, et que vous souhaitez que ces Runbooks soient authentifiés avec le nouveau compte d’identification Classic, vous devez créer un compte d’identification classique à l’aide de Gérer un compte d’identification classique ou mettre à jour votre compte existant à l’aide du script PowerShell indiqué ci-après.  
-4. Pour vous authentifier à l’aide du nouveau compte d’identification ou du compte Automation d’identification Classic, vous devez modifier les Runbooks existants avec l’exemple de code indiqué dans la section [Exemples de code d’authentification](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >Le compte d’identification est destiné à une authentification auprès des ressources Resource Manager à l’aide du principal du service basé sur les certificats, tandis que le compte d’identification Classic est destiné à une authentification auprès des ressources de gestion des services avec un certificat de gestion.     
+3. Si vous disposez actuellement de Runbooks et de ressources (c’est-à-dire des planifications, des variables, etc.) créés précédemment pour gérer les ressources classiques, et que vous souhaitez que ces Runbooks soient authentifiés avec le nouveau compte d’identification Classic, vous devez créer un compte d’identification classique à l’aide de Gérer un compte d’identification classique ou mettre à jour votre compte existant à l’aide du script PowerShell indiqué ci-après.  
+4. Pour vous authentifier à l’aide du nouveau compte d’identification ou du compte Automation d’identification Classic, vous devez modifier les Runbooks existants avec l’exemple de code indiqué ci-dessous.  **Notez** que le compte d’identification est destiné à une authentification auprès des ressources Resource Manager à l’aide du principal du service basé sur les certificats, et que le compte d’identification Classic est destiné à une authentification auprès des ressources de gestion des services avec le certificat de gestion.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Créer un compte Automation à partir du portail Azure
 Dans cette section, vous allez suivre une procédure qui vous permettra de créer un compte Azure Automation à partir du portail Azure.  Cette procédure permet de créer aussi bien un compte d’identification standard qu’un compte d’identification Classic.  
@@ -148,7 +145,7 @@ Les étapes suivantes décrivent comment supprimer et recréer votre compte d’
 1. Dans le portail Azure, ouvrez le compte Automation.  
 2. Dans le panneau du compte Automation, dans le panneau des propriétés du compte, sélectionnez **Comptes d’identification** sous la section **Paramètres de compte**.
 3. Dans le panneau des propriétés des **Comptes d’identification**, sélectionnez le compte d’identification ou le compte d’identification classique à supprimer, puis dans le panneau des propriétés du compte sélectionné, cliquez sur **Supprimer**.<br><br> ![Supprimer un compte d’identification](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Vous recevez une invite de confirmation de la suppression.
-4. Pour suivre la progression de la suppression du compte, accédez à l’onglet **Notifications** du menu.  Une fois la suppression terminée, vous pouvez recréer le compte sur le panneau des propriétés **Comptes d’identification** et en sélectionnant l’option de création **Compte d’identification Azure**.<br><br> ![Recréer le compte d’identification Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. Pour suivre la progression de la suppression du compte, accédez à l’onglet **Notifications** du menu.  Une fois la suppression terminée, vous pouvez recréer le compte à partir du panneau des propriétés **Comptes d’identification** et en sélectionnant l’option de création **Compte d’identification Azure**.<br><br> ![Recréer le compte d’identification Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### <a name="misconfiguration"></a>Configuration incorrecte
 Si l’un des éléments de configuration nécessaires pour que le compte d’identification ou le compte d’identification classique fonctionne correctement est supprimé ou n’a pas été créé correctement lors de l’installation initiale, par exemple :
@@ -335,9 +332,9 @@ Si vous sélectionnez l’option permettant de créer une authentification Class
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
 
         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues  
 
-        if ($CreateClassicRunAsAccount) {
+        if ($CreateClassicRunAsAccount) {  
             # Create Run As Account using Service Principal
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
@@ -392,15 +389,9 @@ Si vous sélectionnez l’option permettant de créer une authentification Class
     > 
     > 
 
-Une fois le script exécuté, si vous avez créé un compte d’identification Classic, suivez la procédure permettant de [charger le certificat API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.  Si vous avez créé un compte d’identification Classic avec un certificat public auto-signé (format .cer), vous pouvez trouver une copie du certificat créé dans le dossier de fichiers temporaires sur votre ordinateur, sous le profil d’utilisateur utilisé pour exécuter la session PowerShell - *%USERPROFILE%\AppData\Local\Temp*.  Sinon, si vous avez configuré le compte d’identification Classic pour utiliser un certificat généré par votre autorité de certification d’entreprise (format .cer), vous devez utiliser ce certificat.  Une fois le certificat chargé, reportez-vous à [l’exemple de code](#sample-code-to-authenticate-with-service-management-resources) pour valider la configuration des informations d’identification auprès des ressources de gestion des services.  
+Une fois le script exécuté, si vous avez créé un compte d’identification Classic avec un certificat public auto-signé (format .cer), le script créera et enregistrera ce dernier dans le dossier de fichiers temporaires de votre ordinateur sous le profil d’utilisateur utilisé pour exécuter la session PowerShell - *%USERPROFILE%\AppData\Local\Temp*. Si vous avez créé un compte d’identification Classic avec un certificat public d’entreprise (format .cer), vous devrez utiliser ce certificat.  Suivez les étapes pour [charger un certificat d’API de gestion](../azure-api-management-certs.md) vers le portail Azure Classic, puis reportez-vous à l’[exemple de code](#sample-code-to-authenticate-with-service-management-resources) pour valider la configuration des informations d’identification avec les ressources de gestion des services.  Si vous n’avez pas créé de compte d’identification Classic, reportez-vous à [l’exemple de code](#sample-code-to-authenticate-with-resource-manager-resources) ci-dessous pour vous authentifier auprès des ressources Resource Manager et valider la configuration des informations d’identification.
 
-Si vous n’avez pas créé de compte d’identification Classic, reportez-vous à [l’exemple de code](#sample-code-to-authenticate-with-resource-manager-resources) ci-dessous pour vous authentifier auprès des ressources Resource Manager et valider la configuration des informations d’identification.   
-
-##  <a name="authentication-code-examples"></a>Exemples de code d’authentification
-
-Les exemples suivants montrent comment authentifier vos Runbooks auprès des ressources Resource Manager ou Classic à l’aide d’un compte d’identification.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Authentification avec des ressources Azure Resource Manager
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Exemple de code pour l’authentification avec des ressources Azure Resource Manager
 Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’exemple de Runbook **AzureAutomationTutorialScript** , pour procéder à une authentification avec le compte d’identification pour gérer les ressources Azure Resource Manager avec vos Runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ Le script inclut deux lignes de code supplémentaires pour prendre en charge le 
 
 Notez que l’applet de commande utilisée pour l’authentification ( **Add-AzureRmAccount**) dans le Runbook, utilise le jeu de paramètres *ServicePrincipalCertificate* .  Elle effectue l’authentification à l’aide du certificat du principal du service et non des informations d’identification.  
 
-### <a name="authenticate-with-service-management-resources"></a>Authentification avec des ressources de gestion des services
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Exemple de code pour l’authentification avec les ressources de gestion des services
 Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’exemple de Runbook **AzureClassicAutomationTutorialScript** , pour procéder à une authentification avec le compte d’identification Classic pour gérer les ressources classiques avec vos Runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

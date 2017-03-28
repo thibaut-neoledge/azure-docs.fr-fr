@@ -7,7 +7,7 @@
 3. Pour ajouter une balise, tapez une clé et une valeur ou sélectionnez-en dans le menu déroulant. Sélectionnez **Enregistrer**.
 
      ![Ajouter une balise](./media/resource-manager-tag-resources/tag-resources.png)
-3. Pour afficher toutes les ressources ayant une valeur de balise, sélectionnez **>** (Plus de services) et filtrez par **Balises**. Sélectionnez **Balises** parmi les options disponibles.
+3. Pour afficher toutes les ressources ayant une valeur de balise, sélectionnez **>** (Plus de services) et saisissez le mot **Balises** dans la zone de texte de filtre. Sélectionnez **Balises** parmi les options disponibles.
    
      ![Rechercher des balises via le hub Parcourir](./media/resource-manager-tag-resources/browse-tags.png)
 4. Un résumé des balises de vos abonnements s’affiche.
@@ -22,8 +22,3 @@
 7. Vous pouvez sélectionner la balise épinglée sur le tableau de bord pour afficher les ressources associées à cette balise.
 
      ![Épingler des balises au tableau de bord](./media/resource-manager-tag-resources/show-pinned-tag.png)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -12,13 +12,13 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cae5694bc8189c525c8ae593eda3e51f5636c439
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Votre IoT Hub est maintenant créé. Vous disposez du nom d’hôte et de la chaîne de connexion de l’IoT Hub dont vous avez besoin pour effectuer la suite du didacticiel.
 
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
-Dans cette section, vous créez une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section **Registre d’identité** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application de console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier pour lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
+Dans cette section, vous créez une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil peut uniquement se connecter à IoT Hub s’il possède une entrée dans le registre des identités. Reportez-vous à la section **Registre d’identité** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application de console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier pour lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
 1. Créez un dossier vide appelé **createdeviceidentity**. Dans le dossier **createdeviceidentity** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    

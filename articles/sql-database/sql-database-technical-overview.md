@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Définition de la base de données SQL Présentation de SQL Database
 SQL Database est un service de base de données relationnelle dans le cloud Microsoft, qui repose sur le moteur Microsoft SQL Server numéro un du marché, pouvant traiter des charges de travail stratégiques. SQL Database offre des performances prévisibles à plusieurs niveaux de service, une extensibilité sans interruption de service, une continuité des activités intégrée et une protection des données, le tout sans presque aucune administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Comme SQL Database est basé sur le moteur [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), SQL Database prend en charge les outils, les bibliothèques et les API SQL Server existants. Il vous est ainsi plus facile de développer de nouvelles solutions, de déplacer vos solutions SQL Server existantes et de les étendre au cloud Microsoft sans avoir besoin d’une formation particulière.
 
-Cet article présente les principaux concepts et fonctionnalités de la base de données SQL qui ont trait aux performances, à l’extensibilité et à la facilité de gestion. Il contient également des liens pour en explorer les détails. Si vous êtes prêt à vous lancer, consultez les didacticiels correspondants pour [créer votre première base de données SQL](sql-database-get-started.md) ou [créer un pool élastique](sql-database-elastic-pool-manage-portal.md). Pour une brève démonstration vidéo, visionnez celle qui suit.
+Cet article présente les principaux concepts et fonctionnalités de la base de données SQL qui ont trait aux performances, à l’extensibilité et à la facilité de gestion. Il contient également des liens pour en explorer les détails. Consultez ces démarrages rapides pour bien commencer :
+ - [Créer une base de données SQL dans le portail Azure](sql-database-get-started-portal.md)  
+ - [Créer une base de données SQL avec Azure CLI](sql-database-get-started-cli.md)
+ - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Pour accéder à des exemples Azure CLI et PowerShell, consultez :
+ - [Exemples Azure CLI pour Azure SQL Database](sql-database-cli-samples.md)
+ - [Exemples Azure PowerShell pour Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajustez les performances et la mise à l'échelle sans interruption de service
 SQL Database propose trois niveaux de service : De base, Standard et Premium. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois et [modifier le niveau de service](sql-database-service-tiers.md) manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Cette opération ne perturbe pas le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.

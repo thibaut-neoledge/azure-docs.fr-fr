@@ -17,15 +17,16 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresse IP virtuelle privée (ILB) par déploiement |1 |1 |
 | Listes de contrôle d'accès (ACL) par point de terminaison |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau – Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau – Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement.
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Réseaux virtuels par abonnement |50 |500 |
-| Nombre de sous-réseaux par réseau virtuel |1&000; |contacter le support |
+| Nombre de sous-réseaux par réseau virtuel |1 000 |contacter le support |
 | Serveurs DNS par réseau virtuel |9 |25 |
-| Adresses IP privées par réseau virtuel |4096 |4096 |
+| Adresses IP privées par réseau virtuel |4096 |4 096 |
+| Adresses IP privées par interface réseau |50 |contacter le support |
 | Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle |500K |500K |
 | Interfaces réseau (NIC) |300 |10000 |
 | Groupes de sécurité réseau (NSG) |100 |400 |
@@ -40,11 +41,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresse IP frontale privée par équilibreur de charge |10 |contacter le support technique |
 | Homologations VNet par réseau virtuel |10 |50 |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
+| Configurations IP secondaires par réseau virtuel |1 000 |contacter le support |
 
 Pour accroître les limites par défaut, contactez le support technique.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
