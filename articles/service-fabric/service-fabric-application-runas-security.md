@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ Dans le fichier PowerShell, ajoutez la commande suivante pour définir une varia
 ## <a name="use-console-redirection-for-local-debugging"></a>Utiliser la console de redirection pour le débogage local
 Parfois, à des fins de débogage, il est utile de visualiser la sortie de la console générée par l’exécution d’un script. Pour ce faire, vous pouvez définir une stratégie de redirection de console qui écrit la sortie dans un fichier. La sortie du fichier est écrite dans le dossier d’application **log** sur le nœud sur lequel l’application est déployée et exécutée. (Consultez l’exemple précédent pour déterminer son emplacement.)
 
-> [!NOTE]
+> [!WARNING]
 > N’utilisez jamais la stratégie de redirection de console dans une application déployée dans un environnement de production, car cela peut affecter le basculement de l’application. N’utilisez cette stratégie *que* pour le développement local et à des fins de débogage.  
 > 
 > 
@@ -379,9 +380,4 @@ Le manifeste d’application suivant affiche un grand nombre des différents par
 * [Déployer une application](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
