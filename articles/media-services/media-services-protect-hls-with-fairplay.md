@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a6f9e1ceb7dfbb13f2f365acf49e09f1c015f4e3
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ce1cf83e8f532add509c8c0c97199841c41ecbd7
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-andor-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady
-Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec les formats suivants :  
+# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
+Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) à l’aide des formats suivants :  
 
 * **Clé en clair de l’enveloppe AES-128**
 
-    Le segment entier est chiffré à l’aide du mode **AES-128 CBC** . Le déchiffrement du flux est pris en charge par iOS et le lecteur OSX en mode natif. Pour plus d’informations, consultez [cet article](media-services-protect-with-aes128.md).
+    Le segment entier est chiffré à l’aide du mode **AES-128 CBC**. Le déchiffrement du flux est pris en charge par iOS et le lecteur OS X en mode natif. Pour plus d’informations, consultez la page [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
-    Les échantillons audio et vidéo individuels sont chiffrés à l’aide du mode **AES-128 CBC** . **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l'aide de la prise en charge d'interface Encrypted Media Extensions (EME).
+    Les échantillons audio et vidéo individuels sont chiffrés à l’aide du mode **AES-128 CBC**. **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l’aide de la prise en charge de l’interface EME (Encrypted Media Extensions).
 * **Microsoft PlayReady**
 
-L’image suivante montre le flux de travail **CHLS + FairPlay et/ou chiffrement dynamique PlayReady** .
+L’image suivante présente le flux de travail **HLS + FairPlay ou chiffrement dynamique PlayReady**.
 
-![Protéger avec FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagramme de flux de travail de chiffrement dynamique](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
-Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
+Cette rubrique montre comment utiliser Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
 
 > [!NOTE]
 > Si vous souhaitez également chiffrer votre contenu HLS avec PlayReady, vous devez créer une clé de contenu commune et l’associer à votre élément multimédia. Vous devez également configurer la stratégie d’autorisation de la clé de contenu, comme décrit dans la rubrique [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) (Utilisation du chiffrement commun dynamique PlayReady).
@@ -45,84 +45,88 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte
 
-* Les éléments suivants sont nécessaires pour utiliser AMS afin de fournir du contenu HLS chiffré avec FairPlay et des licences FairPlay.
+Les éléments suivants sont nécessaires pour utiliser Media Services afin de fournir du contenu HLS chiffré avec FairPlay et des licences FairPlay :
 
-  * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
+  * Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Un compte Media Services. Pour en créer un, consultez l’article [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
   * S’inscrire au programme [Apple Developer Program](https://developer.apple.com/).
-  * Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Dans votre demande, indiquez que vous déjà implémenté le module de sécurité des clés (KSM) et que vous avez besoin du package FPS final. Le package FPS final contiendra les instructions à suivre pour générer la certification et obtenir la clé secrète de l’application (ASK), qui vous servira à configurer FairPlay.
+  * Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Indiquez que vous avez déjà implémenté le module de sécurité des clés (KSM) avec Media Services et que vous avez besoin du package FPS final. Voici les instructions figurant dans le package FPS final pour générer la certification et obtenir la clé secrète d’application (ASK). Utilisez la clé ASK pour configurer FairPlay.
   * Kit de développement logiciel (SDK) .NET Azure Media Services version **3.6.0** ou ultérieure.
-* Les éléments suivants doivent être définis du côté de la remise de clé AMS :
 
-  * **App Cert (AC)** : fichier .pfx qui contient la clé privée. Ce fichier est créé par le client et chiffré avec un mot de passe par le même client.
+Les éléments suivants doivent être définis du côté de la remise de clé Media Services :
 
-       Lorsque le client configure une stratégie de remise de clé, il doit fournir ce mot de passe et le fichier .pfx au format base64.
+  * **App Cert (AC) (Certificat d’application)** : fichier .pfx qui contient la clé privée. Vous devez créer ce fichier et le chiffrer avec un mot de passe.
 
-      Les étapes suivantes décrivent comment générer un certificat pfx pour FairPlay.
+       Lorsque vous configurez une stratégie de remise de clé, vous devez fournir ce mot de passe et le fichier .pfx au format Base64.
+
+      Les étapes suivantes décrivent la génération d’un fichier de certificat .pfx pour FairPlay :
 
     1. Installez OpenSSL à partir de https://slproweb.com/products/Win32OpenSSL.html.
 
         Accédez au dossier dans lequel se situent le certificat FairPlay et les autres fichiers fournis par Apple.
-    2. Ligne de commande pour convertir cer en pem :
+    2. Exécutez la commande suivante à partir de la ligne de commande. Elle permet de convertir le fichier .cer en fichier .pem.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
-    3. Ligne de commande pour convertir pem en pfx avec la clé privée (le mot de passe du fichier pfx est ensuite demandé par OpenSSL).
+    3. Exécutez la commande suivante à partir de la ligne de commande. Elle permet de convertir le fichier .pem en fichier .pfx avec la clé privée. Le mot de passe du fichier .pfx est ensuite demandé par OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
-  * **Mot de passe App Cert** : mot de passe du client pour créer le fichier .pfx.
-  * **ID de mot de passe App Cert** : le client doit charger le mot de passe de la même manière que les autres clés AMS, avec la valeur enum **ContentKeyType.FairPlayPfxPassword**. Dans le résultat, il obtiendra l’ID AMS qu'il doit utiliser dans l'option de stratégie de remise de clé.
-  * **iv** : valeur aléatoire de 16 octets qui doit correspondre au vecteur d’initialisation de la stratégie de distribution d’éléments multimédias. Le client génère le vecteur d'initialisation et le place aux deux endroits : la stratégie de distribution de ressources et l’option de stratégie de remise de clé.
-  * **ASK** : l’ASK (clé secrète de l’application) est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de l’ASK et stockez-la dans un endroit sûr. Vous devrez configurer l’ASK comme FairPlayAsk pour Azure Media Services plus tard.
-  * **ID d’ASK** : obtenu quand le client charge l’ASK dans AMS. Le client doit charger l’ASK avec la valeur enum **ContentKeyType.FairPlayASk**. L’ID AMS sera retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
-* Les éléments suivants doivent être définis par FPS côté client :
+  * **App Cert password (Mot de passe du certificat d’application)** : mot de passe pour créer le fichier .pfx.
+  * **App Cert password ID (ID de mot de passe du certificat d’application)** : vous devez charger le mot de passe comme vous chargez les autres clés Media Services. Utilisez la valeur d’énumération **ContentKeyType.FairPlayPfxPassword** pour obtenir l’ID Media Services. C’est ce que vous devez utiliser dans l’option de stratégie de remise de clé.
+  * **iv** : valeur aléatoire de 16 octets. Elle doit correspondre au vecteur d’initialisation de la stratégie de distribution d’éléments multimédias. Vous générez le vecteur d’initialisation et le placez aux deux endroits : la stratégie de distribution d’éléments multimédias et l’option de stratégie de remise de clé.
+  * **ASK** : cette clé est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devrez configurer la clé ASK comme FairPlayAsk pour Media Services plus tard.
+  * **ASK ID (ID de clé ASK)** : cet ID est obtenu lorsque vous chargez la clé ASK dans Media Services. Vous devez charger la clé ASK à l’aide de la valeur d’énumération **ContentKeyType.FairPlayAsk**. L’ID Media Services est retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
 
-  * **App Cert (AC)** : fichier .cer/.der contenant la clé publique que le système d’exploitation utilise pour chiffrer une charge utile. AMS doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
-* Pour lire un flux chiffré FairPlay, vous devez obtenir l’ASK réelle en premier, puis générer un certificat réel. Ce processus crée les 3 composants suivants :
+Les éléments suivants doivent être définis par FPS côté client :
 
-  * .der,
-  * .pfx et
-  * le mot de passe du fichier .pfx.
-* Clients qui prennent en charge HLS avec chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
+  * **App Cert (AC) (Certificat d’application)** : fichier .cer/.der qui contient la clé publique utilisée par le système d’exploitation pour chiffrer une charge utile. Media Services doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
 
-## <a name="steps-for-configuring-fairplay-dynamic-encryption-and-license-delivery-services"></a>Étapes de configuration du chiffrement dynamique FairPlay et des services de distribution de licences
-Voici les étapes générales que vous aurez à exécuter lors de la protection de vos ressources avec FairPlay, en utilisant le service de distribution des licences Media Services, ainsi que le chiffrement dynamique.
+Pour lire un flux chiffré FairPlay, vous devez obtenir une clé ASK réelle en premier lieu, puis générer un certificat réel. Ce processus crée les trois composants suivants :
 
-1. Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia.
-2. Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini.
-3. Créer une clé de contenu et l'associer à l'élément multimédia encodé.  
-4. Configurer la stratégie d'autorisation de la clé de contenu. Lorsque vous créez la stratégie d'autorisation de la clé de contenu, vous devez spécifier les éléments suivants :
+  * Fichier .der
+  * Fichier .pfx
+  * Mot de passe du fichier .pfx
 
-   * la méthode de remise (dans ce cas, FairPlay),
-   * la configuration des options de stratégie FairPlay. Pour plus d’informations sur la configuration de FairPlay, consultez la méthode ConfigureFairPlayPolicyOptions() dans l’exemple ci-dessous.
+Les clients suivants prennent en charge HLS avec le chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
+
+## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Configurer le chiffrement dynamique FairPlay et des services de remise de licences
+Voici les étapes générales que vous devez suivre pour protéger vos éléments multimédias avec FairPlay, en utilisant le service de remise de licences Media Services, ainsi que le chiffrement dynamique.
+
+1. Créer un élément multimédia et y charger des fichiers.
+2. Encoder l’élément multimédia qui contient le fichier au débit adaptatif MP4 défini.
+3. Créer une clé de contenu et l’associer à l’élément multimédia encodé.  
+4. Configurer la stratégie d'autorisation de la clé de contenu. Spécifiez les valeurs suivantes :
+
+   * La méthode de remise (dans ce cas, FairPlay).
+   * la configuration des options de stratégie FairPlay. Pour plus d’informations sur la configuration de FairPlay, consultez la méthode **ConfigureFairPlayPolicyOptions()** dans l’exemple ci-dessous.
 
      > [!NOTE]
-     > Généralement, vous n’aurez à configurer les options de stratégie FairPlay qu’une seule fois, étant donné que vous n’aurez qu’un seul jeu de certification et d’ASK.
+     > Généralement, vous n’aurez à configurer les options de stratégie FairPlay qu’une seule fois, car vous n’aurez qu’un seul jeu de certification et de clé ASK.
      >
      >
-   * les restrictions (ouvert ou jeton),
-   * et les informations propres au type de remise de clé qui définit la façon dont la clé est envoyée au client.
-5. Configurez la stratégie de distribution de ressources. La configuration de la stratégie de distribution inclut :
+   * Les restrictions (d’ouverture ou jeton).
+   * Les informations propres au type de remise de clé qui définissent la façon dont la clé est fournie au client.
+5. Configurer la stratégie de distribution d’éléments multimédias. La configuration de la stratégie de distribution inclut :
 
-   * le protocole de distribution (HLS),
-   * le type de chiffrement dynamique (Common CBC Encryption),
+   * le protocole de distribution (HLS) ;
+   * le type de chiffrement dynamique (Common CBC Encryption) ;
    * l’URL d’acquisition de licence.
 
      > [!NOTE]
-     > Si vous souhaitez fournir un flux chiffré avec FairPlay + un autre système de DRM, vous devez configurer des stratégies de remise distinctes
+     > Si vous souhaitez fournir un flux chiffré avec FairPlay et un autre système de gestion des droits numériques (DRM), vous devez configurer des stratégies de remise distinctes :
      >
-     > * Une stratégie IAssetDeliveryPolicy pour configurer DASH avec CENC (PlayReady + WideVine) et Smooth avec PlayReady.
+     > * Une stratégie IAssetDeliveryPolicy pour configurer Dynamic Adaptive Streaming via HTTP (DASH) avec Common Encryption (CENC) (PlayReady + Widevine), et Smooth avec PlayReady
      > * Une autre stratégie IAssetDeliveryPolicy pour configurer FairPlay pour HLS
      >
      >
-6. Créez un localisateur OnDemand pour obtenir une URL de streaming.
+6. Créez un localisateur à la demande afin d’obtenir une URL de diffusion en continu.
 
-## <a name="using-fairplay-key-delivery-by-playerclient-apps"></a>Utilisation de la distribution de clés FairPlay par les applications clientes et les lecteurs
-Les clients peuvent développer des lecteurs à l’aide du SDK iOS. Pour pouvoir lire le contenu FairPlay, les clients doivent implémenter le protocole d’échange de licence. Le protocole d’échange de licence n’est pas spécifié par Apple. Chaque application doit décider comment envoyer des requêtes de distribution de clés. Les services de distribution de clés AMS FairPlay s’attendent à ce que le certificat SPC soit fourni en tant que message encodé www-form-url au format suivant :
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>Utiliser la remise de clé FairPlay des applications de lecteur
+Vous pouvez développer des applications de lecteur à l’aide du Kit de développement logiciel (SDK) iOS. Pour pouvoir lire le contenu FairPlay, vous devez implémenter le protocole d’échange de licence. Ce protocole n’est pas spécifié par Apple. Chaque application doit décider comment envoyer des requêtes de distribution de clés. Le service de remise de clé Media Services FairPlay s’attend à ce que le certificat SPC soit fourni en tant que message encodé www-form-url au format suivant :
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player ne prend pas en charge la lecture FairPlay dès le départ. Les clients doivent se procurer l’exemple de lecteur à partir du compte de développeur Apple pour mettre en œuvre la lecture FairPlay sur MAC OS X.
+> Azure Media Player ne prend pas en charge la lecture FairPlay dès le départ. Pour mettre en œuvre la lecture FairPlay sur MAC OS X, procurez-vous l’exemple de lecteur à partir du compte de développeur Apple.
 >
 >
 
@@ -132,23 +136,23 @@ Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une
 Les considérations suivantes s'appliquent :
 
 * Seul zéro ou un type de chiffrement peut être spécifié.
-* Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
+* Le type de chiffrement ne doit pas être spécifié dans l’URL si un seul chiffrement a été appliqué à l’élément multimédia.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :  
-  * **cenc** : chiffrement commun (Playready ou Widevine)
-  * **des CBC-aapl**: Fairplay
-  * **cbc**: chiffrement de l’enveloppe AES.
+  * **cenc** : chiffrement commun (Playready ou Widevine)
+  * **cbcs-aapl** : Fairplay
+  * **cbc** : chiffrement de l’enveloppe AES
 
-## <a name="net-example"></a>Exemple .NET
-L'exemple suivant illustre la fonctionnalité introduite dans le kit SDK Azure Media Services pour .NET version 3.6.0 (la possibilité d'utiliser Azure Media Services pour fournir votre contenu chiffré avec FairPlay). La commande de package Nuget suivante a été utilisée pour installer le package :
+## <a name="net-example-deliver-your-content-encrypted-with-fairplay"></a>Exemple .NET : distribuer votre contenu chiffré avec FairPlay
+L’exemple suivant illustre la possibilité d’utiliser Media Services pour distribuer votre contenu chiffré avec FairPlay. Cette fonctionnalité a été introduite dans le Kit de développement logiciel (SDK) Azure Media Services pour .NET version 3.6.0. La commande de package NuGet suivante a été utilisée pour installer le package :
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
 1. Créez un projet Console.
-2. Utilisez NuGet pour installer et ajouter les extensions du kit SDK .NET Azure Media Services.
+2. Utilisez NuGet pour installer et ajouter le Kit de développement logiciel (SDK) .NET Azure Media Services.
 3. Ajouter des références : System.Configuration.
-4. Ajoutez le fichier de configuration qui contient le nom du compte et les informations sur la clé :
+4. Ajoutez un fichier de configuration contenant le nom du compte et les informations sur la clé :
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>

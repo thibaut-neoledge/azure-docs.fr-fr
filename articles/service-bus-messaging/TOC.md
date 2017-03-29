@@ -1,7 +1,8 @@
 # Vue d'ensemble
 ## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
 ## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-## [FORUM AUX QUESTIONS](service-bus-faq.md)
+## [Architecture de Service Bus](service-bus-architecture.md)
+## [FAQ](service-bus-faq.md)
 
 # Prise en main
 ## [Créer un espace de noms](service-bus-create-namespace-portal.md)

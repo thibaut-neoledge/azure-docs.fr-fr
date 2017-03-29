@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/9/2017
+ms.date: 3/17/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: feb0200fc27227f546da8c98f21d54f45d677c98
-ms.openlocfilehash: a583225b4f3acd747a10c1c1fd337bc1b7ac599c
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 26d3d014e28a8e2fda4acc19e974b709b965c07e
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -34,10 +35,10 @@ Cet article explique comment créer une solution de récupération d’urgence p
 Vous devez configurer la [réplication Site Recovery](#enable-protection-using-site-recovery) sur au moins une machine virtuelle qui héberge le contrôleur de domaine et le DNS. Si votre environnement contient [plusieurs contrôleurs de domaine](#environment-with-multiple-domain-controllers), en plus de répliquer la machine virtuelle de contrôleur de domaine, vous devez également configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible (Azure ou un centre de données local secondaire). 
 
 ### <a name="single-domain-controller-environment"></a>Environnement avec un seul contrôleur de domaine
-Si vous avez un petit nombre d’applications et un seul contrôleur de domaine, et que vous souhaitez basculer l’ensemble du site en même temps, nous vous recommandons d’utiliser Site Recovery pour répliquer le contrôleur de domaine sur le site secondaire (que le basculement s’effectue vers Azure ou un site secondaire). La même machine virtuelle de contrôleur de domaine/DNS répliquée peut également être utilisée à des fins de [test de basculement](#test-failover-considerations).
+Si vous avez quelques applications et un seul contrôleur de domaine, et que vous souhaitez basculer l’ensemble du site en même temps, nous vous recommandons d’utiliser Site Recovery pour répliquer le contrôleur de domaine sur le site secondaire (que le basculement s’effectue vers Azure ou un site secondaire). La même machine virtuelle de contrôleur de domaine/DNS répliquée peut également être utilisée à des fins de [test de basculement](#test-failover-considerations).
 
 ### <a name="environment-with-multiple-domain-controllers"></a>Environnement avec plusieurs contrôleurs de domaine
-Si vous avez un grand nombre d’applications et plus d’un contrôleur de domaine dans l’environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer également un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible (Azure ou un centre de données local secondaire). Dans ce scénario, vous utiliserez le contrôleur de domaine répliqué par Site Recovery aux fins de [test de basculement](#test-failover-considerations) et le contrôleur de domaine supplémentaire sur le site cible lorsque vous effectuez un basculement. 
+Si vous avez beaucoup d’applications et plus d’un contrôleur de domaine dans l’environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible (Azure ou un centre de données local secondaire). Pour effectuer un [test de basculement](#test-failover-considerations), vous utilisez le contrôleur de domaine répliqué par Site Recovery et pour le basculement, le contrôleur de domaine supplémentaire du site cible. 
 
 
 Les sections ci-dessous expliquent comment activer la protection d’un contrôleur de domaine dans Site Recovery et comment configurer un contrôleur de domaine dans Azure.
@@ -45,23 +46,26 @@ Les sections ci-dessous expliquent comment activer la protection d’un contrôl
 ## <a name="prerequisites"></a>Composants requis
 * Un déploiement local d’Active Directory et du serveur DNS.
 * Un coffre Azure Site Recovery Services dans un abonnement Microsoft Azure.
-* Si vous répliquez vers Azure, exécutez l’outil d’évaluation de la disponibilité des machines virtuelles Azure sur des machines virtuelles, afin de vérifier qu’elles sont compatibles avec les machines virtuelles Azure et Azure Site Recovery Services
+* Si vous répliquez vers Azure, exécutez l’outil d’évaluation de la disponibilité des machines virtuelles Azure sur des machines virtuelles, afin de vérifier qu’elles sont compatibles avec les machines virtuelles Azure et Azure Site Recovery Services.
 
 ## <a name="enable-protection-using-site-recovery"></a>Activer la protection à l'aide de Site Recovery
 ### <a name="protect-the-virtual-machine"></a>Protéger la machine virtuelle
-Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery. Configurez les paramètres de Site Recovery en fonction du type de machine virtuelle (Hyper-V ou VMware). Nous vous recommandons une fréquence de réplication, cohérente en cas d’incident, de 15 minutes.
+Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery. Configurez les paramètres de Site Recovery en fonction du type de machine virtuelle (Hyper-V ou VMware). Le contrôleur de domaine répliqué à l’aide Site de Recovery est utilisé pour effectuer le [test de basculement](#test-failover-considerations). Assurez-vous qu’il répond aux exigences suivantes :
+
+1. Le contrôleur de domaine est un serveur de catalogue global
+2. Le contrôleur de domaine doit être le propriétaire du rôle FSMO pour les rôles qui seront nécessaires pendant un test de basculement (sinon, ces rôles devront être [pris](http://aka.ms/ad_seize_fsmo) après le basculement)
 
 ### <a name="configure-virtual-machine-network-settings"></a>Configurer les paramètres réseau de la machine virtuelle
-Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramètres réseau dans Site Recovery afin que la machine virtuelle soit connectée au réseau approprié après un basculement. Par exemple, si vous répliquez des machines virtuelles Hyper-V vers Azure, vous pouvez sélectionner la machine virtuelle dans le cloud VMM ou dans le groupe de protection afin de configurer les paramètres réseau comme indiqué ci-dessous
+Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramètres réseau dans Site Recovery afin que la machine virtuelle soit connectée au réseau approprié après un basculement. 
 
 ![Paramètres réseau de la machine virtuelle](./media/site-recovery-active-directory/DNS-Target-IP.png)
 
 ## <a name="protect-active-directory-with-active-directory-replication"></a>Protéger Active Directory avec la réplication Active Directory
 ### <a name="site-to-site-protection"></a>Protection de site à site
-Créez un contrôleur de domaine sur le site secondaire et spécifiez le même nom de domaine qui est utilisé sur le site principal lorsque vous promouvez le serveur au rôle de contrôleur de domaine. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment où la réplication a lieu entre deux sites ou plus, ainsi que la fréquence. Consultez la rubrique [Planification de la réplication entre des sites](https://technet.microsoft.com/library/cc731862.aspx) pour plus de détails.
+Créez un contrôleur de domaine sur le site secondaire. Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le nom du même domaine que celui utilisé sur le site principal. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment où la réplication a lieu entre deux sites ou plus, ainsi que la fréquence. Pour plus d’informations, consultez [Planification de la réplication entre des sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Protection de site vers Azure
-Suivez les instructions pour [créer un contrôleur de domaine dans un réseau virtuel Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine qui est utilisé sur le site principal.
+Suivez les instructions pour [créer un contrôleur de domaine dans un réseau virtuel Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine que celui utilisé sur le site principal.
 
 [Reconfigurez ensuite le serveur DNS pour le réseau virtuel](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)afin de l’utiliser dans Azure.
 
@@ -72,11 +76,11 @@ Suivez les instructions pour [créer un contrôleur de domaine dans un réseau v
 ## <a name="test-failover-considerations"></a>Considérations en matière de test de basculement
 Le test de basculement est effectué dans un réseau isolé du réseau de production afin qu’il n’y ait aucun impact sur les charges de travail de production.
 
-La plupart des applications requièrent également la présence d’un contrôleur de domaine et d’un serveur DNS pour pouvoir fonctionner. Donc, pour réaliser le basculement d’une application, un contrôleur de domaine doit être créé dans le réseau isolé pour qu’il puisse être utilisé pour le test de basculement. Pour ce faire, le plus simple consiste tout d’abord à activer la protection sur la machine virtuelle du contrôleur de domaine/DNS à l’aide de Site Recovery et à effectuer le test de basculement de cette machine virtuelle avant d’exécuter le test de basculement du plan de récupération d’urgence de l’application. Voici comment procéder :
+La plupart des applications requièrent également la présence d’un contrôleur de domaine et d’un serveur DNS pour fonctionner. Par conséquent, avant que l’application ne soit basculée, un contrôleur de domaine doit être créé dans le réseau isolé à utiliser pour le test de basculement. Pour ce faire, le plus simple consiste à répliquer une machine virtuelle du contrôleur de domaine/DNS avec Site Recovery. Exécutez ensuite un test de basculement de la machine virtuelle du contrôleur de domaine avant d’exécuter un test de basculement du plan de récupération de l’application. Voici comment procéder :
 
-1. Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery.
+1. [Répliquez](site-recovery-replicate-vmware-to-azure.md) la machine virtuelle du contrôleur de domaine/DNS avec Site Recovery.
 1. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
-1. Fournissez une adresse IP de DNS dans le réseau créé, comme l’adresse IP que la machine virtuelle du DNS devrait obtenir. Si vous effectuez une réplication vers Azure, indiquez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le champ **Adresse IP cible** des paramètres **Calcul et réseau**. 
+1. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous effectuez une réplication vers Azure, indiquez l’adresse IP de la machine virtuelle utilisée lors du basculement dans le champ **Adresse IP cible** des paramètres **Calcul et réseau**. 
 
     ![Adresse IP cible](./media/site-recovery-active-directory/DNS-Target-IP.png)
     **Adresse IP cible**
@@ -85,20 +89,69 @@ La plupart des applications requièrent également la présence d’un contrôle
 
     **DNS dans le réseau de test Azure**
 
+> [!TIP]
+> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si l’adresse IP cible fait partie du sous-réseau choisi, Site Recovery tente alors de créer la machine virtuelle de test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau choisi, alors la machine virtuelle de test de basculement est créée à l’aide de toute adresse IP disponible dans le sous-réseau sélectionné. 
+>
+>
+
+
 1. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
 1. Effectuez un test de basculement de la machine virtuelle du contrôleur de domaine dans le réseau isolé. Utilisez le dernier point de récupération **cohérent avec l’application** disponible de la machine virtuelle du contrôleur de domaine pour effectuer le test de basculement. 
-1. Exécutez un test de basculement pour le plan de récupération de l’application.
-1. Une fois le test terminé, marquez la tâche de test de basculement de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
-
-
-> [!TIP]
-> L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si tel n’est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
-> 
-> 
+1. Exécutez un test de basculement pour le plan de récupération contenant des machines virtuelles de l’application. 
+1. Une fois le test terminé, **nettoyez le test de basculement** sur la machine virtuelle du contrôleur de domaine. Cette étape supprime le contrôleur de domaine qui a été créé pour le test de basculement.
 
 
 ### <a name="removing-reference-to-other-domain-controllers"></a>Suppression de la référence à d’autres contrôleurs de domaine
-Lorsque vous effectuez un test de basculement, vous n’utiliserez pas tous les contrôleurs de domaine dans le réseau de test. Pour supprimer la référence des autres contrôleurs de domaine qui existent dans votre environnement de production, vous devrez [prendre les rôles FSMO Active Directory et effectuer un nettoyage des métadonnées](http://aka.ms/ad_seize_fsmo) pour les contrôleurs de domaine absents. 
+Lorsque vous effectuez un test de basculement, vous n’utilisez pas tous les contrôleurs de domaine dans le réseau de test. Pour supprimer la référence des autres contrôleurs de domaine qui existent dans votre environnement de production, vous devez peut-être [prendre les rôles FSMO Active Directory](http://aka.ms/ad_seize_fsmo) et effectuer [un nettoyage des métadonnées](https://technet.microsoft.com/library/cc816907.aspx) pour les contrôleurs de domaine absents. 
+
+
+
+> [!IMPORTANT]
+> Certaines des configurations décrites dans la section suivante ne sont pas les configurations de contrôleur de domaine standard/par défaut. Si vous ne souhaitez pas appliquer ces modifications à un contrôleur de domaine de production, vous pouvez créer un contrôleur de domaine dédié, qui sera utilisé pour le test de basculement Site Recovery, et appliquer ces modifications à celui-ci.  
+>
+>
+
+### <a name="issues-because-of-virtualization-safeguards"></a>Problèmes en raison de dispositifs de protection de la virtualisation 
+
+À partir de Windows Server 2012, [des dispositifs de protection supplémentaires ont été intégrés dans Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Ces dispositifs protègent les contrôleurs de domaine virtualisés contre les restaurations d’USN, à condition que la plateforme de l’hyperviseur sous-jacent prenne en charge VM-GenerationID. Azure prend en charge VM-GenerationID, ce qui signifie que les contrôleurs de domaine qui exécutent Windows Server 2012 ou version ultérieure sur des machines virtuelles Azure disposent de dispositifs de protection supplémentaires. 
+
+
+Lorsque le VM-GenerationID est réinitialisé, l’invocationID de la base de données AD DS est également réinitialisé, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, consultez [Présentation de la virtualisation de Services (AD DS) de domaine Active Directory (niveau 100)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) et [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualisation DFSR sécurisée).
+
+Le basculement vers Azure peut entraîner la réinitialisation de VM-GenerationID et cela déclenche les dispositifs de protection supplémentaires au démarrage de la machine virtuelle du contrôleur de domaine dans Azure. Cela peut entraîner un **délai important** de connexion de l’utilisateur à la machine virtuelle du contrôleur de domaine. Étant donné que ce contrôleur de domaine doit être utilisé uniquement dans un test de basculement, les dispositifs de protection de la virtualisation ne sont pas nécessaires. Pour vous assurer que le VM-GenerationID de la machine virtuelle du contrôleur de domaine ne change pas, vous pouvez modifier la valeur DWORD suivante sur 4 dans le contrôleur de domaine local.
+
+        
+        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start
+ 
+
+#### <a name="symptoms-of-virtualization-safeguards"></a>Symptômes des dispositifs de protection de la virtualisation
+ 
+Si les dispositifs de protection de la virtualisation sont intervenus après un test de basculement, vous pouvez observer un ou plusieurs des symptômes suivants :  
+
+Modification de l’ID de génération
+
+![Modification de l’ID de génération](./media/site-recovery-active-directory/Event2170.png)
+
+Modification de l’ID d’appel
+
+![Modification de l’ID d’appel](./media/site-recovery-active-directory/Event1109.png)
+
+Les partages Sysvol et Netlogon ne sont pas disponibles
+
+![Partage Sysvol](./media/site-recovery-active-directory/sysvolshare.png)
+
+![Sysvol Ntfrs](./media/site-recovery-active-directory/Event13565.png)
+
+Les bases de données DFSR sont supprimées
+
+![Suppression de base de données DFSR](./media/site-recovery-active-directory/Event2208.png)
+
+
+> [!IMPORTANT]
+> Certaines des configurations décrites dans la section suivante ne sont pas les configurations de contrôleur de domaine standard/par défaut. Si vous ne souhaitez pas appliquer ces modifications à un contrôleur de domaine de production, vous pouvez créer un contrôleur de domaine dédié, qui sera utilisé pour le test de basculement Site Recovery, et appliquer ces modifications à celui-ci.  
+>
+>
+
 
 ### <a name="troubleshooting-domain-controller-issues-during-test-failover"></a>Résolution des problèmes liés à un contrôleur de domaine survenant pendant un test de basculement
 
@@ -117,25 +170,25 @@ Dans le journal de sortie, recherchez le texte suivant pour vérifier que le con
 * « passed test Advertising »
 * « passed test MachineAccount »
 
-Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de domaine fonctionne correctement. Si ce n’est pas le cas, essayez les étapes suivantes.
+Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de domaine fonctionne correctement. Si ce n’est pas le cas, essayez les étapes ci-après.
 
 
 * Effectuez une restauration faisant autorité du contrôleur de domaine.
-    * Bien qu’il soit [déconseillé d’utiliser la réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous l’utilisez encore, suivez les étapes indiquées [ici](https://support.microsoft.com/en-in/kb/290762) pour effectuer une restauration faisant autorité. Vous trouverez plus d’informations sur les éléments Burflags dont il est question dans le lien précédent [ici](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Si vous utilisez la réplication DFSR, suivez les étapes disponibles [ici](https://support.microsoft.com/en-us/kb/2218556) pour effectuer une restauration faisant autorité. Vous pouvez également utiliser les fonctions PowerShell disponibles [ici](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) à cet effet. 
+    * Bien qu’il soit [déconseillé d’utiliser la réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous l’utilisez encore, suivez les étapes indiquées [ici](https://support.microsoft.com/kb/290762) pour effectuer une restauration faisant autorité. Vous trouverez plus d’informations sur les éléments Burflags dont il est question dans le lien précédent [ici](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+    * Si vous utilisez la réplication DFSR, suivez les étapes disponibles [ici](https://support.microsoft.com/kb/2218556) pour effectuer une restauration faisant autorité. Vous pouvez également utiliser les fonctions PowerShell disponibles [ici](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) à cet effet. 
     
-* Contournez l’obligation de synchronisation initiale en définissant la clé de Registre suivante sur 0. Si cette valeur DWORD n’existe pas, vous pouvez la créer sous le nœud « Parameters ». Vous trouverez plus d’informations à ce sujet [ici](https://support.microsoft.com/en-us/kb/2001093).
+* Contournez l’obligation de synchronisation initiale en définissant la clé de Registre suivante sur 0 dans le contrôleur de domaine local. Si cette valeur DWORD n’existe pas, vous pouvez la créer sous le nœud « Paramètres ». Vous trouverez plus d’informations à ce sujet [ici](https://support.microsoft.com/kb/2001093).
 
         HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-* Désactivez l’exigence de disponibilité d’un serveur de catalogue global pour valider la connexion utilisateur en définissant la clé de Registre suivante sur 1. Si cette valeur DWORD n’existe pas, vous pouvez la créer sous le nœud « Lsa ». Vous trouverez plus d’informations à ce sujet [ici](http://support.microsoft.com/kb/241789/EN-US).
+* Désactivez l’exigence de disponibilité d’un serveur de catalogue global pour valider la connexion utilisateur en définissant la clé de Registre suivante sur 1 dans le contrôleur de domaine local. Si cette valeur DWORD n’existe pas, vous pouvez la créer sous le nœud « Lsa ». Vous trouverez plus d’informations à ce sujet [ici](http://support.microsoft.com/kb/241789).
 
         HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
 
 
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS et contrôleur de domaine sur différentes machines
-Si DNS figure sur une machine virtuelle différente de celle du contrôleur de domaine, vous devez créer une machine virtuelle DNS pour le test de basculement. Si le DNS et le contrôleur de domaine figurent sur la même machine virtuelle, vous pouvez ignorer cette section.
+Si le DNS figure sur une machine virtuelle différente de celle du contrôleur de domaine, vous devez créer une machine virtuelle du DNS pour le test de basculement. Si le DNS et le contrôleur de domaine figurent sur la même machine virtuelle, vous pouvez ignorer cette section.
 
 Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises. Par exemple, si votre domaine Active Directory est contoso.com, vous pouvez créer une zone DNS portant le nom contoso.com. Les entrées correspondant à Active Directory doivent être mises à jour dans le système DNS, comme suit :
 
@@ -157,10 +210,5 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la protection des charges de travail d’entreprise avec Azure Site Recovery, consultez [Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?](site-recovery-workload.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

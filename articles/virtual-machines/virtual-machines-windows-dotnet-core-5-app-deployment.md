@@ -17,9 +17,9 @@ ms.date: 11/21/2016
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 2d60af167b8d7805e6f01264de84fb1351d85f98
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -120,6 +120,46 @@ Notez que, dans le JSON ci-dessous, le script est stocké dans GitHub. Ce script
   }
 }
 ```
+
+Comme mentionné ci-dessus, il est également possible de stocker vos scripts personnalisés dans le stockage d’objets blob Azure. Il existe deux options pour stocker les ressources de script dans le stockage blob. Rendez le conteneur ou le script public et suivez l’approche illustrée ci-dessus, ou privilégiez le stockage privé d’objets blob qui vous oblige à fournir storageAccountName et storageAccountKey à la définition de ressource CustomScriptExtension.
+
+Dans l’exemple ci-dessous, nous avons franchi une étape supplémentaire. Bien qu’il soit possible de fournir le nom de compte de stockage et la clé en tant que paramètre ou variable pendant le déploiement, les modèles Resource Manager fournissent la fonction `listKeys` qui peut obtenir la clé de compte de stockage par programme et l’insérer dans le modèle pour vous au moment du déploiement.
+
+Dans l’exemple de définition de ressource CustomScriptExtension ci-dessous, notre script personnalisé a déjà été chargé vers un compte de stockage Azure appelé `mystorageaccount9999` qui existe dans un autre groupe de ressources appelé `mysa999rgname`. Lors du déploiement d’un modèle qui contient cette ressource, la fonction `listKeys` obtient par programme la clé de compte de stockage pour le compte de stockage `mystorageaccount9999` dans le groupe de ressources `mysa999rgname` et l’insère pour nous dans le modèle.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
+Le principal avantage de cette approche est qu’elle ne requiert pas la modification de vos paramètres de modèle ou de déploiement en cas de modification de la clé du compte de stockage.
 
 Pour plus d’informations sur l’utilisation des extensions de script personnalisé, consultez [Extensions de script personnalisé avec des modèles Resource Manager](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
