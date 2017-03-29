@@ -5,20 +5,17 @@
 ## [Créer une base de données - Portail](sql-database-get-started-portal.md)
 ## [Créer une base de données - Interface de ligne de commande Azure](sql-database-get-started-cli.md)
 ## [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
-## Connecter
+## Gérer
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Code Visual Studio](sql-database-connect-query-vscode.md)
+## Connecter
 ### [C#](sql-database-connect-query-dotnet.md)
 # Exemples
 ## [Interface de ligne de commande Azure](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Didacticiels
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Récupérer
-### [Portail](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Concevoir une base de données](sql-database-design-first-database.md)
+
 # Concepts
 ## Bases de données et serveurs
 ### [Bases de données](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Accès à la base de données 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Sécuriser les données
 ### [Authentification Azure AD](sql-database-aad-authentication-configure.md)
 ### [Audit](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Chiffrer - Magasin de certificats](sql-database-always-encrypted.md)
 ### [Chiffrer - key vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configurer le masquage](sql-database-dynamic-data-masking-get-started-portal.md)
-## Sauvegarder et restaurer des données
-### [Restaurer - Portail](sql-database-restore-database-portal.md)
+## Récupérer
+### [Portail](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Table unique](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Rétention
 ### [Rétention - Portail](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Retention - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Récupérer une table unique](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Géorépliquer les données
 ### [Portail](sql-database-geo-replication-portal.md)
 ### [T-SQL - Configurer](sql-database-geo-replication-transact-sql.md)
