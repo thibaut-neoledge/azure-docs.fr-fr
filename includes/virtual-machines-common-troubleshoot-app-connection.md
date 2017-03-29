@@ -62,7 +62,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** pour afficher les ports d’écoute actifs. Examinez la sortie pour les ports attendus sur lesquels votre application doit être à l’écoute. Redémarrez l’application ou configurez-la pour utiliser les ports prévus selon les besoins et essayez d’accéder à nouveau localement à l’application.
 
-## <a name="a-idstep2astep-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Étape 2 : Accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel
+## <a id="step2"></a>Étape 2 : Accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel
 Essayez d’accéder à l’application à partir d’une machine virtuelle différente, mais sur le même réseau virtuel, à l’aide du nom d’hôte de la machine virtuelle ou de son adresse IP publique, privée ou de fournisseur attribuée par Azure. Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, n’utilisez pas l’adresse IP publique du service cloud.
 
 ![démarrer l’application à partir d’une autre machine virtuelle](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -82,7 +82,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions avancées de sécurité pour déterminer si les règles de pare-feu excluent le trafic entrant et sortant de votre application
 
-## <a name="a-idstep3astep-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Étape 3 : Accéder à l’application à partir de l’extérieur du réseau virtuel
+## <a id="step3"></a>Étape 3 : Accéder à l’application à partir de l’extérieur du réseau virtuel
 Essayez d’accéder à l’application à partir d’un ordinateur en dehors du réseau virtuel de la machine virtuelle sur laquelle l’application est exécutée. Utilisez un réseau différent de celui de votre ordinateur client d’origine.
 
 ![démarrer l’application à partir d’un ordinateur situé hors du réseau virtuel](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -95,7 +95,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
   
   * Vérifiez que la configuration de points de terminaison de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
   * Assurez-vous que les ACL (listes de contrôle d’accès) sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
-  * Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  * Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager :
   
   * Vérifiez que la configuration de la règle NAT de trafic entrant de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
@@ -118,9 +118,4 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -274,7 +274,7 @@ Dès lors que les serveurs, les clouds et les réseaux ont été configurés cor
     ![Verify virtual machines](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Dans l’onglet **Configurer** des propriétés de la machine virtuelle, les propriétés réseau suivantes peuvent être modifiées.
 
-* **Nombre de cartes réseau sur la machine virtuelle cible** : le nombre de cartes réseau est défini en fonction de la taille de machine virtuelle cible que vous avez spécifiée. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille. Lorsque vous modifiez la taille d’une machine virtuelle et enregistrez les paramètres, le nombre de cartes réseau changera lors de la prochaine ouverture de la page **Configurer** . Le nombre de cartes réseau des machines virtuelles cible correspond, au minimum, au nombre de cartes réseau sur la machine virtuelle source et, au maximum, au nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille, comme suit :
+* **Nombre de cartes réseau sur la machine virtuelle cible** : le nombre de cartes réseau est défini en fonction de la taille de machine virtuelle cible que vous avez spécifiée. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-linux-sizes.md) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille. Lorsque vous modifiez la taille d’une machine virtuelle et enregistrez les paramètres, le nombre de cartes réseau changera lors de la prochaine ouverture de la page **Configurer** . Le nombre de cartes réseau des machines virtuelles cible correspond, au minimum, au nombre de cartes réseau sur la machine virtuelle source et, au maximum, au nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille, comme suit :
 
   * Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présente le même nombre de cartes que la source.
   * Si le nombre de cartes de la machine virtuelle source dépasse la valeur de taille cible autorisée, la taille cible maximale est utilisée.

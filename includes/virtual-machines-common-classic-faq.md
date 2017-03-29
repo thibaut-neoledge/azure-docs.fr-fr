@@ -33,8 +33,8 @@ Un compte de stockage Azure fournit le stockage pour le disque du système d’e
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Quels types de disque dur virtuel puis-je utiliser ?
 Azure prend uniquement en charge les disques durs virtuels fixes au format VHD. Si vous souhaitez utiliser un disque VHDX dans Azure, convertissez-le d’abord à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Une fois l’opération effectuée, utilisez l’applet de commande [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en mode de gestion des services) pour télécharger le VHD sur un compte de stockage dans Azure afin de pouvoir l’utiliser avec des machines virtuelles.
 
-* Pour obtenir des instructions concernant Linux, consultez l’article [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Pour obtenir des instructions concernant Windows, consultez l’article [Créer et charger un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Pour obtenir des instructions concernant Linux, consultez l’article [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Pour obtenir des instructions concernant Windows, consultez l’article [Créer et charger un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Ces machines virtuelles sont-elles identiques aux machines virtuelles Hyper-V ?
 Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de première génération, elles ne sont pas tout à fait identiques. Les deux types fournissent un matériel virtualisé, et les disques durs virtuels de format VHD sont compatibles. Cela signifie que vous pouvez les déplacer entre Hyper-V et Azure. Les trois différences principales qui surprennent parfois les utilisateurs d’Hyper-V sont :
@@ -51,7 +51,7 @@ Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appa
 ## <a name="how-can-i-access--my-virtual-machine"></a>Comment puis-je accéder à ma machine virtuelle ?
 Vous devez vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou une connexion Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
-* [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
+* [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
 * [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 En cas de problème avec Bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour résoudre le problème.
@@ -60,7 +60,7 @@ Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
 * Dans le portail Azure en version préliminaire, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
 * Consultez l’article [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, consultez l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, consultez l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VMConnect. Azure n’offre pas d’outil similaire car l’accès console à une machine virtuelle n’est pas pris en charge.
 
@@ -68,7 +68,7 @@ Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VM
 Vous ne devez pas utiliser le disque temporaire (le lecteur D: pour Windows ou /dev/sdb1 pour Linux) pour stocker des données. Ils ne permettent qu’un stockage temporaire, vous risqueriez donc de perdre des données sans pouvoir les récupérer. Cela peut arriver si la machine virtuelle est déplacée vers un autre hôte, après le redimensionnement d’une machine virtuelle, la mise à jour de l’hôte ou une panne matérielle sur l’hôte, par exemple.
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Comment puis-je modifier la lettre de lecteur d’un disque temporaire ?
-Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Comment puis-je mettre à niveau le système d’exploitation invité ?
 Le terme de mise à niveau a généralement pour signification le passage à une version plus récente de votre système d’exploitation tout en conservant le même matériel. Pour les machines virtuelles Azure, le processus de passage à une version plus récente est différent pour Linux et Windows :
@@ -128,9 +128,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 [Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
