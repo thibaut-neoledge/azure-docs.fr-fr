@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
-ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 53e053fe12ea6753b6a47443ab91948c9a753a17
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -34,7 +35,7 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, c
 Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle. 
 
 * Pour utiliser le portail, consultez [Attacher un disque de données dans le Portail Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Pour utiliser le portail Classic, consultez [Attacher un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+* Pour utiliser le portail Classic, consultez [Attacher un disque de données à une machine virtuelle Windows](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Déplacement temporaire du fichier pagefile.sys vers le lecteur C
 1. Connectez-vous à la machine virtuelle. 
@@ -69,10 +70,5 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [attachant un disque de données supplémentaire](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
