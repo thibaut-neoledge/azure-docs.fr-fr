@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -129,7 +129,7 @@ Pour résoudre cette erreur, activez cette application et réessayez d’activer
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
 Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
 
-* **Connectez-vous à l’aide du format UPN :** essayez de vous connecter en utilisant le format UPN (par exemple, 'joeuser@contoso.com') au lieu du format SAMAccountName (« CONTOSO\joeuser »)). Le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
+* **Connectez-vous à l’aide du format UPN :** essayez de vous connecter en utilisant le format UPN (par exemple, « joeuser@contoso.com » au lieu du format SAMAccountName (« CONTOSO\joeuser »)). Le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser le format UPN pour vous connecter au domaine géré des services de domaine Azure AD.
@@ -137,7 +137,7 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
 >
 
 * Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
-* **Comptes externes** : assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, 'joe@live.com')) ou les comptes d'utilisateurs d'un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
+* **Comptes externes** : assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, « joe@live.com ») ou les comptes d’utilisateurs d’un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
 * **Comptes synchronisés** : si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
 
   * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594)ou procédé à la mise à jour vers cette version.
@@ -151,6 +151,8 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Les utilisateurs supprimés de votre client Azure AD ne sont pas supprimés de votre domaine géré
 Azure AD vous protège contre la suppression accidentelle d’objets utilisateur. Lorsque vous supprimez un compte d’utilisateur de votre client Azure AD, l’objet utilisateur correspondant est déplacé vers la Corbeille. Lorsque cette opération de suppression est synchronisée avec votre domaine géré, le compte d’utilisateur correspondant est marqué comme étant désactivé. Cette fonctionnalité vous permet de récupérer ou restaurer le compte d’utilisateur ultérieurement.
+
+Le compte d’utilisateur reste dans un état désactivé dans votre domaine managé, même si vous recréez un compte d’utilisateur avec le même nom d’utilisateur principal dans votre annuaire Azure AD. Pour supprimer le compte d’utilisateur de votre domaine managé, vous devez forcer sa suppression de votre locataire Azure AD.
 
 Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell Remove-MsolUser avec l’option « -RemoveFromRecycleBin », comme décrit dans cet [article MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

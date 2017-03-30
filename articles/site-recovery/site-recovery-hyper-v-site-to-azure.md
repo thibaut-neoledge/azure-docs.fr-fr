@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9da7a59ca5d544121dc9c540a25a3b975988e9a1
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 >
 >
 
-Cet article explique comment répliquer des machines virtuelles Hyper-V locales dans Azure à l’aide d’[Azure Site Recovery[](site-recovery-overview.md) dans le portail Azure.
+Cet article explique comment répliquer des machines virtuelles Hyper-V locales dans Azure à l’aide d’[Azure Site Recovery](site-recovery-overview.md) dans le portail Azure.
 
 Vous répliquez des machines virtuelles Hyper-V dans le stockage Azure et basculez des machines virtuelles dans Azure si votre site principal devient indisponible. Vous pouvez accéder aux charges de travail dans Azure et effectuer une restauration en local lorsqu’il redevient disponible. Vous pouvez également utiliser les instructions fournies dans cet article pour migrer des machines virtuelles vers Azure. Dans un scénario de migration, vous répliquez et basculez les machines virtuelles, mais vous ne les restaurez pas en local à nouveau.
 
@@ -100,7 +100,7 @@ Configurez un réseau Azure afin que les machines virtuelles Azure créées apr�
 
 ### <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau** > **Gestion** > **Sauvegarde et récupération de sites (OMS)**. Vous pouvez également sélectionner **Parcourir** > **Coffres **Recovery Services > **Ajouter**.
+2. Cliquez sur **Nouveau** > **Gestion** > **Sauvegarde et récupération de sites (OMS)**. Vous pouvez également sélectionner **Parcourir** > **Coffres**Recovery Services > **Ajouter**.
 
     ![Nouveau coffre](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 3. Dans **Nom** , spécifiez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez-en un.
@@ -228,7 +228,7 @@ Si vous souhaitez créer un réseau en suivant le modèle classique, vous pouvez
 2. Dans la zone **Créer et associer une stratégie**, indiquez le nom de la stratégie.
 3. Dans le champ **Copier la fréquence** , spécifiez la fréquence à laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
-5. Dans le champ **Fréquence des captures instantanées de cohérence d’application** , spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre&1; et&12; heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
+5. Dans le champ **Fréquence des captures instantanées de cohérence d’application** , spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
 6. Dans la zone **Heure de début de la réplication initiale**, indiquez à quel moment démarrer la réplication initiale. La réplication se produit via votre bande passante Internet. Il est donc préférable de prévoir son exécution en dehors des heures de bureau. Cliquez ensuite sur **OK**.
 
     ![Stratégie de réplication](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
@@ -393,7 +393,7 @@ Exécutez ce basculement pour répondre aux exigences de conformité ou, lors de
 
 1. Sélectionnez **Plans de récupération > nom_planrécupération**.
 2. Dans le panneau Plan de récupération, cliquez sur **Basculement planifié**.
-3. Sur la page ** **Confirmer le basculement planifié ****, choisissez les emplacements source et cible.
+3. Sur la page ** **Confirmer le basculement planifié****, choisissez les emplacements source et cible.
 4. Lorsqu’un basculement planifié commence, la première étape consiste à arrêter les machines virtuelles pour éviter toute perte de données. Vous pouvez suivre la progression du basculement sur l’onglet **Tâches** . Si une erreur se produit lors du basculement (sur une machine virtuelle ou dans un script inclus dans le plan de récupération), le basculement planifié d’un plan de récupération s’arrête. Vous pouvez le lancer à nouveau.
 6. Une fois créés, les ordinateurs virtuels de réplication sont en attente de validation. Cliquez sur **Valider** pour valider le basculement.
 7. Une fois la réplication terminée, les machines virtuelles démarrent à l’emplacement secondaire.

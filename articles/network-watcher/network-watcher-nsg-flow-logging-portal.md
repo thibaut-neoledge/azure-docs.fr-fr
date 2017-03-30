@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 18227576b14fdf4bb8aa11a673f33075c3a380a8
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/23/2017
 > - [INTERFACE DE LIGNE DE COMMANDE](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
+Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -64,9 +64,9 @@ Dans le panneau **Flow logs settings** (Paramètres des journaux des flux), déf
 
 Les journaux des flux sont enregistrés dans un compte de stockage. Pour afficher vos journaux des flux, vous devez les télécharger.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
-Pour télécharger des journaux des flux, cliquez sur **You download flow logs from configured storage accounts** (Vous téléchargez des journaux des flux à partir de comptes de stockage configurés).  Vous accédez à une vue du compte de stockage dans laquelle vous pouvez accéder à votre journal à télécharger.
+Pour télécharger des journaux des flux, cliquez sur **Vous pouvez télécharger les journaux de flux à partir des comptes de stockage configurés**.  Vous accédez à une vue du compte de stockage dans laquelle vous pouvez accéder à votre journal à télécharger.
 
 ![paramètres des journaux des flux][4]
 
@@ -95,3 +95,4 @@ Découvrez comment [visualiser vos journaux des flux de groupe de sécurité ré
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+

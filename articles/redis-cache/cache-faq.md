@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -134,7 +134,7 @@ De ce tableau, nous pouvons tirer les conclusions suivantes :
 * Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 250 000 * 10 = 2,5 millions de demandes par seconde.
 * Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
-| Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de clé de&1; Ko |
+| Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko |
 | --- | --- | --- | --- | --- |
 | **Tailles de cache Standard** | | |**Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS)** |
 | C0 |250 Mo |Partagé |5 / 0,625 |600 |

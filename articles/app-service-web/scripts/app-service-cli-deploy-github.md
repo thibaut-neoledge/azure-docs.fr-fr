@@ -12,33 +12,23 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ab4be9d9a03001789bed90e58d62fe1891608823
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8d9e90cc43df74968c7b9dc30d268f3e6228adcc
+ms.lasthandoff: 03/21/2017
 
 ---
 
 
 # <a name="create-a-web-app-with-deployment-from-github"></a>Créer une application web avec un déploiement à partir de GitHub
 
-Cet exemple de script effectue les opérations suivantes à l’aide d’Azure CLI 2.0 :
+Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis déploie votre code d’application web dans un référentiel GitHub public (sans déploiement continu). Pour le déploiement GitHub avec déploiement continu, consultez [Créer une application web avec un déploiement continu à partir de GitHub](app-service-cli-continuous-deployment-github.md).
 
-* Créer une application web dans Azure App Service dans la région Europe de l’Ouest Azure.
-* Déployer votre code d’application web à partir de GitHub.
-* Afficher l’application web Azure déployée dans le navigateur.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure. En outre, vous avez besoin d’un lien vers le dépôt GitHub qui contient le code d’application web.
 
-## <a name="prerequisites"></a>Composants requis
-
-* Exécutez `az login` pour vous connecter à Azure.
-* Placez votre code d’application web dans un référentiel GitHub.
-
-> [!NOTE]
-> Si vous utilisez un référentiel GitHub public dont vous n’êtes pas propriétaire, App Service déploie le code à partir de ce référentiel GitHub, mais ne peut pas configurer la clé SSH ni les webhooks requis pour le déploiement continu.
->
->
+Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## <a name="create-app-sample"></a>Exemple de création d’application
 

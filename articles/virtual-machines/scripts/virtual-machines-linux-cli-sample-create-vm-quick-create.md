@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: c6706808df75b7f567bb39f0f0fdce4692af683e
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ecd854842ace5a6472ea30f8cedd2a839f4f6358
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-L’exemple de script fourni ici crée une machine virtuelle Azure avec un système d’exploitation Ubuntu. Une fois le script exécuté, la machine virtuelle est accessible sur SSH. 
+Ce script crée une machine virtuelle Azure avec un système d’exploitation Ubuntu et les ressources réseau associées. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via SSH.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure.
 
-Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI sur un client Windows, consultez la page [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Utilisation de l’interface Azure CLI dans Windows).
+Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -36,7 +36,7 @@ Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir p
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante peut être utilisée pour la suppression du groupe de ressources, de la machine virtuelle et de toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup

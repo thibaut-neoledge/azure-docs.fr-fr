@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 1ed2ee17e6b4d0256707bc63ac450b33ad9ef162
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db91a464843a7c2dc5460f12f7f306972d3a7da8
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="convert-a-machine-learning-training-experiment-to-a-predictive-experiment"></a>Conversion d’une expérience d’apprentissage Machine Learning en expérience prédictive
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
 
-Une fois que vous avez créé une *expérience de formation* , effectué l’itération sur celle-ci pour former le modèle d’analyse prédictive et que vous êtes prêt à l’utiliser pour noter les nouvelles données, vous devez préparer et rationaliser votre expérience à des fins de notation. Vous pouvez ensuite déployer cette *expérience prédictive* en tant que service web Microsoft Azure, afin que les utilisateurs puissent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
+Une fois que vous avez créé une *expérience de formation* , effectué l’itération sur celle-ci pour former le modèle d’analyse prédictive et que vous êtes prêt à l’utiliser pour noter les nouvelles données, vous devez préparer et rationaliser votre expérience à des fins de notation. Vous pouvez ensuite faire fonctionner cette *expérience prédictive* en tant que service web Microsoft Azure afin que les utilisateurs puissent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
 
 En la convertissant en expérience prédictive, vous préparez votre modèle formé à être déployé en tant que service web. Les utilisateurs du service web envoient des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Par conséquent, lorsque vous convertissez l’expérience en expérience prédictive, vous devez tenir compte du mode d’utilisation de votre modèle par les autres utilisateurs.
 
@@ -40,7 +40,7 @@ Le processus de conversion d’une expérience d’apprentissage en expérience 
 Après avoir mené votre expérience (bouton **EXÉCUTER** au bas de la zone de dessin d’expérimentation), le bouton **Configurer le Service web** (sélectionnez l’option **Service web prédictif**) effectue pour vous les trois étapes de conversion de votre expérience de formation en prévision d’une expérience pour vous :
 
 1. Il enregistre votre modèle en tant que module dans la section **Modèles formés** de la palette du module (située à gauche de la zone de dessin de l’expérimentation), puis remplace l’algorithme d’apprentissage automatique et les modules [Train Model][train-model] par le module formé enregistré.
-2. Il supprime les modules qui ne sont pas nécessaires. Dans notre exemple, cela inclut le module [Split Data][split], le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model].
+2. Il supprime les modules qui ne sont pas nécessaires. Dans notre exemple, cela inclut le module [Split Data][split], le <sup></sup>deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model].
 3. Il crée les modèles d’entrée et de sortie du service web et les ajoute aux emplacements par défaut prévus dans votre expérience.
 
 Par exemple, l’expérience suivante effectue l’apprentissage d’un modèle d’arborescence de décision augmenté incluant deux classes, au moyen des données de recensement :
@@ -58,7 +58,7 @@ Lorsque vous convertissez cette expérience d’apprentissage en expérience pr�
   
     Par exemple, l’exemple de jeu de données indiqué ici peut présenter des valeurs manquantes ; il inclut des colonnes qui ne sont pas nécessaires pour former le modèle. Par conséquent, un module [Clean Missing Data][clean-missing-data] a été inclus pour gérer les valeurs manquantes et un module [Select Columns in Dataset][select-columns] a été ajouté pour exclure ces colonnes supplémentaires du flux de données. Si vous savez qu’aucune donnée ne manque parmi les données qui seront soumises à des fins de calcul de la notation via le service web, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu’il permet de définir l’ensemble de fonctionnalités qui sont notées, le module [Select Columns in Dataset][select-columns] doit être conservé.
 * **Train** : ces modules sont utilisés pour former le modèle. Lorsque vous cliquez sur **Configurer le service web**, ces modules sont remplacés par un module de modèle formé unique. Ce nouveau module est enregistré dans la section **Modèles formés** de la palette des modules.
-* **Score** : dans cet exemple, le module Split est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience prédictive, ce module n’est pas nécessaire et peut être supprimé. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
+* **Score** : dans cet exemple, le module [Split Data][split] est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience prédictive, ce module n’est pas nécessaire et peut être supprimé. De même, le <sup></sup>deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
 
 Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web**:
 

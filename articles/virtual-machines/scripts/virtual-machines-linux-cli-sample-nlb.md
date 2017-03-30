@@ -16,27 +16,27 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: 0253b5368acc370580dda645cf15b99a2acc437d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3632b990d89144d6ad3678a9b1548ce2c736088f
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-highly-available-vm"></a>Créer une machine virtuelle hautement disponible
 
-Cet exemple de script crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge. Ce script génère trois machines virtuelles jointes à un groupe à haute disponibilité Azure et accessibles par le biais d’Azure Load Balancer. 
+Cet exemple de script crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge. Une fois que vous avez exécuté le script, vous obtenez trois machines virtuelles jointes à un groupe à haute disponibilité Azure et accessibles par le biais d’Azure Load Balancer. 
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure.
 
 Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Créer rapidement une machine virtuelle")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Création rapide de machine virtuelle")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -10,12 +10,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
-ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,24 +68,34 @@ Ce dont vous avez besoin :
 ## <a name="define-your-schema"></a>Définir votre schéma
 
 Avant de pouvoir importer des données, vous devez définir une *source de données,* qui spécifie le schéma de vos données.
+Vous pouvez avoir jusqu'à 50 sources de données dans une seule ressource Application Insights
 
-1. Démarrer l’Assistant Source de données
+1. Démarrez l’Assistant Source de données.
 
     ![Ajouter une source de données](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Téléchargez un exemple de fichier de données. (Facultatif si vous téléchargez une définition de schéma.)
+    Entrez un nom pour votre nouvelle source de données.
 
-    La première ligne de l’exemple peut être des en-têtes de colonne. (Vous pouvez modifier le nom des champs à l’étape suivante.)
+2. Définissez le format des fichiers que vous allez charger.
 
-    L’exemple doit inclure au moins 10 lignes de données.
+    Vous pouvez définir le format manuellement, ou télécharger un exemple de fichier.
+
+    Si les données sont au format CSV, la première ligne de l’exemple peut être des en-têtes de colonne. Vous pouvez modifier le nom des champs à l’étape suivante.
+
+    L’exemple doit inclure au moins 10 lignes ou enregistrements de données.
+
+    Les noms de colonnes ou de champs doivent avoir des noms alphanumériques (sans espaces ni ponctuation).
+
+    ![Charger un exemple de fichier](./media/app-insights-analytics-import/sample-data-file.png)
+
 
 3. Examinez le schéma de l’Assistant. S’il a déduit les types à partir d’un exemple, vous devrez probablement modifier les types déduits des colonnes.
 
-   (Facultatif.) Téléchargez une définition de schéma. Consultez le format ci-dessous.
+    ![Examiner le schéma déduit](./media/app-insights-analytics-import/data-source-review-schema.png)
 
-4. Sélectionnez un horodatage. Toutes les données dans Analytics doivent avoir un champ d’horodatage. Il doit être de type `datetime`, mais il ne doit pas forcément être nommé « Horodatage ». Si vos données comportent une colonne contenant une date et une heure au format ISO, choisissez celle-ci en tant que colonne d’horodatage. Sinon, choisissez « à mesure que les données sont arrivées », et le processus d’importation ajoutera un champ d’horodatage.
+ * (Facultatif.) Téléchargez une définition de schéma. Consultez le format ci-dessous.
 
-    ![Examiner le schéma](./media/app-insights-analytics-import/data-source-review-schema.png)
+ * Sélectionnez un horodatage. Toutes les données dans Analytics doivent avoir un champ d’horodatage. Il doit être de type `datetime`, mais il ne doit pas forcément être nommé « Horodatage ». Si vos données comportent une colonne contenant une date et une heure au format ISO, choisissez celle-ci en tant que colonne d’horodatage. Sinon, choisissez « à mesure que les données sont arrivées », et le processus d’importation ajoutera un champ d’horodatage.
 
 5. Créez la source de données.
 
@@ -133,6 +143,9 @@ Vous pouvez effectuer l’opération suivante manuellement ou configurer un syst
 
  * La taille maximum des blobs est de 1 Go (sans compression). Les blobs d’une centaine de Mo sont parfaits, du point de vue des performances.
  * Vous pouvez les compresser avec Gzip pour améliorer le temps de chargement et la latence de disponibilité des données pour interrogation. Utilisez l’extension de nom de fichier `.gz`.
+ * Il est préférable d’utiliser un compte de stockage distinct à cet effet, afin d’éviter que les appels provenant de différents services ralentissent les performances.
+ * Lors de l’envoi de données à des fréquences élevées, toutes les quelques secondes, il est recommandé d’utiliser plusieurs comptes de stockage, pour des raisons de performances.
+
  
 2. [Créez une clé de signature d’accès partagé pour le blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Le délai d’expiration de la clé doit être d’un jour et celle-ci doit fournir un accès en lecture.
 3. Effectuez un appel REST pour indiquer à Application Insights que les données sont en attente.
@@ -181,6 +194,7 @@ Les données sont disponibles dans Analytics après quelques minutes.
  * Le nom de la source de données est incorrect.
 
 Des informations plus détaillées sont disponibles dans le message d’erreur de réponse.
+
 
 ## <a name="sample-code"></a>Exemple de code
 

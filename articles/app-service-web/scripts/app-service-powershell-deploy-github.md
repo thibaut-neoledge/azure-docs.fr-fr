@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 7ee385060bbb3800e8a37f2ae4ba7d06fb31b521
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f85a45f453bf707ffb544440c6592d29755406a6
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis déploie votre code d’application web dans un référentiel GitHub public (sans déploiement continu). Pour le déploiement GitHub avec déploiement continu, consultez [Créer une application web avec un déploiement continu à partir de GitHub](app-service-powershell-continuous-deployment-github.md).
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de l’applet de commande `Login-AzureRmAccount`, et que vous disposez de l’URL d’un référentiel GitHub à déployer.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). En outre, vous avez besoin d’un lien vers le dépôt GitHub qui contient le code d’application web.
 
 ## <a name="sample-script"></a>Exemple de script
 

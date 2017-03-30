@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 68b3d858bc268eb8b93e4968d9fb1e587ebaa1e6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5269bd54e2dc9604c855cc9ff061cca26db1bf44
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-an-iis-vm-with-powershell"></a>Créer une machine virtuelle IIS avec PowerShell
 
-Ce script crée une machine virtuelle Azure, puis utilise l’extension du script personnalisé de machine virtuelle Azure pour installer IIS. Une fois le script exécuté, un site web de démonstration est accessible sur l’adresse IP publique de la machine virtuelle.
+Ce script crée une machine virtuelle Azure exécutant Windows Server 2016, puis utilise l’extension du script personnalisé de machine virtuelle Azure pour installer IIS. Une fois que vous avez exécuté le script, vous pouvez accéder au site IIS par défaut sur l’adresse IP publique de la machine virtuelle.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `Login-AzureRmAccount`.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -34,7 +34,7 @@ Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien é
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

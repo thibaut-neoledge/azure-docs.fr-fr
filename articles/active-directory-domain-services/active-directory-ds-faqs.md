@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6bab265b2b6eabd1a878492588c4eb39d1b332
-ms.openlocfilehash: 89dfabb8feafffee2ed8143c372b53d02033d582
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7f3212350b1158cd51a34ee1b20a456a73d41672
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,6 +33,9 @@ Non. Vous ne pouvez créer qu’un seul domaine pris en charge par les services 
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Puis-je activer les services de domaine Azure AD dans un réseau virtuel Azure Resource Manager ?
 Non. Les services de domaine Azure AD peuvent uniquement être activés dans un réseau virtuel Azure classique. Vous pouvez connecter le réseau virtuel classique à un réseau virtuel Resource Manager via l’homologation de réseaux virtuels pour utiliser votre domaine géré dans un réseau virtuel Resource Manager.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Puis-je activer les services de domaine Azure AD dans un annuaire Azure AD fédéré ? J’utilise ADFS pour permettre aux utilisateurs de s’identifier afin d’accéder à Office 365. Puis-je activer les services de domaine Azure AD pour cet annuaire ?
+Non. Les services de domaine Azure AD ont besoin d’un accès aux hachages de mot de passe des comptes d’utilisateur afin d’authentifier les utilisateurs via NTLM ou Kerberos. Dans un annuaire fédéré, les hachages de mot de passe ne sont pas stockés dans l’annuaire Azure AD. Par conséquent, les services de domaine Azure AD ne fonctionnent pas avec ces annuaires Azure AD.
 
 #### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Puis-je rendre les services de domaine Azure AD disponibles dans plusieurs réseaux virtuels au sein de mon abonnement ?
 Le service lui-même ne prend pas directement en charge ce scénario. Les services de domaine Azure AD sont disponibles dans un seul réseau virtuel à la fois. Toutefois, vous pouvez configurer la connectivité entre plusieurs réseaux virtuels afin d’exposer les services de domaine Azure AD à d’autres réseaux virtuels. Cet article décrit comment vous pouvez [connecter des réseaux virtuels dans Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
@@ -51,22 +54,22 @@ Non. Le domaine fourni par les services de domaine Azure AD est un domaine gér
 Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine pour le domaine géré, via le Bureau à distance. Les membres du groupe « AAD DC Administrators » peuvent administrer le domaine géré à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité « Outils d’administration de serveur distant » sur un serveur Windows joint au domaine géré.
 
 #### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>J’ai activé les services de domaine Azure AD. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
-Les utilisateurs que vous avez ajoutés au groupe d’administration (par exemple, « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
+Les membres du groupe d’administration « AAD DC Administrators » peuvent joindre des ordinateurs au domaine. En outre, les membres de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
 
-#### <a name="can-i-wield-domain-administrator-privileges-for-the-domain-provided-by-azure-ad-domain-services"></a>Puis-je exercer des privilèges d’administrateur de domaine pour le domaine fourni par les services de domaine Azure AD ?
+#### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine géré fourni par les services de domaine Azure AD ?
 Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles pour vous dans le domaine. En outre, les groupes d’administrateurs de domaine ou d’administrateurs d’entreprise existants dans votre répertoire Azure AD ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine.
 
-#### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-domains-provided-by-azure-ad-domain-services"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration Active Directory sur des domaines fournis par les services de domaine Azure AD ?
+#### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines gérés ?
 Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez toutefois modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Ces modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
 
 #### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine géré ?
 Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées avec votre domaine géré. Ce processus de synchronisation se produit en arrière-plan. Une fois la synchronisation initiale de votre annuaire terminée, il faut généralement environ 20 minutes pour que les modifications apportées dans Azure AD soient présentes dans votre domaine géré.
 
-#### <a name="can-i-extend-the-schema-of-the-domain-provided-by-azure-ad-domain-services"></a>Puis-je étendre le schéma du domaine fourni par les services de domaine Azure AD ?
+#### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Puis-je étendre le schéma du domaine géré fourni par les services de domaine Azure AD ?
 Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
 
 #### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine géré ?
-Oui. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges « Administrateur DNS », afin de modifier les enregistrements DNS sur le domaine géré. Ces utilisateurs peuvent utiliser la console du Gestionnaire DNS sur un ordinateur exécutant Windows Server joint au domaine géré, afin de gérer le système DNS. Pour utiliser la console du Gestionnaire DNS, installez les « outils de serveur DNS », qui font partie de la fonctionnalité facultative « Outils d’administration de serveur distant » sur le serveur. Vous trouverez plus d’informations sur les [utilitaires pour l’administration, la surveillance et la résolution des problèmes DNS](https://technet.microsoft.com/library/cc753579.aspx) sur TechNet.
+Oui. Les membres du groupe « AAD DC Administrators » bénéficient de privilèges « Administrateur DNS », afin de modifier les enregistrements DNS sur le domaine géré. Ils peuvent utiliser la console du Gestionnaire DNS sur un ordinateur exécutant Windows Server joint au domaine géré, afin de gérer le système DNS. Pour utiliser la console du Gestionnaire DNS, installez les « outils de serveur DNS », qui font partie de la fonctionnalité facultative « Outils d’administration de serveur distant » sur le serveur. Vous trouverez plus d’informations sur les [utilitaires pour l’administration, la surveillance et la résolution des problèmes DNS](https://technet.microsoft.com/library/cc753579.aspx) sur TechNet.
 
 ### <a name="billing-and-availability"></a>Facturation et disponibilité
 #### <a name="is-azure-ad-domain-services-a-paid-service"></a>Les services de domaine Azure AD sont-ils payants ?

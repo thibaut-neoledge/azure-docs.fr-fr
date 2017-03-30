@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Code Azure Active Directory B2B Collaboration et exemples PowerShell
 
 ## <a name="code-sample"></a>Exemple de code
-Cet exemple illustre comment appeler l’API d’invitation, en mode « Application uniquement », afin d’obtenir l’URL d’échange pour la ressource à laquelle vous invitez l’utilisateur B2B. L’objectif est d’envoyer un e-mail d’invitation personnalisé. Vous verrez comment l’e-mail peut être composé avec un client HTTP, pour vous permettre d’en personnaliser l’apparence et de l’envoyer via l’API Graph.
+Ici, nous indiquons comment appeler l’API d’invitation, en mode « Application uniquement », afin d’obtenir l’URL d’échange pour la ressource à laquelle vous invitez l’utilisateur B2B. L’objectif est d’envoyer un e-mail d’invitation personnalisé. L’e-mail peut être composé avec un client HTTP, pour vous permettre d’en personnaliser l’apparence et de l’envoyer via l’API Graph.
 
 ```
 namespace SampleInviteApp
@@ -162,9 +163,9 @@ namespace SampleInviteApp
 ```
 
 ## <a name="powershell-example"></a>Exemple PowerShell
-L’exemple suivant vous indique comment vous pouvez inviter des utilisateurs externes en bloc dans une organisation à partir d’adresses e-mail stockées dans un fichier .CSV.
+Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à partir d’adresses e-mail que vous avez stockées dans un fichier .CSV.
 
-1. Préparer le fichier .CSV Créez un fichier .CSV et nommez-le invitations.csv. Dans cet exemple, le fichier est enregistré sous C:\data. Votre fichier CSV peut ressembler à ceci :
+1. Préparer le fichier .CSV Créez un fichier .CSV et nommez-le invitations.csv. Dans cet exemple, le fichier est enregistré sous C:\data. Votre fichier CSV peut ressembler à :
 
   ```
     InvitedUserEmailAddress
@@ -189,7 +190,10 @@ L’exemple suivant vous indique comment vous pouvez inviter des utilisateurs ex
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-Ceci envoie une invitation à l’adresse e-mail stockée dans le fichier invitations.csv. Les fonctionnalités supplémentaires de cette applet de commande incluent : texte personnalisé dans l’e-mail, inclure un nom d’affichage pour l’utilisateur invité, envoi de messages à des personnes en copie ou suppression complète des e-mails.
+Cette applet de commande envoie une invitation aux adresses e-mail stockées dans le fichier invitations.csv. Fonctionnalités supplémentaires de cette applet de commande :
+- Texte personnalisé dans le message électronique
+- Y compris un nom d’affichage pour l’utilisateur invité
+- Envoi de messages aux personnes en copie ou suppression complète des messages électroniques
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -205,9 +209,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
 * [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

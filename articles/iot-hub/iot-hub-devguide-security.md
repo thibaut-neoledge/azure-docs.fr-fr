@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -293,7 +293,7 @@ Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appa
 
 * **un certificat X.509 existant**. Un appareil peut être déjà associé à un certificat X.509. L’appareil peut utiliser ce certificat pour s’authentifier sur IoT Hub ;
 * **un certificat X-509 généré et signé automatiquement**. Un fabricant d’appareils ou un technicien de déploiement en interne peut générer ces certificats et stocker la clé privée correspondante (ainsi que le certificat) sur l’appareil. Vous pouvez utiliser des outils tels que [OpenSSL][lnk-openssl] ou l’utilitaire [Windows SelfSignedCertificate][lnk-selfsigned] à cette fin ;
-* **un certificat X.509 signé par une autorité de certification**. Vous pouvez également utiliser un certificat X.509 généré et signé par une autorité de certification (CA) pour identifier un appareil et l’authentifier sur IoT Hub.
+* **un certificat X.509 signé par une autorité de certification**. Vous pouvez également utiliser un certificat X.509 généré et signé par une autorité de certification (CA) pour identifier un appareil et l’authentifier sur IoT Hub. IoTHub vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. Il valide ensuite la chaîne de certificats.
 
 Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l’authentification, mais pas les deux.
 

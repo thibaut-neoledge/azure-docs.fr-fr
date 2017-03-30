@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/21/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 3b9dfffe17272296ef10a78b3cf25570109679c7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 183425e296f91bba47094c9b35be67fb6299c569
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="use-maven-to-develop-a-java-based-word-count-topology-for-storm-on-hdinsight"></a>Développer une topologie de statistiques Java pour Storm sur HDInsight à l’aide de Maven
@@ -565,63 +565,47 @@ Flux est une nouvelle infrastructure disponible avec Storm 0.10.0 et versions su
 
 Le fichier YAML définit les composants à utiliser pour la topologie, les flux de données entre eux et les valeurs à utiliser lors de l’initialisation des composants. Vous pouvez inclure un fichier YAML dans le fichier jar ou utiliser un fichier YAML externe.
 
+> [!WARNING]
+> En raison d’un [bogue (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) lié à Storm 1.0.1, vous devrez peut-être installer un [environnement de développement Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) pour exécuter des topologies Flux localement.
+
 1. Retirez le fichier `WordCountTopology.java` du projet. Auparavant, ce fichier définissait la topologie, mais il n’est pas nécessaire avec Flux.
 
 2. Dans le répertoire `resources`, créez un fichier nommé `topology.yaml`. Utilisez le texte ci-après comme contenu de ce fichier.
-    
-    ```yaml
-    # topology definition
 
-    # name to be used when submitting. This is what shows up...
-    # in the Storm UI/storm command line tool as the topology name
-    # when submitted to Storm
-    name: "wordcount"
-
-    # Topology configuration
-    config:
-    # Hint for the number of workers to create
-    topology.workers: 1
-
-    # Spout definitions
-    spouts:
-    - id: "sentence-spout"
-        className: "com.microsoft.example.RandomSentenceSpout"
-        # parallelism hint
-        parallelism: 1
-
-    # Bolt definitions
-    bolts:
-    - id: "splitter-bolt"
-        className: "com.microsoft.example.SplitSentence"
-        parallelism: 1
-
-    - id: "counter-bolt"
-        className: "com.microsoft.example.WordCount"
-        constructorArgs:
-        - 10
-        parallelism: 1
-
-    # Stream definitions
-    streams:
-    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-        # The stream emitter
-        from: "sentence-spout"
-        # The stream consumer
-        to: "splitter-bolt"
-        # Grouping type
-        grouping:
-        type: SHUFFLE
-
-    - name: "Splitter -> Counter"
-        from: "splitter-bolt"
-        to: "counter-bolt"
-        grouping:
-        type: FIELDS
-        # field(s) to group on
-        args: ["word"]
-    ```
-
-    Prenez un moment pour parcourir et comprendre le rôle de chaque section et leur relation par rapport au fichier **WordCountTopology.java**.
+        name: "wordcount"       # friendly name for the topology
+        
+        config:                 # Topology configuration
+        topology.workers: 1     # Hint for the number of workers to create
+        
+        spouts:                 # Spout definitions
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            parallelism: 1      # parallelism hint
+        
+        bolts:                  # Bolt definitions
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
+         
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+                - 10
+            parallelism: 1
+        
+        streams:                # Stream definitions
+            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            from: "sentence-spout"       # The stream emitter
+            to: "splitter-bolt"          # The stream consumer
+            grouping:                    # Grouping type
+                type: SHUFFLE
+          
+            - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+                args: ["word"]           # field(s) to group on
 
 3. Apportez les modifications suivantes au fichier `pom.xml`.
    
@@ -693,8 +677,11 @@ Le fichier YAML définit les composants à utiliser pour la topologie, les flux 
     Si vous utilisez PowerShell, utilisez la commande suivante :
    
         mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    > [!WARNING]
+    > Cette commande échoue si votre topologie utilise des bits Storm 1.0.1. Cela est dû au à [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Au lieu de cela, [installez Storm dans votre environnement de développement](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) et utilisez les informations suivantes.
    
-    Si vous êtes sur un système Unix/Linux/OS X et que vous avez [installé Storm dans votre environnement de développement](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), vous pouvez utiliser les commandes suivantes à la place :
+    Si vous avez [installé Storm dans votre environnement de développement](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), vous pouvez utiliser les commandes suivantes à la place :
    
         mvn compile package
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
@@ -724,7 +711,7 @@ Le fichier YAML définit les composants à utiliser pour la topologie, les flux 
    
         mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
    
-    Ou, si vous avez Storm dans votre environnement de développement Linux/Unix/OS X :
+    Ou, si vous avez Storm dans votre environnement de développement :
    
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
    

@@ -1,22 +1,22 @@
 ---
-title: "Gérer la tarification et le volume de données Application Insights | Microsoft Docs"
+title: "Gestion de la tarification et du volume de données Azure Application Insights | Microsoft Docs"
 description: "Gérer les volumes de données de télémétrie et surveiller les coûts dans Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ Il existe deux plans de tarification. Le plan par défaut est nommé De base. Vo
 
 Si vous avez des questions sur la tarification d’Application Insights, publiez une question dans notre [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="the-pricing-plans"></a>Les plans de tarification
+## <a name="the-price-plans"></a>Les plans tarifaires
 
 Consultez la [page de tarification d’Application Insights][pricing] pour connaître les prix actuels dans votre devise.
 
@@ -157,10 +157,9 @@ Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endro
 Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés. 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>Transition depuis les anciens niveaux de tarification
+## <a name="automation"></a>Automatisation
 
-Les applications existantes peuvent continuer à utiliser les anciens niveaux de tarification jusqu’en février 2017. À partir de cette date, la plupart des applications seront automatiquement déplacées vers le plan de base. Celles qui utilisent l’exportation continue ou le connecteur pour OMS Log Analytics seront déplacées vers le plan d’entreprise.
-
+Vous pouvez utiliser le service de gestion de ressources Azure pour écrire un script de définition de plan tarifaire. [Découvrez comment](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Synthèse des limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 78ed4e170c4c296ae78b79c553228d8ea11c0f49
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database   
-Au moment de [migrer votre base de données](sql-database-cloud-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cette rubrique comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. 
+Au moment de [migrer votre base de données](sql-database-cloud-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cette rubrique comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Vue d'ensemble
 La plupart des fonctionnalités Transact-SQL utilisées par les applications sont entièrement prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques et de curseur, fonctionnent de la même façon dans SQL Server et SQL Database. Il existe toutefois quelques différences au niveau des éléments du langage de définition de données (DDL) et des éléments du langage de manipulation de données (DML). Ceux-ci génèrent en effet des instructions et des requêtes T-SQL qui ne sont que partiellement prises en charge (nous y reviendrons plus loin dans cette rubrique).

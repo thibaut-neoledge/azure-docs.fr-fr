@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9b8d26edbdd983eed521e4e1737077bd639532d9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5c9f7a37fe2fddaeccf483debff5d51e872449e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis lie le certificat SSL d’un nom de domaine personnalisé à celle-ci. 
 
-Avant d’exécuter ce script, vérifiez ces points :
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Vérifiez également les points suivants :
 
 - Une connexion avec Azure a été créée à l’aide de la commande `az login`.
 - Vous avez accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.

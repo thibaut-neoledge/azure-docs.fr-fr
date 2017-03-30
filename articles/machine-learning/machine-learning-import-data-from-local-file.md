@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: fa3de6226b59c4f80e71c55a0aad20c19693642d
-ms.openlocfilehash: ffb12a5a999372951827d31e7e24c6b38473cb35
-ms.lasthandoff: 01/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 18010864160ceb2d76aea37196e6944bbe426457
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -35,6 +35,8 @@ Pour importer des données à partir d’un disque dur local, procédez comme su
 3. Dans la boîte de dialogue **Télécharger un nouveau jeu de données** , recherchez le fichier que vous souhaitez télécharger
 4. Saisissez un nom, identifiez le type de données puis saisissez éventuellement une description. Une description est recommandée : elle vous permet d’enregistrer des caractéristiques relatives aux données que vous souhaitez mémoriser pour une utilisation future.
 5. La case à cocher **Il s'agit de la nouvelle version d'un jeu de donnée existant** vous permet de mettre à jour un jeu de données existant avec de nouvelles données. Cliquez sur cette case à cocher, puis saisissez le nom d’un jeu de données existant.
+
+![Charger un nouveau jeu de données](media/machine-learning-import-data-from-local-file/upload-dataset.png)
 
 Pendant le téléchargement, vous verrez un message indiquant que votre fichier est en cours de téléchargement. Le temps de téléchargement dépend de la taille de vos données et de la vitesse de votre connexion au service. Si vous savez que le fichier prendra du temps, vous pouvez faire autre chose dans Machine Learning Studio en attendant. Cependant, la fermeture du navigateur entraîne l’échec du téléchargement.
 

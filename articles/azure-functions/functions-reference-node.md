@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
-ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -163,6 +163,8 @@ module.exports = function(context) {
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
+
+Le nœud doit disposer d’un `package.json` à la racine de Function App de façon à ce que les fonctions puissent partager des packages mis en cache. S’il y a des conflits de version, vous pouvez ajouter un `package.json` à un niveau de la fonction. Toutefois, il est préférable de ne pas le faire pour des raisons de performances. 
 
 ## <a name="environment-variables"></a>Variables d’environnement
 Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme l’illustre l’exemple de code suivant :

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: dfb33a30cac74875281645e74339be152d8ef476
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.lasthandoff: 03/22/2017
 
 ---
 

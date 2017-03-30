@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Création d’un équilibrage de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell
+# <a name="get-started"></a>Création d’un équilibrage de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portail](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Pour des instructions sur la création d’une machine virtuelle et l’attribut
 2. Chargez la configuration du serveur principal dans une variable.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Chargez l’interface réseau déjà créée dans une variable. Le nom de la variable est **$nic**. Le nom de l’interface réseau est le même que celui de l’exemple précédent.
@@ -282,7 +283,7 @@ Pour des instructions sur la création d’une machine virtuelle et l’attribut
 1. À l’aide de l’équilibreur de charge de l’exemple précédent, attribuez un objet d’équilibreur de charge à la variable **$slb** à l’aide de `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. Dans l’exemple suivant, vous allez ajouter une nouvelle règle NAT entrante à un équilibreur de charge existant, en utilisant le port 81 dans le pool frontal et le port 8181 pour le pool principal.
@@ -302,7 +303,7 @@ Pour des instructions sur la création d’une machine virtuelle et l’attribut
 Utilisez la commande `Remove-AzureLoadBalancer` pour supprimer un équilibreur de charge créé précédemment appelé **NRP-LB** dans un groupe de ressources appelé **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

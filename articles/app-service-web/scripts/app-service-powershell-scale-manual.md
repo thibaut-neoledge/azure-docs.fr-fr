@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d51e36e673cf0045ced11cf7b2643c511ddc2820
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7eb6698b6dab3714bfa7844b7d7a29f9755c2f35
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/10/2017
 
 Dans ce scénario, vous allez apprendre à créer un groupe de ressources, un plan App Service et une application web. Vous ferez ensuite évoluer le plan App Service d’une instance unique à plusieurs instances.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de l’applet de commande `Login-AzureRmAccount`.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="sample-script"></a>Exemple de script
 

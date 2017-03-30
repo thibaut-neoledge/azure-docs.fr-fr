@@ -1,32 +1,33 @@
 ---
-title: "Configuration d’alertes dans Application Insights | Microsoft Docs"
+title: "Configuration d’alertes dans Azure Application Insights | Microsoft Docs"
 description: "Tenez-vous informé des temps de réponse lents, des exceptions et des autres changements de performances ou d’utilisation de votre application web."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
-[Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
+[Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
 
-Application Insights analyse votre application en direct sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et comprendre les schémas d’utilisation.
+Application Insights analyse votre application en direct sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et comprendre les schémas d’utilisation.
 
 Il existe trois types d’alertes :
 
-* Les **alertes de métrique** indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du nombre d’échecs, l’utilisation du processeur ou les affichages de page. 
+* Les **alertes de métrique** indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du processeur ou les affichages de page. 
 * Les [**tests web**][availability] indiquent quand votre site est indisponible sur Internet ou répond lentement. [En savoir plus][availability].
 * Les [**diagnostics proactifs**](app-insights-proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
 
@@ -94,6 +95,10 @@ N’oubliez pas que les [diagnostics de taux d’échec proactifs](app-insights-
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](app-insights-powershell-alerts.md)
 * [Utiliser les webhooks pour automatiser la réponse aux alertes](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="see-also"></a>Voir aussi
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
 * [Automatiser la configuration d’alertes](app-insights-powershell-alerts.md)
@@ -106,10 +111,5 @@ N’oubliez pas que les [diagnostics de taux d’échec proactifs](app-insights-
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e00d453e9ae34cafb5ce753f63c253e954d6b09a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -64,6 +65,7 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -73,7 +75,8 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -110,8 +113,6 @@ Avec le cache local, vos dossiers de données et de journaux se présentent un p
 ### <a name="i-have-local-cache-enabled-but-my-web-app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>J’ai activé le cache local, mais mon application web redémarre systématiquement. Pourquoi ? Je pensais que le cache local évitait les redémarrages d’application fréquents.
 En effet, le cache local contribue à limiter les redémarrages d’application web liés au stockage. Toutefois, des redémarrages de votre application web peuvent toujours être nécessaires pendant les mises à niveau planifiées de l’infrastructure de la machine virtuelle. Quand le cache local est activé, les redémarrages d’application globaux sont normalement moins nombreux.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Le cache local exclut-il des répertoires de la copie vers le disque local plus rapide ?
+Durant l’étape de copie du contenu du stockage, tous les dossiers étant des dépôts nommés sont exclus. Cela est utile pour les scénarios où le contenu de votre site peut contenir un dépôt de contrôle de code source qui n’est pas nécessaire dans une utilisation quotidienne de l’application web. 
 

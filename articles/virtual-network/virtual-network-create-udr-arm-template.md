@@ -1,5 +1,5 @@
 ---
-title: "Contrôler le routage et les appliances virtuelles à l’aide d’un modèle | Microsoft Docs"
+title: "Contrôler le routage et les appliances virtuelles dans un modèle Azure | Microsoft Docs"
 description: "Découvrez comment contrôler le routage et les appliances virtuelles à l’aide d’un modèle Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Créer des routages définis par l’utilisateur à l’aide d’un modèle
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
-- [Modèle](virtual-network-create-udr-arm-template.md)
-- [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
-- [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modèle](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
+> * [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement de Resource Manager. 
@@ -175,7 +176,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande suivante pour passer en mode Resource Manager :
 
     ```azurecli
@@ -406,9 +407,4 @@ Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
 > [!TIP]
 > Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement indique *Succeded*.
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

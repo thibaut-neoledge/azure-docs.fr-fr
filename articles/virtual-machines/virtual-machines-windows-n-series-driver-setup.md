@@ -17,9 +17,9 @@ ms.date: 03/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2dbd88a2a83643130c336253d2c7a5a21d73671e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 562ebbf815f421343c580fced111cda481aa4a5c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -43,17 +43,18 @@ Connectez-vous à chaque machine virtuelle série N à l’aide du Bureau à dis
 | Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
+> [!NOTE]
+> Les liens de téléchargement de pilotes Tesla fournis ici sont à jour au moment de la publication. Pour les pilotes les plus récents, visitez le site Web de [NVIDIA](http://www.nvidia.com/).
+>
 
 ### <a name="nvidia-grid-drivers-for-nv-vms-tesla-m60"></a>Pilotes GRID NVIDIA pour les machines virtuelles NV (Tesla M60)
 
 | SE | Version du pilote |
 | -------- |------------- |
-| Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836842) (.zip) |
-| Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
+| Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
+| Windows Server 2012 R2 | [369.71](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
 
-> [!NOTE]
-> Les liens de téléchargement de pilotes fournis ici sont à jour au moment de la publication. Pour les pilotes les plus récents, visitez le site Web de [NVIDIA](http://www.nvidia.com/).
->
+
 
 ## <a name="verify-gpu-driver-installation"></a>Vérification de l’installation du pilote du GPU
 

@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/20/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
-ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 8b4818ccea1ac5025e93fa0939735b3ed606f47c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
 
-Pour en savoir plus sur la tarification Azure, consultez [Tarification Azure](https://azure.microsoft.com/pricing/) . Vous pouvez y estimer vos coûts à l’aide de la [Calculatrice de tarification](https://azure.microsoft.com/pricing/calculator/) ou en consultant la page de détails sur la tarification d’un service (par exemple, les [machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
+Pour en savoir plus sur la tarification Azure, consultez [Tarification Azure](https://azure.microsoft.com/pricing/) . Vous pouvez y estimer vos coûts à l’aide de la [Calculatrice de tarification](https://azure.microsoft.com/pricing/calculator/) ou en consultant la page de détails sur la tarification d’un service (par exemple, les [machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Pour des conseils sur la gestion des coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
 > Si vous souhaitez élever la limite ou le quota au-dessus de la **Limite par défaut**, [ouvrez gratuitement un incident auprès du service client](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** indiquée dans les tableaux suivants. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables. 

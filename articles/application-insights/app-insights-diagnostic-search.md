@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -167,15 +167,19 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 
 [Découvrez comment envoyer les journaux et la télémétrie personnalisée à Application Insights](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Questions et réponses
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
+## <a name="questions"></a>Questions et réponses
+### <a name="limits"></a>Quelle est la quantité de données conservée ?
 
 Voir la section [Synthèse des limites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Comment puis-je consulter les données POST dans mes demandes serveur ?
 Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez utiliser [TrackTrace ou le journal des appels](app-insights-search-diagnostic-logs.md). Placez les données POST dans le paramètre de message. Vous ne pouvez pas filtrer les messages comme vous le feriez pour les propriétés, mais la limite de taille est plus importante.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Étapes suivantes
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="add"></a>Étapes suivantes
 * [Écrire des requêtes complexes dans Analytics](app-insights-analytics-tour.md)
 * [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-search-diagnostic-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](app-insights-monitor-web-app-availability.md)

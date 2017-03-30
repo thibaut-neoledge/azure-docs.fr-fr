@@ -1,5 +1,5 @@
 ---
-title: "Exploration des mesures dans Application Insights | Microsoft Docs"
+title: Exploration des mesures dans Azure Application Insights | Microsoft Docs
 description: "Comment interpréter les graphiques dans Metric Explorer et comment personnaliser les panneaux de Metrics Explorer."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -195,6 +195,10 @@ Dans un graphique de mesures, vous pouvez cliquer sur l’icône Analyse pour ac
     Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
 * Si vous regroupez un graphique en fonction d’une propriété qui n’est pas définie dans la mesure, alors il n’y aura rien à afficher sur le graphique. Essayez de désélectionner l’option « regrouper par » ou choisissez une propriété de regroupement différente.
 * Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état](app-insights-monitor-performance-live-website-now.md) (Status monitor) et [Azure Cloud Services](app-insights-azure.md). Ces données ne sont pas disponibles pour les sites web Azure.
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance de l’utilisation avec Application Insights](app-insights-overview-usage.md)

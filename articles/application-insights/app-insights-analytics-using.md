@@ -1,21 +1,22 @@
 ---
-title: "Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Docs"
+title: "Utilisation d’Analytics, le puissant outil de recherche d’Azure Application Insights | Microsoft Docs"
 description: "Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
-ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -222,13 +223,10 @@ La table de requêtes ainsi obtenue comporte une colonne supplémentaire, `realN
 
 Si vous utilisez [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), vous pouvez utiliser Analytics pour interroger vos journaux. Utilisez le [plug-in qui dirige les données vers Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## <a name="video"></a>Vidéo
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

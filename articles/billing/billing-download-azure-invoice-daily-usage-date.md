@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c181935e7ba897087d286bea22ebf500ef36e52
-ms.openlocfilehash: 307bfae0e7161782a9ddb97f4ca0d510fc772ab7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c920627e11e801bde88b47fc7c7e128e06f59ea8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -62,7 +62,7 @@ Si vous n’obtenez pas de courrier électronique une fois ces étapes terminée
 
 5. Vous pouvez afficher votre utilisation quotidienne en cliquant sur la période de facturation. 
 
-Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
+Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Télécharger l’utilisation à partir du centre de compte (.csv)
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
@@ -85,7 +85,7 @@ Pour plus d’informations sur votre facture, consultez la page [Comprendre votr
 
     ![Capture d’écran qui montre l’option Télécharger les informations d’utilisation](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-Pour plus d’informations sur votre utilisation quotidienne, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
+Pour plus d’informations sur votre utilisation quotidienne, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> Pourquoi ne puis-je pas voir de facture pour la dernière période de facturation ?
 Si vous ne voyez pas de facture, cela peut être pour plusieurs raisons :

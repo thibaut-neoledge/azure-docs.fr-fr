@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 91b5b68152627bd4c31b87c317a4f7b1d97c9e76
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 399f69255c729b9d004d617ed195a172ffe481b9
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/10/2017
 
 Ce script crée une machine virtuelle Azure, installe l’agent Operations Management Suite (OMS) et inscrit le système avec un espace de nom OMS. Une fois le script exécuté, la machine virtuelle est visible dans la console OMS.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `Login-AzureRmAccount`. En outre, une clé publique SSH nommée `id_rsa.pub` doit être stockée dans le répertoire .ssh de votre profil utilisateur. Enfin, l’identifiant et la clé de l’espace de travail OMS doivent être mis à jour dans le script.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. En outre, vous devez disposer d’une clé publique SSH nommée `id_rsa.pub` dans le répertoire .ssh de votre profil utilisateur. Enfin, vous devez mettre à jour l’ID de l’espace de travail OMS et la clé d’espace de travail.
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -34,7 +34,7 @@ Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien é
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

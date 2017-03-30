@@ -17,21 +17,21 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
-- [portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
-- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-- [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
-- [Portail Azure (classique)](virtual-networks-static-private-ip-classic-pportal.md)
-- [PowerShell (classique)](virtual-networks-static-private-ip-classic-ps.md)
-- [Interface de ligne de commande Azure (classique)](virtual-networks-static-private-ip-classic-cli.md)
+> * [portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
+> * [Portail Azure (classique)](virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell (classique)](virtual-networks-static-private-ip-classic-ps.md)
+> * [Interface de ligne de commande Azure (classique)](virtual-networks-static-private-ip-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -97,10 +97,10 @@ Pour ajouter une adresse IP privée statique à la machine virtuelle créée lor
 > 
 > 
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Suppression d’une adresse IP privée statique d’une machine virtuelle
-Pour supprimer l’adresse IP privée statique de la machine virtuelle créée ci-dessus, procédez comme suit.
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Comment supprimer une adresse IP privée statique d’une machine virtuelle
+Pour supprimer l’adresse IP privée statique de la machine virtuelle créée ci-dessus, procédez comme suit :
 
-1. Dans le panneau **Adresses IP** illustré ci-dessus, sous **Affectation**, cliquez sur **Dynamique**, puis sur **Enregistrer**.
+Dans le panneau **Adresses IP** illustré ci-dessus, sous **Affectation**, cliquez sur **Dynamique**, puis sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .

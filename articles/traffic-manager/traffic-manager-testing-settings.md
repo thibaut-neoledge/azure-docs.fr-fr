@@ -1,6 +1,6 @@
 ---
-title: "Test des paramètres Traffic Manager | Microsoft Docs"
-description: "Cet article vous aidera à tester les paramètres de Traffic Manager."
+title: "Vérifier les paramètres Azure Traffic Manager | Microsoft Docs"
+description: "Cet article vous aide à vérifier les paramètres Traffic Manager."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Tester vos paramètres de Traffic Manager
+# <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 
 Pour tester vos paramètres Traffic Manager, vous devez disposer de plusieurs clients, à différents emplacements, d’où vous pouvez exécuter vos tests. Ensuite, mettez les points de terminaison de votre profil Traffic Manager hors service, l’un après l’autre.
 
@@ -74,9 +75,4 @@ Sinon, différents services de recherche et d’obtention de DNS sont disponible
 * [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

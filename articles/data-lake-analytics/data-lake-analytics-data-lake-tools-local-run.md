@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ffa31e7eee7642c29a846658b999828434347316
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,13 +81,35 @@ Vous pouvez également cliquer sur le compte **(Local)** en haut de la fenêtre 
 
     ![Data Lake Tools pour Visual Studio exécution locale soumettre travaux](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Déboguer localement des scripts et des assemblys C#
+
+Vous pouvez déboguer des assemblys C# sans les envoyer ni les inscrire auprès du service Azure Data Lake Analytics. Vous pouvez définir des points d'arrêt à la fois dans les fichier code-behind et dans un projet C# référencé.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Pour déboguer le code local dans le fichier code-behind
+
+1. Définissez des points d'arrêt dans le fichier code-behind.
+2. Appuyez sur F5 pour déboguer le script localement.
+
+> [!NOTE]
+   > La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les versions Visual Studio plus anciennes, vous devrez peut-être ajouter manuellement les fichiers pdb.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Pour déboguer le code local dans un projet C# référencé
+
+1. Créez un projet d'assembly C# et générez-le pour obtenir la dll de sortie.
+2. Inscrivez la dll à l'aide d'une instruction SQL-U :
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Définissez des points d'arrêt dans le code C#.
+4. Appuyez sur F5 pour déboguer le script en faisant référence à la DLL C# localement.
+
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Utiliser une exécution locale à partir du Kit de développement logiciel (SDK) U-SQL Data Lake
 
 Outre l’exécution locale de scripts U-SQL à l’aide de Visual Studio, vous pouvez également utiliser le Kit de développement logiciel (SDK) U-SQL Azure Data Lake pour exécuter les scripts U-SQL en local, avec la ligne de commande et les interfaces de programmation. Par ce biais, vous pouvez mettre votre test local U-SQL à l’échelle.
 
 En savoir plus sur le [Kit de développement logiciel (SDK) U-SQL Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
-
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

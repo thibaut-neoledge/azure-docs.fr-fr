@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 582cb9dee06c6ec4b030ded866a0f92a575b93ed
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -417,18 +417,17 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
-| dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : **https://[accountname].azuredatalakestore.net/webhdfs/v1** ou **adl://[accountname].azuredatalakestore.net/**. | Oui |
+| dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il se présente au format suivant : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Oui |
 | subscriptionId | ID d’abonnement Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 | resourceGroupName | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 
 ### <a name="using-service-principal-authentication-recommended"></a>Authentification d’un principal du service (recommandée)
-Pour utiliser l’authentification d’un principal du service, vous devez commencer par inscrire une entité d’application dans Azure Active Directory (AAD) et lui accorder l’accès dans Data Lake Store. Ensuite, vous pouvez spécifier les propriétés ci-dessous dans Azure Data Factory avec l’ID d’application, la clé d’application et les informations de locataire correspondantes pour copier des données depuis/vers Data Lake Store. Reportez-vous à [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) portant sur la configuration et la récupération des informations requises.
+Pour utiliser l’authentification d’un principal du service, inscrivez une entité d’application dans Azure Active Directory (AAD) et lui accorder l’accès à Data Lake Store. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) pour des instructions détaillées. Notez les valeurs suivantes : **ID d’application**, **clé d’application** et **ID de locataire**. Vous utilisez ces informations pour définir le service lié. 
 
 > [!IMPORTANT]
-> Lorsque vous utilisez l’Assistant Copie dans le cadre de création, veillez à accorder au principal du service au minimum le rôle Lecteur dans Access Control (IAM) pour le compte ADLS ET au moins l’autorisation Lecture et exécution sur votre racine ADLS (« / »), afin de naviguer correctement entre les dossiers. Sinon, l’erreur « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
+> Si vous utilisez l’Assistant Copie dans le cadre de la création de pipelines de données, veillez à accorder au principal du service au minimum le rôle Lecteur dans Access Control (IAM) pour le compte Data Lake Store au moins l’autorisation Lecture et exécution sur votre racine Data Lake Store (« / »). Sinon, l’erreur « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
 >
-> Si vous venez de créer ou de mettre à jour un principal du service à partir d’AAD, l’opération peut prendre quelques minutes. Revérifiez la configuration du principal du service et de la liste ACL ADLS. Si vous voyez toujours le message d’erreur indiquant « Les informations d’identification fournies ne sont pas valides », patientez, puis réessayez.
->
+> Une fois que vous créez/mettez à jour un principal de service dans AAD, il peut falloir quelques minutes avant que les modifications entrent réellement en vigueur. Vérifiez d’abord la configuration des ACL du principal de service et de Data Lake Store. Si vous voyez toujours l’erreur « Les informations d’identification fournies ne sont pas valides », attendez un moment et réessayez.
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
@@ -480,7 +479,11 @@ Vous pouvez également utiliser l’authentification des informations d’identi
 ```
 
 #### <a name="token-expiration"></a>Expiration du jeton
-Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à **l’expiration du jeton** d’authentification : « Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lorsque **le jeton d’authentification expire** :
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | Type d’utilisateur | Expire après |
 |:--- |:--- |
@@ -530,7 +533,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | fileName |Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : Data<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la propriété partitionedBy](#using-partitionedby-property) pour obtenir plus d’informations et des exemples. |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
 
 ### <a name="using-partitionedby-property"></a>Utilisation de la propriété partitionedBy
 Vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy** , les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -581,7 +584,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| copyBehavior |Spécifie le comportement de copie. |**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy**: tous les fichiers du dossier source sont créés dans le premier niveau du dossier cible. Les fichiers cibles sont créés avec le nom généré automatiquement.<br/><br/>**MergeFiles** : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. |Non |
+| copyBehavior |Spécifie le comportement de copie. |<b>PreserveHierarchy</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/><b>FlattenHierarchy</b> : tous les fichiers du dossier source sont créés dans le premier niveau du dossier cible. Les fichiers cibles sont créés avec le nom généré automatiquement.<br/><br/><b>MergeFiles</b> : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. |Non |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -590,8 +593,5 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
-
-Selon que le déplacement des données initial est programmé avec un gros volume de données d’historique ou une charge de données de production incrémentielle, Azure Data Factory propose des options pour améliorer les performances de ces tâches. Le paramètre de simultanéité fait partie de **l’activité de copie** et définit le nombre de fenêtres d’activité différentes traitées en parallèle. Le paramètre **parallelCopies** définit le parallélisme pour l’exécution d’activité unique. Il est important d’envisager l’utilisation de ces paramètres lors de la conception des pipelines de déplacement des données avec Azure Data Factory pour obtenir le meilleur débit.
-
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 

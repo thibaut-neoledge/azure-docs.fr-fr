@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0a4ac164a3896d47613e4491a5e4c81c1b660dea
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 86ae353e3bad83ec25060bab8b3df25d3a0ad881
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Déplacer une machine virtuelle Linux vers un autre abonnement ou groupe de ressources
 Cet article vous guide tout au long du déplacement d’une machine virtuelle Linux entre des groupes de ressources ou des abonnements. Le déplacement d’une machine virtuelle entre abonnements peut être pratique si vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise.
 
-> [!NOTE]
-> De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource. 
+> [!IMPORTANT]
+>Vous ne pouvez pas déplacer des disques managés pour l’instant. 
+>
+>De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource. 
 > 
 > 
 
@@ -56,10 +59,5 @@ Vous devez confirmer que vous souhaitez déplacer la ressource spécifiée. Tape
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/resource-group-move-resources.md).    
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

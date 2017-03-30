@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -288,6 +288,7 @@ Si vous ouvrez la définition de build dans VSTS, vous obtenez le résultat suiv
     ```
 
     * Définissez l’étiquette sur l’URL du nom de domaine complet de votre agent ACS ou sur un domaine personnalisé (par exemple, app.contoso.com). Pour connaître le nom de domaine complet de votre agent ACS, exécutez la commande `az acs list` et consultez la propriété `agentPoolProfiles.fqdn`. Par exemple, `myacsagents.westus.cloudapp.azure.com`.
+    * L’exemple d’application par défaut est à l’écoute sur le port 80. Si votre application Docker est à l’écoute sur d’autres ports, par exemple `port 8080` ou `443`, attachez le numéro de port au nom de domaine complet. Par exemple, `myacsagents.westus.cloudapp.azure.com:8080`. Toutefois, lorsque vous tentez d’accéder à l’application depuis l’extérieur, vous devez exécuter des requêtes sur le port 80.
     * En suivant la convention de nom de fichier docker-compose.env.*environment-name*.yml, ces paramètres s’appliquent uniquement à l’environnement nommé (dans ce cas, l’environnement *Production*). Vérifiez la définition de version dans VSTS. La tâche de déploiement pour chaque environnement est configurée pour lire un fichier docker-compose nommé d’après cette convention.
 
 1. Validez et envoyez le fichier à votre référentiel source principal pour démarrer une autre génération.

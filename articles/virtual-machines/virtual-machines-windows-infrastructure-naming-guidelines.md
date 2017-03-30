@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: a59b8178fb011b837a402207ca86dd2db4505f74
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e335ecafdd6347bf8b839f50bf36e3d5e2cd42fa
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -45,7 +45,7 @@ Vous devez avoir une convention d’affectation de noms adaptée avant tout proc
 
 Vous pouvez choisir de suivre un ensemble spécifique de conventions d’affectation de noms définies pour votre organisation, ou pour un compte ou abonnement Azure spécifique. Bien qu’il soit facile d’établir des règles implicites au sein d’entreprises lorsque vous travaillez avec des ressources Azure, ce modèle n’est pas très souple lorsqu’une équipe doit travailler sur un projet sur Azure.
 
-Convenez d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles de dénomination.
+Convenez d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour cet ensemble de règles de dénomination.
 
 ## <a name="affixes"></a>Affixes
 Lorsque vous cherchez à définir une convention de dénomination, vous devez décider de l’emplacement de l’affixe :
@@ -98,7 +98,7 @@ Si une machine virtuelle est créée à partir d’un fichier d’image .vhd qui
 Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d’ordinateur du système d’exploitation sous-jacent.
 
 ## <a name="storage-account-names"></a>Noms des comptes de stockage
-Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . En outre, le nom du compte de stockage, ainsi que core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
+Cette section ne s’applique pas aux [disques managés Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), étant donné que vous ne créez pas de compte de stockage distinct. Pour les disques non managés, la dénomination des comptes de stockage est régie par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . En outre, le nom du compte de stockage, ainsi que core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net

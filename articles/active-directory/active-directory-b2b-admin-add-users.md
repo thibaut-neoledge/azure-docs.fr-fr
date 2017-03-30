@@ -1,7 +1,7 @@
 ---
 
 title: "Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ? | Microsoft Docs"
-description: "Azure Active Directory B2B Collaboration permet aux administrateurs d’ajouter des utilisateurs d’organisations partenaires à Azure AD pour accéder à vos applications d’entreprise"
+description: "Un administrateur peut ajouter des utilisateurs invités à votre Azure AD à partir d’une organisation partenaire à l’aide d’Azure Active Directory B2B Collaboration."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,11 +48,11 @@ Ajoutez des utilisateurs B2B Collaboration à une application en tant qu’admin
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
 ## <a name="admins-resending-invitations-to-guest-users"></a>Renvoi d’invitations par les administrateurs à des utilisateurs invités
-Vous pouvez désormais accéder à la page de profil d’un utilisateur B2B Collaboration et renvoyer des invitations à des utilisateurs invités qui ne les ont pas encore acceptées :
+Vous pouvez à présent accéder à la page de profil d’un utilisateur B2B Collaboration et renvoyer des invitations à n’importe quel utilisateur invité ne les ayant pas encore acceptées :
 
 ![renvoi d’invitation](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
 
-> ![REMARQUE] Ceci renvoie une invitation de la part de l’utilisateur connecté et invite l’utilisateur dans le répertoire, même si l’invitation d’origine concernait un groupe ou une application spécifique.
+> ![REMARQUE] Si vous renvoyez des invitations, l’invitation est envoyée de l’utilisateur connecté vers des utilisateurs individuels même si l’invitation d’origine a été envoyée à un groupe ou une application spécifique.
 
 
 ## <a name="related-articles"></a>Articles connexes

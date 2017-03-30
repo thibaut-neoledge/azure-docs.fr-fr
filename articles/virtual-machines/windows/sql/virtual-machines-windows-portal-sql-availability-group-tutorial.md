@@ -14,12 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 5e41a20f563eab6b236eaa6eaf0ce1d20ebfa493
-ms.openlocfilehash: d8982dda38df92c94e7dac4b5a1cf451bab3a5ce
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -296,7 +296,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
+8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur**Suivant**.
 
    >[!NOTE]
    >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)**. Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.
@@ -332,7 +332,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
    ![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Ne tentez pas de faire basculer le groupe de disponibilité à partir du Gestionnaire du cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement WSFC avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Ne tentez pas de faire basculer le groupe de disponibilité à partir du Gestionnaire du cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
 À ce stade, vous avez un groupe de disponibilité avec des réplicas sur les deux instances de SQL Server. Vous pouvez déplacer le groupe de disponibilité entre des instances. Vous ne pouvez pas encore vous connecter au groupe de disponibilité, car vous n’avez pas d’écouteur. Dans les machines virtuelles Azure, l’écouteur requiert un équilibrage de charge. L’étape suivante consiste à créer l’équilibrage de charge dans Azure.
@@ -455,7 +455,7 @@ Dans SQL Server Management Studio, configurez le port d’écoute.
 
 1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur l’écouteur, puis cliquez sur **Propriétés**.
 
-1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut :&1433;), puis cliquez sur **OK**.
+1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
 
 Vous avez maintenant un groupe de disponibilité SQL Server dans des machines virtuelles Azure exécutées en mode Resource Manager.
 

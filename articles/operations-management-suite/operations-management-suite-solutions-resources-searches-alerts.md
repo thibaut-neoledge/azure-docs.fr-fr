@@ -11,15 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
-ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
+ms.lasthandoff: 03/22/2017
+
 
 ---
 
-# <a name="log-analytics-saved-searches-and-alerts-in-oms-solutions-preview"></a>Alertes et recherches enregistrées Log Analytics dans les solutions OMS (version préliminaire)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion OMS (préversion)
 
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans OMS qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.   
@@ -35,7 +38,7 @@ Cet article suppose que vous êtes déjà familiarisé avec la [création d’un
 
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
-Toutes les ressources dans Log Analytics sont contenues dans un [espace de travail](../log-analytics/log-analytics-manage-access.md).  Comme décrit dans [Espace de travail OMS et compte Automation](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account), l’espace de travail n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
+Toutes les ressources dans Log Analytics sont contenues dans un [espace de travail](../log-analytics/log-analytics-manage-access.md).  Comme décrit dans [Espace de travail OMS et compte Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l’espace de travail n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
 
 Le nom de l’espace de travail figure dans le nom de chaque ressource Log Analytics.  Pour cela, utilisez le paramètre **workspace** comme dans l’exemple suivant, utilisant une ressource savedsearch.
 
@@ -90,7 +93,7 @@ Les ressources de recherche enregistrée sont décrites ci-dessus.  Les autres r
 Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d’entre elles représentant une règle d’alerte distincte. La planification définit la fréquence à laquelle la recherche est exécutée et l’intervalle de temps pendant lequel les données sont récupérées.  Les ressources de planification ont le type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` et présentent la structure suivante. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -100,7 +103,7 @@ Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -257,7 +260,7 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 
 
-### <a name="sample"></a>Exemple
+## <a name="sample"></a>Exemple
 
 L’exemple de solution ci-après inclut les ressources suivantes :
 
@@ -266,7 +269,7 @@ L’exemple de solution ci-après inclut les ressources suivantes :
 - Action d’alerte
 - Action webhook
 
-L’exemple utilise des variables de [paramètres de solution standard](operations-management-suite-solutions-creating.md#parameters) qui seraient généralement utilisées dans une solution, par opposition aux valeurs de codage en dur dans les définitions de ressource.
+L’exemple utilise des variables de [paramètres de solution standard](operations-management-suite-solutions-solution-file.md#parameters) qui seraient généralement utilisées dans une solution, par opposition aux valeurs de codage en dur dans les définitions de ressource.
 
     {
         "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
@@ -504,10 +507,5 @@ Le fichier de paramètres suivant fournit des exemples de valeurs pour cette sol
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks Automation et d’autres ressources](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

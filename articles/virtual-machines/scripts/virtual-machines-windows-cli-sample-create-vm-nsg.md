@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
-ms.openlocfilehash: 69a06ba68e9a92ab63fd7c86a80eb9c4718f6679
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 061aaa9fbd2f01029bb174378fb7c4571ede4785
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/02/2017
 
 Ce script crée deux machines virtuelles et sécurise le trafic entrant vers les deux machines. Une machine virtuelle est accessible sur Internet et dispose d’un groupe de sécurité réseau configuré pour autoriser le trafic sur le port 3389 et le port 80. La seconde machine virtuelle n’est pas accessible sur Internet et elle dispose d’un groupe de sécurité réseau configuré pour autoriser uniquement le trafic provenant de la première machine virtuelle. 
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`. En outre, vous devez modifier la variable $AdminPassword au début du script afin de satisfaire les exigences de complexité de mots de passe uniques et de réunion.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure.
 
 Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
@@ -36,7 +36,7 @@ Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir p
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

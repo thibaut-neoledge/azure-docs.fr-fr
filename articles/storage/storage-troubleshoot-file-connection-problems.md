@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 * [Erreur d’E/S intermittente : Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
 * [Erreur de montage 115 lors de la tentative de montage Azure Files sur la machine virtuelle Linux](#error15)
 * [Partage de fichiers Azure monté sur la machine virtuelle Linux subissant une baisse des performances](#delayproblem)
-
+* [Erreur de montage (11) : ressource temporairement indisponible lors du montage sur le noyau Ubuntu 4.8+](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -271,6 +271,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
 
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erreur de montage (11) : ressource temporairement indisponible lors du montage sur le noyau Ubuntu 4.8+
+
+### <a name="cause"></a>Cause :
+Problème connu dans le noyau Ubuntu 16.10 (v.4.8) où le client indique prendre en charge le chiffrement alors que ce n’est pas le cas. 
+
+### <a name="solution"></a>Solution
+Jusqu’à ce qu’Ubuntu 16.10 soit corrigé, spécifiez l’option de montage « vers = 2.1 » ou utilisez Ubuntu 16.04.
 ## <a name="learn-more"></a>En savoir plus
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 * [Prise en main d’Azure File Storage sur Linux](storage-how-to-use-files-linux.md)

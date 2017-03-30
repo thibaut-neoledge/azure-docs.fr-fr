@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 03/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ Vous devez également connaître les services cloud dont votre entreprise dispos
 * Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 > [!NOTE]
-> Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour accéder à cet outil, rendez-vous à l’adresse [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour commencer, consultez [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 
@@ -108,10 +109,5 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

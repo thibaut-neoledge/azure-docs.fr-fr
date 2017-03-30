@@ -1,5 +1,5 @@
 ---
-title: "Prise en charge d’Azure Resource Manager pour Traffic Manager | Microsoft Docs"
+title: "Utilisation de PowerShell pour gérer Traffic Manager dans Azure | Microsoft Docs"
 description: Utilisation de Powershell pour Traffic Manager avec Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c2fb44817f168eee8303d0c07473f043ae30d350
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="azure-resource-manager-support-for-azure-traffic-manager"></a>Prise en charge d’Azure Resource Manager pour Azure Traffic Manager
+# <a name="using-powershell-to-manage-traffic-manager"></a>Utilisation de PowerShell pour gérer Traffic Manager
 
 Azure Resource Manager est l’interface de gestion par défaut des services Azure. Les outils et API d’Azure Resource Manager permettent de gérer les profils Azure Traffic Manager.
 
@@ -30,23 +31,6 @@ Azure Traffic Manager est configuré à l'aide d'un ensemble de paramètres appe
 Chaque profil Traffic Manager est représenté par une ressource de type « TrafficManagerProfiles ». Au niveau de l'API REST, l'URI de chaque profil est la suivante :
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
-
-## <a name="comparison-with-the-azure-traffic-manager-classic-api"></a>Comparaison avec l’API classique d’Azure Traffic Manager
-
-La prise en charge d’Azure Resource Manager pour Traffic Manager utilise une terminologie différente de celle du modèle de déploiement Classic. Le tableau suivant montre les différences entre les termes propres à Resource Manager et à Classic :
-
-| Terme Resource Manager | Terme Classic |
-| --- | --- |
-| Méthode de routage du trafic |Méthode d’équilibrage de charge |
-| Méthode de priorité |Méthode de basculement |
-| Méthode pondérée |Méthode Tourniquet (round robin) |
-| Méthode Performance |Méthode Performance |
-
-Nous nous sommes appuyés sur les commentaires des clients pour modifier la terminologie afin d’améliorer la perception et de réduire les malentendus courants. Les fonctionnalités sont les mêmes.
-
-## <a name="limitations"></a>Limitations
-
-Quand il est fait référence à un point de terminaison de type « AzureEndpoints » pour une application web, les points de terminaison Traffic Manager ne peuvent référencer que l’[emplacement d’application web](../app-service-web/web-sites-staged-publishing.md) par défaut (production). Les emplacements personnalisés ne sont pas pris en charge. Pour contourner ce problème, vous pouvez configurer des emplacements personnalisés à l’aide du type « ExternalEndpoints ».
 
 ## <a name="setting-up-azure-powershell"></a>Configuration d’Azure PowerShell
 
@@ -127,11 +111,10 @@ Dans ces trois cas, les points de terminaison peuvent être ajoutés de deux man
 
 ## <a name="adding-azure-endpoints"></a>Ajout de points de terminaison Azure
 
-Les points de terminaison Azure font référence à des services hébergés dans Azure. Les types de point de terminaison Azure pris en charge sont au nombre de trois :
+Les points de terminaison Azure font référence à des services hébergés dans Azure. Les types de point de terminaison Azure pris en charge sont au nombre de deux :
 
 1. Azure Web Apps 
-2. Services cloud « classiques » (qui peuvent contenir un service PaaS ou des machines virtuelles IaaS)
-3. Ressources PublicIpAddress Azure (peuvent être attachées à un équilibreur de charge ou à une carte réseau de machine virtuelle). PublicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
+2. Ressources PublicIpAddress Azure (peuvent être attachées à un équilibreur de charge ou à une carte réseau de machine virtuelle). PublicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
 
 Dans chaque cas :
 
@@ -152,17 +135,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-
-### <a name="example-2-adding-a-classic-cloud-service-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemple 2 : ajout d’un point de terminaison de service cloud « classique » à l’aide de `New-AzureRmTrafficManagerEndpoint`
-
-Dans cet exemple, un point de terminaison Cloud Service « classique » est ajouté à un profil Traffic Manager. Dans cet exemple, nous avons spécifié le profil en utilisant les noms de profil et de groupe de ressources, au lieu de transmettre un objet de profil. Les deux approches sont prises en charge.
-
-```powershell
-$cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
-New-AzureRmTrafficManagerEndpoint -Name MyCloudServiceEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $cloudService.Id -EndpointStatus Enabled
-```
-
-### <a name="example-3-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemple 3 : ajout d’un point de terminaison publicIpAddress à l’aide de `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemple 2 : ajout d’un point de terminaison publicIpAddress à l’aide de `New-AzureRmTrafficManagerEndpoint`
 
 Dans cet exemple, une ressource d’adresse IP publique est ajoutée au profil Traffic Manager. L’adresse IP publique doit avoir un nom DNS configuré et peut être liée à la carte réseau d’une machine virtuelle ou à un équilibreur de charge.
 
@@ -339,9 +312,4 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 [Surveillance avec Traffic Manager](traffic-manager-monitoring.md)
 
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

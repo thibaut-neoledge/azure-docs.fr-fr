@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: sdanie
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
-ms.openlocfilehash: 9593f49d98794e72728e0683e34a407e39144a5d
-ms.lasthandoff: 01/21/2017
-
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e8347c21610118af4ebaa80b24edd0838bc58cf8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>Utilisation de In-Role Cache pour Azure Cache
@@ -40,7 +40,7 @@ In-Role Cache offre une couche de mise en cache à vos applications Azure. La mi
 * Mise en cache de tout objet géré, pouvant être sérialisé, par exemple : objets CLR, lignes, XML, données binaires.
 * Modèle de développement cohérent dans Azure et Windows Server AppFabric.
 
-In-Role Cache vous permet d’assurer la mise en cache en utilisant une portion de la mémoire des machines virtuelles qui hébergent les instances de rôle dans vos services cloud Azure (aussi appelés services hébergés). Vous avez ainsi une plus grande flexibilité en termes de déploiement : les caches peuvent être très volumineux et ne pas avoir de quotas spécifiques.
+In-Role Cache vous permet d’assurer la mise en cache en utilisant une portion de la mémoire des machines virtuelles qui hébergent les instances de rôle dans vos services cloud Azure (aussi appelés services hébergés). Vous disposez ainsi d’une plus grande flexibilité en termes d’options de déploiement : les caches peuvent être très volumineux et ne pas avoir de quotas spécifiques.
 
 > [!IMPORTANT]
 > À compter du Kit SDK Azure 2.6, In-Role Cache utilise le Kit SDK Stockage Microsoft Azure version 4.3. Dans les versions précédentes du Kit SDK Azure, In-Role Cache utilisait le Kit Stockage Azure version 1.7. Les applications utilisant In-Role Cache avec les versions antérieures du Kit SDK Azure 2.6 doivent migrer vers le Kit SDK Azure 2.6 avant la désactivation de la version de Stockage Azure du 18-08-2011 le 1er août 2016. Pour plus d’informations, consultez les [Notes de publication du Kit SDK Azure 2.6 - In-Role Cache](../app-service-web/azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) et la rubrique [Mise à jour de Suppression de la version du service Stockage Microsoft Azure : extension jusqu’en 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
@@ -139,7 +139,7 @@ Une fois le cluster de cache configuré, vous pouvez configurer les clients du c
 <a name="NuGet"></a>
 
 ## <a name="configure-the-cache-clients"></a>Configuration des clients de cache
-Pour accéder à un cache In-Role Cache, les clients doivent se trouver dans le même déploiement. Si le cluster de cache est un cluster de cache de rôle dédié, les clients sont d'autres rôles dans le déploiement. Si le cluster de cache est un cluster de cache de rôle en colocation, les clients peuvent être soit d’autres rôles dans le déploiement, soit les rôles qui hébergent le cluster de cache. Le package NuGet fourni permet de configurer chaque rôle client qui accède au cache. Pour configurer un rôle pour qu’il accède à un cluster de cache à l’aide du package Caching NuGet, cliquez avec le bouton droit sur le projet de rôle dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. 
+Pour accéder à un cache In-Role Cache, les clients doivent se trouver dans le même déploiement. Si le cluster de cache est un cluster de cache de rôle dédié, les clients sont d'autres rôles dans le déploiement. Si le cluster de cache est un cluster de cache de rôle en colocation, les clients peuvent être soit d'autres rôles dans le déploiement, soit les rôles qui hébergent le cluster de cache. Le package NuGet fourni permet de configurer chaque rôle client qui accède au cache. Pour configurer un rôle pour qu’il accède à un cluster de cache à l’aide du package Caching NuGet, cliquez avec le bouton droit sur le projet de rôle dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. 
 
 ![RoleCache4][RoleCache4]
 

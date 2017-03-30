@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ Les fichiers WSDL servent à générer des API Pass-through SOAP ou constituent 
 
 * **WSDL:Import** : nous ne prenons actuellement pas en charge les API utilisant cet attribut. Les clients doivent fusionner les éléments importés dans un seul document.
 * Les **messages en plusieurs parties** ne sont actuellement pas pris en charge.
-* **WCF wsHttpBinding** : les services SOAP créés avec Windows Communication Foundation doivent utiliser basicHttpBinding - wsHttpBinding.
+* **WCF wsHttpBinding** : les services SOAP créés avec Windows Communication Foundation doivent utiliser basicHttpBinding. wsHttpBinding n’est pas pris en charge.
 * **MTOM** : les services utilisant MTOM <em>peuvent</em> fonctionner. Aucune prise en charge officielle n’est disponible pour l’instant.
 * Les types de **récursivité** qui sont définis de manière récursive (par exemple, qui font référence à leur propre tableau) ne sont pas pris en charge.
 

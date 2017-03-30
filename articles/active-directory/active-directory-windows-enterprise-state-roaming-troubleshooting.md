@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
-ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 5d6b0869d2cf0e90b7b81b2304d95e01d1937925
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -43,7 +43,7 @@ Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous 
 - **Informations sur l’utilisateur** : quelle identité l’utilisateur utilise-il pour se connecter à l’appareil ? Comment l’utilisateur se connecte-t-il à l’appareil ? Fait-il partie d’un groupe de sécurité sélectionné autorisé à synchroniser ? 
 - **Informations sur l’appareil** : cet appareil est-il joint à Azure AD ou à un domaine ? Quelle build est installée sur l’appareil ? Quelles sont les dernières mises à jour ?
 - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
-- Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
+- Ces informations nous aident à résoudre votre problème aussi rapidement que possible.
 
 ## <a name="troubleshooting-and-diagnosing-issues"></a>Résolution et diagnostic des problèmes
 Cette section propose des suggestions de résolution et de diagnostic des problèmes liés à Enterprise State Roaming.
@@ -51,7 +51,7 @@ Cette section propose des suggestions de résolution et de diagnostic des probl�
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Vérifier la synchronisation et la page de paramètres « Synchroniser vos paramètres » 
 
 1. Après avoir joint votre ordinateur Windows 10 à un domaine configuré pour autoriser Enterprise State Roaming, ouvrez une session avec votre compte professionnel. Accédez à **Paramètres** > **Comptes** > **Synchroniser vos paramètres** et vérifiez que la synchronisation et les paramètres sont activés, et que le haut de la page de paramètres indique que vous synchronisez avec votre compte professionnel. Vérifiez que le même compte est également utilisé comme compte de connexion dans **Paramètres** > **Comptes** > **Vos informations**. 
-2. Vérifiez que la synchronisation fonctionne sur plusieurs ordinateurs en apportant des modifications sur l’ordinateur d’origine, par exemple en déplaçant la barre des tâches vers la droite ou le haut de l’écran. Après 5 minutes, vérifiez que la modification est appliquée sur le deuxième ordinateur. 
+2. Vérifiez que la synchronisation fonctionne sur plusieurs ordinateurs en apportant des modifications sur l’ordinateur d’origine, par exemple en déplaçant la barre des tâches vers la droite ou le haut de l’écran. Après cinq minutes, vérifiez que la modification est appliquée sur le deuxième ordinateur. 
  - Le verrouillage et le déverrouillage de l’écran (Win + L) permettent de déclencher une synchronisation.
  - Comme Enterprise State Roaming est lié au compte de l’utilisateur et non au compte de la machine, vous devez utiliser le même compte de connexion sur les deux ordinateurs pour synchroniser vos travaux.
 
@@ -67,7 +67,7 @@ Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure A
 **Problème potentiel** : la valeur des champs **WamDefaultSet** et **AzureAdJoined** est « NO », l’appareil était joint au domaine et inscrit auprès d’Azure AD, et l’appareil n’est pas synchronisé. Si ce problème apparaît, il est possible que l’appareil attente l’application de la stratégie ou que l’authentification de l’appareil a échoué lors de la connexion à Azure AD. Il est possible que l’utilisateur doive patienter quelques heures avant que la stratégie ne soit appliquée. D’autres étapes de résolution des problèmes peuvent inclure une nouvelle tentative d’inscription automatique en se déconnectant et en se reconnectant, ou en lançant la tâche dans le Planificateur de tâches. Dans certains cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
 
-**Problème potentiel** : le champ **AzureAdSettingsUrl** est vide et l’appareil n’est pas synchronisé. L’utilisateur a peut-être ouvert sa dernière session sur l’appareil avant l’activation d’Enterprise State Roaming dans le portail Azure Active Directory. Dans le portail, demandez à l’administrateur informatique d’essayer de désactiver puis de réactiver l’option Les utilisateurs peuvent synchroniser les paramètres et les données d'application de l'entreprise. Une fois l’option réactivée, redémarrez l’appareil et connectez l’utilisateur. 
+**Problème potentiel** : le champ **AzureAdSettingsUrl** est vide et l’appareil n’est pas synchronisé. L’utilisateur a peut-être ouvert sa dernière session sur l’appareil avant l’activation d’Enterprise State Roaming dans le portail Azure Active Directory. Redémarrez l’appareil et connectez l’utilisateur. Ou, dans le portail, demandez à l’administrateur informatique d’essayer de désactiver puis de réactiver l’option Les utilisateurs peuvent synchroniser les paramètres et les données d'application de l'entreprise. Une fois l’option réactivée, redémarrez l’appareil et connectez l’utilisateur. Si cela ne résout pas le problème, **AzureAdSettingsUrl** peut être vide si le certificat de l’appareil est erroné. Dans ce cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming et authentification multifacteur 
 Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur Azure (MFA) est configurée. Pour plus d’informations sur ces symptômes, consultez le document de support [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -145,11 +145,23 @@ Connectez l’appareil à un réseau d’entreprise afin que la synchronisation 
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé    
-Dans l’Observateur d’événements, dans les journaux SettingSync/Debug, cette erreur peut apparaître lorsqu’AzureRMS n’a pas été configuré automatiquement sur le locataire. 
+ ### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>L’appareil joint à Azure AD ne se synchronise pas et l’utilisateur possède un nom d’utilisateur principal à casse mixte.
+ Si l’utilisateur possède un nom d’utilisateur à casse mixte (par exemple, Nom d’Utilisateur au lieu de nom d’utilisateur) et qu’il figure sur un appareil joint à Azure AD qui a été mis à niveau de Windows 10 Build 10586 vers 14393, l’appareil de l’utilisateur risque de ne pas se synchroniser. 
 
 **Action recommandée**  
-Effectuez les étapes répertoriées dans [KB3193791](https://support.microsoft.com/kb/3193791). 
+L’utilisateur devra quitter l’annuaire puis reconnectez l’appareil au cloud. Pour ce faire, connectez-vous comme l’utilisateur Administrateur local et déconnectez l’appareil en choisissant **Paramètres** > **Système** > **A propos de**, puis en sélectionnant « Gérer ou se déconnecter de l’entreprise ou de l’école ». Nettoyez les fichiers ci-dessous, puis joignez de nouveau l’appareil à Azure AD en choisissant **Paramètres** > **Système** > **A propos de**, puis en sélectionnant « Connecter à l’entreprise ou l’école ». Continuez à joindre l’appareil à Azure Active Directory et terminez le flux.
+
+Dans l’étape de nettoyage, nettoyez les fichiers suivants :
+- Settings.dat dans `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Tous les fichiers du dossier`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+
+---
+
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé    
+Dans l’Observateur d’événements, dans les journaux SettingSync/Debug, cette erreur peut apparaître lorsque les informations d’identification de l’utilisateur ont expiré. Par ailleurs, cette erreur peut apparaître lorsque le locataire n’a pas automatiquement configuré AzureRMS. 
+
+**Action recommandée**  
+Dans le premier cas, demandez à l’utilisateur de mettre à jour ses informations d’identification et de se connecter à l’appareil avec les nouvelles informations d’identification. Pour résoudre le problème AzureRMS, effectuez les étapes répertoriées dans [KB3193791](https://support.microsoft.com/kb/3193791). 
 
 ---
 

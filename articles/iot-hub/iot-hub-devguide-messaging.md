@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
-ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -191,7 +191,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | --- | --- |
 | EnqueuedTimeUtc |Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId |**MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
-| StatusCode |Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = réussite <br/> 1 = message arrivé à expiration <br/> 2 = nombre maximal de remises dépassé <br/> &3; = message rejeté |
+| StatusCode |Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = réussite <br/> 1 = message arrivé à expiration <br/> 2 = nombre maximal de remises dépassé <br/> 3 = message rejeté |
 | Description |Valeurs de chaîne pour **StatusCode**. |
 | deviceId |**DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 | DeviceGenerationId |**DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
@@ -292,7 +292,7 @@ Le tableau suivant répertorie l’ensemble des propriétés système dans les m
 | Numéro de séquence |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |
 | À |Une destination spécifiée dans les messages [cloud-à-appareil][lnk-c2d]. |
 | ExpiryTimeUtc |Date et heure d’expiration du message. |
-| EnqueuedTime |Date et heure de réception du message par IoT Hub. |
+| EnqueuedTime |Date et heure de réception du message [Cloud-à-appareil][lnk-c2d] par IoT Hub. |
 | CorrelationId |Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |
 | UserId |Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |
 | Ack |Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre maximal de remises a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et négative. Pour plus d’informations, consultez [Commentaires sur les messages][lnk-feedback]. |
@@ -362,7 +362,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
 * La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
+* La rubrique [Langage de requête d’IoT Hub pour les jumeaux d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -436,3 +436,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
+

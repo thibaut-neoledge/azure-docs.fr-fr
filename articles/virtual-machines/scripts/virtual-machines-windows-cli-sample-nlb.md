@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
-ms.openlocfilehash: 4437ed8a1d32b1d56a48b88051189daab35f02ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ee48cbbb0f044c6f178373501cec81d4b4cdcb3b
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Équilibrer la charge du trafic entre des machines virtuelles hautement disponibles
 
-Cet exemple de script crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Windows Server 2016 configurées dans une configuration haute disponibilité avec équilibrage de la charge. Ce script génère trois machines virtuelles jointes à un groupe à haute disponibilité Azure et accessibles par le biais d’Azure Load Balancer. Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash.
+Cet exemple de script crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge. Une fois que vous avez exécuté le script, vous obtenez trois machines virtuelles jointes à un groupe à haute disponibilité Azure et accessibles par le biais d’Azure Load Balancer.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`. En outre, vous devez modifier la variable $AdminPassword au début du script afin de satisfaire les exigences de complexité de mots de passe uniques et de réunion.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure. En outre, vous devez modifier la variable $AdminPassword au début du script afin de satisfaire les exigences de complexité de mots de passe uniques et de réunion.
 
 Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
@@ -36,7 +36,7 @@ Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. P
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

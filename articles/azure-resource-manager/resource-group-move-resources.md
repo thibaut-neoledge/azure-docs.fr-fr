@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
-ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -119,6 +119,8 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 > [!NOTE] 
 > Pour le moment, il n’est pas possible de déplacer un réseau virtuel contenant une passerelle VPN tant que la passerelle n’est pas supprimée temporairement. Une fois supprimée, le réseau virtuel peut être déplacé et la passerelle peut être créée.
 >
+> Actuellement, un réseau virtuel homologué ne peut pas être déplacé jusqu’à ce que l’homologation de réseau virtuel ait été désactivée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée.
+>
  
 ## <a name="services-that-do-not-enable-move"></a>Services qui ne permettent pas le déplacement
 Les services qui ne permettent pas actuellement le déplacement d’une ressource sont les suivants :
@@ -134,6 +136,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * Sécurité
 * Machines virtuelles avec un certificat stocké dans Key Vault
+* Machines virtuelles avec des disques managés
 * Groupes de machines virtuelles identiques
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Passerelle VPN

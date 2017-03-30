@@ -1,21 +1,22 @@
 ---
-title: Tableaux de bord et navigation dans le portail Application Insights | Microsoft Docs
+title: Tableaux de bord et navigation dans Azure Application Insights | Microsoft Docs
 description: "Créez des vues de votre principaux graphiques et requêtes APM."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -148,15 +149,15 @@ SUPPORT
 
 * **Demande de support** : nécessite un abonnement payant. Voir également [Accès à l’aide](app-insights-get-dev-support.md).
 
-## <a name="whats-next"></a>Et ensuite ?
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="next-steps"></a>Étapes suivantes
+
 |  |  |
 | --- | --- |
 | [Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures. |![Exemple de recherche](./media/app-insights-dashboards/64.png) |
 | [Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, ainsi que les événements associés, et créez des bogues. |![Exemple de recherche](./media/app-insights-dashboards/61.png) |
 | [Analytics](app-insights-analytics.md)<br/>Tirez parti d’un puissant langage de requête. |![Exemple de recherche](./media/app-insights-dashboards/63.png) |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

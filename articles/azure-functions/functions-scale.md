@@ -18,9 +18,9 @@ ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 4eb138348686e9d7befe4d5433d174374977c2a1
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,11 +34,11 @@ Si vous n’êtes pas encore familiarisé avec Azure Functions, consultez l’ar
 
 ## <a name="service-plan-options"></a>Options de plan de service
 
-Lorsque vous créez une Function App, vous devez configurer un plan d’hébergement pour les fonctions contenues dans l’application. Les plans d’hébergement disponibles sont : le **Plan de consommation** et le [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Actuellement, ce choix doit être effectué lors de la création de l’application de fonction. Vous ne pouvez pas basculer entre ces deux options après la création. Vous pouvez faire évoluer le [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) entre les différents niveaux.. Aucune modification n’est actuellement prise en charge pour le plan de consommation, car la mise à l’échelle est dynamique.
+Lorsque vous créez une Function App, vous devez configurer un plan d’hébergement pour les fonctions contenues dans l’application. Les plans d’hébergement disponibles sont : le **Plan de consommation** et le [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Actuellement, ce choix doit être effectué lors de la création de l’application de fonction. Vous ne pouvez pas basculer entre ces deux options après la création. Vous pouvez faire évoluer le [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) entre les différents niveaux. Aucune modification n’est actuellement prise en charge pour le plan de consommation, car la mise à l’échelle est dynamique.
 
 ### <a name="consumption-plan"></a>Plan de consommation
 
-Dans le **plan de consommation**, vos applications de fonctions sont attribuées à une instance de traitement de calcul. Si nécessaire, des instances supplémentaires sont ajoutées ou supprimées dynamiquement. En outre, les fonctions sont exécutées en parallèle, réduisant ainsi le temps total nécessaire pour traiter les demandes. Le temps d’exécution de chaque fonction est agrégé par l’application de fonction conteneur. Le coût est déterminé par la taille de la mémoire et la durée totale d’exécution de toutes les fonctions dans une fonction d’application, et il est exprimé en gigaoctet-secondes. Cette option est donc idéale si vos besoins de calcul sont intermittents ou si les durées de vos tâches ont tendance à être très courtes. Elle vous permet en effet de payer pour les ressources de calcul uniquement lorsqu’elles sont réellement utilisées. La section suivante fournit plus d’informations sur le fonctionnement du plan de consommation.
+Dans le **plan de consommation**, vos applications de fonctions sont attribuées à une instance de traitement de calcul. Si nécessaire, des instances supplémentaires sont ajoutées ou supprimées dynamiquement. En outre, les fonctions sont exécutées en parallèle, réduisant ainsi le temps total nécessaire pour traiter les demandes. Le temps d’exécution de chaque fonction est agrégé par l’application de fonction conteneur. Le coût est déterminé par la taille de la mémoire et la durée totale d’exécution pour toutes les fonctions dans Function App. Utilisez un plan de consommation si vos besoins de calcul sont intermittents ou si les durées de vos tâches ont tendance à être très courtes. Ce plan vous permet de payer uniquement pour les ressources de calcul lorsqu’elles sont utilisées. La section suivante fournit plus d’informations sur le fonctionnement du plan de consommation.
 
 ### <a name="app-service-plan"></a>Plan App Service
 
@@ -46,23 +46,23 @@ Dans le **plan App Service**, vos applications de fonctions sont exécutées sur
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 
-Le plan de consommation met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de traitement supplémentaires selon les besoins d’exécution des fonctions dans une application de fonction. Chaque instance de traitement des applications de fonctions se voit affecter jusqu'à 1,5 Go de ressources mémoire.
+Le plan de consommation met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de traitement supplémentaires selon les besoins des fonctions exécutées dans Function App. Chaque instance de traitement des applications de fonctions se voit affecter jusqu'à 1,5 Go de ressources mémoire.
 
 Lors de l’exécution sur un plan de consommation, si une application de fonction est inactive, il peut y avoir jusqu’à 10 minutes par jour dans le traitement des nouveaux objets blob. Une fois la Function App en cours d’exécution, les objets blob sont traités plus rapidement. Pour éviter ce délai initial, utilisez un plan App Service régulier avec Toujours actif activé ou un autre mécanisme pour déclencher le traitement des objets blob, par exemple un message de file d’attente contenant le nom de l’objet blob. 
 
-Lorsque vous créez une application de fonction, vous devez créer ou lier un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table. En interne, les fonctions Azure utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau du compte de stockage lors de la création d’une nouvelle application de fonction.
+Lorsque vous créez une application de fonction, vous devez créer ou lier un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table. En interne, les fonctions Azure utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau du compte de stockage lors de la création d’une application de fonction.
 
-Lorsque vous utilisez le plan d’hébergement de la consommation, le contenu de l’application de fonction (par exemple, les fichiers de code de fonction et la configuration de liaison) est stocké sur des partages de fichiers Azure dans le compte de stockage principal. Si vous supprimez le compte de stockage principal, ce contenu sera supprimé et ne peut pas être récupéré.
+Lorsque vous utilisez le plan d’hébergement de la consommation, le contenu de Function App (par exemple, les fichiers de code de fonction et la configuration de liaison) est stocké sur des partages de fichiers Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
 
-Pour en savoir plus sur les types de compte de stockage, consultez la page [Présentation des services de stockage Azure] (.. / storage/storage-introduction.md#introducing-the-azure-storage-services).
+Pour en savoir plus sur les types de compte de stockage, consultez la page [Présentation des services de stockage Azure](../ storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
-Functions utilise un contrôleur de mise à l’échelle pour évaluer les besoins en calcul sur la base des déclencheurs configurés et décider quand augmenter ou diminuer la taille des instances. Le contrôleur de mise à l’échelle traite en continu des indications pour les besoins en mémoire et des points de données propres aux déclencheurs. Par exemple, dans le cas d’un déclencheur Stockage File d’attente Azure, les points de données comprennent la longueur de la file d’attente et le temps d’attente pour l’entrée la plus ancienne.
+Functions utilise un contrôleur de mise à l’échelle pour évaluer les besoins en calcul sur la base des déclencheurs configurés et décider quand augmenter ou diminuer la taille des instances. Le contrôleur de mise à l’échelle traite en continu des indications pour les besoins en mémoire et des points de données propres aux déclencheurs. Par exemple, si vous utilisez un déclencheur Stockage File d’attente Azure, les points de données comprennent la longueur de la file d’attente et le temps d’attente pour l’entrée la plus ancienne.
 
 ![](./media/functions-scale/central-listener.png)
 
-L’unité de mise à l’échelle est l’application de fonction. Dans ce cas, l’augmentation de la taille des instances correspond à l’ajout d’instances d’une application de fonction. À l’inverse, lorsque la demande de calcul est réduite, des instances d’application de fonction sont supprimées. Le nombre d’instances est finalement réduit à zéro lorsque aucune instance n’est exécutée. 
+L’unité de mise à l’échelle est l’application de fonction. Dans ce cas, l’augmentation de la taille des instances correspond à l’ajout d’instances d’une application de fonction. À l’inverse, lorsque la demande de calcul est réduite, des instances d’application de fonction sont supprimées. Le nombre d’instances est finalement réduit à zéro lorsque aucune fonction n’est exécutée. 
 
 ### <a name="billing-model"></a>Modèle de facturation
 

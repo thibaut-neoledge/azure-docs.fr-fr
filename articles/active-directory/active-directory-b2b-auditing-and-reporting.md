@@ -1,6 +1,6 @@
 ---
 title: "Audit et création de rapports relatifs à un utilisateur Azure Active Directory B2B Collaboration | Microsoft Docs"
-description: "Les propriétés de l’utilisateur Azure Active Directory B2B Collaboration sont configurables"
+description: "Les propriétés de l’utilisateur invité sont configurables dans Azure Active Directory B2B Collaboration"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: fd2fe0046d0709bc4527cb680795610daae01a87
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Audit et création de rapports relatifs à un utilisateur B2B Collaboration
-Pour les utilisateurs invités, cette version préliminaire vous offre des fonctionnalités d’audit identiques à celles des utilisateurs membres. Vous trouverez ci-dessous un exemple de l’historique d’invitation et d’échange pour Sam Oogle qui vient d’être invité :
+Pour les utilisateurs invités, cette préversion vous offre des fonctionnalités d’audit identiques à celles des utilisateurs membres. Voici un exemple de l’historique d’invitation et d’échange pour l’invité Sam Oogle :
 
 ![journal d’audit](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
@@ -39,7 +39,7 @@ Vous pouvez également exporter ces journaux à partir d’Azure AD et utiliser 
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)

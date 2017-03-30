@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -52,27 +52,25 @@ Pour plus d’informations, consultez la [page sur les contrats de niveau de ser
 ## <a name="supported-services"></a>Services pris en charge
 ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-peerings.md) pour différents types de services.
 
-Homologation privée
+### <a name="private-peering"></a>Homologation privée
 * Réseaux virtuels, y compris l’ensemble des machines virtuelles et services cloud
 
-Homologation publique
-* La plupart des services Azure, avec quelques exceptions ci-dessous
+### <a name="public-peering"></a>Homologation publique
 * Power BI
 * Dynamics 365 for Operations (anciennement appelé Dynamics AX Online)
+* La plupart des services Azure, avec quelques exceptions ci-dessous
+  * CDN
+  * Test de charge Visual Studio Team Services
+  * Multi-Factor Authentication
+  * Traffic Manager
 
-Homologation Microsoft
+### <a name="microsoft-peering"></a>Homologation Microsoft
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * La plupart des services Dynamics 365 (anciennement appelé CRM Online)
   * Dynamics 365 pour les ventes
   * Dynamics 365 pour le service client
   * Dynamics 365 pour le service après-vente
   * Dynamics 365 pour le service de projet
-
-Les services Azure suivants ne sont pas pris en charge sur ExpressRoute
-* CDN
-* Test de charge Visual Studio Team Services
-* Multi-Factor Authentication
-* Traffic Manager
 
 ## <a name="data-and-connections"></a>Données et connexions
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>Existe-t-il des limites sur la quantité de données que je peux transférer avec ExpressRoute ?
@@ -177,9 +175,10 @@ Les étapes suivantes aideront Azure à reconnaître la demande d’activation 
 
 1. Établissez l’homologation publique pour votre circuit ExpressRoute.
 2. Effectuez une recherche DNS et recherchez l’adresse IP de **kms.core.windows.net**
-3. Effectuez ensuite l’une des deux actions suivantes afin que le service de gestion de clés reconnaisse que la demande d’activation provient d’Azure et respecte la demande.
+3. Effectuez ensuite l’une des trois actions suivantes afin que le service de gestion de clés reconnaisse que la demande d’activation provient d’Azure et respecte la demande.
    * Sur votre réseau local, réacheminez le trafic destiné à l’adresse IP (obtenue à l’étape 2) vers Azure via l’homologation publique.
    * Faites en sorte que votre fournisseur de services réseau renvoie le trafic vers Azure via l’homologation publique.
+   * Créez un routage défini par l’utilisateur qui utilise cette adresse IP qui a Internet comme saut suivant et appliquez-le aux sous-réseaux dans lesquels se trouvent ces machines virtuelles.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Puis-je modifier la bande passante d’un circuit ExpressRoute ?
 Oui, vous pouvez essayer d’augmenter la bande passante de votre circuit ExpressRoute dans le portail Azure ou à l’aide de PowerShell. Si la capacité le permet sur le port physique sur lequel votre circuit a été créé, votre modification réussit. Si votre modification échoue, cela signifie que la capacité restante sur le port actuel est insuffisante et que vous devez créer un nouveau circuit ExpressRoute avec une bande passante supérieure OU qu’il n’y a plus de capacité supplémentaire à cet emplacement, auquel cas vous ne pourrez pas augmenter la bande passante. Vous devez également effectuer un suivi avec votre fournisseur de connectivité pour vous assurer qu’il met à jour les limitations dans ses réseaux pour prendre en charge l’augmentation de la bande passante. Vous ne pouvez toutefois pas réduire la bande passante de votre circuit ExpressRoute. Vous devez créer un nouveau circuit ExpressRoute avec une bande passante inférieure et supprimer l’ancien circuit.
