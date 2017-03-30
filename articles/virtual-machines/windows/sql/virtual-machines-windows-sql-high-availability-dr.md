@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: eabba7daa746a836592f775858782aa77fcebd9b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8a6b48437eecd9f2f5c3fe8447b31192d8318149
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,7 +102,7 @@ Il existe deux options principales de configuration de votre écouteur : exter
 Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse les régions Azure), la chaîne de connexion du client doit inclure «**MultisubnetFailover=True**». Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions sur la configuration d'un port d'écoute, consultez
 
 * [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Configurer un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* [Configurer un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure](../classic/ps-sql-ext-listener.md).
 
 Vous pouvez encore vous connecter à chaque réplica de disponibilité séparément en vous connectant directement à l’instance de service. En outre, puisque les groupes de disponibilité AlwaysOn sont à compatibilité descendante avec les clients de mise en miroir de bases de données, vous pouvez vous connecter aux réplicas de disponibilité comme les serveurs partenaires de mise en miroir de bases de données tant que les réplicas sont configurés de la même manière que la mise en miroir de bases de données :
 

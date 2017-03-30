@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 37291b16a966c17b684a4622f15d0393a5a5ce6d
-ms.openlocfilehash: 0984ccc8163c94f56517e65919f8ea089a3e8b5f
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -101,7 +101,7 @@ Lorsque vous planifiez vos capacités, vous devez prendre en compte les environn
 
 ### <a name="source-environment-considerations"></a>Considérations relatives à l’environnement source
 * **Taux de modification quotidien maximum** : une machine protégée ne peut utiliser qu’un serveur de traitement. Un serveur de traitement unique peut prendre en charge jusqu’à 2 To de données modifiées par jour. Par conséquent, le taux de modification de données quotidien maximum pris en charge pour une machine protégée est égal à 2 To.
-* **Débit maximum** : une machine répliquée peut appartenir à un compte de stockage dans Azure. Un compte de stockage standard peut gérer un maximum de 20 000 requêtes par seconde, et nous vous recommandons de conserver le nombre d’IOPS sur un ordinateur source à 20 000. Par exemple, si vous disposez d’une machine source à 5 disques et si chaque disque génère 120 IOPS (taille de 8 Ko) sur la source, la limite de 500 IOPS par disque d’Azure est respectée. Nombre de comptes de stockage requis = nombre total d’IOPS source /&20; 000.
+* **Débit maximum** : une machine répliquée peut appartenir à un compte de stockage dans Azure. Un compte de stockage standard peut gérer un maximum de 20 000 requêtes par seconde, et nous vous recommandons de conserver le nombre d’IOPS sur un ordinateur source à 20 000. Par exemple, si vous disposez d’une machine source à 5 disques et si chaque disque génère 120 IOPS (taille de 8 Ko) sur la source, la limite de 500 IOPS par disque d’Azure est respectée. Nombre de comptes de stockage requis = nombre total d’IOPS source / 20 000.
 
 ### <a name="management-server-considerations"></a>Considérations relatives aux serveurs d’administration
 Le serveur d’administration exécute les composants de Site Recovery qui gèrent l’optimisation, la réplication et la gestion des données. Il doit être en mesure de gérer la capacité de taux de modification quotidien pour toutes les charges de travail en cours d’exécution sur des machines protégées et bénéficier de suffisamment de bande passante pour la réplication continue des données vers le stockage Azure. Plus précisément :
@@ -389,7 +389,7 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 1. Accédez à **Éléments protégés** > **Groupe de protection**, puis cliquez sur l’icône pour ajouter un groupe de protection.
 
     ![Créer un groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups1.png)
-2. Dans la page **Spécifier les paramètres de groupe de protection**, spécifiez un nom pour le groupe. Dans la liste déroulante **De**, sélectionnez le serveur de configuration sur lequel vous souhaitez créer le groupe. La **cible ** est Microsoft Azure.
+2. Dans la page **Spécifier les paramètres de groupe de protection**, spécifiez un nom pour le groupe. Dans la liste déroulante **De**, sélectionnez le serveur de configuration sur lequel vous souhaitez créer le groupe. La **cible** est Microsoft Azure.
 
     ![Paramètres du groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups2.png)
 3. Dans la page **Spécifier les paramètres de réplication**, configurez les paramètres de réplication qui seront utilisés pour toutes les machines du groupe.
@@ -579,7 +579,7 @@ Vous pouvez aussi contrôler l’état de la protection dans **Éléments proté
 3. Vous pouvez modifier les paramètres suivants :
 
    * **Nom de machine virtuelle Azure**: il s’agit du nom attribué à la machine dans Azure après le basculement. Le nom doit satisfaire aux exigences Azure.
-   * **Taille de machine virtuelle Azure** : le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible. Pour plus d’informations sur les tailles et les cartes, consultez les [tableaux des tailles](../virtual-machines/virtual-machines-linux-sizes.md#size-tables). Notez les points suivants :
+   * **Taille de machine virtuelle Azure** : le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible. Pour plus d’informations sur les tailles et les cartes, consultez les [tableaux des tailles](../virtual-machines/virtual-machines-linux-sizes.md). Notez les points suivants :
 
      * Lorsque vous modifiez la taille d’une machine virtuelle et que vous enregistrez les paramètres, le nombre de cartes réseau change à la prochaine ouverture de l’onglet **Configurer**. Le nombre minimal de cartes réseau sur les machines virtuelles cibles est égal au nombre minimal de cartes réseau sur une machine virtuelle source. Le nombre maximal de cartes réseau est déterminé par la taille de la machine virtuelle.
        * Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présentera le même nombre de cartes que la source.

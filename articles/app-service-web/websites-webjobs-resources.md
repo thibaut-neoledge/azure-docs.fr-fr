@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/25/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
-ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 * [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Aide-mémoire du Kit de développement logiciel (SDK) Azure WebJobs (téléchargement au format PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Aide-mémoire du Kit de développement logiciel (SDK) Azure WebJobs (téléchargement au format PDF)](https://go.microsoft.com/fwlink/p/?linkid=845558)
 * [Documentation sur les paramètres de WebJobs dans GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * Vidéos
   * [WebJobs et Kit de développement logiciel (SDK) WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
-ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 96137d49d3caa0444400edcfcfaa097dc71ba8e3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Convertir des machines virtuelles Azure existantes vers des disques gérés utilisant le même type de stockage
 
 > [!IMPORTANT]
-> Après avoir effectué la procédure suivante, un seul objet blob reste dans le conteneur de disques durs virtuels par défaut. Le nom du fichier est : « VMName.xxxxxxx.status ». Ce fichier est créé par Azure uniquement lorsque vous avez installé les [extensions de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md) sur la machine virtuelle. Ne supprimez pas cet objet d’état restant. Les étapes suivantes résoudront ce problème.
+> Après avoir effectué la procédure suivante, un seul objet blob reste dans le conteneur de disques durs virtuels par défaut. Le nom du fichier est : « VMName.xxxxxxx.status ». Ce fichier est créé par Azure uniquement lorsque vous avez installé les [extensions de machine virtuelle](windows/classic/agents-and-extensions.md) sur la machine virtuelle. Ne supprimez pas cet objet d’état restant. Les étapes suivantes résoudront ce problème.
 
 Cette section explique comment convertir vos machines virtuelles Azure existantes de disques non gérés dans des comptes de stockage vers des disques gérés en utilisant le même type de stockage. Vous pouvez utiliser ce processus pour passer de disques non gérés Premium (SSD) à des disques gérés Premium, ou de disques non gérés Standard (HDD) à des disques gérés Standard. 
 

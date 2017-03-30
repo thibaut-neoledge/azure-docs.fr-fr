@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
-ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 64557a71f30762befe07616c3d274a621f22e235
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -92,10 +92,10 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 
 ![Travail de restauration terminé](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) de la machine virtuelle dans le portail Azure.
+Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](../virtual-machines/windows/classic/setup-endpoints.md) de la machine virtuelle dans le portail Azure.
 
 ## <a name="post-restore-steps"></a>Étapes post-restauration
-Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe sera bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/virtual-machines-linux-classic-reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration. 
+Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe sera bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/linux/classic/reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration. 
 
 ## <a name="backup-for-restored-vms"></a>Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.

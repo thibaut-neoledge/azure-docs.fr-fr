@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 35efe2a6a7a1ea1285a8df26f18de0d425b7c48d
-ms.openlocfilehash: 02a1ba7f2861271ae3b0e2e06bde1b2cd03a378f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -55,7 +55,7 @@ Avant de réaliser ce scénario, vous devez disposer des éléments suivants :
 
 ### <a name="create-the-runbook"></a>Créer le runbook
 
-La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md#create-a-new-automation-account-from-the-azure-portal).
+La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal).
 
 ### <a name="step-1"></a>Étape 1 :
 
@@ -191,17 +191,4 @@ Maintenant que vous comprenez comment intégrer la résolution des problèmes Ne
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-
-
-
-
-
-
-
-
-
-
-
-
-
 

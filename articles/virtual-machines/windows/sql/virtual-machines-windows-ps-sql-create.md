@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
 ## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel vous montre comment créer une machine virtuelle Azure à l’aide du modèle de déploiement **Azure Resource Manager** et d’applets de commande Azure PowerShell. Dans ce didacticiel, nous allons créer une machine virtuelle à l’aide d’un lecteur de disque à partir d’une image dans la galerie SQL. Nous allons créer des fournisseurs pour les ressources de stockage, de réseau et de calcul qui seront utilisées par la machine virtuelle. Si vous avez déjà des fournisseurs pour ces ressources, vous pouvez les utiliser.
 
-Si vous avez besoin de la version classique de cette rubrique, consultez la page [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md).
+Si vous avez besoin de la version classique de cette rubrique, consultez la page [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)](../classic/ps-sql-create.md).
 
 ## <a name="prerequisites"></a>Configuration requise
 Pour ce didacticiel, vous devez disposer des éléments suivants :
@@ -190,7 +191,7 @@ Exécutez l’applet de commande suivante puis, dans la fenêtre de demande d’
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Configurer les propriétés du système d’exploitation de la machine virtuelle
-Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) pour configurer le système d’exploitation Windows, exiger l’installation de [l’agent de machine virtuelle](../../virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
+Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) pour configurer le système d’exploitation Windows, exiger l’installation de [l’agent de machine virtuelle](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour définir les propriétés du système d’exploitation de votre machine virtuelle.
 
@@ -295,10 +296,5 @@ Le script suivant contient le script PowerShell complet pour ce didacticiel. Nou
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide du protocole RDP et en configurant la connectivité. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server sur Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
