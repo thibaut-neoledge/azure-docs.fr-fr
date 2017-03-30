@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
-ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,11 +35,8 @@ Tapez votre question pour obtenir une réponse !
 ## <a name="dont-see-the-live-chat-icon"></a>Vous ne voyez pas l’icône de conversation en direct ?
 La conversation en direct est un service assuré par les membres de l’équipe Machine Learning. Si l’icône de conversation en direct ne s’affiche pas, cela signifie que l’équipe n’est pas disponible actuellement. Cela peut être le cas, par exemple, en dehors des heures de travail. 
 
+Vous pouvez toujours publier vos questions sur le [Forum Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), où elles peuvent être consultées par les membres de l’équipe Machine Learning et d’autres développeurs et scientifiques compétents.
+
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

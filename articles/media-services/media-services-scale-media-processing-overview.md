@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
 ms.lasthandoff: 03/15/2017
 
 
@@ -50,13 +50,7 @@ Le tableau suivant vous permet de prendre de décision lors du choix entre les d
 
 ## <a name="billing"></a>Facturation
 
-Vous êtes facturé en fonction des minutes réelles d’utilisation des unités réservées Multimédia. Voici un exemple plus détaillé. Supposons que Pierre n’a aucune unité réservée Multimédia pour démarrer et qu’à 10 h 00 le jour en question, il configure son compte pour qu’il utilise 2 unités réservées S1. D’autres vidéos arrivent dans l’après-midi. Pierre modifie donc son compte pour qu’il utilise 4 unités réservées S3 à 13 h 15. Toutes ses vidéos sont traitées avant 16 h 00, puis Pierre désactive les unités réservées de ce compte (en mettant à zéro le nombre d’unités réservées). L’utilisation de Pierre est calculée comme suit.
-
-Unités réservées Multimédia S1 : 2 unités x 3,25 heures (de 10 h à 13 h 15) x 0,02 $/ h = 0,13 $ Unités réservées Multimédia S3 : 4 unités x 2,75 heures (de 13 h 15 à 16 h) x 0,08 $/ h = 0,88 $
-
-Le coût total de l’utilisation des unités réservées Multipliées ce jour-là serait donc de&0;,13 $ +&0;,88 $ =&1;,01 $. Contrairement aux unités réservées Multimédia, les unités de streaming sont facturées en fonction du nombre le plus élevé d’unités de streaming configurées chaque jour (limite supérieure).
-
-Pour plus d’informations, consultez la page [Tarification – Media Services](https://azure.microsoft.com/pricing/details/media-services/). La section FAQ contient des explications détaillées.  
+Vous êtes facturé en fonction des minutes réelles d’utilisation des unités réservées Multimédia. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Quotas et limitations
 Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).

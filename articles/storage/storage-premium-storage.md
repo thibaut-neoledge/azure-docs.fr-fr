@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 26e78f559fa9a82183a26034580148e39331a214
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -59,7 +59,7 @@ Tout objet placé dans un compte de stockage Premium est un objet blob de pages,
 
 **Compte de stockage Premium** : pour commencer à utiliser le stockage Premium, créez un compte de stockage Premium pour les disques non gérés. Si vous préférez utiliser le [portail Azure](https://portal.azure.com), vous pouvez créer un compte de stockage Premium en spécifiant le niveau de performances « Premium » et le « stockage localement redondant (LRS) » comme option de réplication. Vous pouvez également créer un compte de stockage Premium en spécifiant le type « Premium_LRS » à l’aide de [l’API REST de stockage](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) version 2014-02-14 ou ultérieure, [l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure (déploiements classiques), la [Référence de l’API REST du fournisseur de ressources Azure Storage](/rest/api/storagerp) (déploiements Resource Manager) et [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 ou ultérieure. Pour en savoir plus sur les limites de compte de stockage Premium, voir la section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets.md).
 
-**Stockage Premium localement redondant** : un compte de stockage Premium prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Il conserve donc trois copies des données dans une même région. Pour plus d’informations sur la géo-réplication pendant l’utilisation de Premium Storage, voir la section [Captures instantanées et copie d’objets blob](#snapshots-and-copy-blob) dans cet article.
+**Stockage Premium localement redondant** : un compte de stockage Premium prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Il conserve donc trois copies des données dans une même région. Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme coffre de sauvegarde. 
 
 Azure utilise le compte de stockage comme conteneur pour vos disques non gérés. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2, GS ou Fs avec des disques non gérés, puis sélectionnez un compte de stockage Premium, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
 
@@ -170,7 +170,7 @@ Pour en savoir plus sur la conception appropriée permettant des performances é
 
 ## <a name="snapshots-and-copy-blob"></a>Captures instantanées et copie d’objets blob
 
-Pour le service de stockage, le fichier VHD est un objet blob de pages. Vous pouvez réaliser des captures instantanées d’objets blob de pages et les copier dans un autre emplacement, tel qu’un compte de stockage différent.
+Pour le service de stockage, le fichier VHD est un objet blob de pages. Vous pouvez réaliser des captures instantanées d’objets blob de pages et les copier dans un autre emplacement, par exemple un compte de stockage différent.
 
 ### <a name="unmanaged-disks"></a>Disques non gérés
 
@@ -208,7 +208,7 @@ Consultez les instructions importantes ci-dessous pour configurer vos machines v
 * Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
 * Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Reportez-vous également à [Ajouter un disque géré à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-add-disk.md).
 
-Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version&4;.0 de Linux Integration Services (LIS) pour Microsoft Azure. Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour des charges de travail particulières.
+Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version 4.0 de Linux Integration Services (LIS) pour Microsoft Azure. Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour des charges de travail particulières.
 
 | Distribution | Version | Noyau pris en charge | Détails |
 | --- | --- | --- | --- |
@@ -259,11 +259,11 @@ Pour plus d’informations sur la tarification du stockage Premium, les machines
 * [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Tarification des disques gérés](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup 
+## <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure 
 
-Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide d’Azure Backup. [Détails supplémentaires](../backup/backup-azure-vms-first-look-arm.md).
+Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme coffre de sauvegarde.
 
-Vous pouvez également utiliser le service Azure Backup avec des disques gérés pour créer un travail de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Utilisation du service Azure Backup pour les machines virtuelles avec disques gérés). 
+Utilisez le service Sauvegarde Azure avec à la fois des disques managés (Managed Disks) et non managés pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Pour en savoir plus à ce sujet, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec des disques managés](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) et [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec des disques non managés](../backup/backup-azure-vms-first-look-arm.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur Azure Storage Premium, voir les articles suivants.
@@ -278,3 +278,4 @@ Pour plus d’informations sur Azure Storage Premium, voir les articles suivants
 ### <a name="blog-posts"></a>Billets de blog
 * [Mise à la disposition générale d’Azure Storage Premium](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Annonce de la série GS : ajout de prise en charge de Premium Storage pour les machines virtuelles les plus grandes dans le Cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+

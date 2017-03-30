@@ -1,5 +1,5 @@
 ---
-title: "Profils Traffic Manager imbriqués | Microsoft Docs"
+title: "Profils Traffic Manager imbriqués | Microsoft Azure"
 description: "Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager"
 services: traffic-manager
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
-ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -32,7 +33,7 @@ Les exemples suivants illustrent l’utilisation de profils Traffic Manager imbr
 
 Supposons que vous avez déployé une application dans les régions Azure suivantes : États-Unis de l’Ouest, Europe de l’Ouest et Asie de l’Est. Vous utilisez la méthode de routage du trafic « Performance » de Traffic Manager pour acheminer le trafic vers la région la plus proche de l’utilisateur.
 
-![Profil Traffic Manager unique][1]
+![Profil Traffic Manager unique][4]
 
 Maintenant, supposons que vous souhaitez tester une mise à jour de votre service avant de déployer celui-ci plus largement. Vous souhaitez utiliser la méthode de routage du trafic « Pondéré » pour acheminer un petit pourcentage du trafic vers votre déploiement de tests. Vous configurez le déploiement de tests en même temps que le déploiement de production existant en Europe de l’Ouest.
 
@@ -48,7 +49,7 @@ Lorsque le profil parent utilise la méthode de routage du trafic « Performanc
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemple 2 : analyse de points de terminaison dans des profils imbriqués
 
-Traffic Manager surveille activement l'intégrité de chaque point de terminaison de service. Si un point de terminaison n’est pas intègre, Traffic Manager dirige les utilisateurs vers d’autres points de terminaison pour préserver la disponibilité de votre service. Ce comportement de surveillance et de basculement des points de terminaison s’applique à toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md). La surveillance des points de terminaison fonctionne différemment pour les profils imbriqués. Avec des profils imbriqués, le profil parent n’effectue pas de contrôles d’intégrité directement sur le profil enfant. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant. Ces informations d’intégrité sont propagées vers le haut de la hiérarchie de profils imbriqués. Le profil parent utilise cette intégrité agrégée pour déterminer s’il faut diriger le trafic vers le profil enfant. Pour plus d’informations sur la surveillance de l’intégrité des profils imbriqués, voir la section [FAQ](#faq) de cet article.
+Traffic Manager surveille activement l'intégrité de chaque point de terminaison de service. Si un point de terminaison n’est pas intègre, Traffic Manager dirige les utilisateurs vers d’autres points de terminaison pour préserver la disponibilité de votre service. Ce comportement de surveillance et de basculement des points de terminaison s’applique à toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md). La surveillance des points de terminaison fonctionne différemment pour les profils imbriqués. Avec des profils imbriqués, le profil parent n’effectue pas de contrôles d’intégrité directement sur le profil enfant. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant. Ces informations d’intégrité sont propagées vers le haut de la hiérarchie de profils imbriqués. Le profil parent utilise cette intégrité agrégée pour déterminer s’il faut diriger le trafic vers le profil enfant. Pour plus d’informations sur la surveillance de l’intégrité des profils imbriqués, consultez le [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles).
 
 En revenant à l’exemple précédent, supposons que le déploiement de production en Europe de l’Ouest est défaillant. Par défaut, le profil « enfant » dirige tout le trafic vers le déploiement de tests. Si le déploiement de tests échoue également, le profil parent détermine que le profil enfant ne doit pas recevoir de trafic, car aucun des points de terminaison enfants n’est intègre. Ensuite, le profil parent distribue le trafic aux autres régions.
 
@@ -97,56 +98,11 @@ Les paramètres d’analyse dans un profil Traffic Manager s’appliquent à tou
 
 ![Surveillance des points de terminaison Traffic Manager avec paramétrage par point de terminaison][10]
 
-## <a name="faq"></a>Forum Aux Questions
-
-### <a name="how-do-i-configure-nested-profiles"></a>Comment configurer des profils imbriqués ?
-
-Des profils Traffic Manager imbriqués peuvent être configurés tant à l’aide d’Azure Resource Manager, qu’à l’aide des API REST Azure classiques, d’applets de commande PowerShell et de commandes d’interface de ligne de commande Azure multiplateformes. Ils sont également pris en charge via le nouveau portail Azure. Ils ne sont pas pris en charge dans le portail Classic.
-
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Combien de couches d’imbrication Traffic Manager prend-il en charge ?
-
-Vous pouvez imbriquer jusqu’à 10 niveaux de profil. Les « boucles » ne sont pas autorisées.
-
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Puis-je combiner d’autres types de point de terminaison avec des profils enfants imbriqués dans le même profil Traffic Manager ?
-
-Oui. Il n’existe aucune restriction sur la manière de combiner des points de terminaison de différents types au sein d’un profil.
-
-### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Comment le modèle de facturation s’applique-t-il aux profils imbriqués ?
-
-Il n’y a aucun impact négatif sur la tarification en cas d’utilisation de profils imbriqués.
-
-La facturation de Traffic Manager inclut deux composantes : des contrôles d’intégrité des points de terminaison et des millions de requêtes DNS.
-
-* Contrôles d’intégrité des points de terminaison : aucun frais n’est facturé pour un profil enfant configuré en tant que point de terminaison dans un profil parent. La surveillance des points de terminaison dans le profil enfant est facturée comme à l’accoutumée.
-* Requêtes DNS : chaque requête n’est comptabilisée qu’une seule fois. L’interrogation d’un profil parent qui retourne un point de terminaison à partir d’un profil enfant est facturée pour le profil parent uniquement.
-
-Pour plus d’informations, voir la [page de tarification de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
-
-### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Y a-t-il un impact sur les performances en cas de profils imbriqués ?
-
-Non. Non, l’utilisation de profils imbriqués n’a aucune incidence sur les performances.
-
-Les serveurs de noms Traffic Manager parcourent la hiérarchie de profils en interne lors du traitement de chaque requête DNS. Une requête DNS adressée à un profil parent peut recevoir une réponse DNS avec un point de terminaison d’un profil enfant. Un seul enregistrement CNAME est utilisé, que vous utilisiez un profil unique ou des profils imbriqués. Il est inutile de créer un enregistrement CNAME pour chaque profil dans la hiérarchie.
-
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Comment Traffic Manager calcule-t-il l’intégrité d’un point de terminaison imbriqué dans un profil parent ?
-
-Le profil parent n’effectue pas de contrôles d’intégrité directement sur le profil enfant. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant. Ces informations sont propagées vers le haut de la hiérarchie de profils imbriqués afin de déterminer l’intégrité du point de terminaison imbriqué. Le profil parent utilise cette intégrité agrégée pour déterminer si le trafic peut être dirigé vers le profil enfant.
-
-Le tableau suivant décrit le comportement des contrôles d’intégrité de Traffic Manager pour un point de terminaison imbriqué.
-
-| État d’analyse des profils enfants | État d’analyse des points de terminaison parents | Remarques |
-| --- | --- | --- |
-| Désactivé. Le profil enfant a été désactivé. |Arrêté |L’état des points de terminaison parents est Arrêté, pas Désactivé. L’état Désactivé sert uniquement à indiquer que vous avez désactivé le point de terminaison dans le profil parent. |
-| Détérioré. Au moins un point de terminaison du profil enfant a l’état Détérioré. |En ligne : le nombre de points de terminaison en ligne dans le profil enfant correspond au moins à la valeur de MinChildEndpoints.<BR>CheckingEndpoint : le nombre de points de terminaison en ligne et CheckingEndpoint dans le profil enfant correspond au moins à la valeur de MinChildEndpoints.<BR>Détérioré : dans le cas contraire. |Le trafic est acheminé vers un point de terminaison à l’état CheckingEndpoint. Si la valeur de MinChildEndpoints est trop élevée, le point de terminaison est toujours détérioré. |
-| En ligne. Au moins un point de terminaison de profil enfant est en état En ligne. Aucun point de terminaison n’est en état Détérioré. |Voir ci-dessus. | |
-| CheckingEndpoints. Au moins un point de terminaison de profil enfant est en état « CheckingEndpoint ». Aucun point de terminaison n’est en état « En ligne » ou « Détérioré ». |Identique à ce qui précède. | |
-| Inactif. Tous les points de terminaison du profil enfant sont en état Désactivé ou Arrêté, ou ce profil n’a aucun point de terminaison. |Arrêté | |
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md)
+En savoir plus sur les [profils Traffic Manager](traffic-manager-overview.md)
 
-En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-manage-profiles.md)
+En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -159,9 +115,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

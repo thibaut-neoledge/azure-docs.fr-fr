@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 46156a3331585b47761432c13462dffeb0b7eeb5
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 95b2820d2f68be34cca7b8d414c581ba44a29804
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="creating-a-windows-vm-with-multiple-nics"></a>Création d’une machine virtuelle Windows avec plusieurs cartes d’interface réseau (NIC)
+# <a name="create-a-windows-vm-with-multiple-nics"></a>Créer une machine virtuelle Windows avec plusieurs cartes d’interface réseau (NIC)
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consisterait à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts PowerShell, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , pensez à dimensionner la vôtre en conséquence.
-
-> [!WARNING]
-> Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle ; vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
-> 
-> 
 
 ## <a name="create-core-resources"></a>Créer les ressources de base
 Vérifiez que la [dernière version d’Azure PowerShell est installée et configurée](/powershell/azureps-cmdlets-docs). Connectez-vous à votre compte Azure :
@@ -132,6 +128,66 @@ Enfin, créez une machine virtuelle :
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
 ```
 
+## <a name="add-a-nic-to-an-existing-vm"></a>Ajouter une carte réseau à une machine virtuelle existante
+
+Il est désormais possible d’ajouter une carte réseau à une machine virtuelle existante. Pour utiliser cette fonctionnalité, vous devez tout d’abord libérer la machine virtuelle à l’aide de l’applet de commande Stop-AzureRmVM ci-dessous.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Ensuite, récupérez la configuration existante de la machine virtuelle à l’aide de l’applet de commande Get-AzureRmVM
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Vous pouvez créer une carte réseau dans le **même réseau virtuel que celui de la machine virtuelle** comme indiqué au début de cet article, ou attacher une carte réseau existante. Nous allons supposer que vous joignez une carte réseau existante `MyNic3` dans le réseau virtuel. 
+
+```powershell
+$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+```
+
+> [!NOTE]
+> Sur une machine virtuelle à plusieurs NIC, l’une d’entre elles doit être définie comme carte principale. Nous définissons donc la nouvelle carte en tant que carte principale. Si la carte réseau précédente sur la machine virtuelle était la carte principale, vous n’avez pas besoin de spécifier de commutateur principal. Si vous souhaitez modifier la carte réseau principale sur la machine virtuelle, procédez comme suit
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+
+# Find out all the NICs on the VM and find which one is Primary
+$vm.NetworkProfile.NetworkInterfaces
+
+# Set the NIC 0 to be primary
+$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+
+# Update the VM state in Azure
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+```
+
+## <a name="remove-a-nic-from-an-existing-vm"></a>Supprimer une carte réseau d’une machine virtuelle existante
+
+Une carte réseau peut également être supprimée d’une machine virtuelle. Pour utiliser cette fonctionnalité, vous devez tout d’abord libérer la machine virtuelle à l’aide de l’applet de commande Stop-AzureRmVM ci-dessous.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Ensuite, récupérez la configuration existante de la machine virtuelle à l’aide de l’applet de commande Get-AzureRmVM
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Affichez maintenant toutes les cartes réseau sur la machine virtuelle et copiez le nom de celle que vous souhaitez supprimer
+
+```powershell
+$vm.NetworkProfile.NetworkInterfaces
+
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+```
+
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Création de plusieurs cartes réseau à l’aide de modèles Resource Manager
 Les modèles Azure Resource Manager utilisent des fichiers JSON déclaratifs pour définir votre environnement. Vous pouvez consulter une [vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Grâce aux modèles Resource Manager, vous pouvez créer plusieurs instances d’une ressource pendant le déploiement, à l’image de la création de plusieurs cartes réseau. Utilisez *copy* pour spécifier le nombre d’instances à créer :
 
@@ -155,11 +211,5 @@ Vous pouvez consulter un exemple complet de la [création de plusieurs cartes r�
 ## <a name="next-steps"></a>Étapes suivantes
 Veillez à consulter les [tailles des machines virtuelles Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
 
-N’oubliez pas que vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous devez créer toutes les cartes réseau quand vous déployez la machine virtuelle. Quand vous planifiez vos déploiements, vérifiez que vous disposez de toute la connectivité réseau nécessaire dès le départ.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

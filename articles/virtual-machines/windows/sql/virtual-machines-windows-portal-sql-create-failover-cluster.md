@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,10 +34,10 @@ Le schéma suivant illustre la solution complète sur les machines virtuelles Az
 
 Le schéma précédent illustre :
 
-- Deux machines virtuelles Azure dans un cluster de basculement Windows Server (WSFC). Lorsqu’une machine virtuelle se trouve dans un cluster de basculement Windows Server, elle est également désignée comme *nœud* ou *nœuds* de cluster.
+- Deux machines virtuelles Azure dans un cluster de basculement Windows. Lorsqu’une machine virtuelle se trouve dans un cluster de basculement, elle est également désignée comme *nœud* ou *nœuds* de cluster.
 - Chaque machine virtuelle possède au moins deux disques de données.
 - La technologie S2D synchronise les données sur le disque de données et présente le stockage synchronisé en tant que pool de stockage. 
-- Le pool de stockage présente un volume partagé de cluster au cluster de basculement Windows Server.
+- Le pool de stockage présente un volume partagé de cluster au cluster de basculement.
 - Le rôle du cluster de l’instance de cluster de basculement SQL Server utilise le volume partagé de cluster pour les lecteurs de données. 
 - Un équilibrage de charge Azure pour contenir l’adresse IP de l’instance de cluster de basculement SQL Server.
 - Un groupe à haute disponibilité Azure contient toutes les ressources.
@@ -76,11 +77,11 @@ Avant de suivre les instructions de cet article, vérifiez que vous disposez dé
 - Un compte autorisé à créer des objets sur la machine virtuelle Azure.
 - Un réseau virtuel et un sous-réseau Azure avec suffisamment d’espace d’adressage IP pour les composants suivants :
    - Les deux machines virtuelles.
-   - L’adresse IP du cluster de basculement Windows Server.
+   - L’adresse IP du cluster de basculement.
    - Une adresse IP pour chaque instance de cluster de basculement.
 - Un DNS configuré sur le réseau Azure, pointant vers les contrôleurs de domaine. 
 
-Une fois ces conditions préalables en place, vous pouvez passer à la création de votre cluster de basculement Windows Server. La première étape consiste à créer les machines virtuelles. 
+Une fois ces conditions préalables en place, vous pouvez passer à la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles. 
 
 ## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
 
@@ -135,9 +136,9 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
       - **{BYOL} SQL Server 2016 Standard sur Windows Server Datacenter 2016** 
    
    >[!IMPORTANT]
-   >Après avoir créé la machine virtuelle, supprimez l’instance SQL Server autonome préinstallée. Vous utiliserez le support SQL Server préinstallé pour créer l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement Windows Server et les espaces de stockage direct. 
+   >Après avoir créé la machine virtuelle, supprimez l’instance SQL Server autonome préinstallée. Vous utiliserez le support SQL Server préinstallé pour créer l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement et les espaces de stockage direct. 
 
-   Vous pouvez également utiliser des images Azure Marketplace avec le système d’exploitation seulement. Choisissez une image **Windows Server 2016 Datacenter** et installez l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement Windows Server et les espaces de stockage direct. Cette image ne contient aucun support d’installation SQL Server. Placez le support d’installation dans un emplacement où vous pouvez exécuter l’installation de SQL Server pour chaque serveur.
+   Vous pouvez également utiliser des images Azure Marketplace avec le système d’exploitation seulement. Choisissez une image **Windows Server 2016 Datacenter** et installez l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement et les espaces de stockage direct. Cette image ne contient aucun support d’installation SQL Server. Placez le support d’installation dans un emplacement où vous pouvez exécuter l’installation de SQL Server pour chaque serveur.
 
 1. Une fois que vos machines virtuelles ont été créées par Azure, connectez-vous à chaque machine virtuelle en utilisant le protocole RDP. 
 
@@ -179,15 +180,15 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
 1. [Ajoutez les machines virtuelles à votre domaine préexistant](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-Une fois les machines virtuelles créées et configurées, vous pouvez configurer le cluster de basculement Windows Server.
+Une fois les machines virtuelles créées et configurées, vous pouvez configurer le cluster de basculement.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-wsfc-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows Server avec la technologie S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows avec la technologie S2D
 
-L’étape suivante consiste à configurer le cluster de basculement Windows Server avec la technologie S2D. Dans cette étape, vous allez exécuter les sous-étapes suivantes :
+L’étape suivante consiste à configurer le cluster de basculement avec la technologie S2D. Dans cette étape, vous allez exécuter les sous-étapes suivantes :
 
 1. Ajouter la fonctionnalité Windows de Clustering de basculement
 1. Valider le cluster
-1. Créer le cluster de basculement Windows Server
+1. Créer le cluster de basculement
 1. Créer le témoin cloud
 1. Ajouter du stockage
 
@@ -240,34 +241,34 @@ Pour valider le cluster avec PowerShell, exécutez le script suivant à partir d
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-Après avoir validé le cluster, créez le cluster de basculement Windows Server.
+Après avoir validé le cluster, créez le cluster de basculement.
 
-### <a name="create-the-wsfc"></a>Créer le cluster de basculement Windows Server
+### <a name="create-the-failover-cluster"></a>Créer le cluster de basculement
 
-Ce guide fait référence à la section [Créer le cluster de basculement Windows Server (WSFC)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Ce guide fait référence à la section [Créer le cluster de basculement](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-Pour créer le cluster de basculement Windows Server, vous avez besoin des éléments suivants : 
+Pour créer le cluster de basculement, vous avez besoin des éléments suivants : 
 - Les noms des machines virtuelles qui deviennent les nœuds du cluster. 
-- Un nom pour le cluster de basculement Windows Server. Utilisez un nom valide 
-- Une adresse IP pour le cluster de basculement Windows Server. Vous pouvez spécifier une adresse IP qui n’est pas utilisée sur le même réseau virtuel et sous-réseau Azure que les nœuds du cluster. 
+- Un nom pour le cluster de basculement.
+- Une adresse IP pour le cluster de basculement. Vous pouvez spécifier une adresse IP qui n’est pas utilisée sur le même réseau virtuel et sous-réseau Azure que les nœuds du cluster. 
 
-Le script PowerShell suivant crée un cluster de basculement Windows Server. Mettez à jour le script avec les noms des nœuds (les noms des machines virtuelles) et une adresse IP disponible à partir du réseau virtuel Azure : 
+Le script PowerShell suivant crée un cluster de basculement. Mettez à jour le script avec les noms des nœuds (les noms des machines virtuelles) et une adresse IP disponible à partir du réseau virtuel Azure : 
 
 ```PowerShell
-New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 ### <a name="create-a-cloud-witness"></a>Créer un témoin cloud
 
 Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Azure Storage Blob. Cela supprime la nécessité de disposer d’une machine virtuelle distincte qui héberge un partage de fichiers du témoin.
 
-1. [Créez un témoin cloud pour le cluster de basculement Windows Server](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+1. [Créez un témoin cloud pour le cluster de basculement](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
 1. Créez un conteneur d’objets blob. 
 
 1. Enregistrez les clés d’accès et l’URL du conteneur.
 
-1. Configurez le témoin de quorum de cluster WSFC. Consultez [Configurer le témoin de quorum dans l’interface utilisateur].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
+1. Configurez le témoin de quorum du cluster de basculement. Consultez [Configurer le témoin de quorum dans l’interface utilisateur].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
 
 ### <a name="add-storage"></a>Ajouter du stockage
 
@@ -297,13 +298,13 @@ Les disques pour la technologie S2D doivent être vides et sans partitions ou au
 
    ![VolumePartagéCluster](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-wsfc-failover"></a>Étape 3 : Tester le basculement du WSFC
+## <a name="step-3-test-failover-cluster-failover"></a>Étape 3 : Tester le basculement du cluster de basculement
 
-Dans le Gestionnaire du cluster de basculement, vérifiez que vous pouvez déplacer la ressource de stockage vers l’autre nœud du cluster. Si vous pouvez vous connecter au cluster de basculement Windows Server avec le **Gestionnaire du cluster de basculement** et déplacer le stockage d’un nœud à l’autre, vous êtes prêt à configurer l’instance de cluster de basculement. 
+Dans le Gestionnaire du cluster de basculement, vérifiez que vous pouvez déplacer la ressource de stockage vers l’autre nœud du cluster. Si vous pouvez vous connecter au cluster de basculement avec le **Gestionnaire du cluster de basculement** et déplacer le stockage d’un nœud à l’autre, vous êtes prêt à configurer l’instance de cluster de basculement. 
 
 ## <a name="step-4-create-sql-server-fci"></a>Étape 4 : Créer l’instance de cluster de basculement SQL Server
 
-Après avoir configuré le cluster de basculement Windows Server et tous les composants du cluster, notamment le stockage, vous pouvez créer l’instance de cluster de basculement SQL Server. 
+Après avoir configuré le cluster de basculement et tous les composants du cluster, notamment le stockage, vous pouvez créer l’instance de cluster de basculement SQL Server. 
 
 1. Connectez-vous à la première machine virtuelle avec RDP. 
 
@@ -473,10 +474,5 @@ Sur les machines virtuelles Azure, Microsoft Distributed Transaction Coordinator
 [Vue d’ensemble de l’espace de stockage direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Prise en charge de SQL Server pour S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

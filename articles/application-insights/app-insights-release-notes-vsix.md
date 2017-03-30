@@ -4,23 +4,121 @@ description: "Dernières mises à jour des outils Visual Studio pour Developer A
 services: application-insights
 documentationcenter: 
 author: acearun
-manager: douge
+manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2016
+ms.date: 03/20/2017
 ms.author: aruna
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 73e9c2bdc8e7851f8de8bcddb0babeb732d8ce15
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notes de publication de Developer Analytics Tools
-Nouveautés : analyses Application Insights et HockeyApp dans Visual Studio.
+
+## <a name="version-718-visual-studio-2015"></a>Version 7.18 (Visual Studio 2015)
+
+* Notifications toast repensées.
+* Filtres « Not » dans la vue des détails des événements dans Application Insights Search.
+* Résolution des bogues
+
+## <a name="version-86-visual-studio-2017-rtw-and-rc4-and-version-717-visual-studio-2015"></a>Version 8.6 (Visual Studio 2017 RTW et RC4) et Version 7.17 (Visual Studio 2015)
+
+* Des annotations de marquage lorsque vous publiez votre application à partir de Visual Studio sont maintenant appliquées à vos données dans Metrics Explorer du portail Azure
+* Des marqueurs sont maintenant ajoutés à des barres de défilement dans les fichiers de code correspondant aux avertissements CodeLens rouges et jaunes d’Application Insights
+* Mise à jour des informations sur la tarification dans la fenêtre Configuration
+* Résolution des bogues
+
+[Consultez ici les notes détaillées](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
+
+## <a name="version-716-visual-studio-2015"></a>Version 7.16 (Visual Studio 2015)
+
+* Résolution des bogues
+
+## <a name="version-85-visual-studio-2017-rc3-and-version-715-visual-studio-2015"></a>Version 8.5 (Visual Studio 2017 RC3) et version 7.15 (Visual Studio 2015)
+
+* CodeLens présente désormais les données de débogage et de télémétrie en direct dans les projets qui envoient des données vers une ressource Application Insights
+* Les informations sur la tarification Application Insights sont désormais affichées dans la fenêtre Configuration
+* CodeLens pour les requêtes et les exceptions prend désormais en charge les projets ASP.NET écrits en Visual Basic
+* Application Insights Search affiche maintenant le nombre d’événements non échantillonnés pour les événements qui ont été échantillonnés
+* Résolution des bogues
+
+## <a name="version-714-visual-studio-2015"></a>Version 7.14 (Visual Studio 2015)
+
+* Prise en charge de la recherche pour la disponibilité (test web) et des événements d’affichage de page
+* Prise en charge des tendances pour la disponibilité (test web) et des événements d’affichage de page
+* Outils de diagnostic et étiquette de détails de l’événement pour l’échantillonnage adaptatif du Kit de développement logiciel (SDK)
+* Résolution des bogues
+
+## <a name="version-712-visual-studio-2015"></a>Version 7.12 (Visual Studio 2015)
+
+* Nouveau format de notification de publication
+* Résolution des bogues
+
+## <a name="version-84-visual-studio-2017-rc2-and-version-711-visual-studio-2015"></a>Version 8.4 (Visual Studio 2017 RC2) et version 7.11 (Visual Studio 2015)
+
+* CodeLens affiche les requêtes des sessions de débogage locales pour les projets avec le Kit de développement logiciel (SDK) Application Insights
+* CodeLens vous permet d’accéder directement à Application Analytics pour visualiser l’impact sur les utilisateurs
+* Insérer le code JavaScript pour collecter les affichages de page
+* Résolution des bogues
+
+## <a name="version-710-visual-studio-2015"></a>Version 7.10 (Visual Studio 2015)
+
+* Nouveau design de la fenêtre de configuration Application Insights
+* Résolution des bogues
+
+## <a name="version-79-visual-studio-2015"></a>Version 7.9 (Visual Studio 2015)
+
+* CodeLens affiche les exceptions qui se sont produites au cours de sessions de débogage locales pour les projets avec le Kit de développement logiciel (SDK) Application Insights
+* Résolution des bogues
+
+## <a name="version-83-visual-studio-2017-rc-and-version-78-visual-studio-2015"></a>Version 8.3 (Visual Studio 2017 RC) et version 7.8 (Visual Studio 2015)
+
+* Nouvelle expérience avec ajout d’Application Insights à la fenêtre de configuration
+* Résolution des bogues
+
+## <a name="version-77-visual-studio-2015"></a>Version 7.7 (Visual Studio 2015)
+
+* Mappages plus précis à partir d’événements de télémétrie pour les méthodes utilisant un routage ASP.NET personnalisé
+* Résolution des bogues
+
+## <a name="version-76-visual-studio-2015"></a>Version 7.6 (Visual Studio 2015)
+
+* Analyser les événements impliqués dans une opération à partir du nouvel onglet Suivi des opérations sur les événements dans l’outil de recherche
+* Résolution des bogues
+
+## <a name="version-75-visual-studio-2015"></a>Version 7.5 (Visual Studio 2015)
+
+* Informations de télémétrie de production pour les requêtes dans les outils de diagnostic
+* Création d’élément de travail à partir d’éléments connexes dans l’outil de recherche
+* Résolution des bogues
+
+## <a name="version-74-visual-studio-2015"></a>Version 7.4 (Visual Studio 2015)
+
+* Le volet de filtre dans les tendances est désormais redimensionnable
+* Résolution des bogues
+
+## <a name="version-73-visual-studio-2015"></a>Version 7.3 (Visual Studio 2015)
+
+* Requêtes dans CodeLens
+* Fenêtre de configuration
+* SDK HockeyApp mise à niveau avec la version 4.2.2
+* Résolution des bogues
+
+## <a name="version-72-visual-studio-2015"></a>Version 7.2 (Visual Studio 2015)
+
+* Résolution des bogues
+
+## <a name="version-71-visual-studio-2015"></a>Version 7.1 (Visual Studio 2015)
+
+* Indicateur de préparation de la télémétrie dans les tendances Application Insights
+* Résolution des bogues
 
 ## <a name="version-70"></a>Version 7.0
 ### <a name="azure-application-insights-trends"></a>Tendances Azure Application Insights
@@ -197,10 +295,4 @@ Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blo
 HockeyApp prend en charge votre application, quelle que soit la plateforme sur laquelle vous avez choisi de la générer, qu’il s’agisse d’iOS, d’Android, de Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
 
 Dans les versions futures de l’extension Application Insights, nous allons présenter une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer par HockeyApp en ajoutant simplement la référence NuGet. Pour plus d’informations, consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

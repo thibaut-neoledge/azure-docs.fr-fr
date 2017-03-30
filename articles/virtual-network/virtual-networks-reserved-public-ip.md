@@ -1,5 +1,5 @@
 ---
-title: "Gérer les adresses IP réservées (Classic) à l’aide de PowerShell | Microsoft Docs"
+title: "Gestion des adresses IP réservées Azure (Classic) - PowerShell | Microsoft Docs"
 description: "Comprendre les adresses IP réservées (Classic) et la manière de les gérer à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: na
@@ -15,19 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 55071ffe1bcc17b2181b4c52f51d28571a2f0eff
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 276b1bcebbe3c32d6fead8ee240dd1ddfb01c872
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="reserved-ip-addresses-classic"></a>Adresses IP réservées (Classic)
 
 > [!div class="op_single_selector"]
-- [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modèle](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
+> * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modèle](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
 
 Il existe deux catégories d’adresses IP dans Azure, les réservées et les dynamiques. Les adresses IP publiques gérées par Azure sont dynamiques par défaut. Cela signifie que l'adresse IP utilisée pour un service cloud donné (adresse IP virtuelle) ou pour accéder à une machine virtuelle ou à une instance de rôle directement (ILPIP) peut changer à tout moment, lorsque les ressources sont arrêtées ou désallouées.
 
@@ -164,10 +165,5 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 * Découvrez comment [l’adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement Classic.
 * En savoir plus sur [les adresses IP privées réservées](virtual-networks-reserved-private-ip.md).
 * En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

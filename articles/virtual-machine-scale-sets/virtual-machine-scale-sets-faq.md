@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/08/2017
+ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8d0adfb995ecfb56ff33814e462a88f3d1102d58
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 850459a79c723de0eb3249cfe9ea19bc988ca318
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -467,7 +467,7 @@ Vous devez configurer les paramètres protégés avec le nom et la clé du compt
 Consultez : https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
  
   
-### <a name="what-is-the-resourceguid-property-on-a-nic-for-its-not-documented-here"></a>Qu’est-ce que la propriété resourceGuid sur une carte d’interface réseau ? Ce sujet n’est pas traité ici.
+### <a name="what-is-the-resourceguid-property-on-a-nic-for"></a>Qu’est-ce que la propriété resourceGuid sur une carte d’interface réseau ?
 
 Il s’agit d’un ID unique. Les couches inférieures se connecteront à l’aide de cet ID à un moment donné dans le futur. 
  
@@ -481,10 +481,13 @@ La méthode d’allocation des adresses IP de groupe identique est toujours « 
 
 Consultez https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
 
+### <a name="how-do-i-add-a-scale-sets-first-vms-ip-address-to-the-output-of-a-template"></a>Comment ajouter l’adresse IP de la première machine virtuelle d’un groupe identique à la sortie d’un modèle ?
+
+Consultez : http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 
 
-## <a name="scale"></a>Mettre à l'échelle
+## <a name="scale"></a>Scale
 
 ### <a name="why-would-you-ever-create-a-scale-set-with-fewer-than-2-vms"></a>Pourquoi créer un groupe identique avec moins de 2 machines virtuelles ?
 

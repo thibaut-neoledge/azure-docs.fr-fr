@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
-ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a27ec9e1ebfde3493e41c493b85c0dc7f0ada2a0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,17 +33,13 @@ Data Factory prend en charge la connexion à des sources Oracle locales à l’a
 ## <a name="supported-versions-and-installation"></a>Versions prises en charge et installation
 Le connecteur Oracle prend en charge deux versions de pilotes :
 
-- Le **pilote Microsoft pour Oracle** est fourni avec la passerelle de gestion des données à partir de la version 2.7. Vous êtes **invité** à utiliser ce pilote. Avec celui-ci, inutile d’installer quoi que ce soit d’autre que la passerelle pour se connecter à Oracle. Vous constaterez également que la copie sera plus performante. Prise en charge d’Oracle Database version 10g Release 2 et des versions ultérieures.
+- Le **pilote Microsoft pour Oracle** est fourni avec la passerelle de gestion des données à partir de la version 2.7. Vous êtes **invité** à utiliser ce pilote. Vous n’avez pas besoin d’installer quoi que ce soit d’autre que la passerelle pour vous connecter à Oracle. Vous constaterez également que la copie sera plus performante. Prise en charge d’Oracle Database version 10g Release 2 et des versions ultérieures.
 
     > [!NOTE]
     > Actuellement, le pilote Microsoft pour Oracle prend uniquement en charge la copie de données à partir d’Oracle, mais non l’écriture dans Oracle. Notez également que la fonctionnalité de connexion de test dans l’onglet Data Management Gateway Diagnostics (Diagnostics de passerelle de gestion des données) ne prend pas en charge ce pilote. Dans ce cas, vous pouvez valider la connectivité à l’aide de l’assistant de copie.
     >
 
-- **Fournisseur de données Oracle pour .NET :** vous pouvez également choisir d’utiliser le fournisseur de données Oracle pour copier des données à partir de ou vers Oracle. Ce composant est inclus dans [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installez la version appropriée (32/64 bits) sur l’ordinateur sur lequel la passerelle est installée. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) peut accéder à Oracle Database 10g Release 2 ou version ultérieure.
-
-    Si vous choisissez « Installation XCopy », suivez les étapes dans le fichier readme.htm. Nous vous recommandons de choisir le programme d’installation avec interface utilisateur (et pas le programme d’installation XCopy).
-
-    Après avoir installé le fournisseur, **redémarrez** le service hôte de la passerelle de gestion des données sur votre ordinateur à l’aide de l’applet Services (ou) du Gestionnaire de configuration de la passerelle de gestion des données.  
+- **Fournisseur de données Oracle pour .NET :** la passerelle de gestion des données version 2.7 ou ultérieure incluant ce composant, vous n’avez pas besoin de l’installer séparément. Si vous utilisez une passerelle de version antérieure à 2.7, nous vous recommandons d’installer la dernière version de passerelle [ici](https://www.microsoft.com/download/details.aspx?id=39717). Vous trouverez la version de la passerelle sur la page d’aide du Gestionnaire de configuration de la passerelle de gestion des données (recherchez « Passerelle de gestion des données »).
 
 ## <a name="copy-data-wizard"></a>Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie des données entre une base de données Oracle et n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -416,7 +412,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | --- | --- | --- |
 | type |Le type de propriété doit être défini sur : **OnPremisesOracle** |Oui |
 | driverType | Spécifiez le pilote à utiliser pour copier les données à partir de ou vers la base de données Oracle. Valeurs autorisées : **Microsoft** ou **ODP** (par défaut). Consultez la section [Version prise en charge et installation](#supported-versions-and-installation) sur les détails du pilote. | Non |
-| connectionString | Spécifier les informations requises pour la connexion à l’instance de base de données Oracle pour la propriété connectionString. Consultez les exemples ci-dessous. | Oui |
+| connectionString | Spécifier les informations requises pour la connexion à l’instance de base de données Oracle pour la propriété connectionString. | Oui |
 | gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |Oui |
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données Oracle locale, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
@@ -470,14 +466,14 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 >
 >
 
-En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
+En revanche, les propriétés disponibles dans la section typeProperties de l’activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
 ### <a name="oraclesource"></a>OracleSource
 Dans le cas d’une activité de copie, quand la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable <br/><br/>Si non spécifié, l’instruction SQL exécutée : select * from MyTable |Non (si **tableName** de **dataset** est spécifiée) |
+| oracleReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select *from MyTable <br/><br/>Si non spécifié, l’instruction SQL exécutée : select* from MyTable |Non (si **tableName** de **dataset** est spécifiée) |
 
 ### <a name="oraclesink"></a>OracleSink
 **OracleSink** prend en charge les propriétés suivantes :

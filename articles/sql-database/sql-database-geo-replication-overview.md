@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -88,7 +88,7 @@ Comme indiqué plus haut, la géo-réplication active peut aussi être gérée p
 * **API Azure Resource Manager et sécurité basée sur les rôles** : la géo-réplication active comprend un ensemble [d’API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) pour la gestion, dont des [applets de commande PowerShell basées sur Azure Resource Manager](sql-database-geo-replication-powershell.md). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, voir le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Parmi les nouvelles fonctionnalités de géo-réplication active, plusieurs sont uniquement prises en charge avec [l’API REST de SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) et les [applets de commande PowerShell de base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) basées sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L’API REST (classique)](https://msdn.microsoft.com/library/azure/dn505719.aspx) et les [applets de commande de base de données SQL Azure (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sont prises en charge à des fins de compatibilité descendante. L’utilisation des API basées sur Azure Resource Manager est donc recommandée. 
+> Parmi les nouvelles fonctionnalités de géo-réplication active, plusieurs sont uniquement prises en charge avec [l’API REST de SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) et les [applets de commande PowerShell de base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) basées sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L’[API REST (classique)](https://msdn.microsoft.com/library/azure/dn505719.aspx) et les [applets de commande Azure SQL Database (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sont prises en charge à des fins de compatibilité descendante. L’utilisation des API basées sur Azure Resource Manager est donc recommandée. 
 > 
 > 
 

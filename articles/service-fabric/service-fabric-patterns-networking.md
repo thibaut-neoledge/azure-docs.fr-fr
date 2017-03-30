@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Service Fabric s’exécute dans un groupe de machines virtuelles identiques sta
 
 Service Fabric se distingue d’autres fonctionnalités de mise en réseau sur un aspect. Le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications. Le fournisseur de ressources Service Fabric requiert un accès entrant accessible publiquement au port de la passerelle HTTP (port 19080, par défaut) sur le point de terminaison de gestion. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utilise le point de terminaison de gestion pour gérer votre cluster. Le fournisseur de ressources Service Fabric utilise également ce port pour demander des informations sur votre cluster, à afficher sur le Portail Azure. 
 
-Si le port 190980 n’est pas accessible à partir du fournisseur de ressources Service Fabric, un message du type *Nœuds introuvables* apparaît sur le portail, et votre liste de nœuds et d’applications apparaît vide. Si vous souhaitez voir votre cluster sur le Portail Azure, votre équilibreur de charge doit exposer une adresse IP publique et votre groupe de sécurité réseau doit autoriser le trafic entrant du port 19080. Si votre configuration ne respecte pas ces conditions, le Portail Azure n’affiche pas l’état de votre cluster.
+Si le port 19080 n’est pas accessible à partir du fournisseur de ressources Service Fabric, un message du type *Nœuds introuvables* apparaît sur le portail et votre liste de nœuds et d’applications apparaît vide. Si vous souhaitez voir votre cluster sur le Portail Azure, votre équilibreur de charge doit exposer une adresse IP publique et votre groupe de sécurité réseau doit autoriser le trafic entrant du port 19080. Si votre configuration ne respecte pas ces conditions, le Portail Azure n’affiche pas l’état de votre cluster.
 
 ## <a name="templates"></a>Modèles
 

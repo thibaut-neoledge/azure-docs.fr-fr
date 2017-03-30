@@ -13,36 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4d14b4f54957ae31e736211671cba816f8dea629
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 50167d167a1e0dda93d389997d67904e18f248bc
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-with-powershell"></a>Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure avec PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager : modèle](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager : mode manuel](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 > * [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
+> * [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+<br/>
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. 
+
+Pour effectuer cette tâche avec le modèle Azure Resource Manager, voir [Groupes de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Les machines virtuelles (VM) Azure permettent aux administrateurs de base de données de réduire le coût d’un système SQL Server haute disponibilité. Ce didacticiel vous indique comment implémenter un groupe de disponibilité en utilisant SQL Server Always On de bout en bout dans un environnement Azure. À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :
 
 * un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
 * un contrôleur de domaine avec un domaine Active Directory (AD) ;
 * deux machines virtuelles SQL Server déployées dans le sous-réseau principal et jointes au domaine AD ;
-* un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire ;
+* un cluster de basculement Windows à trois nœuds avec le modèle de quorum Nœud majoritaire ;
 * Un groupe de disponibilité avec deux réplicas avec validation synchrone d’une base de données de disponibilité.
 
-Ce scénario est choisi pour sa simplicité, pas pour sa rentabilité ou pour d’autres avantages apportés par Azure. Par exemple, vous pouvez réduire le nombre de machines virtuelles pour un groupe de disponibilité de deux réplicas, afin de faire des économies sur les heures de calcul dans Azure, en utilisant le contrôleur de domaine comme témoin de partage de fichiers du quorum dans un cluster WSFC à 2 nœuds. Cette méthode permet de se passer d’une machine virtuelle par rapport à la configuration ci-dessus.
+Ce scénario est choisi pour sa simplicité, pas pour sa rentabilité ou pour d’autres avantages apportés par Azure. Par exemple, vous pouvez réduire le nombre de machines virtuelles pour un groupe de disponibilité de deux réplicas, afin de faire des économies sur les heures de calcul dans Azure, en utilisant le contrôleur de domaine comme témoin de partage de fichiers du quorum dans un cluster de basculement à deux nœuds. Cette méthode permet de se passer d’une machine virtuelle par rapport à la configuration ci-dessus.
 
 Ce didacticiel est destiné à vous présenter les étapes nécessaires pour installer la solution décrite ci-dessus sans développer les détails de chaque étape. Par conséquent, au lieu de vous présenter les étapes de configuration dans l’interface utilisateur graphique, il fournit du script PowerShell pour vous guider rapidement dans chaque étape. Il suppose ce qui suit :
 
@@ -222,7 +221,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
             -ChangePasswordAtLogon $false `
             -Enabled $true
    
-    **CORP\Install** est utilisé pour configurer tout ce qui est associé aux instances de service SQL Server, au cluster WSFC et au groupe de disponibilité. **CORP\SQLSvc1** et **CORP\SQLSvc2** sont utilisés comme comptes de service SQL Server pour les deux machines virtuelles SQL Server.
+    **CORP\Install** est utilisé pour configurer tout ce qui est associé aux instances de service SQL Server, au cluster de basculement et au groupe de disponibilité. **CORP\SQLSvc1** et **CORP\SQLSvc2** sont utilisés comme comptes de service SQL Server pour les deux machines virtuelles SQL Server.
 7. Ensuite, exécutez les commandes suivantes afin d’accorder à **CORP\Install** les autorisations pour créer des objets ordinateur dans le domaine.
    
         Cd ad:
@@ -234,7 +233,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
    
-    Le GUID spécifié ci-dessus est celui du type d’objet ordinateur. Le compte **CORP\Install** nécessite les autorisations **Read All Properties** et **Create Computer Objects** pour créer les objets Active Directory du cluster WSFC. L’autorisation **Read All Properties** étant déjà accordée à CORP\Install par défaut, vous ne devez donc pas le faire explicitement. Pour plus d’informations sur les autorisations nécessaires pour créer le cluster WSFC, consultez le [Guide pas à pas du cluster de basculement : configuration de comptes dans Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    Le GUID spécifié ci-dessus est celui du type d’objet ordinateur. Le compte **CORP\Install** nécessite les autorisations **Read All Properties** et **Create Computer Objects** pour créer les objets Active Directory du cluster de basculement. L’autorisation **Read All Properties** étant déjà accordée à CORP\Install par défaut, vous ne devez donc pas le faire explicitement. Pour plus d’informations sur les autorisations nécessaires pour créer le cluster de basculement, consultez le [Guide pas à pas du cluster de basculement : configuration de comptes dans Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
    
     Maintenant que vous avez fini de configurer Active Directory et les objets utilisateur, vous allez créer deux machines virtuelles SQL Server et les joindre à ce domaine.
 
@@ -253,7 +252,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
    
     L’adresse IP **10.10.0.4** est généralement affectée à la première machine virtuelle que vous créez dans le sous-réseau **10.10.0.0/16** de votre réseau virtuel Azure. Vous devez vérifier qu’il s’agit bien de l’adresse de votre serveur contrôleur de domaine en exécutant la commande **IPCONFIG**.
-2. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster WSFC, nommé **ContosoQuorum**:
+2. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster de basculement, nommé **ContosoQuorum** :
    
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -372,8 +371,8 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
    
     Les machines virtuelles SQL Server sont maintenant configurés et exécutées, mais elles sont installées avec les options par défaut de SQL Server.
 
-## <a name="initialize-the-wsfc-cluster-vms"></a>Initialisation des machines virtuelles du cluster WSFC
-Dans cette section, vous devez modifier les trois serveurs que vous allez utiliser dans le cluster WSFC et l’installation de SQL Server. Plus précisément :
+## <a name="initialize-the-failover-cluster-vms"></a>Initialisation des machines virtuelles du cluster de basculement
+Dans cette section, vous devez modifier les trois serveurs que vous allez utiliser dans le cluster de basculement et l’installation de SQL Server. Plus précisément :
 
 * (Tous les serveurs) Vous devez installer la fonctionnalité **Failover Clustering** .
 * (Tous les serveurs) Vous devez ajouter **CORP\Install** en tant **qu’administrateur** de l’ordinateur.
@@ -477,8 +476,8 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Téléchargez **CreateAzureFailoverCluster.ps1** depuis la page [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster WSFC pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster WSFC fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont WSFC interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Passez à votre répertoire de travail et créez le cluster WSFC avec le script téléchargé.
+7. Téléchargez **CreateAzureFailoverCluster.ps1** depuis la page [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster de basculement pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster de basculement fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont le clustering Windows interagit avec le réseau Azure, voir [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Passez à votre répertoire de travail et créez le cluster de basculement avec le script téléchargé.
    
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"

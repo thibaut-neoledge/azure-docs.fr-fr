@@ -15,16 +15,25 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
-ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel.  Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication.  Ces fonctionnalités ne sont pas disponibles dans toutes les versions d’Azure Multi-Factor Authentication.
 
-| Fonctionnalité | Description | |:--- |:--- || | [Alerte fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. | | [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s’authentifier une seule fois en « contournant » l’authentification multifacteur. | | [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d’utiliser vos propres enregistrements ou messages d’accueil avec l’authentification multifacteur. | | [Mise en cache](#caching-in-azure-multi-factor-authentication) |La mise en cache vous permet de définir une période spécifique pour que les tentatives d’authentification suivantes aboutissent automatiquement. | | [Adresses IP approuvées](#trusted-ips) |Les administrateurs d’un locataire géré ou fédéré peuvent utiliser les adresses IP approuvées pour contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. | | [Mots de passe d’application](#app-passwords) |Un mot de passe d’application permet à une application qui ne prend pas en charge MFA de contourner l’authentification multifacteur et de continuer à fonctionner. | | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) (Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés) |Vous permet de mémoriser les appareils pendant un nombre défini de jours lorsqu’un utilisateur est parvenu à se connecter à l’aide de l’authentification MFA. | | [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d’authentification disponibles pour les utilisateurs. |
+| Fonctionnalité | Description | 
+|:--- |:--- |
+| [Alerte de fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. |
+| [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois en « contournant » l'authentification multifacteur. |
+| [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d'utiliser vos propres enregistrements ou messages d’accueil avec l'authentification multifacteur. |
+| [Mise en cache](#caching-in-azure-multi-factor-authentication) |La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. |
+| [Adresses IP approuvées](#trusted-ips) |Les administrateurs d’un locataire géré ou fédéré peuvent utiliser les adresses IP approuvées pour contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. |
+| [Mots de passe d'application](#app-passwords) |Un mot de passe d’application permet à une application qui ne prend pas en charge MFA de contourner l’authentification multifacteur et de continuer à fonctionner. |
+| [Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés](#remember-multi-factor-authentication-for-devices-that-users-trust) |Vous permet de mémoriser des appareils pour un nombre défini de jours après qu’un utilisateur soit parvenu à se connecter à l’aide de MFA. |
+| [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d'authentification disponibles pour les utilisateurs. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Accéder au portail de gestion Azure MFA
 

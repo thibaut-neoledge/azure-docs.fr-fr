@@ -1,5 +1,5 @@
 ---
-title: " Gérer un serveur de configuration dans Azure Site Recovery | Microsoft Docs"
+title: " Gérer un serveur de configuration dans Azure Site Recovery | Microsoft Docs"
 description: "Cet article explique comment définir et gérer un serveur de configuration."
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
-ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3a02171d52b6d963a93a654d2506269e29f1be8e
+ms.lasthandoff: 03/18/2017
 
 ---
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ La gestion des API Azure peut être déployée à l’intérieur du réseau virt
 
 > [!NOTE]
 > La gestion des API Azure prend en charge les réseaux virtuels classiques et Azure Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Activer la connexion au réseau virtuel
 > [!NOTE]
@@ -59,20 +59,20 @@ Vous voyez maintenant une liste de toutes les régions où votre service Gestion
 
 > [!IMPORTANT]
 > Lorsque vous déployez une instance de la gestion des API Azure sur un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune autre ressource à l’exception des instances de la gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
-> 
-> 
+>
+>
 
 ![Sélectionner le VPN][api-management-setup-vpn-select]
 
-Cliquez sur **Enregistrer** dans la partie supérieure de l’écran. 
+Cliquez sur **Enregistrer** dans la partie supérieure de l’écran.
 
 > [!NOTE]
 > L’adresse IP virtuelle de l’instance de gestion des API change à chaque activation ou désactivation du réseau virtuel.  
 > L’adresse IP virtuelle est également modifiée si la gestion des API passe **d’externe** à **interne** ou vice versa
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Si vous supprimez le service Gestion des API à partir d’un réseau virtuel (VNET) ou que vous modifiez celui sur lequel il est déployé, le réseau virtuel précédemment utilisé peut rester verrouillé jusqu’à 4 heures. Pendant ce temps, vous ne pourrez pas supprimer le réseau virtuel ou y déployer une nouvelle ressource.
 
 ## <a name="enable-vnet-powershell"> </a>Activation de la connexion au réseau virtuel à l’aide d’applets de commande PowerShell
@@ -94,7 +94,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 > [!IMPORTANT]
 > Si vous utilisez un serveur de DNS personnalisé pour le réseau virtuel, nous vous recommandons de le configurer **avant** d’y déployer un service Gestion des API. Sinon, nous devrons redémarrer le CloudService hébergeant le service, pour lui permettre de récupérer les nouveaux paramètres du serveur DNS.
-> 
+>
 
 * **Ports requis pour la gestion des API** : le trafic entrant et sortant dans un sous-réseau dans lequel est déployée la gestion des API peut être contrôlé à l’aide du [groupe de sécurité réseau][Network Security Group]. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible. Le blocage d’un ou plusieurs de ces ports constitue un autre problème de configuration courant lorsque vous utilisez la gestion des API dans un réseau virtuel.
 
@@ -134,7 +134,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 
 
 ## <a name="related-content"> </a>Contenu connexe
-* [Connexion d’un réseau virtuel au backend à l’aide de la passerelle VPN][Different topologies to connect to Vpn Gateway]
+* [Connexion d’un réseau virtuel au serveur principal à l’aide de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Connexion d’un réseau virtuel utilisant des modèles de déploiement différents](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

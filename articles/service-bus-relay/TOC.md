@@ -4,30 +4,29 @@
 
 # Prise en main
 ## [Créer un espace de noms](relay-create-namespace-portal.md)
-## [Prise en main des connexions hybrides](relay-hybrid-connections-dotnet-get-started.md)
-## [Prise en main des relais WCF](service-bus-dotnet-how-to-use-relay.md)
-## [Signatures d’accès partagé](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Didacticiel hybride pour les relais WCF](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Didacticiel .NET pour les relais WCF](service-bus-relay-tutorial.md)
-## [Didacticiel REST pour les relais WCF](service-bus-relay-rest-tutorial.md)
+## les connexions hybrides
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
+### [Nœud](relay-hybrid-connections-node-get-started.md)
+## [Relais WCF](relay-wcf-dotnet-get-started.md)
 
 # Procédure
-## [Authentification et autorisation](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Gestion des urgences et des pannes](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Protocole Connexions hybrides](relay-hybrid-connections-protocol.md)
-## [Exceptions courantes](relay-exceptions.md)
+## Planifier et concevoir
+### [Authentification et sécurité](relay-authentication-and-authorization.md)
+### [Protocole Connexions hybrides](relay-hybrid-connections-protocol.md)
+## Développement
+### [API disponibles](relay-api-overview.md)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [Nœud](relay-hybrid-connections-node-ws-api-overview.md)
 
 # Référence
-## [Exemples](service-bus-relay-samples.md)
-## [API .NET pour les connexions hybrides](/dotnet/api/microsoft.servicebus)
-## [API .NET pour les relais WCF](/dotnet/api/microsoft.servicebus)
-## [Paramètres de port](service-bus-relay-port-settings.md)
+## .NET
+### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+## [Exceptions](relay-exceptions.md)
+## [Paramètres de port](relay-port-settings.md)
 
 # les ressources
-## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
-## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Exemples](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

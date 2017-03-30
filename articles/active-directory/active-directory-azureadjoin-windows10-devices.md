@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 053c04ed222eb9c9203a25153e45e31ba842b223
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 71e8944fc56420ddd7fd42bbfbfdf6d145a1cf3b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -95,7 +95,7 @@ Depuis 15 ans, de nombreuses organisations utilisent la jonction de domaine pou
 Pour plus d’informations sur Azure AD Join, consultez [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
 ## <a name="enable-joining-of-personally-owned-devices-for-work-or-school"></a>Activation de la jonction d’appareils personnels pour un usage professionnel ou scolaire
-Pour prendre en charge le BYOD dans l’entreprise, Windows 10 offre à l’utilisateur la possibilité d’ajouter un compte professionnel ou scolaire sur son ordinateur, sa tablette ou son téléphone. Une fois le compte professionnel ou scolaire ajouté, l’appareil est automatiquement inscrit auprès d’Azure AD, voire éventuellement dans le système de gestion de périphériques mobiles que l’organisation a configuré. Le répertoire affiche ces appareils comme « Inscrits », par opposition à « Joints à Azure AD ». Les administrateurs informatiques peuvent appliquer différentes stratégies en fonction de ces informations, en allégeant éventuellement les stratégies appliquées sur un appareil personnel, par rapport à celles appliquées sur un appareil professionnel.
+Pour prendre en charge le BYOD dans l’entreprise, Windows 10 offre à l’utilisateur la possibilité d’ajouter un compte professionnel ou scolaire sur son ordinateur, sa tablette ou son téléphone. Une fois le compte professionnel ou scolaire ajouté, l’appareil est automatiquement inscrit auprès d’Azure AD, voire éventuellement dans le système de gestion de périphériques mobiles que l’organisation a configuré. Le répertoire affiche ces appareils comme « Inscrits », par opposition à « Joints à Azure AD ». Les administrateurs peuvent appliquer différentes stratégies en fonction de ces informations, en allégeant éventuellement les stratégies appliquées à un appareil personnel, par rapport à celles appliquées à un appareil professionnel.
 
 Les utilisateurs peuvent ajouter très facilement un compte professionnel ou scolaire à leur appareil personnel. Cette procédure peut s’effectuer lors du premier accès à une application de travail, avec également la possibilité le faire manuellement via le menu Paramètres. Ce compte fournit une authentification unique aux ressources de l’organisation.
 

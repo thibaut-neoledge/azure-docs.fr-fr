@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 17de66693661e56e9b456581c97a47cfb91cd886
-ms.openlocfilehash: bf08cc7ebb56aaf77c1718545ed4374f47933975
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2dc56240894666b2fa24baf4902c3097e97d656e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Découvrez comment configurer un cluster RDMA Linux dans Azure avec des [machine
 ## <a name="cluster-deployment-options"></a>Options de déploiement de cluster
 Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA avec ou sans planificateur de tâches.
 
-* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez la [CLI Azure](../xplat-cli-install.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
+* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez la [CLI Azure](../cli-install-nodejs.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
 * **Modèles Azure Resource Manager** : vous pouvez aussi utiliser le modèle de déploiement Resource Manager pour déployer un cluster de machines virtuelles prenant en charge RDMA, qui se connecte au réseau RDMA. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement Resource Manager, déployez les machines virtuelles dans le même groupe à haute disponibilité.
 * **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure, et ajoutez des nœuds de calcul prenant en charge RDMA, qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Pour plus d’informations, consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -38,7 +39,7 @@ Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA a
 Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une machine virtuelle HPC SUSE Linux Enterprise Server (SLES) 12 SP1 à partir de la Place de marché Azure, la personnaliser, et créer une image de machine virtuelle personnalisée. Vous pouvez ensuite utiliser l’image pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA.
 
 > [!TIP]
-> Utilisez une procédure similaire pour déployer un cluster de machines virtuelles prenant en charge RDMA sur d’autres images HPC prises en charge dans la Place de marché Azure. Certaines étapes peuvent être légèrement différentes, comme indiqué. Par exemple, Intel MPI est inclus et configuré uniquement dans quelques-unes de ces images. Et si vous déployez une machine virtuelle SLES 12 HPC au lieu d’une machine virtuelle SLES 12 HPC SP1, vous devez mettre à jour les pilotes RDMA. Pour plus d’informations, consultez [À propos des instances nécessitant beaucoup de ressources système A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Utilisez une procédure similaire pour déployer un cluster de machines virtuelles prenant en charge RDMA sur des images HPC basées sur CentOS dans la Place de marché Azure. Certaines étapes diffèrent légèrement, comme indiqué. 
 >
 >
 
@@ -47,7 +48,7 @@ Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une 
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 * **Disponibilité de taille de machine virtuelle** : les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/) .
 * **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement.
-* **CLI Azure** : [installez](../xplat-cli-install.md) la CLI Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
+* **CLI Azure** : [installez](../cli-install-nodejs.md) la CLI Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Configurer une machine virtuelle SLES 12 SP1 HPC
 Après la connexion à Azure avec la CLI Azure, exécutez la commande `azure config list` pour confirmer que la sortie affiche le mode Service Management. Si ce n’est pas le cas, définissez le mode en exécutant la commande suivante :
@@ -379,9 +380,4 @@ Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie comme c
 * Déploiement et exécution de vos applications MPI Linux sur votre cluster Linux.
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 * Essayez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) pour créer un cluster Intel Lustre en utilisant une image HPC basée sur CentOS. Pour plus d’informations, consultez [Déploiement d’Intel Cloud Edition pour Lustre sur Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

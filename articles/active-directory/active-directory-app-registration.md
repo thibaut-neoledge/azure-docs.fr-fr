@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: bf1b8783ccbc3b3e3185eb10c7f772b58352aab7
-ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Vous pouvez utiliser le portail Azure pour inscrire votre application avec votre
 
 ## <a name="update-application-settings-from-the-azure-portal"></a>Mettre à jour les paramètres de l’application à partir du portail Azure
 
-Vous pouvez facilement modifier les paramètres d’une application existante à l’aide du portail Azure. Par exemple, vous souhaitez peut-être configurer une URL de réponse, utilisée par Azure AD pour émettre des réponses de jeton. Vous pouvez également configurer des autorisations destinées à d’autres applications, par exemple pour permettre à votre application pour accéder à l’API Graph MS. Vous pouvez effectuer toutes ces opérations via la page Paramètres de l’application.
+Vous pouvez facilement modifier les paramètres d’une application existante à l’aide du portail Azure. Par exemple, vous souhaitez peut-être configurer une URL de réponse, utilisée par Azure AD pour émettre des réponses de jeton. Vous pouvez également configurer des autorisations destinées à d’autres applications, par exemple pour permettre à votre application d’accéder à l’API Microsoft Graph. Vous pouvez effectuer toutes ces opérations via la page Paramètres de l’application.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
@@ -44,7 +45,7 @@ Vous pouvez facilement modifier les paramètres d’une application existante à
   * La page **Propriétés** vous permet de modifier les informations générales de l’application. Cela inclut le nom de l’application, l’URL de connexion et l’URL de déconnexion.
   * La page **URL de réponse** vous permet d’ajouter une URL de réponse, utilisée par Azure AD pour émettre des réponses de jeton.
   * La page **Propriétaires** vous permet d’ajouter des propriétaires d’applications.
-  * La page **Autorisations** vous permet de configurer des autorisations pour l’application. Par exemple, pour accéder à l’API Graph MS, cliquez sur **Ajouter**, sélectionnez **Microsoft Graph** dans le sélecteur d’API, puis choisissez l’autorisation nécessaire, par exemple **Lire les données du répertoire**.
+  * La page **Autorisations** vous permet de configurer des autorisations pour l’application. Par exemple, pour accéder à l’API Microsoft Graph, cliquez sur **Ajouter**, sélectionnez **Microsoft Graph** dans le sélecteur d’API, puis choisissez l’autorisation nécessaire, par exemple **Lire les données du répertoire**.
   * La page **Clés** vous permet d’ajouter des secrets d’application. Le secret s’affichant une seule fois immédiatement après sa création, assurez-vous de le copier pour pouvoir l’utiliser ultérieurement.
 
 ## <a name="use-the-inline-manifest-editor"></a>Utiliser l’éditeur de manifeste en ligne
@@ -61,9 +62,4 @@ Vous pouvez utiliser l’éditeur de manifeste en ligne pour modifier certaines 
 
 1. Pour des procédures pas à pas détaillées des applications exécutant l’authentification à l’aide d’Azure AD, consultez les [Démarrages rapides](active-directory-developers-guide.md).
 2. Consultez notre liste complète d’exemples de code dans [Github](https://github.com/azure-samples).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

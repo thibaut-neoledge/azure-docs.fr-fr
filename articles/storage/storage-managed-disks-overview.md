@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -39,15 +39,18 @@ Examinons quelques-uns des avantages procurés par l’utilisation des disques m
 
 Les disques managés gèrent le stockage pour vous en arrière-plan. Auparavant, vous deviez créer des comptes de stockage dédiés à la prise en charge des disques (fichiers de disques durs virtuels) de vos machines virtuelles Azure. Lors d’une montée en puissance, il était nécessaire de vous assurer d’avoir créé la quantité suffisante de comptes de stockage supplémentaires, ceci pour ne pas dépasser la limite d’E/S associée au stockage de vos disques. Maintenant que votre stockage est géré par Managed Disks, vous n’êtes plus restreint par les limites des comptes de stockage (comme 20 000 E/S par seconde et par compte). Vous n’avez plus à copier vos images personnalisées (fichiers de disques durs virtuels) sur plusieurs comptes de stockage. Vous pouvez les gérer à partir d’un emplacement centralisé (un compte de stockage par région Azure) et les utiliser pour créer des centaines de machines virtuelles dans un abonnement.
 
-Managed Disks vous permet de créer jusqu’à 10 000 **disques** de machines virtuelles dans un abonnement. Ainsi, vous êtes en mesure de mettre en œuvre des milliers de **machines virtuelles** dans un seul abonnement. Par ailleurs, cette fonctionnalité optimise l’évolutivité des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) (VMSS, Virtual Machine Scale Sets), en vous donnant les moyens de créer jusqu’à&1; millier de machines virtuelles dans une instance VMSS à l’aide d’une image de Marketplace.
+Managed Disks vous permet de créer jusqu’à 10 000 **disques** de machines virtuelles dans un abonnement. Ainsi, vous êtes en mesure de mettre en œuvre des milliers de **machines virtuelles** dans un seul abonnement. Par ailleurs, cette fonctionnalité optimise l’évolutivité des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) (VMSS, Virtual Machine Scale Sets), en vous donnant les moyens de créer jusqu’à 1 millier de machines virtuelles dans une instance VMSS à l’aide d’une image de Marketplace.
 
 ### <a name="better-reliability-for-availability-sets"></a>Fiabilité supérieure des groupes à haute disponibilité
 
-Managed Disks accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur&5; machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
+Managed Disks accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
 Utilisez le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
+
+### <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure 
+Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation 
 
@@ -108,25 +111,27 @@ Pour plus d’informations sur la création des images, consultez les articles s
 
 ## <a name="images-versus-snapshots"></a>Images et captures instantanées
 
-Souvent, le mot « image » est associé aux machines virtuelles. C’est désormais aussi le cas du terme « captures instantanées ». Il est important de bien saisir la différence entre les&2;. Managed Disks vous permet de saisir une image d’une machine virtuelle généralisée qui a été libérée. Cette image comprend l’ensemble des disques attachés à la machine virtuelle. Vous pouvez l’utiliser pour créer une autre machine virtuelle, qui le cas échéant intégrera l’ensemble des disques.
+Souvent, le mot « image » est associé aux machines virtuelles. C’est désormais aussi le cas du terme « captures instantanées ». Il est important de bien saisir la différence entre les 2. Managed Disks vous permet de saisir une image d’une machine virtuelle généralisée qui a été libérée. Cette image comprend l’ensemble des disques attachés à la machine virtuelle. Vous pouvez l’utiliser pour créer une autre machine virtuelle, qui le cas échéant intégrera l’ensemble des disques.
 
 Une capture instantanée est une copie d’un disque à un instant t. Elle s’applique uniquement à un disque. Si vous possédez une machine virtuelle qui présente uniquement un disque (le système d’exploitation), vous pouvez en saisir une capture instantanée ou une image, à partir desquelles vous créez une machine virtuelle.
 
 Que se passe-t-il une machine virtuelle comprend cinq disques agrégés par bande ? Vous pouvez saisir une capture instantanée de chacun des disques, mais l’état des disques n’est pas connu au sein de la machine virtuelle. Les captures ne sont relatives qu’à leur disque respectif. Dans ce scénario, il faudrait coordonner les captures instantanées ; cette fonctionnalité n’est pas actuellement prise en charge.
 
-## <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure 
+## <a name="managed-disks-and-encryption"></a>Disques gérés et chiffrement
 
-Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide de Sauvegarde Azure. [Détails supplémentaires](../backup/backup-azure-vms-first-look-arm.md).
+Il y a deux types de chiffrement à aborder dans le cas des disques gérés. Le premier est le chiffrement SSE (Storage Service Encryption), qui est effectué par le service de stockage. Le second est un chiffrement Azure Disk Encryption, que vous pouvez activer sur les disques de système d’exploitation et de données pour vos machines virtuelles. 
 
-Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
 
-## <a name="managed-disks-and-storage-service-encryption-sse"></a>Managed Disks et Storage Service Encryption (SSE)
-
-Le stockage Azure prend automatiquement en charge le chiffrement des données écrites sur le compte de stockage. Pour plus d’informations, consultez la page [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md). Qu’en est-il des données sur vos disques managés ? Actuellement, il n’est pas possible d’activer Storage Service Encryption pour Managed Disks ; vous le pourrez à l’avenir. En attendant vous devez vous familiariser avec l’utilisation d’un fichier de disque dur virtuel chiffré hébergé dans un compte de stockage chiffré. 
+Le stockage Azure prend automatiquement en charge le chiffrement des données écrites sur le compte de stockage. Pour plus d’informations, consultez la page [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md). Qu’en est-il des données sur vos disques managés ? Actuellement, il n’est pas possible d’activer Storage Service Encryption pour Managed Disks. Toutefois, vous pourrez le faire à l’avenir. En attendant vous devez vous familiariser avec l’utilisation d’un fichier de disque dur virtuel chiffré hébergé dans un compte de stockage chiffré. 
 
 SSE chiffre les données durant leur écriture sur le compte de stockage. Si vous possédez un fichier de disque dur virtuel qui n’a jamais été chiffré avec SSE, vous ne pouvez pas l’utiliser pour créer une machine virtuelle utilisant Managed Disks. Il n’est pas non plus possible de convertir un disque non managé chiffré en disque managé. Enfin, précisons que si vous désactivez le chiffrement sur ce compte de stockage, l’opération n’est pas inversée ; le fichier de disque dur virtuel n’est pas déchiffré. 
 
 Pour utiliser un disque déchiffré, vous devez dans un premier temps copier le fichier de disque dur virtuel sur un compte de stockage qui n’a jamais été chiffré. Vous pouvez ensuite créer une machine virtuelle avec Managed Disks et spécifier ce disque dur virtuel durant la création, ou attacher le fichier de disque dur virtuel copié sur une machine virtuelle en cours d’exécution avec Managed Disks. 
+
+### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+
+Azure Disk Encryption vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Cela inclut les disques gérés. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Pour plus d’informations, voir [Azure Disk Encryption pour machines virtuelles Windows et Linux IaaS](../security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

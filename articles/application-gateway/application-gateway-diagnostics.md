@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
-ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2017
 
 Azure permet de surveiller les ressources grâce à la journalisation et à des métriques La passerelle Application Gateway propose ces fonctionnalités avec l’intégrité du serveur principal, la journalisation et les métriques.
 
-[**Intégrité du serveur principal** ](#backend-health) - La passerelle Appplication gateway permet de surveiller l’intégrité des serveurs dans les pools principaux via le portail et Powershell. L’intégrité des pools principaux est également accessible via les journaux de diagnostic des performances.
+[**Intégrité du serveur principal**](#backend-health) - La passerelle Application Gateway permet de surveiller l’intégrité des serveurs dans les pools principaux au moyen du portail et de Powershell. L’intégrité des pools principaux est également accessible via les journaux de diagnostic des performances.
 
 [**Journalisation**](#enable-logging-with-powershell) - La journalisation permet d’enregistrer ou d’utiliser des journaux de performances, d’accès et d’autres journaux à partir d’une ressource à des fins de surveillance.
 
@@ -34,10 +34,10 @@ Azure permet de surveiller les ressources grâce à la journalisation et à des 
 
 ## <a name="backend-health"></a>Intégrité du serveur principal
 
-La passerelle Appplication gateway permet de surveiller l’intégrité des membres individuels des pools principaux via le portail, PowerShell et l’interface de ligne de commande. Une synthèse de l’intégrité des pools principaux est également accessible via les journaux de diagnostic des performances. Le rapport d’intégrité du serveur principal reflète les résultats de la sonde d’intégrité de la passerelle Application Gateway sur les instances de serveur principal. Une fois la détection réussie et que le trafic peut être orienté vers le serveur principal, celui-ci est considéré comme intègre, dans le cas contraire, il est considéré comme défaillant sur le plan de l’intégrité.
+La passerelle Application Gateway permet de surveiller l’intégrité des membres individuels des pools principaux au moyen du portail, de PowerShell et de l’interface de ligne de commande. Une synthèse de l’intégrité des pools principaux est également accessible via les journaux de diagnostic des performances. Le rapport d’intégrité du serveur principal reflète les résultats de la sonde d’intégrité de la passerelle Application Gateway sur les instances de serveur principal. Une fois la détection réussie et que le trafic peut être orienté vers le serveur principal, celui-ci est considéré comme intègre, dans le cas contraire, il est considéré comme défaillant sur le plan de l’intégrité.
 
 > [!important]
-> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau, les plages de ports 65503-65534 doivent être ouvertes sur les instances Application Gateway.
+> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau, les plages de ports 65503-65534 doivent être ouvertes sur le sous-réseau Application Gateway pour les membres du pool principal. Ces ports sont requis pour un fonctionnement correct de l’intégrité du serveur principal.
 
 ### <a name="view-backend-health-through-the-portal"></a>Afficher l’intégrité du serveur principal via le portail
 
@@ -316,3 +316,4 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+

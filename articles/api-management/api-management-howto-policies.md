@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,7 +119,7 @@ Les étendues de stratégie sont évaluées dans l'ordre suivant.
 3. Étendue API
 4. Étendue opération
 
-Les instructions qu'elles contiennent sont évaluées en fonction de l'emplacement de l'élément `base` , s'il est présent.
+Les instructions qu'elles contiennent sont évaluées en fonction de l'emplacement de l'élément `base` , s'il est présent. Une stratégie globale n’a aucune stratégie parente et l’utilisation de l’élément `<base>` n’a aucun effet.
 
 Par exemple, si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l'élément de base. 
 
@@ -133,11 +133,9 @@ Par exemple, si vous avez une stratégie configurée au niveau global et une str
 </policies>
 ```
 
-Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-domain` s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie `find-and-replace`.
+Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-domain` s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie `find-and-replace`. 
 
-Si la même stratégie apparaît deux fois dans l'instruction de stratégie, la stratégie la plus récemment évaluée est appliquée. Cela permet de remplacer les stratégies qui sont définies dans une étendue plus élevée. Pour afficher les stratégies dans l'étendue actuelle dans l'éditeur de stratégie, cliquez sur **Recalculer la stratégie en vigueur pour l'étendue sélectionnée**.
-
-Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet. 
+Pour afficher les stratégies dans l'étendue actuelle dans l'éditeur de stratégie, cliquez sur **Recalculer la stratégie en vigueur pour l'étendue sélectionnée**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez la vidéo suivante sur les expressions de stratégie.

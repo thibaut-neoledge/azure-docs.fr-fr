@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
-ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -43,7 +44,7 @@ Ce didacticiel suppose que vous avez des notions de base concernant les groupes 
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 1. Connectez-vous au [portail Azure](http://portal.azure.com). 
-2. Cliquez sur ** + ** pour créer un nouvel objet dans le portail.
+2. Cliquez sur **+** pour créer un nouvel objet dans le portail.
 
    ![Nouveau](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -296,7 +297,7 @@ Une fois le contrôleur de domaine principal redémarré, vous pouvez configurer
 
 Une fois que le serveur a terminé de modifier la configuration, redémarrez-le. 
 
-### <a name="a-namedomainaccountsa-configure-domain-accounts"></a><a name=DomainAccounts></a> Configurer les comptes de domaine
+### <a name=DomainAccounts></a> Configurer les comptes de domaine
 
 Les étapes suivantes configurent les comptes Active Directory (AD). La table qui suit affiche les comptes :
 
@@ -337,7 +338,7 @@ Maintenant que vous avez fini de configurer Active Directory et les objets utili
 
 ## <a name="create-sql-servers"></a>Création de serveurs SQL
 ### <a name="create-and-configure-the-sql-server-vms"></a>Créer et configurer les machines virtuelles SQL Server
-Créez ensuite trois machines virtuelles, dont deux machines virtuelles SQL Server et un nœud de cluster WSFC. Pour créer chaque machine virtuelle, revenez au groupe de ressources **SQL-HA-RG**, cliquez sur **Ajouter**, recherchez l’élément de galerie approprié, **Machine virtuelle**, puis **À partir de la galerie**. Utilisez les informations du tableau suivant pour vous aider à créer les machines virtuelles :
+Créez ensuite trois machines virtuelles, dont deux machines virtuelles SQL Server et une machine virtuelle pour un nœud de cluster supplémentaire. Pour créer chaque machine virtuelle, revenez au groupe de ressources **SQL-HA-RG**, cliquez sur **Ajouter**, recherchez l’élément de galerie approprié, **Machine virtuelle**, puis **À partir de la galerie**. Utilisez les informations du tableau suivant pour vous aider à créer les machines virtuelles :
 
 | Page | MV1 | MV2 | MV3 |
 | --- | --- | --- | --- |
@@ -377,7 +378,7 @@ Tout d’abord, modifiez l’adresse du serveur DNS préféré pour chaque serve
 
 Répétez ces étapes pour tous les serveurs.
 
-### <a name="a-namejoindomainajoin-the-servers-to-the-domain"></a><a name="joinDomain"></a>Joignez les serveurs au domaine.
+### <a name="joinDomain"></a>Joignez les serveurs au domaine.
 
 Vous pouvez maintenant joindre la machine virtuelle à **corp.contoso.com**. Procédez comme suit pour les serveurs SQL et pour le serveur témoin de partage : 
 
@@ -408,7 +409,7 @@ Après le redémarrage de chaque machine virtuelle en tant que membre du domaine
 7. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de Administrateurs**.
 8. Répétez les étapes ci-dessus avec **sqlserver-1** et **cluster-fsw**.
 
-### <a name="a-namesetserviceaccountaset-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Définir les comptes de service SQL Server
+### <a name="setServiceAccount"></a>Définir les comptes de service SQL Server
 
 Sur chaque serveur SQL, définissez le compte de service SQL Server. Utilisez les comptes que vous avez créés lorsque vous avez [configuré les comptes de domaine](#DomainAccounts).
 
@@ -426,7 +427,7 @@ Pour les groupes de disponibilité SQL Server, chaque serveur SQL doit s’exéc
 
 Utilisez le compte d’installation pour configurer le groupe de disponibilité. Ce compte doit être membre du rôle serveur fixe **sysadmin** pour chaque serveur SQL. Les étapes suivantes créent une connexion pour le compte d’installation :
 
-1. Ouvrez une session RDP dans le serveur en utilisant le compte * \<MachineName\>\DomainAdmin*.
+1. Ouvrez une session RDP dans le serveur en utilisant le compte *\<MachineName\>\DomainAdmin*.
 
 1. Ouvrez SQL Server Management Studio et connectez-vous à l'instance locale de SQL Server. 
 
@@ -434,7 +435,7 @@ Utilisez le compte d’installation pour configurer le groupe de disponibilité.
 
 1. Cliquez avec le bouton droit sur **Connexions**. Cliquez sur **Nouvelle connexion...**.
 
-1. Dans **Nouvelle connexion**, cliquez sur **Rechercher... **.
+1. Dans **Nouvelle connexion**, cliquez sur **Rechercher...**.
 
 1. Cliquez sur **Emplacements...**.
 
@@ -506,9 +507,4 @@ Répétez ces étapes sur le second serveur SQL.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un groupe de disponibilité Always On sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

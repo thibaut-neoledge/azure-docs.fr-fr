@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 3f7a33f947913bf4b5ce9db20cacf746e4f7f169
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,6 +30,11 @@ Si vous le souhaitez, vous pouvez également migrer des ressources à l’aide d
 * Pour plus d’informations sur les scénarios de migration pris en charge, consultez [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
 * Pour un guide détaillé et une procédure pas à pas pour la migration, consultez [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 * [Passer en revue les erreurs courantes de migration](virtual-machines-migration-errors.md)
+
+<br>
+Voici un diagramme de flux permettant d’identifier l’ordre dans lequel les étapes doivent être exécutées lors d’un processus de migration.
+
+![Capture d’écran illustrant les étapes de la migration](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>Étape 1 : Planification de la migration
 Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration de ressources IaaS d’un environnement Classic vers Resource Manager.
@@ -129,7 +134,7 @@ Get-AzureRmVMUsage -Location "West US"
 > 
 > 
 
-### <a name="migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Migration de machines virtuelles dans un service cloud (ne figurant pas dans un réseau virtuel)
+## <a name="step-61-migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Étape 6.1 : migration de machines virtuelles dans un service cloud (ne figurant pas dans un réseau virtuel)
 Obtenez la liste des services cloud à l’aide de la commande suivante, puis choisissez le service cloud que vous voulez migrer. La commande renvoie un message d’erreur si les machines virtuelles du service cloud sont dans un réseau virtuel ou si elles ont des rôles web/de travail.
 
 ```powershell
@@ -210,7 +215,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="migrate-virtual-machines-in-a-virtual-network"></a>Migration de machines virtuelles dans un réseau virtuel
+## <a name="step-62-migrate-virtual-machines-in-a-virtual-network"></a>Étape 6.2 : migration de machines virtuelles dans un réseau virtuel
 Pour migrer des machines virtuelles dans un service cloud, vous migrez le réseau virtuel. Les machines virtuelles migrent automatiquement avec le réseau virtuel. Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration. 
 > [!NOTE]
 > [Migrez une machine virtuelle classique unique](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) en créant une nouvelle machine virtuelle Resource Manager avec des disques gérés en utilisant les fichiers de disque dur virtuel (système d’exploitation et données) de la machine virtuelle. 
@@ -250,7 +255,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="migrate-a-storage-account"></a>Migrer un compte de stockage
+## <a name="step-63-migrate-a-storage-account"></a>Étape 6.3 : migration d’un compte de stockage
 Une fois que vous avez terminé la migration des machines virtuelles, nous vous recommandons de migrer les comptes de stockage.
 
 Avant de migrer le compte de stockage, effectuez les vérifications de conditions préalables suivantes :

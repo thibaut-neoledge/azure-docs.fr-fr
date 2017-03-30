@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -82,8 +83,8 @@ Sur les machines virtuelles de série D, Dv2 et G, le lecteur temporaire réside
 Pour les machines virtuelles qui prennent en charge le stockage Premium (de série DS, DSv2 et GS), nous vous recommandons de stocker TempDB sur un disque qui prend en charge le stockage Premium avec la mise en cache en lecture activée. Il existe une exception à cette recommandation : si votre utilisation de TempDB est intensive en écriture, vous pouvez obtenir des performances supérieures en stockant TempDB sur le lecteur **D** local, qui est également un disque SSD sur ces tailles de machines.
 
 ### <a name="data-disks"></a>Disques de données
-* **Utilisation de disques de données pour les données et les fichiers journaux**: utilisez au moins 2 [disques P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir le ou les fichiers de données et TempDB.
-* **Entrelacement de disques**: pour augmenter le débit, vous pouvez ajouter des disques de données supplémentaires et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’opérations d’E/S par seconde disponibles pour vos disques de données et de journaux. Pour plus d’informations, consultez les tableaux sur les E/S par seconde par [taille de machine virtuelle](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et par taille de disque dans l’article suivant : [Utilisation du stockage Premium pour les disques](../../../storage/storage-premium-storage.md). Utilisez les recommandations suivantes :
+* **Utilisation de disques de données pour les données et les fichiers journaux** : utilisez au moins 2 [disques P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données, ainsi que le ou les fichiers TempDB. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article suivant : [Utilisation du stockage Premium pour les disques](../../../storage/storage-premium-storage.md). 
+* **Entrelacement de disques**: pour augmenter le débit, vous pouvez ajouter des disques de données supplémentaires et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’opérations d’E/S par seconde et de bande passante disponibles pour vos fichiers journaux, vos données et vos fichiers TempDB. Notez que les différentes tailles de machine virtuelle sont associées à des limites spécifiques concernant la bande passante et le nombre d’opérations d’E/S par seconde pris en charge. Pour en savoir plus, consultez les tableaux relatifs aux nombre d’opérations d’E/S par seconde en fonction des [tailles de machine virtuelle](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Respectez les recommandations suivantes :
 
   * Pour Windows 8/Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx). Définissez la taille de bande sur 64 Ko pour les charges de travail OLTP et sur 256 Ko pour les charges de travail d’entrepôt de données, afin d’éviter qu’un alignement incorrect de la partition n’affecte les performances. Définissez également le nombre de colonnes pour le faire correspondre au nombre de disques physiques. Pour configurer un espace de stockage avec plus de 8 disques, vous devez utiliser PowerShell (et non pas l’interface utilisateur du Gestionnaire de serveur) pour définir de façon explicite le nombre de colonnes pour le faire correspondre au nombre de disques. Pour plus d’informations sur la configuration des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx), consultez [Applets de commande des espaces de stockage dans Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
   * Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Remarque : cette option est déconseillée à partir des versions Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
@@ -134,9 +135,4 @@ Si vous voulez obtenir davantage d’informations sur SQL Server et le stockage 
 Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-security.md).
 
 Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

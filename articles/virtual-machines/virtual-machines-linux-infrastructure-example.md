@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 37e1783e10bf1cf84431a8d40b1e3d81b47188d2
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c84b1838a5503344411deda167714560aeca8da2
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -48,7 +48,7 @@ La conception qui en résulte doit comprendre :
 
 * Un compte et un abonnement Azure
 * un seul groupe de ressources.
-* Comptes de stockage
+* Azure Managed Disks
 * un réseau virtuel avec deux sous-réseaux ;
 * Des groupes à haute disponibilité pour machines virtuelles avec un rôle similaire
 * Machines virtuelles
@@ -57,8 +57,6 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
   * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
-* Les comptes de stockage utilisent adventureazosusesa**[description]**
-  * Le mot « adventure » a été ajouté au préfixe pour garantir l’unicité et les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
 * Les réseaux virtuels utilisent AZOS-USE-VN**[numéro]**
 * Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
 * Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
@@ -66,11 +64,11 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 ## <a name="azure-subscriptions-and-accounts"></a>Abonnements et comptes Azure
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
 
-## <a name="storage-accounts"></a>Comptes de stockage
-Adventure Works Cycles a déterminé que deux comptes de stockage sont nécessaires :
+## <a name="storage"></a>Storage
+Adventure Works Cycles a déterminé que des disques managés Azure doivent être utilisés. Lors de la création de machines virtuelles, les deux niveaux de stockage disponibles sont utilisés :
 
-* **adventureazosusesawebapp** pour le stockage standard de serveurs Web, de serveurs d’applications et de contrôleurs de domaine avec leurs disques de données.
-* **adventureazosusesadbclust** pour le stockage Premium des serveurs de cluster partitionné MongoDB et leurs disques de données.
+* **Stockage standard** pour les serveurs web, les serveurs d’applications et les contrôleurs de domaine et leurs disques de données.
+* **Stockage Premium** pour les serveurs de cluster partitionné MongoDB et leurs disques de données.
 
 ## <a name="virtual-network-and-subnets"></a>Réseau virtuel et sous-réseaux
 Étant donné que le réseau virtuel n’a pas besoin d’une connectivité continue au réseau Adventure Work Cycles local, il a été décidé d’adopter un réseau virtuel cloud.
@@ -114,7 +112,7 @@ Voici la configuration obtenue.
 Cette configuration comprend :
 
 * un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
-* deux comptes de stockage ;
+* des disques managés Azure utilisant à la fois des disques Standard et Premium
 * quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne
 * les machines virtuelles pour les quatre niveaux ;
 * un jeu d’équilibrage de charge externe pour le trafic Web basé sur HTTPS depuis Internet vers les serveurs web ;
