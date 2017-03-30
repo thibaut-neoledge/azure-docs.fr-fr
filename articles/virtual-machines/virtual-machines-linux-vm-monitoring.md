@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/08/2016
 ms.author: kmouss
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 4b1e6d375b3ab0e33e747b5ccf3cec9dd06fe484
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 1f15a77304ccf4fdef995d216817363fbf3f6e73
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -48,15 +49,10 @@ Pour activer l’analyse pour une machine virtuelle Azure.
 
 [Azure.Note] Vous pouvez passer de la version 2.0 à une version ultérieure (le cas échéant). 
 
-Pour plus d’informations sur la configuration des mesures d’analyse et pour obtenir des exemples, consultez le document - **[Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux](virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pour plus d’informations sur la configuration des mesures d’analyse et pour obtenir des exemples, consultez le document - **[Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux](linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

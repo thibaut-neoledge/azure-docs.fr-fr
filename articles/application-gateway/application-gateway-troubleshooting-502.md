@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,9 +34,6 @@ Après avoir configuré une passerelle Azure Application Gateway, les utilisateu
 * Les machines virtuelles principales ou les instances de jeu de machine virtuelle échelle ne répondent pas à la sonde d’intégrité par défaut.
 * Configuration non valide ou incorrecte des sondes d’intégrité personnalisées.
 * Expiration de la demande ou problèmes de connectivité avec les requêtes utilisateur.
-
-> [!note]
-> Application Gateway conserve l’en-tête d’hôte entrant et envoie le même en-tête au serveur principal. Si le serveur principal nécessite un en-tête différent, cela ne fonctionnera pas. De même, si le serveur principal est mutualisé et que le protocole SSL de bout en bout est activé, le serveur principal attend un nom du serveur dans l’extension SNI. Application Gateway n’envoie pas actuellement d’en-tête SNI dans les demandes de serveur principal dans les scénarios SSL de bout en bout susceptible d’entraîner des problèmes de sonde et d’accès aux données.
 
 ## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
 
@@ -109,7 +106,7 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 * Si BackendHttpSetting spécifie un port autre que 80, le site par défaut doit être configuré pour écouter sur ce port.
 * L’appel à http://127.0.0.1:port doit renvoyer un code de résultat HTTP 200. Ce code doit être retourné dans un délai de 30 secondes.
 * Vérifiez que le port configuré est ouvert et qu’aucune règle de pare-feu ou aucun groupe de sécurité réseau Azure ne bloque le trafic entrant ou sortant sur le port configuré.
-* Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondant est ouvert.
+* Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondant est ouvert.
 * Si la machine virtuelle est configuré via Azure Resource Manager et se trouve en dehors du réseau virtuel où est déployé Application Gateway, le [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) doit être configuré pour autoriser l’accès sur le port souhaité.
 
 ## <a name="problems-with-custom-health-probe"></a>Problèmes avec la sonde d’intégrité personnalisée

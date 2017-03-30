@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cf233279c0a26c3d2970596b1bb515508da20b89
-ms.openlocfilehash: ad696f14d48452840805bc413d890309e523ce34
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6ce490fb903d4ed2177b95145bb98fb3eeb0654f
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -43,11 +43,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
   > [!IMPORTANT]
   > L’éditeur de texte doit utiliser LF comme caractère de fin de ligne. S’il utilise CRLF, des erreurs se produisent pendant l’exécution du travail MapReduce sur des clusters HDInsight basés sur Linux. En cas de doute, utilisez l’étape facultative dans la section [Exécuter MapReduce](#run-mapreduce) pour convertir tout caractère CRLF en caractère LF.
 
-* **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
-  
-  * **Clients Linux, Unix ou OS X**: consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * **Clients Windows**: consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Des connaissances en SSH et SCP**. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="word-count"></a>Nombre de mots
 
