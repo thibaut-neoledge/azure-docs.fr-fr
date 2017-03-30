@@ -16,29 +16,37 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
-ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>Déployer une application sur des groupes identiques de machines virtuelles
 Une application exécutée sur un groupe identique de machines virtuelles est généralement déployée d’une des façons suivantes :
 
-* Installer de nouveaux logiciels sur une image de plateforme au moment du déploiement. Une image de plateforme dans ce contexte est une image du système d’exploitation d’Azure Marketplace, comme Ubuntu 16.04, Windows Server 2012 R2, etc.
+* Installer de nouveaux logiciels sur une image de plateforme au moment du déploiement
+* Créer une image de machine virtuelle personnalisée qui inclut le système d’exploitation et l’application dans un même disque dur virtuel (VHD)
+* Déployer une plateforme ou une image personnalisée en tant que conteneur hôte et votre application en tant qu’un ou plusieurs conteneurs
 
-Vous pouvez installer de nouveaux logiciels sur une image de plateforme à l’aide d’une [extension de machine virtuelle](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Une extension de machine virtuelle est un logiciel qui s’exécute lorsqu’une machine virtuelle est déployée. Vous pouvez exécuter le code que vous souhaitez lors du déploiement à l’aide d’une extension de script personnalisé. [Voici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) un exemple de modèle Azure Resource Manager avec deux extensions de machines virtuelles : une extension de script personnalisé Linux pour installer Apache et PHP et une extension de diagnostic pour émettre des données de performances utilisées par la mise à l’échelle automatique Azure.
+## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Installer de nouveaux logiciels sur une image de plateforme au moment du déploiement
+Une image de plateforme dans ce contexte est une image du système d’exploitation d’Azure Marketplace, comme Ubuntu 16.04, Windows Server 2012 R2, etc.
+
+Vous pouvez installer de nouveaux logiciels sur une image de plateforme à l’aide d’une [extension de machine virtuelle](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Une extension de machine virtuelle est un logiciel qui s’exécute lorsqu’une machine virtuelle est déployée. Vous pouvez exécuter le code que vous souhaitez lors du déploiement à l’aide d’une extension de script personnalisé. [Voici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) un exemple de modèle Azure Resource Manager qui utilise une [extension de configuration d’état souhaité (DSC) Azure](virtual-machine-scale-sets-dsc.md) pour installer IIS et une application .NET MVC intégrée à l’échelle automatique Azure.
 
 L’avantage de cette approche est que vous disposez d’un niveau de séparation entre votre code d’application et le système d’exploitation et que vous pouvez mettre à jour votre application séparément. Bien sûr, cela signifie également qu’il y a un plus grand nombre d’éléments mobiles et que le déploiement des machines virtuelles peut être plus long si le script doit télécharger et configurer de nombreux éléments.
 
-**Si vous transmettez des informations sensibles dans votre commande d’extension de script personnalisé (par exemple, un mot de passe), veillez à spécifier `commandToExecute` dans l’attribut `protectedSettings` de l’extension de script personnalisé à la place de l’attribut `settings`.**
+>[!NOTE]
+>Si vous transmettez des informations sensibles dans votre commande d’extension de script personnalisé (par exemple, un mot de passe), veillez à spécifier `commandToExecute` dans l’attribut `protectedSettings` de l’extension de script personnalisé à la place de l’attribut `settings`.
 
-* Créer une image de machine virtuelle personnalisée qui inclut le système d’exploitation et l’application dans un même VHD. Ici, le groupe identique se compose d’un ensemble de machines virtuelles copiées à partir d’une image créée par vos soins, que vous devez tenir à jour. Cette approche ne nécessite aucune configuration supplémentaire lors du déploiement des machines virtuelles. Toutefois, dans la version `2016-03-30` des groupes identiques de machines virtuelles (et les versions antérieures), les disques de système d’exploitation des machines virtuelles du groupe sont limités à un seul compte de stockage. Par conséquent, vous pouvez avoir au maximum 40 machines virtuelles dans un groupe identique, par opposition à la limite de 100 machines virtuelles par groupe avec les images de plateforme. Consultez [Vue d’ensemble de la conception de groupes identiques](virtual-machine-scale-sets-design-overview.md) pour plus d’informations.
+## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>Créer une image de machine virtuelle personnalisée qui inclut le système d’exploitation et l’application dans un même disque dur virtuel (VHD) 
+Ici, le groupe identique se compose d’un ensemble de machines virtuelles copiées à partir d’une image créée par vos soins, que vous devez tenir à jour. Cette approche ne nécessite aucune configuration supplémentaire lors du déploiement des machines virtuelles. Toutefois, dans la version `2016-03-30` des groupes identiques de machines virtuelles (et les versions antérieures), les disques de système d’exploitation des machines virtuelles du groupe sont limités à un seul compte de stockage. Par conséquent, vous pouvez avoir au maximum 40 machines virtuelles dans un groupe identique, par opposition à la limite de 100 machines virtuelles par groupe avec les images de plateforme. Consultez [Vue d’ensemble de la conception de groupes identiques](virtual-machine-scale-sets-design-overview.md) pour plus d’informations.
 
-    >[!NOTE]
-    >La version d’API de VM Scale Sets `2016-04-30-preview` prend en charge l’utilisation d’Azure Managed Disks pour le disque du système d’exploitation et tous les disques de données supplémentaires. Pour plus d’informations, consultez les sections relatives à la [vue d’ensemble de Managed Disks](../storage/storage-managed-disks-overview.md) et à [l’utilisation de disques de données associés](virtual-machine-scale-sets-attached-disks.md). 
+>[!NOTE]
+>La version d’API de VM Scale Sets `2016-04-30-preview` prend en charge l’utilisation d’Azure Managed Disks pour le disque du système d’exploitation et tous les disques de données supplémentaires. Pour plus d’informations, consultez les sections relatives à la [vue d’ensemble de Managed Disks](../storage/storage-managed-disks-overview.md) et à [l’utilisation de disques de données associés](virtual-machine-scale-sets-attached-disks.md). 
 
-* Déployer une plateforme ou une image personnalisée qui consiste essentiellement en un conteneur hôte et installer votre application en tant qu’un ou plusieurs conteneurs que vous gérez avec un orchestrateur ou un outil de gestion de configuration. L’avantage de cette approche est que vous avez extrait votre infrastructure cloud de la couche d’application et que vous pouvez la gérer séparément.
+## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>Déployer une plateforme ou une image personnalisée en tant que conteneur hôte et votre application en tant qu’un ou plusieurs conteneurs
+Une plateforme ou une image personnalisée est essentiellement un hôte de conteneur, de sorte que vous pouvez installer votre application en tant qu’un ou plusieurs conteneurs.  Vous pouvez gérer vos conteneurs d’applications avec Orchestrator ou un outil de gestion de configuration. L’avantage de cette approche est que vous avez extrait votre infrastructure cloud de la couche d’application et que vous pouvez la gérer séparément.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>Que se passe-t-il lorsqu’un groupe identique de machines virtuelles monte en charge ?
 Lorsque vous ajoutez une ou plusieurs machines virtuelles à un groupe identique en augmentant la capacité, manuellement ou automatiquement, l’application est automatiquement installée. Par exemple, si des extensions sont définies pour le groupe identique, elles s’exécutent sur une machine virtuelle différente à chaque création. Si le groupe identique est basé sur une image personnalisée, toute nouvelle machine virtuelle est une copie de l’image personnalisée source. Si les machines virtuelles du groupe identique sont des hôtes de conteneurs, il est possible que vous ayez un code de démarrage pour charger les conteneurs dans une extension de script personnalisé, ou qu’une extension installe un agent qui s’enregistre avec un orchestrateur de cluster (par exemple, Azure Container Service).

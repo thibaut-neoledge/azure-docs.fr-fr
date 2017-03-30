@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Intégrer votre infrastructure NPS existante à Azure Multi-Factor Authentication - Version préliminaire publique
@@ -88,7 +88,7 @@ Cette section comprend des considérations relatives à la conception ainsi que 
 
 ### <a name="configurations-limitations"></a>Limitations des configurations
 
-- L’extension NPS est conçue pour fonctionner avec votre déploiement existant, mais pas avec les nouveaux déploiements. Ainsi, l’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud.
+- L’extension NPS est conçue pour les nouveaux déploiements, mais pas pour fonctionner avec votre déploiement existant. Ainsi, l’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud.
 
 - L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension ne peut pas être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ AD personnalisé, par exemple).  
 
@@ -126,7 +126,7 @@ Ouvrez une invite de commandes PowerShell et exécutez les commandes suivantes 
 > Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
-Ces commandes impriment tous les certificats qui associent votre client à votre instance de l’extension NPS dans votre session PowerShell. Recherchez votre certificat en exportant votre certificat client en tant que fichier « Codé à base&64; X.509 (.cer) » sans la clé privée et comparez-le à la liste de PowerShell.
+Ces commandes impriment tous les certificats qui associent votre client à votre instance de l’extension NPS dans votre session PowerShell. Recherchez votre certificat en exportant votre certificat client en tant que fichier « Codé à base 64 X.509 (.cer) » sans la clé privée et comparez-le à la liste de PowerShell.
 
 Les horodatages Valid-From (Valide à partir de) et Valid-Until (Valide jusqu’à), qui sont dans un format explicite, peuvent être utilisés pour filtrer les certificats de toute évidence non appropriés si la commande en renvoie plusieurs.
 

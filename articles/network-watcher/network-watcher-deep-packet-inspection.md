@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f7e4f1832a8edd029fcef08e295b6c79c033b664
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -55,7 +55,7 @@ Chargez le fichier **.cap** à partir de votre capture de paquets. Ce fichier se
 
 ### <a name="step-3"></a>Étape 3
 
-Pour afficher la durée initiale des boucles dans les conversations TCP, nous examinerons ici uniquement les deux premiers paquets impliqués dans l’établissement de la liaison TCP. Nous allons utiliser les deux premiers paquets de la connexion en trois temps, à savoir les paquets [SYN] et [SYN, ACK]. Ils sont nommés pour les indicateurs définis dans l’en-tête TCP. Le dernier paquet de la connexion, le paquet [ACK], ne sera pas utilisé dans ce scénario. Le paquet [SYN] est envoyé par le client. Une fois le paquet reçu, le serveur envoie le paquet [ACK] en guise d’accusé de réception du paquet SYN du client. Profitant du fait que la réponse du serveur nécessite très peu de traitement, nous calculons la durée des boucles en ajoutant la différence entre l’heure à laquelle le paquet [SYN, ACK] a été reçu par le client et l’heure à laquelle le paquet [SYN] a été envoyé par le client.
+Pour afficher la durée initiale des boucles dans les conversations TCP, nous examinerons ici uniquement les deux premiers paquets impliqués dans l’établissement de la liaison TCP. Nous allons utiliser les deux premiers paquets de la connexion en trois temps, à savoir les paquets [SYN] et [SYN, ACK]. Ils sont nommés pour les indicateurs définis dans l’en-tête TCP. Le dernier paquet de la connexion, le paquet [ACK], ne sera pas utilisé dans ce scénario. Le paquet [SYN] est envoyé par le client. Une fois le paquet reçu, le serveur envoie le paquet [ACK] en guise d’accusé de réception du paquet SYN du client. Profitant du fait que la réponse du serveur nécessite très peu de traitement, nous calculons la durée des boucles en soustrayant l’heure à laquelle le paquet [SYN, ACK] a été reçu par le client et l’heure à laquelle le paquet [SYN] a été envoyé par le client.
 
 Si vous utilisez WireShark, cette valeur est calculée automatiquement.
 

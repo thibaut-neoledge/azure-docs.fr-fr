@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c81b83143afaab3acf625dc98269b35973185d77
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,9 +38,14 @@ La liste suivante présente les définitions et concepts principaux de DevTest L
 Un laboratoire est l’infrastructure qui comprend un groupe de ressources, telles que des machines virtuelles, qui vous permet de mieux gérer ces ressources en spécifiant des limites et des quotas.
 
 ## <a name="virtual-machine"></a>Machine virtuelle
-Une machine virtuelle Azure est l’un des différents types de [ressources informatiques évolutives et à la demande](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) proposés par Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle, ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
+Une machine virtuelle Azure est l’un des différents types de [ressources informatiques évolutives et à la demande](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) proposés par Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle, ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
 
-L’article [Vue d’ensemble des machines virtuelles Windows dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview) vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
+L’article [Vue d’ensemble des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
+
+## <a name="claimable-vm"></a>Machine virtuelle revendicable
+Une machine virtuelle Azure revendicable est une machine virtuelle qui peut être utilisée par n’importe quel utilisateur de laboratoire disposant d’autorisations. Un administrateur de laboratoire peut préparer des machines virtuelles avec des images de base et des artefacts spécifiques, et les enregistrer dans un pool partagé. Un utilisateur de laboratoire peut alors exiger une machine virtuelle fonctionnelle à partir du pool lorsqu’il a besoin d’une machine virtuelle avec cette configuration spécifique.
+
+Une machine virtuelle revendicable n’est pas initialement affectée à un utilisateur spécifique, mais s’affiche dans la liste de tous les utilisateurs sous « Machines virtuelles revendicables ». Une fois qu’une machine virtuelle est revendiquée par un utilisateur, elle est placée dans la zone « Mes machines virtuelles » et n’est plus exigible par un autre utilisateur.
 
 ## <a name="environment"></a>Environnement
 Dans DevTest Labs, un environnement fait référence à une collection de ressources Azure dans un laboratoire. [Ce billet de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) explique comment créer des environnements à plusieurs machines virtuelles à partir de vos modèles Azure Resource Manager.
@@ -89,7 +94,7 @@ Pour découvrir comment créer des rôles personnalisés dans DevTest Labs, cons
 ## <a name="arm-templates"></a>Modèles ARM
 Tous les concepts abordés dans cet article peuvent être configurés à l’aide de modèles Azure Resource Manager (ARM). Les modèles ARM vous permettent de définir l’infrastructure/la configuration de votre solution Azure et de la déployer plusieurs fois de manière cohérente.
 
-Les [modèles ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) décrivent la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
+Les [modèles ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) décrivent la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

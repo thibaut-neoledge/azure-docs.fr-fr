@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8209eb8df45d8c7c42e303ab3377dbde3255154a
-ms.openlocfilehash: 924b3621e03b678e158cd1240864a903db6c8510
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration dans Hyper-V
@@ -139,7 +139,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 18. Dans la page **Spécifier le nom et l’emplacement**, indiquez le **nom** et **l’emplacement** (vous pouvez naviguer vers cet emplacement) du disque de données. Cliquez sur **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **500 Go** (ou plus). Cliquez sur **Next**.
+19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **500 Go** (ou plus). Bien que 500 Go soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas développer ou réduire le disque une fois mis en service. Pour plus d’informations sur la taille du disque à approvisionner, consultez la section sur le dimensionnement dans le document [Meilleures pratiques](storsimple-ova-best-practices.md). Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Dans la page **Résumé**, passez en revue les détails de votre disque de données virtuel et, si vous êtes satisfait, cliquez sur **Terminer** pour créer le disque. L’Assistant se ferme et un disque dur virtuel est ajouté à votre machine.

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
-ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
@@ -166,7 +166,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 30. Sur la page **Sélectionner un disque**, choisissez **Créer un disque virtuel**. Cliquez sur **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Sur la page **Créer un disque**, définissez la **taille du disque** sur 500 Go (ou plus). Sous **Configuration du disque**, sélectionnez **Allocation dynamique**. Cliquez sur **Suivant**.
+31. Sur la page **Créer un disque**, définissez la **taille du disque** sur 500 Go (ou plus). Bien que 500 Go soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas développer ou réduire le disque une fois mis en service. Pour plus d’informations sur la taille du disque à approvisionner, consultez la section sur le dimensionnement dans le document [Meilleures pratiques](storsimple-ova-best-practices.md). Sous **Configuration du disque**, sélectionnez **Allocation dynamique**. Cliquez sur **Suivant**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Sur la page **Options avancées** , acceptez la valeur par défaut.

@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 30f56224a00957127497b6a05a809453294ea94e
-ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -37,7 +38,7 @@ Les questions/réponses sont organisées en plusieurs catégories :
 ### <a name="what-does-it-mean-to-have-storsimple-as-a-part-of-the-cloud-solutions-provider-csp-program"></a>Que cela implique-t-il, de posséder StorSimple dans le cadre du programme des fournisseurs de solutions cloud ?
  StorSimple pour le programme des fournisseurs de solutions cloud donne les moyens à nos partenaires de revendre des instances Virtual Array à leurs clients. Ce modèle permet aux partenaires du programme des fournisseurs de solutions cloud de maîtriser le cycle de vie de bout en bout des clients à l’aide de méthodes directes de configuration, de facturation et de support des services cloud Microsoft. 
 
-Pour plus d’informations, consultez [StorSimple série&8000;](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
+Pour plus d’informations, consultez [StorSimple série 8000](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
 ### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>StorSimple utilise-t-il des licences à l’utilisation ou en fonction du nombre d’utilisateurs, comme Office 365 et Enterprise Mobility Suite ?
 StorSimple est un service basé sur l’utilisation. Les clients qui s’équipent de StorSimple Virtual Array via le programme des fournisseurs de solutions cloud paient leurs utilisations de Virtual Array et d’Azure, facturées séparément. 
@@ -79,7 +80,7 @@ Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fourniss
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>J’ai configuré un abonnement StorSimple autonome pour mon client. Dois-je utiliser le portail Azure pour gérer mon appareil ? 
 Oui. 
 
-### <a name="is-the-microsoft-field-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Microsoft est-il rémunéré en fonction des ventes de StorSimple via le programme des fournisseurs de solutions cloud ?
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>L’équipe Microsoft est-elle rémunérée en fonction des ventes de StorSimple par le biais du programme des fournisseurs de solutions cloud ?
 Oui. La direction commerciale du partenaire et l’équipe en charge du compte client final sont rémunérées suivant les ventes du programme des fournisseurs de solutions cloud. Les partenaires sont invités à prendre des initiatives pour se distinguer sur le marché et valoriser leurs offres.
 
 ## <a name="support-for-storsimple-and-csp"></a>Support pour StorSimple et le programme des fournisseurs de solutions cloud
@@ -98,9 +99,4 @@ Pour plus d’informations sur StorSimple pour le programme de fournisseurs de s
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous êtes prêt à déployer votre instance StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

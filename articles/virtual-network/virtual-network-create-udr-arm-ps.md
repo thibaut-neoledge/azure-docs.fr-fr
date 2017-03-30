@@ -1,5 +1,5 @@
 ---
-title: "Contrôler le routage et les appliances virtuelles à l’aide de PowerShell | Microsoft Docs"
+title: "Contrôler le routage et les appliances virtuelles dans Azure - PowerShell | Microsoft Docs"
 description: "Apprenez à contrôler le routage et les appliances virtuelles à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 634e303d7052b35b478b15ff1a27220853bed5de
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 3ab24f193c74449ae7414b4ea0675c0aae0211f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-powershell"></a>Créer des itinéraires définis par l’utilisateur à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
-- [Modèle](virtual-network-create-udr-arm-template.md)
-- [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
-- [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modèle](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
+> * [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
@@ -272,10 +273,5 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
         EnableIPForwarding   : True
         NetworkSecurityGroup : null
         Primary              : True
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

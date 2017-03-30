@@ -18,13 +18,13 @@ ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3ffb5d9828c167953c6553ff34e2d0dcdfe701b0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
-Mettez à niveau votre abonnement [d’Évaluation gratuite](https://azure.microsoft.com/free/) de [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) vers le [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) à partir du portail de compte Azure. 
+Mettez à niveau votre abonnement [d’Évaluation gratuite](https://azure.microsoft.com/free/) de [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) vers le [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) à partir du portail de compte Azure. La mise à niveau en soi ne coûte rien. Vous êtes facturé uniquement pour les services que vous utilisez.
 
 1. Connectez-vous au [Portail de compte Azure](https://account.windowsazure.com/subscriptions) et accédez à l’onglet **Abonnements**.
 2. Dans la section État de l’abonnement, sélectionnez la bannière **Mettre à niveau maintenant**.

@@ -144,7 +144,7 @@ Dans cette section, vous créez une application console Node.js qui appelle une 
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    

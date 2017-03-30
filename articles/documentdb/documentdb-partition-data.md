@@ -16,9 +16,9 @@ ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ed0910e4843ab8ab80dae1c16b15487d92017e24
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -60,7 +60,7 @@ Les collections partitionnées dans l’API de MongoDB utilisent la même infras
 Le choix de la clé de partition est une décision importante que vous devrez prendre au moment de la conception. Vous devez choisir un nom de propriété JSON avec un large éventail de valeurs et susceptible de disposer de modèles d’accès répartis équitablement. 
 
 > [!NOTE]
-> Il est recommandé de disposer d’une clé de partition avec un grand nombre de valeurs distinctes (100 à&1000; s au minimum). De nombreux clients utilisent DocumentDB efficacement en tant que magasin de valeurs de clés, où l’« id » unique correspond à la clé de partition, et donc des milliards de clés de partition.
+> Il est recommandé de disposer d’une clé de partition avec un grand nombre de valeurs distinctes (100 à 1000 s au minimum). De nombreux clients utilisent DocumentDB efficacement en tant que magasin de valeurs de clés, où l’« ID » unique correspond à la clé de partition de milliards de clés de partition.
 >
 
 Le tableau suivant présente des exemples de définitions de clé de partition et les valeurs JSON correspondants. La clé de partition est spécifiée en tant que chemin d’accès JSON. Par exemple, `/department` représente le service de la propriété. 
@@ -149,11 +149,11 @@ Le tableau suivant répertorie les différences d’utilisation entre les collec
         <tr>
             <td valign="top"><p>Débit minimal</p></td>
             <td valign="top"><p>400 unités de demande par seconde</p></td>
-            <td valign="top"><p>2&500; unités de requête par seconde</p></td>
+            <td valign="top"><p>2 500 unités de requête par seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit maximal</p></td>
-            <td valign="top"><p>10&000; unités de demande par seconde</p></td>
+            <td valign="top"><p>10 000 unités de demande par seconde</p></td>
             <td valign="top"><p>Illimité</p></td>
         </tr>
         <tr>
@@ -341,7 +341,7 @@ Résultats :
 > 
 > 
 
-Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (>&10;&000; unités de requête/s) ou d’un stockage de données plus important (>&10; Go), vous pouvez utiliser [l’outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée. 
+Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (> 10 000 unités de requête/s) ou d’un stockage de données plus important (> 10 Go), vous pouvez utiliser [l’outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée. 
 
 Pour migrer une collection à partition unique vers une collection partitionnée
 

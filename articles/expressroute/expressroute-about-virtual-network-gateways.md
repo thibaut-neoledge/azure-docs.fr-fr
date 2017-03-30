@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b58a8f7f87a231bd44c9224e3c889c31336ee0b1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,17 +31,22 @@ Lorsque le trafic réseau est envoyé sur une connexion privée dédiée, vous u
 
 Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel par type de passerelle. Par exemple, une passerelle de réseau virtuel peut utiliser le type de passerelle VPN et une autre le type de passerelle ExpressRoute. Cet article décrit la passerelle de réseau virtuel ExpressRoute.
 
-## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>SKU de passerelle
+## <a name="gwsku"></a>SKU de passerelle
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) de passerelle plus puissante, dans la plupart des cas, vous pouvez utiliser l’applet de commande PowerShell « Resize-AzureRmVirtualNetworkGateway ». Cela fonctionne pour les mises à niveau vers les références (SKU) Standard HighPerformance. Toutefois, pour mettre à niveau vers la référence (SKU) UltraPerformance, vous devez recréer la passerelle.
 
-### <a name="a-nameaggthroughputaestimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>Débit agrégé estimé par SKU de passerelle
+### <a name="aggthroughput"></a>Débit agrégé estimé par SKU de passerelle
 Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API REST et applets de commande PowerShell
+> [!IMPORTANT]
+> Le débit de l’application dépend de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal. 
+> 
+>
+
+## <a name="resources"></a>API REST et applets de commande PowerShell
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST et d’applets de commande PowerShell pour les configurations de passerelles de réseau virtuel, consultez les pages suivantes :
 
 | **Classique** | **Gestionnaire de ressources** |
@@ -50,10 +56,5 @@ Pour accéder à des ressources techniques supplémentaires et connaître les ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les configurations de connexion disponibles, consultez la rubrique [Vue d’ensemble d’ExpressRoute](expressroute-introduction.md) . 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

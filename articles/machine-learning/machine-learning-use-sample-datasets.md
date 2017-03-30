@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
-ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,7 +44,7 @@ Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en
 <tr>
   <td valign=top>Jeu de données Adult Census Income Binary Classification</td>
   <td valign=top>
-Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.<p> </p><b>Utilisation :</b> effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.<p> </p><b>Recherche associée :</b> Kohavi, R, Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.<p> </p><b>Utilisation :</b> effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.<p> </p><b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=airport-codes-dataset>
@@ -204,21 +205,21 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
 <tr>
   <td valign=top>Données sur les clients de restaurant</td>
   <td valign=top>
-Jeu de données sur les clients, comprenant des données démographiques et des préférences.<p> </p><b>Utilisation :</b> utiliser ce jeu de données en combinaison avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+Jeu de données sur les clients, comprenant des données démographiques et des préférences.<p> </p><b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Données sur les caractéristiques de restaurants</td>
   <td valign=top>
-Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le type de gastronomie, le style de lieu et l'emplacement.<p> </p><b>Utilisation :</b> utiliser ce jeu de données en combinaison avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le type de gastronomie, le style de lieu et l'emplacement.<p> </p><b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Notations de restaurants</td>
   <td valign=top>
-Contient les notes attribuées par les consommateurs à des restaurants sur une échelle de 0 à 2.<p> </p><b>Utilisation :</b> utiliser ce jeu de données en combinaison avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+Contient les notes attribuées par les consommateurs à des restaurants sur une échelle de 0 à 2.<p> </p><b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -305,9 +306,4 @@ Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challen
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
-ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -30,13 +30,13 @@ Les machines virtuelles Azure prennent désormais en charge [Azure Managed Disks
 
 - Une extensibilité automatique. Azure crée les disques et gère le stockage sous-jacent pour prendre en charge jusqu’à 10 000 disques par abonnement.
 - Une fiabilité accrue avec les groupes à haute disponibilité. Azure garantit que les disques de machine virtuelle sont automatiquement isolés les uns des autres au sein des groupes à haute disponibilité.
-- Un meilleur contrôle d’accès. Les disques gérés offrent un large choix d’options de [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../active-directory/role-based-access-control-what-is.md). 
+- Un meilleur contrôle d’accès. Les disques gérés offrent un large choix d’options de [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../active-directory/role-based-access-control-what-is.md).
 
-La tarification des disques gérés est différente de celle des disques non gérés. Pour en savoir plus, consultez la rubrique relative à la [tarification et à la facturation des disques gérés](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+La tarification des disques gérés est différente de celle des disques non gérés. Pour en savoir plus, consultez la rubrique relative à la [tarification et à la facturation des disques gérés](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
 Vous pouvez convertir des machines virtuelles existantes qui utilisent des disques non gérés pour utiliser des disques gérés avec la commande [az vm convert](/cli/azure/vm#convert). Pour en savoir plus, consultez la [Procédure de conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
 
-- [Copiez le disque dur virtuel (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
+- Copiez le disque dur virtuel (VHD) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
 - Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create), ou
 - Attachez le disque dur virtuel copié avec la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution avec des disques gérés.
 
@@ -62,7 +62,7 @@ Créez ensuite la machine virtuelle avec la commande `az vm create`, comme indiq
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -76,7 +76,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -246,5 +246,4 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, v
 
 ## <a name="storage-limits"></a>Limites de stockage
 * [Limites de service de stockage](../azure-subscription-service-limits.md#storage-limits)
-
 

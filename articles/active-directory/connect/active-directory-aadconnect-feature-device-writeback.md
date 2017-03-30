@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture d
 1. À partir de l’ordinateur sur lequel est installé Azure AD Connect, lancez PowerShell en mode élevé.
 2. Si le module Active Directory PowerShell n’est PAS installé, installez-le à l’aide de la commande suivante :
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.
 4. Avec les informations d’identification d’administrateur d’entreprise, exécutez les commandes suivantes, puis quittez PowerShell.
    
@@ -138,10 +139,5 @@ Vérifiez la configuration dans Active Directory :
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

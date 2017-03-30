@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: 5d68b7f1f57da07685c27d592620c1785269f9d8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -44,6 +44,7 @@ Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l�
 * Sélectionnez un scénario, définissez la stratégie de sauvegarde et définissez les éléments à protéger.
 * Vérifiez l’installation de l’Agent de machine virtuelle sur la machine virtuelle.
 * Vérifiez la connectivité réseau
+* Pour les machines virtuelles Linux, au cas où vous souhaitez personnaliser votre environnement de sauvegarde pour des sauvegardes cohérentes avec les applications, suivez les [étapes permettant de configurer des scripts pré- et post-capture instantanée](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 Si vous savez que ces conditions existent déjà dans votre environnement, passez à [l’article traitant de la sauvegarde de vos machines virtuelles](backup-azure-vms.md). Si vous avez besoin de définir ou de vérifier l’une de ces conditions préalables, cet article vous guide à travers les étapes nécessaires pour préparer la condition préalable requise.
 

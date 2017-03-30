@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: e2d464c1c70be0bd7d5551c7f76f02b10c20b9ed
-ms.openlocfilehash: e5c42a574b22278586500048efd5b813d64dd4b7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: dcb259f04f2b0b1aeec10699b4e7b739ac0926ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -58,7 +58,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 
 > [!TIP]
-> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si la même adresse IP n’est pas disponible dans le sous-réseau, la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. 
+> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si l’adresse IP cible fait partie du sous-réseau choisi, la récupération de site tente alors de créer la machine virtuelle de test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau choisi, la machine virtuelle de test de basculement est créée à l’aide de toute adresse IP disponible dans le sous-réseau sélectionné. 
 >
 >
 
@@ -69,7 +69,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 Le déclenchement d’un test basculement implique les étapes suivantes :
 
 1. Vérification des conditions requises : cette étape s’assure que toutes les conditions requises pour le basculement sont satisfaites.
-1. Basculement : cette étape traite les données et les prépare pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
+1. Basculement : cette étape consiste à traiter les données et à les préparer pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
 1. Démarrer : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
 
 

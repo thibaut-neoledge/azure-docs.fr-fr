@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/01/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 48f89fd53f88f7bd757265d248e5aa6e53ae8d38
-ms.openlocfilehash: 27cfc75c90a5ba0699af0491f52747e8a1ea711a
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -157,7 +157,7 @@ Sur votre baie virtuelle, vous pouvez mettre en service des partages lorsqu’el
 Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnement des partages ou des volumes sur votre appareil virtuel.
 
 * La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage.
-* Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. S’ils sont épinglés localement, les volumes/partages peuvent avoir une taille comprise entre 50 Go et 2 To. S’ils sont hiérarchisés, les volumes/partages doivent avoir une taille comprise entre 500 Go et 20 To. 
+* Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. Pour les limites de taille des volumes/partages attachés localement et à plusieurs niveaux, reportez-vous toujours aux [limites de StorSimple Virtual Array](storsimple-ova-limits.md).
 * Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Il ne sera pas possible de développer le volume par la suite.
 * Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
 * Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif de prendre des mesures correctives, en supprimant par exemple les données du volume (l’expansion des volumes n’est pas prise en charge actuellement).

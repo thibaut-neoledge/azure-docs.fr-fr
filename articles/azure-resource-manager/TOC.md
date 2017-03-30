@@ -14,11 +14,11 @@
 ## Créer des modèles
 ### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Sections du modèle](resource-group-authoring-templates.md)
-### [Fonctions des modèles de gestionnaire des ressources Azure](resource-group-template-functions.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
+### [Définir un emplacement](resource-manager-template-location.md)
+### [Assigner des balises](resource-manager-template-tags.md)
 ### [Définir un nom et un type de ressource enfant](resource-manager-template-child-resource.md)
 ### [Créer plusieurs instances de types de ressource](resource-group-create-multiple.md)
-### [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md)
 ### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Partager l’état entre les modèles liés](best-practices-resource-manager-state.md)
 ### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portail](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md)
 ## Gérer
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Voir les opérations de déploiement](resource-manager-deployment-operations.md)
 
 # Référence
+## [Fonctions des modèles de gestionnaire des ressources Azure](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: ade6b7d9fa195ebea8f8587b01e4cc0ba71a0a83
-ms.openlocfilehash: fa5c367d7b8f46349b4bdc1de2af35050329a650
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -29,8 +29,8 @@ En assurant une connexion et une déconnexion uniques par le seul biais de quelq
 Cet article explique comment utiliser la bibliothèque ADAL4J pour :
 
 * Connecter des utilisateurs à des applications web en utilisant Azure AD comme fournisseur d’identité
-* Afficher certaines informations utilisateur
-* Déconnecter des utilisateurs des applications
+* afficher certaines informations utilisateur ;
+* déconnecter des utilisateurs des applications.
 
 ## <a name="before-you-get-started"></a>Avant de commencer
 
@@ -40,7 +40,7 @@ Cet article explique comment utiliser la bibliothèque ADAL4J pour :
 Lorsque vous êtes prêt, suivez les procédures des neuf sections qui suivent.
 
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Étape 1 : Inscrire la nouvelle application auprès d’Azure AD
-Pour configurer l’application pour l’authentification des utilisateurs, commencez par l’inscrire dans votre client en procédant comme suit :
+Pour configurer l’application pour l’authentification des utilisateurs, commencez par l’inscrire dans votre client en procédant de la façon suivante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur le nom de votre compte. Dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
@@ -49,8 +49,8 @@ Pour configurer l’application pour l’authentification des utilisateurs, comm
 5. Suivez les invites pour créer une **application web et/ou une API web**.
   * Le champ **Nom** décrit l’application aux utilisateurs.
   * Le champ **URL de connexion** indique l’URL de base de l’application. L’URL par défaut de la structure est http://localhost:8080/adal4jsample/.
-  * Le champ **URI ID d’application** indique un identificateur unique pour l’application. La convention d’affectation de noms est `https://<tenant-domain>/<app-name>` (par exemple, `http://localhost:8080/adal4jsample/`).
 6. Une fois que vous avez terminé l’inscription, Azure AD affecte un ID d’application unique à l’application. Copiez la valeur de la page d’application pour l’utiliser dans les sections suivantes.
+7. À partir de la page **Paramètres** -> **Propriétés** de votre application, mettez à jour l’URI ID d’application. Le champ **URI ID d’application** est un identificateur unique de l’application. La convention d’affectation de noms est `https://<tenant-domain>/<app-name>` (par exemple, `http://localhost:8080/adal4jsample/`).
 
 Lorsque vous vous trouvez dans le portail de l’application, créez et copiez une clé pour l’application sur la page **Paramètres**. Vous aurez besoin de cette clé sous peu.
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: f9809095128d0069d076d18486cae05b65498fa8
-ms.openlocfilehash: bde8ef9c4f51c38f8e5b41857be02ade43260824
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,8 +63,9 @@ Nous partons du principe que vous inscrivez l’API REST TODO mentionnée préc�
 4. Cliquez sur **Inscriptions d’applications**, puis sélectionnez **Ajouter**.
 5. Entrez un nom convivial pour l’application (par exemple, **TodoListService**), sélectionnez **Application Web et/ou API Web**, puis cliquez sur **Suivant**.
 6. Pour l’URL d’authentification, entrez l’URL de base pour l’exemple (`https://localhost:8080` par défaut).
-7. Pour l’URI ID d’application, entrez `https://<your_tenant_name>/TodoListService`. Remplacez `<your_tenant_name>` par le nom de votre client Azure AD. Cliquez sur **OK** pour terminer l’inscription.
+7. Cliquez sur **OK** pour terminer l’inscription.
 8. Toujours dans le portail Azure, accédez à la page de votre application, recherchez la valeur de l’ID d’application et copiez-la. Vous en aurez besoin plus tard lors de la configuration de votre application.
+9. À partir de la page **Paramètres** -> **Propriétés**, mettez à jour l’URI ID d’application : entrez `https://<your_tenant_name>/TodoListService`. Remplacez `<your_tenant_name>` par le nom de votre client Azure AD.
 
 ## <a name="step-3-register-the-sample-android-native-client-application"></a>Étape 3 : Inscription de l’exemple d’application cliente native Android
 Vous devez inscrire votre application web dans cet exemple. Cela permet à votre application de communiquer avec l’API web qui vient d’être inscrite. Azure AD n’autorisera même pas votre application à demander une connexion si elle n’est pas inscrite. Cela fait partie de la sécurité du modèle.
@@ -384,9 +386,4 @@ ADAL version 1.1.0 prend en charge une boîte de dialogue NTLM qui est traitée
 Découvrez [comment activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 14627391a5df562a70737a71f41fe7cb934c9062
-ms.openlocfilehash: 54f579e5806a2fa5bd4ceace8a8ab46509b4be1e
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,22 +27,22 @@ L’utilisation de l’exportation continue peut entraîner des frais supplémen
 
 Avant de configurer l’exportation continue, d’autres options doivent être prises en considération :
 
-* [Le bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel. 
+* Le bouton Exporter en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 
 * [Analytics](app-insights-analytics.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
 * Si vous cherchez à [explorer vos données dans Power BI](app-insights-export-power-bi.md), vous pouvez le faire sans utiliser l’exportation continue.
-* [L’API REST d’accès aux données](https://dev.applicationinsights.io/) vous permet d’accéder à vos données de télémétrie par programme. 
+* [L’API REST d’accès aux données](https://dev.applicationinsights.io/) vous permet d’accéder à vos données de télémétrie par programme.
 
-Une fois que l’exportation continue a copié vos données vers l’espace de stockage (où elles peuvent rester aussi longtemps que vous le souhaitez), elles restent disponibles dans Application Insights pendant la [période de rétention](app-insights-data-retention-privacy.md) habituelle. 
+Une fois que l’exportation continue a copié vos données vers l’espace de stockage (où elles peuvent rester aussi longtemps que vous le souhaitez), elles restent disponibles dans Application Insights pendant la [période de rétention](app-insights-data-retention-privacy.md) habituelle.
 
 ## <a name="setup"></a> Créez une exportation continue.
-1. Dans la ressource Application Insights de votre application, ouvrez Exportation continue et choisissez **ajouter** : 
+1. Dans la ressource Application Insights de votre application, ouvrez Exportation continue et choisissez **ajouter** :
 
     ![Faites défiler vers le bas, puis cliquez sur Exportation continue.](./media/app-insights-export-telemetry/01-export.png)
 
 2. Choisissez les types de données de télémétrie que vous souhaitez exporter.
 
-3. Créez ou sélectionnez le [compte de stockage Azure](../storage/storage-introduction.md) sur lequel vous voulez stocker les données. 
+3. Créez ou sélectionnez le [compte de stockage Azure](../storage/storage-introduction.md) sur lequel vous voulez stocker les données.
 
     > [!Warning]
     > Par défaut, l’emplacement de stockage est défini dans la même région géographique que votre ressource Application Insights. Si vous utilisez une autre région de stockage, vous risquez de subir des frais de transfert.
@@ -53,7 +53,7 @@ Une fois que l’exportation continue a copié vos données vers l’espace de s
 
     ![Cliquez sur Choisir les types d’événements.](./media/app-insights-export-telemetry/create-container.png)
 
-Une fois que vous avez créé l’exportation, elle démarre. Vous n’obtenez que les données qui arrivent après la création de l’exportation. 
+Une fois que vous avez créé l’exportation, elle démarre. Vous n’obtenez que les données qui arrivent après la création de l’exportation.
 
 Il peut y avoir un délai d'environ une heure avant que les données n’apparaissent dans le stockage.
 
@@ -73,18 +73,18 @@ Pour arrêter définitivement l’exportation, supprimez-la simplement. Cette op
 * Pour ajouter ou modifier des exportations, vous devez disposer de droits d’accès de propriétaire, de collaborateur ou de collaborateur Application Insights. [En savoir plus sur les rôles][roles].
 
 ## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
-Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client. 
+Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.
 
 Les données qui ont été ignorées par l’ [échantillonnage](app-insights-sampling.md) ne sont pas incluses dans les données exportées.
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
-Les données incluent également les résultats de n’importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré. 
+Les données incluent également les résultats de n’importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
 
 > [!NOTE]
 > **Échantillonnage.** Si votre application envoie beaucoup de données, la fonctionnalité d’échantillonnage peut fonctionner et envoyer seulement une partie des données de télémétrie générées. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ## <a name="get"></a> Inspection des données
 Vous pouvez inspecter le stockage directement sur le portail. Cliquez sur **Parcourir**, sélectionnez votre compte de stockage, puis ouvrez **Conteneurs**.
@@ -101,7 +101,7 @@ Voici le format du chemin d’accès :
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where 
+Where
 
 * `blobCreationTimeUtc` est l’heure de création de l’objet blob dans le stockage intermédiaire interne
 * `blobDeliveryTimeUtc` est l’heure de copie de l’objet blob vers le stockage de destination d’exportation
@@ -144,10 +144,10 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
 Pour un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
 
 ## <a name="delete"></a>Supprimer les anciennes données
-Notez que vous êtes responsable de la gestion de votre capacité de stockage et de la suppression des anciennes données si nécessaire. 
+Notez que vous êtes responsable de la gestion de votre capacité de stockage et de la suppression des anciennes données si nécessaire.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vous régénérez votre clé de stockage...
-Si vous modifiez la clé de votre stockage, l’exportation continue cesse de fonctionner. Vous voyez alors une notification dans votre compte Azure. 
+Si vous modifiez la clé de votre stockage, l’exportation continue cesse de fonctionner. Vous voyez alors une notification dans votre compte Azure.
 
 Ouvrez le panneau Exportation continue et modifiez votre exportation. Modifiez la destination de l’exportation, mais laissez le même stockage sélectionné. Cliquez sur OK pour confirmer.
 
@@ -164,29 +164,29 @@ L’exportation continue redémarre.
 
 ## <a name="q--a"></a>Questions et réponses
 * *Je veux simplement télécharger un graphique.*  
-  
-    Oui, vous pouvez le faire. En haut du panneau, cliquez sur [Exporter les données](app-insights-metrics-explorer.md#export-to-excel).
+
+    Oui, vous pouvez le faire. En haut du panneau, cliquez sur **Exporter les données**.
 * *J’ai configuré une exportation, mais il n’y a pas de données dans mon magasin.*
-  
+
     Application Insights a-t-il reçu de la télémétrie de votre application depuis que vous avez configuré l’exportation ? Vous recevrez uniquement les nouvelles données.
 * *J’ai essayé de configurer une exportation, mais l’accès lui a été refusé.*
-  
+
     Si le compte appartient à votre organisation, vous devez être membre du groupe des propriétaires ou des collaborateurs.
-* *Puis-je exporter directement vers mon propre magasin local ?* 
-  
+* *Puis-je exporter directement vers mon propre magasin local ?*
+
     Non. Pour le moment, notre moteur d’exportation fonctionne uniquement avec le stockage Azure.  
-* *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?* 
-  
+* *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?*
+
     Non. Nous transmettons les données jusqu’à ce que vous supprimiez l’exportation. Nous arrêtons si nous atteignons les limites extérieures du stockage d’objets blob, mais ceci représente un volume très important. C’est à vous de contrôler la quantité de stockage vous utilisez.  
 * *Combien d’objets blob devrais-je voir dans le stockage ?*
-  
-  * Pour chaque type de données que vous avez choisi d'exporter un objet blob est créé toutes les minutes (si les données sont disponibles). 
+
+  * Pour chaque type de données que vous avez choisi d'exporter un objet blob est créé toutes les minutes (si les données sont disponibles).
   * En outre, pour les applications avec un trafic élevé, des unités de partition supplémentaires sont allouées. Dans ce cas, chaque unité crée un objet blob toutes les minutes.
 * *J’ai régénéré la clé de mon espace de stockage ou modifié le nom du conteneur et l’exportation ne fonctionne plus.*
-  
+
     Modifiez l’exportation et ouvrez le panneau de destination d’exportation. Conservez le même stockage que celui sélectionné auparavant, puis cliquez sur OK pour confirmer. L’exportation redémarre. Si la modification a eu lieu dans les derniers jours, vous ne perdrez pas de données.
 * *Est-il possible de suspendre l’exportation ?*
-  
+
     Oui. Cliquez sur Désactiver.
 
 ## <a name="code-samples"></a>Exemples de code
@@ -200,6 +200,4 @@ L’exportation continue redémarre.
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
 

@@ -1,22 +1,22 @@
 ---
-title: "Suivi des dépendances dans Application Insights"
+title: "Suivi des dépendances dans Azure Application Insights | Microsoft Docs"
 description: "Analysez l&quot;utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,6 +34,8 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
   * Azure DocumentDb, table, stockage d’objets blob et file d’attente
 * Pages web
   * Appels AJAX
+
+La surveillance fonctionne en utilisant l’[instrumentation de code octet](https://msdn.microsoft.com/library/z9z62c29.aspx) autour des méthodes sélectionnées. La surcharge de performances est minime.
 
 Vous pouvez écrire vos propres appels de SDK pour surveiller d’autres dépendances, à la fois dans le code client et serveur, à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -82,7 +84,7 @@ Le **Nombre d’échecs** est affiché dans le panneau **Échecs**. Un échec es
 ## <a name="ajax-calls"></a>Appels AJAX
 Le panneau Navigateurs affiche la durée et le taux d’échec des appels AJAX à partir de [JavaScript dans vos pages web](app-insights-javascript.md). Ils sont affichés en tant que dépendances.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnostiquer les demandes lentes
+## <a name="diagnosis"></a> Diagnostiquer les demandes lentes
 Chaque événement de demande est associé aux appels de dépendances, exceptions et autres événements qui sont suivis pendant que votre application traite la demande. Ainsi, si certaines demandes présentent de médiocres performances, vous pouvez savoir si cela est dû à la lenteur des réponses d’une dépendance.
 
 Prenons un exemple.
@@ -202,6 +204,10 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 * Effectuez une mise à niveau vers la dernière version du Kit de développement logiciel (SDK). Si votre version de .NET est inférieur à 4.6 :
   * Hôte IIS : installez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) sur les serveurs hôtes.
   * Application web Azure : ouvrez l’onglet Application Insights dans le panneau de configuration de l’application web et installez Application Insights.
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exceptions](app-insights-asp-net-exceptions.md)

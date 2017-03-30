@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ Ces étapes supposent que vous avez déjà créé un réseau virtuel et le sous-
 > Si vous avez des règles personnalisées qui bloquent une grande partie du trafic entrant (comme une règle **Refuser tout**), vous devrez peut-être ajuster les valeurs de priorité dans ces exemples. Les règles des exemples doivent être appliquées avant les règles qui bloquent l’accès. Sinon, la règle **Refuser tout** est testée en premier et les règles de cet exemple ne sont jamais appliquées. Vous ne devez pas bloquer les règles par défaut pour un réseau virtuel Azure. Par exemple, vous ne devez pas créer de règle **Refuser tout** appliquée avant la règle **AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL** par défaut (qui a une priorité de 65000.)
 > 
 > Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+
+**Utilisation d’un modèle de gestion des ressources Azure**
+
+Utilisation du modèle de gestion des ressources suivant issu des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) pour créer un cluster HDInsight dans un réseau virtuel avec les configurations réseau sécurisées :
+
+[Déployer un réseau virtuel Azure sécurisé et un cluster HDInsight Hadoop dans le réseau virtuel](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Utilisation de Microsoft Azure PowerShell**
 

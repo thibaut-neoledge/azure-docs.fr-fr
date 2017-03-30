@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 03/20/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Avec **Power BI Embedded**, vous pouvez intégrer des rapports Power BI dans vos
 **Power BI Embedded** est un service Azure qui permet aux éditeurs de logiciels indépendants (ISV) et aux développeurs d’applications de proposer des expériences de données Power BI au sein de leurs applications. En tant que développeur, vous avez créé des applications, et ces applications disposent de leurs propres utilisateurs et d’un ensemble distinct de fonctionnalités. Ces applications peuvent également contenir des éléments de données intégrés, tels que des graphiques et des rapports, qui peuvent désormais être fournis par Microsoft Power BI Embedded. Vous n'avez pas besoin de compte Power BI pour utiliser votre application. Vous pouvez continuer à vous connecter à votre application comme avant, et afficher et interagir avec la création de rapports de Power BI sans nécessiter de licence supplémentaire.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Gestion des licences pour Microsoft Power BI Embedded
-Dans le modèle d’utilisation **Microsoft Power BI Embedded** , la gestion des licences Power BI n’est pas la responsabilité de l’utilisateur final.  Au lieu de cela, les **sessions** sont achetées par le développeur de l’application qui consomme les effets visuels et ils sont facturés à l’abonnement propriétaire de ces ressources. Vous trouverez des informations supplémentaires sur la page de tarification (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
+Dans le modèle d’utilisation **Microsoft Power BI Embedded** , la gestion des licences Power BI n’est pas la responsabilité de l’utilisateur final.  Au lieu de cela, les **sessions** sont achetées par le développeur de l’application qui consomme les effets visuels et ils sont facturés à l’abonnement propriétaire de ces ressources. Pour plus d’informations, consultez la page [Tarification](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Modèle conceptuel de Microsoft Power BI Embedded
 

@@ -1,6 +1,6 @@
 ---
 title: "Créer une machine virtuelle à partir d’un disque dur virtuel généralisé | Microsoft Docs"
-description: "Découvrez comment créer une machine virtuelle Windows à partir d’une image de disque dur virtuel généralisée à l’aide d’Azure PowerShell, avec le modèle de déploiement Resource Manager."
+description: "Découvrez comment créer une machine virtuelle Windows à partir d’une image de disque dur virtuel généralisée dans un compte de stockage, à l’aide d’Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 12832620d94226b6cfe391471c22fad2d1e3cf7e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Créer une machine virtuelle à partir d’une image de disque dur virtuel généralisée
-Une image de disque dur virtuel généralisée a supprimé toutes les informations de votre compte personnel avec [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vous pouvez créer un disque dur virtuel généralisé en exécutant Sysprep sur une machine virtuelle locale, puis en [chargeant le disque dur virtuel dans Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ou en exécutant Sysprep sur une machine virtuelle Azure existante, puis en [copiant le disque dur virtuel](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’une image de disque dur virtuel généralisée dans un compte de stockage 
 
-Si vous souhaitez créer une machine virtuelle à partir d’un disque dur virtuel spécialisé, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cette rubrique décrit la création d’une machine virtuelle à partir d’un disque non managé généralisé qui se trouve dans un compte de stockage. Une image de disque dur virtuel généralisée a supprimé toutes les informations de votre compte personnel avec [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vous pouvez créer un disque dur virtuel généralisé en exécutant Sysprep sur une machine virtuelle locale, puis en [chargeant le disque dur virtuel dans Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ou en exécutant Sysprep sur une machine virtuelle Azure existante, puis en [copiant le disque dur virtuel](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Le moyen le plus rapide de créer une machine virtuelle à partir d’un disque dur virtuel généralisé consiste à utiliser un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
+Si vous souhaitez créer une machine virtuelle à partir d’un disque dur virtuel spécialisé qui se trouve dans un compte de stockage, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Pour plus d’informations sur l’utilisation de disques managés à la place de disques de compte de stockage, consultez [Créer une image d’une machine virtuelle gérée](virtual-machines-windows-capture-image-resource.md) et [Créer une machine virtuelle à partir d’une image gérée](virtual-machines-windows-create-vm-generalized-managed.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Si vous vous apprêtez à utiliser un disque dur virtuel chargé à partir d’une machine virtuelle locale, par exemple créé avec Hyper-V, veillez tout d’abord à suivre les instructions de [Préparer un disque dur virtuel Windows à charger vers Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -34,6 +36,7 @@ Si vous vous apprêtez à utiliser un disque dur virtuel chargé à partir d’u
 Les disques durs virtuels chargés, comme les disques durs virtuels de machines virtuelles Azure existantes, doivent être généralisés pour pouvoir créer une machine virtuelle suivant cette méthode. Pour plus d’informations, consultez [Généraliser une machine virtuelle Windows avec Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## <a name="set-the-uri-of-the-vhd"></a>Définir l’URI du disque dur virtuel
+
 L’URI du disque dur virtuel à utiliser est au format : https://**moncomptedestockage**.blob.core.windows.net/**monconteneur**/**mondisquedurvirtuel**.vhd. Dans cet exemple, le disque dur virtuel nommé **mondisquedurvirtuel** se trouve dans le compte de stockage **moncomptedestockage** dans le conteneur **monconteneur**.
 
 ```powershell
@@ -171,10 +174,5 @@ Lorsque vous avez terminé, vous devez voir la machine virtuelle nouvellement cr
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

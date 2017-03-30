@@ -15,24 +15,25 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616bb450217573ebd45060234313af418f525f89
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7757de96601c426ff07e94cfa0c12d4dec8f06f5
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="data-types-for-tables-in-sql-data-warehouse"></a>Types de données pour tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Vue d'ensemble][Vue d'ensemble]
-> * [Types de données][Types de données]
-> * [Distribuer][Distribuer]
+> * [Vue d’ensemble][Overview]
+> * [Types de données][Data Types]
+> * [Distribuer][Distribute]
 > * [Index][Index]
 > * [Partition][Partition]
-> * [Statistiques][Statistiques]
-> * [Temporaire][Temporaire]
+> * [Statistiques][Statistics]
+> * [Temporaire][Temporary]
 > 
 > 
 
-SQL Data Warehouse prend en charge les types de données les plus couramment utilisés.  Voici une liste des types de données pris en charge par SQL Data Warehouse.  Pour plus d’informations sur la prise en charge du type de données, consultez [create table][create table] (créer une table).
+SQL Data Warehouse prend en charge les types de données les plus couramment utilisés.  Voici une liste des types de données pris en charge par SQL Data Warehouse.  Pour plus d’informations sur la prise en charge du type de données, consultez la page [create table][create table] (créer une table).
 
 | **Types de données pris en charge** |  |  |
 | --- | --- | --- |
@@ -49,7 +50,7 @@ SQL Data Warehouse prend en charge les types de données les plus couramment uti
  Lorsque vous définissez vos types de colonnes, l’utilisation du plus petit type de données prenant en charge vos données améliore les performances de requête. Ceci est particulièrement important pour les colonnes CHAR et VARCHAR. Si la valeur la plus longue dans une colonne est de 25 caractères, définissez la colonne en tant que VARCHAR(25). Évitez de définir toutes les colonnes de caractères sur une grande longueur par défaut. En outre, définissez des colonnes VARCHAR lorsque cela suffit, au lieu d’utiliser [NVARCHAR][NVARCHAR].  Utilisez NVARCHAR(4000) ou VARCHAR(8000) lorsque c’est possible au lieu de NVARCHAR(MAX) ou VARCHAR(MAX).
 
 ## <a name="polybase-limitation"></a>Limitation de Polybase
-Si vous utilisez PolyBase pour charger vos tables, définissez ces dernières de sorte que la taille de ligne maximale (longueur totale des colonnes à longueur variable comprise) ne dépasse pas 32 767 octets.  Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette largeur maximale, et charger des lignes avec BCP. Toutefois, vous ne pouvez pas utiliser PolyBase pour charger ces données.  La prise en charge de PolyBase pour les lignes larges sera bientôt disponible.
+Si vous utilisez Polybase pour charger vos tables, faites en sorte que la longueur des données ne dépasse pas 1 Mo.  Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette largeur maximale, et charger des lignes avec BCP. Toutefois, vous ne pouvez pas utiliser PolyBase pour charger ces données.  
 
 ## <a name="unsupported-data-types"></a>Types de données non pris en charge
 Si vous migrez votre base de données à partir d’une autre plateforme SQL, comme une base de données SQL Azure, au cours de la migration, vous pouvez rencontrer certains types de données qui ne sont pas pris en charge sur SQL Data Warehouse.  Voici les types de données non pris en charge, ainsi que certaines solutions que vous pouvez utiliser à la place des types de données non pris en charge.
@@ -57,16 +58,16 @@ Si vous migrez votre base de données à partir d’une autre plateforme SQL, co
 | Type de données | Solution de contournement |
 | --- | --- |
 | [geometry][geometry] |[varbinary][varbinary] |
-| [Geography][Geography] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
 | [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
 | [image][ntext,text,image] |[varbinary][varbinary] |
-| [texte][ntext,text,image] |[varchar][varchar] |
+| [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Fractionnez la colonne en plusieurs colonnes fortement typées. |
 | [table][table] |Appliquez une conversion vers des tables temporaires. |
-| [timestamp][timestamp] |Modifiez le code afin d’utiliser le paramètre [datetime2][datetime2] et la fonction `CURRENT_TIMESTAMP`.  Seules les constantes sont prises en charge en tant que valeurs par défaut, par conséquent le paramètre current_timestamp ne peut pas être défini comme une contrainte par défaut. Si vous devez migrer les valeurs de version de ligne à partir d’une colonne de type horodatage, utilisez le paramètre [BINARY][BINARY](8) ou [VARBINARY][VARBINARY](8) pour les valeurs de version de ligne NOT NULL ou NULL. |
+| [timestamp][timestamp] |Modifiez le code afin d’utiliser le paramètre [datetime2][datetime2] et la fonction `CURRENT_TIMESTAMP`.  Seules les constantes sont prises en charge en tant que valeurs par défaut, par conséquent le paramètre current_timestamp ne peut pas être défini comme une contrainte par défaut. Si vous devez migrer les valeurs de version de ligne à partir d’une colonne de type horodatage, utilisez le paramètre [BINARY(8)][BINARY] ou [VARBINARY(8)][BINARY] pour les valeurs de version de ligne NOT NULL ou NULL. |
 | [xml][xml] |[varchar][varchar] |
-| [types définis par l’utilisateur][types définis par l’utilisateur] |appliquez à nouveau les types natifs, le cas échéant |
+| [types définis par l’utilisateur][user defined types] |appliquez à nouveau les types natifs, le cas échéant |
 | valeurs par défaut |les valeurs par défaut prennent uniquement en charge des littéraux et des constantes.  Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge. |
 
 La requête SQL ci-dessous peut être exécutée sur votre base de données SQL actuelle pour identifier les colonnes qui ne sont pas prises en charge par Azure SQL Data Warehouse :
@@ -81,19 +82,19 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les articles [Vue d'ensemble][Vue d'ensemble], [Distribution d’une table][Distribuer], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistiques] et [Tables temporaires][Temporaire].  Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].
+Pour plus d’informations, consultez les articles [Table Overview (Vue d’ensemble des tables)][Overview], [Distributing a Table (Distribution d’une table)][Distribute], [Indexing a Table (Indexation d’une table)][Index], [Partitioning a Table (Partitionnement d’une table)][Partition], [Maintaining Table Statistics (Maintenance des statistiques de table)][Statistics] et [Temporary Tables (Tables temporaires)][Temporary].  Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d'ensemble]: ./sql-data-warehouse-tables-overview.md
-[Types de données]: ./sql-data-warehouse-tables-data-types.md
-[Distribuer]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiques]: ./sql-data-warehouse-tables-statistics.md
-[Temporaire]: ./sql-data-warehouse-tables-temporary.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
@@ -110,7 +111,7 @@ Pour plus d’informations, consultez les articles [Vue d'ensemble][Vue d'ensemb
 [decimal]: https://msdn.microsoft.com/library/ms187746.aspx
 [float]: https://msdn.microsoft.com/library/ms173773.aspx
 [geometry]: https://msdn.microsoft.com/library/cc280487.aspx
-[Geography]: https://msdn.microsoft.com/library/cc280766.aspx
+[geography]: https://msdn.microsoft.com/library/cc280766.aspx
 [hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
 [int]: https://msdn.microsoft.com/library/ms187745.aspx
 [money]: https://msdn.microsoft.com/library/ms179882.aspx
@@ -131,10 +132,5 @@ Pour plus d’informations, consultez les articles [Vue d'ensemble][Vue d'ensemb
 [varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
 [varchar]: https://msdn.microsoft.com/library/ms186939.aspx
 [xml]: https://msdn.microsoft.com/library/ms187339.aspx
-[types définis par l’utilisateur]: https://msdn.microsoft.com/library/ms131694.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
 

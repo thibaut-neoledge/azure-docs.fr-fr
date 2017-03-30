@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e7a2fef8860984c2e4e3749202868940b836ca9f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -27,12 +29,12 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 [Maven](http://maven.apache.org/) est un outil de gestion de projets logiciels et d'inclusion qui vous permet de créer des logiciels, de la documentation et des rapports pour les projets Java. Dans cet article, vous apprendrez à l’utiliser de façon à créer une application Java de base permettant de créer ou de supprimer une table HBase dans un cluster Azure HDInsight, ainsi que de lui envoyer des requêtes.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Configuration requise
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou version supérieure
 * [Maven](http://maven.apache.org/)
-* [Un cluster HDInsight sous Windows avec HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* Un cluster HDInsight sous Windows avec HBase
 
     > [!NOTE] 
     > Les étapes décrites dans ce document ont été testées avec des versions de cluster HDInsight 3.2 et 3.3. Les valeurs par défaut fournies dans les exemples concernent un cluster HDInsight 3.3.
@@ -616,10 +618,5 @@ Remplacez **hdinsightclustername** par le nom de votre cluster HDInsight.
 ## <a name="troubleshooting"></a>Résolution des problèmes
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Aucun résultat ou résultat inattendu lors de l'utilisation de Start-HBaseExample
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

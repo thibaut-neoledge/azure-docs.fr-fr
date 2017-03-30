@@ -11,31 +11,31 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec la journalisation et les mesures du stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>Vue d’ensemble
 Diagnostic et résolution des problèmes sont essentiels pour la création et la prise en charge d'applications clientes avec Microsoft Azure Storage. En raison de la nature distribuée d'une application Azure, diagnostic et résolution des erreurs et des problèmes de performances peuvent être plus complexes que dans les environnements traditionnels.
 
-Dans ce didacticiel, nous montrons comment identifier certaines erreurs du client qui peuvent affecter les performances et comment résoudre ces erreurs de bout en bout à l'aide des outils fournis par Microsoft et Azure Storage, afin d'optimiser l'application cliente.
+Dans ce didacticiel, nous allons montrer comment identifier certaines erreurs qui peuvent affecter les performances et comment résoudre ces erreurs de bout en bout à l'aide des outils fournis par Microsoft et Azure Storage, afin d'optimiser l'application cliente.
 
 Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Outils de résolution des problèmes dans les applications Azure Storage
 Pour résoudre les problèmes des applications clientes utilisant Microsoft Azure Storage, vous pouvez faire appel à une combinaison d'outils afin de déterminer quand un problème s'est produit et quelle peut en être la cause. Ces outils incluent :
 
-* **Azure Storage Analytics**. [Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) fournit des métriques et une journalisation pour Azure Storage.
+* **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/fileservices/Storage-Analytics) fournit des métriques et une journalisation pour Azure Storage.
   
-  * **Storage Metrics** assure le suivi des métriques de transaction et des métriques de capacité pour votre compte de stockage. Les métriques vous permettent de déterminer comment votre application s'exécute en fonction de plusieurs mesures différentes. Pour plus d'informations sur les types de métrique suivis par Storage Analytics, consultez la page [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx) .
-  * **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx) .
+  * **Storage Metrics** assure le suivi des métriques de transaction et des métriques de capacité pour votre compte de stockage. Les métriques vous permettent de déterminer comment votre application s'exécute en fonction de plusieurs mesures différentes. Pour plus d'informations sur les types de métrique suivis par Storage Analytics, consultez la page [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) .
+  * **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) .
 
 > [!NOTE]
 > Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS). 
@@ -44,7 +44,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 * **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
   
-    Pour plus d’informations sur la configuration de la surveillance dans le portail Azure, consultez la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md) .
+    Pour plus d’informations sur la configuration de la surveillance dans le portail Azure, consultez la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md).
 * **AzCopy**. Les journaux de serveur pour Azure Storage sont stockés sous forme d'objets blob ; vous pouvez donc utiliser AzCopy pour copier les objets blob de journal dans un répertoire local pour l'analyse à l'aide de Microsoft Message Analyzer. Pour plus d’informations sur AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) .
 * **Microsoft Message Analyzer**. Message Analyzer est un outil qui utilise des fichiers journaux et affiche les données des journaux dans un format visuel qui facilite le filtrage, la recherche et le regroupement des données de journaux dans des ensembles utiles dont vous pouvez vous servir pour analyser les erreurs et les problèmes de performances. Pour plus d'informations sur Message Analyzer, consultez la page [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) .
 
@@ -172,11 +172,13 @@ Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Mess
 Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi réseau](http://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Revue des données des métriques dans le portail Azure
-Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le [portail Azure](https://portal.azure.com) pour observer la façon dont votre service a fonctionné. Tout d’abord, accédez à votre compte de stockage dans le portail Azure et ajoutez un graphique pour la mesure **Pourcentage de réussite** .
+Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le [portail Azure](https://portal.azure.com) pour observer la façon dont votre service a fonctionné.
 
-Dans le portail Azure, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées. Dans le scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer, le taux de pourcentage de réussite est légèrement inférieur à 100 %.
+D’abord, accédez à votre compte de stockage dans le Portail Azure. Par défaut, un graphique de surveillance avec la mesure **pourcentage de réussite** mesure s’affiche dans le panneau du compte. Si vous avez modifié précédemment le graphique pour afficher des mesures différentes, ajoutez la mesure **pourcentage de réussite**.
 
-Pour plus d'informations sur l'ajout de métriques à la page de surveillance, consultez la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
+**Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées. Dans le scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer, le taux de pourcentage de réussite est légèrement inférieur à 100 %.
+
+Pour plus d’informations sur l’ajout et la personnalisation de graphiques de mesures, consultez [Personnalisation des graphiques de mesures](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
 > Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l’affichage des données correspondantes peut prendre jusqu’à deux heures.
@@ -305,7 +307,7 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux de suivi du serveur et du réseau pour rechercher les erreurs 404 et l'autre qui filtre les données sur une période spécifiée.
 
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)**, puis **View Filter (Filtre d’affichage)**.
-2. Dans la fenêtre View Filter (Filtre d’affichage), sélectionnez **Library (Bibliothèque)** et effectuez une recherche sur `Azure Storage` pour trouver les filtres Azure Storage. Sélectionnez le filtre pour **Messages&404; (Introuvable) dans tous les journaux**.
+2. Dans la fenêtre View Filter (Filtre d’affichage), sélectionnez **Library (Bibliothèque)** et effectuez une recherche sur `Azure Storage` pour trouver les filtres Azure Storage. Sélectionnez le filtre pour **Messages 404 (Introuvable) dans tous les journaux**.
 3. Affichez de nouveau le menu **Library (Bibliothèque)**, puis localisez et sélectionnez **Global Time Filter (Filtre de temps global)**.
 4. Modifiez l'horodatage indiqué dans le filtre en indiquant la plage que vous souhaitez afficher. Cela vous aidera à limiter la plage de données à analyser.
 5. Le filtre doit apparaître comme dans l'exemple ci-dessous. Cliquez sur **Appliquer** pour appliquer le filtre à la grille d'analyse.
@@ -372,8 +374,3 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
 * [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

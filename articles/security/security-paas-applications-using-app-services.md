@@ -1,9 +1,9 @@
 ---
 title: "Sécurisation des applications mobiles et web PaaS à l’aide d’Azure App Services | Microsoft Docs"
-description: " Découvrir les bonnes pratiques en matière de sécurité d’Azure App Services pour protéger vos applications mobiles et web PaaS. "
+description: " Découvrez les bonnes pratiques en matière de sécurité d’Azure App Services pour protéger vos applications mobiles et web PaaS. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 50421a70ede62250a0ab17a38200995c90fdcd55
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,9 +44,4 @@ Cet article vous a présenté un ensemble de bonnes pratiques de sécurité App 
 
 - [Sécurisation des déploiements PaaS](security-paas-deployments.md)
 - [Sécurisation des applications mobiles et web PaaS à l’aide d’Azure SQL Database et de SQL Data Warehouse](security-paas-applications-using-sql.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

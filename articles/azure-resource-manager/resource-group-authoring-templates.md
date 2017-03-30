@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a75863878a97c1202e9b9946b0bff19261952c21
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ Dans sa structure la plus simple, un modèle contient les éléments suivants :
 Nous allons examiner les sections du modèle de manière plus approfondie plus loin dans cette rubrique.
 
 ## <a name="expressions-and-functions"></a>Expressions et fonctions
-La syntaxe de base du modèle est JSON. Toutefois, les expressions et les fonctions étendent la syntaxe JSON qui est disponible dans le modèle. Avec les expressions, vous créez des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre les crochets `[` et `]` et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d’utiliser une chaîne littérale qui commence par un crochet `[`, vous devez utiliser deux crochets `[[`.
+La syntaxe de base du modèle est JSON. Toutefois, les expressions et fonctions étendent les valeurs JSON disponibles dans le modèle.  Les expressions sont écrites dans les littéraux de chaîne JSON dont le premier et dernier caractères sont les crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé.   Bien qu’écrit sous la forme d’un littéral de chaîne, le résultat de l’évaluation de l’expression peut être d’un type différent de JSON, tel qu’un tableau ou un entier, en fonction de l’expression réelle.  Notez que pour avoir un littéral de chaîne commençant par un crochet `[`, sans qu’il soit interprété comme une expression, ajoutez un crochet supplémentaire pour démarrer la chaîne avec `[[`.
 
 En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
 
@@ -431,9 +432,4 @@ Pour plus d’informations sur le fonctionnement de la sortie, consultez [Partag
 * Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Ce scénario est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](resource-group-template-functions.md#resourceid).
 
 [deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

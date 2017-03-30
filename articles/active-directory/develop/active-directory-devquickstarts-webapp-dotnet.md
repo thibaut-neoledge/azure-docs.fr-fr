@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
-ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -46,8 +46,8 @@ Pour configurer l’application pour l’authentification des utilisateurs, comm
 5. Suivez les invites et créez **une nouvelle application web et/ou une nouvelle API web**.
   * Le champ **Nom** décrit l’application aux utilisateurs.
   * Le champ **URL de connexion** indique l’URL de base de l’application. L’URL par défaut de la structure est https://localhost:44320/.
-  * Le champ **URI ID d’application** est un identificateur unique de l’application. La convention d’affectation de noms est `https://<tenant-domain>/<app-name>` (par exemple, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. Une fois que vous avez terminé l’inscription, Azure AD affecte un ID d’application unique à l’application. Copiez la valeur de la page d’application pour l’utiliser dans les sections suivantes.
+7. À partir de la page **Paramètres** -> **Propriétés** de votre application, mettez à jour l’URI ID d’application. Le champ **URI ID d’application** est un identificateur unique de l’application. La convention d’affectation de noms est `https://<tenant-domain>/<app-name>` (par exemple, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Étape 2 : Configurer l’application pour utiliser le pipeline d’authentification OWIN
 Au cours de cette étape, vous allez configurer l’intergiciel OWIN pour utiliser le protocole d’authentification OpenID Connect. Vous utilisez OWIN pour émettre des demandes de connexion et de déconnexion, gérer les sessions utilisateur, obtenir des informations utilisateur, et ainsi de suite.

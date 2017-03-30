@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
-ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 23f4813b3ba587784f5b31cfa633cdf27373843d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -89,9 +90,8 @@ Les fonctionnalités non prises en charge actuellement sont les suivantes. Si vo
 | Calcul |Disques de machine virtuelle non associés. |
 | Calcul |Images de machine virtuelle. |
 | Réseau |Listes de contrôle d’accès de points de terminaison. |
-| Réseau |Passerelles de réseau virtuel (passerelles Azure ExpressRoute, passerelle d’application). |
+| Réseau |Passerelles ExpressRoute, passerelles Application Gateway (les passerelles VPN sont prises en charge). |
 | Réseau |Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). (Migrer de réseau virtuel vers ARM, puis l’homologue) En savoir plus sur [l’homologation de réseaux virtuels (VNet Peering)](../virtual-network/virtual-network-peering-overview.md). |
-| Réseau |Profils Traffic Manager. |
 
 ### <a name="unsupported-configurations"></a>Configurations non prises en charge
 Les configurations non prises en charge actuellement sont les suivantes.
@@ -110,6 +110,8 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | Azure HDInsight |Réseaux virtuels contenant des services HDInsight |Non pris en charge actuellement. |
 | Services de cycle de vie Microsoft Dynamics |Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services |Non pris en charge actuellement. |
 | Services de domaine Azure AD |Réseaux virtuels contenant des services de domaine Azure AD |Non pris en charge actuellement. |
+| Azure RemoteApp |Réseaux virtuels contenant des déploiements Azure RemoteApp |Non pris en charge actuellement. |
+| Gestion des API Azure |Réseaux virtuels contenant des déploiements Gestion des API Azure |Non pris en charge actuellement. Pour migrer le réseau virtuel IaaS, modifiez le réseau virtuel du déploiement Gestion des API. Il s’agit d’une opération sans temps d’arrêt. |
 | Calcul |Extensions Azure Security Center avec un réseau virtuel disposant d’une passerelle VPN dans une connectivité en transit ou d’une passerelle ExpressRoute avec serveur DNS local |Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. La migration de la passerelle ExpressRoute n’est pas prise en charge actuellement et les passerelles VPN avec connectivité de transit perdent l’accès local. Si vous supprimez la passerelle ExpressRoute ou migrez la passerelle VPN avec connectivité de transit, l’accès à internet au compte de stockage de la machine virtuelle est perdu lors de la validation de la migration. La migration ne se produit pas dans ce cas, car l’objet blob d’état de l’agent invité ne peut pas être rempli. Il est recommandé de désactiver la stratégie d’Azure Security Center de l’abonnement 3 heures avant de procéder à la migration. |
 
 ## <a name="the-migration-experience"></a>Expérience de migration
@@ -150,7 +152,16 @@ Vous sélectionnez le réseau virtuel ou le service hébergé (s’il ne s’agi
 
 La plateforme Azure démarre ensuite la migration des métadonnées du déploiement Classic vers Resource Manager pour les ressources faisant l’objet de la migration.
 
-Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources tant dans le déploiement Classic quand dans le déploiement Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-migrated`.
+Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources tant dans le déploiement Classic quand dans le déploiement Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
+
+> [!NOTE]
+> Il n’est pas possible de sélectionner le nom du groupe de ressources créé pour les ressources migrées (par exemple, « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement Azure Resource Manager pour déplacer des ressources vers n’importe quel groupe de ressources. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../resource-group-move-resources.md)
+
+Voici deux captures d’écran qui illustrent le résultat après une opération de préparation réussie. La première capture montre un groupe de ressources qui contient le service cloud d’origine. La deuxième capture montre le nouveau groupe de ressources « -Migré » qui contient les ressources Azure Resource Manager équivalentes.
+
+![Capture d’écran illustrant le portail de service cloud classique](./media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+
+![Capture d’écran qui affiche les ressources du portail ARM lors d’une opération de préparation](./media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Lors de cette phase de migration, les machines virtuelles qui ne font pas partie d’un réseau virtuel Classic sont arrêtées et désallouées.
@@ -183,6 +194,11 @@ Après avoir terminé la validation, vous pouvez valider la migration. Les resso
 > Il s’agit d’une opération idempotente. En cas d’échec, il est recommandé de retenter l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 >
 >
+<br>
+Voici un diagramme de flux des étapes lors d’un processus de migration
+
+![Capture d’écran illustrant les étapes de la migration](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
 **Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ?**
@@ -237,9 +253,9 @@ Publiez vos problèmes et questions concernant la migration sur notre [forum con
 
 Les noms de toutes les ressources que vous avez explicitement fournis dans le modèle de déploiement sont conservés pendant la migration. Dans certains cas, de nouvelles ressources seront créées. Par exemple, une interface réseau est créée pour chaque machine virtuelle. Actuellement, nous ne prenons pas en charge la possibilité de contrôler les noms de ces ressources créées pendant la migration. Vous pouvez voter en facteur de cette fonctionnalité via le [forum des commentaires sur Azure](http://feedback.azure.com).
 
-**J’ai reçu un message *« La machine virtuelle signale que l’agent est dans l’état général Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état général de l’agent signalé par l’agent de machine virtuelle est « Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas signalé par la machine virtuelle. Par conséquent, cette machine virtuelle ne peut pas être migrée. »***
+**J’ai reçu un message*« La machine virtuelle signale que l’agent est dans l’état général Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état général de l’agent signalé par l’agent de machine virtuelle est « Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas signalé par la machine virtuelle. Par conséquent, cette machine virtuelle ne peut pas être migrée. »***
 
-Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les&5; minutes.
+Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les 5 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous savez en quoi consiste la migration des ressources IaaS Classic vers Resource Manager, vous pouvez commencer à effectuer la migration des ressources.
@@ -249,9 +265,4 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 * [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Passer en revue les erreurs courantes de migration](virtual-machines-migration-errors.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

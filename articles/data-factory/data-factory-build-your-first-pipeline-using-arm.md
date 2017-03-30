@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 1820b25f1cf426d0a81588a00dc5f26073ebb9f8
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 38e8320c09c5aa870018081a29911611f09a3e3a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 1820b25f1cf426d0a81588a00dc5f26073ebb9f8
 Dans cet article, vous utilisez un modèle Azure Resource Manager pour créer votre première fabrique de données Azure. Pour suivre le didacticiel avec d’autres outils/Kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante.
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Didacticiel : Copier des données de Blob Storage vers une base de données SQL).
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
 
@@ -390,15 +391,15 @@ Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette sect
     "type": "linkedservices",
     "name": "[variables('azureStorageLinkedServiceName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]"
+          "[variables('dataFactoryName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureStorage",
-        "description": "Azure Storage linked service",
-        "typeProperties": {
+          "type": "AzureStorage",
+          "description": "Azure Storage linked service",
+          "typeProperties": {
             "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-        }
+          }
     }
 }
 ```
@@ -412,18 +413,18 @@ Consultez l’article [Services liés de calcul](data-factory-compute-linked-ser
     "type": "linkedservices",
     "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]"
+          "[variables('dataFactoryName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
+          "type": "HDInsightOnDemand",
+          "typeProperties": {
             "clusterSize": 1,
             "version": "3.2",
             "timeToLive": "00:05:00",
             "osType": "windows",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-        }
+          }
     }
 }
 ```
@@ -438,64 +439,64 @@ Notez les points suivants :
 Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 
 #### <a name="azure-blob-input-dataset"></a>Jeu de données d'entrée d'objet Blob Azure
-Vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure. 
+Vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure. 
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('blobInputDatasetName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-        "typeProperties": {
+          "type": "AzureBlob",
+          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+          "typeProperties": {
             "fileName": "[parameters('inputBlobName')]",
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
             "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
             }
-        },
-        "availability": {
+          },
+          "availability": {
             "frequency": "Month",
             "interval": 1
-        },
-        "external": true
+          },
+          "external": true
     }
 }
 ```
 Cette définition utilise les paramètres suivants, définis dans le modèle de paramètre : blobContainer, inputBlobFolder et inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
-Vous spécifiez les noms du conteneur d’objets blob et du dossier contenant les données de sortie. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.  
+Vous spécifiez les noms du conteneur d’objets blob et du dossier contenant les données de sortie. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.  
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('blobOutputDatasetName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-        "typeProperties": {
+          "type": "AzureBlob",
+          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+          "typeProperties": {
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
             "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
             }
-        },
-        "availability": {
+          },
+          "availability": {
             "frequency": "Month",
             "interval": 1
-        }
+          }
     }
 }
 ```
@@ -510,51 +511,51 @@ Vous définissez un pipeline qui transforment les données en exécutant le scri
     "type": "datapipelines",
     "name": "[variables('pipelineName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]",
-        "[variables('hdInsightOnDemandLinkedServiceName')]",
-        "[variables('blobInputDatasetName')]",
-        "[variables('blobOutputDatasetName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]",
+          "[variables('hdInsightOnDemandLinkedServiceName')]",
+          "[variables('blobInputDatasetName')]",
+          "[variables('blobOutputDatasetName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "description": "Pipeline that transforms data using Hive script.",
-        "activities": [
+          "description": "Pipeline that transforms data using Hive script.",
+          "activities": [
         {
-            "type": "HDInsightHive",
-            "typeProperties": {
+              "type": "HDInsightHive",
+              "typeProperties": {
                 "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
                 "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
                 "defines": {
-                    "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-                    "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                      "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                      "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
                 }
-            },
-            "inputs": [
+              },
+              "inputs": [
             {
-                "name": "[variables('blobInputDatasetName')]"
+                  "name": "[variables('blobInputDatasetName')]"
             }
-            ],
-            "outputs": [
+              ],
+              "outputs": [
             {
-                "name": "[variables('blobOutputDatasetName')]"
+                  "name": "[variables('blobOutputDatasetName')]"
             }
-            ],
-            "policy": {
+              ],
+              "policy": {
                 "concurrency": 1,
                 "retry": 3
-            },
-            "scheduler": {
+              },
+              "scheduler": {
                 "frequency": "Month",
                 "interval": 1
-            },
-            "name": "RunSampleHiveActivity",
-            "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
+              },
+              "name": "RunSampleHiveActivity",
+              "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
-        ],
-        "start": "2016-10-01T00:00:00Z",
-        "end": "2016-10-02T00:00:00Z",
-        "isPaused": false
+          ],
+          "start": "2016-10-01T00:00:00Z",
+          "end": "2016-10-02T00:00:00Z",
+          "isPaused": false
     }
 }
 ```
@@ -619,10 +620,5 @@ Ce modèle crée une fabrique de données nommée GatewayUsingArmDF avec une pas
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

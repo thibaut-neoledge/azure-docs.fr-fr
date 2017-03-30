@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Étape 1 : création d’un référentiel local
+## <a name="Step1"></a>Étape 1 : création d’un référentiel local
 Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 
 1. Lancez un outil de ligne de commande, comme **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal** .
@@ -46,7 +46,7 @@ Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Étape 2 : validation de votre contenu
+## <a name="Step2"></a>Étape 2 : validation de votre contenu
 App Service prend en charge des applications créées dans différents langages de programmation. 
 
 1. Si votre référentiel inclut déjà du contenu, ignorez ce point et passez au point 2 ci-dessous. Si votre référentiel n'inclut pas encore de contenu, remplissez-le simplement avec un fichier .html statique comme suit : 
@@ -60,7 +60,7 @@ App Service prend en charge des applications créées dans différents langages 
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Étape 3 : activation du référentiel de l’application App Service
+## <a name="Step3"></a>Étape 3 : activation du référentiel de l’application App Service
 Pour activer un référentiel Git pour votre application App Service, procédez comme suit.
 
 1. Connectez-vous au [portail Azure].
@@ -71,7 +71,7 @@ Pour activer un référentiel Git pour votre application App Service, procéde
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Étape 4 : déploiement de votre projet
+## <a name="Step4"></a>Étape 4 : déploiement de votre projet
 Pour publier votre application vers App Service à l’aide de Git local, procédez comme suit :
 
 1. Dans le portail Azure, dans le panneau de votre application, cliquez sur **Paramètres > Propriétés** pour l’**URL Git**.
@@ -97,7 +97,7 @@ Pour publier votre application vers App Service à l’aide de Git local, procé
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. Cliquez sur le bouton **Parcourir** en haut du panneau de l'application pour vérifier que le contenu a été déployé. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Résolution des problèmes
+## <a name="Step5"></a>Résolution des problèmes
 Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisation de Git pour publier vers une application App Service dans Azure :
 
 - - -
@@ -133,6 +133,15 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
     git push azure master
 
 - - -
+**Symptôme** : échec RPC ; résultat=22, Code HTTP = 502.
+
+**Cause** : cette erreur peut se produire si vous essayez de transmettre un dépôt Git volumineux via HTTPS.
+
+**Résolution** : modifiez la configuration git sur l’ordinateur local pour agrandir le postBuffer.
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Symptôme**: erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n’a pas été mise à jour.
 
 **Cause**: Cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
@@ -140,7 +149,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 **Résolution**: Des messages supplémentaires contenant « npm ERR! » doivent être consignés avant cette erreur et peuvent fournir davantage de contexte sur la défaillance. Voici les causes connues de cette erreur et le message « npm ERR! » correspondant :
 
 * **Fichier package.json incorrect**: npm ERR! Couldn’t read dependencies.
-* **Native module that does not have a binary distribution for Windows**:
+* **Un module natif qui n’a pas de distribution binaire pour Windows**:
   
   * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
     
@@ -152,7 +161,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 * [Documentation du projet Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Déploiement continu vers Azure App Service](app-service-continuous-deployment.md)
 * [Comment utiliser PowerShell pour Azure](/powershell/azureps-cmdlets-docs)
-* [Utilisation des outils en ligne de commande Azure](../xplat-cli-install.md)
+* [Utilisation des outils en ligne de commande Azure](../cli-install-nodejs.md)
 
 [Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +97,7 @@ Incluez un texte de demande semblable à l’exemple suivant :
     "displayName":"West US only policy assignment on the subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
-      "listOfAllowedLocations": { "value": ["West US", "West US 2"] }
+      "allowedLocations": { "value": ["northeurope", "westus"] }
      },
     "policyDefinitionId":"/subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}",
       "scope":"/subscriptions/{subscription-id}"
@@ -146,17 +146,26 @@ L'exemple suivant montre une définition d’alias : Comme vous pouvez le voir, 
 Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`. L’exemple suivant crée une définition de stratégie qui permet d’autoriser uniquement les ressources en Europe du Nord et en Europe de l’Ouest.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'
+$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
+   "if": {
+     "not": {
+       "field": "location",
+       "in": "[parameters(''allowedLocations'')]"
+     }
+   },
+   "then": {
+     "effect": "deny"
+   }
+ }' -Parameter '{
+     "allowedLocations": {
+       "type": "array",
+       "metadata": {
+         "description": "An array of permitted locations for resources.",
+         "strongType": "location",
+         "displayName": "List of locations"
+       }
+     }
+ }'
 ```            
 
 Le résultat est stocké dans un objet `$policy` utilisé lors de l’attribution de la stratégie. 
@@ -172,18 +181,32 @@ $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description 
 Appliquez la stratégie à l’étendue souhaitée à l’aide de l’applet de commande `New-AzureRmPolicyAssignment` :
 
 ```powershell
-New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$array = @("West US", "West US 2")
+$param = @{"allowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policy-assignment"></a>Afficher l’attribution de stratégie
+### <a name="view-policies"></a>Afficher les stratégies
 
-Pour obtenir une stratégie, utilisez l’applet de commande suivante :
+Pour obtenir toutes les attributions de stratégies, utilisez :
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}").Properties.policyRule | ConvertTo-Json
+Get-AzureRmPolicyAssignment
 ```
 
-Elle retourne le code JSON pour la définition de stratégie.
+Pour obtenir une stratégie spécifique, utilisez :
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+```
+
+Pour afficher la règle de stratégie pour une définition de stratégie, utilisez :
+
+```powershell
+(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+```
 
 ### <a name="remove-policy-assignment"></a>Supprimer l’attribution de stratégie 
 

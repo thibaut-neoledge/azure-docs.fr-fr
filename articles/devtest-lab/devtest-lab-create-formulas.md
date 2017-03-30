@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c18b0eefb2d8bb43416e15c5b91cf10827f90089
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 4f9f86c2cc106aa96f27293a43cd784e2fb6fe76
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -68,7 +68,7 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
     * **Paramètres avancés** - Sélectionnez cette option pour ouvrir le panneau **Avancé** dans lequel vous configurez les paramètres suivants :
         * **Réseau virtuel** - Spécifiez le réseau virtuel souhaité.
         * **Sous-réseau** - Spécifiez le sous-réseau souhaité.    
-        * **Configuration de l’adresse IP** - Spécifiez si vous souhaitez que les adresses IP soient partagées, privées ou publiques. Pour plus d’informations sur les adresses IP partagées, consultez Understand shared IP addresses in Azure DevTest Labs (Comprendre les adresses IP partagées dans Azure DevTest Labs).
+        * **Configuration de l’adresse IP** - Spécifiez si vous souhaitez que les adresses IP soient partagées, privées ou publiques. Pour plus d’informations sur les adresses IP partagées, consultez [Comprendre les adresses IP partagées dans Azure DevTest Labs](./devtest-lab-shared-ip.md).
         * **Make this machine claimable** (Rendre cette machine exigible) - Lorsqu’une machine est « exigible », cela signifie qu’aucune propriété ne lui sera affectée au moment de la création. En revanche, les utilisateurs du laboratoire seront en mesure de prendre possession de la machine (de la « revendiquer ») dans le panneau du laboratoire.     
     * **Image** : ce champ affiche le nom de l'image de base que vous avez sélectionnée dans le panneau précédent. 
      

@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -219,6 +219,27 @@ Maintenant que j’ai votre attention, vous pensez sans doute qu’il vous faut 
 Pour réaliser l’un de ces scénarios d’apprentissage, nous pouvons utiliser [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) pour ingérer les informations de différentes sources et utiliser [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) pour traiter les informations et générer une sortie qui peut être traitée par Azure Machine Learning.
 
 Une autre possibilité consiste à utiliser [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) pour analyser le contenu de nos utilisateurs ; non seulement nous les comprenons mieux (en analysant ce qu’ils écrivent avec l’[API d’analyse de texte](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), mais nous pouvons également détecter le contenu indésirable ou réservé aux adultes et agir en conséquence avec l’[API Vision par ordinateur](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services inclut un grand nombre de solutions prêtes à l’emploi ne nécessitant aucune connaissance Machine Learning.
+
+## <a name="a-planet-scale-social-experience"></a>Une expérience sociale à l’échelle de la planète
+Il existe un dernier sujet tout aussi important à traiter : **l’évolutivité**. Lors de la conception d’une architecture, il est essentiel que chaque composant puisse évoluer de manière autonome, soit parce que nous devons traiter plus de données ou que nous voulons une plus grande couverture géographique (voire les deux). Heureusement, DocumentDB offre une **solution clé en main** pour gérer une tâche aussi complexe.
+
+DocumentDB prend en charge nativement le [partitionnement dynamique](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) en créant automatiquement des partitions basées sur une **clé de partition** donnée (définie comme un des attributs dans vos documents). La définition de la clé de partition correcte doit être effectuée au moment de la conception et en tenant compte des [meilleures pratiques](documentdb-partition-data.md#designing-for-partitioning) disponibles ; dans le cas d’une expérience sociale, votre stratégie de partitionnement doit être alignée avec la manière dont vous interrogez (des lectures dans la même partition sont souhaitables) et écrivez (évitez les « zones réactives » en répartissant les écritures sur plusieurs partitions). Options disponibles : partitions basées sur une clé temporaire (jour/mois/semaine), par catégorie de contenu, par région géographique, par utilisateur ; tout cela dépend de la façon dont vous allez interroger les données et les présenter dans votre expérience sociale. 
+
+Il est intéressant de noter que DocumentDB exécutera vos requêtes (y compris les [agrégats](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) de façon transparente sur toutes vos partitions, et vous n’avez pas besoin ajouter une logique à mesure que vos données augmentent.
+
+Avec le temps, le trafic et la consommation des ressources augmenteront (mesurés en unité de requête ou [RU](documentdb-request-units.md)). Vous lirez et écrirez plus fréquemment à mesure que votre base d’utilisateurs se développe et ces utilisateurs créeront et liront plus de contenus ; la possibilité de **mise à l’échelle de votre débit** est donc indispensable. Augmenter vos RU est très facile : nous pouvons le faire en quelques clics sur le portail Azure ou en [émettant des commandes via l’API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+
+![Mise à l’échelle et définition d’une clé de partition](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
+
+Imaginez que les choses continuent de s’améliorer et que des utilisateurs d’une autre région, d’un autre pays ou d’un autre continent découvrent votre plateforme et l’utilisent ? Quelle bonne surprise !
+
+Mais vous constatez rapidement que leur expérience avec votre plate-forme n’est pas optimale car ils sont si éloignés de votre région opérationnelle que la latence est catastrophique et risquerait de les dissuader d’utiliser votre plate-forme. Mais il existe un moyen facile de **développer votre visibilité globale** !
+
+DocumentDB vous permet de [répliquer vos données globalement](documentdb-portal-global-replication.md) et en toute transparence en quelques clics, et de choisir automatiquement parmi les régions disponibles à partir de votre [code client](documentdb-developing-with-multiple-regions.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](documentdb-regional-failovers.md). 
+
+Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un serveur web frontal ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service sur toutes les régions de votre choix en utilisant une [configuration des performances](../app-service-web/web-sites-traffic-manager.md) pour prendre en charge votre couverture étendue globale. Lorsque vos clients accèdent à votre serveur frontal ou API, ils seront redirigés vers l’instance App Service la plus proche, qui à son tour, se connecte au réplica DocumentDB local.
+
+![Ajout d’une couverture globale à votre plate-forme sociale](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusion
 Cet article tente de vous éclairer sur les alternatives de création de réseaux sociaux sur Azure avec des services à faible coût et offrant de bons résultats, avec l’utilisation d’une solution de stockage à plusieurs niveaux et une distribution des données appelée « Échelle ».

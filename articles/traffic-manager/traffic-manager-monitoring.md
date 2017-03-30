@@ -1,5 +1,5 @@
 ---
-title: Surveillance et basculement des points de terminaison Traffic Manager | Microsoft Docs
+title: "Surveillance des points de terminaison Azure Traffic Manager | Microsoft Docs"
 description: "Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité"
 services: traffic-manager
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 4df9f744c7dde9224157eca1f869c0c420036d76
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: cec4f541ebac6202a3880ec7338a9f0a0ac645b5
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="traffic-manager-endpoint-monitoring-and-failover"></a>Surveillance et basculement des points de terminaison Traffic Manager
+# <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
 Azure Traffic Manager inclut la surveillance intégrée des points de terminaison et leur basculement automatique. Cette fonctionnalité vous aide à fournir des applications haute disponibilité résistantes aux défaillances des points de terminaison, notamment les défaillances des régions Azure.
 
@@ -131,71 +132,7 @@ Pour plus d’informations, consultez la rubrique relative aux [méthodes de rou
 
 Pour plus d’informations sur le dépannage des contrôles d’intégrité, consultez la section [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## <a name="faq"></a>Forum Aux Questions
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Traffic Manager est-il résistant aux défaillances des régions Azure ?
-
-Traffic Manager est un composant clé de la distribution d’applications hautement disponibles dans Azure.
-Pour garantir une haute disponibilité, Traffic Manager doit avoir un niveau très élevé de disponibilité et être résistant aux défaillances régionales.
-
-Par défaut, les composants de Traffic Manager sont résistants à une panne complète de n’importe quelle région Azure. Cette tolérance s’applique à tous les composants de Traffic Manager : les serveurs de noms DNS, l’API, la couche de stockage et le service de surveillance des points de terminaison.
-
-Dans l’éventualité peu probable d’une panne d’une région Azure entière, Traffic Manager est conçu pour continuer à fonctionner normalement. Les applications déployées dans plusieurs régions Azure peuvent se baser sur Traffic Manager pour diriger le trafic vers une instance disponible de leur application.
-
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>En quoi le choix de l’emplacement du groupe de ressources affecte-t-il Traffic Manager ?
-
-Traffic Manager est un service global unique. Il n’est pas régional. Le choix de l’emplacement du groupe de ressources na aucune influence sur les profils Traffic Manager déployés dans ce groupe de ressources.
-
-Azure Resource Manager exige que tous les groupes de ressources spécifient un emplacement, qui détermine l’emplacement par défaut des ressources déployées dans ce groupe de ressources. Lorsque vous créez un profil Traffic Manager, il est créé dans un groupe de ressources. Tous les profils Traffic Manager utilisent la valeur **global** comme emplacement, à la place de la valeur par défaut du groupe de ressources.
-
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?
-
-L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) et [l’interface de ligne de commande Azure multiplateforme](../xplat-cli-install.md) de Traffic Monitor.
-
-Azure ne fournit pas d’historique de l’état d’intégrité du point de terminaison ni de la capacité à déclencher des alertes en cas de modification du niveau d’intégrité du point de terminaison.
-
-### <a name="can-i-monitor-https-endpoints"></a>Puis-je surveiller les points de terminaison HTTPS ?
-
-Oui. Traffic Manager prend en charge la détection sur HTTPS. Configurez **HTTPS** comme protocole dans la configuration de la surveillance.
-
-Traffic manager ne peut pas fournir de validation de certificat :
-
-* Les certificats côté serveur ne sont pas validés.
-* Les certificats SNI côté serveur ne sont pas pris en charge.
-* Les certificats clients ne sont pas pris en charge.
-
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
-
-Traffic Manager utilise des en-têtes d’hôte pour les contrôles d’intégrité HTTP et HTTPS. L’en-tête d’hôte utilisé par Traffic Manager est le nom du point de terminaison cible configuré dans le profil. La valeur utilisée dans l’en-tête hôte ne peut pas être spécifiée séparément de la propriété cible.
-
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?
-
-La liste suivante contient les adresses IP à partir desquelles peuvent provenir les contrôles de Traffic Manager. Vous pouvez utiliser cette liste pour vérifier que les connexions entrantes à partir de ces adresses IP sont autorisées aux points de terminaison pour vérifier leur état d’intégrité.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -206,9 +143,4 @@ En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-
 En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-manage-profiles.md)
 
 [Résolution des problèmes liés à l’état Détérioré](traffic-manager-troubleshooting-degraded.md) sur un point de terminaison Traffic Manager
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

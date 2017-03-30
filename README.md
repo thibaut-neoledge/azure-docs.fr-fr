@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Code de conduite de Microsoft Open Source
+
+Ce projet a adopté le [Code de conduite open source de Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Pour plus d’informations, consultez la [FAQ sur le code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou envoyez vos questions ou vos commentaires à [opencode@microsoft.com](mailto:opencode@microsoft.com).
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Guide du contributeur à la documentation technique Azure
 Vous avez trouvé le dépôt GitHub qui héberge la source de la documentation technique publiée dans le Centre de documentation Azure, à l’adresse [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@ Pour envoyer des mises à jour de la [documentation Azure](https://docs.microsof
 
 * Vous pouvez facilement contribuer aux articles techniques dans l’interface utilisateur de GitHub. Recherchez l’article dans ce dépôt, ou consultez l’article à l’adresse [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) et cliquez sur le lien dans l’article qui mène à la source GitHub de l’article.
 * Si vous apportez des modifications substantielles à un article existant, si vous ajoutez ou modifiez des images ou si vous ajoutez un nouvel article, vous devez forker ce dépôt, installer GitBash et MarkdownPad, puis apprendre à utiliser certaines commandes git.
-
-## <a name="code-of-conduct"></a>Code de conduite
-Ce projet a adopté le [Code de conduite open source de Microsoft](https://opensource.microsoft.com/codeofconduct/). Pour plus d’informations, consultez la [FAQ sur le code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou envoyez vos questions ou vos commentaires à [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
 ## <a name="about-your-contributions-to-azure-content"></a>À propos de vos contributions au contenu Azure
 ### <a name="minor-corrections"></a>Corrections mineures
@@ -83,9 +85,4 @@ Les étiquettes automatisées sont affectées à des demandes de tirage pour nou
 
 ## <a name="more-resources"></a>Autres ressources
 Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du contributeur](contributor-guide/contributor-guide-index.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a58f328795f85e5392d1bd4c305aabb48b65798c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,10 +29,10 @@ ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
 > 
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Demander une authentification pour l'accès aux contrôleurs
-Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize** . Cet attribut permet de demander à l'utilisateur de s'authentifier avant d'accéder à ces contrôleurs. Pour autoriser un accès anonyme au contrôleur, cet attribut doit être supprimé du contrôleur. Pour définir plus précisément les autorisations, appliquez cet attribut à chaque méthode nécessitant une autorisation, au lieu de l’appliquer à la classe de contrôleur.
+Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize** . Cet attribut permet de demander à l’utilisateur de s’authentifier avant d’accéder à ces contrôleurs. Pour autoriser un accès anonyme au contrôleur, cet attribut doit être supprimé du contrôleur. Pour définir plus précisément les autorisations, appliquez cet attribut à chaque méthode nécessitant une autorisation, au lieu de l’appliquer à la classe de contrôleur.
 
 ## <a name="adding-signin--signout-controls"></a>Ajouter des contrôles SignIn/SignOut
-Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml**. Voici un exemple d’ajout de la fonctionnalité à la vue **Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
+Pour ajouter les contrôles SignIn/SignOut à votre vue, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml**. Voici un exemple d’ajout de la fonctionnalité à la vue **Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
 
 <pre>
     &lt;!DOCTYPE html&gt; 
@@ -71,11 +72,7 @@ Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez u
     &lt;/html&gt;
 </pre>
 
-[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>Étapes suivantes
+- [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Créer une image de machine virtuelle à partir d’une machine virtuelle Azure | Microsoft Docs"
-description: "Apprenez à créer une image de machine virtuelle généralisée à partir d’une machine virtuelle Azure existante créée dans le modèle de déploiement Resource Manager"
+title: "Téléchargement du modèle d’une machine virtuelle Azure | Microsoft Docs"
+description: "Téléchargez un modèle de machine virtuelle pour faciliter l’automatisation de déploiements dans le modèle de déploiement Resource Manager"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
-ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 63d9d9ea257ece3af710e25dcf7cfa3c6e2fb8d5
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -50,10 +51,5 @@ Vous pouvez également télécharger le fichier de modèle .json à l’aide de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le déploiement des ressources à l’aide de modèles, consultez la page [Procédure pas à pas du modèle Resource Manager](../resource-manager-template-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

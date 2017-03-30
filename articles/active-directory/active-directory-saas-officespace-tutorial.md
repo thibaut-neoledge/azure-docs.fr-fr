@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pour configurer l’intégration d’OfficeSpace Software à Azure AD, vous deve
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Puis à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Applications][2]
     
@@ -108,7 +108,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, sous **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_01.png)
 
@@ -148,43 +148,31 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Cliquez sur **OK**.
 
-6. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Puis cliquez sur le bouton **Enregistrer**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. Dans la section **Certificat de signature SAML**, sélectionnez **Activer le nouveau certificat** et cliquez sur **Enregistrer**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. Dans la fenêtre contextuelle **Certificat de substitution**, cliquez sur **OK**.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+6. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. Dans **Configuration de OfficeSpace Software**, cliquez sur **Configurer OfficeSpace Software** pour ouvrir la fenêtre **Configurer l’authentification**.
+7. Cliquez sur **Save**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. Dans **Configuration de OfficeSpace Software**, cliquez sur **Configurer OfficeSpace Software** pour ouvrir la fenêtre **Configurer l’authentification**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire OfficeSpace Software en tant qu’administrateur.
+9. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire OfficeSpace Software en tant qu’administrateur.
 
-13. Accédez à **Paramètres** et cliquez sur **Connecteurs**.
+10. Accédez à **Paramètres** et cliquez sur **Connecteurs**.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Cliquez sur **SAML Authorization**.
+11. Cliquez sur **Authentication SAML**.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. Dans la section **SAML Authentication** , procédez comme suit :
+12. Dans la section **SAML Authentication** , procédez comme suit :
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
@@ -201,7 +189,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail de gestion Azure.
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le Portail de gestion Azure.
 
 ![Créer un utilisateur Azure AD][100]
 
@@ -219,13 +207,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom**, tapez **BrittaSimon**.
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse de messagerie** de Britta Simon.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
@@ -263,7 +251,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 

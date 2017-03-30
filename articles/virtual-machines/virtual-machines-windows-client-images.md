@@ -1,6 +1,6 @@
 ---
 title: "Utilisation d’images de client Windows dans Azure | Microsoft Docs"
-description: "Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7/8/10 dans Azure pour des scénarios de développement / de test"
+description: "Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement et/ou de test"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
-ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f0ca7996e52a9b295fff571a270c60520f58101e
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="using-windows-client-in-azure-for-devtest-scenarios"></a>Utilisation d’un client Windows dans Azure pour les scénarios de développement/test
+# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test
 Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement / de test à condition de disposer d'un abonnement Visual Studio (anciennement MSDN) approprié. Cet article décrit les conditions d’admissibilité pour les clients Windows en cours d’exécution dans Azure et l’utilisation des images de galerie Azure.
 
 ## <a name="subscription-eligibility"></a>Admissibilité à un abonnement
@@ -55,10 +56,5 @@ Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), de [modèles Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou de [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

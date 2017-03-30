@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b3979468d7fdb04a7efd33f35dcea173afe85b3a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 23dd4df078da0b93d1924442cf2e6b7542b12f9a
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-docker-host-with-powershell"></a>Créer un hôte Docker avec PowerShell
 
-Cet exemple de script crée une machine virtuelle, puis utilise l’extension de machine virtuelle Azure Docker pour configurer un hôte Docker. L’extension de machine virtuelle Docker crée ensuite un conteneur exécutant NGINX. Enfin, le script configure un groupe de sécurité réseau Azure pour tout le trafic entrant sur le port 80. Une fois que le script a été exécuté avec succès, il est possible d’accéder au serveur web NGINX par le biais du nom de domaine complet de la machine virtuelle Azure. 
+Ce script crée une machine virtuelle avec Docker activé et démarre un conteneur exécutant NGINX. Une fois que vous avez exécuté le script, vous pouvez accéder au serveur web NGINX par le biais du nom de domaine complet de la machine virtuelle Azure. 
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `Login-AzureRmAccount`. En outre, une clé publique SSH nommée `id_rsa.pub` doit être stockée dans le répertoire .ssh de votre profil utilisateur.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. En outre, vous devez disposer d’une clé publique SSH nommée `id_rsa.pub` dans le répertoire .ssh de votre profil utilisateur.
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -34,7 +34,7 @@ Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien é
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

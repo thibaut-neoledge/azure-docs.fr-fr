@@ -1,6 +1,6 @@
 ---
-title: "Installation d’un serveur cible maître Linux pour le basculement à partir d’Azure vers un site local | Microsoft Docs"
-description: "Avant de reprotéger une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Découvrez comment en installer."
+title: "Installation d’un serveur cible maître Linux pour le basculement à partir d’Azure vers un site local | Microsoft Docs"
+description: "Pour reprotéger une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Découvrez comment en installer."
 services: site-recovery
 documentationcenter: 
 author: ruturaj
@@ -15,37 +15,37 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: c4fb25880584add0832464d9049dc6c78059c48b
-ms.openlocfilehash: 8ac18526e6781f189444233a191aa1d6c5b863ff
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="how-to-install-linux-master-target-server"></a>Installation d’un serveur cible maître Linux
-Une fois que vous avez basculé vos machines virtuelles, vous pouvez les restaurer automatiquement en local. Pour effectuer la restauration automatique, vous devez d’abord faire passer la machine virtuelle à l’état protégé en la reprotégeant à partir d’Azure vers un site local. Pour ce faire, vous avez besoin d’un serveur cible maître pour recevoir le trafic en local. Si votre machine virtuelle protégée est une machine virtuelle Windows, vous avez besoin d’un serveur cible maître Windows. Dans le cas d’une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux pour la reprotection. Lisez les étapes ci-dessous pour savoir comment créer et installer un serveur cible maître Linux.
+# <a name="how-to-install-a-linux-master-target-server"></a>Installation d’un serveur cible maître Linux
+Après avoir basculé une machine virtuelle, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’un serveur cible maître Windows. Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Pour savoir comment créer et installer un serveur cible maître Linux, lisez les étapes ci-dessous.
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article fournit des informations utiles et la procédure à suivre pour installer un serveur cible maître Linux.
+Cet article fournit des informations utiles et la marche à suivre pour installer un serveur cible maître Linux.
 
-Publiez des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-* Pour choisir correctement l’hôte sur lequel vous devez déployer le serveur cible maître, déterminez si la restauration automatique s’effectuera sur une machine virtuelle locale existante ou sur une nouvelle machine virtuelle (en raison de la suppression de la machine virtuelle locale). 
-    * Pour une machine virtuelle existante, l’hôte du serveur maître cible doit avoir accès aux magasins de données de la machine virtuelle.
-    * Si la machine virtuelle n’existe pas en local, la machine virtuelle de restauration automatique est créée sur le même hôte que le serveur cible maître. Vous pouvez choisir n’importe quel hôte ESXi pour installer le serveur cible maître.
-* Le serveur maître cible doit se trouver sur un réseau capable de communiquer avec le serveur de processus et le serveur de configuration.
-* La version du serveur maître cible doit être inférieure ou égale à celles du serveur de processus et du serveur de configuration. (par exemple, si la version du serveur de configuration est 9.4, celle du serveur maître cible peut être 9.4 et 9.3, mais pas 9.5)
-* Le serveur maître cible peut uniquement être une machine virtuelle VMware, et pas une machine virtuelle physique.
+* Pour choisir correctement l’hôte sur lequel vous devez déployer le serveur cible maître, déterminez si la restauration automatique s’effectuera sur une machine virtuelle locale existante ou sur une nouvelle machine virtuelle (après la suppression de la machine virtuelle locale).
+    * Dans le cas d’une machine virtuelle existante, l’hôte du serveur cible maître doit avoir accès aux magasins de données de celle-ci.
+    * Si la machine virtuelle locale n’existe pas, la machine virtuelle restaurée est créée sur le même hôte que le serveur cible maître. Vous pouvez choisir n’importe quel hôte ESXi pour installer le serveur cible maître.
+* Le serveur maître cible doit appartenir à un réseau capable de communiquer avec le serveur de processus et le serveur de configuration.
+* La version du serveur cible maître doit être inférieure ou égale à celle du serveur de processus et du serveur de configuration. Par exemple, si la version du serveur de configuration est 9.4, celle du serveur cible maître peut être 9.4 ou 9.3 mais pas 9.5.
+* Le serveur cible maître ne peut être qu’une machine virtuelle VMware, et pas un serveur physique.
 
 
-## <a name="steps-to-deploy-the-master-target-server"></a>Procédure de déploiement du serveur cible maître
+## <a name="steps-to-deploy-the-master-target-server"></a>Procédure de déploiement du serveur maître cible
 
 ### <a name="install-centos-66-minimal"></a>Installer CentOS 6.6 Minimal
 
-Suivez les étapes indiquées ci-dessous pour installer le système d’exploitation CentOS 6.6 64 bits.
+Pour installer le système d’exploitation CentOS 6.6 64 bits, procédez comme suit :
 
-1. Parmi les liens suivants, choisissez le serveur miroir le plus proche afin de télécharger un fichier ISO contenant CentOS 6.6 Minimal 64 bits.
+1. Parmi les liens suivants, choisissez le serveur miroir le plus proche afin de télécharger un fichier ISO de CentOS 6.6 Minimal 64 bits.
 
     <http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
@@ -55,140 +55,128 @@ Suivez les étapes indiquées ci-dessous pour installer le système d’exploita
 
     <http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-    Conservez le fichier ISO CentOS 6.6 Minimal 64 bits dans le lecteur DVD et démarrez le système.
+    Placez le fichier ISO de CentOS 6.6 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+    ![Boîte de dialogue Welcome (Bienvenue) de CentoOS 6.6](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
 
-2. Sélectionnez **Skip** (Ignorer) pour ignorer le processus de test de support.
+2. Cliquez sur **Skip** (Ignorer) pour ignorer le processus de test du support.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+    ![Cliquer sur Skip (Ignorer) pour ignorer le processus de test du support](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
 
-3. Vous pouvez maintenant voir l’écran d’accueil de l’installation. Ici, cliquez sur le bouton **Next** (Suivant).
+3. Dans l’écran d’accueil, cliquez sur le bouton **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+    ![Bouton Next (Suivant) dans l’écran de bienvenue de l’installation](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
 
-4. Sélectionnez **French (Français)** comme langue par défaut, puis cliquez sur **Next** (Suivant) pour continuer.
+4. Sélectionnez **French** (Français) comme langue par défaut, puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+    ![Sélectionner une langue](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
 
-5. Sélectionnez **French** (Français) comme disposition de clavier. Cliquez sur **Next** (Suivant) pour continuer l'installation.
+5. Sélectionnez **French** (Français) comme disposition de clavier, puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+    ![Sélectionner la disposition de clavier française](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
 
-6. Sélectionnez le type de périphériques où l’installation sera effectuée. Sélectionnez **Basic storage Devices** (Périphériques de stockage de base). Cliquez sur **Next** (Suivant) pour continuer l'installation.
+6. Sélectionnez **Basic Storage Devices** (Appareils de stockage de base), puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+    ![Sélectionner un appareil de stockage](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
 
-7. Un message d’avertissement s’affiche, indiquant que les données existantes sur le disque dur seront supprimées. Assurez-vous que le disque dur ne contient pas de données importantes puis cliquez sur **Yes, discard any data** (Oui, supprimer le données).
+7. Un message d’avertissement indique que les données existant sur le disque dur vont être supprimées. Vérifiez que le disque dur ne contient pas de données importantes, puis cliquez sur **Yes, discard any data** (Oui, rejeter les données).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+    ![Avertissement concernant la suppression des données si vous continuez](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
 
-8. Entrez le nom d’hôte de votre serveur dans la **zone de texte Hostname** (Nom d’hôte). Cliquez sur **Configure Network** (Configurer le réseau), puis dans la fenêtre **Network Connection** (Connexion réseau), sélectionnez votre interface réseau. Cliquez sur le bouton **Edit** (Modifier) pour configurer les paramètres IPV4.
+8. Entrez le nom d’hôte de votre serveur dans la zone **Hostname** (Nom d’hôte), puis cliquez sur **Configure Network** (Configurer le réseau). Dans la boîte de dialogue **Network Connection** (Connexion réseau), sélectionnez l’interface réseau, puis cliquez sur le bouton **Edit** (Modifier) pour configurer les paramètres IPV4.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+    ![Sélectionner un nom d’hôte et configurer IPV4](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
-9. La fenêtre **Editing System eth0** (Modification du système eth0) suivante s’affiche. Cochez la case **Connect automatically** (Se connecter automatiquement). Sous l’onglet « Paramètres IPv4 », choisissez la méthode **Manual** (Manuelle), puis cliquez sur le bouton **Add** (Ajouter). Spécifiez l’adresse IP statique, le masque réseau, la passerelle et le serveur DNS. Cliquez sur **Apply** (Appliquer) pour enregistrer les informations.
+9. Dans la boîte de dialogue **Editing System eth0** (Modifier le système eth0), activez la case à cocher **Connect automatically** (Se connecter automatiquement). Dans l’onglet **IPv4 Settings** (Paramètres IPv4), choisissez **Manual** (Manuel) dans **Method** (Méthode), puis cliquez sur le bouton **Add** (Ajouter). Renseignez les champs **Static IP** (Adresse IP statique), **Netmask** (Masque de réseau), **Gateway** (Passerelle) et **DNS Server** (Serveur DNS). Cliquez sur **Apply** (Appliquer) pour enregistrer les informations.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+    ![Paramètres de configuration du réseau](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
 
-10. Sélectionnez votre fuseau horaire dans la zone de liste modifiable, puis cliquez sur **Next** (Suivant) pour continuer.
+10. Sélectionnez votre fuseau horaire, puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+    ![Sélectionner un fuseau horaire](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
 
-11. Entrez le mot de passe racine (**Root password**), confirmez le mot de passe, puis cliquez sur **Next** (Suivant) pour continuer.
+11. Renseignez le champ **Root password** (Mot de passe racine), confirmez le mot de passe, puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+    ![Ajouter un mot de passe](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
 
-12. Sélectionnez **Create Custom Layout** (Créer une disposition personnalisée) comme mode de partition, puis cliquez sur **Next** (Suivant) pour continuer.
+12. Sélectionnez **Create Custom Layout** (Créer une mise en page personnalisée), puis cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+    ![Sélectionner un type d’installation](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
 
-13. Sélectionnez le type de partition **Free** (Libre), puis cliquez sur **Create** (Créer) pour créer des partitions **/**, **/var/crash** et **/home** avec **ext4** comme type de système de fichiers. Créez une **partition d’échange** avec **swap** comme type de système de fichiers. Pour allouer une taille de partition, suivez la formule d’allocation de taille, comme indiqué dans le tableau.
+13. Sélectionnez la partition **Free** (Libre), puis cliquez sur **Create** (Créer) pour créer les partitions **/**, **/var/crash** et **/home** avec le type de système de fichiers **ext4**. Créez une **Swap Partition** (Partition d’échange) avec **swap** (Échange) comme type de système de fichiers. Pour allouer une taille de partition, suivez la formule d’allocation de taille, indiquée dans le tableau.
 
     > [!NOTE]
-    > Le système cible maître Linux ne doit pas utiliser LVM pour les espaces de stockage racine ou de rétention. Le serveur maître cible Linux est configuré pour éviter la découverte des disques/partitions LVM par défaut.
+    > Le serveur cible maître Linux ne doit pas utiliser LVM (Logical Volume Manager) pour les espaces de stockage racine ou de rétention. Par défaut, le serveur cible maître Linux est configuré pour ne pas rechercher les disques/partitions LVM.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+    ![Tableau des noms de partition, des tailles de partition et des types de système de fichiers](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
 
-14. Une fois la partition créée, cliquez sur **Next** (Suivant) pour continuer.
+14. Après avoir créé la partition, cliquez sur **Next** (Suivant).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+    ![Boîte de dialogue affichant les valeurs sélectionnées pour les partitions](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
 
-15. Si des périphériques existants sont détectés, un message d’avertissement relatif au formatage apparaît. Cliquez sur **Format** (Formater) pour formater le lecteur avec la dernière table de partition.
+15. Si des appareils sont détectés, un message d’avertissement relatif au formatage apparaît. Cliquez sur **Format** (Formater) pour formater le disque dur avec la dernière table de partition.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+    ![Cliquer sur le bouton Format (Formater) pour formater le disque](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
 
-16. Cliquez sur **Write changes to disk** (Enregistrer les modifications sur le disque) pour appliquer les modifications de partition sur le disque.
+16. Cliquez sur **Write changes to disk** (Enregistrer les modifications sur le disque) pour appliquer les modifications de partition au disque.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
+    ![Cliquer sur Enregistrer les modifications sur le disque](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
 
 17. Cochez l’option **Install boot loader** (Installer le chargeur de démarrage), puis cliquez sur **Next** (Suivant) pour installer le chargeur de démarrage sur la partition racine.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
+    ![Installer le chargeur de démarrage sur la partition racine](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
 
 
-18. Le processus d’installation démarre. Vous pouvez suivre la progression de l’installation.
+18. Le processus d’installation démarre. Vous pouvez en surveiller l’état d’avancement.
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
+    ![Boîte de dialogue affichant l’état d’avancement de l’installation](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
 
-19. L’écran suivant apparaît à la fin de l’installation. Cliquez sur **Reboot** (Redémarrer)
+19. L’écran suivant apparaît à la fin de l’installation. Cliquez sur **Reboot** (Redémarrer).
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
-
-
-### <a name="post-installation-steps"></a>Procédure de post-installation
-Nous allons maintenant préparer la machine à configurer en tant que serveur cible maître.
-
-Pour obtenir l’ID SCSI de chacun des disques durs SCSI d’une machine virtuelle Linux, activez le paramètre disk.EnableUUID = TRUE.
-
-Pour activer ce paramètre, suivez la procédure ci-dessous :
-
-a. Arrêtez votre machine virtuelle.
-
-b. Cliquez avec le bouton droit sur l’entrée de machine virtuelle du panneau de gauche, puis sélectionnez **Modifier les paramètres.**
-
-c. Cliquez sur l’onglet **Options** .
-
-d. Sélectionnez l’élément **Avancé&gt;Général** sur la gauche, puis cliquez sur les **Paramètres de configuration** affichés sur la droite.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
-
-L’option Paramètres de configuration est inactive lorsque l’ordinateur est en cours d’exécution. Pour rendre cet onglet actif, arrêtez la machine.
-
-e. Vérifiez si une ligne comportant **disk.EnableUUID** existe.
-
-f. Si ce paramètre existe et qu’il présente la valeur FALSE, remplacez cette valeur par TRUE (les valeurs TRUE et FALSE ne sont pas sensibles à la casse).
-
-g. Si ce paramètre existe et qu’il présente la valeur TRUE, cliquez sur Cancel (Annuler).
-    
-h. Si ce paramètre n’existe pas, cliquez sur **Add Row** (Ajouter une ligne).
-
-i. Ajoutez disk.EnableUUID dans la colonne Name (Nom) et définissez sa valeur sur TRUE.
-
-   * Si cette valeur existe et qu’elle est définie sur False, remplacez ce paramétrage par True (ces éléments sont sensibles à la casse).
-
-   * Si cette valeur existe et qu’elle est définie sur true, cliquez sur Annuler et testez la commande SCSI du système d’exploitation invité après le démarrage.
-
-f. Si elle n’existe pas, cliquez sur **Ajouter des lignes.**
-
-  Dans la colonne Nom, ajoutez disk.EnableUUID.
-
-  Affectez-lui la valeur TRUE.
+    ![Écran d’installation réussie](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
 
 
+### <a name="post-installation-steps"></a>Étapes de post-installation
+Ensuite, préparez l’ordinateur à configurer comme serveur cible maître.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, activez le paramètre **disk.EnableUUID = TRUE**.
 
-#### <a name="download-and-install-the-additional-packages"></a>Télécharger et installer les packages supplémentaires
+Pour ce faire, procédez comme suit :
+
+1. Arrêtez votre machine virtuelle.
+
+2. Cliquez avec le bouton droit de la souris sur l’entrée de la machine virtuelle dans le volet gauche, puis sélectionnez **Edit Settings** (Modifier les paramètres).
+
+3. Cliquez sur l’onglet **Options** .
+
+4. Sélectionnez **Advanced (Avancé) &gt; General (Général)** dans le volet gauche, puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) à droite.
+
+    ![Onglets Options](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
+
+    L’option **Paramètres de configuration** n’est pas disponible lorsque la machine est arrêtée. Pour activer cet onglet, arrêtez la machine virtuelle.
+
+5. Vérifiez si une ligne comportant **disk.EnableUUID** existe.
+
+    - Si le paramètre est présent et a pour valeur **False**, remplacez-la par **True** (les valeurs ne respectent pas la casse).
+
+    - Si le paramètre existe et a pour valeur **True**, cliquez sur **Cancel** (Annuler).
+
+    - Si le paramètre n’existe pas, cliquez sur **Add Row** (Ajouter une ligne).
+
+    - Ajoutez **disk.EnableUUID** dans la colonne **Name** (Nom) et définissez sa valeur sur **TRUE**.
+
+    ![Vérification de la présence de disk.EnableUUID](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+
+#### <a name="download-and-install-additional-packages"></a>Télécharger et installer les packages supplémentaires
 
 > [!NOTE]
-> Assurez-vous que système dispose d’une connectivité Internet avant de télécharger et d’installer les packages supplémentaires. Si ce n’est pas le cas, vous devrez rechercher et installer manuellement ces packages RPM.
+> Vérifiez que vous avez accès à Internet pour télécharger et installer les packages supplémentaires. Si vous n’êtes pas connecté à Internet, vous devez rechercher ces packages RPM et les installer manuellement.
 
 ```
 yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 ```
 
-La commande ci-dessus téléchargera les 15 packages mentionnés ci-dessous à partir du référentiel CentOS 6 et procèdera à leur installation. Si vous n’avez pas accès à Internet, vous devrez télécharger les packages RPM suivant.
+La commande précédente télécharge les 15 packages suivants à partir du référentiel CentOS 6.6 et les installe. Si vous n’avez pas accès à Internet, vous devrez télécharger les packages RPM suivant :
 
 
 bc-1.06.95-1.el6.x86\_64.rpm
@@ -225,10 +213,10 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 #### <a name="install-additional-packages-for-specific-operating-systems"></a>Installer les packages supplémentaires pour des systèmes d’exploitation spécifiques
 
 > [!NOTE]
-> Si les ordinateurs source protégés utilisent un système de fichiers Reiser ou XFS pour le périphérique racine ou de démarrage, les packages supplémentaires suivants doivent être téléchargés et installés sur le serveur cible maître Linux avant la protection.
- 
+> Si les machines sources protégées utilisent un système de fichiers Reiser ou XFS pour la racine ou l’appareil de démarrage, téléchargez et installez les packages supplémentaires suivants sur le serveur cible maître Linux avant la protection.
 
-***ReiserFS (s’il est utilisé dans Suse11SP3. Cependant, ReiserFS n’est pas le système de fichiers par défaut dans Suse11SP3)***
+
+***ReiserFS (s’il est utilisé dans Suse11SP3. ReiserFS n’est pas le système de fichiers par défaut dans Suse11SP3.)***
 
 ```
 cd /usr/local
@@ -253,107 +241,106 @@ wget
 
 rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-yum install device-mapper-multipath 
+yum install device-mapper-multipath
 ```
-Requis pour activer les packages à plusieurs chemins sur le serveur maître cible.
+Requis pour activer les packages multichemins sur le serveur maître cible.
 
 ### <a name="get-the-installer-for-setup"></a>Obtenir le programme d’installation
 
-Si vous avez accès à internet à partir de votre serveur cible maître, vous pouvez télécharger le programme d’installation en suivant les étapes ci-dessous. Si ce n’est pas le cas, vous pouvez copier le programme d’installation à partir du serveur de traitement et l’installer.
+Si votre serveur cible maître est connecté à Internet, vous pouvez utiliser la procédure suivante pour télécharger le programme d’installation. Sinon, vous pouvez copier le programme d’installation à partir du serveur de traitement et l’installer.
 
-#### <a name="download-the-mt-installation-packages"></a>Téléchargez les packages d’installation du serveur maître cible
+#### <a name="download-the-master-target-installation-packages"></a>Télécharger les packages d’installation du serveur maître cible
 
-Téléchargez les derniers bits d’installation du serveur maître cible Linux ici : [https://aka.ms/latestlinuxmobsvc](https://aka.ms/latestlinuxmobsvc).
+[Téléchargez les éléments d’installation du serveur maître cible Linux](https://aka.ms/latestlinuxmobsvc).
 
-Pour les télécharger avec Linux, tapez : 
+Pour le télécharger avec Linux, tapez :
 
 ```
 wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 ```
 
-Veillez à télécharger et à décompresser le programme d’installation uniquement dans le répertoire de base. Si vous le décompressez dans /usr/Local, l’installation échouera.
+Veillez à télécharger et décompresser le programme d’installation dans le répertoire d’accueil. Si vous le décompressez dans /usr/Local, l’installation échoue.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Accéder au programme d’installation à partir du serveur de traitement
 
-Accédez au serveur de traitement, puis au répertoire - C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository.
+1. Accédez au répertoire C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository sur le serveur de processus.
 
-Copiez le fichier d’installation requis à partir du serveur de traitement et enregistrez-le sous le nom latestlinuxmobsvc.tar.gz dans votre répertoire de base.
-
-
-### <a name="apply-custom-configuration-changes"></a>Appliquer les modifications de configuration personnalisée
-
-Pour appliquer les modifications de configuration personnalisée, procédez comme suit :
+2. Copiez le fichier d’installation requis à partir du serveur de processus et enregistrez-le sous latestlinuxmobsvc.tar.gz dans votre répertoire d’accueil.
 
 
-1. Exécutez la commande tar ci-dessous pour désarchiver le fichier binaire.
+### <a name="apply-custom-configuration-changes"></a>Appliquer des modifications de configuration personnalisées
+
+Pour appliquer les modifications de configuration personnalisées, procédez comme suit :
+
+
+1. Exécutez la commande suivante pour décompresser le fichier binaire.
     ```
     tar -zxvf latestlinuxmobsvc.tar.gz
     ```
+    ![Capture d’écran de la commande exécutée](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/image16.png)
-    
-2. Exécutez la commande ci-dessous pour attribuer l’autorisation.
+2. Exécutez la commande suivante pour accorder l’autorisation.
     ```
     chmod 755 ./ApplyCustomChanges.sh
     ```
 
-3. Lancez la commande ci-dessous, puis exécutez le script.
+3. Exécutez la commande suivante pour exécuter le script.
     ```
     ./ApplyCustomChanges.sh
     ```
 > [!NOTE]
-> N’exécutez le script qu’une fois sur le serveur. Arrêtez le serveur. Redémarrez le serveur après avoir ajouté un disque à l’aide de la procédure ci-dessous.
+> Exécutez le script une seule fois sur le serveur. Arrêtez le serveur. Redémarrez le serveur après avoir ajouté un disque, comme indiqué dans la procédure ci-dessous.
 
-### <a name="add-retention-disk-to-linux-mt-vm"></a>Ajouter un disque de rétention à la machine virtuelle du serveur cible maître Linux 
+### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Ajouter un disque de rétention à la machine virtuelle du serveur cible maître Linux
 
-Suivez les étapes indiquées ci-dessous pour créer un disque de rétention.
+Pour créer un disque de rétention, procédez comme suit :
 
-1. Attachez un nouveau disque de **1 To** à la machine virtuelle du serveur cible maître Linux et **démarrez** la machine.
+1. Connectez un nouveau disque de **1 To** à la machine virtuelle du serveur cible maître Linux et **démarrez** la machine.
 
-2. Appelez la commande **multipath -ll** pour obtenir l’ID multi-chemin du disque de rétention.
+2. Utilisez la commande **multipath -ll** pour obtenir l’ID multichemin du disque de rétention.
 
     ```
     multipath -ll
     ```
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+    ![ID multichemin du disque de rétention](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
-3. Formatez le lecteur et créez un système de fichiers sur le nouveau lecteur. 
-    
+3. Formatez le lecteur et créez un système de fichiers dessus.
+
     ```
     mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
     ```
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+    ![Création d’un système de fichiers sur le lecteur](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
-4. Une fois le système de fichiers créé, montez le disque de rétention.
+4. Après avoir créé le système de fichiers, montez le disque de rétention.
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
+    ![Montage du disque de rétention](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
-5. Enfin, créez l’entrée fstab pour monter le lecteur de rétention à chaque démarrage.
+5. Enfin, créez l’entrée **fstab** pour monter le lecteur de rétention à chaque démarrage.
     ```
-    vi /etc/fstab 
+    vi /etc/fstab
     ```
-    Appuyez sur la touche [Insertion] pour commencer à modifier le fichier. Créez une ligne et insérez-y le texte suivant. Modifiez l’ID multi-chemin du disque en fonction de l’ID multi-chemin surligné obtenu avec la commande précédente.
+    Appuyez sur **Inser** pour commencer à modifier le fichier. Créez une ligne et insérez-y le texte suivant. Modifiez l’ID multichemin du disque en fonction de l’ID multichemin de la commande précédente.
 
     **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-    Appuyez sur la touche [Échap] et tapez :wq (écrire et quitter) pour fermer la fenêtre de l’éditeur.
+    Appuyez sur la touche **Echap** et tapez **:wq** (écrire et quitter) pour fermer la fenêtre de l’éditeur.
 
-### <a name="install-master-target"></a>Installer le serveur cible maître
+### <a name="install-the-master-target"></a>Installer le serveur cible maître
+
+> [!IMPORTANT]
+> La version du serveur cible maître doit être supérieure ou égale à celle du serveur de processus et du serveur de configuration. Si cette condition n’est pas remplie, la reprotection aboutit mais la réplication échoue.
+
 
 > [!NOTE]
-> La version du serveur maître cible doit être inférieure ou égale à celles du serveur de processus et du serveur de configuration. Si la version du serveur maître cible est supérieure, la reprotection réussira, mais la réplication échouera.
- 
+> Avant d’installer le serveur cible maître, vérifiez que le fichier /etc/hosts sur la machine virtuelle contient des entrées qui mappent le nom d’hôte local aux adresses IP associées à toutes les cartes réseau.
 
-> [!NOTE]
-> Avant d’installer le serveur maître principal, vérifiez que les fichiers /etc/hosts sur la machine virtuelle contiennent des entrées qui mappent le nom d’hôte local sur les adresses IP associées à toutes les cartes réseau.
- 
-1. Copiez la phrase secrète à partir de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** sur le serveur de configuration et enregistrez-la dans le fichier passphrase.txt dans le même répertoire local en exécutant la commande suivante.
+1. Copiez la phrase secrète à partir de C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase sur le serveur de configuration, puis enregistrez-la dans le fichier passphrase.txt dans le même répertoire local en exécutant la commande suivante.
 
     ```
     echo <passphrase> >passphrase.txt
@@ -362,61 +349,57 @@ Suivez les étapes indiquées ci-dessous pour créer un disque de rétention.
 
 2. Notez l’adresse IP du serveur de configuration. Vous en aurez besoin à l’étape suivante.
 
-3. Exécutez la commande suivante pour installer le serveur cible maître et inscrire le serveur auprès du serveur de configuration.
-    
+3. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
+
     ```
     ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
     ```
 
     Exemple : ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
 
-    Attendez la fin de l’exécution du script. Si l’inscription du serveur cible maître réussit, ce dernier est répertorié dans la page Infrastructure Site Recovery du portail.
+    Attendez la fin du script. Si le serveur cible maître est déjà inscrit, il figure dans la page Site Recovery Infrastructure (Infrastructure Site Recovery) du portail.
 
-#### <a name="installing-master-target-using-interactive-install"></a>Installation du serveur cible maître à l’aide de l’installation interactive
+#### <a name="install-the-master-target-by-using-interactive-install"></a>Installer le serveur cible maître en mode interactif
 
-1. Exécutez la commande suivante pour installer le serveur cible maître. Choisissez le rôle d’agent « Master Target » (Maître cible).
+1. Exécutez la commande suivante pour installer le service cible maître. Choisissez le rôle d’agent **Master Target** (Cible maître).
 
     ```
     ./install
     ```
 
-2. Choisissez l’emplacement par défaut de l’installation, puis appuyez sur la touche [Entrée] pour continuer.
-    
-    ![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
-    
+2. Choisissez l’emplacement par défaut de l’installation, puis appuyez sur **Entrée** pour continuer.
 
-3. Choisissez les paramètres globaux à configurer
+    ![Choix d’un emplacement par défaut pour l’installation du serveur cible maître](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
-    ![](./media/site-recovery-how-to-install-linux-master-target/image18.png)
-    
-4. Spécifiez les adresses IP du serveur CS
 
-5. Spécifiez le port 443 pour le serveur CS.
-    
-    ![](./media/site-recovery-how-to-install-linux-master-target/image19.png)
-    
-6. Copiez la phrase secrète CS à partir de C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase sur le serveur de configuration et collez-la dans la zone prévue à cet effet. Celle-ci apparaîtra vide même après l’opération de copier-coller.
+3. Choisissez les paramètres **globaux** à configurer.
 
-7. Dans le menu, accédez à [Quit] (Quitter).
+    ![Configuration des paramètres globaux](./media/site-recovery-how-to-install-linux-master-target/image18.png)
+
+4. Spécifiez les adresses IP du serveur de configuration.
+
+5. Spécifiez le port 443 pour le serveur de configuration.
+
+    ![Définition de l’adresse IP et du port du serveur de configuration](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+
+6. Copiez la phrase secrète du serveur de configuration à partir de C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase sur le serveur de configuration et collez-la dans la zone **Passphrase** (Phrase secrète). La zone reste vide, même lorsque vous y collez le texte.
+
+7. Sélectionnez **Quit** (Quitter) dans le menu.
 
 8. Attendez la fin de l’installation et de l’inscription.
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installer les outils VMware sur le serveur cible maître
+### <a name="install-vmware-tools-on-the-master-target-server"></a>Installer les outils VMware sur le serveur maître cible
 
-Les outils VMware doivent être installés sur le serveur maître cible afin qu’ils puissent détecter les magasins de données. Si les outils ne sont pas installés, l’écran de reprotection ne répertorie pas les magasins de données. Vous devrez redémarrer après l’installation des outils VMware.
+Vous devez installer les outils VMware sur le serveur maître cible pour qu’ils puissent détecter les magasins de données. Si les outils ne sont pas installés, l’écran de reprotection ne répertorie pas les magasins de données. Vous devrez redémarrer après l’installation des outils VMware.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois l’installation et l’inscription du serveur cible maître terminées, ce dernier apparaît dans la section Maître cible de la page Infrastructure Site Recovery, sous la vue d’ensemble du serveur de configuration.
+Une fois installé et inscrit, le serveur cible maître apparaît dans la section **Master Target** (Cible maître) de la page **Site Recovery Infrastructure** (Infrastructure Site Recovery), sous la vue d’ensemble du serveur de configuration.
 
 Vous pouvez maintenant procéder à la [reprotection](site-recovery-how-to-reprotect.md), puis à la restauration automatique.
 
 ## <a name="common-issues"></a>Problèmes courants
 
-* Veillez à ne pas activer Storage vMotion sur des composants de gestion tels qu’un serveur cible maître. Si le serveur cible maître passe outre la reprotection, le disque de la machine virtuelle ne pourra pas être détaché et la restauration automatique échouera.
-* La machine virtuelle du serveur cible maître ne doit pas présenter d’instantanés. S’il existe des instantanés, la restauration automatique échouera.
-* En raison de configurations de carte réseau personnalisées chez certains clients, l’interface réseau est désactivée au cours du démarrage et l’agent du serveur cible maître ne peut pas être initialisé. Assurez-vous que les propriétés suivantes sont configurées correctement.
-    * Vérifiez les deux propriétés dans les fichiers de la carte Ethernet /etc/sysconfig/network-scripts/ifcfg-eth* :
-        * BOOTPROTO=dhcp 
-        * ONBOOT=yes
-
+* Veillez à ne pas activer Storage vMotion sur des composants de gestion tels qu’un serveur cible maître. Si le serveur cible maître est déplacé après une reprotection, les disques de machine virtuelle (VMDK) ne peuvent pas être détachés et la restauration échouera.
+* Le serveur cible maître ne doit pas présenter d’instantanés sur la machine virtuelle. Si des instantanés sont présents, la restauration automatique échouera.
+* En raison de configurations de carte réseau personnalisées chez certains clients, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/sysconfig/network-scripts/ifcfg-eth* de la carte Ethernet.       * BOOTPROTO=dhcp * ONBOOT=yes
 
