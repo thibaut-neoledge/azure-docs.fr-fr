@@ -4,18 +4,19 @@ description: "Capturez des exceptions à partir d’applications ASP.NET, ainsi 
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -46,34 +47,28 @@ Ouvrez la fenêtre de recherche d’Application Insights dans Visual Studio et c
 
 Notez que vous pouvez filtrer le rapport pour qu’il affiche uniquement les exceptions.
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions) *
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
 
 Cliquez sur un rapport d’exception pour afficher sa trace de pile.
+Cliquez sur une référence de ligne dans l’arborescence des appels de procédure pour ouvrir le fichier de code approprié.  
 
-![Cliquez sur une exception.](./media/app-insights-asp-net-exceptions/35.png)
+Dans le code, notez que CodeLens affiche les données sur les exceptions :
 
-Cliquez sur une référence de ligne dans la trace de pile pour ouvrir le fichier approprié.  
+![Notification CodeLens des exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostic des défaillances à l’aide du portail Azure
 Dans la vue d’ensemble Application Insights de votre application, la vignette Défaillances vous montre les graphiques des exceptions et des demandes HTTP ayant échoué ainsi qu’une liste des URL demandées qui entraînent les défaillances les plus fréquentes.
 
 ![Sélectionnez Paramètres, Défaillances](./media/app-insights-asp-net-exceptions/012-start.png)
 
-Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir des occurrences individuelles de cette défaillance. À partir de là, cliquez sur les exceptions ou les données de trace qui y sont associées :
+Cliquez sur l’un des types d’exception ayant échoué dans la liste pour obtenir des occurrences individuelles de l’exception, où vous pouvez afficher les détails et l’arborescence des appels de procédure :
 
 ![Sélectionnez l’instance d'une demande ayant échoué et, sous Détails de l'exception, accédez aux instances de l'exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**Autrement** , vous pouvez commencer à partir de la liste des exceptions que vous trouverez plus bas dans le panneau Défaillances. Cliquez jusqu'à arriver aux exceptions individuelles.
+**Vous pouvez également** commencer à partir de la liste des requêtes et rechercher les exceptions qui lui sont associées.
 
-![Extraire](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions).*
-
-À partir de là, vous pouvez consulter l’arborescence des appels de procédure et les propriétés détaillées de chaque exception et trouver le suivi du journal associé ou d’autres événements.
-
-![Extraire](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
-
-[En savoir plus sur la recherche de diagnostic](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>Suivi personnalisé et données du journal
 Pour obtenir des données de diagnostic propres à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Ces informations apparaissent dans Recherche de diagnostic avec la demande, une vue de la page et d’autres données automatiquement collectées.
@@ -103,7 +98,7 @@ Les détails de la demande n'incluent pas les données envoyées à votre applic
 
 ![Extraire](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="a-nameexceptionsa-capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Capture des exceptions et des données de diagnostic connexes
+## <a name="exceptions"></a> Capture des exceptions et des données de diagnostic connexes
 Dans un premier temps, vous ne verrez pas dans le portail toutes les exceptions qui entraînent des défaillances dans votre application. Vous verrez les exceptions du navigateur (si vous utilisez le [SDK JavaScript](app-insights-javascript.md) dans vos pages web). Mais la plupart des exceptions de serveur sont interceptées par IIS et vous devez écrire un peu de code afin de les afficher.
 
 Vous pouvez :
@@ -437,13 +432,12 @@ Ouvrez un panneau d'explorateur de mesures, ajoutez un nouveau graphique, puis s
 
 Notez que ce chiffre sera différent du nombre d’« exceptions » calculé par le portail Application Insights, qui est basé sur les rapports TrackException. Les intervalles d’échantillonnage sont différents et le Kit de développement logiciel (SDK) n’envoie pas de rapports TrackException pour toutes les exceptions gérées et non gérées.
 
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveiller REST, SQL et les autres appels aux dépendances](app-insights-asp-net-dependencies.md)
 * [Surveiller les durées de chargement des pages, les exceptions du navigateur et les appels AJAX](app-insights-javascript.md)
 * [Surveiller les compteurs de performances](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: fdb80e3379adfa9d65d6e5891cb701cee86eb1b9
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -42,8 +42,8 @@ L’audit de bases de données SQL permet :
 
 Il existe deux **méthodes d’audit** :
 
-* **Audit d’objets blob** : les journaux sont écrits dans Stockage Blob Azure. Il s’agit d’une méthode d’audit plus récente, qui fournit des **performances plus élevées**, prend en charge **l’audit avec une granularité plus élevée au niveau des objets** et est **plus économique**.
-* **Audit des tables** : les journaux sont écrits dans Stockage Table Azure.
+* **Audit d’objets blob** : les journaux sont écrits dans Stockage Blob Azure. Il s’agit d’une méthode d’audit plus récente, qui fournit des **performances plus élevées**, prend en charge **l’audit avec une granularité plus élevée au niveau des objets** et est **plus économique**. L’audit d’objets blob remplacera l’audit de table.
+* **Audit de table (déconseillé)** : les journaux sont écrits dans Stockage Table Azure.
 
 > [!IMPORTANT]
 > L’introduction du nouvel audit d’objets blob apporte une modification majeure dans la façon dont la stratégie d’audit de serveur est héritée par la base de données. Consultez la section [Différences entre les objets blob et les tables dans l’héritage de la stratégie d’audit du serveur](#subheading-8) pour plus de détails.
@@ -79,7 +79,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité **Détection des menaces** (préversion) et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour en savoir plus, consultez [Prise en main de la détection des menaces](sql-database-threat-detection-get-started.md) .
 8. Cliquez sur **Save**.
 
-### <a id="subheading-2-2">Audit de table</a>
+### <a id="subheading-2-2">Audit de table</a> (déconseillé)
 
 > Avant de configurer **l’audit des tables**, vérifiez que vous utilisez bien un [« client de niveau inférieur »](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). En outre, si vous avez des paramètres de pare-feu stricts, notez que le [point de terminaison IP de votre base de données change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) lors de l’activation de l’audit Table.
 
@@ -119,7 +119,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
     > <br><br>
     > Sinon, il est **recommandé d’activer uniquement l’audit d’objets blob au niveau du serveur** et de laisser désactivé l’audit au niveau de la base de données pour toutes les bases de données.
 
-###<a name="atable-auditinga"></a><a>Audit de table</a>
+###<a name="atable-auditinga-deprecated"></a><a>Audit de table</a> (déconseillé)
 
 Si **l’audit de table au niveau du serveur est activé**, il s’applique uniquement à la base de données si la case à cocher « Hériter des paramètres du serveur » est activée dans le panneau de la base de données (cette option est activée par défaut pour toutes les bases de données qui viennent d’être créées).
 
@@ -169,7 +169,7 @@ Il existe plusieurs méthodes pour afficher des journaux d’audit Objet blob :
 
 3. Nous avons créé un **exemple d’application** qui s’exécute dans Azure et utilise les API publiques OMS pour envoyer les journaux d’audit SQL à OMS à des fins d’utilisation via le tableau de bord OMS ([plus d’informations ici](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">Audit de table</a>
+### <a id="subheading-3-2">Audit de table</a> (déconseillé)
 Les journaux d’audit Table sont enregistrés sous la forme d’une collection de tables Stockage Azure avec un préfixe **SQLDBAuditLogs**.
 
 Pour plus d’informations sur le format des journaux d’audit Table, consultez les [informations de référence sur les formats des journaux d’audit Table](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -245,7 +245,7 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
    * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
    * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
    * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
-3. **API REST - Audit des tables**
+3. **API REST - Audit de table (déconseillé)**
 
    * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604471.aspx)
    * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604383.aspx)

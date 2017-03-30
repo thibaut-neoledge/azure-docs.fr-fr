@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
-ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9fa8835003b1d8a0dbc56bf9ff8996e48fc41acf
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -93,8 +93,8 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
-* Lorsque vous utilisez AZCopy, si l’erreur d’échec d’authentification de la demande par le serveur s’affiche, vérifiez la valeur de l’en-tête d’autorisation : il doit être correctement formé et comporter notamment la signature. Si vous utilisez la clé 2 ou la clé de stockage secondaire, essayez d’utiliser la clé primaire ou la première clé de stockage.
+## <a name="troubleshooting"></a>résolution des problèmes
+* Lorsque vous utilisez AZCopy, si l’erreur « Le serveur n’a pas pu authentifier cette demande » s’affiche, vérifiez la valeur de l’en-tête d’autorisation : il doit être correctement formé et comporter notamment la signature. Si vous utilisez la clé 2 ou la clé de stockage secondaire, essayez d’utiliser la clé primaire ou la première clé de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez créer une machine virtuelle en [joignant la copie du disque dur virtuel à une machine virtuelle en tant que disque du système d’exploitation](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

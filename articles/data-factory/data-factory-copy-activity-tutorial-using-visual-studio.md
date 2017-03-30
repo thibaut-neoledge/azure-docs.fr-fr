@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
-ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -97,7 +97,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinked
 4. Enregistrez le fichier **AzureSqlLinkedService1.json** . 
 
 > [!NOTE]
-> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis SQL Azure Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis SQL Azure Database](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -169,7 +169,7 @@ Dans cette étape, vous créez un jeu de données nommé **InputDataset** qui po
     ```
             
 > [!NOTE]
-> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis un objet Blob Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .
+> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis un objet Blob Azure](data-factory-azure-blob-connector.md#dataset-properties) .
 > 
 > 
 
@@ -216,7 +216,7 @@ Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDatas
    * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 > [!NOTE]
-> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis SQL Azure Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis SQL Azure Database](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -277,7 +277,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
    * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
    * Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur.
    
-   Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, «&2016;-02-03 », qui équivaut à «&2016;-02-03T00:00:00Z ».
+   Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
    
    Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
    

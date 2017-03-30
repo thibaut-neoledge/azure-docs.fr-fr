@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 1f6ce516629fd32b5efabce8682b45a3e575eaab
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4bfd76a00ba694096ef0b045b14beb757ba0809f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -89,6 +89,12 @@ Selon les commentaires des utilisateurs, l’actualisation de la version prélim
 * Fournir la prise en charge de PowerShell pour B2B Collaboration.
 
 * Fournir des fonctionnalités d’audit et de création de rapports.
+
+## <a name="help-us-shape-your-features"></a>Aidez-nous aider à façonner vos fonctionnalités
+ 
+Nous sommes constamment à l’écoute de vos commentaires sur les moyens d’améliorer B2B Collaboration. Nous vous invitons à participer à la discussion, à partager vos scénarios utilisateur, les meilleures pratiques et ce que vous appréciez par rapport à Azure AD B2B Collaboration sur la page [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+ 
+Nous vous invitons également à soumettre vos idées et à voter pour les prochaines fonctionnalités sur le site [Idées B2B Collaboration](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

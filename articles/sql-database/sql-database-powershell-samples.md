@@ -1,6 +1,6 @@
 ---
 title: Exemples Azure PowerShell pour SQL Database | Microsoft Docs
-description: "Exemples Azure CLI - Création et gestion des serveurs, des pools élastiques, des bases de données et des pare-feu Azure SQL Database."
+description: "Exemples Azure PowerShell - Scripts vous permettant de créer et de gérer des serveurs, des pools élastiques, des bases de données et des pare-feu Azure SQL Database."
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: f8e11c348da1d783b691a60c68055f2d394e6a94
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: abcccabbfc56102c97ef2408fb812755e21b467c
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -30,7 +30,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | |  |
 |---|---|
 |**Créer une base de données unique et un pool élastique**||
-| [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) | Crée une base de données Azure SQL unique et configure une règle de pare-feu au niveau du serveur. |
+| [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) | Crée une base de données SQL Azure unique et configure une règle de pare-feu au niveau du serveur. |
 | [Créer des pools élastiques et déplacer les bases de données regroupées](scripts/sql-database-move-database-between-pools-powershell.md) | Crée des pools élastiques, déplace des bases de données regroupées et modifie les niveaux de performances.|
 |**Configurer la géoréplication et le basculement**||
 | [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| Configure la géoréplication active pour une base de données Azure SQL unique et la fait basculer vers le réplica secondaire. |

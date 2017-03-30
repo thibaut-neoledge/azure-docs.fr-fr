@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 787ef52580f5f8bfc51229787c5594883cef3a77
-ms.openlocfilehash: a41548557a91ff91f2496e371dd285977861ab69
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Lorsque votre topologie est en cours d’exécution, vous pouvez la surveiller d
 Voici quelques scénarios courants de résolution des problèmes.
 * **Grand nombre de tuples expirés.** Examinez chaque nœud de la topologie pour déterminer où se trouve le goulet d’étranglement. La raison la plus courante est que les Bolts ne sont pas en mesure de suivre le rythme des Spouts. La conséquence est que des tuples bouchent les mémoires tampon internes en attendant d’être traités. Envisagez d’augmenter la valeur de délai d’attente ou de diminuer le nombre maximal de Spouts en attente.
 
-* **Latence totale d’exécution de processus élevée, mais latence de traitement des Bolts faible.** Dans ce cas, les tuples peuvent ne pas être traités assez rapidement. Vérifiez qu’il existe un nombre suffisant de validateurs. Une autre possibilité est qu’ils restent en file d’attente trop longtemps avant que les Bolts lancent leur traitement. Réduisez le nombre maximal de spouts en attente.
+* **Latence totale d’exécution de processus élevée, mais latence de traitement des Bolts faible.** Dans ce cas, il est possible que les tuples ne soient pas reconnus suffisamment vite. Vérifiez qu’il existe un nombre suffisant de validateurs. Une autre possibilité est qu’ils restent en file d’attente trop longtemps avant que les Bolts lancent leur traitement. Réduisez le nombre maximal de spouts en attente.
 
 * **Latence d’exécution des Bolts élevée.** Cela signifie que la méthode execute() de votre Bolt prend trop de temps. Optimisez le code ou examinez le comportement de vidage et les tailles d’écriture.
 

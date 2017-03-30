@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -689,7 +689,9 @@ Les résultats de la dépendance côté serveur indiquent toujours `success==Fal
 ### <a name="traces-table"></a>Table des traces
 Contient les données de télémétrie envoyées par votre application à l’aide de TrackTrace(), ou [d’autres frameworks de journalisation](app-insights-asp-net-trace-logs.md).
 
-
+## <a name="video"></a>Vidéo 
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Référence sur le langage Analytics](app-insights-analytics-reference.md)

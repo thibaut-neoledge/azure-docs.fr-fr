@@ -9,27 +9,27 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 317c05f9f8faa335cdd3588c3b50a89948066d11
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Créer des routages définis par l’utilisateur avec Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
-- [Modèle](virtual-network-create-udr-arm-template.md)
-- [PowerShell (déploiement Classic)](virtual-network-create-udr-classic-ps.md)
-- [CLI (déploiement Classic)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modèle](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (déploiement Classic)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (déploiement Classic)](virtual-network-create-udr-classic-cli.md)
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche 
 
@@ -60,9 +60,9 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
     --location centralus \
     --name UDR-FrontEnd
     ```
-    
+
     Output:
-    
+
     ```json
     {
     "etag": "W/\"<guid>\"",
@@ -104,9 +104,8 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
     "resourceGroup": "testrg"
     }
     ```
-    
     Paramètres :
-    
+
     * **--route-table-name**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
     * **--address-prefix**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
     * **--next-hop-type**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
@@ -116,10 +115,10 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     Output:
@@ -149,7 +148,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
         }
     }
     ```
-    
+
     Paramètres :
     
     * **--vnet-name**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
@@ -160,35 +159,34 @@ Pour créer la table de routage et l’itinéraire nécessaires pour le sous-ré
 
 1. Exécutez la commande suivante pour créer une table d’itinéraires pour le sous-réseau principal :
 
-        ```azurecli
-        az network route-table create \
-        --resource-group testrg \
-        --name UDR-BackEnd \
-        --location centralus
-        ```
+    ```azurecli
+    az network route-table create \
+    --resource-group testrg \
+    --name UDR-BackEnd \
+    --location centralus
+    ```
 
 2. Exécutez la commande suivante pour créer un itinéraire dans la table d’itinéraires pour envoyer tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) à la machine virtuelle **FW1** (192.168.0.4) :
 
-        ```azurecli
-        az network route-table route create \
-        --resource-group testrg \
-        --name RouteToFrontEnd \
-        --route-table-name UDR-BackEnd \
-        --address-prefix 192.168.1.0/24 \
-        --next-hop-type VirtualAppliance \
-        --next-hop-ip-address 192.168.0.4
-        ```
+    ```azurecli
+    az network route-table route create \
+    --resource-group testrg \
+    --name RouteToFrontEnd \
+    --route-table-name UDR-BackEnd \
+    --address-prefix 192.168.1.0/24 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 192.168.0.4
+    ```
 
 3. Exécutez la commande suivante pour associer la table de routage créée ci-dessus au sous-réseau **Backend** :
 
-        ```azurecli
-        az network vnet subnet update \
-        --resource-group testrg \
-        --vnet-name testvnet \
-        --name BackEnd \
-        --route-table UDR-BackEnd
-        ```
-
+    ```azurecli
+    az network vnet subnet update \
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name BackEnd \
+    --route-table UDR-BackEnd
+    ```
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Activer le transfert IP sur FW1
 
@@ -196,42 +194,38 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, procé
 
 1. Exécutez la commande [az network nic show](/cli/az/network/nic#show) avec un filtre JMESPATH pour afficher la valeur **enable-ip-forwarding** actuelle de **Activer le transfert IP**. Cette option doit avoir la valeur *false*.
 
-        ```azurecli
-        az network nic show \
-        --resource-group testrg \
-        --nname nicfw1 \
-        --query 'enableIpForwarding' -o tsv
-        ```
-
-        Output:
-
-        ```bash
-        false
-        ```
-
-2. Exécutez la commande suivante pour activer le transfert IP :
-
-        ```azurecli
-        az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
-        ```
-
-    Vous pouvez examiner la sortie transmise à la console, ou simplement tester spécifiquement la valeur **enableIpForwarding** à nouveau :
-
-        ```azurecli
-        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
-        ```
+    ```azurecli
+    az network nic show \
+    --resource-group testrg \
+    --nname nicfw1 \
+    --query 'enableIpForwarding' -o tsv
+    ```
 
     Output:
 
-        ```bash
+        false
+
+2. Exécutez la commande suivante pour activer le transfert IP :
+
+    ```azurecli
+    az network nic update \
+    --resource-group testrg \
+    --name nicfw1 \
+    --ip-forwarding true
+    ```
+
+    Vous pouvez examiner la sortie transmise à la console, ou simplement tester spécifiquement la valeur **enableIpForwarding** à nouveau :
+
+    ```azurecli
+    az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+    ```
+
+    Output:
+
         true
-        ```
-    
+
     Paramètres :
-    
-    * **--ip-forwarding**. *true* ou *false*.
+
+    **--ip-forwarding** : *true* ou *false*.
 
 

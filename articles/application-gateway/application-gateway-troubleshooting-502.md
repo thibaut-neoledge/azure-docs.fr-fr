@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,6 +34,9 @@ Après avoir configuré une passerelle Azure Application Gateway, les utilisateu
 * Les machines virtuelles principales ou les instances de jeu de machine virtuelle échelle ne répondent pas à la sonde d’intégrité par défaut.
 * Configuration non valide ou incorrecte des sondes d’intégrité personnalisées.
 * Expiration de la demande ou problèmes de connectivité avec les requêtes utilisateur.
+
+> [!note]
+> Application Gateway conserve l’en-tête d’hôte entrant et envoie le même en-tête au serveur principal. Si le serveur principal nécessite un en-tête différent, cela ne fonctionnera pas. De même, si le serveur principal est mutualisé et que le protocole SSL de bout en bout est activé, le serveur principal attend un nom du serveur dans l’extension SNI. Application Gateway n’envoie pas actuellement d’en-tête SNI dans les demandes de serveur principal dans les scénarios SSL de bout en bout susceptible d’entraîner des problèmes de sonde et d’accès aux données.
 
 ## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
 
@@ -150,10 +154,5 @@ Application Gateway permet aux utilisateurs de configurer ce paramètre via Back
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

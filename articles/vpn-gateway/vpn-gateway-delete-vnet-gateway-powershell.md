@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique de suppression d’une passerelle de réseau virtuel : PowerShell : Azure Resource Manager | Microsoft Docs"
+title: "Suppression d’une passerelle de réseau virtuel : PowerShell : Azure Resource Manager | Microsoft Docs"
 description: "Supprimez une passerelle de réseau virtuel avec PowerShell dans le modèle de déploiement Resource Manager."
 services: vpn-gateway
 documentationcenter: na
@@ -13,16 +13,21 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 523166a2dc509f13f62aef0e83799849a04d7efb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3032b09d06a103f9cd915e3803355199243488f9
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
+> [!div class="op_single_selector"]
+> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+>
+>
 
 Deux approches sont possibles afin de supprimer une passerelle de réseau virtuel pour une configuration de passerelle VPN.
 
@@ -48,8 +53,6 @@ Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser
 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-
-
 ##<a name="S2S"></a>Supprimer une passerelle VPN de site à site
 
 Pour supprimer une passerelle de réseau virtuel pour une configuration S2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Lorsque vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiquement appelées, tandis que d’autres sont des résultats de sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
@@ -58,6 +61,7 @@ Nom du réseau virtuel : VNet1<br>
 Nom du groupe de ressources : RG1<br>
 Nom de la passerelle de réseau virtuel : GW1<br>
 
+Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 
 ###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Récupérez la passerelle de réseau virtuel que vous souhaitez supprimer.
 
@@ -85,6 +89,11 @@ Vous serez peut-être invité à confirmer la suppression de chacune des passere
 ###<a name="6-delete-the-virtual-network-gateway"></a>6. Supprimez la passerelle de réseau virtuel.
 Vous serez peut-être invité à confirmer la suppression de la passerelle.
 
+>[!NOTE]
+> Si vous avez une configuration P2S sur ce réseau virtuel en plus de votre configuration S2S, la suppression de la passerelle de réseau virtuel déconnecte automatiquement tous les clients P2S sans avertissement.
+>
+>
+
     Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 ###<a name="7-get-the-ip-configurations-of-the-virtual-network-gateway"></a>7. Récupérez les configurations IP de la passerelle de réseau virtuel.
@@ -100,7 +109,7 @@ Si la passerelle de réseau virtuel était active-active, vous verrez deux adres
 
     $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 
-###<a name="10-delete-the-gateway-subnet"></a>10. Supprimez le sous-réseau de la passerelle.
+###<a name="10-delete-the-gateway-subnet-and-set-the-configuration"></a>10. Supprimez le sous-réseau de passerelle et définissez la configuration.
 
     $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
     Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
@@ -113,6 +122,7 @@ Nom du réseau virtuel : VNet1<br>
 Nom du groupe de ressources : RG1<br>
 Nom de la passerelle de réseau virtuel : GW1<br>
 
+Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 
 ###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Récupérez la passerelle de réseau virtuel que vous souhaitez supprimer.
 
@@ -141,15 +151,19 @@ Vous serez peut-être invité à confirmer la suppression de chacune des connexi
     $ConnsL | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
     $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 
-
 ###<a name="5-delete-the-virtual-network-gateway"></a>5. Supprimez la passerelle de réseau virtuel.
 Vous serez peut-être invité à confirmer la suppression de la passerelle de réseau virtuel.
+
+>[!NOTE]
+> Si vous avez des configurations P2S sur vos réseaux virtuels en plus de votre configuration V2V, la suppression des passerelles de réseau virtuel déconnecte automatiquement tous les clients P2S sans avertissement.
+>
+>
 
     Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 ###<a name="6-get-the-ip-configurations-of-the-virtual-network-gateway"></a>6. Récupérez les configurations IP de la passerelle de réseau virtuel.
 
-    $GWIpConfigs = $GW.IpConfigurations
+    $GWIpConfigs = $Gateway.IpConfigurations
 
 ###<a name="7-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>7. Récupérez la liste des adresses IP publiques utilisées pour cette passerelle de réseau virtuel. 
 Si la passerelle de réseau virtuel était active-active, vous verrez deux adresses IP publiques.
@@ -161,16 +175,60 @@ Vous serez peut-être invité à confirmer la suppression de l’adresse IP publ
 
     $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 
-###<a name="9-delete-the-gateway-subnet"></a>9. Supprimez le sous-réseau de la passerelle.
+###<a name="9-delete-the-gateway-subnet-and-set-the-configuration"></a>9. Supprimez le sous-réseau de passerelle et définissez la configuration.
  
     $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
     Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
+##<a name="deletep2s"></a>Suppression d’une passerelle VPN de point à site
+
+Pour supprimer une passerelle de réseau virtuel pour une configuration P2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Lorsque vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiquement appelées, tandis que d’autres sont des résultats de sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
+
+Nom du réseau virtuel : VNet1<br>
+Nom du groupe de ressources : RG1<br>
+Nom de la passerelle de réseau virtuel : GW1<br>
+
+Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
+
+
+>[!NOTE]
+> Lorsque vous supprimez la passerelle VPN, tous les clients connectés sont déconnectés du réseau virtuel sans avertissement.
+>
+>
+
+###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Récupérez la passerelle de réseau virtuel que vous souhaitez supprimer.
+
+    $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+
+###<a name="2-delete-the-virtual-network-gateway"></a>2. Supprimez la passerelle de réseau virtuel.
+Vous serez peut-être invité à confirmer la suppression de la passerelle de réseau virtuel.
+
+    Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+
+###<a name="3-get-the-ip-configurations-of-the-virtual-network-gateway"></a>3. Récupérez les configurations IP de la passerelle de réseau virtuel.
+
+    $GWIpConfigs = $Gateway.IpConfigurations
+
+###<a name="4-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>4. Récupérez la liste des adresses IP publiques utilisées pour cette passerelle de réseau virtuel. 
+Si la passerelle de réseau virtuel était active-active, vous verrez deux adresses IP publiques.
+
+    $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+
+###<a name="5-delete-the-public-ips"></a>5. Supprimez les adresses IP publiques.
+Vous serez peut-être invité à confirmer la suppression de l’adresse IP publique.
+
+    $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+
+###<a name="6-delete-the-gateway-subnet-and-set-the-configuration"></a>6. Supprimez le sous-réseau de passerelle et définissez la configuration.
+ 
+    $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+    Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 ##<a name="delete"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
 
 Si vous n’avez pas besoin de conserver de ressources et que vous souhaitez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Lorsque vous supprimez un groupe de ressources en entier, vous ne pouvez pas sélectionner les ressources à supprimer. Assurez-vous que c’est bien ce que vous souhaitez faire avant d’exécuter l’exemple.
 
+Les étapes suivantes s’appliquent au modèle de déploiement Resource Manager.
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Récupérez la liste des groupes de ressources de votre abonnement.
 
@@ -182,7 +240,6 @@ Localisez le groupe de ressources que vous souhaitez supprimer et affichez la li
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. Vérifiez les ressources de la liste.
 Lorsque la liste est renvoyée, passez-la en revue afin de vérifier que vous souhaitez supprimer toutes les ressources du groupe de ressources, ainsi que le groupe de ressources lui-même. 
-
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. Supprimez le groupe de ressources et les ressources.
 Pour supprimer le groupe de ressources et toutes les ressources qu’il contient, modifiez l’exemple et exécutez-le.

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0a6a6e5b76e03eba113600b5be558daa8c924f0f
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 62faba3827e9fc33e9788cd2d487adf04d760791
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes dans Azure Monitor pour les services Azure - Interface CLI multiplateforme 
+# <a name="create-alerts-in-azure-monitor-for-azure-services---powershell"></a>Création d’alertes dans Azure Monitor pour les services Azure - PowerShell 
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -146,9 +147,4 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble de la collecte des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) pour collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

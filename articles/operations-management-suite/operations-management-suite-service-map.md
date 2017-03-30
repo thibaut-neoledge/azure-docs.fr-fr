@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -271,7 +271,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API REST
-L’ensemble des données relatives au serveur, au processus et aux dépendances dans Carte de service est disponible via [l’API REST Carte de service](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+L’ensemble des données relatives au serveur, au processus et aux dépendances dans Carte de service est disponible via [l’API REST Carte de service](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
@@ -282,6 +282,10 @@ Pour plus d’informations sur l’utilisation et la collecte de données, consu
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par Carte de service.
+
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+- Consultez la [section Résolution des problèmes du document Configuration de la solution Carte de service](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## <a name="feedback"></a>Commentaires

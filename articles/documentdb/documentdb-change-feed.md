@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/20/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
-ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,9 +67,9 @@ Le support Change Feed d’Azure DocumentDB est activé par défaut pour tous le
 
 ![Traitement distribué du flux de modification de DocumentDB](./media/documentdb-change-feed/changefeedvisual.png)
 
-Dans la section suivante, nous décrivons comment accéder au flux de modification à l’aide de l’API REST de DocumentDB et des Kits de développement logiciel (SDK).
+Dans la section suivante, nous décrivons comment accéder au flux de modification à l’aide de l’API REST de DocumentDB et des Kits de développement logiciel (SDK). Pour les applications .NET, nous vous recommandons d’utiliser la [bibliothèque du processeur de flux de modification]() pour traiter les événements à partir du flux de modification.
 
-## <a name="working-with-the-rest-api-and-sdk"></a>Utilisation de l’API REST et des Kits de développement logiciel
+## <a id="rest-apis"></a>Utilisation de l’API REST et des Kits de développement logiciel (SDK)
 DocumentDB fournit des conteneurs élastiques de stockage et de débit appelés **collections**. Les données contenues dans les collections sont regroupées logiquement à l’aide de [clés de partition](documentdb-partition-data.md) à des fins d’évolutivité et de performance. DocumentDB fournit diverses API pour accéder à ces données, y compris la recherche par ID (Read/Get), les requêtes et les flux de lecture (analyses). Le flux de modification peut être obtenu en remplissant deux nouveaux en-têtes de demande de l’API `ReadDocumentFeed` de DocumentDB et peut être traité en parallèle sur différentes plages de clés de partition.
 
 ### <a name="readdocumentfeed-api"></a>API ReadDocumentFeed
@@ -88,8 +89,6 @@ Les résultats peuvent être limités à l’aide de l’en-tête `x-ms-max-item
 
 **Flux de lecture de documents en série**
 
-![Exécution en série de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedserial.png)
-
 Vous pouvez également récupérer le flux de documents à l’aide d’un des [Kits de développement logiciel (SDK) de DocumentDB](documentdb-sdk-dotnet.md) pris en charge. Par exemple, l’extrait de code suivant montre comment exécuter ReadDocumentFeed dans .NET.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -99,15 +98,10 @@ Vous pouvez également récupérer le flux de documents à l’aide d’un des [
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> Change Feed requiert des versions SDK 1.11.0 et supérieures (actuellement disponibles en version préliminaire privée).
-
 ### <a name="distributed-execution-of-readdocumentfeed"></a>Exécution distribuée de ReadDocumentFeed
 Pour les collections qui contiennent des téraoctets de données ou plus, ou qui reçoivent un grand nombre de mises à jour, l’exécution en série de flux de lecture à partir d’un seul ordinateur client n’est pas forcément pratique. Pour prendre en charge ces scénarios de données volumineuses, DocumentDB propose des API pour distribuer les appels `ReadDocumentFeed` de façon transparente sur plusieurs lecteurs/consommateurs clients. 
 
 **Flux de lecture de documents distribué**
-
-![Exécution distribuée de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedparallel.png)
 
 Pour fournir un traitement évolutif des modifications incrémentielles, DocumentDB prend en charge un modèle de montée en puissance pour l’API de flux de modification en fonction des plages de clés de partition.
 
@@ -337,15 +331,27 @@ Vous pouvez également filtrer le flux de modification à l’aide de la logique
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>Bibliothèque du processeur de flux de modification
+La [bibliothèque du processeur de flux de modification DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) peut être utilisée pour distribuer le traitement des événements du flux de modification sur plusieurs consommateurs d’événements. Vous devez utiliser cette implémentation lors de la création de lecteurs de flux de modification sur la plateforme .NET. La classe `ChangeFeedProcessorHost` fournit un environnement d'exécution sécurisé, multiprocessus, thread-safe pour des implémentations d’événements qui fournissent également une gestion de contrôle et de location de partition.
+
+Pour utiliser la classe [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs), vous pouvez implémenter [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). Cette interface contient trois méthodes :
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+Pour commencer le traitement des événements, instanciez ChangeFeedProcessorHost en fournissant les paramètres appropriés pour votre collection DocumentDB. Ensuite, appelez `RegisterObserverAsync` pour enregistrer votre implémentation `IChangeFeedObserver` avec le runtime. À ce stade, l'hôte tente d'acquérir un bail sur chaque partition dans chaque plage de clés de partition dans la collection DocumentDB à l'aide d'un algorithme « gourmand ». Ces baux sont valables pour une période donnée et doivent ensuite être renouvelés. Étant donné que de nouveaux nœuds (ici, des instances de rôle) sont en ligne, ils placent des réservations de bail et, en même temps, la charge est déplacée entre les nœuds tandis que chaque nœud tente d’acquérir plus de baux.
+
+![Utilisation de l’hôte du processus de flux de modification DocumentDB](./media/documentdb-change-feed/changefeedprocessor.png)
+
+Au fil du temps, un équilibre est établi. Cette fonctionnalité dynamique permet d’appliquer aux consommateurs une mise à l'échelle basée sur le processeur pour une augmentation et une diminution d’échelle. Si DocumentDB affichent plus de modifications que ce que les consommateurs peuvent traiter, l'augmentation du processeur sur les consommateurs peut être utilisée pour effectuer une mise à l’échelle automatique sur le nombre d’instances de travail.
+
+La classe ChangeFeedProcessorHost implémente également un mécanisme de point de contrôle à l’aide d’une collection de baux DocumentDB distincte. Ce mécanisme stocke le décalage sur une base par partition, afin que chaque consommateur puisse déterminer quel était le dernier point de contrôle du consommateur précédent. Étant donné que la transition des partitions entre les nœuds se fait via les baux, il s’agit d’un mécanisme de synchronisation qui facilité le déplacement de la charge.
+
 Dans cet article, nous vous avons fourni une procédure pas à pas concernant le support Change Feed (flux de modification) de DocumentDB et expliqué comment effectuer le suivi des modifications apportées aux données de DocumentDB à l’aide de l’API REST de DocumentDB et/ou des Kits de développement logiciel (SDK). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Essayez les [exemples de code de flux de modification DocumentDB sur Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 * Apprenez-en davantage sur [le modèle de ressources et la hiérarchie de DocumentDB](documentdb-resources.md).
 * Commencez à coder avec [les Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

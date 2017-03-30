@@ -16,23 +16,21 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: 94e2593271bd7828aab4dcefc0d0df47086e47ad
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f460662b17e421c0bb07c70f466a7425e5480bf9
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-nginx"></a>Créer une machine virtuelle avec NGINX
 
-Ce script crée une machine virtuelle Azure, puis utilise l’extension du script personnalisé de machine virtuelle Azure pour installer NGINX. Une fois le script exécuté, un site web de démonstration est accessible sur l’adresse IP publique de la machine virtuelle.
+Ce script crée une machine virtuelle Azure et utilise l’extension du script personnalisé de machine virtuelle Azure pour installer NGINX. Une fois que vous avez exécuté le script, vous pouvez accéder à un site web de démonstration sur l’adresse IP publique de la machine virtuelle.
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`.
+Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure.
 
-Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI sur un client Windows, consultez la page [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Utilisation de l’interface Azure CLI dans Windows).
+Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
 ## <a name="sample-script"></a>Exemple de script
-
-Le script suivant crée la machine virtuelle et appelle l’extension du script personnalisé.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Création rapide de machine virtuelle")]
 
@@ -42,6 +40,8 @@ L’extension du script personnalisé copie ce script sur la machine virtuelle. 
 
 ```bash
 #!/bin/bash
+
+# update package source
 apt-get -y update
 
 # install NGINX
@@ -50,7 +50,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante peut être utilisée pour la suppression du groupe de ressources, de la machine virtuelle et de toutes les ressources associées.
+Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup

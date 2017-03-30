@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -87,10 +88,5 @@ Il existe actuellement une limitation selon laquelle le jeton d’authentificati
 Pour le résoudre, arrêtez le travail en cours d’exécution et accédez à votre sortie Data Lake Store. Cliquez sur le lien « Renouveler l’autorisation ». Pendant un bref instant, vous voyez une page indiquant « Redirection de l’autorisation... ». La page se ferme automatiquement et si l’opération réussit, vous voyez le message suivant : « L’autorisation a été correctement renouvelée ». Vous devrez ensuite cliquer sur Enregistrer au bas de la page, puis redémarrer votre travail à partir de l’heure du dernier arrêt pour éviter toute perte de données.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,7 +32,7 @@ Update 4 peut être appliquée à n’importe quel appareil StorSimple exécuta
 Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple.
 
 > [!IMPORTANT]
-> * Update 4 comprend le logiciel de l’appareil, le microprogramme USM, le pilote et le microprogramme LSI, le microprogramme du disque, Storport et Spaceport, la mise à jour de sécurité et d’autres mises à jour du système d’exploitation. L’installation de cette mise à jour prend environ 4 heures. Nous vous recommandons d’appliquer cette mise à jour pour maintenir votre appareil à jour. 
+> * Update 4 comprend le logiciel de l’appareil, le microprogramme USM, le pilote et le microprogramme LSI, le microprogramme du disque, Storport et Spaceport, la mise à jour de sécurité et d’autres mises à jour du système d’exploitation. L’installation de cette mise à jour prend environ 4 heures. La mise à jour du microprogramme de disque est une mise à jour perturbatrice qui entraîne une interruption de service pour votre appareil. Nous vous recommandons d’appliquer cette mise à jour 4 pour maintenir votre appareil à jour. 
 > * Pour les nouvelles versions, vous ne voyez pas immédiatement les mises à jour, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car elles seront bientôt disponibles.
 
 ## <a name="whats-new-in-update-4"></a>Nouveautés d’Update 4
@@ -49,7 +49,7 @@ Update 4 comporte les principaux correctifs de bogues et améliorations suivant
 
     Toutes les restaurations sont désormais basées sur une carte thermique. Pour plus d’informations sur la façon d’interroger et d’annuler les travaux de restauration et de rafraîchissement basés sur une carte thermique, consultez la [référence à l’applet de commande Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **Outil de diagnostic StorSimple** : l’outil de diagnostic StorSimple désormais disponible dans Update 4 permet de diagnostiquer et de résoudre facilement les problèmes liés à l’intégrité du système, du réseau, des performances et des composants matériels. Cet outil est exécuté via Windows PowerShell pour StorSimple. 
+* **Outil de diagnostic StorSimple** : l’outil de diagnostic StorSimple désormais disponible dans Update 4 permet de diagnostiquer et de résoudre facilement les problèmes liés à l’intégrité du système, du réseau, des performances et des composants matériels. Cet outil est exécuté via Windows PowerShell pour StorSimple. Pour plus d’informations, consultez [Dépannage à l’aide de l’outil Diagnostics de StorSimple](storsimple-8000-diagnostics.md).
 
 * **Outil de migration StorSimple basé sur l’interface utilisateur** : avant cette version, la migration des données à partir des séries 5000-7000 exigeait que les utilisateurs exécutent une partie du flux de travail de migration à l’aide de l’interface Azure PowerShell. Cette version fournit un outil de migration StorSimple facile à utiliser basé sur l’interface utilisateur qui facilite ce même flux de travail de migration. Cet outil permet également de consolider les compartiments de récupération. 
 
@@ -59,7 +59,7 @@ Update 4 comporte les principaux correctifs de bogues et améliorations suivant
 
 * **Modifications de la mise à jour** : dans cette version, les bogues liés aux échecs de mise à jour ont été résolus.
 
-* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version. Si vous rencontrez cette alerte, demandez au support technique de Microsoft de vous livrer un disque de remplacement.
+* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version. Si vous rencontrez cette alerte, demandez au support technique de Microsoft de vous livrer un disque de remplacement. Pour plus d’informations, consultez [Alertes matérielles sur votre appareil StorSimple](storsimple-manage-alerts.md#hardware-alerts).
 
 * **Modifications relatives au remplacement du contrôleur** : une applet de commande permettant à l’utilisateur d’interroger l’état du processus de remplacement du contrôleur a été ajoutée dans cette version. Pour plus d’informations, consultez [l’applet de commande pour interroger l’état du remplacement du contrôleur](https://technet.microsoft.com/library/dn688168.aspx).
 

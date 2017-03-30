@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9b6429027a0d9f95ddced8b6616693ac2959a014
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b6b82aa6f129a008091e4abc1798b9b5d402c28e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 03/10/2017
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis configure un déploiement continu à partir d’un référentiel GitHub. Pour le déploiement GitHub sans déploiement continu, consultez [Créer une application web et déployer du code à partir de GitHub](app-service-powershell-deploy-github.md).
 
-Avant d’exécuter ce script, vérifiez les points suivants :
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Vérifiez également les points suivants :
 
-- Une connexion avec Azure a été créée à l’aide de l’applet de commande `Login-AzureRmAccount`.
+- Une connexion avec Azure a été créée à l’aide de la commande `az login`.
 - Le code d’application se trouve dans un référentiel GitHub public ou privé dont vous êtes propriétaire.
 - Vous avez [créé un jeton d’accès dans votre compte GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 

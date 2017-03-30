@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameadvancedpoliciesa-advanced-policies"></a><a name="AdvancedPolicies"></a> Stratégies avancées  
+##  <a name="AdvancedPolicies"></a> Stratégies avancées  
   
 -   [Control flow](api-management-advanced-policies.md#choose) : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions](api-management-policy-expressions.md) booléennes.  
   
 -   [Forward request](#ForwardRequest) : transfère la demande vers le service principal.  
   
--   [Log to Event Hub](#log-to-eventhub) : envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements.  
+-   [Log to Event Hub](#log-to-eventhub) : envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. 
+
+-   [Mock response](#mock-response) : abandonne l’exécution du pipeline et renvoie une réponse factice indiquée directement à l’appelant.
   
 -   [Retry](#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.  
   
@@ -48,10 +51,10 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   [Wait](#Wait) : attend l’exécution des stratégies incluses [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose) pour continuer.  
   
-##  <a name="a-namechoosea-control-flow"></a><a name="choose"></a> Control flow  
+##  <a name="choose"></a> Control flow  
  La stratégie `choose` applique les instructions de stratégie incluses en fonction du résultat de l’évaluation d’expressions booléennes, de façon similaire à une construction de type if-then-else ou commutateur dans un langage de programmation.  
   
-###  <a name="a-namechoosepolicystatementa-policy-statement"></a><a name="ChoosePolicyStatement"></a> Instruction de la stratégie  
+###  <a name="ChoosePolicyStatement"></a> Instruction de la stratégie  
   
 ```xml  
 <choose>   
@@ -71,7 +74,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="examples"></a>Exemples  
   
-####  <a name="a-namechooseexamplea-example"></a><a name="ChooseExample"></a> Exemple  
+####  <a name="ChooseExample"></a> Exemple  
  L’exemple suivant montre une stratégie [set-variable](api-management-advanced-policies.md#set-variable) ainsi que deux stratégies de contrôle de flux.  
   
  La stratégie set variable se trouve dans la section inbound et crée une variable de [contexte](api-management-policy-expressions.md#ContextVariables) `isMobile` booléenne qui a la valeur true si l’en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.  
@@ -142,14 +145,14 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|Oui|  
   
-###  <a name="a-namechooseusagea-usage"></a><a name="ChooseUsage"></a> Utilisation  
+###  <a name="ChooseUsage"></a> Utilisation  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error  
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-nameforwardrequesta-forward-request"></a><a name="ForwardRequest"></a> Forward request  
+##  <a name="ForwardRequest"></a> Forward request  
  La stratégie `forward-request` transfère la demande entrante au service principal spécifié dans le [contexte](api-management-policy-expressions.md#ContextVariables) de la demande. L’URL du service principal est spécifiée dans les [paramètres](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de l’API et peut être modifiée à l’aide de la stratégie [set backend service](api-management-transformation-policies.md).  
   
 > [!NOTE]
@@ -260,7 +263,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namelog-to-eventhuba-log-to-event-hub"></a><a name="log-to-eventhub"></a> Log to Event Hub  
+##  <a name="log-to-eventhub"></a> Log to Event Hub  
  La stratégie `log-to-eventhub` envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. Comme son nom l’indique, la stratégie est utilisée pour enregistrer certaines informations sur le contexte de la réponse ou de la demande à des fins d’analyse en ligne ou hors ligne.  
   
 > [!NOTE]
@@ -310,8 +313,50 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error  
   
 -   **Étendues de la stratégie :** toutes les étendues  
+
+##  <a name="mock-response"></a> Réponse factice  
+La `mock-response`, comme le nom l’indique, est utilisée pour simuler des API et des opérations. Elle interrompt l’exécution du pipeline et retourne une réponse factice à l’appelant. La stratégie essaie toujours de renvoyer des réponses de la plus haute fidélité. Elle préfère les exemples de contenu de réponse, le cas échéant. Elle génère des exemples de réponses à partir de schémas, lorsque les schémas sont fournis et les exemples ne le sont pas. Si aucun exemple ou schéma n’est trouvé, des réponses sans contenu sont retournées.
   
-##  <a name="a-nameretrya-retry"></a><a name="Retry"></a> Retry  
+### <a name="policy-statement"></a>Instruction de la stratégie  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### <a name="examples"></a>Exemples  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### <a name="elements"></a>Éléments  
+  
+|Élément|Description|Requis|  
+|-------------|-----------------|--------------|  
+|mock-response|Élément racine.|Oui|  
+  
+### <a name="attributes"></a>Attributs  
+  
+|Attribut|Description|Requis|Default|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|Spécifie le code d’état de réponse et permet de sélectionner l’exemple ou le schéma correspondant.|Non|200|  
+|content-type|Spécifie la valeur d’état de réponse `Content-Type` et permet de sélectionner l’exemple ou le schéma correspondant.|Non|Aucune|  
+  
+### <a name="usage"></a>Utilisation  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound, outbound, on-error  
+  
+-   **Étendues de la stratégie :** toutes les étendues
+
+##  <a name="Retry"></a> Retry  
  La stratégie `retry` exécute ses stratégies enfants une fois, puis retente leur exécution jusqu’à ce que la `condition` de la nouvelle tentative devienne `false` ou que le `count` de nouvelles tentatives soit épuisé.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -376,7 +421,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namereturnresponsea-return-response"></a><a name="ReturnResponse"></a> Return response  
+##  <a name="ReturnResponse"></a> Return response  
  La stratégie `return-response` abandonne l’exécution du pipeline et renvoie une réponse par défaut ou personnalisée à l’appelant. La réponse par défaut est `200 OK` sans corps. La réponse personnalisée peut être spécifiée par le biais d’instructions de stratégie ou d’une variable de contexte. Lorsque les deux sont fournies, la réponse contenue dans la variable de contexte est modifiée par les instructions de stratégie avant d’être renvoyée à l’appelant.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -424,7 +469,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namesendonewayrequesta-send-one-way-request"></a><a name="SendOneWayRequest"></a> Send one way request  
+##  <a name="SendOneWayRequest"></a> Send one way request  
  La stratégie `send-one-way-request` envoie une demande à l’URL indiquée sans attendre de réponse.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -493,7 +538,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namesendrequesta-send-request"></a><a name="SendRequest"></a> Send request  
+##  <a name="SendRequest"></a> Send request  
  La stratégie `send-request` envoie la demande fournie à l’URL spécifiée, sans attendre plus longtemps que la valeur du délai d’expiration définie.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -575,16 +620,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-nameset-variablea-set-variable"></a><a name="set-variable"></a> Set variable  
+##  <a name="set-variable"></a> Set variable  
  La stratégie `set-variable` déclare une variable de [contexte](api-management-policy-expressions.md#ContextVariables) et lui affecte une valeur spécifiée par le biais d’une [expression](api-management-policy-expressions.md) ou d’un littéral chaîne. Si l’expression contient un littéral, il sera converti en chaîne et le type de la valeur sera `System.String`.  
   
-###  <a name="a-nameset-variablepolicystatementa-policy-statement"></a><a name="set-variablePolicyStatement"></a> Instruction de la stratégie  
+###  <a name="set-variablePolicyStatement"></a> Instruction de la stratégie  
   
 ```xml  
 <set-variable name="variable name" value="Expression | String literal" />  
 ```  
   
-###  <a name="a-nameset-variableexamplea-example"></a><a name="set-variableExample"></a> Exemple  
+###  <a name="set-variableExample"></a> Exemple  
  L’exemple suivant montre une stratégie set variable dans la section inbound. Cette stratégie set variable crée une variable de [contexte](api-management-policy-expressions.md#ContextVariables) `isMobile` booléenne qui a la valeur true si l’en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.  
   
 ```xml  
@@ -611,7 +656,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-###  <a name="a-nameset-variableallowedtypesa-allowed-types"></a><a name="set-variableAllowedTypes"></a> Types autorisés  
+###  <a name="set-variableAllowedTypes"></a> Types autorisés  
  Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un des types de base suivants.  
   
 -   System.Boolean  
@@ -676,7 +721,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   System.DateTime?  
   
-##  <a name="a-namesetrequestmethoda-set-request-method"></a><a name="SetRequestMethod"></a> Set request method  
+##  <a name="SetRequestMethod"></a> Set request method  
  La stratégie `set-method` permet de modifier la méthode d’une requête HTTP.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -728,7 +773,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namesetstatusa-set-status-code"></a><a name="SetStatus"></a> Set status code  
+##  <a name="SetStatus"></a> Set status code  
  La stratégie `set-status` permet de donner la valeur spécifiée au code d’état HTTP.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -775,7 +820,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-nametracea-trace"></a><a name="Trace"></a> Trace  
+##  <a name="Trace"></a> Trace  
  La stratégie `trace` ajoute une chaîne à la sortie de [l’Inspecteur d’API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). La stratégie s’exécute uniquement lorsque le traçage est déclenché, c’est-à-dire que l’en-tête de la demande `Ocp-Apim-Trace` est présent et a la valeur `true` et que l’en-tête de la demande `Ocp-Apim-Subscription-Key` est présent et contient une clé valide associée au compte Administrateur.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -807,7 +852,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
-##  <a name="a-namewaita-wait"></a><a name="Wait"></a> Wait  
+##  <a name="Wait"></a> Wait  
  La stratégie `wait` exécute ses stratégies enfants immédiates en parallèle et attend la fin de la totalité ou de l’une de ses stratégies enfants immédiates pour se terminer. La stratégie d’attente peut avoir comme stratégies enfants immédiates les stratégies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose).  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -878,9 +923,4 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 -    [Stratégies dans Gestion des API](api-management-howto-policies.md) 
 -    [Expressions de stratégie](api-management-policy-expressions.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

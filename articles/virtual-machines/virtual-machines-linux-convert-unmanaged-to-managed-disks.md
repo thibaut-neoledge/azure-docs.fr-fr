@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 53f5eefd9223fecefa184c612633d7a455fe15bf
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,17 +26,17 @@ ms.lasthandoff: 02/27/2017
 
 Si vous avez des machines virtuelles Linux existantes dans Azure qui utilisent des disques non gérés dans des comptes de stockage et que vous souhaitez qu’elles puissent tirer parti des disques gérés, vous pouvez les convertir. Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés. Le processus de conversion nécessite un redémarrage de la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles au cours d’une fenêtre de maintenance préexistante. Le processus de migration n’est pas réversible. Veillez à tester le processus en migrant une machine virtuelle de test avant d’effectuer la migration en production.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Lors de la conversion, vous libérez la machine virtuelle. Celle-ci reçoit une nouvelle adresse IP lorsqu’elle est démarrée après la conversion. Si vous avez une dépendance sur une adresse IP fixe, utilisez une adresse IP réservée.
 
 Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
 
-- [Copiez le disque dur virtuel (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage qui n’a jamais été activé pour Azure Storage Service Encryption.
+- Copiez le disque dur virtuel (VHD) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
 - Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create), ou
 - Attachez le disque dur virtuel copié avec la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution avec des disques gérés.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Convertir une machine virtuelle vers Azure Managed Disks
-Cette section explique comment convertir vos machines virtuelles Azure existantes à partir de disques non gérés en disques gérés. Vous pouvez utiliser ce processus pour convertir des disques non gérés Premium (SSD) en disques gérés Premium, ou des disques non gérés Standard (HDD) en disques gérés Standard. 
+Cette section explique comment convertir vos machines virtuelles Azure existantes à partir de disques non gérés en disques gérés. Vous pouvez utiliser ce processus pour convertir des disques non gérés Premium (SSD) en disques gérés Premium, ou des disques non gérés Standard (HDD) en disques gérés Standard.
 
 > [!IMPORTANT]
 > Après avoir effectué la procédure suivante, un seul objet blob de blocs reste dans le conteneur de disques durs virtuels par défaut. Le nom du fichier est : « VMName.xxxxxxx.status ». Ne supprimez pas cet objet d’état restant. Les étapes suivantes devraient résoudre ce problème.

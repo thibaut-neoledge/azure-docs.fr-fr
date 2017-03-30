@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c187467e8af7503ea22c5953417d8282be97856c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -91,6 +91,7 @@ Toutes les solutions indiquées dans le tableau suivant sont disponibles dans le
 | [Conteneurs](log-analytics-containers.md)                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | Surveillance HDInsight HBase <br>(version préliminaire)                                                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | [Analytique Key Vault](log-analytics-azure-key-vault.md)                      | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
+| Logic Apps B2B                      | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | [Évaluation des logiciels malveillants](log-analytics-malware.md)                                             | <ul><li>Sécurité et conformité</li></ul>                                    | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                               | |
 | [Analyseur de performances réseau](log-analytics-network-performance-monitor.md) <br>(version préliminaire)    | <ul><li>Insight & Analytics</li></ul>                                     | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | |
 | Office 365 Analytics <br>(version préliminaire)                                                        | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
@@ -103,7 +104,8 @@ Toutes les solutions indiquées dans le tableau suivant sont disponibles dans le
 | [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(version préliminaire) | <ul><li>Insight & Analytics</li><li>Log Analytics</li></ul>         | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | Gestion des mises à jour                                                                               | <ul><li>Automation & Control</li></ul>                                    | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                            | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
-| [Mettre à niveau Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(version préliminaire)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | Pas de frais pour les données ou les nœuds |
+| [Conformité de la mise à jour](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(version préliminaire)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | Pas de frais pour les données ou les nœuds |
+| [Préparation à la mise à niveau](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | Pas de frais pour les données ou les nœuds |
 | [Surveillance VMware](log-analytics-vmware.md) <br>(version préliminaire)                                 | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)     | |
 | Données de communication 2.0<br>(version préliminaire)                                                                   | <ul><li>Insight & Analytics</li></ul>                                      | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Disponible dans les régions États-Unis de l’Est et Europe de l’Ouest |
 

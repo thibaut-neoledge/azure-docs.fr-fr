@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 03/20/2017
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
-ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -86,7 +87,7 @@ Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def],
 Une application cliente demande [l’autorisation](#authorization) à un propriétaire de ressources de participer à un [flux d’autorisation OAuth2](#authorization-grant) et peut accéder aux API/données au nom du propriétaire des ressources. L’infrastructure d’autorisation OAuth2 [définit deux types de clients][OAuth2-Client-Types], « confidentiel » et « public », en fonction de la capacité du client à préserver la confidentialité de ses informations d’identification. Les applications peuvent implémenter un [client web (confidentiel)](#web-client) s’exécutant sur un serveur web, un [client natif (public)](#native-client) installé sur un appareil ou un [client basé sur un agent utilisateur (public)](#user-agent-based-client) s’exécutant dans le navigateur d’un appareil.
 
 ## <a name="consent"></a>consentement
-Processus par lequel un [propriétaire de ressources](#resource-owner) octroie à une [application cliente](#client-application) des [autorisations](#permissions) spécifiques pour accéder à des ressources protégées en son nom. Selon les autorisations demandées par le client, un administrateur ou un utilisateur sera invité à donner son consentement pour autoriser l’accès aux données de l’entreprise ou à ses données individuelles respectivement. Notez que dans un scénario d’application [mutualisée](#multi-tenant-application), le [principal du service](#service-principal-object) de l’application est également enregistré dans le client de l’utilisateur donnant son consentement.
+Processus par lequel un [propriétaire de ressources](#resource-owner) octroie à une [application cliente](#client-application) l’accès à des ressources protégées avec des [autorisations spécifiques](#permissions), en son nom. Selon les autorisations demandées par le client, un administrateur ou un utilisateur sera invité à donner son consentement pour autoriser l’accès aux données de l’entreprise ou à ses données individuelles respectivement. Notez que dans un scénario d’application [mutualisée](#multi-tenant-application), le [principal du service](#service-principal-object) de l’application est également enregistré dans le client de l’utilisateur donnant son consentement.
 
 ## <a name="id-token"></a>Jeton d’ID
 [Jeton de sécurité](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] fourni par le [point de terminaison d’autorisation](#authorization-endpoint) d’un [serveur d’autorisation](#authorization-server) et contenant des [revendications](#claim) se rapportant à l’authentification d’un [propriétaire de ressources](#resource-owner) utilisateur final. Comme un jeton d’accès, un jeton d’ID est représenté sous forme de jeton [JSON Web Token (JWT)][JWT] signé numériquement. À la différence d’un jeton d’accès cependant, les revendications d’un jeton d’ID ne sont pas utilisés à des fins liées à l’accès aux ressources et plus particulièrement pour le contrôle d’accès.
@@ -94,7 +95,7 @@ Processus par lequel un [propriétaire de ressources](#resource-owner) octroie �
 Pour plus d’informations, consultez [Azure AD token reference (Référence de jeton Azure AD)][AAD-Tokens-Claims].
 
 ## <a name="multi-tenant-application"></a>application mutualisée
-Classe [d’applications clientes](#client-application) qui permet aux utilisateurs configurés dans n’importe quel [client](#tenant) Azure AD, y compris ceux autres que celui où le client est enregistré, de se connecter et de donner leur [consentement](#consent). Par opposition, une application inscrite en tant qu’application à client unique permet uniquement des connexions depuis des comptes d’utilisateurs configurés dans le même client que celui dans lequel l’application est inscrite. Les applications [clientes natives](#native-client) sont mutualisées par défaut, tandis que les applications [clientes web](#web-client) peuvent choisir entre une architecture à client unique et une architecture mutualisée.
+Classe d’applications qui permet aux utilisateurs configurés dans n’importe quel [client](#tenant) Azure AD, y compris ceux autres que celui où le client est enregistré, de se connecter et de donner leur [consentement](#consent). Les applications [clientes natives](#native-client) sont mutualisées par défaut, tandis que les applications [clientes web](#web-client) et [ressources web/API](#resource-server) peuvent choisir entre une architecture à client unique et une architecture mutualisée. Par opposition, une application web inscrite en tant qu’application à client unique permet uniquement des connexions depuis des comptes d’utilisateurs configurés dans le même client que celui dans lequel l’application est inscrite.
 
 Pour plus d’informations, consultez [Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée][AAD-Multi-Tenant-Overview].
 
@@ -104,12 +105,12 @@ Type d’ [application cliente](#client-application) installé en mode natif sur
 ## <a name="permissions"></a>Autorisations
 Une [application cliente](#client-application) accède à un [serveur de ressources](#resource-server) en déclarant des demandes d’autorisation. Deux types sont disponibles :
 
-* Les autorisations déléguées, qui demandent un accès [en fonction de l’étendue](#scopes) au titre de l’autorisation déléguée donnée par le [propriétaire des ressources](#resource-owner) connecté, sont présentées à la ressource lors de l’exécution sous forme de [revendications « scp »](#claim) dans le [jeton d’accès](#access-token) du client.
-* Les autorisations d’application, qui demandent un accès [en fonction du rôle](#roles) au titre des informations d’identification/de l’identité de l’application cliente, sont présentées à la ressource lors de l’exécution sous forme de [revendications « de rôles »](#claim) dans le jeton d’accès du client.
+* Les autorisations déléguées, qui spécifient un accès [en fonction de l’étendue](#scopes) en utilisant l’autorisation déléguée donnée par le [propriétaire des ressources](#resource-owner) connecté, sont présentées à la ressource lors de l’exécution sous forme de [revendications « scp »](#claim) dans le [jeton d’accès](#access-token) du client.
+* Les autorisations d’application, qui spécifient un accès [en fonction du rôle](#roles) en utilisant les informations d’identification/de l’identité de l’application cliente, sont présentées à la ressource lors de l’exécution sous forme de [revendications « de rôles »](#claim) dans le jeton d’accès du client.
 
 Elles apparaissent également pendant le processus de [consentement](#consent) , donnant à l’administrateur ou au propriétaire des ressources la possibilité d’autoriser/de refuser l’accès client aux ressources de son client.
 
-Vous pouvez configurer des demandes d’autorisation sous l’onglet « Applications » / « Paramètres » du [portail Azure][AZURE-portal], sous « Autorisations requises », en sélectionnant les « Autorisations déléguées » et les « Autorisations d’application » souhaitées (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver d’informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
+Vous pouvez configurer des demandes d’autorisation sous l’onglet « Applications » / « Paramètres » du [portail Azure][AZURE-portal], sous « Autorisations requises », en sélectionnant les « Autorisations déléguées » et les « Autorisations d’application » souhaitées (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propriétaire de la ressource
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], entité capable d’octroyer l’accès à une ressource protégée. Lorsque le propriétaire de ressource est une personne, on le désigne sous le nom d’utilisateur final. Par exemple, lorsqu’une [application cliente](#client-application) souhaite accéder à la boîte aux lettres d’un utilisateur via l’[API Graph Microsoft][Microsoft-Graph], l’autorisation du propriétaire de ressources de la boîte aux lettres est nécessaire.
@@ -175,7 +176,7 @@ Type d’ [application cliente](#client-application) qui exécute tout le code s
 ## <a name="next-steps"></a>Étapes suivantes
 Le [Guide du développeur Azure AD][AAD-Dev-Guide] est un portail rassemblant toutes les rubriques liées au développement Azure AD, notamment une présentation de l’[intégration d’applications][AAD-How-To-Integrate] et les principes de base de l’[authentification Azure AD et des scénarios d’authentification pris en charge][AAD-Auth-Scenarios].
 
-Utilisez la section Commentaires Disqus suivante pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
+Utilisez la section des commentaires suivante pour fournir des commentaires et nous aider à affiner et à présenter notre contenu, y compris les demandes de nouvelles définitions ou la mise à jour de définitions existantes !
 
 <!--Image references-->
 
@@ -208,9 +209,4 @@ Utilisez la section Commentaires Disqus suivante pour fournir des commentaires e
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

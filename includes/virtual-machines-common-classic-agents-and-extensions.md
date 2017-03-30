@@ -41,4 +41,4 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Rechercher, ajouter, mettre à jour et supprimer des extensions de machine virtuelle
-Pour plus d’informations sur ces tâches, consultez l’article expliquant comment [ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour plus d’informations sur ces tâches, consultez l’article expliquant comment [ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

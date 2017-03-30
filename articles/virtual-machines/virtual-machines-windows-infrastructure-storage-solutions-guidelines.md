@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 5c1e2a2170e5373b856caf6da4b9abaea00dc09a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f692f98beaee16bef24bb7fbf716a9b4b8edeb6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,6 +32,7 @@ Cet article se concentre sur la compréhension des besoins de stockage et les co
 ## <a name="implementation-guidelines-for-storage"></a>Instructions d’implémentation pour le stockage
 Décisions :
 
+* Allez-vous utiliser des disques managés Azure ou des disques non managés ?
 * Devez-vous utiliser le stockage Standard ou Premium pour votre charge de travail ?
 * Avez-vous besoin d’un entrelacement pour créer des disques d’une taille supérieure à 1 023 Go ?
 * Avez-vous besoin d’un entrelacement pour optimiser les performances d’E/S de votre charge de travail ?
@@ -44,6 +45,8 @@ Tâches :
 
 ## <a name="storage"></a>Storage
 Azure Storage est un élément essentiel du déploiement et de la gestion des applications et des machines virtuelles. Azure Storage fournit des services pour le stockage des données de fichiers, les données non structurées et les messages. Il fait également partie de l’infrastructure de prise en charge des machines virtuelles.
+
+[Les disques managés Azure](../storage/storage-managed-disks-overview.md) gèrent le stockage pour vous en arrière-plan. Avec les disques non managés, vous créez des comptes de stockage dédiés à la prise en charge des disques (fichiers de disques durs virtuels) de vos machines virtuelles Azure. Dans le cadre d’une scalabilité verticale, vous devez créer la quantité suffisante de comptes de stockage supplémentaires. Ceci vous évite de dépasser la limite d’E/S associée au stockage de vos disques. Maintenant que votre stockage est géré par Managed Disks, vous n’êtes plus restreint par les limites des comptes de stockage (comme 20 000 E/S par seconde et par compte). Vous n’avez plus à copier vos images personnalisées (fichiers de disques durs virtuels) sur plusieurs comptes de stockage. Vous pouvez les gérer à partir d’un emplacement centralisé (un compte de stockage par région Azure) et les utiliser pour créer des centaines de machines virtuelles dans un abonnement. Nous vous recommandons d’utiliser des disques managés pour les nouveaux déploiements.
 
 Il existe deux types de comptes de stockage disponibles dans pour prendre en charge les machines virtuelles :
 
@@ -81,7 +84,9 @@ Si vous utilisez l’entrelacement pour les disques de données Azure, respectez
 Pour plus d’informations, voir la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ## <a name="multiple-storage-accounts"></a>Comptes de stockage multiples
-Lorsque vous concevez votre environnement de Stockage Azure, vous pouvez utiliser plusieurs comptes de stockage quand le nombre de machines virtuelles que vous déployez augmente. Cette approche permet de répartir les E/S sur l’infrastructure de Stockage Azure sous-jacente afin de maintenir des performances optimales pour vos machines virtuelles et vos applications. Lorsque vous concevez des applications que vous déployez, prenez en compte les exigences d’E/S de chaque machine virtuelle et équilibrez ces machines virtuelles à travers les comptes de Stockage Azure. Essayez d’éviter de grouper toutes les machines virtuelles gourmandes en E/S sur un ou deux comptes de stockage seulement.
+Cette section ne s’applique pas aux [disques managés Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), étant donné que vous ne créez pas de comptes de stockage distincts. 
+
+Lorsque vous concevez votre environnement Stockage Azure pour les disques non managés, vous pouvez utiliser plusieurs comptes de stockage quand le nombre de machines virtuelles que vous déployez augmente. Cette approche permet de répartir les E/S sur l’infrastructure de Stockage Azure sous-jacente afin de maintenir des performances optimales pour vos machines virtuelles et vos applications. Lorsque vous concevez des applications que vous déployez, prenez en compte les exigences d’E/S de chaque machine virtuelle et équilibrez ces machines virtuelles à travers les comptes de Stockage Azure. Essayez d’éviter de grouper toutes les machines virtuelles gourmandes en E/S sur un ou deux comptes de stockage seulement.
 
 Pour plus d’informations sur les fonctionnalités d’E/S des différentes options de Stockage Azure et des valeurs maximales recommandées, consultez [Objectifs de performance et d’évolutivité du Stockage Azure](../storage/storage-scalability-targets.md).
 

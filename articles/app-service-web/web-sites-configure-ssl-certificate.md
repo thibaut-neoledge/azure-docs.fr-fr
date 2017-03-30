@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/17/2017
 
 Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un [Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez [Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
 
-Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent déjà accéder à votre application via **https://*&lt;nom_application>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et **\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.   
+Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent déjà accéder à votre application via **https://*&lt;nom_application>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que**contoso.com**, **www.contoso.com**et**\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.   
 
 > [!NOTE]
 > Pour accéder à tout moment à l’aide des experts Azure, consultez les [forums Azure](https://azure.microsoft.com/support/forums/). Pour un support personnalisé, accédez à [Support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir de l’aide**.
@@ -439,8 +439,12 @@ Avant de poursuivre, passez en revue la section [Ce dont vous avez besoin](#bkmk
    
     ![insérer une image de liaisons SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > [!NOTE] 
+    > Le protocole **SSL basé sur IP** associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur Web.  
+    >
+    > Le protocole **SSL basé sur SNI** est une extension des protocoles SSL et TLS (**[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)**) qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur SNI, consultez l’article **[Indication du nom du serveur](http://en.wikipedia.org/wiki/Server_Name_Indication)** sur Wikipédia.
+    > 
+
 9. Cliquez sur **Ajouter une liaison** pour enregistrer les modifications et activer SSL.
 
 ## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>Étape 3. Modifier votre mappage de nom de domaine (liaison SSL basée sur IP uniquement)

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/03/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 6859f2f0c627c9c23703875d04b4893b58775a26
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 434961f7d25195eee3310461a3a97e03ffdd8917
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ Découvrez l’intégration des journaux Azure, ses fonctionnalités principales
 ## <a name="overview"></a>Vue d'ensemble
 La plateforme en tant que Service (PaaS) et l’infrastructure en tant que Service (IaaS) hébergées dans Azure génèrent une grande quantité de données dans des journaux de sécurité. Ces journaux contiennent des informations critiques qui peuvent fournir des informations essentielles sur les violations de stratégie, les menaces internes et externes, les problèmes de conformité et anomalies du réseau, de l’hôte et de l’activité des utilisateurs.
 
-L’intégration des journaux Azure permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. L’intégration des journaux Azure collecte des diagnostics Azure à partir de vos machines virtuelles Windows *(WAD)*, de journaux d’activité Azure, d’alertes Azure Security Center et de journaux du fournisseur de ressources Azure. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité.
+L’intégration des journaux Azure est une solution gratuite qui permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. L’intégration des journaux Azure collecte des diagnostics Azure à partir de vos machines virtuelles Windows *(WAD)*, de journaux d’activité Azure, d’alertes Azure Security Center et de journaux du fournisseur de ressources Azure. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité.
 
 ![Intégration des journaux Azure][1]
 
@@ -50,6 +50,7 @@ Le tableau suivant explique la catégorie des journaux et les détails de l’in
 | Journaux de diagnostic (journaux des ressources) | Oui | L’utilisateur final doit créer le fichier de l’analyseur JSON FlexConnector. Pour plus d’informations sur cette opération, consultez la documentation d’ArcSight. | Vous devez créer une extension de source de journaux. Pour plus d’informations, consultez la documentation de QRadar. |
 | Journaux des machines virtuelles | Oui, via les événements transmis et non via JSON | Oui, via les événements transmis | Oui, via les événements transmis |
 
+L’intégration des journaux Azure est une solution gratuite : vous n’avez pas besoin de payer pour les fichiers binaires associés. Toutefois, il existe des coûts liés au stockage Azure requis pour les informations du fichier journal.
 
 Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e-mail à [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 

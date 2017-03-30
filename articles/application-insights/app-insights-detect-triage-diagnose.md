@@ -4,19 +4,19 @@ description: "Analyser les pannes et détecter et diagnostiquer les problèmes d
 author: alancameronwills
 services: application-insights
 documentationcenter: 
-manager: douge
+manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -70,7 +70,7 @@ Dans la page Vue d’ensemble d’Application Insights, un graphique montre une
 
 Le temps de chargement de la page du navigateur provient de la télémétrie envoyée directement depuis vos pages web. Le temps de réponse du serveur, le nombre de demandes au serveur et le nombre de demandes ayant échoué sont mesurés dans le serveur web puis envoyés à Application Insights à partir de là.
 
-Marcela est légèrement préoccupée par le graphique de réponse du serveur, qui affiche la durée moyenne entre le moment où le serveur reçoit une demande HTTP depuis le navigateur d’un utilisateur et le moment où il renvoie la réponse. Il n’est pas rare de voir une variation dans ce graphique, car la charge sur le système varie. Mais, dans ce cas, il semble y avoir une corrélation entre une légère augmentation du nombre de demandes et une augmentation conséquente du temps de réponse. Cela peut indiquer que le système a atteint ses limites de fonctionnement.
+Marcela est légèrement préoccupée par le graphique de réponse du serveur. Ce graphique affiche la durée moyenne entre le moment où le serveur reçoit une demande HTTP depuis le navigateur d’un utilisateur et le moment où il renvoie la réponse. Il n’est pas rare de voir une variation dans ce graphique, car la charge sur le système varie. Mais, dans ce cas, il semble y avoir une corrélation entre une légère augmentation du nombre de demandes et une augmentation conséquente du temps de réponse. Cela peut indiquer que le système a atteint ses limites de fonctionnement.
 
 Elle ouvre les graphiques Serveurs (Serveurs)  :
 
@@ -90,7 +90,7 @@ Des alertes peuvent être définies sur une grande variété d’autres mesures.
 ## <a name="smart-detection-alerts"></a>Alertes de détection intelligente
 Le jour suivant, un message électronique d’alerte est généré depuis Application Insights. Mais, lorsqu’elle l’ouvre, il ne s’agit pas de l’alerte de temps de réponse qu’elle a définie. Au lieu de cela, elle lui indique qu’il y a eu une augmentation soudaine du nombre de demandes ayant échoué (autrement dit, les demandes qui ont renvoyé des codes d’erreur d’au moins 500).
 
-Les demandes ayant échoué sont celles dans lesquelles les utilisateurs ont vu une erreur, généralement suite à une exception levée dans le code. Peut-être ont-ils vu un message indiquant « Nous ne pouvons pas mettre à jour vos informations maintenant » ou, dans le pire des cas, le vidage de la pile sur l'écran de l'utilisateur, via le serveur web.
+Les demandes ayant échoué sont celles dans lesquelles les utilisateurs ont vu une erreur, généralement suite à une exception levée dans le code. Peut-être ont-ils vu un message indiquant « Nous ne pouvons pas mettre à jour vos informations maintenant » ou, dans le pire des cas, le vidage de la pile sur l'écran de l'utilisateur, via le serveur web.
 
 Cette alerte est une surprise, car, au dernier contrôle, le nombre de demandes ayant échoué était relativement peu élevé. Un petit nombre d’échecs est à prévoir dans un serveur très sollicité.
 
@@ -98,7 +98,7 @@ Mais elle est également un peu surprise de ne pas avoir eu à configurer cette 
 
 ![e-mail de diagnostic proactif](./media/app-insights-detect-triage-diagnose/21.png)
 
-Il s’agit d’un e-mail très utile. Il ne génère pas seulement une alarme : il effectue également une grande partie du travail de triage et de diagnostic.
+Il s’agit d’un e-mail très utile. Il ne génère pas seulement une alarme : il effectue également une grande partie du travail de triage et de diagnostic.
 
 Il indique le nombre de clients, les pages web ou des opérations affectés. Marcela peut décider si l’ensemble de l’équipe doit travailler à « éteindre l’incendie » ou si l’alerte peut être ignorée jusqu’à la semaine prochaine.
 
@@ -146,16 +146,16 @@ En fait, la stratégie de l'équipe est encore plus large : elle envoie la tél
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException est utilisé pour signaler les exceptions, car il envoie une copie de la pile, et TrackEvent est utilisé pour signaler les autres événements. Vous pouvez joindre toutes les propriétés qui peuvent être utiles au diagnostic.
+TrackException est utilisé pour signaler les exceptions, car il envoie une copie de la pile. TrackEvent est utilisé pour signaler les autres événements. Vous pouvez joindre toutes les propriétés qui peuvent être utiles au diagnostic.
 
 Les exceptions et les événements apparaissent dans le panneau [Recherche de diagnostic](app-insights-diagnostic-search.md). Vous pouvez afficher plus de détails dans les propriétés supplémentaires et dans le suivi de la pile.
 
 ![Dans Recherche de diagnostic, utilisez les filtres pour afficher certains types de données.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 ## <a name="monitoring-user-activity"></a>Suivi des activités des utilisateurs.
-Si le temps de réponse reste excellent et qu’il y a peu d’exceptions, l’équipe de développement peut réfléchir à l’amélioration de l’expérience utilisateur et à la manière d’aider plus d’utilisateurs à atteindre leurs objectifs.
+Lorsque le temps de réponse reste satisfaisant et qu’il existe quelques exceptions, l’équipe de développement peut passer à la facilité d’utilisation. Elle peut réfléchir à la façon d’améliorer l’expérience des utilisateurs et d’encourager davantage d’utilisateurs à atteindre leurs objectifs.
 
-Par exemple, la visite d’un utilisateur typique sur un site web présente un parcours évident : de nombreux clients regardent les taux pour différents types de prêts ; certains remplissent un formulaire de devis et, parmi ceux qui reçoivent le devis, un petit nombre d’entre eux se décident et contractent un prêt.
+Par exemple, le parcours typique d’un utilisateur sur un site web s’effectue via un « entonnoir » bien défini. De nombreux clients consultent les taux de différents types de prêt. Un petit nombre d’entre eux décident de remplir le formulaire de devis. Parmi ceux qui reçoivent le devis, quelques-uns poursuivent jusqu’à la finalisation du prêt.
 
 ![Nombre d’affichages de page](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
@@ -219,6 +219,10 @@ Application Insights peut également servir à apprendre ce que les utilisateurs
 
 ## <a name="your-applications"></a>Vos applications
 Voici donc une équipe qui utilise Application Insights non seulement pour résoudre les problèmes, mais aussi pour améliorer le cycle de développement. J’espère que ceci vous a donné quelques idées sur la façon dont Application Insights peut vous aider dans vos propres applications avec la gestion des performances des applications.
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez commencer de plusieurs façons, selon les caractéristiques de votre application. Choisissez ce qui vous convient le mieux :

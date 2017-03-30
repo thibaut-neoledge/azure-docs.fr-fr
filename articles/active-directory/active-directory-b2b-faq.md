@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 995f185f99c80809a5c4c2925b8d594b1d5568ff
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -97,6 +97,13 @@ Azure AD dispose d’un ensemble fixe d'exigences en matière de nombre de carac
 ### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Les applications cherchent à différencier leurs expériences entre un utilisateur client et un utilisateur invité. Une assistance standard est-elle disponible pour cela ? La présence de la revendication de fournisseur d’identité est-elle le modèle approprié ?
  
 Un utilisateur invité peut utiliser n’importe quel fournisseur d’identité pour s’authentifier comme décrit dans [Propriétés d’un utilisateur Collaboration B2B](active-directory-b2b-user-properties.md). La propriété UserType est donc la propriété appropriée pour le déterminer. La revendication UserType n’est actuellement pas incluse dans le jeton. Les applications doivent utiliser l’API Graph pour interroger le répertoire de l’utilisateur et obtenir leur UserType.
+
+### <a name="where-can-find-a-b2b-collaboration-community-to-share-solutions-and-submit-ideas"></a>Où puis-je trouver une communauté B2B Collaboration pour partager des solutions et envoyer des idées ?
+
+Nous sommes constamment à l’écoute de vos commentaires sur les moyens d’améliorer B2B Collaboration. Nous vous invitons à participer à la discussion, à partager vos scénarios utilisateur, les meilleures pratiques et ce que vous appréciez par rapport à Azure AD B2B Collaboration sur la page [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+ 
+Nous vous invitons également à soumettre vos idées et à voter pour les prochaines fonctionnalités sur le site [Idées B2B Collaboration](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
+
 
 ### <a name="next-steps"></a>Étapes suivantes
 

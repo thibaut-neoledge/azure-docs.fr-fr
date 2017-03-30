@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ Lorsque vous créez une machine virtuelle dans le Portail Azure à l’aide du m
 
 * [Créer un nom de domaine complet dans le Portail Azure](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>Cartes réseau virtuelles
+## <a name="network-interfaces"></a>Interfaces réseau
 Une carte d’interface réseau (NIC) est l’interconnexion entre une machine virtuelle et le réseau logiciel sous-jacent. Cet article explique ce qu’est une interface réseau et comment elle est utilisée dans le modèle de déploiement Azure Resource Manager.
 
-* [Vue d’ensemble des interfaces de réseau virtuel](../virtual-network/virtual-network-network-interface-overview.md)
+* [Interfaces de réseau virtuel](../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>Cartes réseau virtuelles et étiquetage DNS
 Si vous avez besoin que votre serveur soit persistant, mais qu’il est traité comme du bétail et fréquemment détruit et déployé, il est conseillé d’utiliser l’étiquetage DNS sur votre carte réseau pour conserver le nom sur le réseau virtuel.  La procédure pas à pas suivante vous permettra de configurer une carte réseau nommée de manière permanente avec une adresse IP statique.
@@ -66,10 +67,5 @@ Une passerelle de réseau virtuel est conçue pour faire circuler le trafic rés
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
 * [Création d’un équilibreur de charge interne à l’aide de l’interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

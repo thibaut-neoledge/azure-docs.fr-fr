@@ -1,49 +1,50 @@
 ---
-title: Analyse des applications Docker dans Application Insights
+title: "Surveiller les applications Docker dans Azure Application Insights | Microsoft Docs"
 description: "Vous pouvez visualiser les compteurs de performances, les événements et les exceptions Docker dans Application Insights, avec les données de télémétrie des applications en conteneur."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b888f3e7fd56aaf8104c1b76264a3753ca37f7c9
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Analyse des applications Docker dans Application Insights
-Les événements de cycle de vie et les compteurs de performances provenant de conteneurs [Docker](https://www.docker.com/) peuvent être représentés dans Application Insights. Installez l’image [Application Insights](app-insights-overview.md) dans un conteneur de votre hôte pour afficher les compteurs de performances de l’hôte, ainsi que d’autres images.
+Les événements de cycle de vie et les compteurs de performances provenant de conteneurs [Docker](https://www.docker.com/) peuvent être représentés dans Application Insights. Installez l'image [Application Insights](app-insights-overview.md) dans un conteneur de votre hôte pour afficher les compteurs de performances de l'hôte, ainsi que d'autres images.
 
-Dans le cas d’un hôte Docker, vous distribuez vos applications dans des conteneurs légers avec toutes les dépendances. Elles s’exécuteront sur n’importe quelle machine hôte exécutant un moteur Docker.
+Avec Docker, vous distribuez vos applications dans des conteneurs légers avec toutes les dépendances. Elles s’exécuteront sur n’importe quelle machine hôte exécutant un moteur Docker.
 
-Lorsque vous exécutez l' [image Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) sur l'hôte Docker, vous obtenez ces avantages :
+Lorsque vous exécutez l’[image Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) sur l’hôte Docker, vous bénéficiez des avantages suivants :
 
 * Télémétrie de cycle de vie de tous les conteneurs en cours d'exécution sur l'hôte : démarrage, arrêt, et ainsi de suite.
 * Compteurs de performance pour tous les conteneurs. Processeur, mémoire, utilisation du réseau, et bien plus encore.
-* Si vous avez [installé le SDK Application Insights pour Java](app-insights-java-live.md) dans les applications en cours d’exécution dans les conteneurs, toutes les données de télémétrie de ces applications auront des propriétés supplémentaires identifiant l’ordinateur hôte et le conteneur. Par exemple, si vous avez des instances d'une application en cours d'exécution dans plusieurs hôtes, vous pourrez facilement filtrer la télémétrie d'application par hôte.
+* Si vous avez [installé le SDK Application Insights pour Java](app-insights-java-live.md) dans les applications en cours d’exécution dans les conteneurs, toutes les données de télémétrie de ces applications auront des propriétés supplémentaires identifiant l’ordinateur hôte et le conteneur. Par exemple, si vous avez des instances d’une application en cours d’exécution dans plusieurs hôtes, vous pouvez facilement filtrer la télémétrie d’application par hôte.
 
 ![exemple](./media/app-insights-docker/00.png)
 
 ## <a name="set-up-your-application-insights-resource"></a>Configuration de votre ressource Application Insights
 1. Connectez-vous au [portail Microsoft Azure](https://azure.com) et ouvrez la ressource Application Insights pour votre application ou [créez-en une](app-insights-create-new-resource.md). 
    
-    *Quelle ressource dois-je utiliser ?* Si les applications en cours d'exécution sur votre hôte ont été développées par quelqu'un d'autre, vous devrez [créer une nouvelle ressource Application Insights](app-insights-create-new-resource.md). C'est ce qui vous permet d'afficher et d'analyser les données de télémétrie. (Sélectionnez « Général » comme type d’application.)
+    *Quelle ressource dois-je utiliser ?* Si les applications en cours d’exécution sur votre hôte ont été développées par quelqu’un d’autre, vous devez [créer une ressource Application Insights](app-insights-create-new-resource.md). C'est ce qui vous permet d'afficher et d'analyser les données de télémétrie. (Sélectionnez « Général » comme type d’application.)
    
     Toutefois, si vous êtes le développeur des applications, nous espérons que vous avez [ajouté le Kit SDK Application Insights](app-insights-java-live.md) à chacune d'elles. Si en fait elles sont toutes des composants d'une application d'entreprise unique, vous pouvez toutes les configurer pour envoyer la télémétrie à une ressource, puis vous utiliserez cette même ressource pour afficher les données de performances et du cycle de vie de Docker. 
    
-    Un troisième scénario est que vous avez développé la plupart des applications, mais vous utilisez des ressources distinctes pour afficher les données de télémétrie. Dans ce cas, vous voudrez probablement créer une ressource distincte pour les données de Docker. 
+    Un troisième scénario est que vous avez développé la plupart des applications, mais vous utilisez des ressources distinctes pour afficher les données de télémétrie. Dans ce cas, vous pouvez créer une ressource distincte pour les données de Docker. 
 2. Ajoutez la mosaïque Docker : choisissez **Ajouter la mosaïque**, faites glisser la mosaïque Docker à partir de la galerie, puis cliquez sur **Terminer**. 
    
     ![exemple](./media/app-insights-docker/03.png)
-3. Cliquez sur la liste déroulante **Essentials** et sélectionnez la clé d'instrumentation. Vous l’utiliserez pour indiquer au Kit SDK où envoyer ses données de télémétrie.
+3. Cliquez sur la liste déroulante **Essentials** et sélectionnez la clé d'instrumentation. Vous l’utilisez pour indiquer au Kit de développement logiciel (SDK) où envoyer ses données de télémétrie.
 
     ![exemple](./media/app-insights-docker/02-props.png)
 
@@ -118,12 +119,15 @@ Temps du processeur et compteurs de performance mémoire disponible, enrichis et
 
 *Comment obtenir des données de télémétrie à partir de l’application elle-même ?*
 
-* Installez le Kit SDK Application Insights dans l’application. 
-  Découvrez comment faire pour : les [applications web Java](app-insights-java-get-started.md), les [applications web Windows](app-insights-asp-net.md).
+* Installez le Kit SDK Application Insights dans l’application. Découvrez comment faire pour : les [applications web Java](app-insights-java-get-started.md), les [applications web Windows](app-insights-asp-net.md).
 
+## <a name="video"></a>Vidéo
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="next-steps"></a>Étapes suivantes
 
-<!--HONumber=Nov16_HO3-->
-
+* [Application Insights pour Java](app-insights-java-get-started.md)
+* [Application Insights pour Node.js](app-insights-nodejs.md)
+* [Application Insights pour ASP.NET](app-insights-asp-net.md)
 

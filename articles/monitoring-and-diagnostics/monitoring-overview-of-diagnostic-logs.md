@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -199,8 +199,10 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|État du nœud DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
@@ -208,16 +210,19 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.DataLakeStore/accounts|Requêtes|Journaux de requête|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
 |Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
 |Microsoft.KeyVault/vaults|AuditEvent|Journaux d’audit|
 |Microsoft.Logic/workflows|WorkflowRuntime|Événements de diagnostic de runtime de workflow|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Événement de flux de règle de groupe de sécurité réseau|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table des compteurs GWM|
 |Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
 |Microsoft.ServerManagement/nodes|RequestLogs|Journaux de requête|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux des opérations|

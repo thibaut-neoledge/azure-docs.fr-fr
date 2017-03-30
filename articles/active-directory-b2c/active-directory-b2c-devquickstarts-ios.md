@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 84f5ba5b3836f8524aafd9ca5e30978cc2702c1f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -40,18 +40,18 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 ## <a name="create-an-application"></a>Création d'une application
 Vous devez maintenant créer dans votre répertoire B2C une application L’inscription des applications fournit à Azure AD les informations nécessaires pour communiquer avec votre application en toute sécurité. Pour créer une application mobile, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
-* Incluez un **appareil mobile** dans l’application.
+* Incluez un **Client natif** dans l’application.
 * Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de ce GUID ultérieurement.
 * Configurez un **URI de redirection** avec un schéma personnalisé (par exemple, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Vous aurez besoin de cet URI ultérieurement.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient une seule expérience liée à l’identité : une connexion et une inscription combinées. Vous devez créer cette stratégie, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lorsque vous créez la stratégie, prenez soin de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient une seule expérience liée à l’identité : une connexion et une inscription combinées. Créez cette stratégie, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lorsque vous créez la stratégie, prenez soin de :
 
-* Choisir le **nom d’affichage** et les attributs d’inscription dans votre stratégie.
-* Choisir le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-* Copiez le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`.  Le nom de stratégie vous est demandé ultérieurement.
+* Sous **Sign-up attributes** (Attributs d’abonnement), sélectionnez l’attribut **Nom complet**.  Vous pouvez sélectionner d’autres attributs également.
+* Sous **Revendications d’applications**, sélectionnez le **Nom d’affichage** et l’**ID d’objet de l’utilisateur** des revendications. Vous pouvez aussi sélectionner d’autres revendications.
+* Copiez le **nom** de chaque stratégie après sa création. Lorsque vous enregistrez la stratégie, son nom a le préfixe `b2c_1_` .  Le nom de stratégie vous est demandé ultérieurement.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -128,12 +128,13 @@ appDelegate.currentAuthorizationFlow =
 
 Pour configurer votre application pour gérer la redirection vers l’URI avec le schéma personnalisé, vous devez mettre à jour la liste de « schémas d’URL » dans votre Info.pList :
 * Ouvrez Info.pList.
-* Survolez une ligne comme « Bundle creator OS Type Code », puis cliquez sur le symbole \+.
+* Survolez une ligne comme « Bundle OS Type Code », puis cliquez sur le symbole \+.
 * Renommez la nouvelle ligne « Types d’URL ».
-* Cliquez sur la flèche à gauche de « Types d’URL ».
-* Renommez la valeur de l’élément 0 en « Schémas d’URL ».
-* Modifiez la valeur de « Élément 0 » sous « Schémas d’URL » et définissez la valeur sur le schéma unique de votre application.  Il doit correspondre au schéma dans redirectURL lors de la création de l’objet OIDAuthorizationRequest.
-* Dans notre exemple, nous avons utilisé le schéma « com.onmicrosoft.fabrikamb2c.exampleapp ».
+* Cliquez sur la flèche à gauche de « Types d’URL » pour ouvrir l’arborescence.
+* Cliquez sur la flèche à gauche de « Élément 0 » pour ouvrir l’arborescence.
+* Renommez le premier élément sous l’élément 0 « Modèles d’URL ».
+* Cliquez sur la flèche à gauche de « Modèles d’URL » pour ouvrir l’arborescence.
+* Dans la colonne « Valeur », il y a un champ vide à gauche de « Élément 0 » sous « Modèles d’URL ».  Définissez la valeur sur le modèle unique de votre application.  La valeur doit correspondre au modèle utilisé dans redirectURL lors de la création de l’objet OIDAuthorizationRequest.  Dans notre exemple, nous avons utilisé le schéma « com.onmicrosoft.fabrikamb2c.exampleapp ».
 
 Reportez-vous au [guide d’AppAuth](https://openid.github.io/AppAuth-iOS/) pour le reste du processus. Si vous avez besoin de prendre rapidement en main une application, consultez [notre exemple](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Suivez les étapes du fichier [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) pour entrer votre propre configuration Azure AD B2C.
 

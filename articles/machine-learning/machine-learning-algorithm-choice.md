@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
-ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
-ms.lasthandoff: 12/19/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 720822c4a6a2b236ca772016c647827050e27d44
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -34,13 +34,13 @@ Cet article vous guide tout au long de son utilisation.
 > 
 > 
 
-Cet aide-mémoire est pensé pour un public très spécifique : un scientifique des données débutant, avec une formation de premier cycle en apprentissage automatique, qui tente de choisir un algorithme pour prendre en main Azure Machine Learning Studio. Cela signifie qu'il comprend certaines généralisations et simplifie trop, mais vous guide en toute sécurité. Cela signifie également qu'il existe un grand nombre d'algorithmes non répertoriés ici. Nous ajouterons des méthodes au fur et à mesure de leur entrée dans Azure Machine Learning.
+Cet aide-mémoire est pensé pour un public très spécifique : un scientifique des données débutant, avec une formation de premier cycle en apprentissage automatique, qui tente de choisir un algorithme pour prendre en main Azure Machine Learning Studio. Cela signifie qu’il comprend certaines généralisations et simplifie trop, mais vous guide en toute sécurité. Cela signifie également qu'il existe un grand nombre d'algorithmes non répertoriés ici. Nous ajouterons des méthodes au fur et à mesure de leur entrée dans Azure Machine Learning.
 
-Ces recommandations sont des commentaires et des conseils compilés d'un grand nombre de scientifiques de données et d'experts en apprentissage automatique. Nous ne sommes pas d'accord avec tous les éléments, mais avons essayé d'harmoniser les avis en un consensus. Notre désaccord est généralement introduit par « Cela dépend... »
+Ces recommandations sont des commentaires et des conseils compilés d’un grand nombre de scientifiques de données et d’experts en apprentissage automatique. Nous ne sommes pas d'accord avec tous les éléments, mais avons essayé d'harmoniser les avis en un consensus. Notre désaccord est généralement introduit par « Cela dépend... »
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Utilisation de l’aide-mémoire
-Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithm&gt;* ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes* ». Parfois, plusieurs branches sont utiles.
-Parfois, aucune ne sera parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude.
+Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithm&gt;* ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes* ». Parfois, plusieurs branches sont utiles.
+Parfois, aucune n’est parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude.
 Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
 Voici un exemple d’une expérimentation de la [Galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
@@ -52,7 +52,7 @@ Voici un exemple d’une expérimentation de la [Galerie Cortana Intelligence](h
 
 ## <a name="flavors-of-machine-learning"></a>Types d'apprentissage automatique
 ### <a name="supervised"></a>Supervisé
-Les algorithmes d'apprentissage supervisés font des prédictions basées sur un ensemble d'exemples. Par exemple, des historiques des cours peuvent permettre d'estimer les prix futurs. Chaque exemple utilisé pour l'apprentissage est étiqueté avec la valeur d'intérêt : dans ce cas, le prix des actions. Un algorithme d'apprentissage supervisé recherche des modèles dans ces étiquettes de valeur. Il peut utiliser toutes les informations qui peuvent être pertinentes, le jour de la semaine, la saison, les données financières de l'entreprise, le type de secteur, l’existence d’événements géopolitiques perturbateurs et chaque algorithme recherche différents types de modèles. Une fois que l'algorithme a trouvé le meilleur modèle possible, il l’utilise pour élaborer des prédictions pour les données de test sans étiquette : les prix futurs.
+Les algorithmes d'apprentissage supervisés font des prédictions basées sur un ensemble d'exemples. Par exemple, des historiques des cours peuvent permettre d'estimer les prix futurs. Chaque exemple utilisé pour l'apprentissage est étiqueté avec la valeur d'intérêt : dans ce cas, le prix des actions. Un algorithme d'apprentissage supervisé recherche des modèles dans ces étiquettes de valeur. Il peut utiliser toutes les informations qui peuvent être pertinentes (le jour de la semaine, la saison, les données financières de l’entreprise, le type de secteur, l’existence d’événements géopolitiques perturbateurs), et chaque algorithme recherche différents types de modèles. Une fois que l'algorithme a trouvé le meilleur modèle possible, il l’utilise pour élaborer des prédictions pour les données de test sans étiquette : les prix futurs.
 
 Il s’agit d’un type d’apprentissage automatique utile et apprécié. À une exception près, tous les modules d’Azure Machine Learning sont supervisés. Plusieurs types spécifiques d'apprentissage supervisé sont représentés dans Azure Machine Learning : la classification, la régression et la détection d’anomalies.
 
@@ -82,7 +82,7 @@ Les algorithmes de régression linéaire supposent que les tendances des donnée
 
 ![Frontière de classe non linéaire][1]
 
-***Limite de classe non linéaire*** * : utiliser un algorithme de classification linéaire entraînerait une faible précision*
+***Limite de classe non linéaire*** *: utiliser un algorithme de classification linéaire entraînerait une faible précision*
 
 ![Données avec une tendance non linéaire][2]
 
@@ -128,11 +128,11 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 | [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Encombrement de mémoire important |
 | [quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions plutôt que prédictions de points |
 | [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Techniquement journal linéaire. Pour les décomptes prévisionnels |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Techniquement journal linéaire. Pour les décomptes prévisionnels |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Pour la prédiction de rang |
 | **Détection des anomalies** | | | | | |
 | [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Particulièrement adapté aux ensembles de caractéristiques de grande taille |
-| [Détection des anomalies reposant sur le PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
+| [Détection des anomalies reposant sur le PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
 | [K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Un algorithme de clustering |
 
 **Propriétés de l'algorithme :**
@@ -155,7 +155,7 @@ En dépit du terme « régression », la régression logique est en fait un puis
 
 ![Régression logique pour les données à deux classes avec une seule caractéristique][4]
 
-***Une régression logique pour les données à deux classes avec une seule caractéristique*** * : la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
+***Une régression logique pour les données à deux classes avec une seule caractéristique*** *: la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
 
 ### <a name="trees-forests-and-jungles"></a>Arbres, forêts et jungles
 Les forêts de décision ([régression](https://msdn.microsoft.com/library/azure/dn905862.aspx), [deux classes](https://msdn.microsoft.com/library/azure/dn906008.aspx) et [classes multiples](https://msdn.microsoft.com/library/azure/dn906015.aspx)), les jungles de décision ([deux classes](https://msdn.microsoft.com/library/azure/dn905976.aspx) et [classes multiples](https://msdn.microsoft.com/library/azure/dn905963.aspx)) et les arbres de décision renforcés ([régression](https://msdn.microsoft.com/library/azure/dn905801.aspx) et [deux classes](https://msdn.microsoft.com/library/azure/dn906025.aspx)) sont tous basés sur les arbres de décision, un concept fondamental pour l’apprentissage automatique. Il existe de nombreuses variantes d'arbres de décision, mais tous font la même chose : subdiviser l'espace de la fonctionnalité en régions avec la même étiquette. Il peut s'agir des régions de catégorie ou de valeur constante, si vous effectuez une classification ou une régression.
@@ -164,7 +164,7 @@ Les forêts de décision ([régression](https://msdn.microsoft.com/library/azure
 
 ***Un arbre de décision divise un espace de caractéristique en régions de valeurs à peu près uniformes***
 
-Étant donné qu’un espace de fonctionnalité peut être subdivisé en petites régions de taille arbitraire, il est facile de concevoir que la division atteigne un point de données par région, ce qui est un exemple extrême de dépassement. Pour éviter ce problème, un grand ensemble d'arbres est construit avec un soin mathématique pour que les arbres ne soient pas corrélés. La moyenne de cette « forêt de décision » est un arbre qui permet d'éviter un surajustement. Les forêts de décision peuvent utiliser beaucoup de mémoire. Les jungles de décision sont une variante qui consomme moins de mémoire, mais avec une durée d’apprentissage légèrement plus longue.
+Étant donné qu’un espace de fonctionnalité peut être subdivisé en petites régions de taille arbitraire, il est facile de concevoir que la division atteigne un point de données par région. Il s’agit d’un exemple extrême de dépassement. Pour éviter ce problème, un grand ensemble d'arbres est construit avec un soin mathématique pour que les arbres ne soient pas corrélés. La moyenne de cette « forêt de décision » est un arbre qui permet d'éviter un surajustement. Les forêts de décision peuvent utiliser beaucoup de mémoire. Les jungles de décision sont une variante qui consomme moins de mémoire, mais avec une durée d’apprentissage légèrement plus longue.
 
 Les arbres de décision améliorée évitent le surajustement en limitant le nombre de subdivisions et le nombre minimum de points de données autorisés dans chaque région. L'algorithme construit une séquence d'arbres, chacun d'entre eux apprenant à compenser l'erreur de l'arbre précédent. Cela fournit un apprenant très précis qui a tendance à utiliser beaucoup de mémoire. Pour une description complète, consultez le [livre d'origine de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
@@ -199,8 +199,12 @@ Notez qu’ils supposent que les données peuvent être fractionnées ou ajusté
 Anecdote historique, les machines de point de Bayes ont été développées par Microsoft Research. Elles reposent sur un travail théorique exceptionnel. Pour plus d’informations, consultez [l’article d’origine dans JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) et le [blog de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algorithmes spécialisés
-Avoir un objectif très spécifique peut être bénéfique. La collection Azure Machine Learning comprend des algorithmes spécialisés dans la prédiction de classement ([régression ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), la prédiction de nombres ([régression Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) et la détection des anomalies (un reposant sur [l’analyse des principaux composants](https://msdn.microsoft.com/library/azure/dn913102.aspx) et un autre sur les [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx)).
-Il existe également un algorithme de clustering isolé ([K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Avoir un objectif très spécifique peut être bénéfique. La collection Azure Machine Learning comprend des algorithmes spécialisés dans les domaines suivants :
+
+- Prédiction de classement ([régression ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx))
+- Prédiction de nombres ([régression Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx))
+- Détection des anomalies (un reposant sur [l’analyse des principaux composants](https://msdn.microsoft.com/library/azure/dn913102.aspx) et un autre sur les [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx))
+- Clustering ([K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![Détection des anomalies reposant sur le PCA][8]
 
@@ -208,7 +212,7 @@ Il existe également un algorithme de clustering isolé ([K-moyennes](https://ms
 
 ![Jeu de données regroupé à l'aide de K-moyennes][9]
 
-***Un jeu de données est regroupé dans 5 clusters à l’aide de K-moyennes***
+***Un jeu de données est regroupé dans cinq clusters à l’aide de K-moyennes.***
 
 Il existe également un ensemble [de classifieur à classes multiples one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx), qui subdivise le problème de classification de classe N en problèmes de classification à deux classes N-1. La précision, la durée d’apprentissage et les propriétés de linéarité sont déterminées par les classifieurs à deux classes utilisés.
 

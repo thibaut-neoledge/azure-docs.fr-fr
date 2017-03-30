@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/01/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="management-solutions-in-operations-management-suite-oms-preview"></a>Solutions de gestion d’Operations Management Suite (OMS) (version préliminaire)
+# <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Utilisation de solutions de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire des solutions de gestion d’OMS qui sont actuellement en version préliminaire.    
 > 
@@ -112,10 +114,5 @@ Une aide complète à la création de solutions de gestion est disponible dans [
 ## <a name="next-steps"></a>Étapes suivantes
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
 * Créez vos propres [solutions de gestion](operations-management-suite-solutions-creating.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

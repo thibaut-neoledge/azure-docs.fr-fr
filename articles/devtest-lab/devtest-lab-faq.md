@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fee6c375f93e1e669c031d8ca63470f7f48fadf2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -65,9 +65,10 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 * [Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche t-elle lors de l’approvisionnement à partir de PowerShell ?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [Où puis-je trouver plus d’informations d’erreur lors de l’échec de déploiement de machines virtuelles](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
-Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse.
+Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
 * Publiez une question dans le [thread](#comments) à la fin de cette FAQ et collaborer avec l’équipe Azure Cache et d’autres membres de la communauté en cas de question sur cet article.
 * Pour atteindre un public plus large, publiez une question sur le [Forum Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)et collaborer avec l’équipe Azure DevTest Labs et d’autres membres de la Communauté.
@@ -157,7 +158,12 @@ Nous sommes en train de concevoir une solution pour déplacer directement des ma
 Vous pouvez attacher plusieurs disques aux machines virtuelles.  
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si je souhaite utiliser une image de système d’exploitation Windows pour mon test, dois-je acheter un abonnement MSDN ?
-Oui, vous devez [acheter un abonnement MSDN](https://www.visualstudio.com/products/how-to-buy-vs) si vous devez utiliser des images de système d’exploitation client (Windows 7 et versions ultérieures) pour vos tests. La rubrique [crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) indique les crédits Azure pour chaque offre MSDN et fournit des détails supplémentaires.
+Si vous avez besoin d’utiliser des images de système d’exploitation client Windows (Windows 7 ou version ultérieure) à des fins de développement ou de test dans Azure, alors oui, vous devez soit :
+
+- [Achetez un abonnement MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- Si vous disposez d’un contrat Entreprise, créez un abonnement Azure avec [l’offre Entreprise Dev/Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+
+Pour plus d’informations sur les crédits Azure pour chaque offre de MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Comment puis-je automatiser le processus de téléchargement des fichiers de disque dur virtuel pour créer des images personnalisées ?
 Nous avons deux options :
@@ -176,7 +182,7 @@ Pour trouver le compte de stockage de destination associé à votre laboratoire,
 7. Utilisez **l’URL** en tant que destination dans votre commande AzCopy.
 
 ### <a name="how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Comment puis-je automatiser le processus de suppression de toutes les machines virtuelles dans mon laboratoire ?
-Outre la suppression des machines virtuelles de votre laboratoire dans le portail Azure, vous pouvez supprimer toutes les machines virtuelles dans votre laboratoire à l’aide d’un script PowerShell. Dans l’exemple suivant, modifiez simplement les valeurs des paramètres sous le commentaire **Valeurs à modifier** . Vous pouvez récupérer les valeurs `subscriptionId`, `labResourceGroup` et `labName` à partir du panneau de laboratoire dans le portail Azure.
+Outre la suppression des machines virtuelles de votre laboratoire dans le portail Azure, vous pouvez supprimer toutes les machines virtuelles dans votre laboratoire à l’aide d’un script PowerShell. Dans l’exemple suivant, modifiez les valeurs des paramètres sous le commentaire **Valeurs à modifier**. Vous pouvez récupérer les valeurs `subscriptionId`, `labResourceGroup` et `labName` à partir du panneau de laboratoire dans le portail Azure.
 
     # Delete all the VMs in a lab
 
@@ -225,13 +231,13 @@ Il n’existe aucune limite spécifique concernant le nombre de laboratoires qui
 Il n’existe aucune limite spécifique concernant le nombre de machines virtuelles qui peuvent être créées par laboratoire. Cependant, actuellement le laboratoire prend uniquement en charge 40 machines virtuelles s’exécutant en même temps dans le stockage standard et 25 machines virtuelles s’exécutant simultanément dans Premium Storage. Nous travaillons actuellement à l’augmentation de ces limites.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Comment partager un lien direct vers mon laboratoire ?
-Pour partager un lien direct à destination des utilisateurs de votre laboratoire, vous pouvez effectuer la procédure suivante.
+Pour partager un lien direct à destination des utilisateurs de votre laboratoire, vous pouvez effectuer la procédure suivante :
 
 1. Accédez au laboratoire dans le portail Azure.
 2. Copiez l’URL du laboratoire dans votre navigateur et partagez-la avec les utilisateurs de votre laboratoire.
 
 > [!NOTE]
-> Si les utilisateurs de votre laboratoire sont des utilisateurs externes avec un [compte MSA](#what-is-a-microsoft-account) et s’ils n’appartiennent pas au répertorie Active Directory de votre entreprise, il est possible qu’ils reçoivent une erreur lors de la navigation vers le lien fourni. Le cas échéant, indiquez-leur de cliquer sur leur nom dans le coin supérieur droit du portail Azure et de sélectionner le répertoire où se situe le laboratoire dans la section **Répertoire** du menu.
+> Si les utilisateurs de votre laboratoire sont des utilisateurs externes avec un [compte Microsoft](#what-is-a-microsoft-account) et s’ils n’appartiennent pas au répertorie Active Directory de votre entreprise, il est possible qu’ils reçoivent une erreur lors de la navigation vers le lien fourni. Le cas échéant, indiquez-leur de cliquer sur leur nom dans le coin supérieur droit du portail Azure et de sélectionner le répertoire où se situe le laboratoire dans la section **Répertoire** du menu.
 >
 >
 
@@ -252,5 +258,10 @@ Il se peut que votre nom de réseau virtuel contienne des points. Si tel est le 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche t-elle lors de l’approvisionnement d’une machine virtuelle à partir de PowerShell ?
 Lorsqu’une ressource est parent d’une autre ressource, la ressource parent doit exister avant de créer la ressource enfant. Si ce n’est pas cas, vous recevez une erreur **ParentResourceNotFound**. Si vous ne spécifiez pas de dépendance sur la ressource parente, la ressource enfant peut être déployée avant cette dernière.
 
-Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles ARM pour effectuer un déploiement à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles de ressources Azure pour effectuer un déploiement à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?
+Les erreurs de déploiement de machine virtuelle sont capturées dans les journaux d’activité. Vous pouvez trouver les journaux d’activité des machines virtuelles du laboratoire via les **journaux d’audit** ou les **diagnostics de machine virtuelle** dans le menu de la ressource dans le panneau Machine virtuelle du laboratoire (le panneau s’affiche une fois que vous sélectionnez la machine virtuelle à partir de la liste **Mes machines virtuelles**). 
+
+Parfois, l’erreur de déploiement se produit avant le démarrage du déploiement de la machine virtuelle, par exemple lorsque la limite d’inscriptions pour une ressource créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans le niveau de laboratoire **Journaux d’activité**, qui se trouve en bas des paramètres **Configuration et stratégies**. Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 
