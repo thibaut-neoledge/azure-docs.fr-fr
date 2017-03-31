@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: abcccabbfc56102c97ef2408fb812755e21b467c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 8057747aea2725abf3b37481858c7902ff8fe4da
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -30,19 +30,19 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | |  |
 |---|---|
 |**Créer une base de données unique et un pool élastique**||
-| [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) | Crée une base de données SQL Azure unique et configure une règle de pare-feu au niveau du serveur. |
-| [Créer des pools élastiques et déplacer les bases de données regroupées](scripts/sql-database-move-database-between-pools-powershell.md) | Crée des pools élastiques, déplace des bases de données regroupées et modifie les niveaux de performances.|
+| [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Crée une base de données SQL Azure unique et configure une règle de pare-feu au niveau du serveur. |
+| [Créer des pools élastiques et déplacer les bases de données regroupées](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2ftoc.json) | Crée des pools élastiques, déplace des bases de données regroupées et modifie les niveaux de performances.|
 |**Configurer la géoréplication et le basculement**||
-| [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| Configure la géoréplication active pour une base de données Azure SQL unique et la fait basculer vers le réplica secondaire. |
-| [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)| Configure la géoréplication active pour une base de données Azure SQL dans un pool élastique et la fait basculer vers le réplica secondaire. |
+| [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Configure la géoréplication active pour une base de données Azure SQL unique et la fait basculer vers le réplica secondaire. |
+| [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2ftoc.json)| Configure la géoréplication active pour une base de données Azure SQL dans un pool élastique et la fait basculer vers le réplica secondaire. |
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
-| [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-powershell.md) | Surveille les mesures de performances d’une base de données Azure SQL, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances. |
-| [Mettre à l’échelle un pool élastique](scripts/sql-database-monitor-and-scale-pool-powershell.md) | Surveille les mesures de performances d’un pool élastique, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances.  |
+| [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Surveille les mesures de performances d’une base de données Azure SQL, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances. |
+| [Mettre à l’échelle un pool élastique](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2ftoc.json) | Surveille les mesures de performances d’un pool élastique, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances.  |
 | **Audit et détection des menaces** |
-| [Configurer l’audit et la détection des menaces](scripts/sql-database-auditing-and-threat-detection-powershell.md)| Configure les stratégies d’audit et de détection des menaces pour une base de données Azure SQL. |
+| [Configurer l’audit et la détection des menaces](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2ftoc.json)| Configure les stratégies d’audit et de détection des menaces pour une base de données Azure SQL. |
 | **Restaurer, copier et importer une base de données**||
-| [Restaurer une base de données](scripts/sql-database-restore-database-powershell.md)| Restaure une base de données Azure SQL à partir d’une sauvegarde géo-redondante et restaure une base de données Azure SQL supprimée dans la dernière sauvegarde. |
-| [Copier une base de données sur un nouveau serveur](scripts/sql-database-copy-database-to-new-server-powershell.md)| Crée une copie d’une base de données Azure SQL existante sur un nouveau serveur Azure SQL. |
-| [Importer une base de données à partir d’un fichier bacpac](scripts/sql-database-import-from-bacpac-powershell.md)| Importe une base de données vers un serveur Azure SQL à partir d’un fichier bacpac. |
+| [Restaurer une base de données](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Restaure une base de données Azure SQL à partir d’une sauvegarde géo-redondante et restaure une base de données Azure SQL supprimée dans la dernière sauvegarde. |
+| [Copier une base de données sur un nouveau serveur](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2ftoc.json)| Crée une copie d’une base de données Azure SQL existante sur un nouveau serveur Azure SQL. |
+| [Importer une base de données à partir d’un fichier bacpac](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2ftoc.json)| Importe une base de données vers un serveur Azure SQL à partir d’un fichier bacpac. |
 |||
 
