@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c8b8b6af19a347804563b091760b18dfc47aa503
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,7 +92,7 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Création du fichier de configuration**
 
- Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -192,7 +193,7 @@ L’exécution du script de déploiement HPC Pack dure un certain temps. Le scri
 ### <a name="excel-activation"></a>Activation d’Excel
 En cas d’utilisation d’une image de machine virtuelle ComputeNodeWithExcel pour les charges de travail de production, vous devez fournir une clé de licence Microsoft Office valide pour activer Excel sur les nœuds de calcul. Sinon, la version d’évaluation d’Excel expire au bout de 30 jours et l’exécution des classeurs Excel échoue avec l’exception COMExeption (0x800AC472). 
 
-Vous pouvez rallonger la période d’évaluation de 30 jours supplémentaires : ouvrez une session sur le nœud principal et exécutez la commande clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` sur tous les nœuds de calcul Excel par le biais de HPC Cluster Manager. Vous pouvez rallonger la période d’évaluation&2; fois au maximum. Ensuite, vous devez fournir une clé de licence Office valide.
+Vous pouvez rallonger la période d’évaluation de 30 jours supplémentaires : ouvrez une session sur le nœud principal et exécutez la commande clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` sur tous les nœuds de calcul Excel par le biais de HPC Cluster Manager. Vous pouvez rallonger la période d’évaluation 2 fois au maximum. Ensuite, vous devez fournir une clé de licence Office valide.
 
 La version d’Office Professionnel Plus 2013 installée sur l’image de machine virtuelle est une édition de volume avec une clé de licence de volume générique (GVLK). Vous pouvez l’activer par le biais du service de gestion de clés (KMS), de l’activation basée sur Active Directory (AD-BA) ou d’une clé d’activation multiple (MAK). 
 
@@ -355,9 +356,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

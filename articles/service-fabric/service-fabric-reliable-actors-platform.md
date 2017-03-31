@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
-ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: ba07b1bf1b49ebb24a7d5cfbaad71f5f17c49192
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,7 +31,7 @@ Cet article décrit le fonctionnement du service Reliable Actors sur la platefor
 Ces composants forment ensemble l’infrastructure d’acteur fiable. 
 
 ## <a name="service-layering"></a>Couches de service
-Étant donné que le service d’acteur est un service fiable, l’ensemble des concepts des Reliable Services relatifs au [modèle d’application](service-fabric-application-model.md), au cycle de vie, à [l’empaquetage](service-fabric-application-model.md#package-an-application), au [déploiement](service-fabric-deploy-remove-applications.md), à la mise à niveau et à la mise à l’échelle s’appliquent de la même manière aux services d’acteur. 
+Étant donné que le service d’acteur est un service fiable, l’ensemble des concepts des Reliable Services relatifs au [modèle d’application](service-fabric-application-model.md), au cycle de vie, à [l’empaquetage](service-fabric-package-apps.md), au [déploiement](service-fabric-deploy-remove-applications.md), à la mise à niveau et à la mise à l’échelle s’appliquent de la même manière aux services d’acteur. 
 
 ![Superposition de service d’acteur][1]
 
@@ -248,9 +249,4 @@ Lorsque vous utilisez des chaînes et des GUID, les valeurs sont hachées en Int
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

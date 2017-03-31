@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,10 +44,8 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 
    * Nœud principal `CLUSTERNAME-ssh.azurehdinsight.net`
    * Nœud de périmètre `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. Utilisez SSH dans le nœud de périmètre du cluster à l’aide du modèle d’affectation de noms ci-dessus. 
+2. Utilisez SSH dans le nœud de périmètre du cluster à l’aide du modèle d’affectation de noms ci-dessus. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * Si vous vous connectez à partir d’un client Linux, consultez la page [Se connecter à un cluster HDInsight sous Linux](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * Si vous vous connectez à partir d’un client Windows, consultez la page [Se connecter à un cluster HDInsight sous Linux à l’aide de PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Une fois que vous êtes connecté, devenez un utilisateur racine sur le cluster. Dans la session SSH, utilisez la commande suivante :
 
         sudo su -
@@ -81,7 +79,7 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
        Remplacez **USERNAME** par un utilisateur SSH de votre cluster HDInsight et **CLUSTERNAME** par le nom de votre cluster HDInsight. Vous pouvez également utiliser une clé SSH plutôt qu’un mot de passe en ajoutant `-i id_rsa_key`        
    * Si vous utilisez un client Windows avec PuTTY
 
-     1. Ouvrez PuTTY et saisissez vos informations de connexion. Si vous ne connaissez pas PuTTY, consultez [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md) pour plus d'informations sur son utilisation avec HDInsight.
+     1. Ouvrez PuTTY et saisissez vos informations de connexion.
      2. Dans la rubrique **Catégorie** située à gauche dans la boîte de dialogue, développez **Connexion** et **SSH**, puis sélectionnez **Tunnels**.
      3. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH** .
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 334819e0819206d1bd928c0861b25cc59dd29fa7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e4e9e16c62ab1262021d1a719f5aa15d936f4843
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Obtention d’informations grâce aux rapports sur la gestion des mots de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -94,10 +94,10 @@ Les types d’activités suivants s’affichent dans la catégorie d’événeme
 * [**Reset password (self-service)**](#activity-type-reset-password-self-service) (Réinitialisation du mot de passe (libre-service)) : indique qu’un utilisateur a correctement réinitialisé son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com).
 * [**Self serve password reset flow activity progress**](#activity-type-self-serve-password-reset-flow-activity-progress) (Progression de l’activité du flux de réinitialisation du mot de passe en libre-service) : indique chaque étape spécifique effectuée par un utilisateur (comme le passage d’une porte d’authentification de réinitialisation de mot de passe spécifique) dans le cadre du processus de réinitialisation du mot de passe.
 * [**Unlock user account (self-service)**](#activity-type-unlock-user-account-self-service) (Déverrouillage du compte d’utilisateur (libre-service)) : indique qu’un utilisateur a correctement déverrouillé son compte Active Directory sans réinitialiser son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) à l’aide de la fonctionnalité [Déverrouillage de compte Active Directory sans réinitialisation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
-* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) (Utilisateur inscrit pour la réinitialisation de mot de passe en libre-service) : indique qu’un utilisateur a inscrit toutes les informations requises pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du client actuellement spécifiée. 
+* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) (Utilisateur inscrit pour la réinitialisation de mot de passe en libre-service) : indique qu’un utilisateur a inscrit toutes les informations requises pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du client actuellement spécifiée.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Type d’activité : Blocked from self-service password reset (Blocage suite à la réinitialisation du mot de passe en libre-service)
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description** (Description de l’activité) : indique qu’un utilisateur a tenté de réinitialiser un mot de passe, d’utiliser une porte spécifique ou de valider un numéro de téléphone plus de 5 fois au total au cours des dernières 24 heures.
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur a été empêché d’effectuer des opérations supplémentaires de réinitialisation du mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
@@ -107,7 +107,7 @@ La liste suivante explique cette activité en détail :
 * **Activity Status Failure Reason** (Motif de l’état d’activité Failure) : non applicable
 
 ### <a name="activity-type-change-password-self-service"></a>Type d’activité : Change password (self-service) (Modification du mot de passe (libre-service))
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description)** (Description de l’activité) : indique qu’un utilisateur a effectué une modification de mot de passe volontaire ou forcée (en raison d’une expiration).
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur qui a modifié son mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
@@ -115,11 +115,11 @@ La liste suivante explique cette activité en détail :
 * **États d’activité autorisés**
  * _Success_ : indique qu’un utilisateur a modifié son mot de passe avec succès
  * _Failure_ : indique qu’un utilisateur n’a pas réussi à modifier son mot de passe. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
-* **Activity Status Failure Reason** - (Motif de l’état d’activité Failure) 
+* **Activity Status Failure Reason** - (Motif de l’état d’activité Failure)
  * _FuzzyPolicyViolationInvalidPassword_ : l’utilisateur a sélectionné un mot de passe qui a été automatiquement interdit car les fonctionnalités de détection de mot de passe interdit de Microsoft l’ont trouvé trop banal ou trop faible.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Type d’activité : Reset password (by admin) (Réinitialisation du mot de passe (par l’administrateur))
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description** (Description de l’activité) : indique qu’un administrateur a effectué une réinitialisation du mot de passe pour le compte d’un utilisateur à partir du portail Azure.
 * **Activity Actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation du mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Doit être un administrateur global, un administrateur de mot de passe, administrateur de l’utilisateur ou un administrateur du support technique.
@@ -129,7 +129,7 @@ La liste suivante explique cette activité en détail :
  * _Failure_ : indique qu’un administrateur n’a pas réussi à modifier un mot de passe d’utilisateur. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
 
 ### <a name="activity-type-reset-password-self-service"></a>Type d’activité : Reset password (self-service) (Réinitialisation du mot de passe (libre-service))
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description** (Description de l’activité) : indique qu’un utilisateur a correctement réinitialisé son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com).
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur qui a réinitialisé son mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
@@ -137,11 +137,11 @@ La liste suivante explique cette activité en détail :
 * **États d’activité autorisés**
  * _Success_ : indique qu’un utilisateur a correctement réinitialisé son propre mot de passe
  * _Failure_ : indique qu’un utilisateur n’a pas réussi à réinitialiser son propre mot de passe. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
-* **Activity Status Failure Reason** - (Motif de l’état d’activité Failure) 
+* **Activity Status Failure Reason** - (Motif de l’état d’activité Failure)
  * _FuzzyPolicyViolationInvalidPassword_ : l’administrateur a sélectionné un mot de passe qui a été automatiquement interdit car les fonctionnalités de détection de mot de passe interdit de Microsoft l’ont trouvé trop banal ou trop faible.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Type d’activité : Self serve password reset flow activity progress (Progression de l’activité du flux de réinitialisation du mot de passe en libre-service)
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description** (Description de l’activité) : indique chaque étape spécifique effectuée par un utilisateur (comme le passage d’une porte d’authentification de réinitialisation de mot de passe spécifique) dans le cadre du processus de réinitialisation du mot de passe.
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur qui a effectué une partie du flux de réinitialisation du mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
@@ -153,7 +153,7 @@ La liste suivante explique cette activité en détail :
  * Voir le tableau ci-dessous pour [tous les motifs d’état d’activité de réinitialisation du mot de passe autorisés](#allowed-values-for-details-column)
 
 ### <a name="activity-type-unlock-user-account-self-service"></a>Type d’activité : Unlock user account (self-service) (Déverrouillage du compte d’utilisateur (libre-service))
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
 * **Activity Description** (Description de l’activité) : indique qu’un utilisateur a correctement déverrouillé son compte Active Directory sans réinitialiser son mot de passe à partir du [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) à l’aide de la fonctionnalité [Déverrouillage de compte Active Directory sans réinitialisation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur qui a déverrouillé son compte sans réinitialiser son mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
@@ -163,13 +163,13 @@ La liste suivante explique cette activité en détail :
  * _Failure_ : indique qu’un utilisateur n’a pas réussi à déverrouiller son propre compte. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Type d’activité : User registered for self-service password reset (Utilisateur inscrit pour la réinitialisation du mot de passe libre-service)
-La liste suivante explique cette activité en détail : 
+La liste suivante explique cette activité en détail :
 
-* **Activity Description** (Description de l’activité) : indique qu’un utilisateur a inscrit toutes les informations requises pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du client actuellement spécifiée. 
+* **Activity Description** (Description de l’activité) : indique qu’un utilisateur a inscrit toutes les informations requises pour pouvoir réinitialiser son mot de passe conformément à la stratégie de réinitialisation de mot de passe du client actuellement spécifiée.
 * **Activity Actor** (Acteur de l’activité) : l’utilisateur qui s’est inscrit pour la réinitialisation du mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
 * **Activity Target** (Cible de l’activité) : l’utilisateur qui s’est inscrit pour la réinitialisation du mot de passe. Il peut s’agir d’un utilisateur final ou d’un administrateur.
 * **États d’activité autorisés**
- * _Success_ : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle. 
+ * _Success_ : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle.
  * _Failure_ : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Cliquez sur la ligne pour voir la catégorie **Activity Status Reason** (Motif de l’état d’activité) et en savoir plus sur la cause de l’échec. Remarque : cela ne signifie pas qu’un utilisateur n’est pas en mesure de réinitialiser son propre mot de passe, simplement qu’il n’a pas terminé le processus d’inscription. Si leur compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe. Pour plus d’informations, consultez [Que se passe-t-il lorsqu’un utilisateur s’inscrit ?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
 ## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Comment récupérer les événements de gestion des mots de passe à partir de l’API de rapports et d’événements Azure AD
@@ -184,7 +184,7 @@ Une fois que votre script est opérationnel, vous devrez examiner les événemen
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Répertorie les colonnes disponibles pour les événements d’inscription de réinitialisation de mot de passe
 
 ### <a name="reporting-api-data-retrieval-limitations"></a>Création de rapport sur les limitations de récupération des données API
-Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu'à **75 000 événements individuels** des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), couvrant les **30 derniers jours**. 
+Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu'à **75 000 événements individuels** des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), couvrant les **30 derniers jours**.
 
 Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe et d’utiliser l’API pour interroger les deltas résultants. La meilleure solution est de commencer à récupérer ces données lorsque vous démarrez votre processus d’inscription de réinitialisation de mot de passe dans votre entreprise, à les conserver en externe, puis à continuer à suivre les deltas à partir de ce point.
 
@@ -300,7 +300,7 @@ Voici la liste des types de résultats que vous pouvez attendre lors de l’util
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.

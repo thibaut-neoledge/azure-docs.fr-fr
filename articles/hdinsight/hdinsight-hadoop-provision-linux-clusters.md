@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -149,7 +149,7 @@ Chaque cluster HDInsight est lié à un abonnement Azure.
 Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateur lors de la création :
 
 * Utilisateur HTTP. Le nom d’utilisateur par défaut est *admin*. Il utilise la configuration de base sur le portail Azure. Parfois, le nom par défaut est « Utilisateur du cluster ».
-* Utilisateur SSH (clusters Linux). Il est utilisé pour se connecter au cluster à l’aide de SSH. Vous pouvez créer des comptes d’utilisateur SSH supplémentaires une fois le cluster créé, en suivant la procédure décrite dans la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md) ou [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utilisateur SSH (clusters Linux). Il est utilisé pour se connecter au cluster à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   > [!NOTE]
   > Pour les clusters Windows, vous pouvez créer un utilisateur RDP pour vous connecter au cluster à l’aide d’une connexion RDP.
@@ -222,20 +222,20 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 #### <a name="standard-tier-d-series"></a>Niveau standard : série D
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| D3 standard |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
-| D4 standard |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
-| D12 standard |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
-| D13 standard |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
-| D14 standard |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
+| D3 standard |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
+| D4 standard |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
+| D12 standard |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
+| D13 standard |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
+| D14 standard |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
 
 #### <a name="standard-tier-dv2-series"></a>Niveau standard : série Dv2
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
-| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
-| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
-| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
-| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
+| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
+| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
+| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
+| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
+| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
 
 Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 

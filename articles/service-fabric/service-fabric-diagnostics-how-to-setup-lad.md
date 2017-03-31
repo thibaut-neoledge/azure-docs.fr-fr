@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
-ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 46b62b0ebc5b81241815e3b5b4fa3fe275b88af1
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ La première étape de la collecte de journaux consiste à déployer l’extensi
 
 Pour déployer l’extension Diagnostics sur les machines virtuelles du cluster lors de la création de ce dernier, définissez **Diagnostics** sur **Activé**. Une fois le cluster créé, vous ne pouvez plus modifier ce paramètre à l’aide du portail.
 
-Ensuite, configurez Linux Azure Diagnostics (LAD) pour collecter les fichiers et les placer dans votre compte de stockage. Ce processus est détaillé dans le scénario 3 (Charger vos propres fichiers journaux) de l’article [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Cette procédure vous fournit un accès aux suivis. Vous pouvez charger les suivis dans le visualiseur de votre choix.
+Ensuite, configurez Linux Azure Diagnostics (LAD) pour collecter les fichiers et les placer dans votre compte de stockage. Ce processus est détaillé dans le scénario 3 (Charger vos propres fichiers journaux) de l’article [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Cette procédure vous fournit un accès aux suivis. Vous pouvez charger les suivis dans le visualiseur de votre choix.
 
 Vous pouvez également déployer l’extension Diagnostics à l’aide d’Azure Resource Manager. Le processus, identique pour Windows et Linux, est documenté pour les clusters Windows, dans la section [Collecte des journaux avec Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -48,6 +48,6 @@ Vous pouvez également utiliser Operations Management Suite, comme indiqué dans
 Une fois cette configuration effectuée, l’agent LAD analyse les fichiers journaux spécifiés. Dès qu’une nouvelle ligne est ajoutée au fichier, elle crée une entrée dans le journal syslog, qui est envoyée au stockage que vous avez spécifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour identifier plus précisément les événements à consulter lors de la résolution des problèmes, consultez la [documentation de LTTng](http://lttng.org/docs) et la section [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pour identifier plus précisément les événements à consulter lors de la résolution des problèmes, consultez la [documentation de LTTng](http://lttng.org/docs) et la section [Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

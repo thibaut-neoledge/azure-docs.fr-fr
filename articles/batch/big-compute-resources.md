@@ -15,9 +15,9 @@ ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5e605c8c509c93feb822781257ad979a0dea00aa
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 671d5c3e88585d7874dbfb0b03adc3cd9374ceca
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -79,8 +79,8 @@ Ces modèles Azure permettent de déployer des clusters HPC Linux.
 ## <a name="compute-intensive-instances"></a>Instances nécessitant beaucoup de ressources système
 Azure propose [plusieurs tailles de machine virtuelle](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), incluant des instances [compute-intensive H-series](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nécessitant beaucoup de ressources système et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows. 
 
-* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configuration d’un cluster Windows RDMA avec Microsoft HPC Pack pour exécuter des applications MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Configuration d’un cluster Windows RDMA avec Microsoft HPC Pack pour exécuter des applications MPI](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 Pour les charges de travail exigeant beaucoup de ressources graphiques, consultez la page [Tailles CN et NV](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/).
 

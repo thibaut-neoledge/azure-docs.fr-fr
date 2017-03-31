@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/01/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 8e59988f24748a82d4e143295bab9bdaa65cf8e4
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d09d2b869606995d227aa485a85acd67c18ee4e5
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
 > [!div class="op_single_selector"]
-> * [Écouteur interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Écouteur interne](../classic/ps-sql-int-listener.md)
+> * [Écouteur externe](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -37,18 +37,18 @@ Cette rubrique explique comment configurer un écouteur pour un groupe de dispon
 
 Pour configurer un écouteur ILB pour un groupe de disponibilité Always On dans un modèle Resource Manager, voir [Configurer un équilibreur de charge interne pour un groupe de disponibilité Always On dans Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
+Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](../classic/portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
 
 ## <a name="guidelines-and-limitations-for-internal-listeners"></a>Instructions et limitations pour les écouteurs internes
 Notez les instructions suivantes concernant l'écouteur du groupe de disponibilité dans Azure à l'aide de l'équilibrage de charge interne :
 
 * L'écouteur du groupe de disponibilité est pris en charge sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
-* Un seul écouteur du groupe de disponibilité interne est pris en charge par service cloud, car l'écouteur est configuré sur l'équilibreur de charge interne, et il n’y a qu’un seul équilibreur de charge interne par service cloud. Toutefois, il est possible de créer plusieurs écouteurs externes. Pour plus d’informations, voir [Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* Un seul écouteur du groupe de disponibilité interne est pris en charge par service cloud, car l'écouteur est configuré sur l'équilibreur de charge interne, et il n’y a qu’un seul équilibreur de charge interne par service cloud. Toutefois, il est possible de créer plusieurs écouteurs externes. Pour plus d’informations, voir [Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure](../classic/ps-sql-ext-listener.md).
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>Déterminer l'accessibilité de l'écouteur
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Cet article se concentre sur la création d’un écouteur qui utilise un **équilibreur de charge interne**. Si vous avez besoin d’un écouteur public/externe, voir la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Cet article se concentre sur la création d’un écouteur qui utilise un **équilibreur de charge interne**. Si vous avez besoin d’un écouteur public/externe, voir la version de cet article qui explique comment configurer un [écouteur externe](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Créer des points de terminaison de machine virtuelle à charge équilibrée avec retour direct du serveur
 Pour l'équilibrage de charge interne, vous devez commencer par créer le système d'équilibrage de charge interne. Pour ce faire, utilisez le script ci-dessous.

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -364,7 +364,7 @@ Notez que les modèles ne sont pas disjoints : ils peuvent se chevaucher et ne c
     Exemple : `T | evaluate autocluster("size_weight=0.8")`
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1;») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     Exemple : `T | evaluate autocluster("weight_column=sample_Count")` 
 
@@ -386,7 +386,7 @@ Tous les modèles qui apparaissent dans plus d’une fraction spécifiée (valeu
     Exemple : `T | evaluate basket("threshold=0.02")`
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1;») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     Exemple : T | evaluate basket("weight_column=sample_Count")
 * `max_dims=` *1<int* (valeur par défaut : 5)
@@ -447,7 +447,7 @@ Notez que les modèles ne sont pas distincts : ils peuvent se chevaucher et ne c
   * `all` : toutes les colonnes de l’entrée sont générées.
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1; »). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
 
@@ -714,7 +714,12 @@ Les tableaux de résultats sont rendus dans un graphique Analytics de la même m
 
 **Exemple**
 
-requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
 
 ![Résultats de make-series](./media/app-insights-analytics-reference/make-series.png)
 
@@ -1012,7 +1017,7 @@ Tente de regrouper des enregistrements similaires. Pour chaque groupe, l’opér
 **Arguments**
 
 * *ColumnName :* colonne à examiner. Cette valeur doit être de type chaîne.
-* *Threshold :* valeur dans la plage {0 à&1;}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
+* *Threshold :* valeur dans la plage {0 à 1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
 
 **Retourne**
 
@@ -2234,7 +2239,7 @@ Numéro ordinal du jour de l’année.
 
 
 ### <a name="getmonth"></a>getmonth
-Obtient le numéro du mois (1 à&12;) à partir d’une valeur datetime.
+Obtient le numéro du mois (1 à 12) à partir d’une valeur datetime.
 
 **Exemple**
 

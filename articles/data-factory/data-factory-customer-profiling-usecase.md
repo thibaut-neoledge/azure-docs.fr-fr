@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: abc3fa751b3926dbbb9dc040abc40632e316e2a0
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ L’objectif de Contoso est d’identifier des opportunités de vente incitative
 Dans cette solution, Contoso souhaite évaluer l’efficacité d’une campagne marketing qu'elle a lancée récemment. Nous commençons avec des journaux de jeu bruts, les traitons et les enrichissons avec des données de géolocalisation, les joignons avec des données de référence publicitaires et enfin les copions dans Azure SQL Database pour analyser l’impact de la campagne.
 
 ## <a name="deploy-solution"></a>Déployer la solution
-Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/), d’un [compte de stockage d’objets Blob Azure](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account) et d’une [base de données Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started). Vous déployez le pipeline de profilage de client à partir du panneau **Exemples de pipelines** sur la page d’accueil de votre Data Factory.
+Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/), d’un [compte de stockage d’objets Blob Azure](../storage/storage-create-storage-account.md#create-a-storage-account) et d’une [base de données Azure SQL Database](../sql-database/sql-database-get-started.md). Vous déployez le pipeline de profilage de client à partir du panneau **Exemples de pipelines** sur la page d’accueil de votre Data Factory.
 
 1. Créez une fabrique de données ou ouvrez une fabrique de données existante. Pour connaître les étapes de création d’une fabrique de données, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
@@ -67,10 +68,5 @@ Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les
 
 ## <a name="benefits"></a>Avantages
 En optimisant l’analyse du profil de ses utilisateurs et en l’alignant sur ses objectifs commerciaux, le développeur de jeux peut recueillir rapidement des modèles d’utilisation et analyser l’efficacité de ses campagnes marketing.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

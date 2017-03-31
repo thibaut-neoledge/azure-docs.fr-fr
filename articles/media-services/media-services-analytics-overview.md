@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Avec les services Azure Media Analytics, les développeurs peuvent rapidement co
 
 Le diagramme suivant montre **Media Analytics** et d’autres parties principales de la plateforme Media Services. 
 
-![Flux de travail VOD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![Flux de travail VOD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 Les processeurs multimédias Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous pouvez télécharger ce dernier progressivement. Si un processeur multimédia a produit un fichier JSON, vous pouvez télécharger ce dernier à partir d’Azure Blob Storage. 
 
@@ -129,9 +130,4 @@ Consultez les parcours d’apprentissage de Media Services.
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

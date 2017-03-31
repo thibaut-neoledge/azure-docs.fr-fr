@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 9f29b451ef76a318a7778a8d20e292e311191298
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -99,7 +99,6 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 * SQL Server Data Tools pour Visual Studio 2015 requiert la version d’avril 2016 (version 14.0.60311.1) ou une version ultérieure. Actuellement, les utilisateurs Azure AD ne sont pas affichés dans l’Explorateur d’objets SSDT. Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * Le [pilote Microsoft JDBC 6.0 pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) prend en charge l’authentification Azure AD. Consultez également [Définition des propriétés de connexion](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase ne peut pas s’authentifier avec l’authentification Azure AD.   
-* Certains outils tels que Business Intelligence et Excel ne sont pas pris en charge.   
 * L’authentification Azure AD est prise en charge pour SQL Database dans les panneaux **Importer la base de données** et **Exporter la base de données** du portail Azure. L’importation et l’exportation à l’aide de l’authentification Azure AD sont également prises en charge depuis l’invite de commandes PowerShell.   
 
 ## <a name="next-steps"></a>Étapes suivantes

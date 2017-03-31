@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 0356f3bdbb691b9bde4e906ed30b3b235180f8ba
-ms.openlocfilehash: 9851ec0771c4fec4719aec8c8f43f2e3dd2604f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e64abfd5581c02b609707f7fa712962c024b293b
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -30,7 +30,7 @@ Lorsque vous copiez une base de données sur le même serveur logique, les même
 
 Lorsque vous copiez une base de données vers un autre serveur logique, le principal de sécurité sur le nouveau serveur devient le propriétaire de la base de données sur la nouvelle base de données. Si vous utilisez des [utilisateurs de base de données à relation contenant-contenu](sql-database-manage-logins.md) pour accéder aux données, vérifiez que les bases de données primaire et secondaire ont toujours les mêmes informations d’identification utilisateur afin de pouvoir y accéder immédiatement avec les mêmes informations d’identification, une fois la copie terminée. Si vous utilisez [Azure Active Directory](../active-directory/active-directory-whatis.md), vous n’avez plus du tout besoin de gérer les informations d’identification dans la copie. Toutefois, lorsque vous copiez la base de données sur un nouveau serveur, l’accès par connexion peut ne pas fonctionner, car ces connexions n’existent pas sur le nouveau serveur. Consultez la page [Gestion de la sécurité d’une base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md) pour en savoir plus sur la gestion des connexions durant la copie d’une base de données vers un autre serveur logique. 
 
-Vous pouvez copier une base de données SQL à l’aide du [portail Azure](sql-database-copy-portal.md), de [PowerShell](sql-database-copy-powershell.md) ou de [T-SQL](sql-database-copy-transact-sql.md). 
+Vous pouvez copier une base de données SQL à l’aide du [portail Azure](sql-database-copy-portal.md), de [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) ou de [T-SQL](sql-database-copy-transact-sql.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

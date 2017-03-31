@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: f43dc60993a9f73b0327ae524a45e915f42935a2
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: bfbbc3a0a1c433f97cb23137b6dcf74db03909a6
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 Cet exemple de script PowerShell crée deux pools élastiques et déplace une base de données d’un pool élastique vers un autre pool élastique, puis déplace une base de données en dehors d’un pool élastique vers un niveau de performance de base de données unique. 
 
-Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de l’applet de commande `Add-AzureRmAccount`.
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -57,7 +57,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez [Documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Azure SQL Database PowerShell scripts (Scripts PowerShell Azure SQL Database)](../sql-database-powershell-samples.md).
+Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
 

@@ -53,7 +53,7 @@ Avec les groupes de ressources, vous disposez de plus de flexibilité dans la fa
 ### <a name="cloud-only-virtual-networks"></a>Réseaux virtuels cloud uniquement
 Si les utilisateurs et les ordinateurs locaux ne nécessitent pas de connectivité continue aux machines virtuelles dans un réseau virtuel Azure, votre conception de réseau virtuel sera simple :
 
-![Diagramme d’un réseau virtuel de base uniquement dans le cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagramme d’un réseau virtuel de base uniquement dans le cloud](windows/media/infrastructure-networking-guidelines/vnet01.png)
 
 Cette approche s’applique généralement à des charges de travail Internet, telles qu’un serveur web Internet. Vous pouvez gérer ces machines virtuelles par SSH ou connexion VPN point à site.
 
@@ -62,7 +62,7 @@ Cette approche s’applique généralement à des charges de travail Internet, t
 ### <a name="cross-premises-virtual-networks"></a>Réseaux virtuels intersite
 Si les utilisateurs et les ordinateurs locaux nécessitent une connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel entre différents locaux. Connectez le réseau virtuel à votre réseau local avec une connexion ExpressRoute ou VPN de site à site.
 
-![Diagramme de réseau virtuel entre sites locaux](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagramme de réseau virtuel entre sites locaux](windows/media/infrastructure-networking-guidelines/vnet02.png)
 
 Dans cette configuration, le réseau virtuel Azure est essentiellement une extension cloud de votre réseau local.
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6f5a94588e20e62775ffddea0d711bb01e3db4ef
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 032beeb624fb86450e051a9486baf4d04c632da1
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -83,7 +83,7 @@ Le point de terminaison « le plus proche » n’est pas nécessairement le pl
 
 Traffic Manager recherche l’adresse IP source de la demande DNS entrante dans la Table de latence Internet. Traffic Manager choisit un point de terminaison disponible dans le centre de données Azure dont la latence est la plus faible pour la plage d’adresses IP, puis renvoie ce point de terminaison dans la réponse DNS.
 
-Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
+Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
 
 
 Traffic Manager met régulièrement à jour la Table de latence Internet pour refléter les modifications de l’Internet global et des nouvelles régions Azure. Toutefois, les performances des applications varient en fonction des variations en temps réel de la charge sur Internet. Le routage du trafic Performance ne surveille pas la charge sur un point de terminaison de service donné. En revanche, si un point de terminaison devient indisponible, Traffic Manager ne l’inclut pas dans les réponses aux requêtes DNS.

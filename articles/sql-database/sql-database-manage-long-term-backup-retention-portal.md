@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: d055e40305b277338ae85e8d6c53d3d76a78d235
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fa4cf56c10f885a2fd4b62e08a369a51d1280ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,10 +91,6 @@ Pour plus d’informations sur la rétention des sauvegardes à long terme, cons
 14. Cliquez sur **Enregistrer** pour activer la rétention des sauvegardes à long terme à l’aide de cette nouvelle stratégie dans le coffre Azure Recovery Services que vous avez configuré.
 
    ![définir la stratégie de rétention](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
-
-14. Une fois la rétention des sauvegardes à long terme activée, ouvrez le panneau **Coffre Recovery Services** (accédez à **Toutes les ressources**, puis sélectionnez cette entrée dans la liste des ressources de votre abonnement).
-
-   ![visualiser le coffre Recovery Services](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
 
 ## <a name="restore-from-long-term-backup-retention-using-the-azure-portal"></a>Restaurer à partir de la rétention des sauvegardes à long terme avec le Portail Azure

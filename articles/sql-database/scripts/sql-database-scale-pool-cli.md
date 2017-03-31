@@ -10,16 +10,16 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/16/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9125fd5a780322ea5bde5a688fa381f3fe116ce6
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ec38e5cdc3a0ce9df8cbd7dd46499d52a9f04ee4
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -27,9 +27,7 @@ ms.lasthandoff: 03/17/2017
 
 Cet exemple de script CLI crée des pools élastiques, déplace des bases de données regroupées et modifie les niveaux de performances. 
 
-Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour créer une connexion avec Azure.
-
-Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

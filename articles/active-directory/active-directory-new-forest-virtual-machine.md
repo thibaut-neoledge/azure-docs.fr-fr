@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
-ms.openlocfilehash: 50ba1caa406ab168acf08506a92c67250397a1e9
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 46e248112985b2e8f58f90e15cf885839d3cfcc8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ Les différences entre l'installation d'un contrôleur de domaine dans Azure ou 
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Création de machines virtuelles exécutant le contrôleur de domaine et les rôles serveur DNS
 Répétez les étapes suivantes pour créer des machines virtuelles pour héberger le rôle de contrôleur de domaine en fonction des besoins. Vous devez déployer au moins deux contrôleurs de domaine virtuels pour fournir la redondance et la tolérance de panne. Si le réseau virtuel Azure inclut au moins deux contrôleurs de domaine configurés de manière similaire (ce sont tous deux des catalogues globaux, ils exécutent un serveur DNS et aucun d'eux ne contient de rôle FSMO, etc.), placez alors les machines virtuelles qui exécutent ces catalogues globaux dans un groupe à haute disponibilité afin d'améliorer la tolérance aux pannes.
 
-Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. Dans le Portail Azure Classique, cliquez sur **Nouveau** > **Compute** > **Machine virtuelle** > **Depuis la galerie**. Utilisez les valeurs suivantes pour terminer l'Assistant. Acceptez la valeur par défaut d'un paramètre, sauf si une autre valeur est suggérée ou requise.
 
@@ -68,7 +68,7 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
    |  **Configuration de la machine virtuelle** |<p>Nom de machine virtuelle : Tapez un nom en une seule partie (par exemple, AzureDC1).</p><p>Nouveau nom d'utilisateur : tapez le nom d'un utilisateur. Cet utilisateur sera membre du groupe Administrateurs local sur la machine virtuelle. Vous aurez besoin de ce nom pour vous connecter à la machine virtuelle pour la première fois. Le compte intégré appelé Administrateur ne fonctionnera pas.</p><p>Nouveau mot de passe/confirmation : saisissez un mot de passe</p> |
    |  **Configuration de la machine virtuelle** |<p>Service cloud : sélectionnez <b>Créer un nouveau service de cloud computing</b> pour la première machine virtuelle et sélectionnez ce même nom de service cloud lors de la création de machines virtuelles supplémentaires qui hébergeront le rôle de contrôleur de domaine.</p><p>Nom DNS du service cloud : indiquez un nom global unique</p><p>Région/Groupe d’affinités/Réseau virtuel : indiquez le nom du réseau virtuel (par exemple WestUSVNet).</p><p>Choisissez <b>Utiliser un compte de stockage généré automatiquement pour la première machine virtuelle</b>, puis sélectionnez ce même nom de compte de stockage lors de la création de machines virtuelles supplémentaires qui hébergeront le rôle de contrôleur de domaine.</p><p>Groupe à haute disponibilité : Choisissez <b>Créer un groupe à haute disponibilité</b>.</p><p>Nom du groupe à haute disponibilité : tapez un nom pour le groupe à haute disponibilité quand vous créez la première machine virtuelle, puis sélectionnez ce même nom lors de la création de machines virtuelles supplémentaires.</p> |
    |  **Configuration de la machine virtuelle** |<p>Sélectionnez <b>Installer l'agent de la machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p> |
-2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Pour ces étapes, consultez [Association d'un disque de données à une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Pour ces étapes, consultez [Association d'un disque de données à une machine virtuelle Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 3. Après votre première connexion à la machine virtuelle, ouvrez **Gestionnaire de serveur** > **Services de fichiers et de stockage** pour créer un volume sur ce disque à l'aide de NTFS.
 4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azureps-cmdlets-docs) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
 
@@ -102,7 +102,7 @@ Lorsque l'installation du contrôleur de domaine est terminée, connectez-vous �
    |  **Configuration de la machine virtuelle** |<p>Sélectionnez <b>Installer l'agent de la machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p> |
 2. Une fois que chaque machine virtuelle supplémentaire est approvisionnée, connectez-vous et joignez-la au domaine. Dans le **Gestionnaire de serveur**, cliquez sur **Serveur Local** > **GROUPE DE TRAVAIL** > **MODIFIER...** puis sélectionnez **Domaine** et tapez le nom de votre domaine local. Spécifiez les informations d'identification d'un utilisateur de domaine, puis redémarrez la machine virtuelle pour terminer la jonction au domaine.
 
-Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Prise en main des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) et le [Guide de référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
