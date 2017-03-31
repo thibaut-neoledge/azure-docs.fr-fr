@@ -68,7 +68,7 @@ Continuez en suivant les instructions pour attacher un [nouveau disque](#option-
 1. Connectez-vous à la machine virtuelle. Pour plus d’informations, voir [Connexion à une machine virtuelle Azure exécutant Windows](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
-    ![Ouvrir le gestionnaire de serveur](./media/attach-disk/fileandstorageservices.png)
+    ![Ouvrir le gestionnaire de serveur](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Sélectionnez **Disques**.
 4. La section **Disques** répertorie les disques. En règle générale, une machine virtuelle contient le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d’exploitation, le disque 1 le disque temporaire et le disque 2 le disque de données qui vient d’être attaché à la machine virtuelle. Le disque de données liste la Partition sous le nom **Inconnu**.
