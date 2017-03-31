@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: dc61f74a10fed1ba9e3959326e0020cf2b4440ea
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 554d1d504205767a287c690d82f03808047b1961
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **su
 ## <a name="firewall-configuration"></a>Configuration du pare-feu
 Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure Classic. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure Classic :
 
-* Consultez la rubrique [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Consultez la rubrique [Configuration des points de terminaison sur une machine virtuelle](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Les images Linux de la galerie Azure n'activent pas le pare-feu *iptables* par défaut. Si besoin est, le pare-feu peut être configuré pour fournir un filtrage supplémentaire.
 
@@ -60,7 +61,7 @@ L'agent Linux Azure inclut une fonctionnalité permettant de détecter automatiq
 ### <a name="cloud-init"></a>Cloud-Init
 Les images **Ubuntu** et **CoreOS** utilisent cloud-init sur Azure, qui fournit des fonctionnalités supplémentaires d’amorçage d’une machine virtuelle.
 
-* [Comment injecter des données personnalisées](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Comment injecter des données personnalisées](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Données personnalisées et Cloud-Init sur Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
 * [Création de partitions d’échange Azure à l’aide de Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
 * [Utilisation de CoreOS dans Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
@@ -72,7 +73,7 @@ Azure vous permet de capturer l'état d'une machine virtuelle existante dans une
 2. Arrêtez/mettez hors tension la machine virtuelle.
 3. Cliquez sur *Capture* dans le portail Azure Classic ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
    
-   * Consultez la rubrique [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+   * Consultez la rubrique [Capture d’une machine virtuelle Linux à utiliser comme modèle](linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="attaching-disks"></a>Attachement de disques
 Chaque machine virtuelle est associée à un *disque de ressources* local temporaire. Étant donné que les données qui y figurent risquent de ne pas résister aux redémarrages, le disque de ressources est souvent utilisé par les applications et les processus exécutés dans la machine virtuelle pour le stockage **temporaire** des données, ainsi que pour stocker les fichiers de pagination ou d'échange du système d'exploitation.
@@ -84,13 +85,8 @@ Sous Linux, le disque de ressources est habituellement géré par l’agent Linu
 > 
 > 
 
-Sous Linux, le disque de données peut être nommé `/dev/sdc`par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. L’opération est couverte étape par étape dans le didacticiel [Association d’un disque de données avec une machine virtuelle](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Sous Linux, le disque de données peut être nommé `/dev/sdc`par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. L’opération est couverte étape par étape dans le didacticiel [Association d’un disque de données avec une machine virtuelle](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 * **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) & [Configurer LVM sur une machine virtuelle Linux dans Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

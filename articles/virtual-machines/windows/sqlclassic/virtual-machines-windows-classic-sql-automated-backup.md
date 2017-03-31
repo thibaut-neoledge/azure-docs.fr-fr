@@ -16,19 +16,20 @@ ms.workload: iaas-sql-server
 ms.date: 01/18/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 61df14be1d231c4c236774cbcfe1ddff0bce1652
-ms.openlocfilehash: 1412bf2059688177e0b731a6124b4bc66e33b27f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5771c7d1716f126570759cd4a3c53ebd3d30adf4
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](../sql/virtual-machines-windows-sql-automated-backup.md)
-> * [Classique](virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Classique](../classic/sql-automated-backup.md)
 > 
 > 
 
-La sauvegarde automatisée configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée dépend l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+La sauvegarde automatisée configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée dépend l’ [extension de l’agent IaaS de SQL Server](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
@@ -61,7 +62,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 
 **Extension IaaS SQL Server**:
 
-* [Installez l’extension IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+* [Installez l’extension IaaS SQL Server](../classic/sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Pour les machines virtuelles classiques, vous devez utiliser PowerShell pour configurer ces paramètres.
@@ -69,7 +70,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 | Paramètre | Plage (par défaut) | Description |
 | --- | --- | --- |
 | **Sauvegarde automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. |
-| **Période de rétention** |1 à&30; jours (30 jours) |Nombre de jours durant lesquels une sauvegarde est conservée. |
+| **Période de rétention** |1 à 30 jours (30 jours) |Nombre de jours durant lesquels une sauvegarde est conservée. |
 | **Compte de stockage** |Compte de stockage Azure (compte de stockage créé pour la machine virtuelle spécifiée) |Compte de stockage Azure à utiliser pour stocker les fichiers de sauvegarde automatisée dans le stockage d’objets blob. Un conteneur est créé à cet emplacement pour stocker tous les fichiers de sauvegarde. La convention de dénomination des fichiers de sauvegarde inclut la date, l’heure et le nom de la machine. |
 | **Chiffrement** |Activer/Désactiver (désactivé) |Active ou désactive le chiffrement. Lorsque le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié dans le même conteneur automaticbackup à l’aide de la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
 | **Mot de passe** |Texte du mot de passe (aucun) |Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. | **Sauvegarde des bases de données système** | Activer/Désactiver (désactivé) | Effectue des sauvegardes complètes des bases de données Master, Model et MSDB |
@@ -110,13 +111,8 @@ La sauvegarde automatisée configure une sauvegarde managée sur les machines vi
 
 Vous trouverez des conseils supplémentaires pour la sauvegarde et la restauration de SQL Server sur les machines virtuelles Azure dans la rubrique suivante : [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](../classic/sql-server-agent-extension.md).
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

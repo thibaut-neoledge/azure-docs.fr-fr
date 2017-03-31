@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2214315f084aec80986fe30ebcaff6813162c5f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,7 +65,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations ci-dessous :
    
    * **NAME**: saisissez un nom convivial pour l’action de script.
-   * **URI du script **: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **URI du script**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: cochez cette option.
    * **WORKER** : cochez cette option
    * **ZOOKEEPER** : cochez cette option pour installer le nœud ZooKeeper
@@ -81,10 +81,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
-   
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
      
      > [!IMPORTANT]
      > Étapes de création de ce document utilisent ultérieurement un tunnel SSL pour se connecter à l’interface utilisateur Solr. Pour utiliser ces étapes, vous devez établir un tunnel SSL, puis configurer votre navigateur pour l’utiliser.
@@ -173,10 +170,8 @@ Une fois que vous avez établi un tunnel SSH, procédez comme suit pour utiliser
    
    1. Utilisez SSH pour vous connecter au cluster sur le port 22. Par exemple, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` où **USERNAME** est votre nom d’utilisateur SSH et **CLUSTERNAME** est le nom de votre cluster.
       
-       Pour plus d’informations sur l’utilisation de SSH, consultez les documents suivants :
-      
-      * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-      * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+       Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
    2. Utilisez la commande suivante pour obtenir le nom d’hôte complet :
       
            hostname -f

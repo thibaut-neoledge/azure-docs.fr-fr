@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 844f7d6fa4191a54d14010adf974401d3a94ba69
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5bb3a67c999c1d41c50b2b660a97a53125511633
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -385,7 +385,7 @@ Si l’extension d’agent de machine virtuelle *Microsoft Monitoring Agent* ne 
 1. Vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en suivant la procédure décrite dans l’article [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-     * [Installez l’agent de machine virtuelle Azure sur des machines virtuelles classiques](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+     * [Installez l’agent de machine virtuelle Azure sur des machines virtuelles classiques](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. Vérifiez que la tâche de vérification des pulsations de l’extension Microsoft Monitoring Agent est en cours d’exécution en procédant comme suit :
    * Connectez-vous à la machine virtuelle.
    * Ouvrez le Planificateur de tâches et recherchez la tâche `update_azureoperationalinsight_agent_heartbeat`.

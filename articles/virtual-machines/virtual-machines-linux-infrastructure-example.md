@@ -40,7 +40,7 @@ Adventure Works Cycles souhaite créer une application de magasin en ligne dans 
   * un sous-réseau frontal pour les serveurs web 
   * un sous-réseau principal pour les serveurs d’applications, le cluster MongoDB et les contrôleurs de domaine
 
-![Diagramme de différentes couches pour l’infrastructure d’applications](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagramme de différentes couches pour l’infrastructure d’applications](windows/media/infrastructure-example/example-tiers.png)
 
 La charge du trafic web entrant sécurisé doit être répartie sur les serveurs web lorsque les clients parcourent le magasin en ligne. Le trafic de traitement des commandes sous la forme de requêtes HTTP provenant des serveurs web doit être à charge équilibrée sur les serveurs d’applications. En outre, l’infrastructure doit être conçue pour la haute disponibilité.
 
@@ -107,7 +107,7 @@ Adventure Works Cycles a donné les noms suivants à ses machines virtuelles Azu
 
 Voici la configuration obtenue.
 
-![Infrastructure d’applications finale déployée dans Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Infrastructure d’applications finale déployée dans Azure](windows/media/infrastructure-example/example-config.png)
 
 Cette configuration comprend :
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d6e668f5ceffc6e78ac19f83b6022118d5abbb55
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 78d8908a144dadb5fe9d4c48491abf153defe118
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -42,9 +43,9 @@ Suivez ces étapes pour configurer votre projet de service cloud afin qu'il envo
 
 ![sélectionner une configuration de service][4]
 
-Le paramètre de configuration **APPINSIGHTS_INSTRUMENTATIONKEY** est utilisé par Visual Studio pour configurer l’extension des diagnostics avec les informations appropriées de la ressource Application Insights lors de la publication. Le paramètre de configuration est un moyen pratique de définir une clé d'instrumentation différente pour chaque configuration de service. Visual Studio traduira ce paramètre et l'insérera dans la configuration publique de l'extension des diagnostics lors de la publication. Pour simplifier le processus de configuration de l'extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également le fichier XML de configuration publique comprenant la clé d'instrumentation Application Insights appropriée. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics.<RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
+Le paramètre de configuration **APPINSIGHTS_INSTRUMENTATIONKEY** est utilisé par Visual Studio pour configurer l’extension des diagnostics avec les informations appropriées de la ressource Application Insights lors de la publication. Le paramètre de configuration est un moyen pratique de définir une clé d'instrumentation différente pour chaque configuration de service. Visual Studio traduira ce paramètre et l'insérera dans la configuration publique de l'extension des diagnostics lors de la publication. Pour simplifier le processus de configuration de l'extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également le fichier XML de configuration publique comprenant la clé d'instrumentation Application Insights appropriée. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics<RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
 
-5) L’activation de l’option **Envoyer les données des diagnostics à Application Insights** configure automatiquement les diagnostics Azure de sorte qu’ils envoient à Application Insights tous les compteurs de performances et les journaux de niveau de consignation Erreur collectés par l’agent des diagnostics Azure. Si vous souhaitez configurer plus précisément les données envoyées à Application Insights, vous devez modifier manuellement le fichier *diagnostics.wadcfgx* pour chaque rôle. Consultez [Configurer les diagnostics Azure pour envoyer des données à Application Insights](../azure-diagnostics-configure-applicationinsights.md) pour en savoir plus sur la mise à jour manuelle de la configuration.
+5) L’activation de l’option **Envoyer les données des diagnostics à Application Insights** configure automatiquement les diagnostics Azure de sorte qu’ils envoient à Application Insights tous les compteurs de performances et les journaux de niveau de consignation Erreur collectés par l’agent des diagnostics Azure. Si vous souhaitez configurer plus précisément les données envoyées à Application Insights, vous devez modifier manuellement le fichier *diagnostics.wadcfgx* pour chaque rôle. Consultez [Configurer les diagnostics Azure pour envoyer des données à Application Insights](#configure-azure-diagnostics-to-send-data-to-application-insights) pour en savoir plus sur la mise à jour manuelle de la configuration.
 
 Une fois le service cloud configuré pour envoyer les données des diagnostics Azure à Application Insights, vous pouvez le déployer sur Azure normalement, en veillant à ce que l'extension des diagnostics Azure soit activée. Consultez [Publication d'un service cloud avec Visual Studio](../vs-azure-tools-publishing-a-cloud-service.md).  
 
@@ -77,9 +78,4 @@ Pour afficher les données des diagnostics Azure dans Application Insights :
 [4]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/role-designer-appinsights-serviceconfig.png
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

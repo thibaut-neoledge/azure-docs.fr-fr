@@ -69,7 +69,7 @@ Les runbooks nécessaires à la mise à l’échelle verticale de votre machine 
 
 Les runbooks qui doivent être importés sont affichés dans l’image ci-dessous
 
-![Importer des runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Importer des runbooks](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Ajouter un webhook à votre runbook
 Une fois que vous avez importé les runbooks, vous devrez ajouter un webhook au runbook afin qu’il puisse être déclenché par une alerte émanant d’une machine virtuelle. Les détails de la création d’un webhook pour votre runbook se trouvent ici
@@ -88,8 +88,8 @@ Veillez à bien copier le webhook avant de fermer la boîte de dialogue, car vou
 7. Sélectionnez une période sur laquelle le service d’analyse vérifie l’état de la condition et du seuil dans les étapes 5 et 6
 8. Collez le webhook que vous avez copié dans la section précédente.
 
-![Ajouter une alerte à la machine virtuelle 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Ajouter une alerte à la machine virtuelle 1](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Ajouter une alerte à la machine virtuelle 2](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -175,7 +175,7 @@ Après avoir activé la sauvegarde, votre stratégie de sauvegarde sera exécut�
 Si vous avez des problèmes lors de l’inscription de la machine virtuelle, consultez les informations suivantes sur l’installation de l’Agent de machine virtuelle et la connectivité réseau. Vous n’avez probablement pas besoin des informations suivantes si vous protégez des machines virtuelles créées dans Azure. Toutefois, si vous avez migré vos machines virtuelles dans Azure, assurez-vous d’avoir correctement installé l’agent de machine virtuelle et que votre machine virtuelle peut communiquer avec le réseau virtuel.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installer l’agent de machine virtuelle sur la machine virtuelle
-L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent y est déjà installé. Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de la galerie Azure : par exemple, lorsque vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’Agent de machine virtuelle doit être installé afin de protéger la machine virtuelle. Apprenez-en davantage sur l’[agent de machine virtuelle](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent y est déjà installé. Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de la galerie Azure : par exemple, lorsque vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’Agent de machine virtuelle doit être installé afin de protéger la machine virtuelle. Apprenez-en davantage sur l’[agent de machine virtuelle](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
 Si vous rencontrez des problèmes de sauvegarde de la machine virtuelle Azure, vérifiez que son agent est correctement installé sur celle-ci (reportez-vous au tableau ci-dessous). Le tableau suivant fournit des informations supplémentaires sur l’agent de machine virtuelle pour les machines virtuelles Windows et Linux.
 

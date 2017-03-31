@@ -1,35 +1,10 @@
 ---
-title: "Forum aux questions sur les machines virtuelles Windows classiques | Microsoft Docs"
-description: "Fournit des réponses à certaines questions courantes sur les machines virtuelles Microsoft Azure créées avec le modèle de déploiement classique."
-services: virtual-machines-windows
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
-tags: azure-service-management
-ms.assetid: e3df76fc-5163-4914-9972-c1efe78cd6f8
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 07/28/2016
-ms.author: cynthn
+redirect_url: /azure/virtual-machines/windows/classic/faq
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 872965ae70a0f0938f190a99832104cdfed25ef9
-ms.openlocfilehash: d05b0ff22fc20a6a049cc85cd0e401c680364820
-
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 192d8bb003c2a280ad7ee71fcf74cd4ff9cf5fd6
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="frequently-asked-question-about-azure-windows-virtual-machines-created-with-the-classic-deployment-model"></a>Forum aux questions sur les machines virtuelles Azure Windows créées avec le modèle de déploiement classique
-> [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour accéder à la FAQ en cas d’utilisation du modèle Resource Manager, suivez [ce lien](virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-[!INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

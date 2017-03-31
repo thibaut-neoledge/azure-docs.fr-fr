@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -84,10 +85,5 @@ Dans ce document, vous avez découvert la fonction d’évaluation de la base de
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

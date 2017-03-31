@@ -1,35 +1,10 @@
 ---
-title: "Détacher un disque d’une machine virtuelle Windows | Microsoft Docs"
-description: "Apprenez à détacher un disque de données d&quot;une machine virtuelle Azure créée à l&quot;aide du modèle de déploiement classique."
-services: virtual-machines-windows
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
-tags: azure-service-management
-ms.assetid: b6406768-1726-41bb-9451-1fda0905cc24
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 02/24/2017
-ms.author: cynthn
+redirect_url: /azure/virtual-machines/windows/classic/detach-disk
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 8df89211af76f9abb1c2a0cc81cccdf126e1bab9
-ms.openlocfilehash: 47ea33e93adb9d7654481d0beaa55671879e0bff
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 11f4ba470726c81aea4f1fd1111f7fdb324b36ef
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Comment détacher un disque d’une machine virtuelle Windows
-> [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement distincts pour créer et utiliser des ressources : [Resource Manager et Classic](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur le détachement d’un disque avec le modèle Resource Manager, suivez [ce lien](virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-[!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
-
-## <a name="additional-resources"></a>Ressources supplémentaires
-[À propos des disques et VHD pour machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-[Comment attacher un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

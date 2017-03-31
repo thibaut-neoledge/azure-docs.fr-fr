@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
-ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -140,7 +140,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ## <a name="post-migration-steps"></a>Étapes de post-migration
 
 1. **Configurer des machines virtuelles répliquées dans le groupe à haute disponibilité, le cas échéant**. Site Recovery ne prend pas en charge la migration de machines virtuelles avec le groupe à haute disponibilité. En fonction du déploiement de votre machine virtuelle répliquée, effectuez l’une des opérations suivantes :
-  * Pour une machine virtuelle créée à l’aide du modèle de déploiement classique : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Pour une machine virtuelle créée à l’aide du modèle de déploiement classique : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
   * Pour le modèle de déploiement Resource Manager : enregistrez votre configuration de machine virtuelle, puis supprimez et recréez les machines virtuelles dans le groupe à haute disponibilité. Pour ce faire, utilisez le script figurant dans [Définir le groupe à haute disponibilité de machine virtuelle Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Vérifiez la limite de ce script et planifiez un temps d’arrêt avant d’exécuter le script.
 
 2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Avant de les supprimer, assurez-vous que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles source. Dans le modèle de déploiement Resource Manager (RM), supprimez la machine virtuelle et les disques de vos comptes de stockage source dans le portail Azure. Dans le modèle de déploiement classique, vous pouvez supprimer la machine virtuelle et les disques dans le portail classique ou dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez la rubrique [Résoudre les erreurs lorsque vous supprimez des disques durs virtuels dans un déploiement Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) ou [Résoudre les problèmes de suppression de disques durs virtuels dans un déploiement classique](storage-cannot-delete-storage-account-container-vhd.md).
@@ -157,8 +157,8 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :

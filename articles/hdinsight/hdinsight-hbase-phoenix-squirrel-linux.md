@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 42d64d58fab19fc564fbcbf19f464bce8cf46eb7
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -50,7 +50,8 @@ Quand vous vous connectez à un cluster HBase, vous devez vous connecter à l’
 
 **Pour utiliser SQLLine**
 
-1. Connectez-vous au cluster à l'aide de SSH. Pour obtenir des instructions, consultez [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix et OS X](hdinsight-hadoop-linux-use-ssh-unix.md) ou [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md) selon le système d’exploitation de votre ordinateur client.
+1. Connectez-vous au cluster à l'aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Depuis SSH, exécutez les commandes suivantes pour exécuter SQLLine :
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin

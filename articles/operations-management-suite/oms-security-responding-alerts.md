@@ -13,11 +13,12 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -90,10 +91,5 @@ Dans ce document, vous avez appris à utiliser l’option **Informations sur les
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
-ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -25,10 +27,10 @@ ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
 Apprenez comment installer Hue sur les clusters HDInsight et utiliser le tunnel pour acheminer les demandes de Hue.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="what-is-hue"></a>Qu’est-ce que Hue ?
-Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop. Vous pouvez utiliser Hue pour parcourir le stockage associé à un cluster Hadoop (WASB, dans le cas de clusters HDInsight), exécutez les tâches Hive et les scripts Pig, etc.. Les composants suivants sont disponibles avec l’installation de Hue sur un cluster HDInsight Hadoop.
+Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop. Vous pouvez utiliser Hue pour parcourir le stockage associé à un cluster Hadoop (WASB, dans le cas de clusters HDInsight), exécutez les tâches Hive et les scripts Pig, etc. Les composants suivants sont disponibles avec l’installation de Hue sur un cluster HDInsight Hadoop.
 
 * Éditeur Beeswax Hive
 * Pig
@@ -66,7 +68,7 @@ Cette section explique comment utiliser le script lors de l’approvisionnement 
     ![Fournir des paramètres d’action de script pour Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Fournir des paramètres d’action de script pour Hue")
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
-   * **URI du script **: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **URI du script**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: cochez cette option.
    * **WORKER** : laissez ce champ vide.
    * **ZOOKEEPER** : laissez ce champ vide.
@@ -87,10 +89,8 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 
 2. Une fois que vous avez créé un tunnel SSH et configuré votre navigateur pour y rediriger le trafic par proxy, vous devez trouver le nom d’hôte du nœud principal primaire. Pour ce faire, connectez-vous au cluster à l’aide de SSH sur le port 22. Par exemple, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` où **USERNAME** est votre nom d’utilisateur SSH et **CLUSTERNAME** est le nom de votre cluster.
 
-    Pour plus d’informations sur l’utilisation de SSH, consultez les documents suivants :
+    Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * [Utilisation de SSH avec HDInsight à partir d’un client Linux, Unix ou Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilisation de SSH avec HDInsight à partir d’un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Une fois connecté, utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal primaire :
 
         hostname -f
@@ -154,9 +154,4 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

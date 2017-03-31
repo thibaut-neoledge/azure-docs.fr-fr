@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5ef5cfeb82eed86fd0a9b6328c803d6a88cd2822
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Développement logiciel agile avec Azure App Service
-Dans ce didacticiel, vous allez apprendre à créer des applications complexes à grande échelle avec [Azure App Service](/services/app-service/) d’une façon qui prend en charge le [développement de logiciel agile](https://en.wikipedia.org/wiki/Agile_software_development). Cela suppose que vous savez déjà [déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+Dans ce didacticiel, vous allez apprendre à créer des applications complexes à grande échelle avec [Azure App Service](/azure/app-service/) d’une façon qui prend en charge le [développement de logiciel agile](https://en.wikipedia.org/wiki/Agile_software_development). Cela suppose que vous savez déjà [déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
 Les limitations des processus techniques peuvent souvent faire obstacle à l’implémentation des méthodologies agiles. Azure App Service avec des fonctionnalités comme la [publication continue](app-service-continuous-deployment.md), les [environnements intermédiaires](web-sites-staged-publishing.md) (emplacements) et l’[analyse](web-sites-monitor.md) lorsqu’ils sont associé avec soin à l’orchestration et à la gestion du déploiement dans [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), peut constituer une solution idéale pour les développeurs qui intègrent le développement de logiciel agile.
 
