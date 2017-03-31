@@ -15,9 +15,9 @@ ms.date: 01/25/2017
 ms.author: jingwang
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
@@ -40,7 +40,7 @@ L’ordinateur sur lequel vous essayez d’installer la passerelle n’a pas pu 
 #### <a name="resolution"></a>Résolution :
 Vérifiez si les paramètres de serveur proxy de votre pare-feu bloquent la connexion réseau de l’ordinateur vers le [Centre de téléchargement](https://download.microsoft.com/) et modifiez ces paramètres si nécessaire.
 
-Vous pouvez également télécharger le fichier d’installation de la dernière version de la passerelle à partir du [Centre de téléchargement](https://www.microsoft.com/en-US/download/details.aspx?id=39717) sur d’autres ordinateurs qui peuvent accéder à ce dernier. Copiez ensuite le fichier du programme d’installation sur l’ordinateur hôte de la passerelle et exécutez-le manuellement pour installer et mettre à jour la passerelle.
+Vous pouvez également télécharger le fichier d’installation de la dernière version de la passerelle à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) sur d’autres ordinateurs qui peuvent accéder à ce dernier. Copiez ensuite le fichier du programme d’installation sur l’ordinateur hôte de la passerelle et exécutez-le manuellement pour installer et mettre à jour la passerelle.
 
 ### <a name="2-problem"></a>2. Problème
 Cette erreur s’affiche lorsque vous tentez d’installer une passerelle en cliquant sur **Installer directement sur cet ordinateur** dans le portail Azure.

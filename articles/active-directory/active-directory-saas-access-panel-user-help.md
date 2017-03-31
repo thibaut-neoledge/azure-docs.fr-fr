@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="do-you-need-help-with-myapps"></a>Avez-vous besoin d’aide avec MyApps ?
 
-Si vous vous trouvez dans cette page, c’est probablement parce que vous avez malheureusement rencontré un problème alors que vous utilisez le portail MyApps. S’il existe des cas qui vous obligent à contacter le support technique ou votre administrateur pour résoudre un problème, nous vous proposons dans cette rubrique des réponses aux questions courantes que vous pouvez essayer vous-même en premier lieu. 
+Si vous vous trouvez dans cette page, c’est probablement parce que vous avez malheureusement rencontré un problème alors que vous utilisez le portail MyApps. S’il existe des cas qui vous obligent à contacter le support technique ou votre administrateur pour résoudre un problème, nous vous proposons dans cette rubrique des réponses aux questions courantes que vous pouvez essayer vous-même en premier lieu.
 
-Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
-  
+Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md#reset-your-password).
+
 
 ## <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
 
@@ -35,9 +35,9 @@ MyApps est un portail web qui vous permet d’effectuer les tâches suivantes :
 
 - Gérer et lancer des applications basées sur le cloud
 - Gérer vos appartenances à des groupes
-- Gérer vos paramètres de profil 
+- Gérer vos paramètres de profil
 
-![Volet d'accès][1] 
+![Volet d'accès][1]
 
 
 
@@ -49,7 +49,7 @@ MyApps est un portail web qui vous permet d’effectuer les tâches suivantes :
 3.    Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
 4.    Cliquez sur **Envoyer**.
 
-Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Comment configurer la réinitialisation du mot de passe ?
@@ -58,7 +58,7 @@ Pour plus d’informations, consultez [Comment mettre à jour votre propre mot d
 2.    Sous **Gérer le compte**, cliquez sur **Configurer la réinitialisation du mot de passe libre-service**.
 3.    Suivez les étapes de la boîte de dialogue, puis soumettez.
 
-Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?

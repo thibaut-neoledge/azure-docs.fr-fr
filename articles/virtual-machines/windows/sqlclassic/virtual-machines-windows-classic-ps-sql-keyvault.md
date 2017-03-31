@@ -17,15 +17,15 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Classic)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Classique](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Classique](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -45,7 +45,7 @@ Lorsque cette fonctionnalité est activée, elle installe automatiquement le con
 Utilisez PowerShell pour configurer Azure Key Vault Integration. Les sections suivantes fournissent une vue d'ensemble des paramètres requis, puis un exemple de script PowerShell.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Installer l’extension IaaS SQL Server
-[Tout d’abord, installez l’extension IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[Tout d’abord, installez l’extension IaaS SQL Server](../classic/sql-server-agent-extension.md).
 
 ### <a name="understand-the-input-parameters"></a>Comprendre les paramètres d’entrée
 Le tableau suivant répertorie les paramètres requis pour exécuter le script PowerShell dans la section suivante.
@@ -54,7 +54,7 @@ Le tableau suivant répertorie les paramètres requis pour exécuter le script P
 | --- | --- | --- |
 | **$akvURL** |**L'URL du coffre de clés** |« https://contosokeyvault.vault.azure.net/ » |
 | **$spName** |**Nom du principal du service** |« fde2b411-33d5-4e11-af04eb07b669ccf2 » |
-| **$spSecret** |**Secret du principal du service** |«&9;VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
+| **$spSecret** |**Secret du principal du service** |« 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
 | **$credName** |**Nom d’identification**: le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |« mycred1 » |
 | **$vmName** |**Nom de machine virtuelle**: le nom d’une machine virtuelle SQL créée précédemment. |« myvmname » |
 | **$serviceName** |**Nom du service**: le nom du service Cloud associé à la machine virtuelle SQL. |« mycloudservicename » |

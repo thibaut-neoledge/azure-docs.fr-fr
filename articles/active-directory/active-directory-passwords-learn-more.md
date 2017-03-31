@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>En savoir plus sur la gestion des mots de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -120,7 +120,7 @@ La section ci-dessous décrit les scénarios pris en charge pour les différente
 ### <a name="supported-clients"></a>Clients pris en charge
 Nous vous recommandons vivement d’utiliser la fonctionnalité de mise à jour automatique d’Azure AD Connect ou d’installer la dernière version d’[Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si vous souhaitez utiliser l’écriture différée du mot de passe.
 
-* **DirSync (versions supérieures à 1.0.6862)** - _NON PRIS EN CHARGE_ : prend en charge uniquement les fonctionnalité d’écriture différée de base et n’est plus pris en charge par le groupe de produits 
+* **DirSync (versions supérieures à 1.0.6862)** - _NON PRIS EN CHARGE_ : prend en charge uniquement les fonctionnalité d’écriture différée de base et n’est plus pris en charge par le groupe de produits
 * **Azure AD Sync** - _OBSOLÈTE_ : prend en charge uniquement les fonctionnalités d’écriture différée mais n’intègre pas les fonctionnalités de déverrouillage de compte, la journalisation détaillée et les améliorations de la fiabilité d’Azure AD Connect. C’est pourquoi nous recommandons **vivement** d’effectuer la mise à niveau.
 * **Azure AD Connect** - _PRISE EN CHARGE COMPLÈTE_ : prend en charge toutes les fonctionnalités d’écriture différée. Effectuez la mise à niveau vers la dernière version pour bénéficier des nouvelles fonctionnalités optimisées ainsi que d’une stabilité et d’une fiabilité optimales
 
@@ -132,7 +132,7 @@ Pour utiliser l’écriture différée du mot de passe, vous devez avoir attribu
 * **Enterprise Moblity Suite** : aucune limitation à l’utilisation de l’écriture différée du mot de passe
 * **Enterprise Cloud Suite** : aucune limitation à l’utilisation de l’écriture différée du mot de passe
 
-Vous ne pouvez pas utiliser l’écriture différée du mot de passe avec un plan de licence Office 365, qu’il s’agisse de la version d’essai ou payante. Pour utiliser cette fonctionnalité, vous devez effectuer une mise à niveau vers l’un des plans ci-dessus. 
+Vous ne pouvez pas utiliser l’écriture différée du mot de passe avec un plan de licence Office 365, qu’il s’agisse de la version d’essai ou payante. Pour utiliser cette fonctionnalité, vous devez effectuer une mise à niveau vers l’un des plans ci-dessus.
 
 Nous n’avons pas l’intention d’activer l’écriture différée du mot de passe pour toutes les références Office 365.
 
@@ -166,7 +166,7 @@ Les mots de passe ne sont pas écrits en différé dans les situations suivantes
 * **Opérations de l’administrateur non prises en charge**
  * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [portail de gestion Office](https://portal.office.com)
  * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis PowerShell (versions 1 et 2) ou l’API Azure AD Graph
- 
+
 Nous travaillons à supprimer ces limitations mais nous n’avons pas encore de calendrier de publication des améliorations.
 
 ## <a name="password-writeback-security-model"></a>Modèle de sécurité de l’écriture différée de mot de passe
@@ -180,9 +180,9 @@ L’écriture différée des mots de passe est un service hautement sécurisé e
 ### <a name="password-writeback-encryption-details"></a>Informations détaillées sur le chiffrement de l’écriture différée de mot de passe
 Voici la description des étapes de chiffrement de la procédure de réinitialisation du mot de passe exécutée par un utilisateur avant que celle-ci parvienne dans votre environnement local, et ce, afin d’assurer une fiabilité et une sécurité de service maximales.
 
-* **Étape 1 - Chiffrement du mot de passe avec la clé RSA de 2 048 bits** : lorsqu’un utilisateur envoie un mot de passe en vue de l’écriture différée au niveau local, celui-ci est préalablement chiffré avec une clé RSA de 2 048 bits. 
+* **Étape 1 - Chiffrement du mot de passe avec la clé RSA de 2 048 bits** : lorsqu’un utilisateur envoie un mot de passe en vue de l’écriture différée au niveau local, celui-ci est préalablement chiffré avec une clé RSA de 2 048 bits.
 
-* **Étape 2 - Chiffrement de niveau package avec AES-GCM** : la méthode AES-GCM permet de chiffrer le package en totalité (mot de passe et métadonnées requises). Cela empêche toute personne ayant un accès direct au canal ServiceBus sous-jacent de visualiser/compromettre le contenu. 
+* **Étape 2 - Chiffrement de niveau package avec AES-GCM** : la méthode AES-GCM permet de chiffrer le package en totalité (mot de passe et métadonnées requises). Cela empêche toute personne ayant un accès direct au canal ServiceBus sous-jacent de visualiser/compromettre le contenu.
 
 * **Étape 3 - Toutes les communications passent par une connexion TLS / SSL** : en outre, toutes les communications avec ServiceBus transitent par un canal SSL/TLS. Cela protège le contenu contre les tiers non autorisés.
 
@@ -623,13 +623,13 @@ La réinitialisation et la modification du mot de passe sont totalement compatib
 1. **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous **respectons les stratégies de réinitialisation du mot de passe activées dans ce locataire**. Pour que la réinitialisation du mot de passe fonctionne, l’organisation partenaire doit simplement s’assurer qu’Azure AD SSPR est activé (ce qui est gratuit pour les clients O365) et peut être activé en suivant la procédure de notre guide [Prise en main de la gestion de mot de passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
 2. **Utilisateurs qui se sont inscrits dans le cadre de l’[inscription en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** : si l’organisation dont vous êtes partenaire a utilisé la fonctionnalité d’[inscription en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse de messagerie qu’elle a utilisée pour l’inscription.
 3. **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) peuvent réinitialiser leurs mots de passe en indiquant l’adresse de messagerie utilisée pour l’inscription.
- 
+
 Pour tester ces méthodes avec l’un des utilisateurs partenaires, consultez la page http://passwordreset.microsoftonline.com.  Tant que ces utilisateurs disposent d’une autre adresse de messagerie électronique ou d’une adresse électronique d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.  La vue d’ensemble [Données utilisées par la réinitialisation de mot de passe](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) fournit plus d’informations sur les données utilisées par sspr.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.

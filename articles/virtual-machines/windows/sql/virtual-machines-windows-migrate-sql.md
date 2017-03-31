@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: carlasab
 translationtype: Human Translation
-ms.sourcegitcommit: b828859cb059e626878b5cb2a2839a76f10de9c9
-ms.openlocfilehash: c40b9cbccba1789e5ee9045d83c39169bb5d2663
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ Les méthodes de migration principales consistent à :
 * Détacher, puis copier les fichiers journaux et de données vers le stockage d’objets blob Azure, puis les rattacher à SQL Server dans la machine virtuelle Azure depuis une URL
 * Convertir une machine physique locale en disque dur virtuel Hyper-V, effectuer un téléchargement vers le stockage d’objets Blob Azure, puis exécuter un déploiement en tant que nouvelle machine virtuelle en utilisant le disque dur virtuel téléchargé
 * Expédition du disque dur avec le Service d’importation/exportation Windows
-* Si vous disposez d’un déploiement AlwaysOn local, utilisez l’ [Assistant Ajout d’un réplica Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) pour créer un réplica dans Azure, puis basculez en dirigeant les utilisateurs vers l’instance de base de données Azure
+* Si vous disposez d’un déploiement AlwaysOn local, utilisez l’ [Assistant Ajout d’un réplica Azure](../classic/sql-onprem-availability.md) pour créer un réplica dans Azure, puis basculez en dirigeant les utilisateurs vers l’instance de base de données Azure
 * Utiliser la [réplication transactionnelle](https://msdn.microsoft.com/library/ms151176.aspx) de SQL Server pour configurer l’instance Azure SQL Server en tant qu’abonné, puis désactiver la réplication en dirigeant les utilisateurs vers l’instance de base de données Azure
 
 > [!TIP]
@@ -61,7 +61,7 @@ Le tableau suivant répertorie les principales méthodes de migration et expliqu
 | [Détacher, puis copier les données et les fichiers journaux dans le stockage d’objets blob Azure et les rattacher à SQL Server dans la machine virtuelle Azure à partir d’URL](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 ou ultérieur |SQL Server 2014 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Utilisez cette méthode quand vous envisagez de [stocker ces fichiers à l’aide du service de stockage d’objets Blob Azure](https://msdn.microsoft.com/library/dn385720.aspx) et de les rattacher à SQL Server s’exécutant dans une machine virtuelle Azure, en particulier avec les bases de données très volumineuses. |
 | [Convertir l’ordinateur local pour les disques durs virtuels Hyper-V, charger sur le stockage d’objets Blob Azure, puis déployer une nouvelle machine virtuelle en utilisant le disque dur virtuel chargé](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |À utiliser lors de [la mise en service de votre propre licence SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), lors de la migration d’une base de données que vous allez exécuter sur une version plus ancienne de SQL Server, ou lors de la migration d’un système et de bases de données d’un système utilisateur dans le cadre de la migration de base de données dépendant des autres bases de données utilisateur et/ou bases de données système. |
 | [Expédition du disque dur à l’aide du Service d’importation/exportation Windows](#ship-hard-drive) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Utilisez le [Service Import/Export de Windows](../../../storage/storage-import-export-service.md) lorsque la méthode de copie manuelle est trop lente, par exemple avec de très grandes bases de données. |
-| [Utiliser l’Assistant Ajout d’un réplica Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local AlwaysOn. |
+| [Utiliser l’Assistant Ajout d’un réplica Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local AlwaysOn. |
 | [Utiliser la réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |À utiliser si vous devez réduire le temps d’arrêt et que vous ne disposez pas d’un déploiement local AlwaysOn. |
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration

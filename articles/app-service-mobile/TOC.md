@@ -46,13 +46,13 @@
 #### [Activer la synchronisation hors connexion](app-service-mobile-android-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-android-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-android-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-android-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-android-how-to-use-client-library.md)
 
 ### Cordova
 #### [Activer la synchronisation hors connexion](app-service-mobile-cordova-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-cordova-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-cordova-get-started-push.md)
-#### Travailler avec le Kit de développement logiciel (SDK) client
+#### Travailler avec le Kit de développement logiciel SDK client
 ##### [Cordova](app-service-mobile-cordova-how-to-use-client-library.md)
 ##### [JavaScript/HTML](app-service-mobile-html-how-to-use-client-library.md)
 
@@ -60,45 +60,45 @@
 #### [Activer la synchronisation hors connexion](app-service-mobile-ios-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-ios-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-ios-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-ios-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-ios-how-to-use-client-library.md)
 
 ### Windows
 #### [Activer la synchronisation hors connexion](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-windows-store-dotnet-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-windows-store-dotnet-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.Android 
 #### [Activer la synchronisation hors connexion](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-xamarin-android-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.Forms
 #### [Activer la synchronisation hors connexion](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-xamarin-forms-get-started-push.md)
 #### [Se connecter à Azure Storage dans votre application Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
 #### [Activer la synchronisation hors connexion](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 #### [Ajout de l’authentification](app-service-mobile-xamarin-ios-get-started-users.md)
 #### [Ajout de notifications Push](app-service-mobile-xamarin-ios-get-started-push.md)
-#### [Travailler avec le Kit de développement logiciel (SDK) client](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Travailler avec le Kit de développement logiciel SDK client](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Travailler avec le Kit de développement logiciel (SDK) serveur
+### Travailler avec le Kit de développement logiciel SDK serveur
 #### [Backend .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 #### [Backend Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [Gestion de version de client et de serveur](app-service-mobile-client-and-server-versioning.md)
 
 ### Travaux web
-#### [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Présentation du Kit de développement logiciel SDK Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Créer une tâche web .NET dans Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel SDK WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel SDK WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel SDK WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### Environnement App Service
 #### [Créer une application web dans un environnement App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -207,12 +207,12 @@
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Référence
-## [Kit de développement logiciel (SDK) backend .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Kit de développement logiciel (SDK) backend Node.js](https://azure.github.io/azure-mobile-apps-node/)
-## [Kit de développement logiciel (SDK) du client Android](https://azure.github.io/azure-mobile-apps-android-client/)
-## [Kit de développement logiciel (SDK) du client iOS](https://azure.github.io/azure-mobile-apps-ios-client/)
-## [Kit de développement logiciel (SDK) du client JavaScript/Cordova](https://azure.github.io/azure-mobile-apps-js-client/)
-## [Kit de développement logiciel (SDK) du client Windows/Xamarin](https://msdn.microsoft.com/library/azure/mt419521.aspx)
+## [Kit de développement logiciel SDK backend .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Kit de développement logiciel SDK backend Node.js](https://azure.github.io/azure-mobile-apps-node/)
+## [Kit de développement logiciel SDK du client Android](https://azure.github.io/azure-mobile-apps-android-client/)
+## [Kit de développement logiciel SDK du client iOS](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [Kit de développement logiciel SDK du client JavaScript/Cordova](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Kit de développement logiciel SDK du client Windows/Xamarin](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Rubriques connexes
 ## [Référentiels GitHub](https://github.com/Azure/azure-mobile-apps)

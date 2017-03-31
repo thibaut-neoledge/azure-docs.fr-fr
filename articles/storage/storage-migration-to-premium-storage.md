@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
-ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2703a7ae9274e6bef38e530839c1a7c5ad69fb88
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Vous pouvez migrer des machines virtuelles d’autres plateformes vers Azure Pre
 
 L’exécution du processus de migration dans son intégralité peut nécessiter des actions supplémentaires précédant et suivant les étapes fournies dans ce guide. Par exemple, la configuration de réseaux virtuels ou de points de terminaison ou l’intégration de modifications de code dans l’application elle-même, ce qui peut nécessiter un certain temps d’indisponibilité dans votre application. Ces actions sont propres à chaque application, et vous devez les exécuter en plus des étapes indiquées dans ce guide pour effectuer la transition complète vers Premium Storage de manière aussi transparente que possible.
 
-## <a name="a-nameplan-the-migration-to-premium-storageaplan-for-the-migration-to-premium-storage"></a><a name="plan-the-migration-to-premium-storage"></a>Planification de la migration vers Premium Storage
+## <a name="plan-the-migration-to-premium-storage"></a>Planification de la migration vers Premium Storage
 Cette section vous permet de vous assurer que vous êtes prêt à suivre les étapes de migration de cet article et vous permet de prendre la bonne décision sur les types de machines virtuelles et de disques.
 
 ### <a name="prerequisites"></a>Composants requis
@@ -89,7 +89,7 @@ Lorsque vous créez une machine virtuelle Azure, vous devez en configurer certai
 ### <a name="optimization"></a>Optimisation
 [Azure Premium Storage : conception sous le signe de la haute performance](storage-premium-storage-performance.md) fournit des instructions pour la création d’applications hautes performances avec Azure Premium Storage. Vous pouvez suivre les instructions parallèlement aux bonnes pratiques de performances applicables aux technologies utilisées par votre application.
 
-## <a name="a-nameprepare-and-copy-virtual-hard-disks-vhds-to-premium-storageaprepare-and-copy-virtual-hard-disks-vhds-to-premium-storage"></a><a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Préparation et copie de disques durs virtuels (VHD) vers le stockage Premium
+## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Préparation et copie de disques durs virtuels (VHD) vers le stockage Premium
 La section suivante fournit des instructions pour la préparation des disques durs virtuels à partir de votre machine virtuelle et la copie des disques durs virtuels vers le stockage Azure.
 
 * [Scénario 1 : « Migration des machines virtuelles Azure existantes vers Azure Premium Storage. »](#scenario1)
@@ -111,7 +111,7 @@ Pour préparer les disques durs virtuels pour la migration, vous devez :
 >
 >
 
-### <a name="a-namescenario1ascenario-1-i-am-migrating-existing-azure-vms-to-azure-premium-storage"></a><a name="scenario1"></a>Scénario 1 : « Migration des machines virtuelles Azure existantes vers Azure Premium Storage. »
+### <a name="scenario1"></a>Scénario 1 : « Migration des machines virtuelles Azure existantes vers Azure Premium Storage. »
 Si vous faites migrer des machines virtuelles Azure existantes, arrêtez la machine virtuelle, préparez les disques durs virtuels pour le type de disque dur virtuel souhaité, puis copiez le disque dur virtuel avec AzCopy ou PowerShell.
 
 La machine virtuelle doit être complètement arrêtée pour migrer un état propre. L’interruption de service se poursuivra jusqu’à la fin de la migration.
@@ -163,7 +163,7 @@ Créez un compte de stockage pour gérer vos disques durs virtuels. Prenez en co
 
 Pour les disques de données, vous pouvez choisir d’en conserver certains dans un compte de stockage Standard (par exemple, les disques qui ont un stockage de refroidissement), mais nous vous conseillons fortement de déplacer toutes vos données de charge de travail de production pour utiliser le compte de stockage Premium.
 
-#### <a name="a-namecopy-vhd-with-azcopy-or-powershellastep-3-copy-vhd-with-azcopy-or-powershell"></a><a name="copy-vhd-with-azcopy-or-powershell"></a>Étape 3. Copie du disque dur virtuel avec AzCopy ou PowerShell
+#### <a name="copy-vhd-with-azcopy-or-powershell"></a>Étape 3. Copie du disque dur virtuel avec AzCopy ou PowerShell
 Vous devez rechercher le chemin d’accès de votre conteneur et la clé du compte de stockage pour traiter une de ces deux options. Vous trouverez le chemin d’accès au conteneur et le compte de stockage dans le **Portail Azure** > **Stockage**. L’URL du conteneur sera au format « https://moncompte.blob.core.windows.net/monconteneur/ ».
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Option 1 : Copie d’un disque dur virtuel avec AzCopy (copie asynchrone)
@@ -185,11 +185,11 @@ Vous devez rechercher le chemin d’accès de votre conteneur et la clé du comp
 
     Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
-   * **/Source: *&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
-   * **/SourceKey: *&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Dest: *&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
-   * **/DestKey: *&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Pattern: *&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
+   * **/Source:*&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
+   * **/SourceKey:*&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Dest:*&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
+   * **/DestKey:*&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Pattern:*&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
 
 Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -218,7 +218,7 @@ C:\PS> $destinationContext = New-AzureStorageContext  –StorageAccountName "des
 C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="a-namescenario2ascenario-2-i-am-migrating-vms-from-other-platforms-to-azure-premium-storage"></a><a name="scenario2"></a>Scénario 2 : « Migration de machines virtuelles depuis d’autres plateformes vers Azure Premium Storage ».
+### <a name="scenario2"></a>Scénario 2 : « Migration de machines virtuelles depuis d’autres plateformes vers Azure Premium Storage ».
 Si vous migrez un disque dur virtuel d’un stockage cloud non Azure vers Azure, vous devez d’abord exporter le disque dur virtuel vers un répertoire local. Ayez à disposition le chemin d’accès source complet du répertoire local sur lequel le disque dur virtuel est stocké, et utilisez AzCopy pour le télécharger vers le stockage Azure.
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Étape 1. Exportation d’un disque dur virtuel vers un répertoire local
@@ -279,12 +279,12 @@ Un exemple <Uri>peut être ***« https://storagesample.blob.core.windows.net/myc
 
     Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
-   * **/Source: *&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
-   * **/SourceKey: *&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Dest: *&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
-   * **/DestKey: *&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Source:*&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
+   * **/SourceKey:*&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Dest:*&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
+   * **/DestKey:*&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
    * **/BlobType: page :** spécifie si la destination est un objet blob de pages.
-   * **/Pattern: *&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
+   * **/Pattern:*&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
 
 Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -302,7 +302,7 @@ Vous pouvez également télécharger un disque dur virtuel sur votre compte de s
 >
 >
 
-## <a name="a-namecreate-azure-virtual-machine-using-premium-storageacreate-azure-vms-using-premium-storage"></a><a name="create-azure-virtual-machine-using-premium-storage"></a>Créer des machines virtuelles Azure à l’aide du stockage Premium
+## <a name="create-azure-virtual-machine-using-premium-storage"></a>Créer des machines virtuelles Azure à l’aide du stockage Premium
 Une fois le disque dur virtuel téléchargé ou copié vers le compte de stockage souhaité, suivez les instructions de cette section pour inscrire le disque dur virtuel en tant qu’image de système d’exploitation ou disque de système d’exploitation en fonction de votre scénario et créez ensuite une instance de machine virtuelle à partir de celui-ci. Le disque dur virtuel de disque de données peut être joint à la machine virtuelle qui a été créée.
 Un exemple de script de migration est fourni à la fin de cette section. Ce script simple ne correspond pas à tous les scénarios. Vous devrez peut-être le mettre à jour pour qu’il corresponde à votre scénario spécifique. Pour voir si ce script s’applique à votre scénario, consultez la section [Un exemple de script de migration](#a-sample-migration-script) ci-dessous.
 
@@ -430,7 +430,7 @@ Une fois la nouvelle machine virtuelle opérationnelle, accédez-y en utilisant 
 
 La dernière étape consiste à planifier la sauvegarde et la maintenance de la nouvelle machine virtuelle en fonction des besoins de l’application.
 
-### <a name="a-namea-sample-migration-scriptaa-sample-migration-script"></a><a name="a-sample-migration-script"></a>Un exemple de script de migration
+### <a name="a-sample-migration-script"></a>Un exemple de script de migration
 Si vous avez plusieurs machines virtuelles à migrer, il peut s’avérer utile d’automatiser ces tâches via des scripts PowerShell. Voici un exemple de script qui automatise la migration d’une machine virtuelle. Notez que le script ci-dessous n’est qu’un exemple, reposant sur des hypothèses concernant la configuration des disques de la machine virtuelle actuelle. Vous devrez peut-être le mettre à jour pour qu’il corresponde à votre scénario spécifique.
 
 Nous supposons que :
@@ -738,7 +738,7 @@ Le script d’automatisation est fourni ci-dessous. Remplacez le texte par vos i
     New-AzureVM -ServiceName $DestServiceName -VMs $vm -Location $Location
 ```
 
-#### <a name="a-nameoptimizationaoptimization"></a><a name="optimization"></a>Optimisation
+#### <a name="optimization"></a>Optimisation
 La configuration de votre machine virtuelle actuelle peut être personnalisée spécifiquement pour fonctionner correctement avec des disques Standard. Par exemple, vous pouvez augmenter les performances en utilisant de nombreux disques dans un volume agrégé par bandes. Par exemple, au lieu d’utiliser 4 disques séparément sur Premium Storage, vous pourrez optimiser le coût en n’utilisant qu’un seul disque. Des optimisations comme celles-ci doivent être étudiées au cas par cas et requièrent l’exécution d’étapes personnalisées après la migration. Notez également que ce processus est susceptible de ne pas bien fonctionner pour les bases de données et les applications qui dépendent de la disposition du disque définie dans la configuration.
 
 ##### <a name="preparation"></a>Préparation
@@ -760,8 +760,8 @@ Les bases de données et autres applications complexes peuvent nécessiter des �
 Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :

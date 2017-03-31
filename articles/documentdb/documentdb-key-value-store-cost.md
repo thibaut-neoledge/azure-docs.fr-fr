@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
-ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 4d6ea897ec24ab9cbf5c131cd4629f45447f1460
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -30,7 +31,7 @@ Cet article décrit le coût qu’implique l’utilisation de DocumentDB pour de
 
 ## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
 
-Les performances de DocumentDB sont basées sur la quantité [d’unités de requête](documentdb-programming.md) approvisionnées pour la partition. L’approvisionnement se fait avec une granularité d’une seconde et s’achète par unité de requête par seconde ([à ne pas confondre avec la tarification horaire](https://azure.microsoft.com/pricing/details/documentdb/)). Les unités de requête doivent être considérées comme une devise qui simplifie l’approvisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier les unités de capacité des opérations de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. Enfin, les unités de requête sont utilisées pour modéliser le débit. Toutefois, chaque unité de requête approvisionnée a également une quantité définie de ressources (mémoire, cœurs). Les unités de requête par seconde ne correspondent pas uniquement à des opérations d’E/S par seconde.
+Les performances de DocumentDB sont basées sur la quantité [d’unités de requête](documentdb-request-units.md) approvisionnées pour la partition. L’approvisionnement se fait avec une granularité d’une seconde et s’achète par unité de requête par seconde ([à ne pas confondre avec la tarification horaire](https://azure.microsoft.com/pricing/details/documentdb/)). Les unités de requête doivent être considérées comme une devise qui simplifie l’approvisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier les unités de capacité des opérations de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. Enfin, les unités de requête sont utilisées pour modéliser le débit. Toutefois, chaque unité de requête approvisionnée a également une quantité définie de ressources (mémoire, cœurs). Les unités de requête par seconde ne correspondent pas uniquement à des opérations d’E/S par seconde.
 
 En tant que système de base de données distribué globalement, DocumentDB est le seul service Azure à fournir un contrat SLA sur la latence, le débit et la cohérence, en plus de la haute disponibilité. Le débit que vous approvisionnez est appliqué à chacune des régions associées à votre compte de base de données DocumentDB. Pour les opérations de lecture, DocumentDB propose plusieurs [niveaux de cohérence](documentdb-consistency-levels.md). 
 
@@ -50,14 +51,9 @@ Si vous approvisionnez 1 000 unités de requête par seconde, vous obtenez un to
 |1 Ko|0,022 $|0,111 $|
 |100 Ko|0,222 $|1,111 $|
 
-La plupart des magasins d’objets et d’objets Blob de base facturent&0;,40 $ le million de transactions de lecture et&5; $ le million de transactions d’écriture. S’il est utilisé de manière optimale, DocumentDB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
+La plupart des magasins d’objets et d’objets Blob de base facturent 0,40 $ le million de transactions de lecture et 5 $ le million de transactions d’écriture. S’il est utilisé de manière optimale, DocumentDB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez régulièrement cette rubrique pour obtenir de nouveaux articles sur l’optimisation de l’approvisionnement des ressources dans DocumentDB. En attendant, n’hésitez pas à utiliser notre [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

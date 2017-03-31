@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 67ee949acaed274a3a1522008e833d86c8442a23
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d055a859ec89ef7fec23db9bf1d574dd8cb76293
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -270,7 +271,7 @@ Ce scénario vous montre où sont placées les images personnalisées existantes
 
 
 #### <a name="step-3-use-existing-image"></a>Étape 3 : utilisation d’une image existante
-Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../../virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, les étapes suivantes indiquent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell **Start-AzureStorageBlobCopy**.
+Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, les étapes suivantes indiquent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell**Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account
@@ -661,7 +662,7 @@ Veuillez noter que la diminution de la valeur 'HostRecordTTL' augmente le trafic
 ##### <a name="client-application-settings"></a>Paramètres de l’application cliente
 Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé « MULTISUBNETFAILOVER = TRUE » ; il est recommandé d’appliquer ce dernier, car il accélère la connexion au groupe de disponibilité SQL Always On pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
 
-Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique [Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence]](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique [Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>Étape 5 : paramètres de quorum de cluster
 Comme vous allez arrêter au moins un serveur SQL à la fois, vous devez modifier le paramètre de quorum du cluster. Si vous utilisez le système File Share Witness (FSW) avec deux nœuds, vous devez définir le quorum pour prendre en compte une majorité de nœuds et utiliser le vote dynamique afin qu’un seul nœud reste actif.
@@ -1126,9 +1127,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l' [annexe](#appendix-migrat
 [23]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 11/17/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 48644685a296875b8884cd4357f49391e30f034a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 25a6507e3d7b473d9985114de4061da8c602e987
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="django-hello-world-web-application-on-a-linux-vm"></a>Application web Django Hello World sur une machine virtuelle Linux
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Windows](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
@@ -112,10 +113,5 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 ## <a name="shutting-down-your-azure-virtual-machine"></a>Arrêt de la machine virtuelle Azure
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

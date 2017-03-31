@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/18/2017
 Apache Storm prend en charge plusieurs langages et vous permet de combiner des composants de plusieurs langages dans une même topologie. Dans cet article, vous apprendrez à utiliser les composants de Python dans vos topologies Storm basées sur Java et Clojure à partir de HDInsight.
 
 > [!IMPORTANT]
-> Ce document explique l’utilisation des clusters HDInsight sous Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Ce document explique l’utilisation des clusters HDInsight sous Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -157,10 +157,8 @@ Pour arrêter la topologie, utilisez les touches **Ctrl + C**.
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          Remplacez USERNAME par un utilisateur SSH de votre cluster et CLUSTERNAME par le nom de votre cluster HDInsight.
-     2. Une fois le fichier copié dans le cluster, utilisez le protocole SSH pour vous connecter au cluster et soumettre la tâche. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des articles suivants :
-        
-        * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. Une fois le fichier copié dans le cluster, utilisez le protocole SSH pour vous connecter au cluster et soumettre la tâche. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+     
      3. Une fois connecté, procédez comme suit pour démarrer la topologie :
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
