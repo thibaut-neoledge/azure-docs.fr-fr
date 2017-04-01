@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -43,10 +44,5 @@ Une fois approvisionnées et configurées, ces machines virtuelles sont utilisab
 > Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer de ne pas être facturé lorsque vous n’utilisez pas votre machine virtuelle, elle doit être définie sur l’état **Arrêté (désalloué)** à partir du [Portail Azure Classic](http://manage.windowsazure.com/). Pour obtenir des instructions détaillées sur la libération de votre machine virtuelle, consultez la page [Arrêter et libérer une machine virtuelle inutilisée](machine-learning-data-science-setup-virtual-machine.md#shutdown)
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

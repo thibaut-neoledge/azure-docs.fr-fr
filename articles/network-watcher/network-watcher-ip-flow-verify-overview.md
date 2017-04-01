@@ -29,8 +29,6 @@ La vérification des flux IP cible une interface réseau d’une machine virtuel
 
 Une instance de Network Watcher doit être créée dans toutes les régions dans lesquelles vous prévoyez d’exécuter la vérification des flux IP. Network Watcher est un service régional et peut uniquement être exécuté sur des ressources de la même région. Cela n’affecte pas les résultats de la vérification des flux IP, puisque l’itinéraire associé à la carte réseau est toujours renvoyé.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![1][1]
 
 ## <a name="next-steps"></a>Étapes suivantes

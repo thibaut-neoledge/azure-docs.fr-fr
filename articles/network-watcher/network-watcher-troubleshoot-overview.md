@@ -25,8 +25,6 @@ ms.lasthandoff: 03/04/2017
 
 Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse de ces passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel. Cette fonctionnalité de résolution peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle de réseau virtuel ou de la connexion et retourne les résultats appropriés. Cette demande est une transaction à long terme, et les résultats sont retournés à l’issue du diagnostic.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="results"></a>Résultats
 
 Les résultats préliminaires retournés donnent une vue d’ensemble de l’intégrité de la ressource. Des informations plus détaillées peuvent être fournies pour les ressources, comme indiqué dans la section suivante :

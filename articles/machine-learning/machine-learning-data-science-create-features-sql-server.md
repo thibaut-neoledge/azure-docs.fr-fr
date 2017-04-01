@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -38,7 +39,7 @@ Cet article suppose que vous avez :
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../storage/storage-create-storage-account.md#create-a-storage-account).
 * Stocké vos données dans SQL Server. Si ce n’est pas le cas, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) pour obtenir des instructions sur la façon d’y déplacer des données.
 
-## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
+## <a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  
 
 1. [Génération de fonctionnalités utilisant des décomptes](#sql-countfeature)
@@ -50,7 +51,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
+### <a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -58,13 +59,13 @@ Ce document décrit deux manières de générer des fonctionnalités utilisant d
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
 L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de 5 emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
+### <a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
 Voici une brève introduction relative aux données de latitude/longitude (reposant sur les informations du site stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
@@ -101,12 +102,12 @@ Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’em
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
+### <a name="sql-aml"></a>Connexion à Azure Machine Learning
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Utilisation d’un langage de programmation tel que Python
+## <a name="python"></a>Utilisation d’un langage de programmation tel que Python
 L’utilisation de Python pour générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :
@@ -121,10 +122,5 @@ La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas](machine-learning-data-science-create-features-blob.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

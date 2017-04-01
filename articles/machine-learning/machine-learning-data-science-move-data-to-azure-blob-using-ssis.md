@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
 ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
+ms.lasthandoff: 12/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ Le pack de fonctionnalités SSIS permet de gérer des flux de données plus comp
 
 * Pour exécuter un script Hive sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Hive](https://msdn.microsoft.com/library/mt146771.aspx).
 * Pour exécuter un script Pig sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Pig](https://msdn.microsoft.com/library/mt146781.aspx).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

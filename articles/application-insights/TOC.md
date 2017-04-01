@@ -111,7 +111,7 @@
 ### [Gérer le quota et tarification](app-insights-pricing.md)
 ### [Analyse des performances des applications à l’aide d’Application Insights pour SCOM](app-insights-scom.md)
 
-##Exportation
+## Exportation
 ### [Exportation continue](app-insights-export-telemetry.md)
 ### [Modèle d’exportation de données](app-insights-export-data-model.md)
 ### [Exporter vers Power BI](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Support](app-insights-get-dev-support.md)
 
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -31,8 +31,6 @@ ms.lasthandoff: 03/22/2017
 La fonctionnalité Topologie de Network Watcher fournit une représentation visuelle des ressources réseau dans un abonnement. Dans le portail, cette visualisation vous est présentée automatiquement. Les informations relatives à la vue Topologie du portail peuvent être récupérées par le biais de PowerShell.
 Cette fonctionnalité rend les informations de topologie plus polyvalentes, car les données peuvent être utilisées par d’autres outils pour générer la visualisation.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 L’interconnexion est modélisée sous deux relations.
 
 - **Relation d’imbrication** - exemple : le réseau virtuel contient un sous-réseau qui contient une carte réseau

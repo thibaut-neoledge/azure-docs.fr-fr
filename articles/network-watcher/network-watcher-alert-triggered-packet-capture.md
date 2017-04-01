@@ -34,8 +34,6 @@ En utilisant Network Watcher, Alerte et Fonctions dans l’écosystème Azure, v
 Dans cet exemple, votre machine virtuelle envoie plus de segments TCP que d’habitude, et vous souhaitez être alerté. Les segments TCP sont utilisés à titre d’exemple, et vous pouvez utiliser une condition d’alerte. Une fois alerté, vous souhaitez disposer des données du niveau des paquets pour comprendre pourquoi la communication a augmenté afin de pouvoir prendre des mesures pour rétablir une communication normale sur la machine.
 Ce scénario suppose que vous possédez une instance existante de Network Watcher ainsi qu’un groupe de ressources avec une machine virtuelle valide à utiliser.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Pour automatiser ce processus, nous créons et connectons une alerte à notre machine virtuelle pour qu’elle se déclenche lorsque l’incident se produit et pour qu’une fonction Azure rappelle Network Watcher.

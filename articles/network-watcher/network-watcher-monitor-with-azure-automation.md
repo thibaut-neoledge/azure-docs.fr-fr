@@ -26,8 +26,6 @@ ms.lasthandoff: 03/29/2017
 
 Pour fournir des services fiables aux clients, il est essentiel d’obtenir des informations détaillées sur les performances de votre réseau. Il est donc essentiel de détecter rapidement les conditions d’indisponibilité du réseau et d’effectuer des actions correctives pour atténuer ces conditions. Azure Automation vous permet d’implémenter et d’exécuter une tâche dans un environnement de programmation via des runbooks. L’utilisation d’Azure Automation crée un environnement parfait pour l’exécution d’une surveillance réseau proactive et continue et d’alertes.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Le scénario illustré dans l’image suivante est une application multicouche, avec une connectivité locale établie à l’aide d’un tunnel et d’une passerelle VPN. S’assurer que la passerelle VPN est opérationnelle est essentiel pour le bon fonctionnement des applications.

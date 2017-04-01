@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,10 +58,10 @@ Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé
 
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Génération de fonctionnalités
+## <a name="blob-featuregen"></a>Génération de fonctionnalités
 Les deux sections suivantes indiquent comment générer des fonctionnalités catégorielles avec des valeurs d’indicateur et des caractéristiques de compartimentage à l’aide de scripts Python.
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
+### <a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
 Pour créer des caractéristiques de catégorie, procédez comme suit :
 
 1. Examinez la distribution de la colonne de catégorie :
@@ -79,7 +80,7 @@ Pour créer des caractéristiques de catégorie, procédez comme suit :
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
 Pour générer des fonctionnalités compartimentées, procédez comme suit :
 
 1. Ajoutez une séquence de colonnes pour compartimenter une colonne numérique :
@@ -93,7 +94,7 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
+## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
 Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio.
 
 1. Écrivez le bloc de données dans le fichier local.
@@ -123,10 +124,5 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) d’Azure Machine Learning comme le montre l’écran ci-dessous :
 
 ![objet blob de lecteur](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
