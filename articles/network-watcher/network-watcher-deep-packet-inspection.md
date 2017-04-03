@@ -31,8 +31,6 @@ Cet article aborde certains scénarios préconfigurés dans une capture de paque
 
 Ce scénario part du principe que vous avez déjà exécuté une capture de paquets sur une machine virtuelle. Pour découvrir comment créer une capture de paquets, consultez [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) (Gérer les captures de paquets avec le portail). Pour utiliser l’API REST, consultez [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md) (Gérer les captures de paquets avec l’API REST).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Dans ce scénario, vous allez :

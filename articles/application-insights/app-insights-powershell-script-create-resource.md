@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
 ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -69,7 +70,7 @@ $resourceGroupName = "MyAppResourceGroup"
 # Create the Resource and Output the name and iKey
 ###################################################
 
-#Select the azure subscription
+# Select the azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
 # Create the App Insights Resource
@@ -92,7 +93,7 @@ New-AzureRmRoleAssignment `
   -Scope $resource.ResourceId 
 
 
-#Display iKey
+# Display iKey
 Write-Host "App Insights Name = " $resource.Name
 Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
@@ -113,10 +114,5 @@ Il existe deux façons de mettre l’iKey à disposition du kit de développemen
 * [Créer des ressources Application Insights et de test Web  templates à partir de modèles (en anglais)](app-insights-powershell.md)
 * [Configurer la surveillance de diagnostics Azure avec PowerShell (en anglais](app-insights-powershell-azure-diagnostics.md) 
 * [Définition d’alertes à l’aide de PowerShell](app-insights-powershell-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -29,8 +29,6 @@ Un cas d’utilisation plus poussée concerne l’audit et la conformité de la 
 
 Dans le portail, les règles sont divisées en catégories : Effectives, Sous-réseau, Interface réseau et Par défaut. Cela permet de savoir facilement quelles sont les règles appliquées à une machine virtuelle. Un bouton de téléchargement est fourni pour télécharger simplement toutes les règles de sécurité, quel que soit l’onglet, dans un fichier CSV.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![affichage des groupes de sécurité][1]
 
 Les règles peuvent être sélectionnées et un nouveau panneau s’ouvre pour afficher le groupe de sécurité réseau et les préfixes source et de destination. Dans ce panneau, vous pouvez naviguer directement vers la ressource de groupe de sécurité réseau.

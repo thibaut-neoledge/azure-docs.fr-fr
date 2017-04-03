@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
 ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
 ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -530,9 +531,4 @@ Vous pouvez également exécuter des requêtes avec Squirrel SQL. Suivez des ét
 Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [processus de science des données pour les équipes](http://aka.ms/datascienceprocess).
 
 Pour une description des autres procédures pas à pas complètes illustrant les étapes du processus TDSP pour des scénarios spécifiques, voir [Procédures pas à pas du processus TDSP (Team Data Science Process)](data-science-process-walkthroughs.md). Les procédures pas à pas montrent également comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

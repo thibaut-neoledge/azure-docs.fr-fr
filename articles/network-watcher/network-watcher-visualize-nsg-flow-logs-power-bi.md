@@ -27,8 +27,6 @@ Les journaux de flux des groupes de sécurité réseau (NSG) vous permettent d�
 
 Il peut être difficile de comprendre les données de journalisation des flux en effectuant une simple recherche manuelle dans les fichiers journaux. Dans cet article, nous vous proposons une solution permettant de visualiser vos flux de journaux les plus récents et d’en savoir plus sur le trafic de votre réseau.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Dans le scénario suivant, nous connectons Power BI Desktop au compte de stockage que nous avons configuré comme récepteur pour nos données de consignation de flux NSG. Une fois connecté à notre compte de stockage, Power BI télécharge et analyse les journaux pour fournir une représentation visuelle du trafic consigné par les groupes de sécurité réseau.
