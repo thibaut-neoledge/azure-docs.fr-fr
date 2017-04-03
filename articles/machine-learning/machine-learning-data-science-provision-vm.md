@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
 ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -196,10 +197,5 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](http://aka.ms/dsvmtenthings)
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples Machine Learning et d’analyse des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

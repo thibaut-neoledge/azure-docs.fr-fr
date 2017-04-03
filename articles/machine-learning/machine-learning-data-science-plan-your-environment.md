@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -104,10 +105,5 @@ Il existe un grand nombre de possibilités en fonction des langues, des environn
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identification de votre scénario d’analyse avancée
 Une fois que vous avez répondu aux questions de la section précédente, vous êtes prêt à déterminer le scénario qui vous convient le mieux. Les exemples de scénarios sont présentés dans la rubrique [Scénarios d’analyses avancées dans Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

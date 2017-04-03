@@ -27,8 +27,6 @@ Les journaux des flux de groupe de sécurité réseau fournissent des informatio
 
 Ces journaux de flux peuvent être difficiles à analyser et à exploiter manuellement. Toutefois, il existe de nombreux outils open source qui peuvent aider à visualiser ces données. Cet article propose une solution pour visualiser ces journaux à l’aide de la Suite Elastic, qui vous permet d’indexer et de visualiser rapidement vos journaux de flux dans un tableau de bord Kibana.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Dans cet article, nous allons configurer une solution qui vous permet de visualiser les journaux des flux de groupe de sécurité réseau à l’aide de la Suite Elastic.  Un plug-in d’entrée Logstash collectera les journaux de flux directement à partir de l’objet blob de stockage configuré pour contenir les journaux de flux. Ensuite, à l’aide de la Suite Elastic, les journaux de flux sont indexés et utilisés pour créer un tableau de bord Kibana permettant de visualiser les informations.

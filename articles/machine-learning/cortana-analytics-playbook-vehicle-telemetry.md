@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 3467c5549381f1354987fead424646afe847739c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -57,10 +58,5 @@ Cette solution utilise deux **sources de données**différentes :
 
 * **SIMULATION DES SIGNAUX ET DIAGNOSTICS D’UN VÉHICULE**: un simulateur télématique de véhicule émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. 
 * **CATALOGUE DE VÉHICULES**: un jeu de données de référence associé à un mappage VIN/modèle.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -705,10 +706,5 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 ## <a name="summary"></a>Résumé
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

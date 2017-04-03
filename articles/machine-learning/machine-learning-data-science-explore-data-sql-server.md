@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,7 +33,7 @@ Le **menu** suivant pointe vers des rubriques qui expliquent comment utiliser de
 > 
 > 
 
-## <a name="a-namesql-dataexplorationaexplore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Explorer les données SQL avec des scripts SQL
+## <a name="sql-dataexploration"></a>Explorer les données SQL avec des scripts SQL
 Voici quelques exemples de scripts SQL utilisables pour l’exploration de magasins de données dans SQL Server.
 
 1. Obtenir le nombre d’observations par jour
@@ -53,7 +54,7 @@ Voici quelques exemples de scripts SQL utilisables pour l’exploration de magas
 > 
 > 
 
-## <a name="a-namepythonaexplore-sql-data-with-python"></a><a name="python"></a>Explorer les données SQL avec Python
+## <a name="python"></a>Explorer les données SQL avec Python
 L’utilisation de Python pour explorer les données et générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :
@@ -71,10 +72,5 @@ Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans 
 
 ## <a name="cortana-analytics-process-in-action-example"></a>Exemple de processus Cortana Analytics en action
 Pour obtenir un exemple de procédure pas à pas complet du processus Cortana Analytics à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

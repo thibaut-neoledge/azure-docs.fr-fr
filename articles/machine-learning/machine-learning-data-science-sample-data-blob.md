@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
+# <a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
 
 Le **menu** ci-après pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. 
@@ -68,7 +69,7 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 
 Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
 
-## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Télécharger les données et les lire dans Azure Machine Learning
+## <a name="heading"></a>Télécharger les données et les lire dans Azure Machine Learning
 Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
 
 1. Écrivez la trame de données dans un fichier local :
@@ -100,10 +101,5 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 3. Lisez les données de l’objet blob Azure à l’aide du module [Importer les données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme l’illustre l’image ci-dessous :
 
 ![objet blob de lecteur](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

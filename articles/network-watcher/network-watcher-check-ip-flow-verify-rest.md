@@ -37,8 +37,6 @@ ARMclient permet d’appeler l’API REST à l’aide de PowerShell. ARMClient e
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Ce scénario utilise la vérification des flux IP pour vérifier si une machine virtuelle peut communiquer avec une autre machine par le biais du port 443. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour en savoir plus sur la vérification des flux IP, consultez [Vue d’ensemble de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md).

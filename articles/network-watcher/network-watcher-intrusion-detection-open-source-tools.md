@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a1199ae3eccc5268006587fa47f2ca4fad362bdc
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.lasthandoff: 02/24/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/24/2017
 Les captures de paquets sont essentielles pour implémenter des systèmes de détection d’intrusions dans un réseau et surveiller la sécurité du réseau. Il existe plusieurs outils open source de systèmes de détection d’intrusions qui traitent des captures de paquets et recherchent les signatures des activités malveillantes et des intrusions dans un réseau éventuelles. Les captures de paquets proposées par Network Watcher vous permettent d’analyser votre réseau et de détecter toute vulnérabilité ou intrusion dangereuse.
 
 Suricata fait partie de ces outils open source. Il s’agit d’un moteur de systèmes de détection d’intrusions qui utilise des ensembles de règles pour surveiller le trafic réseau et qui déclenche des alertes en cas d’évènements suspects. Suricata propose un moteur multithread, ce qui signifie qu’il peut effectuer une analyse du trafic réseau de manière plus rapide et plus efficace. Pour plus d’informations sur Suricata et ses fonctionnalités, rendez-vous sur le site web correspondant : https://suricata-ids.org/.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scénario
 

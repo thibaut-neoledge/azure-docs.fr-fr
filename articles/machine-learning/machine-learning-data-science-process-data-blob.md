@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
+ms.lasthandoff: 12/13/2016
 
 
 ---
-# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
+# <a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Chargement des données dans une trame de données Pandas
@@ -50,7 +51,7 @@ Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé
 
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
-## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Exploration des données
+## <a name="blob-dataexploration"></a>Exploration des données
 Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
 1. Vérifiez le nombre de lignes et de colonnes. 
@@ -95,10 +96,10 @@ Voici quelques méthodes pour explorer des données à l’aide de Pandas :
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Génération de fonctionnalités
+## <a name="blob-featuregen"></a>Génération de fonctionnalités
 Pour générer des caractéristiques à l’aide de Python, procédez comme suit :
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
+### <a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
 Pour créer des caractéristiques de catégorie, procédez comme suit :
 
 1. Examinez la distribution de la colonne de catégorie :
@@ -117,7 +118,7 @@ Pour créer des caractéristiques de catégorie, procédez comme suit :
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
 Pour générer des fonctionnalités compartimentées, procédez comme suit :
 
 1. Ajoutez une séquence de colonnes pour compartimenter une colonne numérique :
@@ -131,7 +132,7 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
+## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
 Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio. 
 
 1. Écrivez le bloc de données dans le fichier local.
@@ -167,10 +168,5 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
