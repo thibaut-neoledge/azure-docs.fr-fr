@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
 ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -88,10 +89,5 @@ Pour transférer des objets blob entre des conteneurs Azure, utilisez la command
 > 3. Vous ne pouvez pas spécifier un **fichier de blob** à télécharger, à l’aide du paramètre */Source* . Pour télécharger un fichier spécifique, spécifiez le nom du fichier à télécharger à l’aide du paramètre */Pattern* . **/S** peut être utilisé pour qu’AzCopy recherche un modèle de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -35,8 +35,6 @@ La vérification des flux IP est une fonctionnalité de Network Watcher qui vous
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher ou que vous disposez d’une instance existante de Network Watcher. Ce scénario suppose également qu’un groupe de ressources avec une machine virtuelle valide existe et peut être utilisé.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scénario
 
 Ce scénario utilise la vérification des flux IP pour savoir si une machine virtuelle peut communiquer avec une adresse IP Bing connue. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour en savoir plus sur la vérification des flux IP, consultez [Vue d’ensemble de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md).

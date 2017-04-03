@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
 ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -54,10 +55,5 @@ Les étapes suivantes expliquent comment charger ou télécharger des données �
 7. Pour charger des données dans un conteneur, sélectionnez le conteneur cible, puis cliquez sur le bouton **Charger**.![Comptes de stockage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. Cliquez sur **...** à droite de la zone **Fichiers**, sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur **Charger** pour lancer le chargement des fichiers.![Charger des fichiers](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. Pour télécharger les données, sélectionnez l’objet blob dans le conteneur correspondant à télécharger et cliquez sur **Télécharger**. ![Télécharger des fichiers](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
