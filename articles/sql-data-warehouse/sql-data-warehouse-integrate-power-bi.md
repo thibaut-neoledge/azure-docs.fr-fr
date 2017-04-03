@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 201efc5225d6c12028b48ccaf6764c60b44dce58
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -63,9 +65,4 @@ Outre l’utilisation du bouton Open in Power BI, les utilisateurs peuvent se c
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

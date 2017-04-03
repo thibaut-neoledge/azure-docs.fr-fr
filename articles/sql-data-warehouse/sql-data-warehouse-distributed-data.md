@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,7 +64,7 @@ La distribution est l’unité de base qui stocke les données distribuées et t
 ### <a name="can-i-view-the-compute-nodes"></a>Puis-je afficher les nœuds de calcul ?
 Chaque nœud de calcul possède un ID et s’affiche dans les vues système de SQL Data Warehouse et Parallel Data Warehouse.  Vous pouvez visualiser le nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste des vues système, cliquez [ici](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Tables répliquées pour Parallel Data Warehouse
+## <a name="Replicated"></a>Tables répliquées pour Parallel Data Warehouse
 S’applique à : Parallel Data Warehouse
 
 Outre l’utilisation des tables distribuées, Parallel Data Warehouse permet de répliquer des tables. Une *table répliquée* est une table stockée intégralement sur chaque nœud de calcul. La réplication d’une table évite le transfert de ses lignes entre des nœuds de calcul avant de l’utiliser dans une jointure ou une agrégation. Seules les tables de petite taille sont réplicables, en raison de l’espace de stockage supplémentaire requis pour les stocker intégralement sur chaque nœud de calcul.  
@@ -73,10 +75,5 @@ Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour utiliser efficacement les tables distribuées, consultez [Distributing tables in SQL Data Warehouse (Distribution de tables dans SQL Data Warehouse)](sql-data-warehouse-tables-distribute.md).  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
