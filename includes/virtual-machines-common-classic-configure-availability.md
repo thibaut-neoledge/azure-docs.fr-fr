@@ -1,14 +1,14 @@
 
 
 
-Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d’informations sur cette procédure, consultez l’article [Gestion de la disponibilité des machines virtuelles][Gestion de la disponibilité des machines virtuelles].
+Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d’informations sur cette procédure, voir la rubrique [Gestion de la disponibilité des machines virtuelles][Manage the availability of virtual machines].
 
-Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d’informations sur les points de terminaison à charge équilibrée, consultez l’article [Équilibrage de charge pour les services d’infrastructure Azure][Équilibrage de charge pour les services d’infrastructure Azure].
+Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d’informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure][Load balancing for Azure infrastructure services].
 
 Vous pouvez ajouter des machines virtuelles classiques dans un groupe à haute disponibilité en utilisant l’une des deux options suivantes :
 
-* [Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité][Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
-* [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité].
+* [Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité][Option 1: Create a virtual machine and an availability set at the same time]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
+* [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
@@ -36,7 +36,7 @@ Pour utiliser le portail Azure :
 8. Passez en revue vos paramètres de configuration. Une fois ces opérations effectuées, cliquez sur **Créer**.
 9. Pendant qu’Azure crée votre machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu Hub, sous **Machines virtuelles** .
 
-Pour plus d’informations sur l’utilisation des commandes Azure PowerShell pour créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, consultez l’article [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour plus d’informations sur l’utilisation des commandes Azure PowerShell pour créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, consultez l’article [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité
 Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
@@ -64,17 +64,12 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 > 
 
 <!-- LINKS -->
-[Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
-[Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité]: #addmachine
+[Option 1: Create a virtual machine and an availability set at the same time]: #createset
+[Option 2: Add an existing virtual machine to an availability set]: #addmachine
 
-[Équilibrage de charge pour les services d’infrastructure Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
-[Gestion de la disponibilité des machines virtuelles]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[Load balancing for Azure infrastructure services]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Manage the availability of virtual machines]:../articles/virtual-machines/linux/manage-availability.md
 
-[Créer une machine virtuelle exécutant Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Présentation du réseau virtuel]: ../articles/virtual-network/virtual-networks-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
 

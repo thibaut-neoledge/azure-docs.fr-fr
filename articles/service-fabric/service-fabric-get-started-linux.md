@@ -3,7 +3,7 @@ title: "Configurer votre environnement de développement sur Linux | Microsoft D
 description: "Installez le runtime et le Kit de développement logiciel (SDK), puis créez un cluster de développement local sur Linux. Une fois l’installation terminée, vous serez prêt à créer des applications."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mani-ramaswamy
 manager: timlt
 editor: 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 03/23/2017
+ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/11/2017
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
-* Ubuntu 16.04 (« Xenial Xerus »)
+* Ubuntu 16.04 (i**« Xenial Xerus »**)
 
 ## <a name="update-your-apt-sources"></a>Mettre à jour vos sources apt
 Pour installer le Kit de développement logiciel (SDK) et le package runtime associé via apt-get, vous devez tout d’abord mettre à jour vos sources apt.
@@ -47,7 +47,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Ajoutez le référentiel dotnet à votre liste de sources.
+3. Ajoutez le référentiel **dotnet** à votre liste de sources.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -66,7 +66,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     ```bash
     sudo apt-get update
     ```
-## <a name="install-and-set-up-the-sdk"></a>Installer et configurer le Kit de développement logiciel (SDK)
+## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>Installer et configurer le Kit de développement logiciel (SDK) pour les conteneurs et les exécutables invités
 Une fois vos sources mises à jour, vous pouvez installer le Kit de développement logiciel (SDK).
 
 1. Installez le package de Kit de développement logiciel (SDK) Service Fabric. Vous devez confirmer l’installation et accepter un contrat de licence.
@@ -80,6 +80,21 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+Une fois que vous avez suivi les étapes d’installation du package de Kit de développement logiciel (SDK) courant, vous pouvez créer des applications avec un exécutable invité ou avec les services de conteneur en exécutant `yo azuresfguest`. Vous devrez peut-être définir votre variable d’environnement **$NODE_PATH** dans laquelle se trouvent les modules Node. 
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    ```
+
+Si vous utilisez l’environnement en tant que racine, vous devrez peut-être définir la variable avec la commande suivante :
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    ```
+
+> [!TIP]
+> Vous pouvez ajouter ces commandes à votre fichier ~/.bashrc afin de ne pas avoir à définir la variable d’environnement à chaque connexion.
+>
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Configurer l’interface de ligne de commande interplateforme Azure
 [L’interface de ligne de commande interplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Comme elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous :
@@ -111,6 +126,7 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
 > [!NOTE]
 > Les commandes Service Fabric ne sont pas encore disponibles dans Azure CLI 2.0.
 
+
 ## <a name="set-up-a-local-cluster"></a>Configurer un cluster local
 Si tout a été correctement installé, vous pourrez démarrer un cluster local.
 
@@ -129,9 +145,8 @@ Si tout a été correctement installé, vous pourrez démarrer un cluster local.
 > [!NOTE]
 > Les clusters autonomes ne sont pas pris en charge sous Linux. La version préliminaire ne prend en charge que les clusters composés de plusieurs machines Linux Azure et d’un boîtier.
 >
->
 
-## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Installer le Kit de développement logiciel (SDK) Java et le plug-in Eclipse Neon (facultatif)
+## <a name="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models"></a>Installer le Kit de développement logiciel (SDK) Java (facultatif, si vous souhaitez utiliser Java pour les modèles de programmation)
 Le Kit de développement logiciel (SDK) Java fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de Java.
 
 1. Installez le package du Kit de développement logiciel (SDK) Java.
@@ -144,10 +159,15 @@ Le Kit de développement logiciel (SDK) Java fournit les bibliothèques et les m
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+## <a name="install-the-eclipse-neon-plugin-optional"></a>Installer le plug-in Eclipse Neon (facultatif)
 
-Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de **l’IDE Eclipse pour les développeurs Java**.
+Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de **l’IDE Eclipse pour les développeurs Java**. Vous pouvez utiliser Eclipse pour créer des applications exécutables invités Service Fabric et des applications de conteneur en plus des applications Service Fabric Java.
 
-1. Dans Eclipse, assurez-vous que vous disposez de la dernière version d’Eclipse **Neon** et de Buildship (version&1;.0.17 ou ultérieure). Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
+> [!NOTE]
+> L’installation du Kit de développement logiciel (SDK) Java est requise pour utiliser le plug-in Eclipse, même si vous l’utilisez uniquement pour créer et déployer des exécutables invités et des applications de conteneur.
+>
+
+1. Dans Eclipse, assurez-vous que vous disposez de la dernière version d’Eclipse **Neon** et de Buildship (version 1.0.17 ou ultérieure). Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
 2. Pour installer le plug-in Service Fabric, choisissez **Aide > Installer un nouveau logiciel...**
 3. Dans la zone de texte « Utiliser », entrez : http://dl.windowsazure.com/eclipse/servicefabric
 4. Cliquez sur Ajouter.
@@ -155,11 +175,12 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de **l’
 5. Choisissez le plug-in Service Fabric et cliquez sur Suivant.
 6. Suivez les étapes d’installation et acceptez le contrat de licence d’utilisateur final.
 
-Si le plug-in Eclipse de Service Fabric est déjà installé, assurez-vous que vous disposez de la dernière version. Vous pouvez vérifier s’il peut être mis à jour en suivant - ``Help => Installation Details``. Recherchez ensuite Service Fabric dans la liste des plug-ins installés, puis cliquez sur Mettre à jour. Les mises à jour en attente seront extraites et installées.
+Si le plug-in Eclipse de Service Fabric est déjà installé, assurez-vous que vous disposez de la dernière version. Vous pouvez vérifier en sélectionnant ``Help => Installation Details`` et en recherchant Service Fabric dans la liste des plug-ins installés. Sélectionnez la mise à jour si une version plus récente est disponible. 
 
-Pour plus d’informations sur l’utilisation du plug-in Eclipse de Service Fabric pour créer, générer, déployer ou mettre à niveau une application Java Service Fabric, reportez-vous à notre guide détaillé [Service Fabric getting started with eclipse](service-fabric-get-started-eclipse.md) (Service Fabric : prise en main avec Eclipse).
+Pour plus d’informations, voir [Service Fabric : prise en main avec Eclipse](service-fabric-get-started-eclipse.md).
 
-## <a name="install-the-net-core-sdk-optional"></a>Installer le Kit de développement (SDK) .NET Core (facultatif)
+
+## <a name="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models"></a>Installer le Kit de développement logiciel (SDK) .NET Core (facultatif, si vous souhaitez utiliser les modèles de programmation .NET Core)
 Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de .Net Core interplateforme.
 
 1. Installez le package du Kit de développement (SDK) .NET Core.
@@ -180,10 +201,11 @@ Pour mettre à jour vers la dernière version du kit de développement logiciel 
 
    ```bash
    sudo apt-get update
-   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
 
-Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.
+Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.  Si des étapes supplémentaires sont nécessaires pour la mise à jour, elles seront spécifiées dans les notes de publication. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman (Créer et déployer votre première application Java Service Fabric sur Linux à l’aide de Yeoman)](service-fabric-create-your-first-linux-application-with-java.md)
@@ -191,6 +213,7 @@ Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez clo
 * [Create your first Java application on Linux (Créer votre première application Java sur Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications (Utiliser l’interface Azure CLI pour gérer vos applications Service Fabric)](service-fabric-azure-cli.md)
+* [Différences entre Service Fabric Windows/Linux](service-fabric-linux-windows-differences.md)
 
 <!-- Links -->
 

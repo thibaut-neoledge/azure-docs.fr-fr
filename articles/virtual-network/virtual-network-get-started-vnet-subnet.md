@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ La connexion sortante à Internet est autorisée, car tout le trafic sortant est
 
 Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
 
-1. Pour afficher le groupe de ressources MyRG créé dans cet article, effectuez les étapes 1 à 3 décrites dans la section [Passer en revue les ressources](#review) de cet article. Une nouvelle fois, passez en revue les ressources du groupe de ressources. Si vous avez créé le groupe de ressources MyRG, en suivant les étapes précédentes, vous pouvez voir les 12 ressources indiquées dans l’image à l’étape 3.
+1. Pour afficher le groupe de ressources MyRG créé dans cet article, effectuez les étapes 1 à 3 décrites dans la section [Passer en revue les ressources](#review) de cet article. Une nouvelle fois, passez en revue les ressources du groupe de ressources. Si vous avez créé le groupe de ressources MyRG, en suivant les étapes précédentes, vous pouvez voir les 12 ressources indiquées dans l’image à l’étape 4.
 2. Dans le panneau MyRG, cliquez sur le bouton **Supprimer**.
-3. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Si vous voyez des ressources autres que celles affichées à l’étape 3 de la section [Passer en revue les ressources](#review) de cet article, cliquez sur **Annuler**. Si vous voyez uniquement les 12 ressources créées dans le cadre de cet article, saisissez *MyRG* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
+3. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Si vous voyez des ressources autres que celles affichées à l’étape 4 de la section [Passer en revue les ressources](#review) de cet article, cliquez sur **Annuler**. Si vous voyez uniquement les 12 ressources créées dans le cadre de cet article, saisissez *MyRG* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
