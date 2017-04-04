@@ -171,7 +171,7 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 5. Accédez au dossier cible sous le dossier racine dans lequel vous avez téléchargé le package. Téléchargez le fichier json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar dans le nœud principal de votre cluster. En général, je le mets dans le dossier binaire Hive (C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin) ou un dossier semblable.
 
-6. À l’invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\apps\dist\hive-0.13.x\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous :
+6. À l’invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\apps\dist\hive-0.13.x\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous:
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 

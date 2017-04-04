@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ Vous pouvez également accéder au panneau en cliquant sur **Plus de services**,
 2. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 3. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, entrez « Application B2C Contoso ».
 4. Activez/désactivez le commutateur **Include web app / web API** (Inclure l’application web/l’API web) pour le définir sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44316/`.
-5. Cliquez sur **Enregistrer** pour inscrire votre application.
-6. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
+5. Cliquez sur **Créer** pour inscrire votre application.
+6. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code. 
+7. Si votre application web appelle également une API web sécurisée par Azure AD B2C, vous aurez besoin de créer une **Clé secrète d’application** en accédant au panneau **Clés** et en cliquant sur le bouton **Générer une clé**.
 
+> [!NOTE]
+> Une **Clé secrète d’application** est une information d’identification de sécurité importante, qui doit être correctement sécurisée.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Inscrire une API web
 1. Dans le panneau de fonctionnalités B2C du Portail Azure, cliquez sur **Applications**.
 2. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 3. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, vous pouvez entrer « API B2C Contoso ».
 4. Activez/désactivez le commutateur **Include web app / web API** (Inclure l’application web/l’API web) pour le définir sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44316/`.
-5. Cliquez sur **Enregistrer** pour inscrire votre application.
-6. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
-
+5. Entrez un **URI ID d’application**. Il s’agit de l’identificateur utilisé pour votre API web. Par exemple, entrez « notes ». Il génère l’identificateur URI complet en dessous. 
+6. Cliquez sur **Créer** pour inscrire votre application.
+7. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
+8. Cliquez sur **Étendues publiées**. C’est ici que vous définissez les autorisations (étendues) qui peuvent être accordées à d’autres applications.
+9. Ajoutez des étendues si nécessaire. Par défaut, l’étendue « user_impersonation » est définie. Cela permet à d’autres applications d’accéder à cette API pour le compte de l’utilisateur connecté. Vous pouvez la supprimer si vous le souhaitez. 
+10. Cliquez sur **Save**.
 
 ## <a name="register-a-mobilenative-application"></a>Inscrire une application mobile/native
 1. Dans le panneau de fonctionnalités B2C du Portail Azure, cliquez sur **Applications**.
@@ -69,6 +78,11 @@ Vous pouvez également accéder au panneau en cliquant sur **Plus de services**,
 5. Entrez un **URI de redirection** avec un schéma personnalisé. Par exemple, com.onmicrosoft.contoso.appname://redirect/path. Veillez à choisir un [URI de redirection adapté](#choosing-a-redirect-uri).
 6. Cliquez sur **Enregistrer** pour inscrire votre application.
 7. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
+8. Si votre application native appelle également une API web sécurisée par Azure AD B2C, vous aurez besoin de créer une **Clé secrète d’application** en accédant au panneau **Clés** et en cliquant sur le bouton **Générer une clé**.
+
+> [!NOTE]
+> Une **Clé secrète d’application** est une information d’identification de sécurité importante, qui doit être correctement sécurisée.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Sélection d’un URI de redirection
 Il existe deux points importants à prendre en considération lors du choix d’un URI de redirection pour les applications mobiles/natives : 

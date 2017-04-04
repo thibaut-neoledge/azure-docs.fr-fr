@@ -12,11 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3750e2875935d2753a819ef8ce540009417d19b5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -39,10 +41,5 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 * Tedious (pour Node.JS)
 
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).     
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

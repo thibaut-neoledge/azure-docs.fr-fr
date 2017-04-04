@@ -17,6 +17,7 @@ ms.author: asmalser
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -315,7 +316,7 @@ Les développeurs qui utilisent les bibliothèques Common Language Infrastructur
 ## <a name="user-and-group-schema"></a>Schéma des utilisateurs et des groupes
 Azure Active Directory peut configurer deux types de ressources pour les services web SCIM.  Ces types de ressources sont des utilisateurs et des groupes.  
 
-Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http //tools.ietf.org/html/draft-ietf-scim-core-schema.  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
+Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http//tools.ietf.org/html/draft-ietf-scim-core-schema.  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
 
 Les ressources du groupe sont identifiées par l’identificateur de schéma, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Le tableau 2 ci-dessous montre le mappage par défaut des attributs de groupes dans Azure Active Directory sur les attributs de ressources http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
@@ -678,9 +679,4 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

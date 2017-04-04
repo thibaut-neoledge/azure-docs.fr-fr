@@ -4,7 +4,7 @@ description: "Apprenez à créer, déployer et gérer un appareil virtuel StorSi
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -32,34 +33,13 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | **Capacité maximale** |30 To |64 To |
 | **Microsoft Azure** |Standard_A3 (4 cœurs, 7 Go de mémoire) |Standard_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** |Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure |Les versions exécutant Update 2 ou version ultérieure |
-| **Disponibilité des régions** |Toutes les régions Azure |Régions Azure qui prennent en charge Premium Storage<br></br>Pour obtenir la liste des régions, consultez [Régions prises en charge pour 8020](#supported-regions-for-8020) |
+| **Disponibilité des régions** |Toutes les régions Azure |Toutes les régions Azure qui prennent en charge le stockage Premium<br></br> Les régions de stockage Premium sont des régions qui correspondent à la ligne *Stockage sur disque* dans la liste des [services Azure par région](https://azure.microsoft.com/en-us/regions/services). |
 | **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md) |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes <br></br>Appareil secondaire pour la récupération d’urgence |
 
 <sup>1</sup> *Anciennement, 1100*.
 
 <sup>2</sup> *Le 8010 et la 8020 utilisent tous deux le stockage Azure Standard pour le niveau cloud. La différence existe uniquement au niveau local au sein de l’appareil*.
-
-#### <a name="supported-regions-for-8020"></a>Régions prises en charge pour 8020
-Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
-
-| S. num. | Actuellement pris en charge dans les régions |
-| --- | --- |
-| 1 |Centre des États-Unis |
-| 2 |Est des États-Unis |
-| 3 |Est des États-Unis 2 |
-| 4 |Ouest des États-Unis |
-| 5 |Europe du Nord |
-| 6 |Europe de l'Ouest |
-| 7 |Asie du Sud-Est |
-| 8 |Est du Japon |
-| 9 |Ouest du Japon |
-| 10 |Est de l’Australie |
-| 11 |Sud-Est de l’Australie* |
-| 12 |Asie de l’Est* |
-| 13. |Centre-Sud des États-Unis* |
-
-*Premium Storage a été lancé récemment dans ces zones géographiques.
 
 Cet article décrit le processus de déploiement pas à pas d'un appareil virtuel StorSimple dans Azure. À la fin de cet article, vous serez capable :
 
@@ -89,7 +69,7 @@ Les sections suivantes décrivent les conditions préalables à la configuration
 #### <a name="azure-requirements"></a>Conditions requises pour Azure
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
-* Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d’informations sur les [régions actuellement prises en charge pour 8020](#supported-regions-for-8020).
+* Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Les régions de stockage Premium sont des régions qui correspondent à la ligne *Stockage sur disque* dans la liste des [services Azure par région](https://azure.microsoft.com/en-us/regions/services).
 * Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide ou si le serveur DNS n'est pas en mesure de résoudre correctement les adresses IP, la création de l'appareil virtuel échoue.
 * Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
 * Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes :                             
@@ -256,9 +236,4 @@ La création d’un appareil virtuel échoue si vous ne disposez d’aucune conn
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer un appareil virtuel](storsimple-manager-service-administration.md).
 * Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

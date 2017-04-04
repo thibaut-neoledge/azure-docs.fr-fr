@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/05/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
 ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -127,9 +128,4 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 ## <a name="see-also"></a>Voir aussi
 * [Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

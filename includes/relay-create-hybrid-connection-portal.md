@@ -14,7 +14,3 @@ Vérifiez que vous avez déjà créé un espace de noms de relais, comme illustr
 6. Au bas du panneau, cliquez sur **Créer**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-
