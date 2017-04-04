@@ -14,7 +14,7 @@ Le service d’objets blob contient les composants suivants :
 
 ![Architecture d’objets blob](./media/storage-blob-concepts-include/blob1.png)
 
-* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **compte de stockage à usage général** ou un **compte de stockage d’objets blob** spécialisé pour le stockage des objets/blobs. Pour plus d’informations sur les comptes de stockage, consultez la page [À propos des comptes de stockage Azure](../articles/storage/storage-create-storage-account.md).
+* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **compte de stockage à usage général** ou un **compte de stockage d’objets blob** spécialisé pour le stockage des objets/blobs. Pour plus d’informations, voir [À propos des comptes de stockage Azure](../articles/storage/storage-create-storage-account.md).
 * **Conteneur :** un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob. Notez que le nom du conteneur doit être en minuscules.
 * **Objet blob :** fichier de tout type et de toute taille. Azure Storage propose trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages.
   
@@ -22,10 +22,5 @@ Le service d’objets blob contient les composants suivants :
   
     La taille maximale des *objets blob de pages* peut atteindre 1 To. Ces objets sont plus efficaces pour les opérations fréquentes de lecture/écriture. Azure Virtual Machines utilise des objets blob de pages comme disques de données et disques du système d’exploitation.
   
-    Pour plus de détails sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://msdn.microsoft.com/library/azure/dd135715.aspx).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    Pour plus de détails sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

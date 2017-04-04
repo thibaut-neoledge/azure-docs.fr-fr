@@ -26,7 +26,7 @@ Dans ce tableau, vous pourrez trouver plus d’informations sur les paramètres 
 Outre ces modèles, vous pouvez parcourir les [modèles de la galerie](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="azure-portal"></a>Portail Azure
-Le déploiement d’un modèle à l’aide du portail Azure est facile à réaliser grâce au simple envoi d’une URL. Vous avez besoin du nom du fichier de modèle pour le déployer. Vous trouverez le nom en examinant les pages de la galerie de modèles ou en explorant le référentiel Github. Remplacez {nom du modèle} dans cette URL par le nom du modèle que vous souhaitez déployer, puis entrez-le à nouveau dans votre navigateur :
+Le déploiement d’un modèle à l’aide du portail Azure est facile à réaliser grâce au simple envoi d’une URL. Vous avez besoin du nom du fichier de modèle pour le déployer. Vous trouverez le nom en examinant les pages de la galerie de modèles ou en explorant le référentiel GitHub. Remplacez {nom du modèle} dans cette URL par le nom du modèle que vous souhaitez déployer, puis entrez-le à nouveau dans votre navigateur :
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 

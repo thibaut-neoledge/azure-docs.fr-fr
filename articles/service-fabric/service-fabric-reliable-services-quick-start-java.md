@@ -2,7 +2,7 @@
 title: "Créer votre premier microservice Azure fiable en Java | Microsoft Docs"
 description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
-documentationcenter: .net
+documentationcenter: java
 author: vturecek
 manager: timlt
 editor: 
@@ -17,6 +17,7 @@ ms.author: vturecek
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -168,9 +169,4 @@ Cela génère un package d’application Service Fabric qui peut être déployé
 ```bash
 $ ./install.sh
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

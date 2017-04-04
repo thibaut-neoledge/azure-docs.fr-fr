@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/25/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: ce1e0cfe7c7f52d521ef3318376af75331323083
-ms.openlocfilehash: 178a57624345a4b3e5d73e64ce4ccf81b8b90a88
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 221f1b9f0985bbaf0553f6ca01f0f048b9976315
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,40 +28,64 @@ Pour activer ce scénario, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure
 * un compte Twitter ;
-* Une boîte aux lettres Outlook.com ou Office 365 hébergée
+* Un compte Outlook.com ou Office 365 Outlook
 
 ## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Créer une application logique pour vous envoyer des tweets par courrier électronique
-1. Dans le [tableau de bord du Portail Azure](https://portal.azure.com), sélectionnez **Nouveau**. 
-2. Dans la barre de recherche, recherchez « application logique », puis sélectionnez **Application logique**. Vous pouvez également sélectionner **Nouveau**, **Web + mobile**, puis **Application logique**. 
-3. Entrez un nom pour votre application logique, sélectionnez un emplacement et un groupe de ressources, puis sélectionnez **Créer**.  Si vous sélectionnez **Épingler au tableau de bord** , l’application logique s’ouvre automatiquement une fois déployée.  
-4. Après avoir ouvert votre application logique pour la première fois, vous pouvez sélectionner un modèle à partir duquel démarrer.  Pour l’instant, cliquez sur **Blank Logic App** (Application logique vide) pour créer une application de toutes pièces. 
-5. Le premier élément que vous devez créer est le déclencheur.  Il s’agit de l’événement qui démarrera votre application logique.  Recherchez **twitter** dans la zone de recherche de déclencheur, puis sélectionnez cette application.
-6. Ensuite, tapez un terme de recherche qui servira de déclencheur.  Les champs **Fréquence** et **Intervalle** déterminent la fréquence à laquelle votre application logique recherchera de nouveaux tweets (et renverra tous les tweets pendant cet intervalle de temps).
-    ![Recherche Twitter](media/logic-apps-create-a-logic-app/twittersearch.png)
-7. Sélectionnez le bouton **Nouvelle étape**, puis choisissez **Ajouter une action** ou **Ajouter une condition**
-8. Lorsque vous sélectionnez **Ajouter une action**, vous pouvez effectuer une recherche parmi les [connecteurs disponibles](../connectors/apis-list.md) pour choisir une action. Par exemple, vous pouvez sélectionner **Outlook.com - Envoyer un message électronique** pour envoyer du courrier à partir d’une adresse outlook.com :  
-    ![Actions](media/logic-apps-create-a-logic-app/actions.png)
-9. À présent, vous devez renseigner les paramètres du message électronique :  ![Paramètres](media/logic-apps-create-a-logic-app/parameters.png)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+
+2. Dans le menu de gauche, choisissez **Nouveau** > **Intégration d’entreprise** > **Application logique**.
+
+    Vous pouvez également sélectionner **Nouveau**, puis dans la zone de recherche, tapez `logic app`, puis appuyez sur Entrée. Choisissez **Application logique** > **Créer**.
+
+3. Entrez un nom pour votre application logique, sélectionnez votre abonnement Azure, créez ou sélectionnez un groupe de ressources Azure, sélectionnez un emplacement, puis choisissez **Créer**.
+
+    Si vous sélectionnez **Épingler au tableau de bord**, l’application logique s’ouvre automatiquement après le déploiement.
+
+4. Quand vous ouvrez votre application logique pour la première fois, vous pouvez sélectionner un modèle à partir duquel démarrer.
+Pour l’instant, cliquez sur **Blank Logic App** (Application logique vide) pour créer une application de toutes pièces. 
+
+5. Le premier élément que vous devez créer est le déclencheur. Il s’agit de l’événement qui démarre votre application logique. Dans la zone de recherche, recherchez **twitter**, puis sélectionnez **Lors de la publication d’un nouveau tweet**. Connectez-vous avec le nom d’utilisateur et le mot de passe de votre compte Twitter.
+
+6. Ensuite, tapez un terme de recherche pour déclencher votre application logique.
+
+   ![Recherche Twitter](media/logic-apps-create-a-logic-app/twittersearch.png)
+
+    Les champs **Fréquence** et **Intervalle** déterminent la fréquence à laquelle votre application logique recherche de nouveaux tweets et renvoie tous les tweets pendant cet intervalle de temps.
+
+7. Sélectionnez **Nouvelle étape**, puis choisissez **Ajouter une action** ou **Ajouter une condition**.
+
+    Lorsque vous sélectionnez **Ajouter une action**, vous pouvez rechercher les [connecteurs disponibles](../connectors/apis-list.md) pour choisir une action. 
+
+8. Dans la zone de recherche, recherchez **outlook**, puis sélectionnez **Envoyer un message électronique** pour envoyer un e-mail à partir de votre compte Outlook vers une adresse e-mail spécifiée.
+
+   ![Actions](media/logic-apps-create-a-logic-app/actions.png)
+
+9. À présent, vous devez renseigner les paramètres du message électronique : 
+
+   ![Paramètres](media/logic-apps-create-a-logic-app/parameters.png)
+
 10. Pour finir, vous pouvez sélectionner **Enregistrer** pour générer votre application logique.
 
 ## <a name="manage-your-logic-app-after-creation"></a>Gérer votre application logique après la création
+
 Votre application logique est maintenant opérationnelle. Elle recherchera à intervalles réguliers des tweets contenant le terme de recherche que vous avez entré. Si elle trouve un tweet correspondant, elle vous enverra un e-mail. Pour finir, vous allez découvrir comment désactiver l'application ou analyser ses performances.
 
-1. Accédez au [Portail Azure](https://portal.azure.com)
-2. Cliquez sur **Parcourir** sur le côté gauche de l’écran, et sélectionnez **Applications logiques**.
-3. Cliquez sur la nouvelle application logique que vous venez de créer pour afficher l'état actuel et des informations générales.
-4. Pour modifier votre nouvelle application logique, cliquez sur **Modifier**.
-5. Pour désactiver l’application, cliquez sur **Désactiver** dans la barre de commandes.
-6. Visualisez les historiques d’exécution et de déclencheur pour surveiller les moments où votre application logique est en cours d’exécution.  Vous pouvez cliquer sur **Actualiser** pour visualiser les données les plus récentes.
+1. Accédez au [portail Azure](https://portal.azure.com).
+
+2. Dans le menu de gauche, cliquez sur **Plus de services**. Sous **Intégration d’entreprise**, choisissez **Applications logiques**. Sélectionnez votre application logique.
+
+    *    Pour afficher l’état de votre application, l’historique d’exécution et des informations générales, choisissez **Vue d’ensemble** dans le menu de l’application logique. Si vous ne trouvez pas les données que vous attendiez, choisissez **Actualiser** dans la barre de commandes.
+
+    *    Pour modifier votre application, dans le menu de l’application logique, choisissez **Concepteur d’application logique**.
+
+    *    Pour désactiver votre application de façon temporaire, choisissez **Vue d’ensemble** dans le menu de l’application logique. Choisissez **Désactiver** dans la barre de commandes.
+
+    *    Pour supprimer votre application, choisissez **Vue d’ensemble** dans le menu de l’application logique. 
+    Choisissez **Supprimer** dans la barre de commandes. Entrez le nom de votre application logique et choisissez **Supprimer**.
 
 En moins de cinq minutes, vous avez réussi à configurer une application logique simple exécutée dans le cloud. Pour en savoir plus sur l’utilisation des fonctionnalités des applications logiques, consultez [Utiliser les fonctionnalités des applications logiques]. Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](../logic-apps/logic-apps-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
 [Utiliser les fonctionnalités des applications logiques]: logic-apps-create-a-logic-app.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

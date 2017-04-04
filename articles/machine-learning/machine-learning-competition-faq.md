@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/31/2017
 ms.author: haining;garye
 translationtype: Human Translation
 ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
 ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -113,10 +114,5 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 **Conservons-nous les solutions/contributions de concours des utilisateurs ?**
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configuration de connexions ExpressRoute et VPN de site à site pouvant coexister | Microsoft Azure"
+title: "Configuration de connexions ExpressRoute et VPN de site à site pouvant coexister : classique : Azure | Microsoft Docs"
 description: "Cet article vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister pour le modèle de déploiement classique."
 documentationcenter: na
 services: expressroute
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7e866a218c003390e0281f1adce7c0d843d006c0
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Configurer la coexistence de connexions de site à site et ExpressRoute pour le modèle de déploiement classique
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurer la coexistence de connexions de site à site et ExpressRoute (classique)
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classique](expressroute-howto-coexist-classic.md)
@@ -29,6 +30,8 @@ ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
 > 
 
 La possibilité de configurer des connexions VPN de site à site et ExpressRoute présente plusieurs avantages. Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute, ou utiliser des VPN de site à site pour vous connecter à des sites qui ne sont pas connectés via ExpressRoute. Dans cet article, nous décrirons les étapes de configuration des deux scénarios. Cet article s’applique au modèle de déploiement classique. Cette configuration n'est pas disponible dans le portail.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **À propos des modèles de déploiement Azure**
 
@@ -76,7 +79,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
   
     Lors de cette procédure, si vous créez des connexions pouvant coexister, vous devez supprimer votre passerelle, puis configurer de nouvelles passerelles. En d’autres termes, vous subissez un temps d’arrêt pour les connexions entre différents locaux lorsque vous supprimez et recréez la passerelle et les connexions, mais vous ne devez pas migrer les ordinateurs virtuels ou les services vers un nouveau réseau virtuel. Les machines virtuelles et les services sont toujours en mesure de communiquer via l’équilibreur de charge lorsque vous configurez votre passerelle s’ils sont configurés pour ce faire.
 
-## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
+## <a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
 1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
@@ -182,7 +185,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Configurer des connexions qui coexistent pour un réseau virtuel existant
+## <a name="add"></a>Configurer des connexions qui coexistent pour un réseau virtuel existant
 Si vous disposez déjà d’un réseau virtuel, vérifiez la taille du sous-réseau de passerelle. Si le sous-réseau de passerelle est /28 ou /29, vous devez tout d’abord supprimer la passerelle de réseau virtuel et augmenter la taille du sous-réseau de passerelle. Les étapes décrites dans cette section vous indiquent la procédure à suivre.
 
 Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau virtuel est connecté via ExpressRoute, vous pouvez ignorer les étapes ci-dessous et passer à [« Étape 6 : créer une passerelle VPN de site à site »](#vpngw) dans la section précédente.
@@ -222,10 +225,5 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

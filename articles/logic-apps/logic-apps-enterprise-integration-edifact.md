@@ -55,7 +55,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
     ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
 
 3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
-Si aucun compte d’intégration ne s’affiche, [créez-en un].(../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
+Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
 
     ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
@@ -116,8 +116,8 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 | Propriété | Description |
 | --- | --- |
 | UNH2.1 (TYPE) |Sélectionnez un type de document informatisé. |
-| UNH2.2 (VERSION) |Entrez le numéro de version du message. (un caractère minimum ;&3; caractères maximum). |
-| UNH2.3 (VERSION FINALE) |Entrez le numéro de version finale du message. (un caractère minimum ;&3; caractères maximum). |
+| UNH2.2 (VERSION) |Entrez le numéro de version du message. (un caractère minimum ; 3 caractères maximum). |
+| UNH2.3 (VERSION FINALE) |Entrez le numéro de version finale du message. (un caractère minimum ; 3 caractères maximum). |
 | UNH2.5 (CODE AFFECTÉ ASSOCIÉ) |Entrez le code affecté. (6 caractères maximum. Doit contenir des valeurs alphanumériques). |
 | UNG2.1 (ID DE L’EXPÉDITEUR D’APPLICATION) |Entrez une valeur numérique comprenant entre un et 35 caractères. |
 | UNG2.2 (QUALIFICATEUR DE L’EXPÉDITEUR D’APPLICATION) |Entrez une valeur alphanumérique comprenant quatre caractères maximum. |

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Prise en main de la gestion de mot de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -33,7 +33,7 @@ Pour permettre à vos utilisateurs de gérer eux-mêmes leurs mots de passe Azur
 * [**Les meilleurs conseils de nos clients à lire avant de commencer**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**PRINCIPAL CONSEIL : NAVIGATION DANS LA DOCUMENTATION** - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Conseil 1 : GESTION DES LICENCES** -Assurez-vous que vous comprenez les accords de licence](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Conseil 3 : DÉPLOIEMENT** -Préremplissez les données de vos utilisateurs afin qu’ils n’aient pas à s’inscrire](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Conseil 4 : DÉPLOIEMENT** -Utilisez la réinitialisation de mot de passe pour éviter la transmission de mots de passe temporaires](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Conseil 5 : ÉCRITURE DIFFÉRÉE** - Consultez le journal des événements d’application sur votre ordinateur AAD Connect pour résoudre les problèmes d’écriture différée de mot de passe](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Voici certains conseils qui se sont avérés utiles pour les clients ayant dépl
 
 * [**PRINCIPAL CONSEIL : NAVIGATION DANS LA DOCUMENTATION** - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Conseil 1 : GESTION DES LICENCES** -Assurez-vous que vous comprenez les accords de licence](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Conseil 3 : DÉPLOIEMENT** -Préremplissez les données de vos utilisateurs afin qu’ils n’aient pas à s’inscrire](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Conseil 4 : DÉPLOIEMENT** -Utilisez la réinitialisation de mot de passe pour éviter la transmission de mots de passe temporaires](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Conseil 5 : ÉCRITURE DIFFÉRÉE** - Consultez le journal des événements d’application sur votre ordinateur AAD Connect pour résoudre les problèmes d’écriture différée de mot de passe](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ Consultez la table des matières ci-dessous :
 Pour que la réinitialisation de mot de passe Azure AD fonctionne, vous devez disposer d’au moins une licence affectée dans votre organisation. Nous n’appliquons pas la gestion des licences par utilisateur dans l’expérience de réinitialisation de mot de passe en elle-même, toutefois, si vous utilisez la fonctionnalité sans disposer d’une licence affectée à un utilisateur, cela sera considéré comme une violation de votre contrat de licence Microsoft et vous devrez affecter des licences à ces utilisateurs.
 
 Voici quelques documents qui peuvent vous aider à comprendre quelles licences sont requises pour la réinitialisation du mot de passe.
-* [Informations générales sur la gestion des licences de réinitialisation de mot de passe]()
-* [Informations sur la gestion des licences de réinitialisation de mot de passe par fonctionnalité]()
-* [Scénarios pris en charge par l’écriture différée de mot de passe]()
+* [Informations générales sur la gestion des licences de réinitialisation de mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Informations sur la gestion des licences de réinitialisation de mot de passe par fonctionnalité](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Scénarios pris en charge par l’écriture différée de mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Conseil 2 : TEST - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs
 Lors des tests avec un administrateur, nous appliquons la stratégie de réinitialisation de mot de passe administrateur définie ci-dessous.  Cela signifie que vous ne verrez PAS les résultats attendus de la stratégie que vous avez configurée pour vos utilisateurs finaux.
@@ -310,6 +310,7 @@ Cette section présente la configuration de la réinitialisation d’un mot de p
 Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, vous devez respecter la configuration requise suivante :
 
 * Vous avez un client Azure AD avec Azure AD Premium activé.  Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+* Vous devez connecter Azure AD Connect à l’émulateur de contrôleur de domaine principal pour que l’écriture différée de mot de passe fonctionne.  Si besoin, vous pouvez configurer Azure AD Connect pour utiliser un contrôleur de domaine principal en cliquant avec le bouton droit sur les **propriétés** du connecteur de synchronisation Active Directory, puis en sélectionnant **configurer des partitions d’annuaire**. À partir de là, recherchez la section **paramètres de connexion de contrôleur de domaine** et cochez la case intitulée **utiliser uniquement les contrôleurs de domaine préférés**.  Remarque : si le contrôleur de domaine préféré n’est pas un émulateur de contrôleur de domaine principal, Azure AD Connect cherchera toujours à atteindre le contrôleur de domaine principal pour l’écriture différée du mot de passe.
 * La réinitialisation du mot de passe a été configurée et activée dans votre client.  Pour plus d’informations, consultez la section [Activation de la réinitialisation du mot de passe pour les utilisateurs Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 * Vous avez au moins un compte d’administrateur et un compte d’utilisateur de test avec une licence Azure AD Premium que vous pouvez utiliser pour tester cette fonctionnalité.  Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
@@ -374,7 +375,7 @@ Lorsque vous avez téléchargé l’outil Azure AD Connect, vous pouvez activer 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Pour activer l’écriture différée de mot de passe en utilisant Windows PowerShell
 1. Sur votre **ordinateur de synchronisation d’annuaires**, ouvrez une nouvelle **fenêtre Windows PowerShell avec élévation de privilèges**.
 2. Si le module n’est pas déjà chargé, entrez la commande `import-module ADSync` pour charger les applets de commande Azure AD Connect dans votre session active.
-3. Obtenez la liste des connecteurs Azure AD dans votre système en exécutant l’applet de commande `Get-ADSyncConnector` et en stockant les résultats dans `$aadConnectorName`, par exemple `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
+3. Obtenez la liste des connecteurs Azure AD dans votre système en exécutant l’applet de commande `Get-ADSyncConnector` et en stockant les résultats dans `$aadConnectorName`, par exemple `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`.
 4. Obtenez l’état actuel de l’écriture différée pour le connecteur actuel en exécutant l’applet de commande suivante : `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Activez l’écriture différée de mot de passe en exécutant l’applet de commande : `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -398,7 +399,7 @@ Une fois que vous avez activé l’écriture différée du mot de passe, vous de
 
 #### <a name="why-do-i-need-to-do-this"></a>De quels éléments dois-je disposer pour effectuer cette opération ?
 
-Pour que l’écriture différée du mot de passe fonctionne correctement, la machine exécutant Azure AD Connect doit être en mesure d’établir des connexions HTTPS sortantes à **.servicebus.windows.net* et à une adresse IP spécifique utilisée par Azure, tel que défini dans la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Pour que l’écriture différée du mot de passe fonctionne bien, la machine exécutant Azure AD Connect doit pouvoir communiquer avec le service de réinitialisation de mot passe, tout comme Azure Service Bus.
 
 Pour la version **1.1.443.0** et les versions ultérieures de l’outil Azure AD Connect :
 
@@ -420,7 +421,7 @@ Pour les versions **1.0.8667.0** à **1.1.380.0** de l’outil Azure AD Connect
         - Pour que l’écriture différée du mot de passe continue de fonctionner dans cette configuration, vous devrez vous assurer que vos appliances réseau sont mises à jour chaque semaine avec les dernières adresses IP de la liste des plages d’adresses IP du centre de données Microsoft Azure. Ces plages d’adresses IP sont disponibles sous la forme d’un fichier XML qui est mis à jour tous les mercredis (heure du Pacifique) et mis en œuvre le lundi suivant (heure du Pacifique).
     - Étapes requises :
         - Autorisez toutes les connexions HTTPS sortantes à *.servicebus.windows.net
-        - Autorisez toutes les connexions HTTPS sortantes à toutes les adresses IP figurant dans la liste des plages d’adresses IP du centre de données Microsoft Azure et maintenez cette configuration à jour chaque semaine.
+        - Autorisez toutes les connexions HTTPS sortantes à toutes les adresses IP figurant dans la liste des plages d’adresses IP du centre de données Microsoft Azure et maintenez cette configuration à jour chaque semaine. La liste est disponible au téléchargement [ici](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Si vous avez configuré l’écriture différée du mot de passe en suivant les instructions ci-dessus et que le journal des événements Azure AD Connect ne signale aucune erreur, mais que vous obtenez des erreurs de connectivité lors des tests, il est possible qu’une appliance réseau de votre environnement bloque les connexions HTTPS à des adresses IP. Par exemple, alors qu’une connexion à *https://*.servicebus.windows.net* est autorisée, une connexion à une adresse IP spécifique de cette plage peut être bloquée. Pour résoudre ce problème, vous devez soit configurer votre environnement réseau de façon à autoriser toutes les connexions HTTPS sortantes sur le port 443 à n’importe quelle URL ou adresse IP (Option 1 ci-dessus), soit travailler avec votre équipe de mise en réseau pour autoriser explicitement les connexions HTTPS à des adresses IP spécifiques (Option 2 ci-dessus).
@@ -494,7 +495,7 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.

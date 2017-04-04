@@ -52,7 +52,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
     ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
 3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter le contrat.
-Si aucun compte d’intégration ne s’affiche, [créez-en un].(../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").
+Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").
 
     ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
@@ -171,7 +171,7 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 | Propriété | Description |
 | --- | --- |
-| Convertir le format décimal implicite « Nn » en valeur numérique de base 10 |Convertit un numéro EDI spécifié au format « Nn » en une valeur numérique de base&10; |
+| Convertir le format décimal implicite « Nn » en valeur numérique de base 10 |Convertit un numéro EDI spécifié au format « Nn » en une valeur numérique de base 10 |
 | Créer des balises XML vides si les séparateurs de fin sont autorisés |Cochez cette case afin d’inclure des balises XML vides pour les séparateurs de l’expéditeur. |
 | Scinder l’échange en documents informatisés : suspendre les documents informatisés en cas d’erreur|Analyse chaque document informatisé d’un échange dans un document XML distinct en appliquant l’enveloppe appropriée au document informatisé. Suspend uniquement les transactions dont la validation échoue. |
 | Scinder l’échange en documents informatisés : suspendre l’échange en cas d’erreur|Analyse chaque document informatisé d’un échange dans un document XML distinct en appliquant l’enveloppe appropriée. Suspend l’intégralité de l’échange lorsque la validation d’un ou plusieurs documents informatisés de l’échange échoue. | 

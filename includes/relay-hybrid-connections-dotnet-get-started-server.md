@@ -15,10 +15,10 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Ajoutez des constantes à la classe `Program` pour les détails de la connexion hybride. Remplacez les espaces réservés entre crochets avec les valeurs appropriées obtenues lors de la création de la connexion hybride.
+2. Ajoutez des constantes à la classe `Program` pour les détails de la connexion hybride. Remplacez les espaces réservés entre crochets avec les valeurs appropriées obtenues lors de la création de la connexion hybride. Veillez à utiliser le nom de l’espace de noms qualifié complet :
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
@@ -138,7 +138,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";
@@ -239,9 +239,4 @@
         }
     }
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

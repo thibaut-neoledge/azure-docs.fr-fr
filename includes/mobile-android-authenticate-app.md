@@ -12,24 +12,32 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
 
+        // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
+        public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
+ 
         private void authenticate() {
             // Login using the Google provider.
-
-            ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-
-            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-                @Override
-                public void onFailure(Throwable exc) {
-                    createAndShowDialog((Exception) exc, "Error");
-                }           
-                @Override
-                public void onSuccess(MobileServiceUser user) {
-                    createAndShowDialog(String.format(
-                            "You are now logged in - %1$2s",
-                            user.getUserId()), "Success");
-                    createTable();    
+            mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
+        }
+         
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            // When request completes
+            if (resultCode == RESULT_OK) {
+                // Check the request code matches the one we send in the login request
+                if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
+                    MobileServiceActivityResult result = mClient.onActivityResult(data);
+                    if (result.isLoggedIn()) {
+                        // login succeeded
+                        createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
+                        createTable();
+                    } else {
+                        // login failed, check the error message
+                        String errorMessage = result.getErrorMessage();
+                        createAndShowDialog(errorMessage, "Error");
+                    }
                 }
-            });       
+            }
         }
 
     Cela crée une méthode pour gérer le processus d'authentification. L’utilisateur est authentifié à l’aide d’infos d’identification Google. Une boîte de dialogue affiche l’identificateur de l’utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
@@ -59,11 +67,38 @@
             // Load the items from Azure.
             refreshItemsFromTable();
         }
-5. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** pour démarrer l’application, puis connectez-vous avec le fournisseur d’identité choisi.
+
+5. Ajoutez l’extrait de code suivant de _RedirectUrlActivity_ à _AndroidManifest.xml_ pour garantir la redirection.
+ 
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="{url_scheme_of_your_app}"
+                    android:host="easyauth.callback"/>
+            </intent-filter>
+        </activity>
+
+6.  Ajoutez redirectUriScheme au _build.gradle_ de votre application Android.
+ 
+        android {
+            buildTypes {
+                release {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
+                debug {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
+            }
+        }
+
+7. Ajoutez com.android.support:customtabs:23.0.1 aux dépendances de votre build.gradle :
+
+      dependencies {        // ...        compile ’com.android.support:customtabs:23.0.1’    }
+
+8. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** pour démarrer l’application, puis connectez-vous avec le fournisseur d’identité choisi.
 
 Une fois que vous êtes connecté, l’application doit s’exécuter sans erreur et vous devez être en mesure d’interroger le service principal et de mettre à jour les données.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
