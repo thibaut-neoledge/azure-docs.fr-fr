@@ -1,19 +1,19 @@
-Cet article présente un ensemble de pratiques éprouvées pour l’exécution d’une machine virtuelle Windows sur Azure, surtout en matière d’évolutivité, de résilience, de gestion et de sécurité. 
+Cet article présente un ensemble de pratiques éprouvées pour l’exécution d’une machine virtuelle Windows sur Azure, surtout en matière d’évolutivité, de résilience, de gestion et de sécurité.
 
 > [!NOTE]
 > Azure propose deux modèles de déploiement : [Azure Resource Manager][resource-manager-overview] et Azure Classic. Cet article utilise Resource Manager, solution recommandée par Microsoft pour les nouveaux déploiements.
-> 
-> 
+>
+>
 
-Il est déconseillé d’utiliser une seule et même machine virtuelle pour les charges de travail stratégiques, car ce faisant, un seul point de défaillance est créé. Pour bénéficier d’une disponibilité plus élevée, vous devez déployer plusieurs machines virtuelles dans un [groupe à haute disponibilité][availability-set]. Pour plus d’informations, voir [Running multiple VMs on Azure (Exécution de plusieurs machines virtuelles sur Azure)][multi-vm]. 
+Il est déconseillé d’utiliser une seule et même machine virtuelle pour les charges de travail stratégiques, car ce faisant, un seul point de défaillance est créé. Pour bénéficier d’une disponibilité plus élevée, vous devez déployer plusieurs machines virtuelles dans un [groupe à haute disponibilité][availability-set]. Pour plus d’informations, voir [Running multiple VMs on Azure (Exécution de plusieurs machines virtuelles sur Azure)][multi-vm].
 
 ## <a name="architecture-diagram"></a>Diagramme de l’architecture
 
 L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer davantage d’éléments que la machine virtuelle. Il faut inclure les éléments de calcul, de mise en réseau et de stockage.
 
 > Un document Visio incluant ce diagramme d’architecture est téléchargeable dans le [Centre de téléchargement Microsoft][visio-download]. Ce diagramme figure sur la page « Compute - single VM » (Calcul - Machine virtuelle unique).
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -30,11 +30,11 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 ## <a name="recommendations"></a>Recommandations
 
-Les recommandations suivantes s’appliquent à la plupart des scénarios. Suivez ces recommandations, sauf si vous avez un besoin spécifique qui vous oblige à les ignorer. 
+Les recommandations suivantes s’appliquent à la plupart des scénarios. Suivez ces recommandations, sauf si vous avez un besoin spécifique qui vous oblige à les ignorer.
 
 ### <a name="vm-recommendations"></a>Recommandations pour les machines virtuelles
 
-Bien qu’Azure propose de nombreuses tailles de machines virtuelles, nous recommandons les séries DS et GS, car ces tailles de machines prennent en charge l’offre [Stockage Premium][premium-storage]. Choisissez l’une de ces tailles de machine virtuelle, sauf si vous disposez d’une charge de travail spécialisée tel qu’un système de calcul hautes performances. Pour en savoir plus, consultez les [tailles des machines virtuelles][virtual-machine-sizes]. 
+Bien qu’Azure propose de nombreuses tailles de machines virtuelles, nous recommandons les séries DS et GS, car ces tailles de machines prennent en charge l’offre [Stockage Premium][premium-storage]. Choisissez l’une de ces tailles de machine virtuelle, sauf si vous disposez d’une charge de travail spécialisée tel qu’un système de calcul hautes performances. Pour en savoir plus, consultez les [tailles des machines virtuelles][virtual-machine-sizes].
 
 Si vous déplacez une charge de travail vers Azure, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille si nécessaire. Si vous avez besoin de plusieurs cartes réseau (NIC) pour votre machine virtuelle, notez que le nombre maximal de cartes NIC est une fonction de la [taille de machine virtuelle][vm-size-tables].   
 
@@ -48,9 +48,9 @@ Pour plus d’informations sur le choix d’une image de machine virtuelle publi
 
 ### <a name="disk-and-storage-recommendations"></a>Recommandations pour le disque et le stockage
 
-Pour optimiser les performances d’E/S du disque, nous vous recommandons [Stockage Premium][premium-storage], qui stocke les données sur des disques SSD. Le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit. 
+Pour optimiser les performances d’E/S du disque, nous vous recommandons [Stockage Premium][premium-storage], qui stocke les données sur des disques SSD. Le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
-Créez des comptes de stockage Azure distincts pour chaque machine virtuelle pour stocker les disques durs virtuels (VHD), afin d’éviter d’atteindre les limites d’E/S par seconde des comptes de stockage. 
+Créez des comptes de stockage Azure distincts pour chaque machine virtuelle pour stocker les disques durs virtuels (VHD), afin d’éviter d’atteindre les limites d’E/S par seconde des comptes de stockage.
 
 Ajoutez un ou plusieurs disques de données. Lorsque vous créez un disque dur virtuel, il n’est pas formaté. Connectez-vous à la machine virtuelle pour formater le disque. Si vous avez un grand nombre de disques de données, n’oubliez pas les limites d’E/S du compte de stockage. Pour en savoir plus, voir les [limites du nombre de disques de machine virtuelle][vm-disk-limits].
 
@@ -71,15 +71,15 @@ Pour activer le protocole RDP, ajoutez une règle de groupe de sécurité résea
 
 ## <a name="scalability-considerations"></a>Considérations relatives à l’extensibilité
 
-Vous pouvez réduire ou augmenter la puissance d’une machine virtuelle en en [modifiant la taille][vm-resize]. Pour évoluer horizontalement, placez deux ou plusieurs machines virtuelles dans un groupe à haute disponibilité derrière un équilibreur de charge. Pour plus d’informations, voir [Exécution de plusieurs machines virtuelles sur Azure pour l’évolutivité et la disponibilité][multi-vm].
+Vous pouvez réduire ou augmenter la puissance d’une machine virtuelle en [modifiant sa taille](../articles/virtual-machines/virtual-machines-windows-sizes.md). Pour évoluer horizontalement, placez deux ou plusieurs machines virtuelles dans un groupe à haute disponibilité derrière un équilibreur de charge. Pour plus d’informations, voir [Exécution de plusieurs machines virtuelles sur Azure pour l’évolutivité et la disponibilité][multi-vm].
 
 ## <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
-Pour bénéficier d’une disponibilité plus élevée, vous devez déployer plusieurs machines virtuelles dans un groupe à haute disponibilité. Cela fournit également un [contrat de niveau de service][vm-sla] (SLA) supérieur. 
+Pour bénéficier d’une disponibilité plus élevée, vous devez déployer plusieurs machines virtuelles dans un groupe à haute disponibilité. Cela fournit également un [contrat de niveau de service][vm-sla] (SLA) supérieur.
 
 Votre machine virtuelle peut être affectée par la [maintenance planifiée][planned-maintenance] ou la [maintenance non planifiée][manage-vm-availability]. Vous pouvez utiliser les [journaux de redémarrage de machine virtuelle][reboot-logs] pour déterminer si un redémarrage de la machine virtuelle a été provoqué par une maintenance planifiée.
 
-Les disques durs virtuels sont stockés dans [Stockage Azure][azure-storage], lequel est répliqué à des fins de durabilité et de disponibilité. 
+Les disques durs virtuels sont stockés dans [Stockage Azure][azure-storage], lequel est répliqué à des fins de durabilité et de disponibilité.
 
 Pour vous protéger contre la perte accidentelle de données pendant les opérations normales (par exemple, en cas d’erreur d’un utilisateur), vous devez également implémenter des sauvegardes ponctuelles, à l’aide de [captures instantanées d’objets blob][blob-snapshot] ou d’un autre outil.
 
@@ -107,7 +107,7 @@ Le bouton **Arrêter** du portail Azure désalloue la machine virtuelle. Toutefo
 
 **Suppression d’une machine virtuelle.** La suppression d’une machine virtuelle n’entraîne pas celle des disques durs virtuels. Vous pouvez donc supprimer la machine virtuelle, sans risque de perdre des données. Toutefois, vous serez toujours facturé pour le stockage. Pour supprimer le disque dur virtuel, supprimez le fichier de [Stockage Blob][blob-storage].
 
-Pour éviter toute suppression accidentelle, utilisez un [verrou de ressource][resource-lock] pour verrouiller tout le groupe de ressources ou des ressources individuelles, par exemple la machine virtuelle. 
+Pour éviter toute suppression accidentelle, utilisez un [verrou de ressource][resource-lock] pour verrouiller tout le groupe de ressources ou des ressources individuelles, par exemple la machine virtuelle.
 
 ## <a name="security-considerations"></a>Sécurité
 
@@ -121,8 +121,8 @@ Pour éviter toute suppression accidentelle, utilisez un [verrou de ressource][r
 
 > [!NOTE]
 > Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.   
-> 
-> 
+>
+>
 
 Pour réinitialiser le mot de passe de l’administrateur local, exécutez la commande Azure CLI `vm reset-access` .
 
@@ -132,16 +132,16 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 
 Utilisez les [journaux d’audit][audit-logs] pour voir les actions d’approvisionnement et d’autres événements concernant la machine virtuelle.
 
-**Chiffrement des données.** Utilisez [Azure Disk Encryption][disk-encryption] si vous devez chiffrer les disques du système d’exploitation et de données. 
+**Chiffrement des données.** Utilisez [Azure Disk Encryption][disk-encryption] si vous devez chiffrer les disques du système d’exploitation et de données.
 
 ## <a name="solution-deployment"></a>Déploiement de la solution
 
-Un déploiement pour cette architecture de référence est disponible sur [GitHub][github-folder]. Il comprend un réseau virtuel, un groupe de sécurité réseau et une seule machine virtuelle. Pour déployer l’architecture, procédez comme suit : 
+Un déploiement pour cette architecture de référence est disponible sur [GitHub][github-folder]. Il comprend un réseau virtuel, un groupe de sécurité réseau et une seule machine virtuelle. Pour déployer l’architecture, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur le bouton ci-dessous, puis sélectionnez « Ouvrir le lien dans un nouvel onglet » ou « Ouvrir le lien dans une nouvelle fenêtre ».  
    [![Déploiement sur Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
-2. Une fois le lien ouvert dans le portail Azure, vous devez entrer des valeurs pour certains paramètres : 
-   
+2. Une fois le lien ouvert dans le portail Azure, vous devez entrer des valeurs pour certains paramètres :
+
    * Le nom du **groupe de ressources** est déjà défini dans le fichier de paramètres ; sélectionnez **Créer nouveau** et entrez `ra-single-vm-rg` dans la zone de texte.
    * Sélectionnez la région à partir de la zone déroulante **Emplacement**.
    * Ne modifiez pas les zones de texte **Template Root Uri** (Uri racine de modèle) ou **Parameter Root Uri** (Uri racine de paramètre).
@@ -151,10 +151,10 @@ Un déploiement pour cette architecture de référence est disponible sur [GitHu
 3. Attendez la fin du déploiement.
 4. Les fichiers de paramètres incluent un nom d’utilisateur administrateur et un mot de passe codés en dur, et il est vivement recommandé de modifier immédiatement ces deux éléments. Cliquez sur la machine virtuelle nommée `ra-single-vm0 ` dans le Portail Azure. Cliquez ensuite sur **Réinitialiser le mot de passe** dans le panneau **Support + dépannage**. Sélectionnez **Réinitialiser le mot de passe** dans la zone déroulante **Mode**, puis sélectionnez de nouveaux **nom d’utilisateur** et **mot de passe**. Cliquez sur le bouton **Mettre à jour** pour conserver les nouveaux nom d’utilisateur et mot de passe.
 
-Pour plus d’informations sur les autres méthodes de déploiement de cette architecture de référence, consultez le fichier Lisez-moi dans le dossier GitHub [guidance-single-vm][github-folder]. 
+Pour plus d’informations sur les autres méthodes de déploiement de cette architecture de référence, consultez le fichier Lisez-moi dans le dossier GitHub [guidance-single-vm][github-folder]].
 
 ## <a name="customize-the-deployment"></a>Personnalisation du déploiement
-Si vous devez modifier le déploiement afin de répondre à vos besoins, suivez les instructions du fichier [Lisez-moi][github-folder]. 
+Si vous devez modifier le déploiement afin de répondre à vos besoins, suivez les instructions du fichier [Lisez-moi][github-folder].
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour augmenter la disponibilité, déployez au moins deux machines virtuelles derrière un équilibreur de charge. Pour plus d’informations, voir [Running multiple VMs on Azure (Exécution de plusieurs machines virtuelles sur Azure)][multi-vm].

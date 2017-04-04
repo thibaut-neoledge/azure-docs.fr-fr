@@ -231,7 +231,7 @@ Vous pouvez maintenant utiliser ce jeu de données dans des rapports et des tabl
 ## <a name="video"></a>Vidéo
 Noam Ben Zeev montre comment traiter des données exportées à l’aide de Stream Analytics.
 
-> [VIDÉO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
 > 
 

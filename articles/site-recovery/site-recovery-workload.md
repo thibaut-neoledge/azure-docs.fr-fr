@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -130,6 +130,19 @@ Utilisez Site Recovery pour protéger votre déploiement SAP comme suit :
 * Simplifiez le développement et le test SAP en créant une copie de type production à la demande pour le test et le débogage des applications.
 
 [En savoir plus](http://aka.ms/asr-sap) sur la protection de SAP.
+
+## <a name="protect-iis"></a>Protection IIS
+Utilisez Site Recovery pour protéger votre déploiement IIS comme suit :
+
+Azure Site Recovery assure la récupération d’urgence en répliquant les composants critiques de votre environnement vers un site distant à froid ou un cloud public comme Microsoft Azure. Étant donné que la machine virtuelle avec le serveur web et la base de données sont répliquées vers le site de récupération, il n’est pas obligatoire de sauvegarder séparément les fichiers de configuration ou les certificats. Les mappages et les liaisons d’application dépendant des variables d’environnement modifiées post-basculement peuvent être mis à jour via des scripts intégrés dans les plans de récupération d’urgence. Les machines virtuelles sont montées sur le site de récupération uniquement en cas de basculement. Azure Site Recovery vous aide également à orchestrer le basculement de bout en bout en mettant à disposition les fonctionnalités suivantes :
+
+-    Séquencement de l’arrêt et du démarrage des machines virtuelles dans les différents niveaux.
+-    Ajout de scripts pour autoriser la mise à jour des liaisons et des dépendances d’applications sur les machines virtuelles après le démarrage. Les scripts peuvent également être utilisés pour mettre à jour le serveur DNS pour pointer vers le site de récupération.
+-    Allouez des adresses IP aux machines virtuelles pré-basculement en mappant les réseaux principaux et de récupération et, par conséquent, utilisez des scripts qui ne nécessitent pas de mise à jour post-basculement.
+-    Possibilité de basculement en un clic pour plusieurs applications web sur les serveurs web, limitant ainsi la confusion en cas de sinistre.
+-    Possibilité de tester les plans de récupération dans un environnement isolé pour les exercices de récupération d’urgence.
+
+[En savoir plus](https://aka.ms/asr-iis) sur la protection de la batterie de serveurs web IIS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Vérifiez les composants requis](site-recovery-prereq.md) 

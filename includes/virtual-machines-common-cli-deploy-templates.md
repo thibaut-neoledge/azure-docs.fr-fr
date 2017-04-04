@@ -36,7 +36,7 @@ Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonn
 À présent, [connectez-vous à votre compte Azure de façon interactive](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure. 
 
 > [!NOTE]
-> Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à&2; facteurs n’est pas activée, vous pouvez **également** utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour vous connecter de la même façon.
+> Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à 2 facteurs n’est pas activée, vous pouvez **également** utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour vous connecter de la même façon.
 >
 >
 
@@ -677,9 +677,9 @@ Ici encore, vous devez rechercher les valeurs que vous souhaitez entrer pour les
 ### <a name="step-2-obtain-the-vhd"></a>Étape 2 : récupérer le disque dur virtuel
 Évidemment, vous aurez besoin d’un fichier .vhd pour cela. Vous pouvez utiliser un fichier dont vous disposez dans Azure ou en télécharger un.
 
-Dans le cas d’une machine virtuelle Windows, consultez l’article [Créer et charger un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Dans le cas d’une machine virtuelle Windows, consultez l’article [Créer et charger un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Pour une machine virtuelle Linux, consultez l’article [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pour une machine virtuelle Linux, consultez l’article [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Étape 3 : création de la machine virtuelle à l’aide du modèle
 Vous êtes maintenant prêt à créer une machine virtuelle basée sur le fichier .vhd. Créez un groupe pour le déploiement avec la commande `azure group create <location>` :

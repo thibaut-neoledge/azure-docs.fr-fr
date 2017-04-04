@@ -33,7 +33,7 @@ Liste de référence de configuration :
 3. Stockez l’objet de réseau virtuel en tant que variable.
    
         $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-4. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Vous devez créer une passerelle définie sur /27 ou plus (/26, /25, etc.).
+4. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Vous devez créer un sous-réseau de passerelle défini sur /27 ou plus (/26, /25, etc.).
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 5. Définissez la configuration.
@@ -72,8 +72,3 @@ Il existe un certain nombre de [Références (SKU) de passerelle](../articles/ex
 Utilisez la commande suivante pour supprimer une passerelle.
 
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
-
-
-<!--HONumber=Nov16_HO3-->
-
-

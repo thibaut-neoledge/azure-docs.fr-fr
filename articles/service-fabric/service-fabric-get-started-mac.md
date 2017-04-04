@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -38,17 +38,20 @@ Service Fabric n’est pas exécuté en mode natif sur OS X. Pour exécuter un c
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  Vous devez utiliser les versions mutuellement prises en charge de Vagrant et VirtualBox. Vagrant peut avoir un comportement erratique sur une version non prise en charge de VirtualBox.
+> Vous devez utiliser les versions mutuellement prises en charge de Vagrant et VirtualBox. Vagrant peut avoir un comportement erratique sur une version non prise en charge de VirtualBox.
 >
 
 ## <a name="create-the-local-vm"></a>Créer la machine virtuelle locale
 Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5 nœuds, procédez comme suit :
 
-1. Clonez le référentiel **Vagrantfile**.
+1. Clonez le référentiel `Vagrantfile`.
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    Cette procédure permet de désactiver le fichier `Vagrantfile` contenant la configuration de la machine virtuelle, ainsi que l’emplacement à partir duquel la machine virtuelle est téléchargée.
+
+   
 2. Accédez au clone local du référentiel.
 
     ```bash
@@ -61,7 +64,7 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
    * 3 Go de mémoire allouée
    * Réseau hôte privé configuré sur l’IP 192.168.50.50 activant le transfert du trafic à partir de l’hôte Mac
 
-     Vous pouvez modifier ces paramètres ou ajouter une autre configuration à la machine virtuelle dans Vagrantfile. Consultez la [documentation de Vagrant](http://www.vagrantup.com/docs) pour connaître la liste complète des options de configuration.
+     Vous pouvez modifier ces paramètres ou ajouter une autre configuration à la machine virtuelle dans `Vagrantfile`. Consultez la [documentation de Vagrant](http://www.vagrantup.com/docs) pour connaître la liste complète des options de configuration.
 4. Création de la machine virtuelle
 
     ```bash
@@ -72,19 +75,24 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
 
     ![La configuration du cluster démarre après l’approvisionnement de la machine virtuelle][cluster-setup-script]
 
+>[!TIP]
+> Si le téléchargement de la machine virtuelle prend un certain temps, vous pouvez la télécharger à l’aide de wget ou de curl ou via un navigateur en accédant au lien spécifié par **config.vm.box_url** dans le fichier `Vagrantfile`. Après l’avoir téléchargée localement, modifiez `Vagrantfile` pour pointer vers le chemin d’accès local où vous avez téléchargé l’image. Par exemple, si vous avez téléchargé l’image vers /home/users/test/azureservicefabric.tp8.box, définissez **config.vm.box_url** sur ce chemin.
+>
+
 5. Vérifiez que le cluster a été configuré correctement en accédant à Service Fabric Explorer à l’adresse http://192.168.50.50:19080/Explorer (en supposant que vous avez conservé l’adresse IP du réseau privé par défaut).
 
     ![Service Fabric Explorer affiché depuis le Mac hôte][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Installer le plug-in Service Fabric pour Eclipse Neon
 
-Service Fabric fournit un plug-in pour **l’IDE Eclipse Neon pour Java** qui peut simplifier le processus de création, de génération et de déploiement des services Java. Vous pouvez suivre les étapes d’installation mentionnées dans cette [documentation](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) générale relative à l’installation ou à la mise à jour du plug-in Eclipse de Service Fabric.
+Service Fabric fournit un plug-in pour **Eclipse Neon pour IDE Java** qui peut simplifier le processus de création, de génération et de déploiement des services Java. Vous pouvez suivre les étapes d’installation mentionnées dans cette [documentation](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) générale relative à l’installation ou à la mise à jour du plug-in Eclipse Service Fabric.
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Utilisation du plug-in Eclipse de Service Fabric sur Mac
 
-Assurez-vous d’avoir effectué les étapes présentées dans la [documentation du plug-in Eclipse de Service Fabric](service-fabric-get-started-eclipse.md). Les étapes de création, de génération et de déploiement d’une application Java de Service Fabric à l’aide du conteneur vagrant-invité sur un ordinateur hôte Mac, sont essentiellement identiques à celles décrites dans la documentation générale, mis à part quelques points que vous devez garder à l’esprit, comme indiqué ci-dessous :
+Assurez-vous d’avoir effectué les étapes présentées dans la [documentation du plug-in Eclipse de Service Fabric](service-fabric-get-started-eclipse.md). Les étapes de création, de génération et de déploiement d’une application Java Service Fabric à l’aide du conteneur vagrant invité sur un hôte Mac sont pratiquement identiques à celles décrites dans la documentation générale, mis à part pour les points suivants :
+
 * Étant donné que les bibliothèques Service Fabric sont indispensables pour la génération de votre application Java Service Fabric, le projet Eclipse doit être créé dans un chemin d’accès partagé. Par défaut, le contenu se trouvant dans le chemin d’accès sur votre ordinateur hôte qui contient ``Vagrantfile`` est partagé avec le chemin d’accès ``/vagrant`` sur l’invité.
-* Plus simplement, si vous avez ``Vagrantfile`` dans un chemin d’accès, par exemple, ``~/home/john/allprojects/``, vous devez créer votre projet Service Fabric ``MyActor`` à l’emplacement ``~/home/john/allprojects/MyActor`` et le chemin d’accès à votre espace de travail Eclipse serait ``~/home/john/allprojects``.
+* Si vous avez ``Vagrantfile`` dans un chemin d’accès, par exemple, ``~/home/john/allprojects/``, vous devez créer votre projet Service Fabric ``MyActor`` à l’emplacement ``~/home/john/allprojects/MyActor`` et le chemin d’accès à votre espace de travail Eclipse serait ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!-- Links -->
