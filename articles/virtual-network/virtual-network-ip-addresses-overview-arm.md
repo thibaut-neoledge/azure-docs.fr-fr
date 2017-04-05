@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
-ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -71,7 +72,7 @@ Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource I
 >
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-Vous pouvez associer une adresse IP publique à une machine virtuelle [Windows](../virtual-machines/virtual-machines-windows-about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md) en l’affectant à son **interface réseau**. Dans le cas d’une machine virtuelle à plusieurs interfaces réseau, vous pouvez l’affecter uniquement à l’interface réseau *principale* . Vous pouvez affecter une adresse IP publique dynamique ou statique à une machine virtuelle.
+Vous pouvez associer une adresse IP publique à une machine virtuelle [Windows](../virtual-machines/windows/about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md) en l’affectant à son **interface réseau**. Dans le cas d’une machine virtuelle à plusieurs interfaces réseau, vous pouvez l’affecter uniquement à l’interface réseau *principale* . Vous pouvez affecter une adresse IP publique dynamique ou statique à une machine virtuelle.
 
 ### <a name="internet-facing-load-balancers"></a>Équilibreurs de charge accessibles sur Internet
 Vous pouvez associer une adresse IP publique à un [Azure Load Balancer (équilibreur de charge Azure)](../load-balancer/load-balancer-overview.md)en l’affectant à la configuration **frontale** de l’équilibreur de charge. Cette adresse IP publique sert d’adresse IP virtuelle (VIP) à charge équilibrée. Vous pouvez affecter une adresse IP publique dynamique ou statique à un équilibreur de charge frontal. Vous pouvez également affecter plusieurs adresses IP publiques à un équilibreur de charge frontal, ce qui permet des scénarios avec [plusieurs adresses IP virtuelles](../load-balancer/load-balancer-multivip.md) tels qu’un environnement mutualisé avec des sites web SSL.
@@ -115,7 +116,7 @@ Les adresses IP privées statiques sont couramment utilisées pour :
 * des ressources auxquelles d’autres applications/ressources accèdent via une adresse IP.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-Une adresse IP privée est affectée à **l’interface réseau** d’une machine virtuelle [Windows](../virtual-machines/virtual-machines-windows-about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md). Dans le cas d’une machine virtuelle comportant plusieurs interfaces réseau, une adresse IP privée est affectée à chacune d’elles. Vous pouvez spécifier la méthode d’allocation dynamique ou statique pour une interface réseau.
+Une adresse IP privée est affectée à **l’interface réseau** d’une machine virtuelle [Windows](../virtual-machines/windows/about.md) ou [Linux](../virtual-machines/virtual-machines-linux-about.md). Dans le cas d’une machine virtuelle comportant plusieurs interfaces réseau, une adresse IP privée est affectée à chacune d’elles. Vous pouvez spécifier la méthode d’allocation dynamique ou statique pour une interface réseau.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Résolution de nom d’hôte DNS interne (pour les machines virtuelles)
 Toutes les machines virtuelles Azure sont configurées avec des [serveurs DNS gérés par Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) par défaut, sauf si vous configurez explicitement des serveurs DNS personnalisés. Ces serveurs DNS assurent la résolution de noms interne pour les machines virtuelles qui résident dans le même réseau virtuel.
@@ -146,9 +147,4 @@ Les adresses IP publiques peuvent avoir un coût nominal. Pour en savoir plus su
 * [Déployer une machine virtuelle avec une adresse IP publique statique à l’aide du portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Déployer une machine virtuelle avec une adresse IP publique statique à l’aide d’un modèle](virtual-network-deploy-static-pip-arm-template.md)
 * [Déployer une machine virtuelle avec une adresse IP privée statique à l’aide du portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

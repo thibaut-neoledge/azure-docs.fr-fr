@@ -17,7 +17,7 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 
 **Systèmes d’exploitation pris en charge**
 
-* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
 
 ## <a name="nc-instances"></a>Instances NC
 
@@ -34,8 +34,8 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 
 **Systèmes d’exploitation pris en charge**
 
-* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS - consultez [Configuration du pilote série N pour Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
+* Ubuntu 16.04 LTS - consultez [Configuration du pilote série N pour Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
 
 <br>
 

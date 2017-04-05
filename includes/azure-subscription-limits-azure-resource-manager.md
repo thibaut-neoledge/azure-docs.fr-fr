@@ -6,7 +6,7 @@
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |Illimité |Illimité |
 | [Comptes de stockage](../articles/storage/storage-create-storage-account.md) par abonnement |200 |200<sup>2</sup> |
 | [Groupes de ressources](../articles/azure-resource-manager/resource-group-overview.md) par abonnement |800 |800 |
-| [Groupes à haute disponibilité](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 000 par région |2 000 par région |
+| [Groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 000 par région |2 000 par région |
 | Lectures API Resource Manager |15 000 par heure |15 000 par heure |
 | Écritures API Resource Manager |1 200 par heure |1 200 par heure |
 | Taille de la demande d’API Resource Manager |4 194 304 octets |4 194 304 octets |
@@ -24,9 +24,4 @@
 > <!-- -->
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

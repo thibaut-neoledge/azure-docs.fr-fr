@@ -14,7 +14,7 @@ Deux types de configuration de machine virtuelle sont disponibles : multi-insta
 
 La configuration multi-instance fournit la redondance entre les machines physiques, la puissance et le réseau. Elle est recommandée pour garantir la disponibilité de votre application. Toutes les machines virtuelles du groupe à haute disponibilité doivent servir le même objectif à votre application.
 
-Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, voir [Gestion de la disponibilité des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gestion de la disponibilité des machines virtuelles Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, voir [Gestion de la disponibilité des machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gestion de la disponibilité des machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 En revanche, une configuration à instance unique est utilisée pour les machines virtuelles autonomes qui ne sont pas placées dans un groupe à haute disponibilité. Ces machines virtuelles ne répondent pas aux conditions du contrat de niveau de service (SLA) qui requiert le déploiement de deux machines virtuelles au minimum dans le même groupe à haute disponibilité.
 
@@ -28,7 +28,7 @@ Dans une mise à jour de configuration multi-instance, nous partons du principe 
 Chaque machine virtuelle d’un groupe à haute disponibilité se voit attribuer un domaine de mise à jour et un domaine d’erreur par la plateforme Azure sous-jacente. Chaque domaine de mise à jour est un groupe de machines virtuelles qui sera redémarré dans la même fenêtre de temps. Chaque domaine d’erreur est un groupe de machines virtuelles qui partagent une source d’alimentation et un commutateur réseau communs.
 
 
-Pour plus d’informations sur les domaines de mise à jour et les domaines d’erreur, consultez [Configurer plusieurs machines virtuelles dans un groupe à haute disponibilité pour la redondance](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Pour plus d’informations sur les domaines de mise à jour et les domaines d’erreur, consultez [Configurer plusieurs machines virtuelles dans un groupe à haute disponibilité pour la redondance](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Pour maintenir la disponibilité dans le cadre d’une mise à jour, Azure effectue la maintenance par domaine de mise à jour, en mettant à jour un domaine à la fois. La maintenance d’un domaine de mise à jour consiste à fermer chaque machine virtuelle du domaine, à appliquer la mise à jour aux machines hôtes, puis à redémarrer les machines virtuelles. Lorsque la maintenance du domaine est terminée, Azure répète le processus avec le domaine de mise à jour suivant, puis continue avec chaque domaine jusqu’à ce que tous soient mis à jour.
 
@@ -101,4 +101,4 @@ Consultez le tableau suivant pour les paires de régions actuelles :
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

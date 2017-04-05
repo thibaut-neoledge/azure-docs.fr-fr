@@ -39,7 +39,7 @@ Cette rubrique montre comment :
 Si votre machine virtuelle Azure est issue d’une image Ubuntu ou CoreOS, vous pouvez utiliser le fichier CustomData afin d’envoyer un fichier cloud-config à Cloud-init. Sinon, si votre fichier de données personnalisées est un script, Cloud-init peut l’exécuter.
 
 ### <a name="ubuntu-cloud-images"></a>Images cloud Ubuntu
-Dans la plupart des images Azure Linux, il vous faut modifier « /etc/waagent.conf » pour configurer le disque de ressources temporaire et le fichier d’échange. Pour plus d’information, consultez le [Guide d’utilisation de l’agent Linux Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+Dans la plupart des images Azure Linux, il vous faut modifier « /etc/waagent.conf » pour configurer le disque de ressources temporaire et le fichier d’échange. Pour plus d’information, consultez le [Guide d’utilisation de l’agent Linux Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 Néanmoins, nous devons utiliser Cloud-init sur les images cloud Ubuntu pour configurer le disque de ressources (en d’autres termes, le disque « éphémère ») et la partition d’échange. Consultez la page suivante du wiki Ubuntu pour en savoir plus : [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
@@ -51,9 +51,4 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 [Référence sur l’opération Ajouter un rôle de l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-xplat-cli)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
