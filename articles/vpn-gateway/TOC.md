@@ -23,6 +23,7 @@
 ## Configurer une connexion de réseau virtuel à réseau virtuel
 ### [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Portail Classic (classique)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
 ### [Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
 ## Supprimer une passerelle VPN
+### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Créer des certificats racine auto-signés pour les connexions P2S](vpn-gateway-certificates-point-to-site.md)

@@ -128,7 +128,6 @@
 
 ## Gérer des appareils
 ### [Inscrire des appareils](active-directory-device-registration-overview.md)
-#### [Gérer l’inscription automatique](active-directory-device-registration.md)
 #### [Paramétrage](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [FAQ](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Portail Azure](application-proxy-publish-azure-portal.md)
 ##### [Portail classique](active-directory-application-proxy-publish.md)
 
-#### [PingAccess pour Azure AD](application-proxy-ping-access.md)
 #### [Sécurité](application-proxy-security-considerations.md)
 #### [Réseaux](application-proxy-network-topology-considerations.md)
 #### [Bureau à distance](application-proxy-publish-remote-desktop.md)
@@ -173,8 +171,9 @@
 #### [Serveurs proxy](application-proxy-working-with-proxy-servers.md)
 #### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
 #### [Accéder aux applications](active-directory-appssoaccess-whatis.md)
-##### [portail Azure](application-proxy-sso-azure-portal.md)
-#### [Authentification unique](active-directory-application-proxy-sso-using-kcd.md)
+##### [Portail Azure](application-proxy-sso-azure-portal.md)
+#### [Authentification unique avec KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [Authentification unique avec en-têtes](application-proxy-ping-access.md)
 #### [Applications prenant en charge les revendications](active-directory-application-proxy-claims-aware-apps.md)
 #### [Applications de client natif](active-directory-application-proxy-native-client.md)
 #### [Page d’accueil personnalisée](application-proxy-office365-app-launcher.md)

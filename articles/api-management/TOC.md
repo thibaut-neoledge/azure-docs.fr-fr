@@ -44,6 +44,7 @@
 ### [Gérer les comptes d’utilisateurs](api-management-howto-create-or-invite-developers.md)
 ### [Gérer à l’aide d’Automation](automation-manage-api-management.md)
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
+### [Surveiller à l’aide d’Azure Monitor](api-management-howto-use-azure-monitor.md)
 # Référence
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

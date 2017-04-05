@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ Le tableau suivant montre les composants Azure Backup prenant en charge Linux.
 Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de cet emplacement intermédiaire est égale à la taille de l’instantané de point de récupération. Vérifiez que le compte de stockage dispose d’espace libre pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de cet emplacement intermédiaire est égale à la taille de l’instantané de point de récupération. Vérifiez que le compte de stockage dispose d’espace libre pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -106,7 +106,7 @@ Une fois les mises à jour évaluées pour tous les ordinateurs Windows dans vot
 
 Les mises à jour sont installées par des Runbooks dans Azure Automation.  Vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration.  Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus.  Ce Runbook principal lance un Runbook enfant sur chaque agent Windows qui effectue l’installation des mises à jour obligatoires.  
 
-Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure.  Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
+Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/linux/update-infrastructure-redhat.md) déployée dans Azure.  Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
 
 ### <a name="viewing-update-deployments"></a>Affichage des déploiements de mises à jour
 Cliquez sur la mosaïque **Déploiement de mises à jour** pour afficher la liste des déploiements de mises à jour existants.  Ces déploiements sont regroupés par état : **Planifié**, **Exécution en cours** et **Terminé**.<br><br> ![Page de planification des déploiements de mises à jour](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

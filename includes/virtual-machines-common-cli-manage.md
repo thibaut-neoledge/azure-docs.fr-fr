@@ -6,13 +6,13 @@ Si vous n’avez pas encore installé l’interface de ligne de commande Azure e
 Cet article traite des commandes de base que vous utiliserez avec l’interface de ligne de commande Azure pour gérer et interagir avec vos ressources ARM (principalement des machines virtuelles) dans votre abonnement Azure.  Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez les articles [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez les articles [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 | Tâche | Gestionnaire de ressources |
 | --- | --- | --- |
-| Créer la machine virtuelle de base |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenez l’élément `image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour découvrir des exemples.) |
+| Créer la machine virtuelle de base |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenez l’élément `image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour découvrir des exemples.) |
 | Créer une machine virtuelle Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Créer une machine virtuelle Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
 | Énumérer les machines virtuelles |`azure  vm list [options]` |

@@ -16,7 +16,7 @@ Le panneau Informations de base demande les informations d’administration de l
 
 2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui servent à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour se connecter à la machine virtuelle et la gérer. Dans l’exemple, le nom d’utilisateur est _azureuser_.
 
- Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../articles/virtual-machines/windows/faq.md).
 
 3. **L’Abonnement** est facultatif. Le paramètre le plus courant est « Paiement à l’utilisation ».
 

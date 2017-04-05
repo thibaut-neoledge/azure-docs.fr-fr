@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Persistance des disques 
-
-Le tableau suivant illustre les différents états des différents disques dans une machine virtuelle Azure et indique si les données sont persistantes ou non dans chaque état.
-
-| Disque | Démarrer | Arrêter/<br>Libérer | Suspendre | Re-<br>boot | Arrêter/<br>Éteindre | Supprimer | Échec | Redimensionner | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Disque de système d’exploitation | Oui | Oui  | Oui | Oui | Oui  | Non | Non  | Oui | 
-| RAM  | Oui | Oui | Oui | Oui | Non   | Non | Non | Non | 
-| Disque temporaire local | Oui | Non | Oui | Non | Non  | Non | Non | Non | 
-| Disque de données attaché | Oui | Oui | Oui | Oui | Oui  | Oui | Oui | Oui | 
 
 ## <a name="about-vhds"></a>À propos des VHD
 

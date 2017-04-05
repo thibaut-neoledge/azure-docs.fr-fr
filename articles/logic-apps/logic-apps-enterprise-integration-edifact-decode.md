@@ -41,7 +41,7 @@ Voici les éléments dont vous avez besoin :
 
 2. Le connecteur Decode EDIFACT Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
 
-3.    Dans la zone de recherche, entrez « EDIFACT » comme filtre. Sélectionnez **Decode EDIFACT Message**.
+3. Dans la zone de recherche, entrez « EDIFACT » comme filtre. Sélectionnez **Decode EDIFACT Message**.
    
     ![recherche EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -56,7 +56,7 @@ Voici les éléments dont vous avez besoin :
     | Nom de connexion * |Entrez un nom pour votre connexion. |
     | Compte d’intégration * |Entrez un nom pour votre compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
 
-4.    Pour terminer la création de votre connexion, sélectionnez l’option **Créer**. Les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant :
+4. Pour terminer la création de votre connexion, sélectionnez l’option **Créer**. Les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant :
 
     ![détails du compte d’intégration](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
