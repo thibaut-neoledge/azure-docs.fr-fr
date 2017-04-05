@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff24360696c54091ab93e7e1c8f28d95c226bc0a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,5 +60,5 @@ Lorsque vous avez besoin d’exporter une base de données à des fins d’archi
 
 * Pour une description du processus complet de migration d’une base de données SQL Server, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
 * Pour une vue d’ensemble de la copie d’une base de données dans Azure, consultez également [Copie d’une base de données SQL Azure](sql-database-copy.md).
-* Vous pouvez copier votre base de données SQL Azure à l’aide du [portail Azure](sql-database-copy-portal.md), de [PowerShell](sql-database-copy-powershell.md) ou de [Transact-SQL](sql-database-copy-transact-sql.md). 
+* Vous pouvez copier votre base de données SQL Azure à l’aide du [portail Azure](sql-database-copy-portal.md), de [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) ou de [Transact-SQL](sql-database-copy-transact-sql.md). 
 

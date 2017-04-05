@@ -12,65 +12,52 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf3274f69cae8ec463fd158178394c7ba662ae75
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
-## <a name="overview"></a>Vue d'ensemble
-En utilisant Azure Active Directory (Azure AD), vous pouvez prendre en charge l’authentification unique pour les applications web ASP.NET MVC ou l’authentification Active Directory dans les services API web. Avec l’authentification Azure AD, vos utilisateurs peuvent se servir de leurs comptes depuis Azure AD pour se connecter à vos applications web. Grâce à l’authentification Azure AD avec l’API web, la sécurité des données pendant l’exposition d’une API à partir d’une application web est renforcée. Avec Azure AD, vous n’avez pas besoin de gérer un système d’authentification distinct doté de ses propres dispositifs de gestion de comptes et d’utilisateurs.
+En utilisant Azure Active Directory (Azure AD), vous pouvez prendre en charge l’authentification unique (SSO) pour les applications web MVC ASP.NET ou l’authentification Active Directory dans les services API web. Avec l’authentification Azure Active Directory, vos utilisateurs peuvent se servir de leur compte sur Azure Active Directory pour se connecter à vos applications web. Grâce à l’authentification Azure Active Directory avec l’API Web, la sécurité des données pendant l’exposition d’une API à partir d’une application web est renforcée. Avec Azure AD, vous n’avez pas besoin de gérer un système d’authentification distinct doté de ses propres dispositifs de gestion de comptes et d’utilisateurs.
 
-## <a name="supported-project-types"></a>Types de projet pris en charge
-Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connecter à Azure AD dans les types de projets suivants.
+## <a name="prerequisites"></a>Composants requis
+- Compte Azure : si vous ne possédez pas de compte Azure, vous pouvez [vous inscrire à un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-* Projets ASP.NET MVC
-* Projets API web ASP.NET
+### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Se connecter à Azure Active Directory à l’aide de la boîte de dialogue Services connectés
+1. Dans Visual Studio, créez ou ouvrez un projet d’API Web ASP.NET ou un projet MVC ASP.NET.
 
-### <a name="connect-to-azure-ad-using-the-connected-services-dialog"></a>Se connecter à Azure AD à l’aide de la boîte de dialogue Services connectés
-1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](http://go.microsoft.com/fwlink/?LinkId=518146).
-2. Dans Visual Studio, ouvrez le menu contextuel du nœud **Références** de votre projet et choisissez **Ajouter des services connectés**.
-3. Sélectionnez **Authentification Azure AD**, puis choisissez **Configurer**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nœud **Services connectés**, puis sélectionnez **Ajouter des services connectés** dans le menu contextuel.
+
+1. Sur la page **Services connectés**, sélectionnez **Authentification avec Azure Active Directory**.
    
-    ![Choisir Authentification Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
-4. Dans la première page de **Configurer l’authentification Azure AD**, cochez **Configurer l’authentification unique avec Azure AD**.
+    ![Page des services connectés](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
+
+1. Sur la page **Introduction** de l’Assistant **Configurer l’authentification Azure AD**, sélectionnez **Suivant**.
    
-    Si votre projet est paramétré avec une autre configuration d’authentification, l’Assistant vous avertit que la poursuite de l’opération entraînera la désactivation de cette configuration.
+    ![Page d’introduction](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
+
+1. Sur la page **Authentification unique** de l’Assistant **Configurer l’authentification Azure AD**, sélectionnez un domaine dans la liste déroulante **Domaine**. La liste des domaines contient tous les domaines accessibles aux comptes répertoriés dans la boîte de dialogue Paramètres du compte. Vous pouvez également entrer un nom de domaine si vous ne trouvez pas celui que vous recherchez, par exemple `mydomain.onmicrosoft.com`. Vous pouvez opter pour la création d’une application Azure Active Directory ou utiliser les paramètres d’une application Azure Active Directory existante. Sélectionnez **Suivant** lorsque vous avez terminé.
    
-    ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
-5. Dans la deuxième page, sélectionnez un domaine dans la liste déroulante **Domaine** . La liste des domaines contient tous les domaines accessibles aux comptes répertoriés dans la boîte de dialogue Paramètres du compte. Vous pouvez également entrer un nom de domaine si vous ne trouvez pas celui que vous recherchez, par exemple mydomain.onmicrosoft.com. Vous pouvez opter pour la création d’une application Azure AD ou utiliser les paramètres d’une application Azure AD existante. 
+    ![Page de l’authentification unique](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+
+1. Sur la page **Accès à l’annuaire** de l’Assistant **Configurer l’authentification Azure AD**, vérifiez que l’option **Lire les données d’annuaire** est activée. 
    
-   ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
-6. Dans la troisième page de l’Assistant, assurez-vous que l’option **Accès en lecture aux données d’annuaire** est cochée. L’Assistant renseigne le champ **Clé secrète client**. 
-   
-    ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
-7. Choisissez le bouton **Terminer** . La boîte de dialogue ajoute le code de configuration et les références nécessaires pour activer votre projet pour l’authentification Azure AD. Vous pouvez voir le domaine Active Directory dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-8. Examinez la page Prise en main qui s'affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s'est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés sur la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
-   
-        <appSettings> 
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:AADInstance" value="https://login.windows.net/" />
-            <add key="ida:Domain" value="Your selected domain" />
-            <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-            <add key="ida:PostLogoutRedirectUri" value="The default redirect URI from the project" />
-        </appSettings>
+    ![Page d’accès à l’annuaire](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
+
+1. Sélectionnez **Terminer** afin d’ajouter le code de configuration et les références nécessaires pour activer votre projet à des fins d’authentification Azure AD. Vous pouvez voir le domaine Active Directory sur le [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Visual Studio affiche un article [Que s’est-il passé ?](#how-your-project-is-modified) pour vous montrer les modifications apportées à votre projet. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés dans l’article sont présents. 
 
 ## <a name="how-your-project-is-modified"></a>Modifications apportées à votre projet
-Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quand vous exécutez l’Assistant, Visual Studio ajoute Azure Active Directory et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Posez des questions et obtenez de l’aide.
-
-* [Forum MSDN : Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
-* [Documentation Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
-* [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Forum MSDN pour Azure Active Directory](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+* [Documentation Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
+* [Billet de blog : Introduction à Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
 

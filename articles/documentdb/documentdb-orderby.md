@@ -2,9 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -91,7 +91,7 @@ Voici comment vous pouvez créer une collection avec une indexation pour la clau
 
 
 ## <a name="samples"></a>Exemples
-Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) qui montre comment utiliser la clause Order By, y compris la création de stratégies d'indexation et de pagination à l'aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.  
+Examinez ce [projet d’exemples GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) qui montre comment utiliser la clause Order By, y compris la création de stratégies d’indexation et de pagination à l’aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.  
 
 ## <a name="faq"></a>FAQ
 **Quelle est la consommation d'unités de demande (RU) des requêtes Order By ?**
@@ -124,7 +124,7 @@ Order By n’est pas prise en charge actuellement pour les requêtes entre parti
 Si vous recevez une erreur signalant qu’Order By n’est pas prise en charge, vérifiez que vous utilisez une version du [SDK](documentdb-sdk-dotnet.md) qui prend en charge Order By. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) et classez vos données ! 
+Répliquez le [projet d’exemples GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) et classez vos données ! 
 
 ## <a name="references"></a>Références
 * [Référence de requête DocumentDB](documentdb-sql-query.md)

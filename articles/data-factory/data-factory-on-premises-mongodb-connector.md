@@ -15,57 +15,63 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
-ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 3540e9c151890468be028af7224a6d11045aec6b
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données depuis MongoDB à l’aide d’Azure Data Factory
-Cet article explique comment utiliser l’activité de copie dans une fabrique de données Azure pour déplacer des données entre une base de données MongoDB locale et un autre magasin de données. Cet article s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de banque de données sources/réceptrices prises en charge.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’une base de données MongoDB locale. Il s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement des données avec l’activité de copie.
 
-Le service Data Factory prend en charge la connexion à des sources MongoDB locales à l’aide de la passerelle de gestion des données. Consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus sur la passerelle de gestion des données et l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle pour un pipeline de données afin de déplacer des données.
-
-> [!NOTE]
-> Vous devez utiliser la passerelle pour vous connecter à MongoDB même si elle est hébergée sur des machines virtuelles IaaS Azure. Si vous essayez de vous connecter à une instance MongoDB hébergée dans le cloud, vous pouvez également installer l’instance de la passerelle dans la machine virtuelle IaaS.
->
->
-
-Actuellement, Data Factory prend uniquement en charge le déplacement de données de MongoDB vers d’autres magasins de données, mais pas l’inverse.
-
-## <a name="supported-versions"></a>Versions prises en charge
-Ce connecteur MongoDB prend en charge MongoDB version 2.4, 2.6, 3.0 et 3.2.
+Vous pouvez copier les données d’un magasin de données MongoDB local dans tout magasin de données récepteur pris en charge. Consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données ne prennent en charge que le déplacement des données d’un magasin de données MongoDB vers d’autres magasins de données, mais pas l’inverse. 
 
 ## <a name="prerequisites"></a>Composants requis
 Pour permettre au service Azure Data Factory de se connecter à votre base de données MongoDB locale, vous devez installer les composants suivants :
 
-* Une passerelle de gestion de données version 2.0 ou ultérieure sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données.
+- Versions MongoDB prises en charge : 2.4, 2.6, 3.0 et 3.2.
+- Une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle, un pipeline de données, pour déplacer des données.
 
     L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC MongoDB, utilisé pour se connecter à MongoDB.
 
-## <a name="copy-data-wizard"></a>Assistant Copier des données
-Le moyen le plus simple de créer un pipeline qui copie des données à partir d’une base de données MongoDB vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
+    > [!NOTE]
+    > Vous devez utiliser la passerelle pour vous connecter à MongoDB même si elle est hébergée sur des machines virtuelles IaaS Azure. Si vous essayez de vous connecter à une instance MongoDB hébergée dans le cloud, vous pouvez également installer l’instance de la passerelle dans la machine virtuelle IaaS.
 
-L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une base de données MongoDB vers Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.
+## <a name="getting-started"></a>Prise en main
+Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données MongoDB local à l’aide de différents outils/API.
 
-## <a name="sample-copy-data-from-mongodb-to-azure-blob"></a>Exemple : copie de données à partir de MongoDB vers Azure Blob
-Cet exemple indique comment copier des données à partir d’une base de données MongoDB locale vers Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.  
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
+
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour connaître la procédure de création d’un pipeline avec une activité de copie, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+
+Que vous utilisiez les outils ou les API, la création d’un pipeline qui déplace les données d’un magasin de données source ver un magasin de données récepteur implique les étapes suivantes : 
+
+1. Créer des **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
+2. Créer des **jeux de données** pour représenter les données d’entrée et de sortie pour l’opération de copie. 
+3. Créer un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+
+Lorsque vous utilisez l’Assistant, les définitions JSON pour ces entités Data Factory (les services liés, les jeux de données et le pipeline) sont créées automatiquement pour vous. Lorsque vous utilisez les outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory qui sont utilisées pour copier des données d’un magasin de données MongoDB local, consultez la section [Exemple JSON : copier des données de MongoDB vers Blob Azure](#json-example-copy-data-from-mongodb-to-azure-blob) de cet article. 
+
+Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à la source MongoDB :
+
+## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemple JSON : copier des données de MongoDB vers Blob Azure
+Cet exemple présente des exemples de définition JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Il indique comment copier des données d’un magasin de données MongoDB local vers Stockage Blob Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.
 
 L’exemple contient les entités de fabrique de données suivantes :
 
 1. Un service lié de type [OnPremisesMongoDb](#linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [MongoDbCollection](#dataset-type-properties).
-4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [MongoDbSource](#copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [MongoDbCollection](#dataset-properties).
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [MongoDbSource](#copy-activity-properties) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L’exemple copie toutes les heures les données de résultat d’une requête de base de données MongoDB vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) .
 
-**Service lié MongoDB**
+**Service lié MongoDB :**
 
-```JSON
+```json
 {
     "name": "OnPremisesMongoDbLinkedService",
     "properties":
@@ -86,9 +92,9 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 }
 ```
 
-**Service lié Azure Storage**
+**Service lié Azure Storage :**
 
-```JSON
+```json
 {
   "name": "AzureStorageLinkedService",
   "properties": {
@@ -100,9 +106,9 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 }
 ```
 
-**jeu de données d’entrée MongoDB** informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
+La définition de « external » sur « true » du **jeu de données d’entrée MongoDB** informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
 
-```JSON
+```json
 {
      "name":  "MongoDbInputDataset",
     "properties": {
@@ -120,11 +126,11 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 }
 ```
 
-**Jeu de données de sortie d’objet Blob Azure**
+**Jeu de données de sortie Azure Blob :**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
-```JSON
+```json
 {
     "name": "AzureBlobOutputDataSet",
     "properties": {
@@ -180,11 +186,11 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 }
 ```
 
-**Pipeline avec activité de copie**
+**Activité de copie dans un pipeline avec une source MongoDB et un récepteur d’objets blob :**
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **MongoDbSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les données de la dernière heure à copier.
 
-```JSON
+```json
 {
     "name": "CopyMongoDBToBlob",
     "properties": {
@@ -246,9 +252,7 @@ La table suivante fournit une description des éléments JSON spécifiques au se
 | gatewayName |Nom de la passerelle qui accède au magasin de données. |Oui |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
 
-Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour plus d’informations sur la définition des informations d’identification pour une source de données MongoDB locale.
-
-## <a name="dataset-type-properties"></a>Propriétés de type du jeu de données
+## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **MongoDbCollection** a les propriétés suivantes :
@@ -257,7 +261,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | --- | --- | --- |
 | collectionName |Nom de la collection dans la base de données MongoDB. |Oui |
 
-## <a name="copy-activity-type-properties"></a>Propriétés de type de l’activité de copie
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
@@ -294,8 +298,6 @@ Lors du déplacement de données vers MongoDB, les mappages suivants sont utilis
 
 > [!NOTE]
 > Pour en savoir plus sur la prise en charge des tableaux à l’aide de tables virtuelles, reportez-vous à la section [Prise en charge des types complexes à l’aide de tables virtuelles](#support-for-complex-types-using-virtual-tables) ci-dessous.
->
->
 
 Actuellement, les types de données MongoDB suivants ne sont pas pris en charge : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie
 
@@ -347,9 +349,11 @@ Table « ExampleTable_Ratings » :
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
+Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mapping dataset columns in Azure Data Factory (Mappage des colonnes d’un jeu de données dans Azure Data Factory)](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+## <a name="repeatable-read-from-relational-sources"></a>Lecture renouvelée des sources relationnelles
+Lorsque vous copiez des données à partir des magasins de données relationnelles, gardez à l’esprit la répétabilité afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou de l’autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Consultez [Lecture renouvelée des sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.

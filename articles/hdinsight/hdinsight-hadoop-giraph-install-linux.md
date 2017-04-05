@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 699626f24e6f66f4b149feda5eb292e64d4b6647
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: ff27749800319517a8f635530f0f16b928692575
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,9 +30,9 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop su
 Dans cette rubrique, vous apprenez à installer Giraph à l’aide d’une action de script. Après avoir installé Giraph, vous apprendrez également comment l'utiliser pour la plupart des applications courantes, à savoir traiter des graphiques à grande échelle.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>Présentation de Giraph
+## <a name="whatis"></a>Présentation de Giraph
 
 [Apache Giraph](http://giraph.apache.org/) permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight. Les graphiques modélisent les relations entre les objets, telles que les connexions entre routeurs sur un grand réseau comme Internet ou les relations entre individus sur les réseaux sociaux (parfois appelés graphiques sociaux). Le traitement des graphiques permet d'examiner les relations entre les objets d'un graphique, par exemple :
 
@@ -54,7 +56,7 @@ Le script effectue les opérations suivantes :
 
 * Copie le fichier `giraph-examples.jar` dans le stockage par défaut (WASB) de votre cluster : `/example/jars/giraph-examples.jar`
 
-## <a name="a-nameinstallainstall-giraph-using-script-actions"></a><a name="install"></a>Installez Giraph à l’aide des actions de script
+## <a name="install"></a>Installez Giraph à l’aide des actions de script
 
 Un exemple de script d’installation de Giraph sur un cluster HDInsight est disponible à l’emplacement suivant.
 
@@ -85,7 +87,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 4. Continuez la création du cluster, comme décrit dans [Créer des clusters HDInsight sous Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="a-nameusegiraphahow-do-i-use-giraph-in-hdinsight"></a><a name="usegiraph"></a>Utilisation de Giraph dans HDInsight
+## <a name="usegiraph"></a>Utilisation de Giraph dans HDInsight
 
 Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l’exemple SimpleShortestPathsComputation inclus avec Giraph. Elle utilise l’implémentation [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) qui permet de trouver le trajet le plus court entre des objets dans un schéma.
 
@@ -93,11 +95,7 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
-   
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix, OS X ou Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Utilisation de SSH (PuTTY) avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour créer un fichier nommé **tiny_graph.txt** :
    
@@ -178,10 +176,5 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 * [Installation de R sur des clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md): instructions sur l’utilisation de la personnalisation des clusters pour installer et utiliser R sur des clusters Hadoop HDInsight. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
 
 * [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

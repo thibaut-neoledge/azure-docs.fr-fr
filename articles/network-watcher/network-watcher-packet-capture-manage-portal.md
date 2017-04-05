@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 590d2c39e295e2f855910b00e0302f01d96de8dc
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: c309151e3e3aa6ff235f0dee2ddf975940f34f44
+ms.lasthandoff: 03/24/2017
 
 ---
 
@@ -82,7 +82,7 @@ Les propriétés suivantes peuvent être définies dans une capture de paquets 
 
 **Configuration de la capture**
 
-- **Stockage** : détermine si la capture de paquets est enregistrée dans un compte de stockage.
+- **Compte de stockage** : détermine si la capture de paquets est enregistrée dans un compte de stockage.
 - **Fichier** : détermine si la capture de paquets est enregistrée localement sur la machine virtuelle.
 - **Comptes de stockage** : compte de stockage sélectionné dans lequel la capture de paquets est enregistrée. Emplacement par défaut : https://{nom du compte de stockage}.blob.core.windows.net/network-watcher-logs/subscriptions/{ID d’abonnement}/resourcegroups/{nom du groupe de ressources}/providers/microsoft.compute/virtualmachines/{nom de la machine virtuelle}/{AA}/{MM}/{JJ}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Activé uniquement si **Stockage** est sélectionné.)
 - **Chemin de fichier local** : chemin d’accès local sur une machine virtuelle pour enregistrer la capture des paquets. (Activé uniquement si **Fichier** est sélectionné.) Un chemin d’accès valide doit être fourni.

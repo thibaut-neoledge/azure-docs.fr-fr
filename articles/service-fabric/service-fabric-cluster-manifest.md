@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
-ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -153,8 +153,8 @@ La valeur **name** représente le nom convivial de ce type de nœud particulier.
 * *leaseDriverEndpointPort* est le port utilisé par le pilote de lease cluster pour savoir si les nœuds sont toujours actifs. 
 * *serviceConnectionEndpointPort* est le port utilisé par les applications et les services déployés sur un nœud pour communiquer avec le client Service Fabric sur ce nœud spécifique.
 * *httpGatewayEndpointPort* est le port utilisé par le Service Fabric Explorer pour se connecter au cluster.
-* *ephemeralPorts* remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toute circonstance les plages spécifiées dans les exemples de fichiers JSON. Vous devez vous assurer que la différence entre les ports de début et de fin est au moins de 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* sont les ports qui sont utilisés par les applications Service Fabric. Ils doivent être un sous-ensemble des *ephemeralPorts* et suffir à couvrir les exigences en matière de points de terminaison de vos applications. Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
+* *ephemeralPorts* remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toutes circonstances les plages spécifiées dans les exemples de fichiers JSON. Vous devez vous assurer que la différence entre les ports de début et de fin est au moins de 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
+* *applicationPorts* sont les ports qui sont utilisés par les applications Service Fabric. La plage des ports d’application doit suffire à couvrir les exigences en matière de points de terminaison de vos applications. Cette plage doit être exclusive à partir de la plage de ports dynamiques de la machine, c’est-à-dire la plage *ephemeralPorts* comme défini dans la configuration.  Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
 * *reverseProxyEndpointPort* est un point de terminaison de proxy inverse facultatif. Consultez [Proxy inverse de Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus. 
 
 ### <a name="log-settings"></a>Paramètres du journal

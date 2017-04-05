@@ -1,5 +1,5 @@
 ---
-title: "Modèle d’application Service Fabric | Microsoft Docs"
+title: "Modèle d’application Azure Service Fabric | Microsoft Docs"
 description: "Comment modéliser et décrire des applications et des services dans Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 3/02/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
-ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 87db655d246dad90bf0afbc91ec507b0a86d90eb
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modéliser une application dans Service Fabric
-Cet article fournit une vue d’ensemble du modèle d’application Service Fabric Azure. Il explique également comment définir une application et un service via des fichiers manifestes et empaqueter l’application en vue de son déploiement.
+Cet article fournit une vue d’ensemble du modèle d’application Azure Service Fabric et explique comment définir une application et un service via des fichiers manifestes.
 
 ## <a name="understand-the-application-model"></a>Comprendre le modèle d'application
 Une application est une collection de services constitutifs qui exécutent une ou plusieurs fonctions. Un service exécute une fonction complète et autonome (il peut démarrer et s'exécuter indépendamment des autres services) et est composé de code, d’une configuration et de données. Pour chaque service, le code se compose de fichiers binaires exécutables, la configuration comprend des paramètres de service qui peuvent être chargés pendant l'exécution, tandis que les données comportent des données statiques arbitraires destinées à être consommées par le service. Chaque composant de ce modèle d'application hiérarchique peut faire l'objet d'une gestion de versions et d'une mise à niveau indépendantes.
@@ -85,7 +85,14 @@ Le manifeste de service définit de manière déclarative le type de service et 
 
 **ServiceTypes** déclare les types de service pris en charge par des packages de code (**CodePackage**) dans ce manifeste. Quand un service est instancié par rapport à un de ces types de service, tous les packages de code déclarés dans ce manifeste sont activés en exécutant leurs points d'entrée. Les processus qui en résultent sont censés inscrire les types de service pris en charge au moment de l'exécution. Notez que les types de service sont déclarés au niveau du manifeste et non au niveau du package de code. Ainsi, s'il existe plusieurs packages de code, ceux-ci sont tous activés chaque fois que le système recherche l'un des types de service déclarés.
 
-**SetupEntryPoint** est un point d'entrée privilégié qui s'exécute avec les mêmes informations d'identification que Service Fabric (généralement le compte *LocalSystem* ) avant tout autre point d'entrée. Le fichier exécutable spécifié par **EntryPoint** est généralement l’hôte de service à exécution longue. La présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par **EntryPoint** est exécuté une fois que **SetupEntryPoint** se termine correctement. Le processus résultant fait l'objet d'une surveillance et est redémarré (à partir de **SetupEntryPoint**) en cas d'interruption ou de défaillance.
+**SetupEntryPoint** est un point d'entrée privilégié qui s'exécute avec les mêmes informations d'identification que Service Fabric (généralement le compte *LocalSystem* ) avant tout autre point d'entrée. Le fichier exécutable spécifié par **EntryPoint** est généralement l’hôte de service à exécution longue. La présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par **EntryPoint** est exécuté une fois que **SetupEntryPoint** se termine correctement. Le processus résultant fait l'objet d'une surveillance et est redémarré (à partir de **SetupEntryPoint**) en cas d'interruption ou de défaillance. 
+
+**SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple :
+
+* la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
+* La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
+
+Pour plus d’informations sur la façon de configurer **SetupEntryPoint** consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** fournit une liste des variables d’environnement définies pour ce package de code. Celles-ci peuvent être remplacées dans le fichier `ApplicationManifest.xml` pour fournir différentes valeurs pour différentes instances de service. 
 
@@ -167,96 +174,12 @@ For more information about other features supported by application manifests, re
 *TODO: Service Templates
 -->
 
-## <a name="package-an-application"></a>Empaqueter une application
-### <a name="package-layout"></a>Disposition du package
-Le manifeste d'application, le(s) manifeste(s) de service et les autres fichiers de package nécessaires doivent être organisés selon une disposition spécifique en vue du déploiement dans un cluster Service Fabric. Les exemples de manifestes dans cet article doivent être organisés selon la structure de répertoires suivante :
 
-```
-PS D:\temp> tree /f .\MyApplicationType
-
-D:\TEMP\MYAPPLICATIONTYPE
-│   ApplicationManifest.xml
-│
-└───MyServiceManifest
-    │   ServiceManifest.xml
-    │
-    ├───MyCode
-    │       MyServiceHost.exe
-    │
-    ├───MyConfig
-    │       Settings.xml
-    │
-    └───MyData
-            init.dat
-```
-
-Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MyCodeA** et **MyCodeB**, deux dossiers de même nom contiennent les fichiers binaires nécessaires pour chaque package de code.
-
-### <a name="use-setupentrypoint"></a>Utilisation de SetupEntrypoint
-**SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple :
-
-* la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
-* La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
-
-Pour plus d’informations sur la façon de configurer **SetupEntryPoint** consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
-
-### <a name="configure"></a>Configuration 
-### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
-Si vous utilisez Visual Studio 2015 pour créer votre application, vous pouvez utiliser la commande Package pour créer automatiquement un package qui correspond à la disposition décrite ci-dessus.
-
-Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Explorateur de solutions et choisissez la commande Package, comme indiqué ci-dessous :
-
-![Empaquetage d'une application avec Visual Studio][vs-package-command]
-
-Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie** . Notez que l'étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
-
-### <a name="build-a-package-by-command-line"></a>Développer un package par ligne de commande
-Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot : voici ce que Visual Studio exécute pour obtenir le même résultat.
-
-```shell
-D:\Temp> msbuild HelloWorld.sfproj /t:Package
-```
-
-### <a name="test-the-package"></a>Test du package
-Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande **Test-ServiceFabricApplicationPackage** . Cette commande vérifie la présence de problèmes liés à l’analyse du manifeste, ainsi que toutes les références. Notez que cette commande vérifie uniquement l’exactitude structurelle des répertoires et des fichiers dans le package. Elle ne vérifie pas le code ou les données du contenu du package, mais uniquement si tous les fichiers nécessaires sont présents.
-
-```
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
-False
-Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
-FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-```
-
-Cette erreur indique que le fichier *MySetup.bat* référencé dans le manifeste de service **SetupEntryPoint** est manquant dans le package de code. Une fois le fichier manquant ajouté, la phase de vérification est terminée :
-
-```
-PS D:\temp> tree /f .\MyApplicationType
-
-D:\TEMP\MYAPPLICATIONTYPE
-│   ApplicationManifest.xml
-│
-└───MyServiceManifest
-    │   ServiceManifest.xml
-    │
-    ├───MyCode
-    │       MyServiceHost.exe
-    │       MySetup.bat
-    │
-    ├───MyConfig
-    │       Settings.xml
-    │
-    └───MyData
-            init.dat
-
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
-True
-PS D:\temp>
-```
-
-Une fois l'application correctement empaquetée et vérifiée, elle peut être déployée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application
+[Empaquetez une application](service-fabric-package-apps.md) et préparez-la pour le déploiement.
+
+[Déployer et supprimer des applications][10] explique comment utiliser PowerShell pour gérer des instances d’application.
 
 [Gestion des paramètres d’application pour plusieurs environnements][11] décrit comment configurer les paramètres et les variables d’environnement pour différentes instances d’application.
 
@@ -266,7 +189,6 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md

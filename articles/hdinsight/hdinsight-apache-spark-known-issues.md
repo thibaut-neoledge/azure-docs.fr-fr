@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2ba5f280b38622b6a0c966d76617cd5698420b92
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,13 +28,14 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 Ce document fait le suivi de tous les problèmes connus pour la version Preview publique de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy divulgue une session interactive
-Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) encore active, une session de travail interactive sera divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
+Lorsque Livy est redémarré (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) avec une session interactive encore active, une session de travail interactive est divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
 
 **Atténuation :**
 
 Pour contourner ce problème, suivez la procédure ci-après :
 
-1. SSH dans le nœud principal. Pour les clients Windows, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Windows avec PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ; pour Linux, Unix ou OS X, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+1. SSH dans le nœud principal. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy. 
    
         yarn application –list
@@ -61,6 +64,14 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 3. Mettez à jour l’emplacement du journal Spark à l’aide d’Ambari pour obtenir un répertoire avec les autorisations 777.  
 4. Exécutez spark-submit en tant que sudo.  
 
+## <a name="spark-phoenix-connector-is-not-supported"></a>Le connecteur Spark-Phoenix n’est pas pris en charge.
+
+Actuellement, le connecteur Spark-Phoenix n’est pas pris en charge avec un cluster HDInsight Spark.
+
+**Atténuation :**
+
+Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment procéder, consultez la section relative à [l’utilisation du connecteur Spark-HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problèmes liés aux notebooks Jupyter
 Voici certains problèmes connus liés aux notebooks Jupyter.
 
@@ -72,7 +83,7 @@ Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez 
 
 **Atténuation :**
 
-Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Pour les clients Windows, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Windows avec PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ; pour Linux, Unix ou OS X, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté au cluster à l’aide de SSH, vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle.  À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
 
@@ -124,10 +135,5 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

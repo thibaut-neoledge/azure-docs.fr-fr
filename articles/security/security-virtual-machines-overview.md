@@ -1,6 +1,6 @@
 ---
 title: "Fonctionnalités de sécurité Azure utilisées avec les machines virtuelles Azure | Microsoft Docs"
-description: " Vue d’ensemble des principales fonctionnalités de sécurité Azure utilisables avec les machines virtuelles Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter et le matériel qui exécute la machine virtuelle ni à en assurer la maintenance.. "
+description: " Vue d’ensemble des principales fonctionnalités de sécurité Azure utilisables avec les machines virtuelles Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle ni à en assurer la maintenance. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,8 +71,8 @@ En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillan
 
 * [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](azure-security-antimalware.md)
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../virtual-machines/windows/classic/install-trend.md)
+* [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Solutions de sécurité dans Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -151,9 +152,4 @@ En savoir plus :
 
 * [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [Cloud de confiance : sécurité, confidentialité et conformité dans Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

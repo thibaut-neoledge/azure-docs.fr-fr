@@ -2,8 +2,9 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
-ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -40,7 +41,7 @@ Si vous examinez la figure suivante, il existe plusieurs étapes dans le flux de
 
 La procédure comporte trois étapes :
 
-1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API.  La valeur par défaut est&1; heure avant.
+1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API.  La valeur par défaut est 1 heure avant.
 2. La valeur date/heure UTC est convertie en un format d’horodatage Unix. Il s’agit du format par défaut des horodatages dans DocumentDB.
 3. Vous publiez (via une requête POST) la valeur dans une application API, qui effectue une requête DocumentDB. La valeur est utilisée dans une requête.
    
@@ -58,7 +59,7 @@ La procédure comporte trois étapes :
    > Le stockage d’objets blob nécessite un compte Azure Storage. Vous devez approvisionner un compte de stockage d’objets blob Azure et ajouter un nouvel objet blob nommé « patients ». Pour plus d’informations, consultez les rubriques [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) et [Prise en main du stockage d’objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md).
    > 
    > 
-5. Enfin, l’envoi d’un courrier électronique indique au destinataire le nombre de documents trouvés. Si aucun document n’est identifié, le corps du message est «&0; document(s) trouvé(s) ». 
+5. Enfin, l’envoi d’un courrier électronique indique au destinataire le nombre de documents trouvés. Si aucun document n’est identifié, le corps du message est « 0 document(s) trouvé(s) ». 
 
 Maintenant que vous avez une idée de ce que fait le flux de travail, examinons son implémentation.
 
@@ -733,7 +734,7 @@ Votre dernière étape consiste à envoyer une notification par courrier électr
 
 Dans cette action, vous envoyez une notification par courrier électronique.  Vous utilisez [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-Le code a été généré à l’aide d’un modèle d’application logique et SendGrid qui se trouve dans le [dépôt Github&101;-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+Le code a été généré à l’aide d’un modèle d’application logique et SendGrid qui se trouve dans le [référentiel GitHub 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 L’opération HTTP est un POST. 
 
@@ -766,7 +767,7 @@ Les paramètres d’autorisation figurent dans les propriétés du déclencheur.
 
 ```
 
-Le paramètre emailBody concatène le nombre de documents renvoyés par la requête, qui peut être «&0; » ou plus, avec « enregistrement(s) trouvé(s) ». Le reste des paramètres sont définis dans les paramètres du déclencheur.
+Le paramètre emailBody concatène le nombre de documents renvoyés par la requête, qui peut être « 0 » ou plus, avec « enregistrement(s) trouvé(s) ». Le reste des paramètres sont définis dans les paramètres du déclencheur.
 
 Cette action dépend de l’action **GetDocuments** .
 
@@ -815,7 +816,7 @@ Enfin, vous souhaitez être en mesure de voir les résultats de votre applicatio
 
 ```
 
-Cela permet de renvoyer la même valeur que celle qui est envoyée dans le corps du message électronique. La figure suivante illustre l’exemple : «&29; enregistrement(s) trouvé(s) ».
+Cela permet de renvoyer la même valeur que celle qui est envoyée dans le corps du message électronique. La figure suivante illustre l’exemple : « 29 enregistrement(s) trouvé(s) ».
 
 ![Résultats](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -1111,13 +1112,8 @@ Dans cette procédure pas à pas, vous avez appris les éléments suivants :
 Le secret consiste à prévoir et à modéliser votre flux de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Veuillez télécharger et utiliser le code de l’application logique fourni sur [Github](https://github.com/HEDIDIN/DocDbNotifications). Je vous invite à effectuer la génération à partir de l’application et à envoyer les modifications apportées au dépôt. 
+Veuillez télécharger et utiliser le code de l’application logique fourni sur [GitHub](https://github.com/HEDIDIN/DocDbNotifications). Je vous invite à effectuer la génération à partir de l’application et à envoyer les modifications apportées au dépôt. 
 
 Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)associé.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

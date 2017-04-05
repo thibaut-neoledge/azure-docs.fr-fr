@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,8 +40,8 @@ Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillé
 * [Didacticiel : Créer un pipeline pour copier des données à l’aide du modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Didacticiel : Créer un pipeline pour traiter des données à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline.md)
 
-## <a name="data-factory-templates-on-github"></a>Modèles Data Factory sur Github
-Découvrez les modèles de démarrage rapide Azure suivants sur Github :
+## <a name="data-factory-templates-on-github"></a>Modèles Data Factory sur GitHub
+Découvrez les modèles de démarrage rapide Azure suivants sur GitHub :
 
 * [Créer une fabrique de données pour copier des données à partir du Stockage Blob Azure vers une base de données SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Créer une fabrique de données avec une activité Hive sur un cluster Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
@@ -252,9 +253,4 @@ Si vous avez besoin d’extraire des clés secrètes à partir [d’Azure Key Va
 > L’exportation de modèles pour les fabriques de données existantes n’est actuellement pas prise en charge, mais nous y travaillons.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

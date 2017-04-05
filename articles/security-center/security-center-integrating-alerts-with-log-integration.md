@@ -1,5 +1,5 @@
 ---
-title: "Intégration des alertes de l’Azure Security Center avec les journaux Azure (version préliminaire) | Microsoft Docs"
+title: "Intégration des alertes de l’Azure Security Center avec les journaux Azure | Microsoft Docs"
 description: "Cet article vous aidera à vous familiariser avec l’intégration des alertes du Centre de sécurité avec les journaux Azure."
 services: security-center
 documentationcenter: na
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="integrating-azure-security-center-alerts-with-azure-log-integration-preview"></a>Intégration des alertes de l’Azure Security Center avec les journaux Azure (version préliminaire)
+# <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Intégration des alertes de l’Azure Security Center avec les journaux Azure
 De nombreuses équipes de sécurité et d’intervention utilisent une solution SIEM (Security Information and Event Management) comme point de départ pour le triage et l’examen des alertes de sécurité. Grâce à l’intégration des journaux Azure, les clients peuvent synchroniser quasiment en temps réel les alertes de l’Azure Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par les journaux de diagnostics et d’audit Azure, avec leur solution SIEM ou Log Analytics.
 
 L’intégration des journaux Azure fonctionne avec HP ArcSight, Splunk, IBM QRadar, entre autres.
@@ -92,9 +93,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

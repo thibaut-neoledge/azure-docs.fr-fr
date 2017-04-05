@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -118,7 +118,7 @@ Un déclencheur HTTP avec la propriété _webHookType_ sera configuré pour rép
 
 Le déclencheur peut en outre être adapté à un fournisseur de webhook spécifique (par exemple, [GitHub](https://developer.github.com/webhooks/) et [Slack](https://api.slack.com/outgoing-webhooks)). Si un fournisseur est spécifié, le runtime Functions peut se charger de la logique de validation du fournisseur à votre place.  
 
-### <a name="configuring-github-as-a-webhook-provider"></a>Configuration de Github en tant que fournisseur de webhook
+### <a name="configuring-github-as-a-webhook-provider"></a>Configurer GitHub en tant que fournisseur de webhooks
 Pour répondre aux webhooks GitHub, commencez par créer votre fonction avec un déclencheur HTTP, et définir la propriété _webHookType_ sur « github ». Ensuite, copiez son [URL](#url) et sa [clé API](#keys) vers la page **Ajouter un Webhook** de votre référentiel GitHub. Pour plus d’informations, voir la documentation [Création de webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
@@ -217,8 +217,8 @@ HttpTriggers peut tirer parti des clés pour renforcer la sécurité. Un HttpTri
 Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez des clés, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
 
 Il existe deux types de clés :
-- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elle permettent d’accéder à toute fonction au sein de la Function App.
-- **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elle permettent d’accéder uniquement à ces fonctions.
+- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
+- **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Le **clé principale** est une clé d’hôte par défaut nommée « _master » qui est définie pour chaque Function App et qui ne peut pas être révoquée. Elle fournit un accès administratif aux API de runtime. L’utilisation de `"authLevel": "admin"` dans le JSON de liaison nécessite que cette clé soit présentée à la demande. Une autre clé entraînerait un échec d’autorisation.
 

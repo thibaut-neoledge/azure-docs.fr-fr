@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 0cac5419d4b481a5b783b4b9fbd4ad2d4d637042
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9aa7815eae9ae3c1771cd0efdc8b9db4ad2e0b65
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -69,6 +69,8 @@ Le format d’un fichier de propriétés est le suivant :
 |`Content-Encoding`|String|facultatif. Codage du contenu de l’objet blob.|  
 |`Content-Language`|String|facultatif. Langage du contenu de l’objet blob.|  
 |`Cache-Control`|String|facultatif. Chaîne de contrôle du cache de l’objet blob.|  
-  
- Consultez les pages [Définir les propriétés d’objets blob](/rest/api/storageservices/fileservices/set-blob-properties), [Définir les métadonnées d’objets blob](/rest/api/storageservices/fileservices/set-blob-metadata) et [Définir et extraire les propriétés et métadonnées de ressources blob](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) pour obtenir des instructions détaillées sur la définition de propriétés et de métadonnées d’objets blob.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez les pages [Définir les propriétés d’objets blob](/rest/api/storageservices/fileservices/set-blob-properties), [Définir les métadonnées d’objets blob](/rest/api/storageservices/fileservices/set-blob-metadata) et [Définir et extraire les propriétés et métadonnées de ressources blob](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) pour obtenir des instructions détaillées sur la définition de propriétés et de métadonnées d’objets blob.
 

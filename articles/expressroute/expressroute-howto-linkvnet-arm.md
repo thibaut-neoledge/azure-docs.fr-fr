@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/24/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
-ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32b12bcb7410fcc74450422767e9d92fef38ebdc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2017
 > 
 > 
 
-Cet article vous aide à lier des réseaux virtuels à des circuits Azure ExpressRoute en utilisant le modèle de déploiement Resource Manager et PowerShell. Les réseaux virtuels peuvent appartenir au même abonnement ou faire partie d’un autre abonnement.
+Cet article vous aide à lier des réseaux virtuels à des circuits Azure ExpressRoute en utilisant le modèle de déploiement Resource Manager et PowerShell. Les réseaux virtuels peuvent appartenir au même abonnement ou faire partie d’un autre abonnement. Cet article vous montre également comment mettre à jour une liaison de réseau virtuel. 
 
 **À propos des modèles de déploiement Azure**
 
@@ -147,6 +147,18 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 **Libération des autorisations de connexion**
 
 Vous pouvez libérer une autorisation en supprimant la connexion qui lie le circuit ExpressRoute et le réseau virtuel.
+
+## <a name="modify-a-virtual-network-connection"></a>Modifier une connexion de réseau virtuel
+Vous pouvez mettre à jour certaines propriétés d’une connexion de réseau virtuel. 
+
+### <a name="update-the-connection-weight"></a>Mettez à jour le poids attribué à la connexion
+Votre réseau virtuel peut être connecté à plusieurs circuits ExpressRoute. Vous pouvez recevoir le même préfixe à partir de plusieurs circuits ExpressRoute. Pour choisir la connexion pour envoyer le trafic destiné à ce préfixe, vous pouvez modifier le *RoutingWeight* d’une connexion. Le trafic est envoyé sur la connexion avec le *RoutingWeight*.le plus élevé.
+
+    $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+    $connection.RoutingWeight = 100
+    Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+
+La plage de *RoutingWeight* est de 0 à 32000. La valeur par défaut est 0. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).

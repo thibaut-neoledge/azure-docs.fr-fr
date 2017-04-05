@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -44,7 +44,7 @@ Application Gateway prend en charge les protocoles HTTP, HTTPS et WebSocket.
 
 **Q. Quelles sont les ressources actuellement prises en charge dans le pool principal ?**
 
-Les pools principaux peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes et de noms de domaine complets. La prise en charge d’Azure Web Apps n’est pas disponible à ce jour. Les membres du pool principal d’Application Gateway ne sont pas liés à un groupe à haute disponibilité. Les membres des pools principaux peuvent être sur des clusters, des centres de données ou en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
+Les pools principaux peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes et de noms de domaine complets. La prise en charge d’Azure Web Apps n’est pas disponible à ce jour. Les membres du pool principal d’Application Gateway ne sont pas liés à un groupe à haute disponibilité. Les membres des pools principaux peuvent être sur des clusters, des centres de données ou en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
 
 **Q. Dans quelles régions le service est-il disponible ?**
 
@@ -66,7 +66,6 @@ Lorsque vous utilisez une adresse IP publique en tant que point de terminaison, 
 
 L’adresse IP virtuelle peut changer si la passerelle est arrêtée et démarrée par le client. Le DNS associé à Application Gateway ne change pas au cours du cycle de vie de la passerelle. Pour cette raison, il est recommandé d’utiliser un alias CNAME et de le pointer vers l’adresse DNS d’Application Gateway.
 
-
 **Q. Application Gateway prend-il en charge les adresses IP statiques ?**
 
 Non, Application Gateway ne prend pas en charge les adresses IP publiques statiques. Néanmoins, les adresses IP internes statiques sont prises en charge.
@@ -77,7 +76,7 @@ Une seule adresse IP publique est prise en charge sur Application Gateway.
 
 **Q. Application Gateway prend-il en charge les en-têtes x-forwarded-for ?**
 
-Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au serveur principal. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la demande au niveau d’Application Gateway.
+Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au serveur principal. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la demande au niveau d’Application Gateway.
 
 ## <a name="configuration"></a>Configuration
 
@@ -124,10 +123,6 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 **Q. À quoi correspond le champ Hôte pour les sondes personnalisées ?**
 
 Le champ Hôte indique le nom auquel envoyer la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de machine virtuelle et se trouve au format suivant : \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>. 
-
-**Q. Application Gateway prend-elle également en charge les serveurs principaux mutualisés ?**
-
-Non, Application Gateway conserve pour l’instant l’en-tête d’hôte entrant et envoie le même en-tête au serveur principal. Si le serveur principal nécessite un en-tête différent, cela ne fonctionnera pas. De même, si le serveur principal est mutualisé et que le protocole SSL de bout en bout est activé, le serveur principal attend un nom du serveur dans l’extension SNI. Application Gateway n’envoie pas actuellement d’en-tête SNI dans les demandes de serveur principal dans les scénarios SSL de bout en bout susceptible d’entraîner des problèmes de sonde et d’accès aux données. 
 
 ## <a name="performance"></a>Performances
 
@@ -219,7 +214,7 @@ Oui, le pare-feu d’application web prend en charge toutes les fonctionnalités
 
 **Q. Quelle est la version CRS qu’Application Gateway prend en charge ?**
 
-Application Gateway prend en charge CRS 2.2.9.
+Application Gateway prend en charge CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) et CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 **Q. Comment puis-je surveiller le pare-feu d’application web ?**
 
@@ -231,11 +226,11 @@ Non, le mode de détection journalise uniquement le trafic, ce qui a déclenché
 
 **Q. Comment puis-je personnaliser les règles de pare-feu d’application web ?**
 
-Les règles de pare-feu d’application web ne sont actuellement pas personnalisables.
+Oui, les règles WAF sont personnalisables. Pour plus d’informations sur la façon de les personnaliser, rendez-vous sur [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md) (Personnaliser les règles et groupes de règles WAF)
 
 **Q. Quelles sont les règles actuellement disponibles ?**
 
-Le pare-feu d’application web prend actuellement en charge CRS 2.2.9, qui fournit la sécurité de ligne de base pour la plupart des 10 premières vulnérabilités identifiées par l’OWASP, présentées ici [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013) (10 premières vulnérabilités identifiées par l’OWASP).
+Le pare-feu d’application web prend actuellement en charge CRS  [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) et [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), qui fournit la sécurité de ligne de base pour la plupart des 3.0 premières vulnérabilités identifiées par l’OWASP, présentées ici [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013) (10 premières vulnérabilités identifiées par l’OWASP)
 
 * Protection contre les injections de code SQL
 
@@ -251,9 +246,9 @@ Le pare-feu d’application web prend actuellement en charge CRS 2.2.9, qui fou
 
 * Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
 
-**Q. Le pare-feu d’application web prend-il également en charge la prévention DDos ?**
+**Q. Le pare-feu d’application web prend-il également en charge la prévention DDoS ?**
 
-Non, le pare-feu d’application web ne fournit pas de prévention DDos.
+Non, le pare-feu d’application web ne fournit pas de prévention DDoS.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 
@@ -288,4 +283,3 @@ La raison la plus courante est le blocage de l’accès au serveur principal par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Application Gateway, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
-

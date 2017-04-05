@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 78382cf83ed5e94507854d41293a95fd529964c1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2b2e8d6110062efb99201f4daac1e1295d9b904
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,7 +44,7 @@ Un cluster HDInsight joint à un domaine a trois nouveaux utilisateurs en plus d
     Notez que les autres utilisateurs d’Active Directory possèdent également ces privilèges.
 
     Il existe des points de terminaison au sein du cluster (par exemple, Templeton) qui ne sont pas gérés par Ranger et ne sont donc pas sécurisés. Ces points de terminaison sont verrouillés pour tous les utilisateurs, à l’exception de l’utilisateur de domaine administrateur du cluster.
-* **Standard** : pendant la création du cluster, vous pouvez fournir plusieurs groupes Active Directory. Les utilisateurs de ces groupes sont synchronisés avec Ranger et Ambari. Ce sont des de domaine qui ont accès uniquement aux points de terminaison gérés par Ranger (par exemple, Hiveserver2). Les stratégies RBAC et les audits sont tous applicables à ces utilisateurs.
+* **Standard** : pendant la création du cluster, vous pouvez fournir plusieurs groupes Active Directory. Les utilisateurs de ces groupes sont synchronisés avec Ranger et Ambari. Ce sont des utilisateurs de domaine qui ont accès uniquement aux points de terminaison gérés par Ranger (par exemple, Hiveserver2). Les stratégies RBAC et les audits sont tous applicables à ces utilisateurs.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Rôles des clusters HDInsight joints à un domaine
 Les rôles de HDInsight joint à un domaine sont les suivants :
@@ -108,10 +110,5 @@ Les rôles de HDInsight joint à un domaine sont les suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](hdinsight-domain-joined-configure.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour exécuter des requêtes Hive à l’aide de SSH sur des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sur Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

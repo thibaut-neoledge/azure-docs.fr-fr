@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 34919221a82a024bd3a1d09c1def6040ff6c55e1
+ms.lasthandoff: 03/23/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Intégrer votre infrastructure NPS existante à Azure Multi-Factor Authentication - Version préliminaire publique
@@ -80,7 +80,7 @@ Une fois l’installation terminée, le programme d’installation crée un scri
 -    Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
 -    Redémarrer le serveur NPS.
 
-À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation.
+À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation. Si vous installez l’extension sur plusieurs serveurs, chacun d’eux doit avoir son propre certificat afin d’éviter les temps d’arrêt lors du renouvellement de certificats. 
 
 ## <a name="configure-your-nps-extension"></a>Configurer votre extension NPS
 

@@ -1,7 +1,7 @@
 ---
 
 title: "Format de fichier journal d’Azure Import/Export | Microsoft Docs"
-description: "En savoir plus sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation"
+description: "Découvrez-en davantage sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -149,7 +149,7 @@ Le tableau suivant décrit les éléments du fichier journal.
 |`Properties/Path/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de propriétés.|  
 |`Blob/Status`|String|État du traitement de l’objet blob.|  
   
-### <a name="drive-status-codes"></a>Codes d’état du lecteur  
+# <a name="drive-status-codes"></a>Codes d’état du lecteur  
 Le tableau suivant répertorie les codes d’état pour le traitement d’un lecteur.  
   
 |Code d’état|Description|  
@@ -178,7 +178,7 @@ Le tableau suivant répertorie les codes d’état pour le traitement d’un lec
 |`BlobRequestForbidden`|L’accès aux objets blob dans le compte de stockage est interdit. Cela peut être dû à une clé de compte de stockage ou une SAP de conteneur non valide.|  
 |`InternalError`|Une erreur interne s'est produite lors du traitement du lecteur.|  
   
-### <a name="blob-status-codes"></a>Codes d’état de l’objet blob  
+## <a name="blob-status-codes"></a>Codes d’état de l’objet blob  
 Le tableau suivant répertorie les codes d’état pour le traitement d’un objet blob.  
   
 |Code d’état|Description|  
@@ -197,7 +197,7 @@ Le tableau suivant répertorie les codes d’état pour le traitement d’un obj
 |`IOFailed`|Une erreur d’E/S du disque ou réseau s’est produite lors du traitement de l’objet blob.|  
 |`Failed`|Une erreur inconnue s’est produite lors du traitement de l’objet blob.|  
   
-### <a name="import-disposition-status-codes"></a>Codes d’état de disposition d’importation  
+## <a name="import-disposition-status-codes"></a>Codes d’état de disposition d’importation  
 Le tableau suivant répertorie les codes d’état de résolution d’une disposition d’importation.  
   
 |Code d’état|Description|  
@@ -208,7 +208,7 @@ Le tableau suivant répertorie les codes d’état de résolution d’une dispos
 |`Overwritten`|L’objet blob a remplacé un objet blob existant en fonction de la disposition d’importation `overwrite`.|  
 |`Cancelled`|Une erreur précédente a arrêté le traitement de la disposition d’importation.|  
   
-### <a name="page-rangeblock-status-codes"></a>Codes d’état de plage de pages/de bloc  
+## <a name="page-rangeblock-status-codes"></a>Codes d’état de plage de pages/de bloc  
 Le tableau suivant répertorie les codes d’état pour le traitement d’une plage de pages ou d’un bloc.  
   
 |Code d’état|Description|  
@@ -224,7 +224,7 @@ Le tableau suivant répertorie les codes d’état pour le traitement d’une pl
 |`Failed`|Une erreur inconnue s’est produite lors du traitement de la plage de pages ou du bloc.|  
 |`Cancelled`|Une erreur précédente a arrêté le traitement de la plage de pages ou du bloc.|  
   
-### <a name="metadata-status-codes"></a>Codes d’état des métadonnées  
+## <a name="metadata-status-codes"></a>Codes d’état des métadonnées  
 Le tableau suivant répertorie les codes d’état pour le traitement des métadonnées d’objet blob.  
   
 |Code d’état|Description|  
@@ -242,7 +242,7 @@ Le tableau suivant répertorie les codes d’état pour le traitement des métad
 |`Failed`|Une erreur inconnue s’est produite lors du traitement des métadonnées.|  
 |`Cancelled`|Une erreur précédente a arrêté le traitement des métadonnées.|  
   
-### <a name="properties-status-codes"></a>Codes d’état des propriétés  
+## <a name="properties-status-codes"></a>Codes d’état des propriétés  
 Le tableau suivant répertorie les codes d’état pour le traitement des propriétés d’objet blob.  
   
 |Code d’état|Description|  
@@ -358,6 +358,7 @@ Le journal d’erreurs suivant pour un travail d’exportation indique que le co
 </DriveLog>  
 ```
   
-## <a name="see-also"></a>Voir aussi  
-[API REST d’importation/exportation de stockage](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>Étapes suivantes
+ 
+* [API REST d’importation/exportation de stockage](/rest/api/storageimportexport/)
 

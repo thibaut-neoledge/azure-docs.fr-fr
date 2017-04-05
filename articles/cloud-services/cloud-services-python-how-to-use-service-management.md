@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 553d474c8a9cbd7b8452daf85e1bb74b294b5699
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 579015f419ac0ee886f8e8497760a562ab324c24
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -26,15 +27,15 @@ ms.openlocfilehash: 553d474c8a9cbd7b8452daf85e1bb74b294b5699
 > 
 > 
 
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
+Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] (telles que la **création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## <a name="WhatIs"> </a>Présentation de la gestion des services
-L’API Gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail Azure Classic][management-portal]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud et vos comptes de stockage.
+L’API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail Azure Classic][management-portal]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud et vos comptes de stockage.
 
 Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
-Le Kit de développement logiciel (SDK) Azure pour Python inclut [l’API Gestion des services Azure][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
+Le Kit de développement logiciel (SDK) Azure pour Python inclut l’[API de gestion des services Azure][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 ## <a name="Installation"> </a>Installation
 Toutes les fonctionnalités décrites dans cet article sont disponibles dans le package `azure-servicemanagement-legacy` , que vous pouvez installer à l’aide de pip. Pour plus d’informations sur l’installation (par exemple, si vous ne connaissez pas Python), consultez cet article : [Installation de Python et du Kit de développement logiciel (SDK) Azure](../python-how-to-install.md)
@@ -123,7 +124,7 @@ Quand vous créez un service cloud ou un service de stockage, vous devez fournir
 * Sud-est de l’Australie
 
 ## <a name="CreateCloudService"> </a>Création d’un service cloud
-Lorsque vous créez une application et que vous l’exécutez dans Azure, l’ensemble constitué du code et de la configuration est appelé [cloud service][cloud service] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d’Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
+Lorsque vous créez une application et que vous l’exécutez dans Azure, l’ensemble constitué du code et de la configuration est appelé [service cloud][cloud service] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d’Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
 
     from azure import *
     from azure.servicemanagement import *
@@ -399,42 +400,37 @@ Enfin, pour créer la machine virtuelle à l’aide de l’image capturée, util
         role_size='Small',
         vm_image_name = image_name)
 
-Pour en savoir plus sur la capture d’une machine virtuelle Linux, consultez la page [Capture d’une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pour en savoir plus sur la capture d’une machine virtuelle Linux, consultez la page [Capture d’une machine virtuelle Linux](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-Pour en savoir plus sur la capture d’une machine virtuelle Windows, consultez la page [Capture d’une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour en savoir plus sur la capture d’une machine virtuelle Windows, consultez la page [Capture d’une machine virtuelle Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="What's Next"> </a>Étapes suivantes
 Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du Kit de développement logiciel (SDK) Azure pour Python](http://azure-sdk-for-python.readthedocs.org/) et effectuer facilement des tâches complexes pour gérer votre application python.
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-[Présentation de la gestion des services]: #WhatIs
+[What is Service Management]: #WhatIs
 [Concepts]: #Concepts
-[Connexion à la gestion des services]: #Connect
-[Affichage de la liste des emplacements disponibles]: #ListAvailableLocations
-[Création d’un service cloud]: #CreateCloudService
-[Suppression d’un service cloud]: #DeleteCloudService
-[Création d’un déploiement]: #CreateDeployment
-[Mise à jour d’un déploiement]: #UpdateDeployment
-[Transfert des déploiements entre les environnements intermédiaire et de production]: #MoveDeployments
-[Suppression d’un déploiement]: #DeleteDeployment
-[Création d’un service de stockage]: #CreateStorageService
-[Suppression d’un service de stockage]: #DeleteStorageService
-[Affichage de la liste des systèmes d’exploitation disponibles]: #ListOperatingSystems
-[Création d’une image du système d’exploitation]: #CreateVMImage
-[Suppression d’une image du système d’exploitation]: #DeleteVMImage
-[Création d’une machine virtuelle]: #CreateVM
-[Suppression d’une machine virtuelle]: #DeleteVM
+[How to: Connect to service management]: #Connect
+[How to: List available locations]: #ListAvailableLocations
+[How to: Create a cloud service]: #CreateCloudService
+[How to: Delete a cloud service]: #DeleteCloudService
+[How to: Create a deployment]: #CreateDeployment
+[How to: Update a deployment]: #UpdateDeployment
+[How to: Move deployments between staging and production]: #MoveDeployments
+[How to: Delete a deployment]: #DeleteDeployment
+[How to: Create a storage service]: #CreateStorageService
+[How to: Delete a storage service]: #DeleteStorageService
+[How to: List available operating systems]: #ListOperatingSystems
+[How to: Create an operating system image]: #CreateVMImage
+[How to: Delete an operating system image]: #DeleteVMImage
+[How to: Create a virtual machine]: #CreateVM
+[How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/services/cloud-services/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

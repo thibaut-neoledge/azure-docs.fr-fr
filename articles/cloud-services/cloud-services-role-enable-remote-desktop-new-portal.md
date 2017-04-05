@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ Une fois que le Bureau à distance est activé sur les rôles, vous pouvez initi
 
 4. Cliquez sur **Ouvrir**, puis sur **Connecter** pour démarrer la connexion Bureau à distance.
 
-## <a name="next-steps"></a>Étapes suivantes
+>[!NOTE]
+> Si votre service cloud se trouve derrière un groupe de sécurité réseau (NSG), vous serez peut-être amené à créer une règle pour ouvrir le port **20000**.
 
-[Configurer Cloud Services](cloud-services-how-to-configure.md)
+## <a name="additional-resources"></a>Ressources supplémentaires
 
-
-
-<!--HONumber=Nov16_HO5-->
-
+[Configuration des services cloud](cloud-services-how-to-configure.md)
+[FAQ relatif aux services cloud : Bureau à distance](cloud-services-faq.md#remote-desktop)
 

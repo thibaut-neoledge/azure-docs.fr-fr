@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
-ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: accfd5f0fec69175e584528ff9f6db66402cb89e
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 
-L’agent de machine virtuelle Microsoft Azure (AM Agent) est un processus léger sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Extensions de machine virtuelle permettant la configuration post-déploiement de machines virtuelles, comme l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, les extensions de machine virtuelle ne peuvent pas être exécutées.
+L’agent de machine virtuelle Microsoft Azure (Agent VM) est un processus léger sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Extensions de machine virtuelle permettant la configuration post-déploiement de machines virtuelles, comme l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, les extensions de machine virtuelle ne peuvent pas être exécutées.
 
 Ce document détaille l’installation, la détection et la suppression de l’agent de machine virtuelle Azure.
 
@@ -82,8 +83,3 @@ Lorsque vous vous connectez à une machine virtuelle Windows Azure, le gestionna
 ## <a name="upgrade-the-vm-agent"></a>Mettre à niveau l’agent de machine virtuelle
 
 L’agent de machine virtuelle Azure est automatiquement mis à niveau. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent le dernier agent de machine virtuelle. Les images de machine virtuelle personnalisées doivent être manuellement mises à jour pour inclure le nouvel agent de machine virtuelle.
-
-
-<!--HONumber=Dec16_HO1-->
-
-

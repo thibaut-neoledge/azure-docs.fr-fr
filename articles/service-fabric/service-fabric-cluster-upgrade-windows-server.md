@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ Pour plus d’informations, consultez [Start-ServiceFabricClusterConfigurationUp
 
 #### <a name="cluster-upgrade-workflow"></a>Flux de travail de mise à niveau de cluster
 
-1. Téléchargez la dernière version du package à partir du document [Créer un cluster Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-2. Connectez-vous au cluster à partir d’une machine virtuelle disposant d’un accès administrateur à toutes les machines qui sont répertoriées en tant que nœuds dans le cluster. L’ordinateur sur lequel ce script s’exécute ne doit pas nécessairement faire partie du cluster.
+1. Exécutez Get-ServiceFabricClusterUpgrade à partir d’un des nœuds du cluster et notez la valeur TargetCodeVersion.
+2. Exécutez la commande suivante à partir d’un ordinateur connecté à Internet pour répertorier toutes les versions de mise à niveau compatibles avec la version actuelle et téléchargez le package correspondant à l’aide des liens de téléchargement associés.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Copiez le package téléchargé dans le magasin d’images du cluster.
+3. Connectez-vous au cluster à partir d’une machine virtuelle disposant d’un accès administrateur à toutes les machines qui sont répertoriées en tant que nœuds dans le cluster. L’ordinateur sur lequel ce script est exécuté ne doit pas nécessairement faire partie du cluster.
 
     ```powershell
 
@@ -155,8 +147,9 @@ Pour plus d’informations, consultez [Start-ServiceFabricClusterConfigurationUp
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. Copiez le package téléchargé dans le magasin d’images du cluster.
 
-4. Inscrivez le package copié.
+5. Inscrivez le package copié.
 
     ```powershell
 
@@ -167,7 +160,7 @@ Pour plus d’informations, consultez [Start-ServiceFabricClusterConfigurationUp
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Commencez une mise à niveau de cluster vers une version disponible.
+6. Commencez une mise à niveau de cluster vers une version disponible.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ Pour mettre à niveau la configuration du cluster, exécutez **Start-ServiceFabr
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>Mise à niveau de la configuration du certificat de cluster  
+Le certificat de cluster est utilisé pour l’authentification entre les nœuds du cluster, donc la mise à niveau du certificat doit être effectuée avec prudence, car tout échec empêchera la communication entre les nœuds du cluster.  
+Techniquement, deux options sont prises en charge :  
+
+1. Mise à niveau de certificat unique : le chemin de la mise à niveau est « Certificat A (principal) -> Certificat B (principal) -> Certificat C (principal) ->... ».   
+2. Double mise à niveau de certificat : le chemin de la mise à niveau est « Certificat A -> (principal) -> Certificat A (principal) et B (secondaire) -> Certificat B (principal) -> Certificat B (principal) et C (secondaire) -> Certificat C (principal) ->... ».
 
 
 ## <a name="next-steps"></a>Étapes suivantes

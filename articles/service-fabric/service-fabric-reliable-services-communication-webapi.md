@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,19 +36,13 @@ L'API Web dans Service Fabric est la même API Web ASP.NET que vous connaissez e
 Une application API Web elle-même ne change pas. Elle ne diffère pas des applications API Web que vous avez éventuellement écrites par le passé, et vous devriez pouvoir facilement réutiliser la plupart du code de votre application. Mais si vous avez utilisé un hébergement sur IIS, l’emplacement auquel vous hébergez l’application risque d’être légèrement différent de celui auquel vous êtes habitué. Avant de passer à la partie sur l’hébergement, commençons par la partie la plus connue : l’application API Web.
 
 ## <a name="create-the-application"></a>Création de l'application
-Commencez par créer une application Service Fabric, avec un seul service sans état, dans Visual Studio 2015 :
-
-![Création d'une application Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Commencez par créer une application Service Fabric, avec un seul service sans état, dans Visual Studio 2015.
 
 Vous avez à votre disposition un modèle Visual Studio pour un service sans état utilisant une API Web. Dans ce didacticiel, nous allons créer un projet d’API Web qui donnera le même résultat que si vous aviez sélectionné ce modèle.
 
 Sélectionnez un projet Service sans état vide pour découvrir comment créer un projet d’API Web, ou vous pouvez commencer avec le modèle d’API Web de service sans état et suivre simplement la procédure indiquée.  
 
-![Création d'un service unique sans état](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 La première étape consiste à extraire certains packages NuGet pour l'API Web. Le package que nous voulons utiliser est Microsoft.AspNet.WebApi.OwinSelfHost. Ce package comprend tous les packages d’API Web et les packages *hôtes* nécessaires. Ils auront leur importance plus tard.
-
-![Créer l’API Web à l’aide du Gestionnaire de package NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 Avec les packages installés, vous pouvez commencer à créer la structure de base du projet d’API Web. Si vous avez déjà utilisé des API Web, la structure du projet doit sembler très familière. Commencez par ajouter un répertoire `Controllers` et un contrôleur de valeurs simple :
 
@@ -91,7 +87,7 @@ namespace WebService.Controllers
 
 ```
 
-Ensuite, ajoutez une classe de démarrage à la racine du projet pour inscrire le routage, les formateurs et tout autre programme d’installation de configuration. C'est également depuis cet endroit que l'API Web se connecte à l' *hôte*, ce que nous reverrons ultérieurement. 
+Ensuite, ajoutez une classe de démarrage à la racine du projet pour inscrire le routage, les formateurs et tout autre programme d’installation de configuration. C'est également depuis cet endroit que l'API Web se connecte à l'*hôte*, ce que nous reverrons ultérieurement. 
 
 **Startup.cs**
 
@@ -434,7 +430,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-C’est là que l’*application* API web et l’*hôte* OWIN finissent par se rencontrer. L’hôte (OwinCommunicationListener) reçoit une instance de l *’application* (API Web) via la classe de démarrage. Ensuite, Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
+C’est là que l’*application* API web et l’*hôte* OWIN finissent par se rencontrer. L’hôte (OwinCommunicationListener) reçoit une instance de *l’application* (API Web) via la classe de démarrage. Ensuite, Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
 
 ## <a name="put-it-all-together"></a>Assemblage
 Dans cet exemple, vous n’avez rien à faire dans la méthode `RunAsync()`. Vous pouvez donc tout simplement supprimer cette substitution.
@@ -626,16 +622,12 @@ namespace WebService
 }
 ```
 
-Maintenant que tous les composants sont en place, votre projet doit ressembler à une application API Web type avec des points d’entrée d’API Reliable Services et un hôte OWIN :
-
-![API Web avec des points d’entrée d’API Reliable Services et un hôte OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Maintenant que tous les composants sont en place, votre projet doit ressembler à une application API Web type, avec des points d’entrée d’API Reliable Services et un hôte OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Exécuter et se connecter via un navigateur web
 Si ce n'est déjà fait, [configurez votre environnement de développement](service-fabric-get-started.md).
 
 Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre Événements de diagnostic, un message doit apparaître et indiquer que le serveur web s’est ouvert sur http://localhost:8281/.
-
-![Fenêtre Événements de diagnostic de Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > Si le port a déjà été ouvert par un autre processus sur votre ordinateur, une erreur risque d’apparaître ici. Elle indique que l’écouteur n’a pas pu être ouvert. Dans ce cas, essayez d’utiliser un autre port pour la configuration du point de terminaison dans le fichier ServiceManifest.xml.
@@ -671,10 +663,5 @@ Pour plus d’informations sur la façon de créer des instances d’application
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Débogage de votre application Service Fabric à l’aide de Visual Studio](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

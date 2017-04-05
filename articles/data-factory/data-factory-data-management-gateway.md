@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
-ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -130,28 +130,39 @@ Si vous déplacez le curseur sur les icônes/messages de notification de la barr
 ### <a name="ports-and-firewall"></a>Ports et pare-feu
 Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entreprise**, exécuté sur le routeur central de l’organisation et le **Pare-feu Windows**, configuré en tant que démon sur l’ordinateur local sur lequel la passerelle est installée.  
 
-![Pare-feu](./media/data-factory-data-management-gateway/firewalls.png)
+![Pare-feu](./media/data-factory-data-management-gateway/firewalls2.png)
 
 Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et ports de sortie suivants :
 
 | Noms de domaine | Ports | Description |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Récepteurs du Service Bus Relay sur TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
-| *.servicebus.windows.net |9350-9354, 5671 |Service Bus Relay facultatif sur TCP |
-| *.core.windows.net |443 |HTTPS |
-| *.clouddatahub.net |443 |HTTPS |
-| graph.windows.net |443 |HTTPS |
-| login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |443, 80 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
+| *.core.windows.net |443 |Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)|
+| *frontend.clouddatahub.net |443 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
+
 
 Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Sinon, vous pouvez configurer en conséquence les domaines et les ports sur l’ordinateur de passerelle.
+
+> [!NOTE]
+> 1. Selon votre source/vos récepteurs, vous devrez peut-être ajouter sur liste blanche des domaines supplémentaires et à des ports de sortie dans votre pare-feu d’entreprise/Windows.
+> 2. Pour certaines bases de données Cloud (par exemple : [SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), vous aurez besoin d’ajouter sur liste blanche l’adresse IP de la machine passerelle dans la configuration de pare-feu.
+>
+>
+
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copier des données d’une banque de données source vers une banque de données de récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de l’ordinateur de passerelle, ainsi que sur le magasin de données lui-même. Activer ces règles permet à la passerelle de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
 Par exemple, pour copier à partir d’une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse**, effectuez les opérations suivantes :
 
-* Autorisez le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et le pare-feu d’entreprise
+* Autorisez le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et le pare-feu d’entreprise.
 * Configurez les paramètres de pare-feu du serveur SQL Azure pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste d’adresses IP autorisées.
+
+> [!NOTE]
+> Si votre pare-feu n’autorise pas le port sortant 1433, la passerelle ne sera pas en mesure d’accéder directement à SQL Azure. Dans ce cas, vous pouvez utiliser la [copie intermédiaire](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) vers SQL Azure Database/SQL Azure DW. Dans ce scénario vous auriez uniquement besoin du protocole HTTPS (port 443) pour le déplacement des données.
+>
+>
+
 
 ### <a name="proxy-server-considerations"></a>Considérations relatives aux serveurs proxy
 Si votre environnement de réseau d’entreprise utilise un serveur proxy pour accéder à Internet, configurez la passerelle de gestion des données pour utiliser les bons paramètres de proxy. Vous pouvez définir le proxy lors de la phase initiale de l’enregistrement.
@@ -186,7 +197,7 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 >
 >
 
-### <a name="configure-proxy-server-settings"></a>Configurer les paramètres du serveur proxy 
+### <a name="configure-proxy-server-settings"></a>Configurer les paramètres du serveur proxy
 Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est spécifié dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration diahost.exe.config.  
 
 1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config pour sauvegarder le fichier d’origine.
@@ -211,7 +222,7 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
 
 > [!IMPORTANT]
 > N’oubliez pas de mettre à jour diahost.exe.config **et** diawp.exe.config.  
-     
+
 
 Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -260,12 +271,12 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -off
     ```
 4. Pour la réactiver :
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
@@ -367,8 +378,8 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-        }
-    }
+         }
+     }
     ```
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.  
 
@@ -387,7 +398,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 1. Lancez **Azure PowerShell** en mode administrateur.
 2. Connectez-vous à votre compte Azure en exécutant la commande suivante et en entrant vos informations d’identification Azure.
-    
+
     ```PowerShell
     Login-AzureRmAccount
     ```
@@ -414,7 +425,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Dans Azure PowerShell, accédez au dossier **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+1. Dans Azure PowerShell, accédez au dossier **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Exécutez le script**RegisterGateway.ps1**associé à la variable locale**$Key** comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -435,13 +446,13 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureRmDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureRmDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Répertorier les passerelles à l’aide de PowerShell
-    
+
 ```PowerShell
 Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>Supprimer une passerelle à l’aide de PowerShell
-    
+
 ```PowerShell
 Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```

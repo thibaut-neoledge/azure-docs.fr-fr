@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a1769a522d13926e887e82b8d26b36afb4c80b08
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -63,7 +63,7 @@ Après le basculement du site principal vers l’emplacement secondaire, les mac
 
 4. Si la fonction de chiffrement des données est activée pour le cloud, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur sur le serveur VMM.
 5. Lancez le basculement. Vous pouvez suivre la progression du basculement sur l’onglet **Tâches** .
-6. Si vous avez sélectionné l’option de synchronisation des données avant le basculement, lorsque la synchronisation initiale des données est terminée et que vous êtes prêt à arrêter les machines virtuelles dans Microsoft Azure, cliquez sur **Tâches** > <planned failover job name> **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, laquelle est ensuite démarrée en local.
+6. Si vous avez sélectionné l’option de synchronisation des données avant le basculement, lorsque la synchronisation initiale des données est terminée et que vous êtes prêt à arrêter les machines virtuelles dans Microsoft Azure, cliquez sur **Tâches** nom de la tâche de basculement planifié **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, laquelle est ensuite démarrée en local.
 7. Vous pouvez maintenant vous connecter à la machine virtuelle, afin de vérifier qu’elle fonctionne comme prévu.
 8. Cette dernière présente un état de validation en attente. Cliquez sur **Valider** pour valider le basculement.
 9. Afin de terminer la restauration automatique, cliquez sur **Réplication inverse** pour commencer à protéger la machine virtuelle sur le site principal.

@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/16/2017
+ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: 056968900d8078dfe53948a2da1daa26cb04a713
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -46,8 +46,17 @@ Lors de l’empaquetage d’un conteneur sous Linux, vous pouvez choisir d’uti
 
 Une application Service Fabric peut contenir un ou plusieurs conteneurs, chacun ayant un rôle précis dans la fourniture de la fonctionnalité d’application. Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un générateur [Yeoman](http://yeoman.io/) qui facilite la création de votre application et l’ajout d’une image de conteneur. Nous allons utiliser Yeoman pour créer une application avec un seul conteneur Docker appelé *SimpleContainerApp*. Vous pourrez ajouter d’autres services ultérieurement en modifiant les fichiers du manifeste.
 
+## <a name="install-docker-on-your-development-box"></a>Installer Docker dans votre espace de développement
+
+Exécutez les commandes suivantes pour installer Docker dans votre espace de développement Linux (si vous utilisez l’image Vagrant sur OSX, Docker est déjà installé) :
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
+
 ## <a name="create-the-application"></a>Création de l'application
-1. Dans un terminal, tapez **yo azuresfguest**.
+1. Saisissez `yo azuresfguest` dans un terminal.
 2. Choisissez l’infrastructure **Conteneur** .
 3. Donnez un nom à votre application, par exemple, SimpleContainerApp
 4. Fournissez l’URL de l’image de conteneur à partir d’un référentiel DockerHub. Le paramètre d’image prend la forme [référentiel] / [nom de l’image]
@@ -59,26 +68,30 @@ Une fois que l’application est générée, vous pouvez la déployer vers le cl
 
 1. Connectez-vous au cluster Service Fabric local.
 
-    ```bash
+```bash
     azure servicefabric cluster connect
-    ```
+```
+
 2. Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
 
-    ```bash
+```bash
     ./install.sh
-    ```
+```
+
 3. Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://localhost:19080/Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X).
 4. Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 5. Utilisez le script de désinstallation fourni dans le modèle pour supprimer l’instance de l’application et annuler l’inscription du type d’application.
 
-    ```bash
+```bash
     ./uninstall.sh
-    ```
-Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+```
+
+Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Ajout d’autres services à une application existante
 
 Pour ajouter un autre conteneur à une application déjà créée à l’aide de `yo`, procédez comme suit : 
+
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
 2. Exécutez `yo azuresfguest:AddService`.
 
@@ -180,7 +193,7 @@ Vous pouvez configurer un port d’hôte utilisé pour communiquer avec le conte
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configuration de la découverte et de la communication entre des conteneurs.
-À l’aide de la stratégie `PortBinding`, vous pouvez mapper un port de conteneur à un élément `Endpoint` dans le manifeste de service, comme indiqué dans l’exemple suivant. Le point de terminaison `Endpoint1` peut spécifier un port fixe (par exemple, le port 80). Il peut également ne spécifier aucun port, auquel cas un port aléatoire est sélectionné dans la plage de ports des applications du cluster.
+À l’aide de la stratégie `PortBinding`, vous pouvez mapper un port de conteneur à un élément `Endpoint` dans le manifeste de service. Le point de terminaison `Endpoint1` peut spécifier un port fixe (par exemple, le port 80). Il peut également ne spécifier aucun port, auquel cas un port aléatoire est sélectionné dans la plage de ports des applications du cluster.
 
 Si vous spécifiez un point de terminaison à l’aide de la balise `Endpoint` dans le manifeste de service d’un conteneur invité, Service Fabric peut publier automatiquement ce point de terminaison au Naming Service. D’autres services exécutés dans le cluster peuvent ainsi détecter ce conteneur à l’aide de requêtes REST pour la résolution.
 
@@ -302,5 +315,5 @@ Maintenant que vous avez déployé un service en conteneur, découvrez comment g
 * [Interaction avec les clusters Service Fabric à l’aide de l’interface de ligne de commande Azure](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
 

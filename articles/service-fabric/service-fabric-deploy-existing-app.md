@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -232,7 +232,7 @@ Dans l’exemple fourni précédemment, l’élément `Endpoint` spécifie les p
 En outre, vous pouvez demander à Service Fabric de publier ce point de terminaison auprès du service d’affectation de noms, afin que les autres services puissent découvrir l’adresse du point de terminaison de ce service. Ainsi, vous être en mesure d’assurer la communication entre les services qui sont des exécutables invités.
 L’adresse du point de terminaison publié prend la forme `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` et `PathSuffix` sont des attributs facultatifs. `IPAddressOrFQDN` correspond à l’adresse IP ou au nom de domaine complet du nœud sur lequel est placé cet exécutable. Ce paramètre est calculé pour vous.
 
-Dans l’exemple suivant, une fois que le service est déployé dans Service Fabric Explorer, vous pouvez voir un point de terminaison similaire à `http://10.1.4.92:3000/myapp/` publié pour l’instance de service. S’il s’agit d’un ordinateur local, vous verrez.`http://localhost:3000/myapp/`.
+Dans l’exemple suivant, une fois que le service est déployé dans Service Fabric Explorer, vous pouvez voir un point de terminaison similaire à `http://10.1.4.92:3000/myapp/` publié pour l’instance de service. S’il s’agit d’un ordinateur local, vous verrez`http://localhost:3000/myapp/`.
 
 ```xml
 <Endpoints>
@@ -266,6 +266,11 @@ Dans l’élément `ServiceManifestImport` , vous pouvez spécifier un ou plusie
 Pour les exécutables invités, il est utile de pouvoir consulter les journaux de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur.
 La redirection de la console peut être configurée dans le fichier `ServiceManifest.xml` à l’aide de l’élément `ConsoleRedirection`.
 
+> [!WARNING]
+> N’utilisez jamais la stratégie de redirection de console dans une application déployée dans un environnement de production, car cela peut affecter le basculement de l’application. N’utilisez cette stratégie *que* pour le développement local et à des fins de débogage.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ La redirection de la console peut être configurée dans le fichier `ServiceMani
 Les fichiers journaux sont enregistrés dans un des répertoires de travail du service. Pour déterminer l’emplacement des fichiers, utilisez Service Fabric Explorer afin d’identifier le nœud que le service exécute et le répertoire de travail utilisé. Cette procédure est décrite ultérieurement dans cet article.
 
 ## <a name="deployment"></a>Déploiement
-La dernière étape consiste à déployer votre application. Le script PowerShell ci-dessous indique comment déployer votre application dans le cluster de développement local et comment démarrer un nouveau service Service Fabric.
+La dernière étape consiste à [déployer votre application](service-fabric-deploy-remove-applications.md). Le script PowerShell ci-dessous indique comment déployer votre application dans le cluster de développement local et comment démarrer un nouveau service Service Fabric.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Compressez le package](service-fabric-package-apps.md#compress-a-package) avant de le copier dans le magasin d’images s’il est volumineux ou s’il contient de nombreux fichiers. En savoir plus [ici](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 Plusieurs configurations différentes peuvent être utilisées pour déployer un service Service Fabric. Par exemple, il peut être déployé sous la forme d’une ou de plusieurs instances, ou de manière à ce qu’il existe une seule instance du service sur chaque nœud du cluster Service Fabric.
 
 Le paramètre `InstanceCount` de l’applet de commande `New-ServiceFabricService` permet de spécifier le nombre d’instances du service qui doivent être lancées dans le cluster Service Fabric. Vous pouvez définir la valeur `InstanceCount` selon le type d’application que vous déployez. Les deux scénarios les plus courants sont :
@@ -313,7 +323,7 @@ Le paramètre `InstanceCount` de l’applet de commande `New-ServiceFabricServic
 Cette configuration est utile pour les applications frontales (par exemple, un point de terminaison REST), car les applications clientes doivent simplement « se connecter » à l’un des nœuds du cluster afin d’utiliser le point de terminaison. Cette configuration peut également être utilisée lorsque, par exemple, tous les nœuds du cluster Service Fabric sont connectés à un équilibrage de charge. Le trafic client peut ensuite être distribué au sein du service qui s’exécute sur tous les nœuds du cluster.
 
 ## <a name="check-your-running-application"></a>Vérification de votre application en cours d'exécution
-Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud&1; :
+Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud 1 :
 
 ![Nœud sur lequel le service est en cours d’exécution](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 

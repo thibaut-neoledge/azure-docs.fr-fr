@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 7bec6b07d8e15845f06b20f24414a0e25a955f38
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,10 +71,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
     * Entrez un **Nom d’utilisateur SSH** et, si vous souhaitez que le mot de passe SSH soit le même que le mot de passe administrateur que vous avez spécifié précédemment, cochez la case **Utiliser le même mot de passe que pour la connexion au cluster**. Sinon, fournissez un **MOT DE PASSE** ou une **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l’utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Cliquez sur **Sélectionner** en bas de l’écran pour enregistrer la configuration des informations d’identification.
    
-        Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
-   
-        * [Utilisation de SSH avec Hadoop sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Utilisation de SSH avec Hadoop sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+        Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Pour **Groupe de ressources**, indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionnez un groupe existant.
 
@@ -93,7 +91,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
     Cliquez sur **Suivant**. 
 
-5. Cliquez éventuellement sur **Applications** pour installer les applications qui fonctionnent avec les clusters HDInsight. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Pour plus d’informations, consultez [Installer des applications HDInsight.](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+5. Cliquez éventuellement sur **Applications** pour installer les applications qui fonctionnent avec les clusters HDInsight. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Pour plus d’informations, consultez [Installer des applications HDInsight](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Cliquez sur **Taille de cluster** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.

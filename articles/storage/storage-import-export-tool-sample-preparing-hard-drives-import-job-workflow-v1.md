@@ -1,6 +1,6 @@
 ---
-title: "Exemple de workflow pour préparer des disques durs à un travail d’importation Azure | Microsoft Docs"
-description: "Obtenez la procédure pas à pas relative au processus de préparation des disques à un travail d’importation dans le service Azure Import-Export"
+title: "Exemple de workflow pour préparer des disques durs pour un travail d’importation Azure Import/Export - v1 | Microsoft Docs"
+description: "Obtenez la procédure pas à pas relative au processus de préparation des disques à un travail d’importation dans le service Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -85,7 +85,7 @@ Pour définir les métadonnées pour les fichiers importés, créez un fichier t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -131,38 +131,50 @@ Vous êtes maintenant prêt à exécuter l’outil Azure Import/Export pour pré
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
+## <a name="copy-sessions---first-drive"></a>Session de copie - premier lecteur
+
 Pour le premier disque, exécutez l’outil Azure Import/Export deux fois pour copier les deux répertoires sources :  
+
+**Première session de copie**
   
 ```
-## First copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
+**Deuxième session de copie**
+
 ```  
-## Second copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
+
+## <a name="copy-sessions---second-drive"></a>Session de copie - deuxième lecteur
+ 
+Pour le deuxième disque, exécutez l’outil Azure Import/Export trois fois (une fois pour chaque répertoire source et une fois pour le fichier d’image Blu-Ray™ autonome) :  
   
-Pour le deuxième disque, exécutez l’outil Azure Import/Export trois fois, une fois pour chaque répertoire source et une fois pour le fichier d’image Blu-Ray™ autonome :  
-  
+**Première session de copie** 
+
 ```
-## First copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
   
+**Deuxième session de copie**
+
 ```
-## Second copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```  
   
+**Troisième session de copie**  
+
 ```
-## Third copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
-  
+
+## <a name="copy-session-completion"></a>Fin de la session de copie
+
 Une fois les sessions de copie terminées, vous pouvez déconnecter les deux disques de l’ordinateur de copie et les expédier au centre de données Windows Azure approprié. Vous allez télécharger les deux fichiers journaux, `FirstDrive.jrn` et `SecondDrive.jrn`, lors de la création du travail d’importation dans le [portail de gestion Windows Azure](https://manage.windowsazure.com/).  
   
-## <a name="see-also"></a>Voir aussi  
-[Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference-v1.md) 
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference-v1.md) 
 

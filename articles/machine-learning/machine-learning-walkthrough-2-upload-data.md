@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 2c44b51d9c832116bf77758144725d2ed3f6e422
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c2ab5f5252e1ea1ec51f6c3bd489826c70ff011c
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,13 +37,19 @@ Pour développer un modèle prédictif pour un risque de crédit, nous avons bes
 
 Nous allons utiliser le fichier nommé **german.data**. Téléchargez ce fichier sur votre disque dur.  
 
-Ce jeu de données contient des lignes de 20 variables pour 1 000 candidats à un crédit. Ces 20 variables représentent l’ensemble des caractéristiques du jeu de données (le vecteur de fonctionnalité), qui fournit des caractéristiques permettant d’identifier chaque candidat à un crédit. Une colonne supplémentaire pour chaque ligne représente le risque de crédit calculé de chaque candidat : 700 candidats constituent un faible risque de crédit et 300 un risque élevé.
+Le jeu de données **german.data** contient des lignes de 20 variables pour 1000 candidats à un crédit. Ces 20 variables représentent l’ensemble des caractéristiques du jeu de données (le *vecteur de fonctionnalité*), qui fournit des caractéristiques permettant d’identifier chaque candidat à un crédit. Une colonne supplémentaire pour chaque ligne représente le risque de crédit calculé de chaque candidat : 700 candidats constituent un faible risque de crédit et 300 un risque élevé.
 
 Le site Web UCI fournit une description des attributs du vecteur de fonctionnalité pour ces données. Cela inclut des informations financières, l’historique de crédit, le statut professionnel et des informations personnelles. Une évaluation binaire a été appliquée à chaque candidat, afin d'indiquer s'il constitue un risque de crédit faible ou élevé. 
 
 Nous allons utiliser ces données pour former un modèle d'analyse prédictive. Lorsque nous aurons terminé, notre modèle pourra accepter un vecteur de fonctionnalité pour un nouvel individu et prévoir si celui-ci constitue un risque de crédit faible ou élevé.  
 
-Voici une évolution intéressante. La description du jeu de données précise que classer par erreur une personne comme risque de crédit faible alors qu'elle constitue un risque de crédit élevé est 5 fois plus coûteux pour l'institution financière que commettre l'erreur inverse. Pour intégrer facilement cet avertissement dans notre expérience, il suffit de multiplier par 5 la valeur des entrées représentant une personne constituant un risque de crédit élevé. Ensuite, si le modèle classe par erreur une personne dans la catégorie des risques de crédit faibles, cette erreur sera commise 5 fois, une fois pour chaque doublon. Cela augmentera le coût de cette erreur dans les résultats de formation.  
+Voici une évolution intéressante. Sur le site web UCI, la description du jeu de données détermine les coûts générés par une erreur de classification des risques associés à un crédit accordé.
+Si le modèle prévoit un crédit à haut risque pour une personne qui présente un risque réduit, cela signifie que la classification est erronée.
+Cependant, le fait de prévoir un risque faible pour une personne présentant un risque élevé est cinq fois plus coûteux pour l’institution financière.
+
+Nous voulons donc configurer notre modèle de sorte qu’il considère l’erreur de classification ci-dessus comme étant cinq fois plus coûteuse que l’erreur inverse.
+Il existe une manière assez simple d’y parvenir lorsque nous configurons le modèle de notre exemple, à savoir multiplier par cinq la valeur des entrées représentant une personne qui présente un risque de crédit élevé. Ensuite, si le modèle considère une personne présentant un risque élevé comme ne représentant qu’un faible risque, il reproduit cette erreur cinq fois, une fois par doublon. Cela augmentera le coût de cette erreur dans les résultats de formation.
+
 
 ## <a name="convert-the-dataset-format"></a>Conversion du format du jeu de données
 Le jeu de données d'origine utilise un format séparé par des espaces. Machine Learning Studio fonctionne mieux avec un fichier de valeurs séparées par des virgules (CSV). Nous allons donc convertir le jeu de données en remplaçant les espaces par des virgules.  
@@ -74,7 +81,7 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 
 6. Dans la boîte de dialogue **Charger un nouveau jeu de données**, cliquez sur **Parcourir**, puis recherchez le fichier **german.csv** que vous avez créé.
 
-7. Entrez le nom du jeu de données. Pour les besoins de cette procédure, nous allons l'appeler « Données de carte de crédit allemande UCI ».
+7. Entrez le nom du jeu de données. Pour les besoins de cette procédure, donnez-lui le nom suivant : « Données de carte de crédit allemande UCI ».
 
 8. Pour le type de données, sélectionnez **Fichier CSV générique sans en-tête (.nh.csv)**.
 
@@ -98,9 +105,4 @@ Pour plus d’informations sur l’importation d’autres types de données dans
 [2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png
 [3]: media/machine-learning-walkthrough-2-upload-data/upload-dataset.png
 [4]: media/machine-learning-walkthrough-2-upload-data/dataset-list.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

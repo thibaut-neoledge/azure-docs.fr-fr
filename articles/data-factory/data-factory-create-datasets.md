@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 34148a8fe2fe5b9ebd2ff4a01ff523f7f5a74c67
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -104,7 +105,7 @@ Notez les points suivants :
 
 * Le type est défini sur AzureSQLTable.
 * La propriété de type tableName (propre au type AzureSqlTable) est définie sur MyTable.
-* linkedServiceName fait référence à un service lié de type AzureSqlDatabase. Voir la définition du service lié suivant.
+* linkedServiceName fait référence à un service lié de type AzureSqlDatabase, qui est défini dans l’extrait de code JSON suivant.
 * la fréquence de disponibilité (availability) est définie sur Day et l’intervalle sur 1, ce qui signifie que la tranche est exécutée quotidiennement.  
 
 AzureSqlLinkedService est défini comme suit :
@@ -134,11 +135,11 @@ Comme vous pouvez le voir, le service lié définit comment se connecter à une 
 >
 >
 
-## <a name="a-nametypea-dataset-type"></a><a name="Type"></a> Type du jeu de données
+## <a name="Type"></a> Type du jeu de données
 Les sources de données prises en charge et les types de jeux de données sont alignés. Consultez les rubriques référencées dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir plus d’informations sur les types et la configuration des jeux de données. Par exemple, si vous utilisez des données à partir d’une base de données SQL Azure, cliquez sur Base de données SQL Microsoft Azure dans la liste des magasins de données pris en charge pour afficher des informations détaillées.  
 
-## <a name="a-namestructureadataset-structure"></a><a name="Structure"></a>Structure d'un jeu de données
-La section **structure** définit le schéma du jeu de données. Il contient une collection de noms et types de données de colonnes.  Dans l’exemple suivant, le jeu de données contient trois colonnes : slicetimestamp, projectname et pageviews. Leurs types respectifs sont les suivants : String, String et Decimal.
+## <a name="Structure"></a>Structure d'un jeu de données
+La section **structure** est **facultative** et définit le schéma du jeu de données. Il contient une collection de noms et types de données de colonnes. Utilisez la section structure pour indiquer des informations de type pour les **conversions de type** ou pour effectuer des **mappages de colonnes**. Dans l’exemple suivant, le jeu de données contient les trois colonnes `slicetimestamp`, `projectname` et `pageviews`. Leurs types respectifs sont les suivants : String, String et Decimal.
 
 ```json
 structure:  
@@ -149,7 +150,28 @@ structure:
 ]
 ```
 
-## <a name="a-nameavailabilitya-dataset-availability"></a><a name="Availability"></a> Disponibilité du jeu de données
+Chaque colonne contient les propriétés suivantes :
+
+| Propriété | Description | Requis |
+| --- | --- | --- |
+| name |Nom de la colonne. |Oui |
+| type |Type de données de la colonne.  |Non |
+| culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. La valeur par défaut est « fr-fr ». |Non |
+| format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. |Non |
+
+Suivez les recommandations ci-dessous pour savoir quand inclure les informations de « structure » et pour connaître les éléments à inclure dans la section **structure**.
+
+* **Pour les sources de données structurées** qui stockent le schéma de données et les informations de type, ainsi que les données proprement dites (sources comme des tables Azure, SQL Server, Oracle, etc.), vous devez spécifier la section « structure » uniquement si vous voulez mapper des colonnes source à des colonnes du récepteur et si leurs noms ne sont pas identiques. 
+  
+    Comme les informations de type sont déjà disponibles pour les sources de données structurées, vous ne devez pas les inclure lorsque vous incluez la section « structure ».
+* **Pour un schéma des sources de données de lecture (en particulier les objets blob Azure)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de source de données, incluez « structure » si vous souhaitez mapper les colonnes source aux colonnes du récepteur (ou) si le jeu de données est un jeu de données d’entrée pour une activité de copie et que les types de données du jeu de données source doivent être convertis en types natifs pour le récepteur. 
+    
+    La fabrique de données prend en charge les valeurs de type .NET conformes CLS suivantes pour fournir des informations de type dans la section « structure » du schéma dans les sources de données de lecture telles qu’un objet blob Azure : Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+Data Factory effectue automatiquement les conversions de type lorsque vous déplacez des données d’un magasin de données source vers un magasin de données du récepteur. 
+  
+
+## <a name="Availability"></a> Disponibilité du jeu de données
 La section **availability** (disponibilité) dans un jeu de données définit la fenêtre de traitement (horaire, journalier, hebdomadaire, etc.) ou le modèle de découpage du jeu de données. Pour plus d’informations sur le découpage du jeu de données et le modèle de dépendance, voir [Planification et exécution](data-factory-scheduling-and-execution.md).
 
 La section availability suivante spécifie que le jeu de données de sortie est exécuté toutes les heures (ou) que le jeu de données d’entrée est disponible toutes les heures :
@@ -166,11 +188,11 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 
 | Propriété | Description | Requis | Default |
 | --- | --- | --- | --- |
-| frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/>**Fréquence prise en charge**: minute, heure, jour, semaine, mois |Oui |N/D |
-| interval |Spécifie un multiplicateur de fréquence<br/><br/>«Frequency» et «interval» déterminent la fréquence à laquelle la tranche est produite.<br/><br/>Si vous voulez des tranches de jeu de données d’une heure, définissez **frequency** sur **Hour** et **interval** sur **1**.<br/><br/>**Remarque :** si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle de 15 au minimum |Oui |N/D |
+| frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b>: minute, heure, jour, semaine, mois |Oui |N/D |
+| interval |Spécifie un multiplicateur de fréquence<br/><br/>«Frequency» et «interval» déterminent la fréquence à laquelle la tranche est produite.<br/><br/>Si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/><b>Remarque :</b> si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. |Oui |N/D |
 | style |Spécifie si le segment doit être généré au début / à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si la fréquence est définie sur Month et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.<br/><br/>Si la fréquence est définie sur Day et le style défini sur EndOfInterval, le segment est généré la dernière heure du jour.<br/><br/>Si la fréquence est définie sur Hour et le style défini sur EndOfInterval, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non |EndOfInterval |
-| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>**Remarque :** si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si **interval** est défini sur **hourly** (frequency : hour et interval : 1) et si **AnchorDateTime** contient **minutes et seconds**, les parties **minutes et seconds** de la valeur AnchorDateTime sont ignorées. |Non |01/01/0001 |
-| Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>**Remarque :** si anchorDateTime et offset sont spécifiés, on obtient un décalage combiné. |Non |N/D |
+| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/><b>Remarque :</b> si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si <b>interval</b> est défini sur <b>hourly</b> (frequency : hour et interval : 1) et si <b>AnchorDateTime</b> contient <b>minutes et seconds</b>, les parties <b>minutes et seconds</b> de la valeur AnchorDateTime sont ignorées. |Non |01/01/0001 |
+| Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/><b>Remarque :</b> si anchorDateTime et offset sont spécifiés, un décalage combiné est obtenu. |Non |N/D |
 
 ### <a name="offset-example"></a>exemple offset
 Segments quotidiens qui démarrent à 6h au lieu de minuit, la valeur par défaut.
@@ -220,7 +242,7 @@ Si vous avez besoin d’un jeu de données tous les mois à une date et une heur
 }
 ```
 
-## <a name="a-namepolicyadataset-policy"></a><a name="Policy"></a>Stratégie du jeu de données
+## <a name="Policy"></a>Stratégie du jeu de données
 La section **policy** de la définition du jeu de données définit les critères ou la condition que les segments du jeu de données doivent remplir.
 
 ### <a name="validation-policies"></a>Stratégies de validation
@@ -365,9 +387,4 @@ Vous pouvez créer des jeux de données étendus jusqu’à un pipeline à l’a
     }
 }
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

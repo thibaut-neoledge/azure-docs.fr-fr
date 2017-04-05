@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
-La méthode de routage du trafic géographique vous permet de diriger le trafic vers des points de terminaison spécifiques en fonction de l’emplacement géographique d’où proviennent les demandes. Ce didacticiel vous montre comment créer un profil Traffic Manager avec cette méthode de routage et configurer les points de terminaison pour recevoir le trafic à partir de zones géographiques spécifiques 
+La méthode de routage du trafic géographique vous permet de diriger le trafic vers des points de terminaison spécifiques en fonction de l’emplacement géographique d’où proviennent les demandes. Ce didacticiel vous montre comment créer un profil Traffic Manager avec cette méthode de routage et configurer les points de terminaison pour recevoir le trafic à partir de zones géographiques spécifiques.
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager 
 
@@ -62,8 +62,6 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-
-- En savoir plus sur la [méthode de routage du trafic par pondération](traffic-manager-configure-weighted-routing-method.md).
-- En savoir plus sur la [méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md).
-- Découvrir comment [tester les paramètres de Traffic Manager](traffic-manager-testing-settings.md).
+- Découvrez-en davantage sur la [méthode de routage du trafic géographique](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
+- Découvrez comment [tester les paramètres Traffic Manager](traffic-manager-testing-settings.md).
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 > * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud.
+Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc.
+
+Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>Scénario
 
@@ -47,8 +51,6 @@ Ce scénario va :
 
 > [!IMPORTANT]
 > La configuration supplémentaire de la passerelle Application Gateway, y compris les sondes d’intégrité personnalisées, les adresses de pool principal et les règles supplémentaires sont configurées après avoir configuré la passerelle Application Gateway et non lors du déploiement initial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -70,7 +72,7 @@ Les informations nécessaires pour les paramètres de base sont les suivantes :
 
 * **Nom** -Nom de la passerelle Application Gateway.
 * **Niveau** : il s’agit du niveau de la passerelle d’application. Deux niveaux sont disponibles : **WAF** et **Standard**. WAF active la fonctionnalité de pare-feu d’applications web.
-* **Taille de la référence (SKU)** : taille de la passerelle Application Gateway. Les options disponibles sont **Petit**, **Moyen** et **Grand**. L’option Petit n’est pas disponible lorsque le niveau WAF est sélectionné.
+* **Taille de la référence (SKU)** : taille de la passerelle Application Gateway. Les options disponibles sont **Petit**, **Moyen** et **Grand**. L’option Petit n’est pas disponible lorsque le niveau WAF est sélectionné.
 * **Nombre d’instances** - Nombre d’instances. Cette valeur doit être un nombre compris entre 2 et 10.
 * **Groupe de ressources** - Groupe de ressources destiné à contenir la passerelle Application Gateway. Il peut s’agir d’un groupe de ressources existant ou nouveau.
 * **Emplacement** - Région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cette notion est importante, car le réseau virtuel et l’adresse IP publique doivent se trouver au même emplacement que la passerelle.
@@ -78,7 +80,7 @@ Les informations nécessaires pour les paramètres de base sont les suivantes :
 ![panneau montrant les paramètres de base][2]
 
 > [!NOTE]
-> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à&2; n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
+> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
 > 
 > 
 
@@ -151,19 +153,49 @@ Ces étapes permettent de créer une passerelle Application Gateway de base avec
 
 Une fois la passerelle Application Gateway créée, il reste à y ajouter les systèmes qui hébergent l’application dont la charge doit être équilibrée. Les adresses IP ou les valeurs FQDN de ces serveurs sont ajoutées aux pools d’adresses principaux.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="ip-address-or-fqdn"></a>Adresse IP ou nom de domaine complet
+
+#### <a name="step-1"></a>Étape 1
 
 Cliquez sur la passerelle Application Gateway que vous avez créée, cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel.
 
 ![Pools principaux Application Gateway][11]
 
-### <a name="step-2"></a>Étape 2 :
+#### <a name="step-2"></a>Étape 2
 
-Ajoutez les adresses IP ou les valeurs FQDN dans les zones de texte et cliquez sur **Enregistrer**.
+Cliquez sur **Add Target** (Ajouter cible) pour ajouter des adresses IP ou des valeurs de nom de domaine complet
+
+![Pools principaux Application Gateway][11-1]
+
+#### <a name="step-3"></a>Étape 3
+
+Une fois que vous avez saisi toutes les valeurs associées aux pools principaux, cliquez sur **Enregistrer**
 
 ![Ajouter des valeurs aux pools principaux Application Gateway][12]
 
 Cette opération enregistre les valeurs dans le pool principal. Une fois la passerelle Application Gateway mise à jour, le trafic qui y accède est acheminé vers les adresses principales ajoutées à cette étape.
+
+### <a name="virtual-machine-and-nic"></a>Machine virtuelle et carte d’interface réseau
+
+Vous pouvez également ajouter des cartes d’interface réseau de machine virtuelle en tant que membres de pool principal. Seules les machines virtuelles s’exécutant dans le même réseau virtuel que la passerelle Application Gateway peuvent être sélectionnées.
+
+#### <a name="step-1"></a>Étape 1
+
+Cliquez sur la passerelle Application Gateway que vous avez créée, cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel.
+
+![Pools principaux Application Gateway][11]
+
+#### <a name="step-2"></a>Étape 2
+
+Cliquez sur **Add Target** (Ajouter cible) pour ajouter un nouveau membre de pool principal. Choisissez une machine virtuelle et une carte d’interface réseau dans les listes déroulantes.
+
+![Ajouter des cartes d’interface réseau aux pools principaux Application Gateway][13]
+
+#### <a name="step-3"></a>Étape 3
+
+Lorsque vous avez terminé, cliquez sur **Enregistrer** pour enregistrer les cartes réseau en tant que membres de pool principal.
+
+![Enregistrer les cartes réseau des pools principaux Application Gateway][14]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -187,11 +219,9 @@ Découvrez comment protéger vos applications grâce au [Pare-feu d’applicatio
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

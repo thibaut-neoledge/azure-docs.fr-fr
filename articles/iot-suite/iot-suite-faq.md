@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: ce37bb41babb7bf894c23add994bf2c144ee6549
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 8fa08ca6cefc10c1e1b47a7a498f69aca7de882e
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -47,7 +47,7 @@ La liste des appareils du tableau de bord de la solution utilise une requête po
 * Si vous supprimez le groupe de ressources sur le [portail Azure][lnk-azure-portal], vous supprimez uniquement les ressources de ce groupe de ressources. Vous devez également supprimer l’application Azure Active Directory associée à la solution préconfigurée sur le [Portail Azure Classic][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’IoT Hub puis-je configurer dans un abonnement ?
-Vous pouvez configurer 10 instances IoT Hub par abonnement. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 10 instances IoT Hub par abonnement, comme indiqué dans l’article concernant les [limites d’abonnement Azure][link-azuresublimits]. Par conséquent, étant donné que chaque solution préconfigurée approvisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 solutions préconfigurées au maximum dans un abonnement. 
+Par défaut, vous pouvez configurer [10 instances IoT Hub par abonnement][link-azuresublimits]. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite. Par conséquent, étant donné que chaque solution préconfigurée approvisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 solutions préconfigurées au maximum dans un abonnement. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Combien d’instances de DocumentDB puis-je configurer dans un abonnement ?
 Cinquante. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 50 instances de DocumentDB par abonnement. 

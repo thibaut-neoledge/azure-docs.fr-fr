@@ -1,6 +1,6 @@
 ---
-title: "Réparation d’un travail d’importation Azure | Microsoft Docs"
-description: "Apprenez comment réparer un travail d’importation qui a été créé et exécuté à l’aide du service d’importation/exportation."
+title: "Réparation d’un travail d’importation Azure Import/Export - v1 | Microsoft Docs"
+description: "Apprenez à réparer un travail d’importation qui a été créé et exécuté à l’aide du service Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9403fb0bb16227871388f063e9d0004c7186866e
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -33,7 +33,9 @@ Le service Microsoft Azure Import/Export peut ne pas copier certains de vos fich
   
 Vous pouvez exécuter l’outil Microsoft Azure Import/Export avec les fichiers journaux du travail d’importation. L’outil télécharge alors les fichiers (ou les parties d’un fichier) manquants dans votre compte de stockage Windows Azure pour terminer la tâche d’importation.  
   
-La commande de réparation d’un travail d’importation est **RepairImport**. Les paramètres suivants peuvent être spécifiés :  
+## <a name="repairimport-parameters"></a>Paramètres de RepairImport
+
+Les paramètres suivants peuvent être spécifiés pour **RepairImport** : 
   
 |||  
 |-|-|  
@@ -102,10 +104,11 @@ L’outil écrit ensuite les chemins d’accès de fichier problématique dans `
   
 Après avoir mis les fichiers nécessaires à disposition de l’outil ou après avoir mis à jour le fichier de mappage de chemin d’accès, vous pouvez réexécuter l’outil pour terminer le processus d’importation.  
   
-## <a name="see-also"></a>Voir aussi  
-[Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-[Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)   
-[Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
+ 
+* [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
 

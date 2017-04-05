@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: bd4a38e74ecab47071631f7e67e99c7806abd935
-ms.openlocfilehash: e8f1d55dd374608b49d4189fb47603a6ddaee3dd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,10 +56,10 @@ L’étape suivante de cette procédure pas à pas consiste à créer une expér
 ## <a name="prepare-the-data"></a>Préparation des données
 Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données : pour ce faire, cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et en sélectionnez **Visualiser**.  
 
-Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.*). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l'utilisateur du service d'identifier les colonnes.  
+Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.*). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
 
 Nous pouvons ajouter des en-têtes de colonne en utilisant le module [Modifier les métadonnées][edit-metadata].
-Vous utilisez le module [Modifier les métadonnées][edit-metadata] pour modifier des métadonnées associées à un jeu de données. Dans ce cas, nous l’utiliserons pour fournir des noms plus conviviaux pour les en-têtes de colonne. 
+Vous utilisez le module [Modifier les métadonnées][edit-metadata] pour modifier des métadonnées associées à un jeu de données. Dans ce cas, nous l’utilisons pour fournir des noms plus conviviaux pour les en-têtes de colonne. 
 
 Pour utiliser [Modifier les métadonnées][edit-metadata], vous devez commencer par spécifier les colonnes à modifier (en l’occurrence, toutes). Ensuite, vous spécifiez l’action à effectuer sur ces colonnes (en l’occurrence, la modification de leurs en-têtes).
 
@@ -102,7 +103,8 @@ Pour utiliser [Modifier les métadonnées][edit-metadata], vous devez commencer 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Création de jeux de données d'apprentissage et de test
-L’étape suivante de l’expérience consiste à diviser le jeu de données en deux jeux de données distincts. Nous en utiliserons un pour l’apprentissage de notre modèle et l’autre pour le tester.
+Nous avons besoin de certaines données pour former le modèle et d’autres pour le tester.
+Ainsi, lors de l’étape suivante de l’expérience, nous divisons le jeu de données en deux jeux de données distincts : un pour la formation de notre modèle et l’autre pour le tester.
 
 Pour ce faire, nous utilisons le module [Fractionner les données][split].  
 
@@ -111,7 +113,7 @@ Pour ce faire, nous utilisons le module [Fractionner les données][split].
 2. Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu’une moitié aléatoire des données sort par un port du module [Fractionner les données][split] et l’autre moitié par l’autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire**, pour changer la répartition entre les données d’apprentissage et de test. Pour cet exemple, nous ne changeons rien.
    
    > [!TIP]
-   > La propriété **Fraction de lignes dans le premier jeu de données de sortie** détermine la quantité de données qui est sortie par le port de sortie gauche. Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.  
+   > La propriété **Fraction de lignes dans le premier jeu de données de sortie** détermine la quantité de données qui est sortie par le port de sortie *gauche*. Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.  
    > 
    > 
 
@@ -119,7 +121,7 @@ Pour ce faire, nous utilisons le module [Fractionner les données][split].
 
 Nous pouvons utiliser les sorties du module [Fractionner les données][split] à notre gré, mais choisissons la sortie gauche pour les données d’apprentissage et la sortie droite pour les données de test.  
 
-Comme indiqué précédemment, le coût d’une erreur consistant à classer un crédit à risque élevé comme étant à faible risque est cinq fois plus élevé que celui de l’erreur consistant à classer un crédit à faible risque comme étant à risque élevé. Pour tenir compte de cela, nous générons un nouveau jeu de données qui reflète cette fonction de coût. Dans le nouveau jeu de données, chaque exemple à haut risque est répliqué cinq fois, alors que les exemples à faible risque ne sont pas répliqués.   
+Comme indiqué lors de l’[étape précédente](machine-learning-walkthrough-2-upload-data.md), le coût d’une erreur consistant à classer un crédit à risque élevé comme étant à faible risque est cinq fois plus élevé que celui de l’erreur consistant à classer un crédit à faible risque comme étant à risque élevé. Pour tenir compte de cela, nous générons un nouveau jeu de données qui reflète cette fonction de coût. Dans le nouveau jeu de données, chaque exemple à haut risque est répliqué cinq fois, alors que les exemples à faible risque ne sont pas répliqués.   
 
 Nous pouvons procéder à la réplication en utilisant le code R :  
 
@@ -139,7 +141,7 @@ Nous pouvons procéder à la réplication en utilisant le code R :
 
     ![Script R dans le module Exécuter un script R][9]
 
-Nous devons répéter cette opération de réplication pour chaque sortie du module [Fractionner les données][split] pour que les données d’apprentissage et de test aient le même ajustement des coûts. Pour ce faire, nous dupliquons le module [Exécuter un script R][execute-r-script] que nous venons de créer et nous le connectons à l’autre port de sortie du module [Fractionner les données][split].
+Nous devons répéter cette opération de réplication pour chaque sortie du module [Fractionner les données][split] pour que les données d’apprentissage et de test aient le même ajustement des coûts. Pour ce faire, la manière la plus simple consiste à dupliquer le module [Exécuter un script R][execute-r-script] que nous venons de créer et à le connecter à l’autre port de sortie du module [Fractionner les données][split].
 
 1. Cliquez avec le bouton droit sur le module [Exécuter un script R][execute-r-script] et sélectionnez **Copier**.
 
@@ -178,9 +180,4 @@ Pour plus d’informations sur l'utilisation de scripts R dans vos expériences,
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

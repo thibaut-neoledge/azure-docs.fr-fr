@@ -1,6 +1,6 @@
 ---
 title: "Diagnostic et récupération d’erreur pour les travaux Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment activer la journalisation documentée pour les travaux du service Microsoft Azure Import/Export"
+description: "Découvrez comment activer la journalisation documentée pour les travaux du service Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 88c42ff541aac2e43724fe62f99e3ddea56afc3c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -29,9 +29,11 @@ Pour chaque disque traité, le service Azure Import/Export crée un journal d’
 
  Vous pouvez récupérer l’URI des journaux pour un travail en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). L’URI pour le journal documenté est retourné dans la propriété `VerboseLogUri` pour chaque disque, alors que l’URI pour le journal d’erreurs est retourné dans la propriété `ErrorLogUri`.
 
-Vous pouvez utiliser les données de journalisation pour identifier les problèmes suivants :
+Vous pouvez utiliser les données de journalisation pour identifier les problèmes suivants.
 
-**Erreurs de disque**
+## <a name="drive-errors"></a>Erreurs de disque
+
+Les éléments suivants sont classés comme des erreurs de lecteur :
 
 -   Erreurs d’accès ou de lecture du fichier de manifeste
 
@@ -39,7 +41,9 @@ Vous pouvez utiliser les données de journalisation pour identifier les problèm
 
 -   Erreurs de lecture/écriture sur le disque
 
-**Erreurs d’objet blob**
+## <a name="blob-errors"></a>Erreurs d’objet blob
+
+Les éléments suivants sont classés comme des erreurs d’objet blob :
 
 -   Objet blob ou nom incorrect ou conflictuel
 
@@ -57,6 +61,7 @@ Vous pouvez utiliser les données de journalisation pour identifier les problèm
 
 Il peut arriver que certaines parties d’un travail d’importation ou d’exportation n’aboutisse pas, alors que l’ensemble du travail est terminé. Dans ce cas, vous pouvez charger ou télécharger les parties manquantes des données sur le réseau, ou vous pouvez créer un nouveau travail pour transférer les données. Consultez la [référence sur l’outil Azure Import/Export](storage-import-export-tool-how-to-v1.md) pour découvrir comment corriger les données sur le réseau.
 
-## <a name="see-also"></a>Voir aussi
-[Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Configurer un pare-feu d’applications web - Passerelle Application Gateway Azure | Microsoft Docs"
+title: "Configurer un pare-feu d’applications web : passerelle Application Gateway Azure | Microsoft Docs"
 description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle d’application nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuration d’un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante
+# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-web-application-firewall-portal.md)
@@ -40,7 +41,7 @@ Si vous avez lu la rubrique [Création d’une passerelle Application Gateway av
 
 **SKU** - Une passerelle Application Gateway standard sans WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction de WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. WAF n’est pas pris en charge sur les petites passerelles d’application.
 
-**Niveau** - Les valeurs disponibles sont **Standard** ou **WAF**. Lorsque vous utilisez un pare-feu d’applications web, **WAF** doit être choisi.
+**Niveau** - Les valeurs disponibles sont **Standard** ou **WAF**. Lorsque vous utilisez un pare-feu d’applications web, vous devez choisir **WAF**.
 
 **Mode** - Ce paramètre indique le mode de WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque WAF est configuré en mode de détection, toutes les menaces sont stockées dans un fichier journal. En mode de prévention, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle d’application.
 
@@ -66,7 +67,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
 
 ### <a name="step-3"></a>Étape 3
 
-Récupérez la passerelle à laquelle vous ajoutez un pare-feu d’applications web.
+Récupérez la passerelle à laquelle vous ajoutez un pare-feu d’applications web.
 
 ```powershell
 $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
@@ -98,11 +99,11 @@ Mettez à jour la passerelle d’application avec les paramètres définis à l�
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-Cette commande met à jour la passerelle d’application avec le pare-feu d’applications web. Il est recommandé de consulter la rubrique [Diagnostics Application Gateway](application-gateway-diagnostics.md) pour comprendre comment afficher les journaux de votre passerelle d’application. En raison des critères de sécurité inhérents à WAF, les journaux doivent être régulièrement examinés pour comprendre la politique de sécurité appliquée à vos applications web.
+Cette commande met à jour la passerelle d’application avec le pare-feu d’applications web. Il est recommandé de consulter la rubrique [Diagnostics Application Gateway](application-gateway-diagnostics.md) pour comprendre comment afficher les journaux de votre passerelle d’application. En raison des critères de sécurité inhérents à WAF, les journaux doivent être régulièrement examinés pour comprendre la politique de sécurité appliquée à vos applications web.
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a>Création d’une passerelle Application Gateway avec le pare-feu d’applications web
+## <a name="create-an-application-gateway-with-web-application-firewall"></a>Créer une passerelle Application Gateway avec le pare-feu d’applications web
 
-Les étapes suivantes vous guident tout au long de l’intégralité du processus de création d’une passerelle Application Gateway avec un pare-feu d’applications web.
+Les étapes suivantes vous guident lors du processus de création d’une passerelle Application Gateway avec un pare-feu d’applications web et ce, du début à la fin.
 
 Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -298,6 +299,9 @@ Créez une passerelle Application Gateway avec tous les éléments de configurat
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 
+> [!NOTE]
+> Les passerelles d’application créées avec la configuration de pare-feu d’application web de base sont définies avec la solution CRS 3.0 dédiée aux protections.
+
 ## <a name="get-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
 
 Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle d’application, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle d’application. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour ce faire, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
@@ -330,12 +334,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à configurer la journalisation des diagnostics, à consigner les événements détectés ou bloqués par le pare-feu d’applications web en consultant la rubrique [Diagnostics de la passerelle Application Gateway](application-gateway-diagnostics.md)
+Apprenez à configurer la journalisation des diagnostics et à consigner les événements détectés ou bloqués par le pare-feu d’application web en consultant la rubrique [Diagnostics de la passerelle Application Gateway](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

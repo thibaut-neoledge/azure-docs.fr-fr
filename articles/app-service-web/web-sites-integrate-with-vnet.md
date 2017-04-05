@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -95,7 +95,7 @@ Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de po
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Activation de la connexion point à site dans un réseau virtuel Resource Manager
-Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion point à site, vous devez utiliser PowerShell comme expliqué ici : [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell][V2VNETP2S].  L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. 
+Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion de point à site, vous pouvez utiliser PowerShell comme le décrit la page [Configurer une connexion de point à site à un réseau virtuel avec PowerShell][V2VNETP2S] ou le Portail Azure comme le décrit la page [Configurer une connexion de point à site sur un réseau virtuel avec le Portail Azure][V2VNETPortal].  L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Création d’un réseau virtuel préconfiguré
 Si vous souhaitez créer un réseau virtuel configuré avec une passerelle et connexion point à site, l’interface réseau App Service a la possibilité de le faire, mais uniquement pour un réseau virtuel Resource Manager.  Si vous souhaitez créer un réseau virtuel Classic avec une passerelle et une connexion point à site, vous devez le faire manuellement via l’interface utilisateur de réseau. 
@@ -300,4 +300,5 @@ Outre les différences fonctionnelles, il existe également des différences de 
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 
