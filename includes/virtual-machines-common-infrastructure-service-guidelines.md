@@ -140,7 +140,7 @@ Les disques de système d’exploitation et les disques de données ont une tail
 ### <a name="striped-disks"></a>Disques agrégés par bandes
 Outre la possibilité de créer des disques d’une taille supérieure à 1 023 Go dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
 
-Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Si vous utilisez l’entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
@@ -391,16 +391,11 @@ Cette configuration comprend :
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Tailles de machines virtuelles](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Objectifs de performance et d’extensibilité d’Azure Storage](../articles/storage/storage-scalability-targets.md)
 
 [Diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

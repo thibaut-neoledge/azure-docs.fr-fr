@@ -55,7 +55,7 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 5. Suivez les invites et créez une **application web** et/ou une **API web**.
   * Le **nom** de l’application doit décrire votre application aux utilisateurs.
 
-  * L’ **URL de connexion** est l’URL de base de votre application.  La valeur par défaut de la structure est « http://localhost:3000/auth/openid/return ».
+  * L’ **URL de connexion** est l’URL de base de votre application.  La valeur par défaut de la structure est `http://localhost:3000/auth/openid/return``.
 
 6. Une fois l’application enregistrée, Azure AD lui affecte un ID d’application unique. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
 7. À partir de la page **Paramètres** -> **Propriétés** de votre application, mettez à jour l’URI ID d’application. Un **URI ID d’application** est un identificateur unique pour votre application. La convention consiste à utiliser le format `https://<tenant-domain>/<app-name>`, par exemple : `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -209,8 +209,9 @@ Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Face
 
 6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-```JavaScript
-
+       
+       ```JavaScript
+ 
         // Our Auth routes (section 3)
 
         // GET /auth/openid

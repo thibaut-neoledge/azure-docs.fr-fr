@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Cet exemple de script PowerShell configure la géoréplication active pour une base de données dans un pool élastique et la fait basculer vers le réplica secondaire.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 

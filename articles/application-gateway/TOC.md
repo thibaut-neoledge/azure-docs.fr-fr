@@ -1,13 +1,14 @@
 # Vue d'ensemble
 ## [Présentation de la passerelle Application Gateway](application-gateway-introduction.md)
 ## [FAQ sur Application Gateway](application-gateway-faq.md)
-## [Pare-feu d’application web](application-gateway-webapplicationfirewall-overview.md)
+## [Pare-feu d’application web](application-gateway-web-application-firewall-overview.md)
+### [Règles et ensembles de règles de base](application-gateway-crs-rulegroups-rules.md)
 ## [Surveillance de l’intégrité](application-gateway-probe-overview.md)
 ## [Routage](application-gateway-url-route-overview.md)
 ## [Multi-sites](application-gateway-multi-site-overview.md)
 ## [scénario ssl de bout en bout](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Limites du service](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Limites du service](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Prise en main
 ## Créer une passerelle Application Gateway
 ### Publique
@@ -23,6 +24,8 @@
 ## Configurer le pare-feu d’application web
 ### [Portail](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Personnaliser les règles du pare-feu des applications web
+### [Portail](application-gateway-customize-waf-rules-portal.md)
 ## Configurer le déchargement SSL
 ### [Portail](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

@@ -4,6 +4,7 @@
 ## [Alertes](monitoring-overview-alerts.md)
 ## [Mise à l’échelle automatique](monitoring-overview-autoscale.md)
 ## [Journal d’activité](monitoring-overview-activity-logs.md)
+## [Groupes d’actions](monitoring-action-groups.md)
 ## [Journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)
 ## [Intégrations des partenaires](monitoring-partners.md)
 ## [Azure Diagnostics](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique](insights-autoscale-to-webhook-email.md)
 ## Utiliser le journal d’activité
 ### [Afficher des événements dans le journal d’activité](insights-debugging-with-events.md)
-### [Configurer un webhook sur une alerte de journal d’activité](insights-auditlog-to-webhook-email.md)
+### [Configurer des alertes dans un événement de journal d’activité](monitoring-activity-log-alerts.md)
 ### [Archiver le journal d’activité](monitoring-archive-activity-log.md)
 ### [Diffuser en continu le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md)
+### [Créer des alertes de journal d’activité avec Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Notifications de service
+### [Afficher les notifications de service](monitoring-service-notifications.md)
+### [Configurer des alertes sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md)
+## Groupes d’actions
+### [En savoir plus sur le schéma des webhooks](monitoring-activity-log-alerts-webhook.md)
+### [Comportement des alertes SMS](monitoring-sms-alert-behavior.md)
+### [Limitation du débit des alertes](monitoring-alerts-rate-limiting.md)
+### [Créer des groupes d’actions avec Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Gérer les journaux de diagnostic
 ### [Archive](monitoring-archive-diagnostic-logs.md)
 ### [Flux de concentrateurs d’événements](monitoring-stream-diagnostic-logs-to-event-hubs.md)

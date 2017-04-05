@@ -25,10 +25,11 @@
 
 # Procédure
 ## Déplacer des données
+### [Vue d’ensemble des activités de copie](data-factory-data-movement-activities.md)
 ### [Assistant Data Factory Copy](data-factory-azure-copy-wizard.md)
 #### [Charger 1 To en 15 minutes](data-factory-load-sql-data-warehouse.md)
-### [activité de copie](data-factory-data-movement-activities.md)
-#### [Guide sur les performances et le réglage](data-factory-copy-activity-performance.md)
+### [Guide des performances et réglages](data-factory-copy-activity-performance.md)
+### Connecteurs
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Stockage Blob Azure](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Table web](data-factory-web-table-connector.md)
 ### [Passerelle de gestion de données](data-factory-data-management-gateway.md)
 ### [Déplacer des données entre un emplacement local et le cloud](data-factory-move-data-between-onprem-and-cloud.md)
-### [Mapper les colonnes du jeu de données d’entrée et de sortie](data-factory-map-columns.md)
-### [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md)
 
 ## [Transformer les données](data-factory-data-transformation-activities.md)
 ### [Activité Hive HDInsight](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [Recommandations de produits](data-factory-product-reco-usecase.md)
 ### [Analyse des profils des clients](data-factory-customer-profiling-usecase.md)
 ### [Traiter des jeux de données volumineux à l’aide de Data Factory et Batch](data-factory-data-processing-using-batch.md)
-## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Demander une fonctionnalité](https://feedback.azure.com/forums/270578-azure-data-factory)

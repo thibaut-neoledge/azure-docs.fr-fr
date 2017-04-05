@@ -46,11 +46,12 @@
 ### [Sécurité](best-practices-resource-manager-security.md)
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md)
+### [Attribution de la stratégie du portail](resource-manager-policy-portal.md)
+### [Attribution de la stratégie de script](resource-manager-policy-create-assign.md)
 ### [Stratégies de balises de ressources](resource-manager-policy-tags.md)
 ### [Stratégies de stockage](resource-manager-policy-storage.md)
-### [Stratégies de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Stratégies de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Stratégies de machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Stratégies de machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditer et résoudre les problèmes
 ### [Résoudre les erreurs de déploiement courantes](resource-manager-common-deployment-errors.md)
 ### [Afficher les journaux d’activité](resource-group-audit.md)

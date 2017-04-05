@@ -16,9 +16,9 @@
 ### [Ajouter du code personnalisé avec Azure Functions](logic-apps-azure-functions.md)
 ### [Boucles, étendues et décomposition des données](logic-apps-loops-and-scopes.md)
 ### [Créer des définitions d’application logique](logic-apps-author-definitions.md)
+### [Appeler, déclencher ou imbriquer des applications logiques](logic-apps-http-endpoint.md)
 ### [Créer des API personnalisées pour les applications logiques](logic-apps-create-api-app.md)
 ### [Appeler des API personnalisées pour les applications logiques](logic-apps-custom-hosted-api.md)
-### [Appeler des points de terminaison d’application logique en tant que déclencheurs](logic-apps-http-endpoint.md)
 ### [Gérer les erreurs et exceptions](logic-apps-exception-handling.md)
 ### [Gérer les types de contenu](logic-apps-content-type.md)
 ### [Sécuriser vos applications logiques](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [Intégration d’entreprise X12](logic-apps-enterprise-integration-x12.md)
 ### [Codage X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Décodage X12](logic-apps-enterprise-integration-x12-decode.md)
+### [Récupération d’urgence](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Accès aux données locales
 ### [Se connecter à des données locales](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Exemples, scénarios et procédures pas à pas
 ### [Vue d'ensemble](logic-apps-examples-and-scenarios.md)
+### [Créer un tableau de bord des réseaux sociaux sans serveur](logic-apps-scenario-social-serverless.md)
 ### [Appeler des applications logiques avec Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Ajouter la gestion des erreurs et des exceptions](logic-apps-scenario-error-and-exception-handling.md)
 ### [Traitement B2B](logic-apps-enterprise-integration-b2b.md)

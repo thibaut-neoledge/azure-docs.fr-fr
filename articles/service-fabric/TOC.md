@@ -57,16 +57,19 @@
 #### Prise en main
 ##### [C# sur Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java sur Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Cycle de vie des Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Cycle de vie des Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Collections fiables](service-fabric-reliable-services-reliable-collections.md)
 #### [Utiliser Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configurer](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
 #### [Communiquer avec Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Communication sécurisée avec Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Communication sécurisée avec Reliable Services - C#](service-fabric-reliable-services-secure-communication.md)
+#### [Communication sécurisée avec Reliable Services - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Accès distant au service](service-fabric-reliable-services-communication-remoting.md)
+##### [Communication à distance du service - C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Communication à distance du service - Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Proxy inversé](service-fabric-reverseproxy.md)
 #### [Utilisateurs avancés](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Gérer un cluster à l’aide de l’interface de ligne de commande Azure](service-fabric-azure-cli.md) 
 #### [Sécuriser un cluster](service-fabric-cluster-security.md)
 #### [Récupération d’urgence](service-fabric-disaster-recovery.md)
+#### [Différences de fonctionnalités entre Linux et Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters sur Azure
 #### Créer un cluster sur Azure

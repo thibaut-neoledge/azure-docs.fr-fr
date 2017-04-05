@@ -46,6 +46,9 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Modifier le mot de passe du compte de service Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Activer la Corbeille Active Directory](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Opérations](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md)

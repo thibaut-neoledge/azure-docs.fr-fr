@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -213,7 +213,7 @@ La sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour
 
 **Pour la sauvegarde de machines virtuelles Azure :**
 
-* **Linux**: Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) , à l’exception de CoreOS Linux.  D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
+* **Linux**: Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md) , à l’exception de CoreOS Linux.  D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
 * **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 
 
@@ -222,8 +222,8 @@ Il n’existe aucune limite pour la quantité de données que vous pouvez sauveg
 
 | N° | Système d’exploitation | Taille maximale de la source de données |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 ou version ultérieure |54&400; Go |
-| 2 |Windows 8 ou version ultérieure |54&400; Go |
+| 1 |Windows Server 2012 ou version ultérieure |54 400 Go |
+| 2 |Windows 8 ou version ultérieure |54 400 Go |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1 700 Go |
 | 4 |Windows 7 |1 700 Go |
 
