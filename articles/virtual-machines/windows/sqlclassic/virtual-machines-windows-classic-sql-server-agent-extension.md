@@ -17,15 +17,15 @@ ms.date: 01/18/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca346405590d7caa63a888aa139ab1a6f21e365b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Classic)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classique](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classique](../classic/sql-server-agent-extension.md)
 > 
 >
  
@@ -39,9 +39,9 @@ L’extension Agent IaaS SQL Server prend en charge les tâches d’administrati
 
 | Fonction d’administration | Description |
 | --- | --- |
-| **Sauvegarde automatisée SQL** |Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](virtual-machines-windows-classic-sql-automated-backup.md). |
-| **Mise à jour corrective automatisée SQL** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](virtual-machines-windows-classic-sql-automated-patching.md). |
-| **Intégration du coffre de clés Azure** |Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer Azure Key Vault Integration (Intégration du coffre de clés Azure) pour SQL Server sur des machines virtuelles Azure (Classic)](virtual-machines-windows-classic-ps-sql-keyvault.md). |
+| **Sauvegarde automatisée SQL** |Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](../classic/sql-automated-backup.md). |
+| **Mise à jour corrective automatisée SQL** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](../classic/sql-automated-patching.md). |
+| **Intégration du coffre de clés Azure** |Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer Azure Key Vault Integration (Intégration du coffre de clés Azure) pour SQL Server sur des machines virtuelles Azure (Classic)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Composants requis
 Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votre machine virtuelle :

@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ Vous n’avez pas besoin du kit de développement logiciel (SDK) Azure pour gén
 Des outils et ressources supplémentaires sont disponibles pour l’utilisation de PowerShell dans Visual Studio pour le développement Azure. Consultez [Outils PowerShell pour Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Génération de scripts de publication
-Vous pouvez générer des scripts de publication pour une machine virtuelle qui héberge votre site web lorsque vous créez un projet en suivant [ces instructions](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Vous pouvez également [Générer des scripts de publication pour les applications web dans Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
+Vous pouvez générer des scripts de publication pour une machine virtuelle qui héberge votre site web lorsque vous créez un projet en suivant [ces instructions](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Vous pouvez également [Générer des scripts de publication pour les applications web dans Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts générés par Visual Studio
 Visual Studio génère un dossier au niveau solution appelé **PublishScripts** qui contient deux fichiers Windows PowerShell, un script de publication pour votre machine virtuelle ou votre site web et un module qui contient des fonctions que vous pouvez utiliser dans les scripts. Visual Studio génère également un fichier au format JSON qui spécifie les détails du projet que vous déployez.
@@ -316,7 +317,7 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 | Find-AzureVM |Obtient la machine virtuelle Azure spécifiée. |
 | Format-DevTestMessageWithTime |Indique la date et l’heure avant un message. Cette fonction est conçue pour les messages écrits dans les flux Error et Verbose. |
 | Get-AzureSQLDatabaseConnectionString |Assemble une chaîne de connexion pour se connecter à une base de données SQL Azure. |
-| Get-AzureVMStorage |Renvoie le nom du premier compte de stockage avec le modèle de nom devtest* (non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités. |
+| Get-AzureVMStorage |Renvoie le nom du premier compte de stockage avec le modèle de nom devtest*(non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités. |
 | Get-MSDeployCmd |Renvoie une commande pour exécuter l’outil MsDeploy.exe. |
 | New-AzureVMEnvironment |Recherche ou crée une machine virtuelle dans l’abonnement qui correspond aux valeurs dans le fichier de configuration JSON. |
 | Publish-WebPackage |Utilise MsDeploy.exe et un fichier. zip de package de publication web pour déployer des ressources sur un site web. Cette fonction ne génère aucune sortie. Si l’appel de MSDeploy.exe échoue, la fonction lève une exception. Pour obtenir une sortie plus détaillée, utilisez l’option **-Verbose**. |
@@ -343,9 +344,4 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

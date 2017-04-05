@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 11/18/2016
 ms.author: shigu;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 966d353dd8de46946ff2cdcd1d9cac7cd3e09579
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 8d189256ed4c876859203406cda95ce0be36c96c
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -28,16 +30,16 @@ Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’o
 ## <a name="why-the-rowgroup-size-matters"></a>Importance de la taille de rowgroup
 Dans la mesure où un index columnstore analyse une table en examinant les segments de colonne des rowgroups, l’optimisation du nombre de lignes dans chaque rowgroup améliore les performances de requête. Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
 
-Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx). 
+Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ## <a name="target-size-for-rowgroups"></a>Taille cible des rowgroups
 Pour optimiser les performances de requête, l’objectif est de maximiser le nombre de lignes par rowgroup dans un index columnstore. Un rowgroup peut compter au maximum 1 048 576 lignes. Vous ne devez pas nécessairement avoir le nombre maximal de lignes par rowgroup. Les index columnstore produisent de bonnes performances quand les rowgroups comprennent au moins 100 000 lignes.
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Des rowgroups peuvent être découpés en cours de compression
 
-Pendant un chargement en masse ou une reconstruction d’index columnstore, la mémoire disponible est parfois insuffisante pour compresser toutes les lignes désignées pour chaque rowgroup. Lorsque la mémoire est sollicitée, les index columnstore découpent les rowgroups pour permettre la réussite de la compression dans le columnstore. 
+Pendant un chargement en masse ou une reconstruction d’index columnstore, la mémoire disponible est parfois insuffisante pour compresser toutes les lignes désignées pour chaque rowgroup. Lorsque la mémoire est sollicitée, les index columnstore découpent les rowgroups pour permettre la réussite de la compression dans le columnstore.
 
-Lorsque la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, SQL Data Warehouse génère une erreur. 
+Lorsque la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, SQL Data Warehouse génère une erreur.
 
 Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
@@ -54,18 +56,18 @@ La mémoire maximale requise pour compresser un rowgroup est d’environ
 - \#lignes \* \#colonnes de chaîne courte \* 32 octets +
 - \#colonnes de chaîne longue \* 16 Mo pour le dictionnaire de compression
 
-où les colonnes de chaîne courte utilisent des données de type chaîne <= 32 octets, et les colonnes de chaîne longueur utilisent des données de type chaîne > 32 octets. 
+où les colonnes de chaîne courte utilisent des données de type chaîne <= 32 octets, et les colonnes de chaîne longueur utilisent des données de type chaîne > 32 octets.
 
 Les chaînes longues sont compressés avec une méthode de compression conçue pour la compression de texte. Cette méthode de compression utilise un *dictionnaire* pour stocker les modèles de texte. La taille maximale d’un dictionnaire est de 16 Mo. Il n’y qu’un seul dictionnaire pour chaque colonne de chaîne longue dans le rowgroup.
 
-Pour une présentation détaillée des besoins en mémoire de columnstore, voir la vidéo [Mise à l’échelle d’Azure SQL Data Warehouse : configuration et instructions](https://myignite.microsoft.com/videos/14822). 
+Pour une présentation détaillée des besoins en mémoire de columnstore, voir la vidéo [Mise à l’échelle d’Azure SQL Data Warehouse : configuration et instructions](https://myignite.microsoft.com/videos/14822).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Réduction des besoins en mémoire
 
 Pour réduire les besoins en mémoire pour la compression de rowgroups dans des index columnstore, utilisez les techniques suivantes.
 
 ### <a name="use-fewer-columns"></a>Utiliser moins de colonnes
-Si possible, concevez la table avec moins de colonnes. Quand un rowgroup est compressé dans le columnstore, l’index columnstore compresse chaque segment de colonne séparément. Par conséquent, les besoins en mémoire pour compresser un rowgroup augmentent avec le nombre de colonnes. 
+Si possible, concevez la table avec moins de colonnes. Quand un rowgroup est compressé dans le columnstore, l’index columnstore compresse chaque segment de colonne séparément. Par conséquent, les besoins en mémoire pour compresser un rowgroup augmentent avec le nombre de colonnes.
 
 
 ### <a name="use-fewer-string-columns"></a>Utiliser moins de colonnes de chaîne
@@ -74,13 +76,13 @@ Les colonnes de données de type chaîne nécessitent davantage de mémoire que 
 Besoins en mémoire supplémentaires pour la compression de chaîne :
 
 - Les données de type chaîne comprenant jusqu’à 32 caractères peuvent nécessiter 32 octets supplémentaires par valeur.
-- Les données de type chaîne comprenant plus de 32 caractères sont compressées à l’aide de méthodes de dictionnaire.  Chaque colonne dans le rowgroup peut nécessiter jusqu’à 16 Mo supplémentaires pour créer le dictionnaire. 
+- Les données de type chaîne comprenant plus de 32 caractères sont compressées à l’aide de méthodes de dictionnaire.  Chaque colonne dans le rowgroup peut nécessiter jusqu’à 16 Mo supplémentaires pour créer le dictionnaire.
 
 ### <a name="avoid-over-partitioning"></a>Éviter un partitionnement excessif
 
 Les index columnstore créent un ou plusieurs rowgroups par partition. Dans SQL Data Warehouse, le nombre de partitions augmente rapidement, car les données sont distribuées et chaque distribution est partitionnée. Si la table compte un trop grand nombre de partitions, il n’y a peut-être pas suffisamment de lignes pour remplir les rowgroups. Le manque de lignes ne crée pas de sollicitation de la mémoire lors de la compression, mais a pour effet que les rowgroups ne produisent pas des performances de requête columnstore optimales.
 
-Une autre raison d’éviter un partitionnement excessif est que le chargement des lignes dans un index columnstore sur une table partitionnée entraîne une surcharge de mémoire. Lors d’un chargement, de nombreuses partitions pourraient recevoir les lignes entrantes qui sont conservées en mémoire jusqu’à ce que chaque partition compte suffisamment de lignes pour être compressée. Un trop grand nombre de partitions entraîne une sollicitation supplémentaire de la mémoire. 
+Une autre raison d’éviter un partitionnement excessif est que le chargement des lignes dans un index columnstore sur une table partitionnée entraîne une surcharge de mémoire. Lors d’un chargement, de nombreuses partitions pourraient recevoir les lignes entrantes qui sont conservées en mémoire jusqu’à ce que chaque partition compte suffisamment de lignes pour être compressée. Un trop grand nombre de partitions entraîne une sollicitation supplémentaire de la mémoire.
 
 ### <a name="simplify-the-load-query"></a>Simplifier la requête de chargement
 
@@ -90,14 +92,14 @@ Concevez la requête de chargement pour vous concentrer uniquement sur le charge
 
 ### <a name="adjust-maxdop"></a>Ajuster MAXDOP
 
-Chaque distribution compresse les rowgroups dans le columnstore en parallèle lorsque plusieurs cœurs de processeur sont disponibles par distribution. Le parallélisme requiert des ressources de mémoire supplémentaires, qui peuvent entraîner une sollicitation de la mémoire et un découpage de rowgroup. 
+Chaque distribution compresse les rowgroups dans le columnstore en parallèle lorsque plusieurs cœurs de processeur sont disponibles par distribution. Le parallélisme requiert des ressources de mémoire supplémentaires, qui peuvent entraîner une sollicitation de la mémoire et un découpage de rowgroup.
 
 Pour réduire la sollicitation de la mémoire, vous pouvez utiliser l’indicateur de requête MAXDOP pour forcer l’exécution de l’opération de chargement en mode série au sein de chaque distribution.
 
 ```
-CREATE TABLE MyFactSalesQuota 
+CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota 
+AS SELECT * FROM FactSalesQUota
 OPTION (MAXDOP 1);
 ```
 
@@ -105,7 +107,7 @@ OPTION (MAXDOP 1);
 
 La taille de DWU et la classe de ressources utilisateur déterminent ensemble la quantité de mémoire disponible pour une requête utilisateur. Pour augmenter l’allocation de mémoire pour une requête de chargement, vous pouvez augmenter soit le nombre de DWU, soit la classe de ressources.
 
-- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](sql-data-warehouse-manage-compute-overview.md#scale-performance).
+- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](sql-data-warehouse-manage-compute-overview.md#scale-compute).
 - Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
 Par exemple, sur DWU 100, un utilisateur dans la classe de ressources smallrc peut utiliser 100 Mo de mémoire pour chaque distribution. Pour plus d’informations, voir [Gestion de la concurrence et des charges de travail dans SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
@@ -128,9 +130,4 @@ Pour découvrir d’autres façons d’améliorer les performances dans SQL Data
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
