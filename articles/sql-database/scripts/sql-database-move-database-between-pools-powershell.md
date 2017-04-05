@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Cet exemple de script PowerShell crée deux pools élastiques et déplace une base de données d’un pool élastique vers un autre pool élastique, puis déplace une base de données en dehors d’un pool élastique vers un niveau de performance de base de données unique. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

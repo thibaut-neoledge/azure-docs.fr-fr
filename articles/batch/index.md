@@ -60,7 +60,7 @@ Apprenez à utiliser Batch pour exécuter efficacement des applications de calcu
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Didacticiels
-## [Ajouter des fonctionnalités à une application web](app-service-web-get-started-2.md)
-## [Application ASP.NET avec SQL Database](web-sites-dotnet-get-started.md)
-## [Application Laravel déployée avec MySQL](app-service-web-php-get-started.md)
-## [Application Sails.js avec une base de données NOSQL](app-service-web-nodejs-sails.md)
-## [Application Java avec Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Application Java avec IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Application Django avec MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Concepts
 ## [Fonctionnement d’App Service](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Procédures
 ## Développer votre application    
 ### ASP.NET
-
+#### [Application ASP.NET avec SQL Database](web-sites-dotnet-get-started.md)
 #### [Développer une application ASP.NET Core avec VS Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Application Laravel déployée avec MySQL](app-service-web-php-get-started.md)
 #### [Configurer votre projet PHP](web-sites-php-configure.md)
 #### [Configurer votre multisite WordPress](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Application Sails.js avec une base de données NOSQL](app-service-web-nodejs-sails.md)
 #### [Utiliser io.js](web-sites-nodejs-iojs.md)
 #### [Déboguer une application Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Application Java avec Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Application Java avec IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Utiliser le kit de développement logiciel (SDK) Azure pour Java](java-create-azure-website-using-java-sdk.md)
 #### [Charger une application existante](web-sites-java-add-app.md)
 #### [Débogage distant d’Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Débogage distant d’IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Application Django avec MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Envoyer des courriers électroniques avec SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Migrer à partir d’IIS](web-sites-migration-from-iis-server.md)
 ### [Tester en production](app-service-web-test-in-production-get-start.md)
+### [Ajouter des fonctionnalités à une application web](app-service-web-get-started-2.md)
 
 ## Se connecter à une base de données/des ressources        
 
