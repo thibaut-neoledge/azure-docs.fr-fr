@@ -34,7 +34,6 @@
 ## Gérer
 ### Administrer Recherche Azure
 #### [Portail Azure](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Surveiller l’utilisation et les statistiques](search-monitor-usage.md)
 ### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
@@ -78,10 +77,10 @@
 ## Cours et didacticiels
 ### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ### [Vidéos et didacticiels](search-video-demo-tutorial-list.md)
-### [Github Recherche Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Recherche Azure Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ## Partenaires et communauté
 ### [Modèle de données relationnelles](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Facettes à plusieurs niveaux](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 ### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Github Recherche Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Recherche Azure Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

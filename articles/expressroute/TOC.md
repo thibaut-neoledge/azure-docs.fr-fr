@@ -23,17 +23,11 @@
 ## Créer et modifier une configuration de l’homologation
 ### [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (classique)](expressroute-howto-routing-classic.md)
 ## Lier un réseau virtuel à un circuit ExpressRoute
 ### [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (classique)](expressroute-howto-linkvnet-classic.md)
-## Configurer une passerelle de réseau virtuel pour ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (classique)](expressroute-howto-add-gateway-classic.md)
-## Créer une coexistence de connexions ExpressRoute et Passerelle VPN site à site
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (classique)](expressroute-howto-coexist-classic.md)
+## [Configurer une passerelle de réseau virtuel pour ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Configurer la coexistence de connexions de site à site et ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## [Migrer un circuit d’un déploiement classique vers Resource Manager](expressroute-howto-move-arm.md)
 ## Configurer un routeur pour ExpressRoute
 ### [Configurer un routeur](expressroute-config-samples-routing.md)

@@ -65,6 +65,7 @@
 ### [Prévoir les résultats d’inspections alimentaires](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analyser les journaux des sites web](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Utiliser Caffe pour une formation approfondie](hdinsight-deep-learning-caffe-spark.md)
+### [Utilisation avec le Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Utiliser les bloc-notes Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Noyaux du bloc-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Utiliser des packages externes avec Jupyter à l'aide de commandes magiques de cellules](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Utiliser REST pour installer des applications](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publier des applications HDInsight dans le Marketplace Azure](hdinsight-apps-publish-applications.md)
 ## Sécuriser
+### [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Utiliser le tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Utiliser SSH à partir de Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Utiliser SSH à partir du système d’exploitation Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Limiter l’accès aux données](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Gérer
 ### [Créer des clusters Linux](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Ports de service et de cluster et URI](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migrer vers les outils de développement Resource Manager](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Disponibilité et fiabilité](hdinsight-high-availability-linux.md)
+### [Mettre à niveau le cluster HDInsight](hdinsight-upgrade-cluster.md)
+### [Mise à jour corrective du système d’exploitation pour le cluster HDInsight](hdinsight-os-patching.md)
 ## Résolution des problèmes
 ### [Conseils pour Linux](hdinsight-hadoop-linux-information.md)
 ### [Notes de publication](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Rubriques connexes
 ## Clusters Windows
 ### [Migrer des clusters Windows vers des clusters Linux](hdinsight-migrate-from-windows-to-linux.md)
-### [Démarrer avec Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Démarrer avec Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Démarrer avec HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Exécuter des exemples Hadoop MapReduce](hdinsight-run-samples.md)
-### [Création de clusters Hadoop](hdinsight-provision-clusters.md)
-#### [Utiliser le portail Azure](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Utilisation du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Utiliser l’interface de ligne de commande Microsoft Azure](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Utilisation d'Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Utiliser des modèles Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Utiliser Solr sur les clusters](hdinsight-hadoop-solr-install-linux.md)
 ### [Utiliser Giraph pour traiter des graphiques à grande échelle](hdinsight-hadoop-giraph-install.md)
 ### [Utiliser Oozie pour les flux de travail](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [Utiliser Maven pour créer des applications Java](hdinsight-hbase-build-java-maven.md)
 ### [Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez](hdinsight-debug-tez-ui.md)
 ### [Personnaliser à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md)
-### [Disponibilité et fiabilité](hdinsight-high-availability.md)
 ### [Accéder aux journaux des applications YARN](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Utiliser Apache Phoenix et SQuirrel](hdinsight-hbase-phoenix-squirrel.md)
 ### [Génération de recommandations de films en utilisant Mahout](hdinsight-mahout.md)

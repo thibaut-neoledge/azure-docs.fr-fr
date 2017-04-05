@@ -52,7 +52,7 @@
 ### [État de la réplication AD](log-analytics-ad-replication-status.md)
 ### [Gestion des alertes](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Gestion de la capacité](log-analytics-capacity.md)
+### [Capacité et performances](log-analytics-capacity.md)
 ### [Suivi des modifications](log-analytics-change-tracking.md)
 ### [Conteneurs](log-analytics-containers.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
