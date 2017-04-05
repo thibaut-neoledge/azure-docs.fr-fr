@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Pour créer la machine virtuelle du serveur web, procédez comme suit :
     |**Groupe de ressources**|**Utiliser existant :** sélectionnez *MyRG*|Bien que nous utilisions le même groupe de ressources, comme nous l’avons fait pour le réseau virtuel, les ressources n’ont pas besoin de figurer dans le même groupe de ressources.|
     |**Emplacement**|*Ouest des États-Unis*|L’emplacement doit être le même que celui spécifié à l’étape 5 de la section [Créer un réseau virtuel avec deux sous-réseaux](#create-vnet) de cet article. Les machines virtuelles et les réseaux virtuels auxquels elles se connectent doivent figurer au même emplacement.|
 
-4. Dans le panneau **Choisir une taille**, cliquez sur *DS1_V2 De base*, puis sur **Sélectionner**. Consultez l’article [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour obtenir la liste de toutes les tailles des machines virtuelles Windows prises en charge par Azure.
+4. Dans le panneau **Choisir une taille**, cliquez sur *DS1_V2 De base*, puis sur **Sélectionner**. Consultez l’article [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour obtenir la liste de toutes les tailles des machines virtuelles Windows prises en charge par Azure.
 5. Dans le panneau **Paramètres**, entrez ou sélectionnez les valeurs suivantes et cliquez sur **OK** :
 
     |**Paramètre**|**Valeur**|**Détails**|
@@ -111,7 +111,7 @@ Pour créer la machine virtuelle du serveur web, procédez comme suit :
     |**Sous-réseau**|Sélectionner *Front-end*|Vous pouvez sélectionner n’importe quel sous-réseau figurant dans le réseau virtuel.|
     |**Adresse IP publique**|Accepter la valeur par défaut|Une adresse IP publique vous permet de vous connecter à la machine virtuelle à partir d’Internet. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).|
     |**Groupe de sécurité réseau (pare-feu)**|Accepter la valeur par défaut|Cliquez sur le groupe de sécurité réseau par défaut **(nouveau) MyWebServer-nsg**, le portail créé pour afficher ses paramètres. Dans le panneau **Créer un groupe de sécurité réseau** qui s’ouvre, notez qu’une règle de trafic entrant autorise le trafic TCP/3389 (RDP) depuis n’importe quelle adresse IP source.|
-    |**Toutes les autres valeurs**|Accepter les valeurs par défaut|Pour en savoir plus sur les autres paramètres, consultez l’article [À propos des machines virtuelles](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+    |**Toutes les autres valeurs**|Accepter les valeurs par défaut|Pour en savoir plus sur les autres paramètres, consultez l’article [À propos des machines virtuelles](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 
     Les groupes de sécurité réseau (NSG) vous permettent de créer des règles de trafic entrant et sortant pour le type de trafic réseau qui peut circuler vers et à partir de la machine virtuelle. Par défaut, tout le trafic entrant vers la machine virtuelle est refusé. Vous pouvez ajouter d’autres règles de trafic entrant pour TCP/80 (HTTP) et TCP/443 (HTTPS) pour un serveur web de production. Il n’existe aucune règle pour le trafic sortant car, par défaut, tout le trafic sortant est autorisé. Vous pouvez ajouter ou supprimer des règles pour contrôler le trafic conformément à vos stratégies. Lisez l’article [Groupes de sécurité réseau](virtual-networks-nsg.md) pour en savoir plus sur les groupes de sécurité réseau.
 
@@ -160,7 +160,7 @@ Si vous avez créé un réseau virtuel et deux machines virtuelles, le portail A
 
     ![Contenu du groupe de ressources](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Pour en savoir plus sur les machines virtuelles, les disques et les comptes de stockage, consultez les articles généraux [Machine virtuelle](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disque](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Compte de stockage](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez voir les deux groupes de sécurité réseau par défaut que le portail a créé pour vous. Vous pouvez également voir que le portail a créé deux ressources d’interface réseau. Une carte réseau permet à une machine virtuelle de se connecter à d’autres ressources sur le réseau virtuel. Consultez l’article [Carte réseau](virtual-network-network-interface.md) pour en savoir plus sur les cartes réseau. Le portail a également créé une ressource d’adresse IP publique. Les adresses IP publiques correspondent à un paramètre de configuration d’une ressource d’adresse IP publique. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Pour en savoir plus sur les machines virtuelles, les disques et les comptes de stockage, consultez les articles généraux [Machine virtuelle](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disque](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Compte de stockage](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez voir les deux groupes de sécurité réseau par défaut que le portail a créé pour vous. Vous pouvez également voir que le portail a créé deux ressources d’interface réseau. Une carte réseau permet à une machine virtuelle de se connecter à d’autres ressources sur le réseau virtuel. Consultez l’article [Carte réseau](virtual-network-network-interface.md) pour en savoir plus sur les cartes réseau. Le portail a également créé une ressource d’adresse IP publique. Les adresses IP publiques correspondent à un paramètre de configuration d’une ressource d’adresse IP publique. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Se connecter aux machines virtuelles
 
@@ -252,5 +252,5 @@ Dans cet exercice, vous avez créé un réseau virtuel et deux machines virtuell
 - [Adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Interfaces réseau](virtual-network-network-interface.md)
 - [Groupes de sécurité réseau](virtual-networks-nsg.md)
-- [Machines virtuelles](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Machines virtuelles](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

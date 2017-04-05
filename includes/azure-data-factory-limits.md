@@ -1,4 +1,4 @@
-Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support. 
+Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
 
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
@@ -9,7 +9,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | octets par objet pour les objets pipeline <sup>1</sup> |200 Ko |200 Ko |
 | octets par objet pour les objets jeu de données et service lié <sup>1</sup> |100 Ko |2 000 Ko |
 | Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> |60 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unité de déplacement de données cloud <sup>3</sup> |8 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unité de déplacement de données cloud <sup>3</sup> |32 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |1 000 |MaxInt (32 bits) |
 
 <sup>1</sup> Les objets Pipeline, DataSet et LinkedService correspondent à un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide du service Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
@@ -25,10 +25,4 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | Délai d’expiration des nouvelles tentatives |1 seconde |1 seconde |
 
 ### <a name="web-service-call-limits"></a>Limites d’appels du service web
-Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits). 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).

@@ -129,10 +129,5 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 2. Dans le menu contextuel, choisissez la commande **Arrêter**, ou choisissez **Configurer** pour afficher la page de configuration des machines virtuelles, puis cliquez sur le bouton **Arrêter**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la création de machines virtuelles, consultez les articles [Création d’une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Pour plus d’informations sur la création de machines virtuelles, consultez les articles [Création d’une machine virtuelle exécutant Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

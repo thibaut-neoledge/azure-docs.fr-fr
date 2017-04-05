@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Exigences et principaux aspects de l’homologation de réseaux virtuels :
 * L’homologation concerne deux réseaux virtuels, mais aucune relation transitive n’en découle entre les homologations. Par exemple, si VNetA est homologué avec VNetB et que VNetB est homologué avec VNetC, VNetA n’est *pas* homologué pour VNetC.
 * Vous pouvez homologuer des réseaux virtuels dans deux abonnements, à condition qu’un utilisateur privilégié de chacun de ces abonnements autorise l’homologation et que les abonnements soient associés au même locataire Active Directory.
 * Deux réseaux virtuels peuvent être homologués s’ils sont créés via le modèle de déploiement Resource Manager, ou si l’un est créé via le modèle de déploiement Resource Manager et l’autre via le modèle de déploiement classique. Toutefois, deux réseaux virtuels créés via le modèle de déploiement classique ne peuvent pas être homologués l’un envers l’autre. Lors de l’homologation de réseaux virtuels créés via des modèles de déploiement différents, les réseaux virtuels doivent se trouver dans le *même* abonnement. La possibilité d’homologuer des réseaux virtuels créés via des modèles de déploiement différents qui se trouvent dans des abonnements *différents* est disponible dans la **version préliminaire**. Lisez l’article [Créer une homologation de réseau virtuel à l’aide de PowerShell](virtual-networks-create-vnetpeering-arm-ps.md) pour plus de détails.
-* Si la communication entre les machines virtuelles dans des réseaux virtuels homologués présente des restrictions de bande passante supplémentaires, une bande passante réseau maximale qui dépend de la taille de la machine virtuelle s’applique toujours. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, lisez les articles [Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Linux](../virtual-machines/virtual-machines-linux-sizes.md) sur les tailles de machine virtuelle.
+* Si la communication entre les machines virtuelles dans des réseaux virtuels homologués présente des restrictions de bande passante supplémentaires, une bande passante réseau maximale qui dépend de la taille de la machine virtuelle s’applique toujours. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, lisez les articles [Windows](../virtual-machines/windows/sizes.md) ou [Linux](../virtual-machines/linux/sizes.md) sur les tailles de machine virtuelle.
 
 ![Homologation de réseaux virtuels de base](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Le nombre d’homologations autorisées pour un même réseau virtuel est limit�
 ## <a name="pricing"></a>Tarification
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une homologation de réseau virtuel. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la création d’une homologation de réseau virtuel à l’aide de :
 
 * [Le portail Azure](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Un modèle Azure Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

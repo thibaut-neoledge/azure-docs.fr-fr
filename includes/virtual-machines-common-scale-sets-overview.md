@@ -23,7 +23,7 @@ Pour augmenter ou diminuer le nombre de machines virtuelles dans un jeu de mise 
 
 Si vous redéployez un modèle pour modifier la capacité, vous pouvez définir un modèle beaucoup plus petit incluant uniquement la référence SKU et la capacité mise à jour. Un exemple de cela est indiqué ici : [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Surveillance de votre jeu de mise à l’échelle de machine virtuelle
 Il est actuellement recommandé d’utiliser [Azure Resource Explorer](https://resources.azure.com) pour afficher les jeux de mise à l’échelle de machine virtuelle. Les jeux de mise à l’échelle de machine virtuelle sont des ressources sous Microsoft.Compute, alors, à partir de ce site, vous pouvez les voir en étendant les liens suivants :
@@ -64,7 +64,7 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>jeu de mise à l’échelle de machine virtuelle - Forum aux Questions.
 **Q.** Combien de machines virtuelles peut-il y avoir dans un jeu de mise à l’échelle de machine virtuelle ?
 
-**A.** &100; si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40, étant donné que les images personnalisées sont limitées à un seul compte de stockage lors de la visualisation.
+**A.** 100 si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40, étant donné que les images personnalisées sont limitées à un seul compte de stockage lors de la visualisation.
 
 **Q** Quelles sont les autres limites de ressource qui existent pour les jeux de mise à l’échelle de machine virtuelle ?
 
@@ -115,9 +115,4 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 **Q.** Les jeux de mise à l’échelle de machine virtuelle fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
 **A.** Oui. Un ensemble de mise à l’échelle est un ensemble haute disponibilité implicite avec 3 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les jeux de mise à l’échelle de machine virtuelle peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un jeu de mise à l’échelle est un ensemble de disponibilité unique.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

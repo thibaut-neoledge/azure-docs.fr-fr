@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Toutes les machines virtuelles figurent dans le même réseau privé virtuel et 
 ## <a name="prerequisites"></a>Composants requis
 
 
-* **Clé publique SSH RSA** : lorsque vous déployez par le biais du portail ou de l’un des modèles de démarrage rapide Azure, vous devez fournir une clé publique SSH RSA pour l’authentification sur les machines virtuelles d’Azure Container Service. Pour créer des clés Secure Shell (SSH) RSA, consultez les conseils [OS X et Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Clé publique SSH RSA** : lorsque vous déployez par le biais du portail ou de l’un des modèles de démarrage rapide Azure, vous devez fournir une clé publique SSH RSA pour l’authentification sur les machines virtuelles d’Azure Container Service. Pour créer des clés Secure Shell (SSH) RSA, consultez les conseils [OS X et Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **ID client principal du service et clé secrète** : pour plus d’informations et des conseils, consultez [À propos du principal du service pour un cluster Kubernetes](container-service-kubernetes-service-principal.md).
 

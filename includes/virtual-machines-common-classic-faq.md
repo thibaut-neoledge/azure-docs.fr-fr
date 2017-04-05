@@ -6,7 +6,7 @@ Cet article aborde certaines questions courantes sur les machines virtuelles Azu
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Puis-je migrer mes machines virtuelles créées dans le modèle de déploiement classique vers le nouveau modèle Resource Manager ?
 Oui. Pour obtenir des instructions sur la migration, consultez :
 
-* [Migration d’un modèle de déploiement classique vers Azure Resource Manager à l’aide d’Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+* [Migration d’un modèle de déploiement classique vers Azure Resource Manager à l’aide d’Azure PowerShell](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
 * [Migration d’un modèle de déploiement classique vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
@@ -26,7 +26,7 @@ Dans une région, le réseau Azure actuel est conçu de sorte que les groupes d�
 Les fonctionnalités des groupes d’affinités sont déjà déconseillées dans le modèle de déploiement Azure Resource Manager et sur le portail Azure. Dans le portail Azure classique, nous déconseillons la prise en charge de la création de groupes d’affinités et de la création de ressources de stockage épinglées à un groupe d’affinités. Il est inutile de modifier les services cloud qui utilisent un groupe d’affinités. Toutefois, n’utilisez pas de groupes d’affinités pour les nouveaux services cloud, sauf instruction contraire de la part d’un spécialiste du support Azure.
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
-Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
@@ -40,7 +40,7 @@ Azure prend uniquement en charge les disques durs virtuels fixes au format VHD. 
 Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de première génération, elles ne sont pas tout à fait identiques. Les deux types fournissent un matériel virtualisé, et les disques durs virtuels de format VHD sont compatibles. Cela signifie que vous pouvez les déplacer entre Hyper-V et Azure. Les trois différences principales qui surprennent parfois les utilisateurs d’Hyper-V sont :
 
 * Azure ne fournit pas un accès console à une machine virtuelle. Il n’existe aucun moyen d’accéder à une machine virtuelle avant d’avoir terminé le démarrage.
-* La plupart des [tailles](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de machines virtuelles Azure ne comportent qu’une seule carte réseau virtuelle, ce qui signifie qu’elles ne peuvent donc avoir qu’une seule adresse IP externe. (Dans certains scénarios limités, les tailles A8 et A9 utilisent une deuxième carte réseau pour la communication des applications entre les instances.)
+* La plupart des [tailles](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de machines virtuelles Azure ne comportent qu’une seule carte réseau virtuelle, ce qui signifie qu’elles ne peuvent donc avoir qu’une seule adresse IP externe. (Dans certains scénarios limités, les tailles A8 et A9 utilisent une deuxième carte réseau pour la communication des applications entre les instances.)
 * Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, consultez les articles [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) (Spécifications des machines virtuelles pour Hyper-V) et [Vue d’ensemble de machines virtuelles de Génération 2](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Ces machines virtuelles peuvent-elles utiliser mon infrastructure réseau existante locale ?
@@ -52,14 +52,14 @@ Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appa
 Vous devez vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou une connexion Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
 * [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
-* [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
+* [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
-En cas de problème avec Bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour résoudre le problème.
+En cas de problème avec Bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour résoudre le problème.
 
 Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
 * Dans le portail Azure en version préliminaire, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
-* Consultez l’article [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Consultez l’article [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, consultez l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VMConnect. Azure n’offre pas d’outil similaire car l’accès console à une machine virtuelle n’est pas pris en charge.
@@ -68,7 +68,7 @@ Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VM
 Vous ne devez pas utiliser le disque temporaire (le lecteur D: pour Windows ou /dev/sdb1 pour Linux) pour stocker des données. Ils ne permettent qu’un stockage temporaire, vous risqueriez donc de perdre des données sans pouvoir les récupérer. Cela peut arriver si la machine virtuelle est déplacée vers un autre hôte, après le redimensionnement d’une machine virtuelle, la mise à jour de l’hôte ou une panne matérielle sur l’hôte, par exemple.
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Comment puis-je modifier la lettre de lecteur d’un disque temporaire ?
-Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Comment puis-je mettre à niveau le système d’exploitation invité ?
 Le terme de mise à niveau a généralement pour signification le passage à une version plus récente de votre système d’exploitation tout en conservant le même matériel. Pour les machines virtuelles Azure, le processus de passage à une version plus récente est différent pour Linux et Windows :
@@ -81,7 +81,7 @@ Pour des informations générales sur les outils et processus de migration vers 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Quels sont le nom d’utilisateur et le mot de passe par défaut sur la machine virtuelle ?
 Les images fournies par Azure n’ont pas de nom d’utilisateur et de mot de passe préconfigurés. Lorsque vous créez une machine virtuelle à l’aide de l’une de ces images, vous devez fournir un nom d’utilisateur et un mot de passe que vous utiliserez pour vous connecter à la machine virtuelle.
 
-Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour résoudre le problème.
+Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour résoudre le problème.
 
 Informations supplémentaires :
 
@@ -120,12 +120,12 @@ Pour toute machine virtuelle autonome (c’est-à-dire ne faisant pas partie d�
 
 Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles (en anglais)](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, consultez l’article [Gestion de la disponibilité des machines virtuelles](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, consultez l’article [Gestion de la disponibilité des machines virtuelles](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [À propos de Machines virtuelles Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

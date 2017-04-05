@@ -4,6 +4,7 @@
 # Prise en main
 ## [Déployer un groupe identique dans le portail](virtual-machine-scale-sets-portal-create.md)
 ## [Déployer un groupe identique avec PowerShell ou l’interface de ligne de commande Azure](virtual-machine-scale-sets-create.md)
+## [Déployer une application de mise à l’échelle automatique à l’aide d’un modèle](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Procédure
 ## Planifier et concevoir

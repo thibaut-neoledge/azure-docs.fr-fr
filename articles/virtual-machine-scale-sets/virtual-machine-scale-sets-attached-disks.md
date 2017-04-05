@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Vous pouvez ajouter un disque de données à un groupe de machines virtuelles id
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Des tailles de machine virtuelle différentes présentent des limites différentes sur les nombres de lecteurs associés qu’elles peuvent prendre en charge. Vérifiez la [caractéristique de taille de la machine virtuelle](../virtual-machines/virtual-machines-windows-sizes.md) avant d’ajouter un nouveau disque.
+> Des tailles de machine virtuelle différentes présentent des limites différentes sur les nombres de lecteurs associés qu’elles peuvent prendre en charge. Vérifiez la [caractéristique de taille de la machine virtuelle](../virtual-machines/windows/sizes.md) avant d’ajouter un nouveau disque.
 
 Vous pouvez également ajouter un disque en ajoutant une nouvelle entrée à la propriété _dataDisks_ dans le _storageProfile_ de définition d’un groupe identique et en appliquant la modification. Pour tester, trouvez la définition d’un groupe identique existant dans l’[Explorateur de ressources Azure](https://resources.azure.com/). Sélectionnez _Modifier_ et ajoutez un nouveau disque à la liste des disques de données. Par exemple, à l’aide de l’exemple ci-dessus :
 ```json
@@ -106,10 +107,5 @@ Dans l’implémentation initiale de la prise en charge des disques associés po
 
 La prise en charge du portail Azure pour les disques de données associés dans des groupes identiques est initialement limitée. Selon vos besoins, vous pouvez utiliser des modèles Azure, la CLI, PowerShell, des kits de développement logiciel (SDK) et l’API REST pour gérer les disques associés.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
