@@ -12,15 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
-ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 551b977b90612ddbfa1514a9c2358ebf8179c385
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
+
+### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>La mise à jour de mars 2017 de Microsoft Azure Machine Learning inclut la fonctionnalité suivante :
+
+
+
+* Capacité dédiée pour les travaux du service d’exécution de lot d’Azure Machine Learning
+
+    Le traitement par pool Batch de Machine Learning utilise le [service Azure Batch](../batch/batch-technical-overview.md) pour fournir une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par pool Batch vous permet de créer des pools Azure Batch, dans lesquels vous pouvez soumettre des travaux par lots, en vous assurant qu’ils s’exécutent de manière prévisible.
+
+    Pour en savoir plus, voir [Service Azure Batch pour les travaux Machine Learning](machine-learning-dedicated-capacity-for-bes-jobs.md).
+
+
 ### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>La mise à jour d’août 2016 de Microsoft Azure Machine Learning inclut les fonctionnalités suivantes :
 * Vous pouvez désormais gérer Les services web Machine via le nouveau portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/) qui fournit un emplacement pour gérer tous les aspects de votre service web.    
   * Fournit des [statistiques d’utilisation](machine-learning-manage-new-webservice.md) du service web.
@@ -40,10 +53,5 @@ ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
 * Fournit une nouvelle page de test de service d’exécution de lot avec des exemples de données et un historique des travaux soumis.
 
 En outre, Machine Learning Studio a été mis à jour afin que vous puissiez déployer vers le nouveau modèle de service web ou continuer à déployer vers le modèle de service web classique. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

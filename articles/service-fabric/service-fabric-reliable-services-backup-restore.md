@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ Lors de la restauration à partir d’une chaîne de sauvegarde, comme pour Reli
 Il est important de s’assurer que les données critiques soient sauvegardées et puissent être restaurées. Cela est possible en appelant l’applet de commande **Invoke-ServiceFabricPartitionDataLoss** dans PowerShell, qui peut induire une perte de données dans une partition particulière pour déterminer si les fonctionnalités de sauvegarde et de restauration des données pour votre service fonctionnent comme prévu.  Il est également possible d’appeler par programme une perte de données et de la restaurer à partir de cet événement.
 
 > [!NOTE]
-> Vous trouverez un exemple d’implémentation des fonctionnalités de sauvegarde et de restauration dans l’application de référence web sur Github. Pour plus de détails, voir le service Inventory.Service.
+> Vous pouvez trouver un exemple d’implémentation des fonctionnalités de sauvegarde et de restauration dans l’application de référence web sur GitHub. Pour plus de détails, voir le service Inventory.Service.
 > 
 > 
 

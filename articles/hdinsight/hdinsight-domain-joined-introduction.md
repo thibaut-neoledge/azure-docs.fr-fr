@@ -1,5 +1,5 @@
 ---
-title: "Sécurité Hadoop : clusters HDInsights joints à un domaine (Azure) | Microsoft Docs"
+title: "Sécurité Hadoop : clusters HDInsight joints à un domaine (Azure) | Microsoft Docs"
 description: "Découvrir..."
 services: hdinsight
 documentationcenter: 
@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
-ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -54,10 +56,5 @@ La protection des données est importante pour respecter les exigences de confor
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](hdinsight-domain-joined-configure.md).
 * Pour gérer un cluster HDInsight joint à un domaine, consultez [Gestion de clusters HDInsight joints à un domaine](hdinsight-domain-joined-manage.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour exécuter des requêtes Hive à l’aide de SSH sur des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sur Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

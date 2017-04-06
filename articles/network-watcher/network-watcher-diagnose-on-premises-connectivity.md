@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 03/09/2017
 La passerelle VPN Azure vous permet de créer des solutions hybrides qui répondent aux besoins d’une connexion sécurisée entre votre réseau local et votre réseau virtuel Azure. Vos besoins étant uniques, le choix du périphérique VPN local l’est également. Azure prend actuellement en charge [plusieurs périphériques VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) qui sont validés en permanence en partenariat avec les fournisseurs de périphériques. Passez en revue les paramètres de configuration spécifiques au périphérique avant de configurer votre périphérique VPN local. De même, la passerelle VPN Azure est configurée avec un ensemble de [paramètres IPsec pris en charge](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) qui sont utilisés pour établir des connexions. Actuellement, il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de paramètres IPsec à partir de la passerelle VPN Azure. Pour établir une connexion correcte entre le site et Azure, les paramètres du périphérique VPN local doivent être conformes aux paramètres IPsec prescrits par la passerelle VPN Azure. Dans le cas contraire, vous perdez la connectivité et, jusqu’à maintenant, la résolution de ces problèmes n’est pas simple et plusieurs heures sont généralement nécessaires pour identifier et corriger le problème.
 
 Avec la fonctionnalité de résolution des problèmes d’Azure Network Watcher, vous êtes en mesure de diagnostiquer les problèmes en lien avec vos connexions et votre passerelle. En quelques minutes, vous avez suffisamment d’informations pour prendre une décision éclairée et corriger le problème.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scénario
 
@@ -51,9 +49,9 @@ L’une des étapes critiques de configuration consiste à configurer les param�
 | Méthode d'authentification |Clé prépartagée |Clé prépartagée |
 | Algorithmes de chiffrement |AES256 AES128 3DES |AES256 3DES |
 | Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10&800; secondes |
+| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10 800 secondes |
  
-En tant qu’utilisateur, vous êtes obligé de configurer votre Cisco ASA. Vous trouverez un exemple de configuration sur [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre autres configurations, vous devez également spécifier l’algorithme de hachage. Cisco ASA prend en charge plus [d’algorithmes de hachage et de chiffrement](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que la passerelle VPN Azure. Sans le savoir, vous avez configuré votre Cisco ASA pour qu’il utilise SHA-512 comme algorithme de hachage. Comme cet algorithme n’est pas un algorithme pris en charge pour les connexions basées sur une stratégie, votre connexion VPN ne fonctionne pas.
+En tant qu’utilisateur, vous êtes obligé de configurer votre Cisco ASA. Vous trouverez un exemple de configuration sur [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre autres configurations, vous devez également spécifier l’algorithme de hachage. Cisco ASA prend en charge plus [d’algorithmes de hachage et de chiffrement](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que la passerelle VPN Azure. Sans le savoir, vous avez configuré votre Cisco ASA pour qu’il utilise SHA-512 comme algorithme de hachage. Comme cet algorithme n’est pas un algorithme pris en charge pour les connexions basées sur une stratégie, votre connexion VPN ne fonctionne pas.
 
 Ces problèmes sont difficiles à résoudre et les causes premières sont souvent complexes à déterminer. Dans ce cas, vous pouvez ouvrir un ticket de support pour obtenir de l’aide sur la résolution du problème. Toutefois, l’API de résolution des problèmes d’Azure Network Watcher vous permet d’identifier ces problèmes vous-même. 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -75,7 +75,7 @@ La **Vue d’ensemble** fournit des informations de base sur votre cache, notamm
 
 ### <a name="activity-log"></a>Journal d’activité
 
-Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, voir [Consulter les journaux d’événements et d’audit](../monitoring-and-diagnostics/insights-debugging-with-events.md) et [Auditer les opérations avec Resource Manager](../azure-resource-manager/resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
+Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour en savoir plus sur l’utilisation des journaux d’audit, voir [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
@@ -432,7 +432,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> Les paramètres `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

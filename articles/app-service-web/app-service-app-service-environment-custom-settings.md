@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -51,9 +52,9 @@ L’extrait de code abrégé de modèle Resource Manager suivant indique l’att
 L’attribut **clusterSettings** peut être inclus dans un modèle Resource Manager pour mettre à jour l’environnement App Service.
 
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Utilisation de l’Explorateur de ressources Azure pour mettre à jour un environnement App Service
-Vous pouvez également mettre à jour l’environnement App Service à l’aide de l’ [Explorateur de ressources Azure](https://resources.azure.com).  
+Vous pouvez également mettre à jour l’environnement App Service à l’aide de [l’Explorateur de ressources Azure](https://resources.azure.com).  
 
-1. Dans l’Explorateur de ressources, accédez au nœud de l’environnement App Service (**abonnements** > **resourceGroups** > **fournisseurs** > **Micrososft.Web** > **hostingEnvironments**). Cliquez ensuite sur l’environnement App Service spécifique que vous souhaitez mettre à jour.
+1. Dans l’Explorateur de ressources, accédez au nœud de l’environnement App Service (**abonnements** > **resourceGroups** > **fournisseurs** > **Microsoft.Web** > **hostingEnvironments**). Cliquez ensuite sur l’environnement App Service spécifique que vous souhaitez mettre à jour.
 2. Dans le volet de droite, cliquez sur **Lecture/écriture** dans la barre d’outils du haut pour autoriser la modification interactive dans l’Explorateur de ressources.  
 3. Cliquez sur le bouton bleu **Modifier** pour permettre la modification du modèle Resource Manager.
 4. Faites défiler jusqu'au bas du panneau de droite. L’attribut **clusterSettings** , dont vous pouvez entrer ou mettre à jour la valeur, se trouve tout en bas.
@@ -96,9 +97,4 @@ Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont l
 <!-- LINKS -->
 
 <!-- IMAGES -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

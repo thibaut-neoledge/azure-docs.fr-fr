@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -52,7 +52,7 @@ Pour une base de données unique, les limites d’une base de données sont déf
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Les clients utilisant les niveaux de performances P11 et P15 peuvent utiliser jusqu’à 4 To de stockage inclus sans frais supplémentaires. Cette option de 4 To est actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Pour connaître les limitations actuelles, consultez [Limitations 4 To actuelles](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Les clients utilisant les niveaux de performances P11 et P15 peuvent utiliser jusqu’à 4 To de stockage inclus sans frais supplémentaires. Cette option de 4 To est actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada.
 >
 
 ### <a name="elastic-pools"></a>Pools élastiques
@@ -70,7 +70,7 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 | DTU par serveur |45000 |45000 DTU sont autorisés par serveur sur des serveurs V12 pour l’approvisionnement des bases de données autonomes et des pools élastiques. Le nombre total de bases de données autonomes et de pools autorisé par serveur est uniquement limité par le nombre de DTU par serveur.  
 
 > [!IMPORTANT]
-> La fonctionnalité Automatiser l’exportation Azure SQL Database est maintenant disponible en version préliminaire et sera supprimée le 1er mars 2017. À partir du 1er décembre 2016, vous ne pourrez plus configurer l’exportation automatisée sur une base de données SQL. Tous vos travaux d’exportation automatisée existants continueront à fonctionner jusqu’au 1er mars 2017. Après le 1er décembre 2016, vous pouvez utiliser [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md) ou [Azure Automation](../automation/automation-intro.md) pour archiver des bases de données SQL régulièrement à l’aide de PowerShell en fonction d’une planification de votre choix. Pour obtenir un exemple de script, vous pouvez télécharger [l’exemple de script sur GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> La fonctionnalité Automatiser l’exportation Azure SQL Database est maintenant disponible en version préliminaire et sera supprimée le 1er mars 2017. À partir du 1er décembre 2016, vous ne pourrez plus configurer l’exportation automatisée sur une base de données SQL. Tous vos travaux d’exportation automatisée existants continueront à fonctionner jusqu’au 1er mars 2017. Après le 1er décembre 2016, vous pouvez utiliser [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md) ou [Azure Automation](../automation/automation-intro.md) pour archiver des bases de données SQL régulièrement à l’aide de PowerShell en fonction d’une planification de votre choix. Pour obtenir un exemple de script, vous pouvez télécharger [l’exemple de script sur GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
 >
 
 
@@ -80,5 +80,4 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 [Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
-
 

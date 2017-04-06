@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d94e633273ef298079673c100c6edbf95dc3c96d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -34,12 +34,9 @@ Les clusters HDInsight fournissent un ensemble d’exemples MapReduce pour vous 
 * **Cluster HDInsight sur Linux**: consultez la rubrique [Prise en main de Hadoop avec Hive dans HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* **Client SSH**: pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
-  
-  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Client SSH** : pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS XH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-samples"></a>Exemples disponibles
 **Emplacement** : les exemples se trouvent sur le cluster HDInsight sous **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
@@ -77,10 +74,8 @@ Les clusters HDInsight fournissent un ensemble d’exemples MapReduce pour vous 
 > 
 
 ## <a name="how-to-run-the-samples"></a>Exécution des exemples
-1. Connectez-vous à HDInsight à l’aide de SSH comme décrit dans les articles suivants :
-   
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Connectez-vous à HDInsight à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. À l’invite `username@#######:~$` , utilisez la commande suivante pour répertorier les exemples :
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -177,7 +172,7 @@ Utilisez la commande suivante pour exécuter cet exemple : Il utilise 16 mappa
 
 La valeur retournée doit être semblable à **3,14159155000000000000**. Pour référence, voici les 10 chiffres de Pi après la virgule : 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort de&10; Go
+## <a name="10gb-greysort"></a>Greysort de 10 Go
 Un GraySort est un tri de benchmark dont la mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
 
 Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/) .

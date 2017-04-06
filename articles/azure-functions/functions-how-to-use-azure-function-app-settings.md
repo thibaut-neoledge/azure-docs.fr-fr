@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
-ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -32,7 +32,7 @@ Vous pouvez gérer les paramètres d’application Azure Functions en cliquant s
 
 ## <a name="develop"></a>Développement
 ### <a name="app-service-editor"></a>Éditeur App Service
-L’éditeur App Service est un éditeur avancé intégré au portail. Vous pouvez l’utiliser pour modifier les fichiers de configuration Json et les fichiers de code. L’activation de cette option entraîne l’ouverture d’un onglet distinct du navigateur avec un éditeur de base. Vous pouvez ainsi l’intégrer à Github, exécuter et déboguer du code et modifiez les paramètres de Function App.
+L’éditeur App Service est un éditeur avancé intégré au portail. Vous pouvez l’utiliser pour modifier les fichiers de configuration Json et les fichiers de code. L’activation de cette option entraîne l’ouverture d’un onglet distinct du navigateur avec un éditeur de base. Vous pouvez ainsi l’intégrer à GitHub, exécuter et déboguer du code et modifier les paramètres de Function App.
 
 ![L’éditeur App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 

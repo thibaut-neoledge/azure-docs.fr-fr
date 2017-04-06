@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Utilisation d’Apache Spark avec Kafka (version préliminaire) sur HDInsight
@@ -32,11 +34,7 @@ Apache Spark peut être utilisé pour diffuser en continu des données dans ou e
 
 * Un abonnement Azure
 
-* Un client SSH (vous aurez besoin des commandes `ssh` et `scp`) - Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les documents suivants :
-
-    * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Un client SSH (vous avez besoin des commandes `ssh` et `scp`) : pour plus d’informations, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/) : un utilitaire interplateforme pour effectuer des requêtes HTTP.
 
@@ -116,7 +114,7 @@ Le code du bloc-notes effectue les tâches suivantes :
 
 Chaque cellule du projet contient des commentaires ou une section de texte qui explique ce que fait le code.
 
-##<a name="a-idkafkahostsakafka-host-information"></a><a id="kafkahosts"></a>Informations sur l’hôte Kafka
+##<a id="kafkahosts"></a>Informations sur l’hôte Kafka
 
 La première chose à faire lorsque vous créez une application qui fonctionne avec Kafka sur HDInsight consiste à obtenir les informations sur le répartiteur Kafka et l’hôte Zookeeper pour le cluster Kafka. Ces informations sont utilisées par les applications clientes pour communiquer avec Kafka.
 
@@ -183,10 +181,5 @@ Dans ce document, vous avez appris à utiliser Spark pour lire et écrire dans K
 * [Prise en main d’Apache Kafka sur HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Utilisation de MirrorMaker pour créer un réplica de Kafka sur HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Utilisation d’Apache Storm avec Kafka sur HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

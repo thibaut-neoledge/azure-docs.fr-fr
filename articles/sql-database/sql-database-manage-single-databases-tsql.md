@@ -16,14 +16,15 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 38c53d6f1a2635afbba199e6f0a2adb23abb6a3a
-ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 951c88124219a6962f655b91275aec64c716b1cd
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="create-and-manage-single-azure-sql-databases-with-transact-sql"></a>Créer et gérer des bases de données SQL Azure uniques avec Transact-SQL
 
-Vous pouvez créer et gérer des bases de données SQL Azure uniques avec le [Portail Azure](https://portal.azure.com/), PowerShell, Transact-SQL, l’API REST ou C#. Cette rubrique porte sur l’utilisation du Portail Azure. Pour PowerShell, consultez la page [Créer et gérer des bases de données uniques avec PowerShell](sql-database-manage-single-databases-powershell.md). Pour Transact-SQL, consultez la page [Créer et gérer des bases de données uniques avec Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+Vous pouvez créer et gérer des bases de données SQL Azure uniques avec le [Portail Azure](https://portal.azure.com/), PowerShell, Transact-SQL, l’API REST ou C#. Cette rubrique porte sur l’utilisation du Portail Azure. Pour PowerShell, consultez la page [Créer et gérer des bases de données uniques avec PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). Pour Transact-SQL, consultez la page [Créer et gérer des bases de données uniques avec Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## <a name="create-an-azure-sql-database-using-transact-sql-in-sql-server-management-studio"></a>Création d’une base de données SQL Azure à l’aide de Transact-SQL dans SQL Server Management Studio
 
@@ -53,9 +54,4 @@ Modifier la taille maximale de votre base de données avec [Transact-SQL (T-SQL)
 * Pour découvrir comment effectuer des tâches de gestion à l’aide de SQL Server Management Studio, consultez [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Pour plus d’informations sur le service Base de données SQL, consultez [Présentation de la base de données SQL](sql-database-technical-overview.md). 
 * Pour plus d’informations sur les serveurs Azure Database et les fonctionnalités des bases de données, consultez [Fonctionnalités](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Création de règles d’alerte dans OMS Log Analytics | Microsoft Docs"
+title: "Création d’alertes dans OMS Log Analytics | Microsoft Docs"
 description: "Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 03/23/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: 9778c79ca887e154ad2796ce5d90d953643b8067
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-the-oms-portal"></a>Créer et gérer des règles d’alerte dans Log Analytics à l’aide du portail OMS
-Les [alertes dans Log Analytics](log-analytics-alerts.md) sont créées par des règles d’alerte, qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
+# <a name="working-with-alert-rules-in-log-analytics"></a>Utilisation des règles d’alerte dans Log Analytics
+Les alertes sont créées par des règles dédiées, qui exécutent automatiquement des recherches de journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
 
 Cet article décrit les processus permettant de créer et de modifier des règles d’alerte à l’aide du portail OMS.  Pour plus d’informations sur les différents paramètres et sur l’implémentation de la logique requise, consultez l’article [Understanding alerts in Log Analytics (Présentation des alertes dans Log Analytics)](log-analytics-alerts.md).
 
@@ -79,23 +78,37 @@ Retourne les enregistrements qui sont évalués pour déterminer si des alertes 
 
 Quand vous fournissez la fenêtre de temps de règle d’alerte, le nombre d’enregistrements qui satisfont aux critères de recherche pour cette fenêtre s’affiche.  Cela peut vous aider à déterminer la fréquence correspondant au nombre de résultats attendus.
 
-#### <a name="threshold"></a>Seuil
-
-| Propriété | Description |
-|:--- |:---|
-| Nombre de résultats |Une alerte est créée si le nombre d’enregistrements retournés par la requête est **supérieur** ou **inférieur** à la valeur que vous indiquez.  |
-
-### <a name="alert-frequency"></a>Fréquence des alertes
+### <a name="schedule"></a>Planification
 Définit la fréquence d’exécution de la requête de recherche.
 
 | Propriété | Description |
 |:--- |:---|
 | Fréquence des alertes | Spécifie la fréquence à laquelle la requête doit être exécutée. Peut être toute valeur comprise entre 5 minutes et 24 heures. La valeur doit être égale ou inférieure à la fenêtre de temps.  Si la valeur est supérieure à celle de la fenêtre de temps, vous risquez de manquer des enregistrements.<br><br>Par exemple, imaginons une fenêtre de temps de 30 minutes associée à une fréquence de 60 minutes.  Si la requête est exécutée à 13 h, les enregistrements entre 12 h 30 et 13 h sont renvoyés.  La requête s’exécute ensuite à 14 h, moment auquel elle renvoie les enregistrements entre 13 h 30 et 14 h.  Les enregistrements créés entre 13 h et 13 h 30 ne seront jamais analysés. |
+
+
+### <a name="generate-alert-based-on"></a>Générer l’alerte selon
+Définit les critères à évaluer dans les résultats de la requête de recherche pour déterminer si une alerte doit être créée.  Ces détails sont différents selon le type de règle d’alerte que vous sélectionnez.  Vous pouvez obtenir des détails correspondant aux différents types de règle d’alerte dans [Vue d’ensemble des alertes dans Log Analytics](log-analytics-alerts.md).
+
+| Propriété | Description |
+|:--- |:---|
 | Supprimer les alertes | Quand vous activez la suppression de la règle d’alerte, les actions correspondant à la règle sont désactivées pour une durée définie quand une alerte est créée. La règle est toujours en cours d’exécution et crée des enregistrements d’alerte si les critères sont satisfaits. Cette option vous donne le temps de résoudre le problème sans exécuter des actions en double. |
 
+#### <a name="number-of-results-alert-rules"></a>Règles d’alerte Nombre de résultats
+
+| Propriété | Description |
+|:--- |:---|
+| Nombre de résultats |Une alerte est créée si le nombre d’enregistrements retournés par la requête est **supérieur** ou **inférieur** à la valeur que vous indiquez.  |
+
+#### <a name="metric-measurement-alert-rules"></a>Règles d’alerte Mesure métrique
+
+| Propriété | Description |
+|:--- |:---|
+| Valeur de l’agrégat | Valeur de seuil que chaque valeur d’agrégat indiquée dans les résultats doit excéder pour être considérée comme une violation. |
+| Déclencher l’alerte selon | Nombre de violations pour qu’une alerte soit créée.  Vous pouvez spécifier **Nombre total de violations** pour obtenir toutes les combinaisons de violations dans les résultats ou **Violations consécutives** pour exiger que les violations aient lieu dans des échantillons consécutifs. |
 
 ### <a name="actions"></a>Actions
-Les règles d’alerte créent toujours un [enregistrement d’alerte](#alert-records) lorsque le seuil est atteint.  Vous pouvez également définir une ou plusieurs actions à exécuter, par exemple l’envoi d’un e-mail ou le démarrage d’un runbook.  Pour plus d’informations sur la configuration des actions, consultez l’article [Adding actions to alert rules in Log Analytics (Ajout d’actions aux règles d’alerte dans Log Analytics)](log-analytics-alerts-actions.md). 
+Les règles d’alerte créent toujours un [enregistrement d’alerte](#alert-records) lorsque le seuil est atteint.  Vous pouvez également définir une ou plusieurs réponses à exécuter, par exemple l’envoi d’un e-mail ou le démarrage d’un runbook.
+
 
 
 #### <a name="email-actions"></a>Actions de messagerie
@@ -115,7 +128,7 @@ Les actions de webhook permettent d’appeler un processus externe par le biais 
 | webhook |Spécifiez **Oui** si vous souhaitez appeler un webhook quand l’alerte est déclenchée. |
 | URL du webhook |URL du webhook. |
 | Inclure la charge utile JSON personnalisée |Sélectionnez cette option si vous souhaitez remplacer la charge utile par défaut par une charge utile personnalisée. |
-| Entrez votre charge utile JSON personnalisée |Charge utile personnalisée à envoyer au webhook.  |
+| Entrez votre charge utile JSON personnalisée |Charge utile personnalisée pour le webhook.  Pour plus d’informations, consultez la section précédente. |
 
 #### <a name="runbook-actions"></a>Actions de runbook
 Les actions de runbook démarrent un runbook dans Azure Automation. 

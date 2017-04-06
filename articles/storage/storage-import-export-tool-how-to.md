@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de l’outil Azure Import/Export - v1 | Microsoft Docs"
-description: "Découvrez comment utiliser l’outil Import/Export pour préparer les disques durs pour un travail d’importation, pour réparer un travail d’importation ou pour réparer un travail d’exportation."
+title: "Utilisation de l’outil Azure Import/Export | Microsoft Docs"
+description: "Découvrez comment utiliser l’outil d’importation/exportation pour préparer les disques durs pour un travail d’importation, réparer un travail d’importation ou un travail d’exportation."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: ca2d4bf2b1e1cb56910fa3ee7af6e45b6b77b450
-ms.openlocfilehash: 7c628022a6de01de50f50256bd2ea0cdba2c2555
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,10 +35,8 @@ Dans ces articles, vous allez apprendre à utiliser l’outil pour effectuer les
 - Vérifier l’état d’un travail avec les fichiers journaux de copie. 
 - Réparer un travail d’importation. 
 - Réparer un travail d’exportation. 
-- Résoudre les problèmes de l’outil Azure Import/Export, au cas où vous avez rencontré un problème lors d’un processus. 
+- Résoudre les problèmes de l’outil Azure Import/Export, au cas où vous rencontrez un problème lors d’un processus. 
 
+## <a name="next-steps"></a>Étapes suivantes
 
-
-<!--HONumber=Dec16_HO3-->
-
-
+* [Configuration de l’outil WAImportExport](storage-import-export-tool-setup.md)

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: cc095b419eae7e85590cdd323a5cf3809c45452e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8c4c8db3cf57537dd77d33b3ded2dc24167f511f
+ms.lasthandoff: 03/25/2017
 
 ---
 
@@ -67,17 +67,29 @@ Pour contourner ce problème, nous vous recommandons d’utiliser une redirectio
 
 La prise en charge complète des domaines nus dans Traffic Manager est suivie dans notre backlog de fonctionnalités. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [votant pour celle-ci sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
+### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager considère-t-il l’adresse de sous-réseau client lors du traitement des requêtes DNS ? 
+Non, pour l’heure Traffic Manager considère uniquement l’adresse IP source de la requête DNS qu’il reçoit, en général l’adresse IP du programme de résolution DNS, lorsque vous effectuez des recherches pour les méthodes de routage géographique et basé sur les performances.  
+Plus précisément, [RFC 7871 – Sous-réseau client dans les requêtes DNS](https://tools.ietf.org/html/rfc7871) qui fournit un [mécanisme d’extension pour DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) qui peut passer l’adresse du sous-réseau du client à partir de programmes de résolution qui le prennent en charge à des serveurs DNS n’est actuellement pas pris en charge dans Traffic Manager. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking).
+
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Méthode de routage du trafic « Geographic » (Géographique) de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage géographique est utile ? 
-Le type de routage géographique peut être utilisé dans les scénarios dans lesquels un client Azure doit distinguer ses utilisateurs en fonction de régions géographiques. Par exemple, les utilisateurs de régions spécifiques se voient attribuer une expérience utilisateur différente de ceux provenant d’autres régions. Un autre exemple est le respect des mandats de souveraineté de données locales qui nécessitent que les utilisateurs d’une région spécifique soient servis uniquement par les points de terminaison existant dans cette région.
+Le type de routage géographique peut être utilisé dans les scénarios dans lesquels un client Azure doit distinguer ses utilisateurs en fonction de régions géographiques. Par exemple, à l’aide de la méthode de routage de trafic géographique, vous pouvez attribuer une expérience utilisateur différente en fonction de la région. Un autre exemple est le respect des mandats de souveraineté de données locales qui nécessitent que les utilisateurs d’une région spécifique soient servis uniquement par les points de terminaison existant dans cette région.
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quelles sont les régions prises en charge par Traffic Manager pour le routage géographique ? 
 La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Si cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Comment Traffic Manager détermine-t-il l’emplacement à partir duquel un utilisateur exécute une requête ? 
 Traffic Manager examine l’adresse IP source de la requête (très probablement un programme de résolution DNS local effectuant la requête pour le compte de l’utilisateur) et utilise une adresse IP interne pour le mappage des régions afin de déterminer l’emplacement. Ce mappage est mis à jour en permanence pour prendre en compte les modifications apportées à Internet. 
+
+### <a name="is-it-guaranteed-that-traffic-manager-will-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Est-il garanti que Traffic Manager détermine correctement l’emplacement géographique exact de l’utilisateur dans tous les cas ?
+Non, Traffic Manager ne peut pas garantir que la région géographique que nous déduisons à partir de l’adresse IP source d’une requête DNS correspond toujours à l’emplacement de l’utilisateur, et ce pour les raisons suivantes : 
+
+- Tout d’abord, comme décrit dans le Forum aux questions précédent, l’adresse IP source que nous voyons est celle d’un programme de résolution DNS qui effectue une recherche pour le compte de l’utilisateur. Bien que l’emplacement géographique du programme de résolution DNS est un bon indicateur de l’emplacement géographique de l’utilisateur, il peut également être différent selon l’encombrement du service de résolution DNS et du service de résolution DNS spécifique qu'un client a choisi d’utiliser. Par exemple, un client en Malaisie peut définir dans les paramètres de son appareil l’utilisation d’un service de résolution DNS dont le serveur DNS à Singapour peut être sélectionné pour gérer les résolutions de requête pour cet utilisateur/appareil. Dans ce cas, Traffic Manager affiche uniquement l’adresse IP du programme de résolution, qui correspond à l’emplacement à Singapour. En outre, consultez le Forum aux questions précédent concernant la prise en charge des adresses de sous-réseau client sur cette page.
+
+- Deuxièmement, Traffic Manager utilise une table interne pour mapper l’adresse IP sur la traduction de région géographique. Bien que ce mappage est validé et mis à jour en permanence pour améliorer sa précision et prendre en compte l’évolution d’Internet, il est toujours possible que nos informations ne sont pas une représentation exacte de l’emplacement géographique de toutes les adresses IP.
+
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Pour le routage géographique, un point de terminaison doit-il être situé physiquement dans la même région que celle avec laquelle il est configuré ? 
 Non, l’emplacement du point de terminaison n’impose aucune restriction sur les régions qui peuvent lui être mappées. Par exemple, tous les utilisateurs d’Inde peuvent être dirigés vers un point de terminaison situé dans la région Azure Centre des États-Unis.
@@ -95,7 +107,7 @@ Une région ne peut être affectée qu’à un seul point de terminaison dans un
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existe-t-il des restrictions quant à la version de l’API qui prend en charge ce type de routage ?
 
-Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en charge le type de routage géographique. Les anciennes versions de l’API ne peuvent pas être utilisées pour créer des profils de type de routage géographique ou affecter des régions géographiques à des points de terminaison. Si une ancienne version de l’API est utilisée pour récupérer les profils d’un abonnement Azure, les profils de type de routage géographique ne sont pas retournés. En outre, si vous utilisez des versions anciennes de l’API, les profils retournés qui contiennent des points de terminaison avec une affectation de régions géographiques n’affichent pas les régions géographiques affectées.
+Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en charge le type de routage Géographique. Les anciennes versions de l’API ne peuvent pas être utilisées pour créer des profils de type de routage géographique ou affecter des régions géographiques à des points de terminaison. Si une ancienne version de l’API est utilisée pour récupérer les profils d’un abonnement Azure, les profils de type de routage géographique ne sont pas retournés. En outre, si vous utilisez des versions anciennes de l’API, les profils retournés qui contiennent des points de terminaison avec une affectation de régions géographiques n’affichent pas les régions géographiques affectées.
 
 
 

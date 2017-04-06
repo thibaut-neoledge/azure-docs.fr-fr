@@ -4,7 +4,7 @@ description: Surveillez un cluster DC/OS dans un cluster Azure Container Service
 services: container-service
 documentationcenter: 
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Conteneurs, DC/OS, Azure, surveillance, elk
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 9433eb9f734dbe1b815074f86b9a691b4d16b5c8
-ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fa17900f8a752d692a62e47d301651cc4f435f06
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -63,12 +64,10 @@ Pour accéder au tableau de bord Kibana, qui est déployé sur le port 5601, vou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Elasticsearch, Logstash et Kibarna, consultez la [documentation sur la pile élastique](https://www.elastic.co/guide/index.html).
+* Pour le transfert et la configuration du journal système et d’application, consultez [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Gestion de journaux dans DC/OS avec ELK).
+
+* Pour filtrer les journaux, consultez [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrage des journaux avec ELK). 
+
  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

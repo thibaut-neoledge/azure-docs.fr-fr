@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -60,10 +61,10 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
 Vous pouvez fournir les informations d’identification de la table de l’une des manières suivantes : 
 
 - **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou en sélectionnant Paramètres > Clés d’accès (pour les comptes de stockage ARM).
-- Chaîne de connexion de la**signature d’accès partagé (SAP) au compte de stockage** : `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs (des tables en l’occurrence) et les objets (des lignes de table).
--  **Signature d’accès partagé à une table** : `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La SAP doit avoir les autorisations de liste et lecture sur la table.
+- Chaîne de connexion de la**signature d’accès partagé (SAP) au compte de stockage** : `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs (des tables en l’occurrence) et les objets (des lignes de table).
+-  **Signature d’accès partagé à une table** : `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. La SAP doit avoir les autorisations de requête (lecture) sur la table.
 
-Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une SAP, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification de la SAP expirent, l’indexeur se bloque et affiche un message d’erreur similaire à `Credentials provided in the connection string are invalid or have expired.`.  
@@ -134,9 +135,4 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
 
 ## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

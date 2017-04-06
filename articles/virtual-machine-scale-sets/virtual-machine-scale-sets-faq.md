@@ -1,6 +1,6 @@
 ---
-title: FAQ sur les groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: "Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques"
+title: Forum Aux Questions (FAQ) sur les groupes de machines virtuelles identiques Azure | Microsoft Docs
+description: "Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -17,34 +17,32 @@ ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 850459a79c723de0eb3249cfe9ea19bc988ca318
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
+ms.lasthandoff: 03/28/2017
 
 
 ---
 
-# <a name="azure-virtual-machine-scale-sets-faq"></a>FAQ sur les groupes de machines virtuelles identiques Azure
+# <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
-Cet article contient des réponses aux questions fréquemment posées sur les groupes identiques.
+Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques dans Azure.
 
 ## <a name="autoscale"></a>Autoscale
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quelles sont les meilleures pratiques pour la mise à l’échelle automatique d’Azure ?
 
-Oui. Consultez https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
+Pour connaître les meilleures pratiques pour la mise à l’échelle automatique, consultez [Meilleures pratiques pour la mise à l’échelle automatique des machines virtuelles](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
 
-### <a name="where-do-i-find-the-metric-names-for-autoscaling-using-host-based-metrics"></a>Où trouver les noms des mesures pour la mise à l’échelle automatique à l’aide de mesures basées sur les hôtes ?
+### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Où trouver les noms des métriques pour la mise à l’échelle automatique utilisant des métriques basées sur les hôtes ?
 
-https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/
+Pour obtenir les noms des métriques pour la mise à l’échelle automatique utilisant des métriques basées sur les hôtes, consultez [Métriques prises en charge avec Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
 
-### <a name="are-there-any-examples-of-autoscaling-based-on-a-service-bus-topic-and-queue-length"></a>Existe-t-il des exemples de mise à l’échelle automatique basée sur une rubrique Service Bus et une longueur de file d’attente ?
+### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Existe-t-il des exemples de mise à l’échelle automatique basée sur une rubrique Azure Service Bus et une longueur de file d’attente ?
 
-Oui. Consultez l'article :
+Oui. Pour obtenir des exemples de mise à l’échelle automatique basée sur une rubrique Azure Service Bus et une longueur de file d’attente, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
-https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/
-
-Pour une file d’attente Service Bus :
+Pour une file d’attente Service Bus, utilisez le JSON suivant :
 
 ```json
 "metricName": "MessageCount",
@@ -52,7 +50,7 @@ Pour une file d’attente Service Bus :
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-Pour les files d’attente de stockage :
+Pour une file d’attente de stockage, utilisez le JSON suivant :
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -60,49 +58,45 @@ Pour les files d’attente de stockage :
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-Remplacez les valeurs de l’exemple par les URI de la ressource appropriée.
+Remplacez les exemples de valeurs par les URI (Uniform Resource Identifiers) de votre ressource.
 
 
-### <a name="should-we-autoscale-with-host-based-metrics-or-use-a-diagnostics-extension"></a>Devons-nous utiliser la mise à l’échelle automatique avec des mesures basées sur les hôtes ou utiliser une extension de diagnostics ?
+### <a name="should-i-autoscale-by-using-host-based-metrics-or-a-diagnostics-extension"></a>Dois-je utiliser la mise à l’échelle automatique avec des métriques basées sur les hôtes ou une extension de diagnostics ?
 
-Vous pouvez créer un paramètre de mise à l’échelle automatique sur une machine virtuelle pour utiliser les mesures au niveau de l’hôte, ou utiliser les mesures basées sur le système d’exploitation invité.
+Vous pouvez créer un paramètre de mise à l’échelle automatique sur une machine virtuelle pour utiliser les métriques au niveau de l’hôte ou les métriques basées sur le système d’exploitation invité.
 
-Consultez la liste des mesures prises en charge : https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Voici un exemple complet de groupes identiques (dans ce cas, nous avons utilisé la mesure du processeur au niveau de l’hôte et une mesure de comptage de messages) :
+Pour obtenir la liste des métriques prises en charge, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
 
-https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
+Pour obtenir un exemple complet pour les groupes de machines virtuelles identiques, consultez [Configuration avancée de la mise à l’échelle automatique à l’aide de modèles Resource Manager pour les groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
 
-### <a name="how-can-i-set-alert-rules-on-a-scale-set"></a>Comment puis-je définir des règles d’alerte sur un groupe identique ?
+L’exemple utilise la métrique du processeur au niveau de l’hôte et une métrique de comptage de messages.
 
-Vous pouvez créer des alertes sur des mesures pour des groupes identiques via PS ou l’interface CLI. Consultez l'article :
 
-https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules
 
-https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts
+### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Comment définir des règles d’alerte sur un groupe de machines virtuelles identiques ?
 
-La valeur TargetResourceId du groupe identique ressemble à : /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+Vous pouvez créer des alertes sur des métriques pour les groupes de machines virtuelles identiques via PowerShell ou l’interface CLI Azure. Pour plus d’informations, consultez [Exemples de démarrage rapide Azure Monitor PowerShell](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) et [Exemples de démarrage CLI interplateforme Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
-Vous pouvez choisir n’importe quel compteur de performances de machine virtuelle en tant que mesure pour l’alerte :
+La valeur TargetResourceId du groupe de machines virtuelles identiques ressemble à ceci : 
 
-https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
+/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
+Vous pouvez choisir n’importe quel compteur de performances de machine virtuelle en tant que métrique sur laquelle définir une alerte. Pour plus d’informations, consultez [Métriques du système d’exploitation invité pour les machines virtuelles Windows Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) et [Métriques du système d’exploitation invité pour les machines virtuelles Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) dans l’article[Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
-### <a name="how-can-i-set-up-autoscale-on-a-scale-set-using-powershell"></a>Comment puis-je installer la mise à l’échelle automatique sur un groupe identique à l’aide de PowerShell ?
+### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Comment configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell ?
 
-Consultez https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/
+Pour configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell, consultez le blog [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/) (Comment ajouter la mise à l’échelle automatique à un groupe de machines virtuelles identiques Azure).
 
 
 
 
 ## <a name="certificates"></a>Certificats
 
-### <a name="how-do-you-securely-ship-a-certificate-into-the-vm--is-there-an-example-of-provisioning-a-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration--the-common-certificate-rotation-operation-would-amount-to-a-configuration-update-operation"></a>Comment expédier en toute sécurité un certificat sur la machine virtuelle ?  Existe-t-il un exemple de configuration d’un groupe identique pour exécuter un site Web où le protocole SSL pour le site Web est livré en toute sécurité à partir d’une configuration de certificat ?  L’opération de rotation de certificat courante correspondrait à une opération de mise à jour de la configuration.
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Comment expédier en toute sécurité un certificat sur la machine virtuelle ? Comment configurer un groupe identique pour exécuter un site Web où le protocole SSL pour le site Web est livré en toute sécurité à partir d’une configuration de certificat ? (L’opération de rotation de certificat courante serait presque similaire à une opération de mise à jour de la configuration.) Avez-vous un exemple de la manière de procéder ? 
 
-Nous prenons en charge l’installation de certificats clients directement dans le magasin de certificats Windows à partir des coffres de clés.
+Pour expédier en toute sécurité un certificat sur la machine virtuelle, vous pouvez installer un certificat client directement dans un magasin de certificats Windows à partir du coffre de clés du client.
 
-Dans le contexte des groupes identiques...
-
-https://msdn.microsoft.com/library/mt589035.aspx
+Utilisez le JSON suivant :
 
 ```json
         "secrets": [ {
@@ -116,59 +110,60 @@ https://msdn.microsoft.com/library/mt589035.aspx
         } ]
 ```
 
-Prend en charge les machines virtuelles Linux et Windows.
+Le code prend en charge Windows et Linux.
 
-### <a name="self-signed-certificate-example"></a>Exemple de certificat auto-signé :
+Pour plus d’informations, consultez [Création ou mise à jour d’un groupe de machines virtuelles identiques](https://msdn.microsoft.com/library/mt589035.aspx).
 
-#### <a name="create-a-self-signed-cert-in-a-keyvault"></a>Créer un certificat auto-signé dans un coffre de clés
 
-Pour créer un certificat auto-signé dans un coffre de clés, vous pouvez utiliser les instructions de cet article Service Fabric : https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/
+### <a name="example-of-self-signed-certificate"></a>Exemple de certificat auto-signé
 
-Les commandes PowerShell :
+1.  Créez un certificat auto-signé dans un coffre de clés.
 
-```powershell
-Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+    Utilisez les commandes PowerShell suivantes :
 
-Login-AzureRmAccount
+  ```powershell
+  Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-```
+  Login-AzureRmAccount
 
-La commande précédente vous donne l’entrée du modèle Resource Manager.
+  Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
+  ```
 
-#### <a name="change-resource-manager-template"></a>Modifier le modèle Resource Manager
+  Cette commande vous donne l’entrée du modèle Azure Resource Manager.
 
-Ajoutez cette propriété à « virtualMachineProfile » comme composant de la ressource du groupe identique :
+  Pour obtenir un exemple de création d’un certificat auto-signé dans un coffre de clés, consultez [Scénarios de sécurité du cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
-```json 
-"osProfile": {
-            "computerNamePrefix": "[variables('namingInfix')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]",
-            "secrets": [
-              {
-                "sourceVault": {
-                  "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                  {
-                    "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                    "certificateStore": "My"
-                  }
-                ]
-              }
-            ]
-          }
-```
- 
+2.  Modifiez le modèle Resource Manager.
 
-### <a name="is-there-a-way-to-specify-an-ssh-key-pair-that-i-want-to-use-for-ssh-authentication-with-a-linux-scale-set-from-a-resource-manager-template"></a>Existe-t-il un moyen de spécifier une paire de clés SSH à utiliser pour l’authentification SSH avec un groupe identique Linux à partir d’un modèle Resource Manager ?  
+  Ajoutez cette propriété à **virtualMachineProfile** comme composant de la ressource du groupe de machines virtuelles identiques :
 
-L’API REST pour osProfile ressemble au cas de machine virtuelle ordinaire :
- 
-https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration
- 
-Incluez une valeur `osProfile` dans votre modèle comme dans l’exemple suivant :
+  ```json 
+  "osProfile": {
+              "computerNamePrefix": "[variables('namingInfix')]",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]",
+              "secrets": [
+                {
+                  "sourceVault": {
+                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
+                  },
+                  "vaultCertificates": [
+                    {
+                      "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
+                      "certificateStore": "My"
+                    }
+                  ]
+                }
+              ]
+            }
+  ```
+  
+
+### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Puis-je spécifier une paire de clés SSH à utiliser pour l’authentification SSH avec un groupe de machines virtuelles identiques Linux à partir d’un modèle Resource Manager ?  
+
+Oui. L’API REST pour **osProfile** est similaire à l’API REST de machine virtuelle standard. 
+
+Incluez **osProfile** dans votre modèle :
 
 ```json 
 "osProfile": {
@@ -188,28 +183,24 @@ Incluez une valeur `osProfile` dans votre modèle comme dans l’exemple suivant
         }
 ```
  
-Ce bloc JSON est utilisé dans le modèle de démarrage rapide suivant :
+Ce bloc JSON est utilisé dans  [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json
- 
-Examinez également le profil de système d’exploitation sur ce modèle :
- 
-https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json
+Le profil de système d’exploitation est également utilisé dans [le modèle de démarrage rapide GitHub grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+
+Pour plus d’informations, consultez [Création ou mise à jour d’un groupe de machines virtuelles identiques](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+  
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>Comment supprimer des certificats obsolètes ? 
 
-Vous devez supprimer l’ancien certificat dans la liste des certificats du coffre, mais laissez tous les certificats que vous souhaitez conserver sur votre machine. Cela ne supprime pas le certificat sur toutes vos machines virtuelles, mais cela n’ajoute pas non plus le certificat aux nouvelles machines virtuelles créées dans le groupe identique. Pour supprimer le certificat sur des machines virtuelles existantes, vous devez écrire une extension de script personnalisée qui supprime les certificats de votre magasin de certificats manuellement.
- 
-### <a name="how-do-i-take-an-existing-ssh-public-key-and-inject-it-into-the-scale-set-ssh-layer-during-provisioning--i-would-like-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-utilize-them-in-my-resource-manager-template"></a>Comment prendre une clé publique SSH existante et l’injecter dans la couche SSH du groupe identique lors de la configuration ?  J’aimerais stocker les valeurs de la clé publique SSH dans Azure Key Vault et les utiliser ensuite dans mon modèle Resource Manager.
+Pour supprimer les certificats obsolètes, supprimez l’ancien certificat dans la liste des certificats du coffre. Laissez tous les certificats que vous souhaitez garder sur votre ordinateur dans la liste. Cela ne supprime pas le certificat de toutes vos machines virtuelles. Cela n’ajoute pas non plus le certificat sur les nouvelles machines virtuelles créées dans le groupe de machines virtuelles identiques. 
 
-Si vous configurez les machines virtuelles seulement avec une clé SSH publique, il est inutile de placer les clés publiques dans le coffre de clés, car les clés publiques ne sont pas secrètes.
+Pour supprimer le certificat sur des machines virtuelles existantes, écrivez une extension de script personnalisé pour supprimer manuellement les certificats de votre magasin de certificats.
  
-Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez une machine virtuelle Linux.
-Vous trouverez un exemple ici :
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Comment injecter une clé publique SSH existante dans la couche SSH du groupe de machines virtuelles identiques lors de la configuration ? Je veux stocker les valeurs de la clé publique SSH dans Azure Key Vault et les utiliser ensuite dans mon modèle Resource Manager.
 
-https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json
+Si vous fournissez uniquement une clé publique SSH aux machines virtuelles, vous n’avez pas besoin de placer les clés publiques dans Key Vault. Les clés publiques ne sont pas secrètes.
  
-Plus précisément :
+Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez une machine virtuelle Linux :
 
 ```json
 "linuxConfiguration": {  
@@ -221,51 +212,56 @@ Plus précisément :
           }
 ```
  
-Nom d’élément linuxConfiguration | Requis | Type | Description
+nom d’élément linuxConfiguration | Requis | Type | Description
 --- | --- | --- | --- |  ---
-ssh | Non | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux.
-path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés.
-keyData | Oui | String | Spécifie une clé SSH publique encodée en base64.
- 
-### <a name="when-i-run-update-azurermvmss-after-more-than-one-certificate-from-the-same-keyvault-i-get-the-following-error"></a>Lorsque j’exécute Update-AzureRmVmss sur plusieurs certificats du même coffre de clés, j’obtiens l’erreur suivante :
- 
-Update-AzureRmVmss : List secrets (Afficher la liste des secrets) contient des instances répétées de /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, ce qui n’est pas autorisé. Pourquoi ne puis-je pas ajouter deux certificats à partir du même coffre de clés ?
- 
-Ce comportement peut se produire si vous tentez d’ajouter le même coffre deux fois au lieu d’un nouveau vaultCertificate pour la valeur sourceVault existante. Add-AzureRmVmssSecret ne fonctionne pas correctement pour l’ajout d’autres secrets.
- 
-Si vous souhaitez ajouter plus de secrets à partir du même coffre de clés, vous devez mettre à jour la liste $vmss.properties.osProfile.secrets[0].vaultCertificates
- 
-Vous pouvez voir la structure d’entrée attendue ici : https://msdn.microsoft.com/library/azure/mt589035.aspx
- 
-Vous devez rechercher la clé secrète dans l’objet de groupe identique qui possède le même coffre de clés contenant. Ensuite, vous devez ajouter votre référence de certificat (l’URL, ainsi que le nom du magasin secret) dans la liste associée au coffre.
+ssh | Non | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
+path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
 
-Remarque : la suppression de certificats sur des machines virtuelles via les API de groupe identique n’est actuellement pas prise en charge.
+Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+
  
-L’ancien certificat n’apparaîtra pas sur les nouvelles machines virtuelles, mais celles sur lesquelles le certificat était déjà déployé auront toujours l’ancien certificat.
+### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Lorsque j’exécute `Update-AzureRmVmss` après l’ajout de plusieurs certificats à partir du même coffre de clés, je reçois le message suivant :
  
-### <a name="is-there-a-way-to-get-certificates-pushed-to-the-scale-set-without-providing-the-password-when-the-certificate-is-in-secretstore-currently"></a>Existe-t-il un moyen de transmettre des certificats au groupe identique sans fournir le mot de passe lorsque le certificat est actuellement dans SecretStore ?
-
-Il est inutile de coder en dur les mots de passe dans les scripts. Vous pouvez les récupérer de manière dynamique avec les autorisations que le script de déploiement dont vous disposez utilise pour s’exécuter. Si vous avez un script qui déplace un certificat à partir du magasin des secrets vers le coffre de clés, la commande « get certificate » du magasin des secrets génère également le mot de passe du fichier pfx.
+  Update-AzureRmVmss : List secret (Afficher la liste des secrets) contient des instances répétées de /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, ce qui n’est pas autorisé.
  
-### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-of-a-scale-set-work-why-do-you-need-sourcevault-when-you-have-to-specify-the-absolute-uri-to-a-certificate-with-certificateurl"></a>Comment fonctionne la propriété des secrets de virtualMachineProfile.osProfile d’un groupe identique ? Pourquoi est-il nécessaire d’avoir un sourceVault lorsqu’il faut spécifier l’URI absolu d’un certificat avec certificateUrl ? 
-
-Une référence de certificat Win RM doit être présente dans la propriété des secrets du profil du système d’exploitation. 
-
-L’objectif consistant à indiquer le coffre source est d’être en mesure d’appliquer des stratégies ACL qui existent dans CSM. Si le coffre source n’est pas spécifié, les utilisateurs ne disposant pas des autorisations nécessaires pour déployer/accéder aux secrets d’un coffre de clés peuvent y parvenir via CRP. Les listes ACL existent même pour les ressources qui n’existent pas.
-
-Si vous avez fourni un ID sourceVault incorrect mais une URL de coffre de clés valide, nous signalons une erreur lorsque vous interrogez l’opération
+Cela peut se produire si vous essayez d’ajouter à nouveau le même coffre au lieu d’utiliser un nouveau certificat de coffre pour le coffre source existant. La commande `Add-AzureRmVmssSecret` ne fonctionne pas correctement si vous ajoutez des secrets supplémentaires.
  
-### <a name="if-i-add-secrets-to-an-existing-scale-set-does-it-inject-them-in-existing-instances-or-only-new-ones"></a>Si j’ajoute des clés secrètes à un groupe identique existant, sont-elles injectées par celui-ci dans les instances existantes ou uniquement dans les nouvelles instances ? 
-
-Les certificats sont ajoutés à toutes les machines virtuelles, mêmes les préexistantes. Si la propriété upgradePolicy de votre groupe identique est définie sur « Manuel », le certificat est ajouté à la machine virtuelle lorsque vous effectuez une mise à jour manuelle sur la machine virtuelle.
+Pour ajouter plus de secrets à partir du même coffre de clés, mettez à jour la liste $vmss.properties.osProfile.secrets[0].vaultCertificates.
  
-### <a name="where-do-certificates-go-for-linux-vms"></a>Où vont les certificats pour les machines virtuelles Linux ?
+Pour connaître la structure d’entrée attendue, consultez [Création ou mise à jour d’un groupe de machines virtuelles](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+ 
+Recherchez le secret dans l’objet du groupe de machines virtuelles identiques qui se trouve dans le coffre de clés. Ensuite, ajoutez votre référence de certificat (l’URL et le nom du magasin des secrets) dans la liste associée au coffre.
 
-Consultez https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/
+> [!NOTE] 
+> Actuellement, vous ne pouvez pas supprimer des certificats des machines virtuelles à l’aide de l’API du groupe de machines virtuelles identiques.
+>
+
+Les nouvelles machines virtuelles ne disposent pas de l’ancien certificat. Toutefois, les machines virtuelles qui ont le certificat et qui sont déjà déployées disposent de l’ancien certificat.
+ 
+### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Puis-je transmettre des certificats au groupe de machines virtuelles identiques sans fournir le mot de passe lorsque le certificat est dans le magasin des secrets ?
+
+Il est inutile de coder en dur les mots de passe dans les scripts. Vous pouvez récupérer de manière dynamique les mots de passe avec les autorisations que vous utilisez pour exécuter le script de déploiement. Si vous avez un script qui déplace un certificat à partir du magasin des secrets vers le coffre de clés, la commande `get certificate` du magasin des secrets génère également le mot de passe du fichier .pfx.
+ 
+### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Comment fonctionne la propriété des secrets de virtualMachineProfile.osProfile d’un groupe de machines virtuelles identiques ? Pourquoi ai-je besoin de la valeur sourceVault lorsque je dois spécifier l’URI absolu d’un certificat à l’aide de la propriété certificateUrl ? 
+
+Une référence de certificat WinRM (Windows Remote Management) doit être présente dans la propriété des secrets du profil du système d’exploitation. 
+
+L’objectif consistant à indiquer le coffre source est d’appliquer les stratégies de liste de contrôle d’accès (ACL) qui existent dans le modèle Azure Cloud Service d’un utilisateur. Si le coffre source n’est pas spécifié, les utilisateurs ne disposant pas des autorisations pour déployer ou accéder aux secrets d’un coffre de clés peuvent y parvenir via un CRP (Compute Resource Provider). Les listes ACL existent même pour les ressources qui n’existent pas.
+
+Si vous fournissez un ID sourceVault incorrect mais une URL de coffre de clés valide, une erreur est signalée lorsque vous interrogez l’opération.
+ 
+### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Si j’ajoute des secrets à un groupe de machines virtuelles identiques existant, les secrets sont-ils injectés dans les machines virtuelles existantes ou uniquement les nouvelles ? 
+
+Les certificats sont ajoutés à toutes vos machines virtuelles, mêmes les préexistantes. Si la propriété upgradePolicy de votre groupe de machines virtuelles identiques est définie sur **manuelle**, le certificat est ajouté à la machine virtuelle lorsque vous effectuez une mise à jour manuelle sur celle-ci.
+ 
+### <a name="where-do-i-put-certificates-for-linux-vms"></a>Où dois-je placer les certificats pour les machines virtuelles Linux ?
+
+Pour savoir comment déployer des certificats pour les machines virtuelles Linux, consultez [Déployer des certificats sur les machines virtuelles à partir de coffres de clés gérés par les clients](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
   
-### <a name="how-do-you-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Comment ajouter un nouveau certificat de coffre à un nouvel objet de certificat ?
+### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Comment ajouter un nouveau certificat de coffre à un nouvel objet de certificat ?
 
-Si vous souhaitez ajouter un certificat de coffre à une clé secrète existante, qui doit être le seul objet de clé secrète, vous pouvez procéder comme dans l’exemple PowerShell suivant :
+Pour ajouter un certificat de coffre à un secret existant, consultez l’exemple PowerShell suivant. Utilisez un seul objet secret.
  
 ```powershell
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
@@ -277,64 +273,65 @@ Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssN
  
 ### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>Que se passe-t-il pour les certificats en cas de réinitialisation d’une machine virtuelle ?
 
-Si vous réinitialisez une machine virtuelle, les certificats disparaissent, car cette opération supprime le disque du système d’exploitation dans son intégralité. 
+Si vous réinitialisez une machine virtuelle, les certificats sont supprimés. La réinitialisation efface le disque du système d’exploitation dans sa totalité. 
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Que se passe-t-il si vous supprimez un certificat dans le coffre de clés ?
 
-Si la clé secrète est supprimée dans le coffre de clés et si vous cessez de libérer toutes vos machines virtuelles, puis les démarrez à nouveau, vous rencontrerez une erreur. Cet échec est dû au fait que CRP a besoin de récupérer les clés secrètes dans le coffre de clés, mais cela n’est pas possible. Dans ce scénario, vous pouvez supprimer les certificats à partir du modèle de groupe identique. 
+Si le secret est supprimé dans le coffre de clés et si vous exécutez `stop deallocate` pour toutes vos machines virtuelles, puis les démarrez à nouveau, vous rencontrerez une erreur. L’erreur se produit car le CRP, qui doit récupérer les secrets dans le coffre de clés, ne le peut pas. Dans ce scénario, vous pouvez supprimer les certificats à partir du modèle de groupe de machines virtuelles identiques. 
 
-Le composant CRP ne conserve pas les clés secrètes du client. Si vous arrêtez de libérer toutes les machines virtuelles dans le groupe identique, alors le cache est supprimé. Dans ce scénario, les clés secrètes sont récupérées à partir du coffre de clés.
+Le composant CRP ne conserve pas les secrets du client. Si vous exécutez `stop deallocate` pour toutes les machines virtuelles dans le groupe de machines virtuelles identiques, le cache est supprimé. Dans ce scénario, les secrets sont récupérés à partir du coffre de clés.
 
-Ce problème ne se produit pas lors de la montée en charge, car il existe une copie en cache de la clé secrète dans la structure (au moins dans le modèle client de structure unique).
+Vous ne rencontrez pas ce problème lors de la montée en charge, car il existe une copie en cache du secret dans Azure Service Fabric (dans le modèle client à structure unique).
  
-### <a name="why-do-we-have-to-specify-the-exact-location-for-the-certificate-url-as-referenced-here-per-httpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Pourquoi faut-il spécifier l’emplacement exact de l’URL du certificat, comme indiqué ici : https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/, 
-https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Pourquoi dois-je spécifier l’emplacement exact de l’URL du certificat (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), comme indiqué dans [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/) ?
  
-Selon la documentation KeyVault, l’API REST get-secret doit retourner la dernière version de la clé secrète si la version n’est pas spécifiée :
+La documentation Azure Key Vault indique que l’API REST Get Secret doit retourner la dernière version du secret si la version n’est pas spécifiée.
  
 Méthode | URL
 --- | ---
 GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
-Remplacez {secret-name} par le nom et {secret-version} par la version de la clé secrète que vous souhaitez récupérer. La version de la clé secrète peut être exclue, auquel cas la version actuelle est récupérée.
+Remplacez {*secret-name*} par le nom et {*secret-version*} par la version du secret que vous souhaitez récupérer. La version du secret peut être exclue. Dans ce cas, la version actuelle est récupérée.
   
-### <a name="why-does-certificate-version-have-to-be-specified-when-using-key-vault"></a>Pourquoi la version du certificat doit-elle être spécifiée lors de l’utilisation du coffre de clés ?
+### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Pourquoi dois-je spécifier la version du certificat lorsque j’utilise Key Vault ?
 
-La raison de cette exigence consiste à indiquer clairement à l’utilisateur quel certificat est déployé sur ses machines virtuelles.
+L’objectif de la spécification Key Vault consistant à spécifier la version du certificat est d’indiquer clairement à l’utilisateur quel certificat est déployé sur ses machines virtuelles.
 
-Si vous créez une machine virtuelle, puis mettez à jour votre clé secrète dans le coffre de clés, ce nouveau certificat ne sera pas téléchargé sur vos machines virtuelles. Mais vos machines virtuelles auront l’air d’y faire référence et les nouvelles machines virtuelles obtiendront la nouvelle clé secrète. Pour éviter cette confusion, vous devez référencer une version de clé secrète explicite.
+Si vous créez une machine virtuelle, puis mettez à jour votre secret dans le coffre de clés, ce nouveau certificat n’est pas téléchargé sur vos machines virtuelles. Mais vos machines virtuelles ont l’air d’y faire référence et les nouvelles machines virtuelles obtiennent le nouveau secret. Pour éviter cela, vous devez référencer une version pour le secret.
 
-### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-is-for-deployment-of-these-certs-to-a-scale-set"></a>Mon équipe utilise plusieurs certificats qui nous sont distribués en tant que clés publiques .cer. Quelle est l’approche recommandée pour le déploiement de ces certificats sur un groupe identique ?
+### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mon équipe utilise plusieurs certificats qui nous sont distribués en tant que clés publiques .cer. Quelle est l’approche recommandée pour le déploiement de ces certificats dans un groupe de machines virtuelles identiques ?
 
-Vous pouvez générer un fichier pfx qui contient uniquement des fichiers .cer, avec X509ContentType = Pfx. Par exemple, chargez le fichier .cer en tant qu’objet x509Certificate2 dans C# ou PowerShell et en appelant cette méthode : https://msdn.microsoft.com/library/24ww6yzk(v=vs.110).aspx
+Pour déployer des clés publiques .cer dans un groupe de machines virtuelles identiques, vous pouvez générer un fichier .pfx qui contient uniquement des fichiers .cer. Pour ce faire, utilisez `X509ContentType = Pfx`. Par exemple, chargez le fichier .cer en tant qu’objet x509Certificate2 dans C# ou PowerShell, puis appelez la méthode. 
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-that-most-other-resource-providers-provide"></a>Je ne vois pas d’option permettant aux utilisateurs de transmettre des certificats en tant que chaînes base64 que la plupart des autres fournisseurs de ressources proposent.
+Pour plus d’informations, consultez [Méthode X509Certificate.Export (X509ContentType, chaîne)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-Vous pouvez extraire l’URL dernière version au sein d’un modèle Resource Manager pour émuler le comportement que vous décrivez. Vous pouvez inclure la propriété JSON suivante dans votre modèle Resource Manager :
+### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Je ne vois pas d’option permettant aux utilisateurs de transmettre des certificats en tant que chaînes base64. La plupart des autres fournisseurs de ressources proposent cette option.
+
+Pour émuler le transfert d’un certificat sous forme de chaîne en base64, vous pouvez extraire la dernière version d’URL dans un modèle Resource Manager. Incluez la propriété JSON suivante dans votre modèle Resource Manager :
 
 ```json 
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
 ```
  
-### <a name="do-we-have-to-wrap-certs-in-json-objects-in-keyvaults"></a>Devons-nous encapsuler les certificats dans des objets JSON dans les coffres de clés ?
+### <a name="do-i-have-to-wrap-certificates-in-json-objects-in-key-vaults"></a>Dois-je encapsuler les certificats dans des objets JSON dans les coffres de clés ?
 
-Il s’agit d’une exigence pour le groupe identique/la machine virtuelle. Nous prenons également en charge le type de contenu application/x-pkcs12. Les instructions sont disponibles ici : http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/
+Dans les groupes de machines virtuelles identiques et les machines virtuelles, les certificats doivent être encapsulés dans des objets JSON. 
+
+Nous prenons également en charge le type de contenu application/x-pkcs12. Pour obtenir des instructions sur l’utilisation du type de contenu application/x-pkcs12, consultez [Certificats PFX dans Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
  
-Nous ne prenons actuellement pas en charge les fichiers .cer. Vous devez exporter vos fichiers .cer dans des conteneurs pfx.
-
-
+Actuellement, nous ne prenons pas en charge les fichiers .cer. Pour utiliser des fichiers .cer, exportez-les dans des conteneurs .pfx.
 
 
 
 ## <a name="compliance"></a>Conformité
 
-### <a name="are-scale-sets-pci-compliant"></a>Les groupes identiques sont-ils compatibles avec PCI ?
+### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>Les groupes de machines virtuelles identiques sont-ils compatibles avec PCI ?
 
-Les groupes identiques constituent une fine couche d’API située sur le fournisseur de ressources de calcul et l’ensemble fait partie de la zone « Plateforme de calcul » dans l’arborescence des services Azure.
+Les groupes de machines virtuelles identiques sont une fine couche API sur le composant CRP. Les deux composants font partie de la plateforme de calcul dans l’arborescence des services Azure.
 
-Par conséquent, du point de vue de la conformité, les groupes identiques sont une composante essentielle de la plateforme de calcul Azure. Donc, ils partagent l’équipe, les outils, les processus, la méthodologie de déploiement, les contrôles de sécurité, JIT, la surveillance, l’alerte, etc. identiques à ceux du fournisseur de ressources de calcul (CRP) lui-même.  Les groupes identiques sont compatibles avec PCI, car le fournisseur de ressources de calcul fait partie de l’attestation PCI DSS actuelle :
+Du point de vue de la conformité, les groupes de machines virtuelles identiques sont une composante essentielle de la plateforme de calcul Azure. Ils partagent une équipe, des outils, des processus, une méthodologie de déploiement, des contrôles de sécurité, la compilation JIT, la surveillance, les alertes et ainsi de suite, avec le CRP lui-même. Les groupes de machines virtuelles identiques sont conformes à PCI (Payment Card Industry), car le CRP fait partie de l’attestation PCI DSS (Data Security Standard) actuelle.
 
-Pour plus d’informations, consultez : [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 
 
@@ -343,9 +340,9 @@ Pour plus d’informations, consultez : [https://www.microsoft.com/TrustCenter/
 
 ## <a name="extensions"></a>Extensions
 
-### <a name="how-do-you-delete-a-scale-set-extension"></a>Comment supprimer une extension de groupe identique ?
+### <a name="how-do-i-delete-a-virtual-machine-scale-set-extension"></a>Comment supprimer une extension de groupe de machines virtuelles identiques ?
 
-Voici un exemple à l’aide de PowerShell :
+Pour supprimer une extension de groupe de machines virtuelles identiques, utilisez l’exemple PowerShell suivant :
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" 
@@ -355,24 +352,22 @@ $vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extension
 Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
  
-extensionName se trouve dans `$vmss`.
+Vous trouverez la valeur extensionName dans `$vmss`.
    
-### <a name="is-there-a-scale-set-template-example-that-integrates-with-oms"></a>Existe-t-il un exemple de modèle de groupe identique qui s’intègre à OMS ?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Existe-t-il un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Operations Management Suite ?
 
-Consultez le deuxième exemple ici :
-
-https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric
+Pour obtenir un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Operations Management Suite, consultez le deuxième exemple sous [Déployer un cluster Azure Service Fabric et activer la surveillance à l’aide de Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
-### <a name="extensions-seem-to-run-in-parallel-on-scale-sets-causing-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this-behavior"></a>Les extensions semblent s’exécuter en parallèle sur les groupes identiques, causant l’échec de mon extension de script personnalisé. Que puis-je faire pour résoudre ce problème ?
+### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Les extensions semblent s’exécuter en parallèle sur des groupes de machines virtuelles identiques. Ceci entraîne l’échec de mon extension de script personnalisé. Que puis-je faire pour résoudre ce problème ?
 
-Consultez https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/ 
+Pour en savoir plus sur le séquencement d’extensions dans les groupes de machines virtuelles identiques, consultez [Séquencement d’extensions dans les groupes de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
  
  
-### <a name="how-do-i-reset-the-password-for-scale-set-vms"></a>Comment réinitialiser le mot de passe pour les machines virtuelles du groupe identique ?
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Comment réinitialiser le mot de passe des machines virtuelles dans mon groupe de machines virtuelles identiques ?
 
-Utiliser les extensions d’accès de machine virtuelle
+Pour réinitialiser le mot de passe des machines virtuelles dans votre groupe de machines virtuelles identiques, utilisez les extensions d’accès de machine virtuelle. 
 
-Voici un exemple à l’aide de PowerShell :
+Utilisez l’exemple PowerShell suivant :
 
 ```powershell
 $vmssName = "myvmss"
@@ -384,24 +379,29 @@ $extName = "VMAccessAgent"
 $publisher = "Microsoft.Compute"
 $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
 $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
 ```
  
  
-### <a name="how-do-i-add-an-extension-to-all-vms-in-my-scale-set"></a>Comment ajouter une extension pour toutes les machines virtuelles de mon groupe identique ?
+### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Comment ajouter une extension pour toutes les machines virtuelles de mon groupe de machines virtuelles identiques ?
 
-- Si la stratégie de mise à jour est définie sur automatique, le redéploiement du modèle avec les nouvelles propriétés d’extension met à jour chaque machine virtuelle.
-- Si la stratégie de mise à jour est définie sur manuelle, vous devez mettre à jour l’extension, puis effectuer l’opération manualUpdate sur toutes les instances.
+Si la stratégie de mise à jour est définie sur **automatique**, le redéploiement du modèle avec les nouvelles propriétés d’extension met à jour toutes les machines virtuelles.
+
+Si la stratégie de mise à jour est définie sur **manuelle**, mettez d’abord à jour l’extension, puis mettez manuellement à jour toutes les instances de vos machines virtuelles.
+
   
-### <a name="if-the-extensions-associated-with-an-existing-scale-set-are-updated-would-they-affect-already-existing-vms-that-is-would-the-vms-show-up-as-not-matching-the-scale-set-model-or-would-they-be-ignored-when-an-existing-machine-is-service-healed--reimaged--etc-would-the-scripts-that-are-currently-configured-on-the-scale-set-be-executed-or-would-the-ones-that-were-configured-when-the-machine-was-first-created-be-used"></a>Si les extensions associées à un groupe identique existant sont mises à jour, cela affecte-t-il les machines virtuelles existantes ? (Autrement dit, les machines virtuelles vont-elles s’afficher comme ne correspondant pas au modèle de groupe identique) ? Ou bien, sont-elles ignorées ? Lorsqu’une machine existante est corrigée par service, réinitialisée, etc. les scripts qui sont actuellement configurés sur le groupe identique sont-ils exécutés ou les scripts configurés lors de la création de la machine sont-ils utilisés ?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Si les extensions associées à un groupe de machines virtuelles identiques existant sont mises à jour, cela affecte-t-il les machines virtuelles existantes ? (Autrement dit, les machines virtuelles ne correspondront-elles *pas* au modèle de groupe de machines virtuelles identiques ?) Ou sont-elles ignorées ? Lorsqu’une machine existante est corrigée par service ou réinitialisée, les scripts qui sont actuellement configurés sur le groupe de machines virtuelles identiques sont-ils exécutés ou les scripts configurés lors de la création de la machine virtuelle sont-ils utilisés ?
 
-- Si la définition de l’extension dans le modèle de groupe identique est mise à jour, cela met à jour les machines virtuelles si upgradePolicy est défini sur automatique, et les machines virtuelles sont indiquées comme ne correspondant pas au modèle si upgradePolicy est défini sur manuel. 
+Si la définition de l’extension dans le modèle de groupe de machines virtuelles identiques est mis à jour et la propriété upgradePolicy est définie sur **automatique**, les machines virtuelles sont mises à jour. Si la propriété upgradePolicy est définie sur **manuelle**, les extensions sont signalées comme ne correspondant pas au modèle. 
 
-- Si une machine virtuelle existante est corrigée par service, cela s’apparente à un redémarrage et les extensions ne sont pas exécutées à nouveau. Si elle est réinitialisée, cela s’apparente au remplacement du disque du système d’exploitation avec l’image source et les dernières spécialisations du modèle, telles que les extensions, s’exécutent.
+Si une machine virtuelle existante est corrigée par service, cela s’apparente à un redémarrage et les extensions ne sont pas exécutées à nouveau. Si elle est réinitialisée, cela revient à remplacer le disque du système d’exploitation par l’image source. Toutes les spécialisations du modèle le plus récent, telles que les extensions, sont exécutées.
  
-### <a name="how-do-i-get-a-scale-set-to-join-an-ad-domain"></a>Comment joindre un groupe identique à un domaine Active Directory ?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Comment joindre un groupe de machines virtuelles identiques à un domaine Azure AD ?
 
-Vous pouvez définir une extension similaire à celle-ci à l’aide de JsonADDomainExtension par exemple :
+Pour joindre un groupe de machines virtuelles identiques à un domaine Azure Active Directory (Azure AD), vous pouvez définir une extension. 
+
+Pour définir une extension, utilisez la propriété JsonADDomainExtension :
+
 ```json
                     "extensionProfile": {
                         "extensions": [
@@ -427,20 +427,20 @@ Vous pouvez définir une extension similaire à celle-ci à l’aide de JsonADDo
                     }
 ```
  
-### <a name="my-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-instance-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Mon extension de groupe identique tente d’installer quelque chose nécessitant un redémarrage, par exemple : « commandToExecute » : « powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools »
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Mon extension de groupe de machines virtuelles identiques tente d’installer un composant qui nécessite un redémarrage. Par exemple, « commandToExecute » : « powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools »
 
-Vous pourriez utiliser l’extension DSC. Si le système d’exploitation est 2012 R2, alors Azure extrait le programme d’installation WMF5.0, redémarre et poursuit la configuration. 
+Si votre extension de groupe de machines virtuelles identiques tente d’installer un composant nécessitant un redémarrage, vous pouvez utiliser l’extension Azure Automation DSC. Si le système d’exploitation est Windows Server 2012 R2, Azure extrait la configuration Windows Management Framework (WMF) 5.0, redémarre, puis poursuit la configuration. 
  
-### <a name="how-can-i-enable-antimalware-on-my-scale-set"></a>Comment puis-je activer un logiciel anti-programme malveillant sur mon groupe identique ?
+### <a name="how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set"></a>Comment activer le logiciel anti-programme malveillant dans mon groupe de machines virtuelles identiques ?
 
-Voici un exemple PowerShell :
+Pour activer le logiciel anti-programme malveillant dans votre groupe de machines virtuelles identiques, utilisez l’exemple PowerShell suivant :
 
 ```powershell
 $rgname = 'autolap'
 $vmssname = 'autolapbr'
 $location = 'eastus'
  
-# retrieve the most recent version number of the extension
+# Retrieve the most recent version number of the extension.
 $allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
  
@@ -450,9 +450,9 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-hosted-on-a-private-storage-account-i-have-no-problems-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signaturesas-it-fails-with-the-error-missing-mandatory-parameters-for-valid-shared-access-signature-i-know-that-linksas-works-fine-from-my-local-browser"></a>J’ai besoin d’exécuter un script personnalisé hébergé sur un compte de stockage privé. Je n’ai aucun problème lorsque le stockage est public, mais lorsque j’essaie d’utiliser une signature d’accès partagé(SAP) cela échoue avec l’erreur : « Paramètres obligatoires manquants pour la signature d’accès partagé valide ». Je sais que ce lien + SAP fonctionnent correctement à partir de mon navigateur local.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>J’ai besoin d’exécuter un script personnalisé hébergé dans un compte de stockage privé. Le script s’exécute correctement lorsque le stockage est public, mais il échoue lorsque j’essaie d’utiliser une signature d’accès partagé (SAP). Ce message s’affiche : « Paramètres obligatoires manquants pour la signature d’accès partagé valide ». Le lien et la SAP fonctionnent correctement à partir de mon navigateur local.
 
-Vous devez configurer les paramètres protégés avec le nom et la clé du compte de stockage pour que ce scénario fonctionne. Consultez https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
+Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, consultez [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
 
@@ -462,46 +462,47 @@ Vous devez configurer les paramètres protégés avec le nom et la clé du compt
 
 ## <a name="networking"></a>Mise en réseau
  
-### <a name="how-do-i-do-vip-swap-for-scale-sets-in-the-same-subscription-and-same-region"></a>Comment effectuer un échange d’adresses IP virtuelles pour les groupes identiques dans le même abonnement et la même région ?
+### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Comment effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région ?
 
-Consultez : https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
+Pour effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région, consultez [Échange d'adresses IP virtuelles : déploiement bleu-vert dans Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
  
   
-### <a name="what-is-the-resourceguid-property-on-a-nic-for"></a>Qu’est-ce que la propriété resourceGuid sur une carte d’interface réseau ?
+### <a name="what-is-the-resourceguid-property-on-a-nic-used-for"></a>À quoi sert la propriété resourceGuid sur une carte réseau ?
 
-Il s’agit d’un ID unique. Les couches inférieures se connecteront à l’aide de cet ID à un moment donné dans le futur. 
+La propriété resourceGuid sur une carte réseau (NIC) est un ID unique. Les couches inférieures enregistreront cet ID à un moment donné dans le futur. 
  
-### <a name="how-do-i-specify-a-range-of-private-ip-addresses-for-static-private-ip-address-allocation"></a>Comment spécifier une plage d’adresses IP privées, pour l’allocation d’adresse IP privée statique ?
+### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Comment spécifier une plage d’adresses IP privées à utiliser pour l’allocation d’adresse IP privée statique ?
 
-Les adresses IP sont sélectionnés à partir d’un sous-réseau que vous spécifiez. 
+Les adresses IP sont sélectionnées à partir d’un sous-réseau que vous spécifiez. 
 
-La méthode d’allocation des adresses IP de groupe identique est toujours « Dynamique ». Cependant, cela ne signifie pas que ces adresses IP peuvent changer. Cela signifie simplement que vous ne spécifiez pas l’adresse IP dans la requête PUT. En d’autres termes, vous spécifiez l’ensemble statique à l’aide du sous-réseau. 
+La méthode d’allocation d’adresses IP d’un groupe de machines virtuelles identiques est toujours « dynamique », mais cela ne signifie pas que ces adresses IP peuvent changer. Dans ce cas, « dynamique » signifie uniquement que vous ne spécifiez pas l’adresse IP dans une requête PUT. Spécifiez l’ensemble statique à l’aide du sous-réseau. 
     
-### <a name="how-do-i-deploy-a-scale-set-into-an-existing-vnet"></a>Comment déployer un groupe identique dans un réseau virtuel existant ? 
+### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Comment déployer un groupe de machines virtuelles identiques sur un réseau virtuel Azure existant ? 
 
-Consultez https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
+Pour déployer un groupe de machines virtuelles identiques sur un réseau virtuel Azure existant, consultez [Déployer un groupe de machines virtuelles identiques sur un réseau virtuel existant](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet). 
 
-### <a name="how-do-i-add-a-scale-sets-first-vms-ip-address-to-the-output-of-a-template"></a>Comment ajouter l’adresse IP de la première machine virtuelle d’un groupe identique à la sortie d’un modèle ?
+### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Comment ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle ?
 
-Consultez : http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
+Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [ARM : obtenir les adresses IP privées du groupe de machines virtuelles identiques](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 
 
 ## <a name="scale"></a>Scale
 
-### <a name="why-would-you-ever-create-a-scale-set-with-fewer-than-2-vms"></a>Pourquoi créer un groupe identique avec moins de 2 machines virtuelles ?
+### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>Dans quel cas dois-je créer un groupe de machines virtuelles identiques avec moins de deux machines virtuelles ?
 
-L’une des raisons est d’utiliser les propriétés élastiques d’un groupe identique. Par exemple, vous pouvez déployer un groupe identique avec zéro machine virtuelle afin de définir votre infrastructure sans payer les frais de fonctionnement de la machine virtuelle. Ensuite, lorsque vous êtes prêt à déployer des machines virtuelles, vous augmentez la « capacité » du groupe identique en fonction du nombre d’instances de production.
+L’une des raisons de créer un groupe de machines virtuelles identiques avec moins de deux machines virtuelles est d’utiliser les propriétés élastiques d’un groupe de machines virtuelles identiques. Vous pouvez, par exemple, déployer un groupe de machines virtuelles identiques avec zéro machine virtuelle afin de définir votre infrastructure sans payer les frais de fonctionnement de la machine virtuelle. Ensuite, lorsque vous êtes prêt à déployer des machines virtuelles, augmentez la « capacité » du groupe de machines virtuelles identiques en fonction du nombre d’instances de production.
 
-Une autre raison est lorsque vous utilisez votre groupe identique et que vous ne vous préoccupez pas de la disponibilité de la même façon que lors de l’utilisation d’un groupe à haute disponibilité avec des machines virtuelles discrètes. Les groupes identiques permettent d’utiliser des unités de calcul indifférenciées qui sont fongibles. Cette uniformité est un atout pour les groupes identiques par rapport aux groupes à haute disponibilité. De nombreuses charges de travail sans état ne s’intéressent pas aux unités individuelles et peuvent descendre en puissance à une unité de calcul si la charge de travail baisse, puis passer de nouveau à plusieurs unités lorsque la charge de travail augmente.
+Une autre raison de créer un groupe de machines virtuelles identiques avec moins de deux machines virtuelles est si vous vous souciez moins de la disponibilité par rapport à l’utilisation d’un groupe à haute disponibilité avec des machines virtuelles discrètes. Les groupes de machines virtuelles identiques vous permettent d’utiliser des unités de calcul indifférenciées qui sont fongibles. Cette uniformité est un atout pour les groupes de machines virtuelles identiques par rapport aux groupes à haute disponibilité. De nombreuses charges de travail sans état n’effectuent pas le suivi des unités individuelles. Si la charge de travail baisse, vous pouvez descendre en puissance à une unité de calcul, puis monter en puissance lorsque la charge de travail augmente.
 
-### <a name="how-do-you-change-the-number-of-vms-in-a-scale-set"></a>Comment modifier le nombre de machines virtuelles dans un groupe identique ?
+### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Comment modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques ?
 
-Consultez : https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/
+Pour modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques, consultez [Modifier le nombre d’instances d’un groupe de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
-### <a name="how-can-you-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Comment définir des alertes personnalisées lorsque certains seuils sont atteints ?
+### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Comment définir des alertes personnalisées lorsque certains seuils sont atteints ?
 
-Vous avez une certaine flexibilité en matière de gestion des alertes ; par exemple, vous pouvez définir des webhooks personnalisés comme dans cet exemple issu d’un modèle Resource Manager :
+Vous bénéficiez d’une certaine flexibilité dans la façon dont vous gérez les alertes pour les seuils spécifiés. Vous pouvez, par exemple, définir des webhooks personnalisés. L’exemple de webhook suivant est extrait d’un modèle Resource Manager :
+
 ```json
    {
          "type": "Microsoft.Insights/autoscaleSettings",
@@ -533,15 +534,16 @@ Vous avez une certaine flexibilité en matière de gestion des alertes ; par ex
                               ]}],
 ```
 
-Dans cet exemple, une alerte est envoyée à Pagerduty lorsqu’un seuil est atteint.
+Dans cet exemple, une alerte est envoyée à Pagerduty.com lorsqu’un seuil est atteint.
 
 
 
 ## <a name="troubleshooting"></a>résolution des problèmes
 
-### <a name="how-do-i-enable-boot-diagnostics"></a>Comment activer les diagnostics de démarrage ?
+### <a name="how-do-i-turn-on-boot-diagnostics"></a>Comment activer les diagnostics de démarrage ?
 
-Créez un compte de stockage et placez ce bloc JSON dans la propriété virtualMachineProfile de votre groupe identique et mettez celui-ci à jour :
+Pour activer les diagnostics de démarrage, commencez par créer un compte de stockage. Puis, placez ce bloc JSON dans la propriété **virtualMachineProfile** de votre groupe de machines virtuelles identiques et mettez celui-ci à jour :
+
 ```json
       "diagnosticsProfile": {
         "bootDiagnostics": {
@@ -551,7 +553,7 @@ Créez un compte de stockage et placez ce bloc JSON dans la propriété virtualM
       }
 ```
 
-Ensuite, lorsqu’une nouvelle machine virtuelle est créée, la propriété InstanceView de la machine virtuelle affiche les détails de la capture d’écran, etc. Exemple :
+Lorsqu’une nouvelle machine virtuelle est créée, la propriété InstanceView de la machine virtuelle affiche les détails de la capture d’écran, etc. Voici un exemple :
  
 ```json
 "bootDiagnostics": {
@@ -564,54 +566,43 @@ Ensuite, lorsqu’une nouvelle machine virtuelle est créée, la propriété Ins
 
 ## <a name="updates"></a>Mises à jour
 
-### <a name="how-to-i-update-my-scale-set-to-a-new-image-and-manage-patching"></a>Comment mettre à jour mon groupe identique sur une nouvelle image et gérer la mise à jour corrective ?
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Comment mettre à jour mon groupe de machines virtuelles identiques sur une nouvelle image ? Comment gérer la mise à jour corrective ?
 
-Consultez : https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
+Pour mettre à jour votre groupe de machines virtuelles identiques sur une nouvelle image et gérer la mise à jour corrective, consultez [Mettre à niveau un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
 
-### <a name="can-you-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Est-il possible d’utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image ? (Autrement dit, réinitialiser une machine virtuelle sur les paramètres d’usine plutôt qu’une nouvelle image) ?
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Puis-je utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image ? (Autrement dit, je veux réinitialiser une machine virtuelle sur les paramètres d’usine plutôt qu’une nouvelle image.)
 
-Oui. Consultez : https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
+Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image. Toutefois, si votre groupe de machines virtuelles identiques référence une image de plateforme avec `version = latest`, votre machine virtuelle peut se mettre à jour vers une image de système d’exploitation ultérieure lorsque vous appelez `reimage`.
 
-Toutefois, si votre groupe identique référence une image de plateforme avec la version = « latest » (la plus récente), votre machine virtuelle peut se mettre à jour vers une image de système d’exploitation ultérieure lorsque vous appelez la réinitialisation.
-
-
+Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 
 
+## <a name="virtual-machine-properties"></a>Propriétés de machine virtuelle
 
+### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Comment obtenir des informations sur les propriétés de chaque machine virtuelle sans avoir à effectuer plusieurs appels ? Par exemple, comment obtenir le domaine par défaut pour chacune des 100 machines virtuelles dans mon groupe de machines virtuelles identiques ?
 
-## <a name="vm-properties"></a>Propriétés de machine virtuelle
+Pour obtenir des informations sur les propriétés de chaque machine virtuelle sans effectuer plusieurs appels, vous pouvez appeler `ListVMInstanceViews` en effectuant une API REST `GET` sur l’URI de ressource suivant :
 
-### <a name="how-do-i-get-property-information-for-each-vm-without-having-to-make-multiple-calls-for-example-getting-the-fault-domain-for-each-vm-in-my-100-scale-set"></a>Comment obtenir des informations sur les propriétés de chaque machine virtuelle sans avoir à effectuer plusieurs appels ? Par exemple : obtenir le domaine par défaut pour chaque machine virtuelle de mon groupe identique 100 ?
+/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
-Vous pouvez appeler ListVMInstanceViews en exécutant une API REST `GET` sur l’URI de ressource suivant :
+### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Puis-je transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques ?
 
-`/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
+Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées de l’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
 
-### <a name="are-there-ways-to-pass-different-extension-arguments-to-different-vms-in-a-scale-set"></a>Est-il possible de transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe identique ?
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple : 0, 1, 3...
 
-Non, mais les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. En outre, les extensions peuvent interroger les métadonnées de l’instance sur http://169.254.169.254 pour obtenir plus d’informations.
+Il existe des écarts entre les noms des machines virtuelles de votre groupe de machines virtuelles identiques et les ID des machines virtuelles, car la propriété **overprovision** de votre groupe de machines virtuelles identiques est définie sur la valeur par défaut **true**. Si le sur-approvisionnement est défini sur **true**, le nombre de machines virtuelles créées est supérieur à ce qui est demandé. Les machines virtuelles supplémentaires sont ensuite supprimées. Dans ce cas, vous obtenez une fiabilité de déploiement accrue aux dépens d’une affectation de noms contigus et de règles NAT contiguës. 
 
-### <a name="why-are-there-gaps-between-my-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe identique et les ID des machines virtuelles ? Par exemple : 0, 1, 3...
+Vous pouvez définir cette propriété sur **false**. Pour les petits groupes de machines virtuelles identiques, cela n’affecte pas vraiment la fiabilité du déploiement.
 
-Il existe des écarts parce que la propriété overprovision de votre groupe identique est définie sur la valeur par défaut true. Lorsque la propriété overprovision est définie sur true, le nombre de machines virtuelles créées est supérieur à ce qui est demandé, et les machines virtuelles supplémentaires sont supprimées par la suite. Vous obtenez une fiabilité de déploiement accrue aux dépens d’une affectation de noms contigus et de règles NAT contiguës. Vous pouvez définir cette propriété sur false. Pour les petits groupes identiques, cela ne fait pas beaucoup de différence en matière de fiabilité du déploiement.
+### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Quelle est la différence entre la suppression d’une machine virtuelle dans un groupe de machines virtuelles identiques et la libération de la machine virtuelle ? Quand choisir une option par rapport à l’autre ?
 
-### <a name="what-is-the-difference-between-deleting-a-vm-in-a-scale-set-vs-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Quelle est la différence entre la suppression d’une machine virtuelle dans un groupe identique et la libération de la machine virtuelle ? Quand choisir une option par rapport à l’autre ?
+La principale différence entre la suppression d’une machine virtuelle dans un groupe de machines virtuelles identiques et la libération de la machine virtuelle est que `deallocate` ne supprime pas les disques durs virtuels (VHD). Il existe des coûts de stockage associés à l’exécution de `stop deallocate`. Vous pouvez choisir l’une ou l’autre option pour l’une des raisons suivantes :
 
-La principale différence est que la libération ne supprime pas les disques durs virtuels, donc des coûts de stockage sont associés à l’arrêt de la libération. Les raisons de choisir une option plutôt que l’autre incluent :
+- Vous souhaitez arrêter de payer des frais de calcul, mais conserver l’état des disques des machines virtuelles.
+- Vous souhaitez démarrer un groupe de machines virtuelles plus rapidement par rapport à la montée en puissance d’un groupe de machines virtuelles identiques.
+  - En relation avec ce scénario, vous avez peut-être créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
+- Vous avez un groupe de machines virtuelles identiques qui est distribué inégalement entre les domaines d’erreur ou les domaines de mise à jour. Cela peut être dû au fait que vous avez supprimé sélectivement des machines virtuelles, ou parce que des machines virtuelles ont été supprimées après le sur-approvisionnement. Exécutez `stop deallocate` suivi de `start` sur le groupe de machines virtuelles identiques pour distribuer uniformément les machines virtuelles entre les domaines d’erreur ou les domaines de mise à jour.
 
-- Vous souhaitez arrêter de payer Compute mais conserver l’état des disques des machines virtuelles.
-- Vous souhaitez démarrer un ensemble de machines virtuelles plus rapidement que la montée en charge d’un groupe identique.
-  - En relation avec ce scénario, vous avez créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
-  - Vous avez un groupe identique qui est distribué inégalement entre les FD/UD (en raison de la suppression sélective des machines virtuelles ou en raison de la suppression de machines virtuelles après le sur-approvisionnement). Pour répartir équitablement les machines virtuelles entre les FD/UD, arrêter la libération, puis démarrer sur le groupe identique.
-
-
-
-
-
-
-
-
- 
-   
 

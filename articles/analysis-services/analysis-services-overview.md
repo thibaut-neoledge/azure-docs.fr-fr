@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
-ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -103,7 +103,7 @@ Azure Analysis Services prend actuellement en charge le mode Tabulaire pour les 
 ##### <a name="data-sources"></a>Sources de données
 Dans la version préliminaire, les sources de données suivantes sont prises en charge dans des modèles tabulaires 1200 déployés sur un serveur Azure Analysis Services.
 
-| **Cloud** | **Local** |
+| **Cloud** | **Local (passerelle de données requise)** |
 | --- | --- |
 | Base de données SQL |SQL Server |
 | SQL Data Warehouse |APS |
@@ -114,7 +114,8 @@ Dans la version préliminaire, les sources de données suivantes sont prises en 
 Les modèles de données dans Azure Analysis Services peuvent nécessiter des différents fournisseurs de données pour se connecter aux sources de données autres que des modèles de données dans SQL Server Analysis Services. La configuration requise du fournisseur de données dépend de la source de données, dans le cloud ou locale, et le type de modèle de données ; en mémoire ou requête directe. Pour plus d’informations, consultez les rubriques suivantes : [Connexions de source de données](analysis-services-datasource.md).
 
 ### <a name="client-connections"></a>Connexions clientes
-Power BI Embedded n’est pas encore pris en charge dans la version préliminaire.
+
+Les applications clientes nécessitent la dernière version des [fournisseurs de données](analysis-services-data-providers.md) du client pour se connecter à Azure Analysis Services.
 
 Les classeurs Excel avec des connexions actives à un serveur Azure Analysis Services et enregistré sur OneDrive ou SharePoint Online ne sont pas pris en charge.
 

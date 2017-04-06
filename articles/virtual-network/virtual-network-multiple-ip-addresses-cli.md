@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 80ea942cc8119050474ee5c8332925e5452d264e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 90f1f63beac199bc88397951896fe28e3824ee64
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -40,12 +40,13 @@ Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) o
 4. Créez la machine virtuelle en exécutant le script suivant sur un ordinateur Linux ou Mac. Le script crée un groupe de ressources, un réseau virtuel (VNet), une carte réseau avec trois configurations IP et une machine virtuelle avec les deux cartes réseau qui lui sont associées. La carte réseau, l’adresse IP publique, le réseau virtuel et les ressources de la machine virtuelle doivent se trouver au même emplacement et correspondre au même abonnement. Bien que les ressources n’aient pas toutes à se trouver dans le même groupe de ressources, c’est le cas dans le script suivant.
 
 ```bash
+    
 #!/bin/sh
-
+    
 RgName="myResourceGroup"
 Location="westcentralus"
 az group create --name $RgName --location $Location
-
+    
 # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
 # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
 # of IP adresses unique to each Azure region. Download and view the file from
@@ -79,7 +80,7 @@ az network vnet create \
 --subnet-prefix $VnetSubnetPrefix
 
 # Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-# first IP configuration with a dynamic private IP address and will associate the public IP address resource to it.
+# first IP configuration with a static private IP address and will associate the public IP address resource to it.
 
 NicName="MyNic1"
 az network nic create \
@@ -87,9 +88,10 @@ az network nic create \
 --resource-group $RgName \
 --location $Location \
 --subnet $VnetSubnet1Name \
+--private-ip-address 10.0.0.4
 --vnet-name $VnetName \
 --public-ip-address $PipName
-
+    
 # Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
 # static public IP address and a static private IP address.
 
@@ -107,12 +109,12 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has a dynamic private IP address and
-# no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and    # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
+--private-ip-address 10.0.0.6 \
 --name IPConfig-3
 
 # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
@@ -124,13 +126,13 @@ azure network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location westcentralus` command to get a full list
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location estcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+# Replace the value for the OsImage variable value with a value for *urn* from the utput returned by entering the
 # `az vm image list` command.
 
 OsImage="credativ:Debian:8:latest"
@@ -174,7 +176,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 
     **Ajouter une adresse IP privée**
     
-    Pour ajouter une adresse IP privée à une carte d’interface réseau, vous devez créer une configuration IP à l’aide de la commande ci-dessous. Si vous souhaitez ajouter une adresse IP privée dynamique, supprimez `-PrivateIpAddress 10.0.0.7` avant la saisie de la commande. Lorsque vous spécifiez une adresse IP statique, il doit s’agir d’une adresse non utilisée pour le sous-réseau.
+    Pour ajouter une adresse IP privée à une carte d’interface réseau, vous devez créer une configuration IP à l’aide de la commande ci-dessous. L’adresse IP statique doit être une adresse non utilisée pour le sous-réseau.
 
     ```bash
     az network nic ip-config create \
@@ -204,13 +206,14 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
         --dns-name mypublicdns3
         ```
 
-         Pour créer une nouvelle configuration IP avec une adresse IP privée dynamique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
+         Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIP3*, saisissez la commande suivante :
 
         ```bash
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
         --name IPConfig-5 \
+        --private-ip-address 10.0.0.8
         --public-ip-address myPublicIP3
         ```
 
@@ -264,11 +267,11 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 
     Sortie retournée : <br>
     
-        Name        PrivateIpAddress    PrivateIpAllocationMethod    PublicIpAddressId
+        Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
         
-        ipconfig1   10.0.0.4            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-        IPConfig-2  10.0.0.5            Static                       /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-        IPConfig-3  10.0.0.6            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+        ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+        IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+        IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
     
 
 4. Ajoutez les adresses IP privées que vous avez ajoutées à l’interface réseau pour le système d’exploitation de la machine virtuelle en suivant les instructions fournies dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.

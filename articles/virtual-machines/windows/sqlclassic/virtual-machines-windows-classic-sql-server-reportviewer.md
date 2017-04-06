@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ Pour incorporer ReportViewer dans votre site web Microsoft Azure, vous devez eff
 * **Publication** de l’application web ASP.NET sur Azure
 
 ## <a name="prerequisites"></a>Configuration requise
-Consultez la section « Instructions générales et meilleures pratiques » dans [Business Intelligence de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+Consultez la section « Instructions générales et meilleures pratiques » dans [Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
 > Les contrôles ReportViewer sont fournis avec Visual Studio Standard Edition ou une version supérieure. Si vous utilisez Web Developer Express Edition, vous devez installer [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) pour avoir accès aux fonctions d’exécution de ReportViewer.
@@ -89,13 +90,8 @@ Pour obtenir des instructions sur la publication d’une application web ASP.NET
 ## <a name="resources"></a>Ressources
 [Rapports Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Business Intelligence de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-bi.md)
+[Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md)
 
-[Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](virtual-machines-windows-classic-ps-sql-report.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+[Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](../classic/ps-sql-report.md)
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 |Name|Limite|Remarques|
 |----|----|----|
 |Taille des messages|100 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 100 Mo |
-|Limite d’évaluation des expressions|131&072; caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
+|Limite d’évaluation des expressions|131 072 caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
@@ -70,9 +70,9 @@ Voici les limites pour l’exécution d’une application logique.
 
 |Name|Limite|Remarques|
 |----|----|----|
-|Éléments ForEach|5 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
+|Éléments ForEach|100 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
 |Itérations Until|5 000||
-|Éléments SplitOn|5 000||
+|Éléments SplitOn|100 000||
 |Parallélisme ForEach|20|Vous pouvez le définir sur une opération foreach séquentielle en ajoutant `"operationOptions": "Sequential"` à l’action `foreach`.|
 
 
@@ -82,8 +82,9 @@ Voici les limites pour une instance d’application logique.
 
 |Name|Limite|Remarques|
 |----|----|----|
-|Exécutions d’actions par seconde (rafales)|1&000;|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
-|Exécutions d’actions par heure (soutenues)|1 000 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+|Exécutions d’actions par tranche de 5 minutes |100 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+
+Si vous pensez dépasser cette limite dans le cadre du traitement normal ou souhaitez exécuter des tests de charge susceptibles de dépasser cette limite pour une période donnée, [contactez-nous](mailto://logicappsemail@microsoft.com) afin que nous puissions répondre à vos besoins spécifiques.
 
 ### <a name="definition-limits"></a>Limites de définition
 
@@ -95,8 +96,8 @@ Voici les limites pour la définition d’une application logique.
 |Niveaux d’imbrication d’actions autorisés|5|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Flux de travail par région et par abonnement|1 000||
 |Déclencheurs par flux de travail|10||
-|Caractères max par expression|8&192;||
-|Taille max de `trackedProperties` en caractères|16&000;|
+|Caractères max par expression|8 192||
+|Taille max de `trackedProperties` en caractères|16 000|
 |`action`/`trigger` |80||
 |`description` |256||
 |`parameters` limit|50||
@@ -118,7 +119,7 @@ Il s’agit des limites des protocoles B2B.
 |Nom|Limite|Remarques|
 |----|----|----|
 |AS2|50 Mo|Applicable pour le décodage et l’encodage|
-|X&12;|50 Mo|Applicable pour le décodage et l’encodage|
+|X 12|50 Mo|Applicable pour le décodage et l’encodage|
 |EDIFACT|50 Mo|Applicable pour le décodage et l’encodage|
 
 ## <a name="configuration"></a>Configuration

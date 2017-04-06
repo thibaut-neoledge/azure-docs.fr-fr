@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: fb3f7c08c5f3a76e4bd28f3519ab72e8b636b93c
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -28,13 +29,13 @@ Pour un service cloud contenant des instances de rôles Web ou de rôles de trav
 
 Le fichier *servicedefinition.csdef* contient la configuration de point de terminaison et lorsque vous avez plusieurs instances de rôle pour un déploiement de rôle Web ou de travail, l’équilibrage de charge sera configuré pour celui-ci. Pour ajouter des instances à votre déploiement de cloud, vous devez modifier le nombre d’instances dans le fichier de configuration de service (.csfg).
 
-La figure suivante présente un point de terminaison à charge équilibrée pour le trafic Web chiffré partagé entre trois machines virtuelles pour les ports public et privé 443. Celles-ci sont incluses dans un jeu d’équilibrage de la charge.
+La figure suivante présente un point de terminaison à charge équilibrée pour le trafic Web chiffré partagé entre trois machines virtuelles pour les ports TCP public et privé 80. Celles-ci sont incluses dans un jeu d’équilibrage de la charge.
 
 ![exemple d’équilibrage de charge public](./media/load-balancer-internet-overview/IC727496.png))
 
-Figure 1 : point de terminaison d’équilibrage de charge pour le trafic web chiffré
+Figure 1 : point de terminaison d’équilibrage de charge pour le trafic web
 
-Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP publique du service cloud sur le port TCP 443, Azure Load Balancer distribue les demandes entre les trois machines virtuelles du jeu à charge équilibrée. Des informations supplémentaires sur l’algorithme de l’équilibreur de charge sont disponibles sur la [page de présentation de l’équilibreur de charge](load-balancer-overview.md#load-balancer-features).
+Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP publique du service cloud sur le port TCP 80, Azure Load Balancer distribue les demandes entre les trois machines virtuelles du jeu à charge équilibrée. Des informations supplémentaires sur l’algorithme de l’équilibreur de charge sont disponibles sur la [page de présentation de l’équilibreur de charge](load-balancer-overview.md#load-balancer-features).
 
 Par défaut, Azure Load Balancer répartit le trafic réseau équitablement sur plusieurs instances de machine virtuelle. Vous pouvez également configurer l’affinité de session. Pour plus d’informations, consultez [Mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md).
 
@@ -45,9 +46,4 @@ Vous pouvez consulter des informations sur [l’équilibreur de charge interne](
 Vous pouvez également [commencer par créer un équilibreur de charge avec accès par Internet](load-balancer-get-started-internet-arm-ps.md) et configurer le type de [mode de distribution](load-balancer-distribution-mode.md) pour un comportement spécifique de trafic réseau d’équilibrage de charge.
 
 Si votre application doit maintenir des connexions actives pour les serveurs situés derrière un équilibreur de charge, vous pouvez obtenir plus d’informations sur les [paramètres de délai d'expiration TCP pour un équilibrage de charge](load-balancer-tcp-idle-timeout.md). Ainsi, vous en saurez plus sur le comportement d’une connexion inactive lorsque vous utilisez l'équilibreur de charge Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

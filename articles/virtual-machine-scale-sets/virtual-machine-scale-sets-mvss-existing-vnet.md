@@ -1,6 +1,6 @@
 ---
-title: "Groupes de machines virtuelles identiques Azure : modèle de réseau virtuel existant | Microsoft Docs"
-description: "Découvrez comment créer un modèle de groupe identique avec un réseau virtuel existant"
+title: "Référencer un réseau virtuel dans un modèle de groupe identique Azure | Microsoft Docs"
+description: "Découvrez comment ajouter un réseau virtuel à un modèle de groupe de machines virtuelles identiques Azure existant"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -16,18 +16,17 @@ ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ddb3e1789e49d138e744c2238679236134b69324
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
+ms.lasthandoff: 03/24/2017
 
 ---
 
-# <a name="about-this-article"></a>À propos de cet article
+# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Ajouter une référence à un réseau virtuel dans un modèle de groupe identique Azure
 
 Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour un déploiement dans un réseau virtuel existant au lieu d’en créer un.
 
-## <a name="modifying-the-minimum-viable-scale-set-to-deploy-into-an-existing-virtual-network"></a>Modification du groupe identique viable minimal à déployer sur un réseau virtuel existant
+## <a name="change-the-template-definition"></a>Modifier la définition du modèle
 
 Notre modèle de groupe identique viable minimal peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) et notre modèle de déploiement de groupe identique sur un réseau virtuel existant peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Examinons le différentiel utilisé pour créer ce modèle (`git diff master minimum-viable-scale-set`), élément par élément :
 

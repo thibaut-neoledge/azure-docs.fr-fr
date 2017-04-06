@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3206c076350c2105e92d320ce30ce73448ccd3bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,7 +48,7 @@ Aucun transtypage supplémentaire n’est nécessaire. Si vous utilisez des donn
 
 ### <a name="schema-and-schema-generator"></a>Schéma et générateur de schéma
 
-Le déclencheur de requête vous permet d’entrer un schéma JSON pour la charge utile que vous vous attendez à recevoir. Ce schéma permet au concepteur de générer des jetons pour vous aider à utiliser le contenu de la demande. Si vous n’avez pas de schéma prêt, sélectionnez `Use sample payload to generate schema` pour générer un schéma JSON à partir d’un exemple de charge utile.
+Le déclencheur de requête vous permet d’entrer un schéma JSON pour la charge utile que vous vous attendez à recevoir. Ce schéma permet au concepteur de générer des jetons pour vous aider à utiliser le contenu de la demande. Si aucun schéma n’est disponible, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma** afin de générer un schéma JSON à partir d’un exemple de charge utile.
 
 ![Schéma](./media/logic-apps-http-endpoint/manualtrigger.png)
 

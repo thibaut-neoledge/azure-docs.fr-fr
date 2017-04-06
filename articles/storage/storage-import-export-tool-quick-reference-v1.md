@@ -1,6 +1,6 @@
 ---
-title: "Référence rapide sur les commandes de travail d’importation pour l’outil Azure Import/Export | Microsoft Docs"
-description: "Référence pour les commandes de l’outil Azure Import/Export fréquemment utilisées pour les travaux d’importation. Ceci s’applique à la version v1 de l’outil d’importation/exportation."
+title: "Aide-mémoire sur les commandes de travail d’importation pour l’outil Azure Import/Export - v1 | Microsoft Docs"
+description: "Référence de l’outil Azure Import/Export pour les commandes de travail d’importation fréquemment utilisées. Cela s’applique à la version v1 de l’outil d’importation/exportation."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 0c58a94a553a22ac06bfdfd8032879f4a4a87fe5
-ms.openlocfilehash: e1c440ee165d148b59f29035b853cd8e13a44e7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 632100f324c47d69f64cff020aafbaa300ae8c2b
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Référence rapide pour les commandes fréquemment utilisées pour les travaux d’importation
+# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Aide-mémoire sur les commandes fréquemment utilisées pour les travaux d’importation
 Cette section fournit des références rapides pour certaines commandes fréquemment utilisées. Pour une utilisation détaillée, consultez [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
 
 ## <a name="prepare-the-disks-when-data-already-copied-to-the-disks"></a>Préparer les disques lorsque des données sont déjà copiées sur les disques
@@ -59,11 +60,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstd
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
 ```  
   
-## <a name="see-also"></a>Voir aussi  
- [Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 

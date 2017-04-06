@@ -1,5 +1,5 @@
 ---
-title: "Aperçu de l’utilisation des lecteurs pour un travail d’exportation | Microsoft Docs"
+title: "Aperçu de l’utilisation d’un lecteur pour un travail d’exportation Azure Import/Export - v1 | Microsoft Docs"
 description: "Découvrez comment afficher un aperçu de la liste d’objets blob que vous avez sélectionnés pour un travail d’exportation dans le service Azure Import-Export."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
-ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 7bf74247090f91e17f81a9bc98ebfa78334c8c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -25,9 +25,13 @@ ms.lasthandoff: 01/18/2017
 # <a name="previewing-drive-usage-for-an-export-job"></a>Aperçu de l’utilisation des lecteurs pour un travail d’exportation
 Avant de créer un travail d’exportation, vous devez choisir un ensemble d’objets blob à exporter. Le service Microsoft Azure Import/Export vous permet d’utiliser une liste de chemins d’accès ou de préfixes d’objets blob pour représenter les objets blob que vous avez sélectionnés.  
   
- Ensuite, vous devez déterminer le nombre de lecteurs à envoyer. L’outil Microsoft Azure Import/Export offre la commande `PreviewExport` permettant d’afficher un aperçu de l’utilisation du disque pour les objets blob que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vous pouvez spécifier les paramètres suivants :  
-  
-|Option de ligne de commande|Description|  
+Ensuite, vous devez déterminer le nombre de lecteurs à envoyer. L’outil Import/Export offre la commande `PreviewExport` permettant d’afficher un aperçu de l’utilisation du disque pour les objets blob que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser.
+
+## <a name="command-line-parameters"></a>Paramètres de ligne de commande
+
+Vous pouvez utiliser les paramètres suivants lorsque vous utilisez la commande `PreviewExport` de l’outil Import/Export.
+
+|Paramètre de ligne de commande|Description|  
 |--------------------------|-----------------|  
 |**/logdir:**<LogDirectory\>|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés seront écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
 |**/sn:**<StorageAccountName\>|Obligatoire. Nom du compte de stockage du travail d’exportation.|  
@@ -35,7 +39,9 @@ Avant de créer un travail d’exportation, vous devez choisir un ensemble d’o
 |**/csas:**<ContainerSas\>|Obligatoire si et seulement si aucune clé du compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
 |**/ExportBlobListFile:**<ExportBlobListFile\>|Obligatoire. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de l’API REST du service Import/Export.|  
 |**/DriveSize:**<DriveSize\>|Obligatoire. Taille des disques à utiliser pour un travail d’exportation, *par exemple* 500 Go ou 1,5 To.|  
-  
+
+## <a name="command-line-example"></a>Exemple de ligne de commande
+
 L’exemple suivant illustre la commande `PreviewExport` :  
   
 ```  
@@ -71,6 +77,7 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## <a name="see-also"></a>Voir aussi  
-[Référence sur l’outil Azure Import-Export](storage-import-export-tool-how-to-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Référence sur l’outil Azure Import-Export](storage-import-export-tool-how-to-v1.md)
 

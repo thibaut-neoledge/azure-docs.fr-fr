@@ -15,8 +15,9 @@ ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: ae5719c60c6ed2d3467f162f3b273d5bfdcf0073
-ms.openlocfilehash: 2056597abd1d1e895b85770a5525d05c9526b71d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2b6b3d9483f230ad25ae47255a4f28c1a67e064
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -24,11 +25,11 @@ ms.openlocfilehash: 2056597abd1d1e895b85770a5525d05c9526b71d
 
 ## <a name="net-sample-index"></a>Index des exemples .NET
 
-Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemples et des scénarios traités dans chaque exemple. Cliquez sur les liens pour afficher l’exemple de code correspondant dans Github.
+Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemples et des scénarios traités dans chaque exemple. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Point de terminaison</th><th style="font-size:110%">Scénario</th><th style="font-size:110%">Exemple de code</th></tr></thead><tbody> 
 <tr> 
-<td rowspan="16"><b>Blob</b></td>
+<td rowspan="16"><b>Objet blob</b></td>
 <td>Append Blob</td> 
 <td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemple de méthode CloudBlobContainer.GetAppendBlobReference</a></td> 
 </tr> 
@@ -83,17 +84,17 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Prise en main des objets blob</a></td>
-</tr>   
+</tr>     
 <tr> 
 <td>Propriétés du service</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Prise en main des objets blob</a></td>
-</tr>           
+</tr>             
 <tr> 
 <td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Sauvegarder des disques de machine virtuelle Azure avec des instantanés incrémentiels</a></td>
 </tr> 
 <tr> 
-<td rowspan="9"><b>Fichier</b></td>
+<td rowspan="9"><b>File</b></td>
 <td>Créer des partages/répertoires/fichiers</td> 
 <td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Exemple de stockage de fichier .NET Stockage Azure</a></td> 
 </tr>
@@ -165,31 +166,31 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 <tr> 
 <td rowspan="7"><b>Table</b></td>
 <td>Créer une table</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l'accès concurrentiel avec Azure Storage - exemple d'application</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l’accès concurrentiel avec Azure Storage - Exemple d’application</a></td> 
 </tr> 
 <tr> 
 <td>Supprimer l’entité/la table</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Prise en main du Stockage Table Azure dans .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Getting Started with Azure Table Storage in .NET (Prise en main de Stockage Table Azure dans .NET)</a></td> 
 </tr> 
 <tr> 
 <td>Insertion/fusion/remplacement d’entité</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l'accès concurrentiel avec Azure Storage - exemple d'application</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l’accès concurrentiel avec Azure Storage - Exemple d’application</a></td> 
 </tr> 
 <tr> 
 <td>Query Entities</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Prise en main du Stockage Table Azure dans .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Getting Started with Azure Table Storage in .NET (Prise en main de Stockage Table Azure dans .NET)</a></td> 
 </tr> 
 <tr> 
 <td>Tables de requête</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Prise en main du Stockage Table Azure dans .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Getting Started with Azure Table Storage in .NET (Prise en main de Stockage Table Azure dans .NET)</a></td> 
 </tr> 
 <tr> 
 <td>ACL/propriétés de la table</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Prise en main du Stockage Table Azure dans .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Getting Started with Azure Table Storage in .NET (Prise en main de Stockage Table Azure dans .NET)</a></td> 
 </tr> 
 <tr> 
 <td>Update Entity</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l'accès concurrentiel avec Azure Storage - exemple d'application</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gestion de l’accès concurrentiel avec Azure Storage - Exemple d’application</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -216,8 +217,4 @@ Pour plus d’informations sur les exemples pour d’autres langages :
 
 * Java : [exemples de stockage Azure avec Java](storage-samples-java.md)
 * Tous les autres langages : [exemples de stockage Azure](storage-samples.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,7 +80,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Jetons de ressource
 
 Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
-- Fournissent un accès à des collections, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
+- Fournissent un accès à des collections, clés de partition, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
 - Sont créés lorsqu’un [utilisateur](#users) dispose des [autorisations](#permissions) sur une ressource spécifique.
 - Sont recréés lorsqu’une ressource d’autorisation est exécutée par un appel POST, GET ou PUT.
 - Utilisent un jeton de ressource de hachage créé spécifiquement pour l’utilisateur, la ressource et les autorisations.
@@ -105,9 +105,9 @@ Voici un modèle de conception standard dans le cadre duquel des jetons de resso
 
     ![Flux de travail des jetons de ressource DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- La gestion et la génération des jetons de ressource est prise en charge par les bibliothèques clientes natives DocumentDB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources DocumentDB) ou le [code source de nos Kits de développement logiciel (SDK)](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
- Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+La gestion et la génération des jetons de ressource est prise en charge par les bibliothèques clientes natives DocumentDB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources DocumentDB) ou le [code source de nos Kits de développement logiciel (SDK)](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+
+Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Pour en savoir plus sur la sécurité de la base de données DocumentDB, consultez [DocumentDB: NoSQL database security](documentdb-nosql-database-security.md) (DocumentDB : sécurité de la base de données NoSQL).
 * Pour en savoir plus sur la gestion des clés principales et en lecture seule, consultez [Gestion d’un compte DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Pour savoir comment créer des jetons d’autorisation DocumentDB, consultez [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources DocumentDB).
-
 

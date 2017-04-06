@@ -1,5 +1,5 @@
 ---
-title: Utilisation des rubriques Service Bus avec Java | Microsoft Docs
+title: "Utilisation des rubriques Azure Service Bus avec Java | Microsoft Docs"
 description: "Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Java."
 services: service-bus-messaging
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,7 +38,7 @@ Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui re
 Les rubriques et les abonnements Service Bus vous permettent de mettre votre infrastructure à l’échelle pour traiter de très nombreux messages parmi un très grand nombre d’utilisateurs et d’applications.
 
 ## <a name="create-a-service-namespace"></a>Création d'un espace de noms de service
-Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azure, vous devez d’abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+Pour commencer à utiliser les rubriques et abonnements Service Bus dans Azure, vous devez d’abord créer un espace de noms, qui fournit un conteneur d’étendue pour l’adressage de ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms :
 
@@ -48,7 +49,7 @@ Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Ajoutez les instructions import suivantes au début du fichier Java :
+Ajoutez les instructions `import` suivantes au début du fichier Java :
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -150,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][BrokeredMessage]. Les objets [BrokeredMessage][BrokeredMessage]* possèdent un ensemble de propriétés standard (telles que **setLabel** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage][BrokeredMessage]. Le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l’objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
+Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][BrokeredMessage]. Les objets [BrokeredMessage][BrokeredMessage]*possèdent un ensemble de propriétés standard (telles que**setLabel**et**TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage][BrokeredMessage]. Le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l’objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
 
 L’exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** `TestTopic` obtenu dans l’extrait de code précédent.
 Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l’itération de la boucle (détermine les abonnements qui le reçoivent) :
@@ -263,9 +264,4 @@ Maintenant que vous connaissez les principes de base des files d’attente Servi
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

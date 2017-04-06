@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 3/1/2017
+ms.date: 3/27/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
-ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 6ac47fe040793f2ac4ff596880675df0b331143e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -146,6 +146,7 @@ Ainsi, lorsque le réplica doit être redémarré, les Collections fiables récu
 * Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
 * Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système en dépend pour la fusion des points de contrôle.
 * N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
+* Envisagez de conserver vos éléments (par exemple TKey + TValue pour le Dictionnaire fiable) sous 80 Ko : plus le volume est petit, mieux c’est. Cela réduira la quantité d’utilisation du Large Object Heap, ainsi que les exigences d’E/S relatives au disque et au réseau. Dans de nombreux cas, cela permet également de réduire la réplication de données en double lorsque seule une petite partie de la valeur est mise à jour. La manière la plus courante pour y parvenir dans le Dictionnaire fiable consiste à diviser vos lignes en plusieurs lignes. 
 * Envisagez d’utiliser la fonctionnalité de sauvegarde et de restauration pour bénéficier de la récupération d’urgence.
 * Évitez de combiner des opérations à une seule entité et des opérations à plusieurs entités (par exemple `GetCountAsync`, `CreateEnumerableAsync`) dans la même transaction en raison des différents niveaux d’isolement.
 * Gérez l’exception InvalidOperationException. Les transactions des utilisateurs peuvent être annulées par le système pour diverses raisons. Par exemple, lorsque le Gestionnaire d’état fiable abandonne le rôle Principal ou qu’une transaction longue bloque la troncature du journal des transactions. Dans ce cas, l’utilisateur peut recevoir l’exception InvalidOperationException, indiquant que sa transaction a déjà été terminée. Dans l’hypothèse où l’arrêt de la transaction n’était pas demandé par l’utilisateur, la meilleure façon de gérer cette exception consiste à supprimer la transaction, vérifier si le jeton d’annulation a été signalé (ou si le rôle du réplica a été modifié) et, si ce n’est pas le cas, créer une nouvelle transaction, puis réessayer.  

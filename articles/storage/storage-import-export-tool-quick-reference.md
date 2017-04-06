@@ -1,6 +1,6 @@
 ---
 title: "Aide-mémoire sur les commandes de travail d’importation pour l’outil Azure Import/Export | Microsoft Docs"
-description: "Référence pour les commandes de l’outil Azure Import/Export fréquemment utilisées pour les travaux d’importation"
+description: "Référence de l’outil Azure Import/Export pour les commandes de travail d’importation fréquemment utilisées."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: 79b1d3f92671638ba43bac2f5428a1f903d11080
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e9377e0c5001cf5be220e19e06ff96c1e058e853
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -24,33 +25,31 @@ ms.openlocfilehash: 79b1d3f92671638ba43bac2f5428a1f903d11080
 
 Cet article fournit un aide-mémoire pour certaines commandes fréquemment utilisées. Pour une utilisation détaillée, consultez [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import.md).
 
-## <a name="import-job-quick-reference"></a>Aide-mémoire pour les travaux d’importation
-
-Pour la première session :
+## <a name="first-session"></a>Première session
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Deuxième session :
+## <a name="second-session"></a>Deuxième session
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /DataSet:dataset-2.csv
 ```
 
-Abandonner la dernière session :
+## <a name="abort-latest-session"></a>Annuler la dernière session
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /AbortSession
 ```
 
-Reprendre la dernière session interrompue :
+## <a name="resume-latest-interrupted-session"></a>Reprise de la dernière session interrompue
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /ResumeSession
 ```
 
-Ajouter des disques à la dernière session :
+## <a name="add-drives-to-latest-session"></a>Ajouter des disques à la dernière session
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveSet:driveset-2.csv
@@ -58,10 +57,5 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveS
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 

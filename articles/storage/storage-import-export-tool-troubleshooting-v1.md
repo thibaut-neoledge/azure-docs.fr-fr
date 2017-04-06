@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes de l’outil Azure Import-Export | Microsoft Docs"
-description: "Découvrez les problèmes courants que rencontrent les utilisateurs avec l’outil Import-Export et comment les gérer."
+description: "Découvrez certains des problèmes courants que observés avec l’outil Azure Import-Export et comment les gérer."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 43b5d5a57df6bdda57a31ff0330ec6eff7aa732c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
+# <a name="troubleshooting-the-azure-importexport-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
 L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il rencontre des problèmes. Cette rubrique répertorie certains des problèmes courants que les utilisateurs peuvent rencontrer.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>Une session de copie échoue, que faire ?  
@@ -38,10 +38,11 @@ L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il r
 ## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>J’ai perdu le fichier journal, est-il quand même possible de créer le travail ?  
  Le fichier journal d’un lecteur contient les informations complètes de copie des données sur ce lecteur ; il est nécessaire pour ajouter d’autres fichiers au lecteur et sera utilisé pour créer un travail d’importation. Si le fichier journal est perdu, vous devrez répéter toutes les sessions de copie du lecteur.  
   
-## <a name="see-also"></a>Voir aussi  
- [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
- [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
+ 
+* [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)
 

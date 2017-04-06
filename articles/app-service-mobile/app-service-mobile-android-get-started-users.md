@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser la fonctionnalité Mobile Apps d’Azu
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: adrianha
+manager: 
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
-ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcaab18c2c22bcbdbb42708da9840fb6e5c25b2e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +30,20 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 ## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+
+L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
+
+1. Dans le [portail Azure], sélectionnez votre instance App Service.
+
+2. Cliquez sur l’option de menu **Authentication/Authorisation**.
+
+3. Dans **URL de redirection externes autorisées**, saisissez `appname://easyauth.callback`.  La chaîne _appname_ de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez noter la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
+
+4. Cliquez sur **OK**.
+
+5. Cliquez sur **Enregistrer**.
+
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -41,6 +55,8 @@ Ensuite, mettez à jour l’application pour authentifier les utilisateurs avant
 
 ## <a name="add-authentication-to-the-app"></a>Ajout de l'authentification à l'application
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
+
+
 
 ## <a name="cache-tokens"></a>Mise en cache de jetons d'authentification sur le client
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]

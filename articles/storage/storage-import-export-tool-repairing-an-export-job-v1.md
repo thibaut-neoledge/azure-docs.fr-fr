@@ -1,5 +1,5 @@
 ---
-title: "Réparation d’un travail d’importation | Microsoft Docs"
+title: "Réparation d’un travail d’exportation Azure Import/Export - v1 | Microsoft Docs"
 description: "Apprenez à réparer un travail d’exportation qui a été créé et exécuté à l’aide du service Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +30,11 @@ Lorsqu’un travail d’exportation est terminé, vous pouvez exécuter l’outi
   
 Vous devez disposer d’une connectivité au Stockage Azure pour utiliser cette fonctionnalité.  
   
-La commande de réparation d’un travail d’exportation est **RepairExport**. Les paramètres suivants peuvent être spécifiés :  
+La commande de réparation d’un travail d’exportation est **RepairExport**.
+
+## <a name="repairexport-parameters"></a>Paramètres de RepairExport
+
+Les paramètres suivants peuvent être spécifiés pour **RepairExport** :  
   
 |Paramètre|Description|  
 |---------------|-----------------|  
@@ -129,7 +133,8 @@ Voici un exemple de fichier manifeste :
 ``` 
   
 Après avoir terminé le processus de réparation, l’outil parcourt chaque fichier référencé dans le fichier manifeste et vérifie l’intégrité du fichier avec les hachages MD5. Pour le manifeste ci-dessus, il parcourt les composants suivants.  
-  
+
+```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
   
 G:\pictures\city\redmond.jpg, offset 3584, length 3584  
@@ -147,13 +152,15 @@ G:\pictures\wild\canyon.jpg, offset 5442, length 2721
 G:\pictures\wild\canyon.jpg, offset 8163, length 2721  
   
 G:\pictures\wild\canyon.jpg.properties  
-  
+```
+
 Tout composant dont la vérification échoue sera téléchargé par l’outil et réécrit dans le même fichier sur le lecteur.  
   
-## <a name="see-also"></a>Voir aussi  
-[Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-[Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
-[Résolution des problèmes associés à l’outil d’importation/d’exportation Azure](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
+ 
+* [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
 

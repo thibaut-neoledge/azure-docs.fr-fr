@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 44786974a86a8cef9bfbaa9ea2a131b11747b01e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 275b1cd91347fdfcc36e0e8a6448ccd8818a507d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,7 +85,7 @@ Vous pouvez vérifier l’état de l’application sur le portail Azure pour val
 3. Cliquez sur le cluster dans lequel vous avez installé l’application.
 4. Dans le panneau **Paramètres**, cliquez sur **Applications** sous la catégorie **Général**. Vous devriez voir **hue** dans le panneau **Applications installées**.
 5. Cliquez sur **hue** dans la liste pour en afficher les propriétés.  
-6. Cliquez sur le lien de la page web pour valider le site web ; ouvrez le point de terminaison HTTP dans un navigateur pour valider l’interface utilisateur web Hue, puis ouvrez le point de terminaison SSH à l’aide de [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ou d’autres [clients SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Cliquez sur le lien de la page web pour valider le site web ; ouvrez le point de terminaison HTTP dans un navigateur pour valider l’interface utilisateur web Hue, puis ouvrez le point de terminaison SSH à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a>Dépanner l’installation
 Vous pouvez vérifier l’état de l’installation de l’application dans la notification du portail (cliquez sur l’icône en forme de cloche en haut du portail).

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 02/20/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
-ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 751e1eaf65da889ab5c7dc26145c017682a12a4d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,7 +55,7 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Vous pouvez restaurer une base de données existante à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du [Portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](sql-database-point-in-time-restore-powershell.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Vous pouvez restaurer une base de données existante à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du [Portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](scripts/sql-database-restore-database-powershell.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Vous ne pouvez pas remplacer la base de données existante lors de la restauration.
@@ -69,7 +69,7 @@ En règle générale, vous restaurez une base de données à un point antérieur
 * ***Récupération des données :*** si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur utilisateur ou d’application, vous devez écrire et exécuter les scripts de récupération de données nécessaires pour extraire les données à partir de la base de données restaurée et les transférer vers la base de données d’origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus de restauration. Si vous supprimez la base de données pendant la restauration, l’opération de restauration est annulée et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée. 
 
 ## <a name="deleted-database-restore"></a>Restauration d’une base de données supprimée
-Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du [Portail Azure](sql-database-restore-deleted-database-portal.md), de [PowerShell](sql-database-restore-deleted-database-powershell.md) ou de [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du [Portail Azure](sql-database-restore-deleted-database-portal.md), de [PowerShell](scripts/sql-database-restore-database-powershell.md) ou de [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Si vous supprimez une instance de serveur Azure SQL Database, toutes ses bases de données sont également supprimées et ne peuvent pas être récupérées. Il n'existe aucune prise en charge pour la restauration d'un serveur supprimé pour l'instant.
@@ -94,8 +94,8 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 ### <a name="powershell"></a>PowerShell
 | Applet de commande | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtient une ou plusieurs bases de données. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Obtient une base de données supprimée que vous pouvez restaurer. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtient une ou plusieurs bases de données. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Obtient une base de données supprimée que vous pouvez restaurer. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Obtient une sauvegarde géo-redondante d’une base de données. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restaure une base de données SQL. |
 |  | |

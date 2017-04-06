@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 1527896e4f512cdfa6a4e925bbdca88a1e6a8fe7
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 281901045723266128db9069a6f244acb183ae80
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>MirrorMaker permet de créer un réplica Kafka sur un cluster HDInsight (version préliminaire)
@@ -118,18 +119,12 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
    
     Remplacez **sshuser** par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez **BASENAME** par le nom de base que vous avez utilisé lors de la création du cluster.
    
-    Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les documents suivants :
-   
-    * [Utilisation de SSH avec HDInsight à partir d’un client Linux, Mac OS ou Unix, ou de Bash sous Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-    * [Utilisation de SSH (PuTTY) avec HDInsight à partir d’un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour rechercher les hôtes Zookeeper, définir la variable `SOURCE_ZKHOSTS`, puis créer plusieurs sujets nommés `testtopic` :
    
     ```bash
-    # Get a list of zookeeper hosts for the source cluster
     SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-    # Create a topic on the source cluster
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
@@ -147,11 +142,11 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
     echo $SOURCE_ZKHOSTS
     ```
    
-    Cette commande renvoie des informations semblables au texte suivant :
+ Cette commande renvoie des informations semblables au texte suivant :
    
-        zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
+       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
    
-    Enregistrez ces informations. Elles seront utilisées dans la section suivante.
+ Enregistrez ces informations. Elles seront utilisées dans la section suivante.
 
 ## <a name="configure-mirroring"></a>Configuration de la mise en miroir
 
@@ -161,11 +156,7 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
    
     Remplacez **sshuser** par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez **BASENAME** par le nom de base que vous avez utilisé lors de la création du cluster.
    
-    Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les documents suivants :
-   
-    * [Utilisation de SSH avec HDInsight à partir d’un client Linux, Mac OS ou Unix, ou de Bash sous Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Utilisation de SSH (PuTTY) avec HDInsight à partir d’un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour créer un fichier `consumer.properties` décrivant comment communiquer avec le cluster **source** :
    
@@ -187,11 +178,8 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 3. Avant de configurer le producteur qui communique avec le cluster de destination, vous devez trouver les hôtes du répartiteur pour le cluster **de destination**. Pour récupérer ces informations, utilisez les commandes suivantes :
    
     ```bash
-    # Install JQ for parsing JSON documents
     sudo apt -y install jq
-    # Get the broker information for the destination cluster
     DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-    # Display the information
     echo $DEST_BROKERHOSTS
     ```
    
@@ -240,28 +228,22 @@ Une fois les ressources créées, vous êtes redirigé vers un panneau pour le g
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
     
     ```bash
-    # Install JQ for working with JSON
     sudo apt -y install jq
-    # Retrieve the Kafka brokers
     SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-    # Start a producer
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Lorsque vous arrivez sur une ligne vide avec un curseur, tapez quelques messages texte. Ceux-ci sont envoyés à la rubrique sur le cluster **source**. Lorsque vous avez terminé, utilisez **Ctrl + C** pour terminer le processus de production.
+ Lorsque vous arrivez sur une ligne vide avec un curseur, tapez quelques messages texte. Ceux-ci sont envoyés à la rubrique sur le cluster **source**. Lorsque vous avez terminé, utilisez **Ctrl + C** pour terminer le processus de production.
 
 3. Dans la connexion SSH au cluster **de destination**, utilisez **Ctrl + C** pour mettre fin au processus MirrorMaker. Puis, utilisez les commandes suivantes pour vérifier que la rubrique `testtopic` a été créée et que les données de la rubrique ont été répliquées vers ce miroir :
     
     ```bash
-    # Get a list of zookeeper hosts for the destination cluster
     DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-    # List topics on destination
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
-    # Retrieve messages from the `testtopic`
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
     
-    La liste des rubriques inclut désormais `testtopic`, qui est créé lorsque MirrorMaster reflète la rubrique du cluster source vers la destination. Les messages récupérés de la rubrique sont les mêmes que ceux entrés dans le cluster source.
+  La liste des rubriques inclut désormais `testtopic`, qui est créé lorsque MirrorMaster reflète la rubrique du cluster source vers la destination. Les messages récupérés de la rubrique sont les mêmes que ceux entrés dans le cluster source.
 
 ## <a name="delete-the-cluster"></a>Suppression du cluster
 

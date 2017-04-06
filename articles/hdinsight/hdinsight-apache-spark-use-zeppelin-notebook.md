@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9e6e0a696ba27c7758c21fa46754a8539ae2255b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,27 +27,15 @@ ms.lasthandoff: 01/24/2017
 Découvrez comment installer des blocs-notes Zeppelin sur des clusters Apache Spark et comment utiliser les blocs-notes Zeppelin pour exécuter des tâches Spark.
 
 > [!IMPORTANT]
-> Si vous avez approvisionné des clusters Spark 1.6 sur HDInsight 3.5. Vous pouvez accéder aux blocs-notes Zeppelin par défaut en utilisant les instructions de la page [Utilisation de blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md). Si vous souhaitez utiliser Zeppelin sur les versions de cluster HDInsight 3.3, 3.4, ou Spark 2.0 sur HDInsight 3.5, vous devez suivre les instructions de cet article pour installer Zeppelin.
+> Si vous avez configuré un cluster Spark 1.6 sur HDInsight 3.5, vous pouvez accéder à Zeppelin par défaut en utilisant les instructions de la page [Utilisation de blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md). Si vous souhaitez utiliser Zeppelin sur les versions de cluster HDInsight 3.3 ou 3.4, vous devez suivre les instructions de cet article pour installer Zeppelin.
 >
->
+> Utiliser les scripts contenus dans cet article pour installer Zeppelin sur des clusters Spark 2.0 n’est pas pris en charge.
 
-**Configuration requise :**
+## <a name="prerequisites"></a>Composants requis
 
-* Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Vous devez avoir un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Un client SSH. Pour les distributions Linux et Unix ou pour Macintosh OS X, la commande `ssh` est fournie avec le système d'exploitation. Pour Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-  > [!NOTE]
-  > Si vous souhaitez utiliser un client SSH autre que `ssh` ou PuTTY, veuillez consulter la documentation de votre client qui explique comment établir un tunnel SSH.
-  >
-  >
-* Un navigateur Web qui peut être configuré pour utiliser un proxy SOCKS
-* **(facultatif)**: un plug-in comme [FoxyProxy](http://getfoxyproxy.org/,) pouvant appliquer des règles qui acheminent uniquement les demandes spécifiques via le tunnel.
-
-  > [!WARNING]
-  > Sans un plug-in comme FoxyProxy, toutes les demandes effectuées via le navigateur peuvent être routées via le tunnel. Cela peut entraîner un chargement plus lent des pages Web dans votre navigateur.
-  >
-  >
 
 ## <a name="install-zeppelin-on-a-spark-cluster"></a>Installation de Zeppelin sur un cluster Spark
 Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Vous pouvez utiliser le script personnalisé pour installer Zeppelin à partir du portail Azure, à l’aide du Kit de développement logiciel (SDK) .NET HDInsight ou à l’aide d’Azure PowerShell. Vous pouvez utiliser le script pour installer Zeppelin lors de la création du cluster ou lorsque le cluster est prêt à fonctionner. Les liens dans les sections ci-dessous fournissent les instructions sur la marche à suivre.

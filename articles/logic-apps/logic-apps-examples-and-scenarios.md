@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 03/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cbe7011f827418c1094c4e262e016cb93d6d224c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: dcf089d680249d0a2f9d748b315076d91c8c78e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -70,6 +70,7 @@ Vous pouvez accéder à plusieurs types de contenu, les convertir et les transfo
 
 Les applications logiques offrent également une intégration avec de nombreux services comme Azure Functions, la Gestion des API Azure, Azure App Services et les points de terminaison HTTP personnalisés, par exemple, REST et SOAP.
 
+* [Créer un tableau de bord social en temps réel avec Azure Serverless](logic-apps-scenario-social-serverless.md)
 * [Appeler Azure Functions à partir d’applications logiques](../logic-apps/logic-apps-azure-functions.md)
 * [Scénario : Déclencher des applications logiques avec Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 * [Blog : Appeler des points de terminaison SOAP à partir d’applications logiques](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)

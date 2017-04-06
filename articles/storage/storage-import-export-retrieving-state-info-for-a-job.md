@@ -1,6 +1,6 @@
 ---
 title: "Récupération des informations d’état d’un travail Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment obtenir les informations d’état des travaux du service Microsoft Azure Import/Export"
+description: "Découvrez comment obtenir les informations d’état des travaux du service Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -86,11 +86,12 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 |État du disque|Événement|Résolution/Étape suivante|
 |-----------------|-----------|-----------------------------|
 |`NeverReceived`|Un disque qui a été marqué comme `NeverReceived`, car le colis associé au travail ne le contenait pas, arrive dans un autre colis.|L’équipe des opérations fait passer le disque à l’état `Received`.|
-|`N/A`|Un disque qui n’est associé à aucun travail arrive au centre de données dans le cadre d’un autre travail.|Le disque est marqué en tant que disque supplémentaire et est retourné au client une fois le travail associé au colis d’origine terminé.|
+|`N/A`|Un disque qui n’est associé à aucun travail arrive au centre de données dans le cadre d’un autre travail.|Le disque est marqué en tant que disque supplémentaire et est retourné au client une fois la tâche associée au colis d’origine terminée.|
 
 ## <a name="faulted-states"></a>États d’échec
 Lorsqu’un travail ou un disque rencontre un échec au cours de son cycle de vie, le travail ou le disque est placé dans un état `Faulted`. À ce stade, l’équipe des opérations contacte le client par e-mail ou par téléphone. Une fois que le problème est résolu, l’état `Faulted` du travail ou du disque ayant rencontré un échec est remplacé par l’état approprié.
 
-## <a name="see-also"></a>Voir aussi
-[Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

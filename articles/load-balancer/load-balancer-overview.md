@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 93577703dd2bc1409250c3df12c2d6265f3f4634
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -111,7 +112,7 @@ L’équilibrage de charge peut maintenant être géré à l’aide des outils, 
 
     Pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l’équilibrage de charge. L’hôte externe voit le trafic avec un port alloué à une adresse IP virtuelle. Pour les scénarios exigeant un grand nombre de connexions sortantes, il est recommandé d’utiliser des adresses [IP publiques de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) afin que les machines virtuelles disposent d’une adresse IP sortante dédiée pour SNAT. Cela réduit le risque d’épuisement du port.
 
-    Le nombre maximal de ports pouvant être utilisés par l’adresse IP virtuelle ou une adresse IP publique de niveau d’instance est 64 000. Il s'agit d'une limite TCP standard.
+    Consultez l’article [connexions sortantes](load-balancer-outbound-connections.md) pour plus d’informations sur ce sujet.
 
 ### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>Prise en charge de plusieurs adresses IP à équilibrage de charge pour les machines virtuelles
 Vous pouvez affecter plusieurs adresses IP publiques à charge équilibrée à un jeu de machines virtuelles. Cela vous permet d'héberger plusieurs sites Web SSL et/ou plusieurs écouteurs de groupe de disponibilité SQL Server Always On sur le même jeu de machines virtuelles. Pour en savoir plus, consultez [Plusieurs adresses IP virtuelles par service cloud](load-balancer-multivip.md).
@@ -125,10 +126,5 @@ Vous pouvez affecter plusieurs adresses IP publiques à charge équilibrée à u
 [Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)
 
 [Prise en main de la création d'un équilibreur de charge accessible sur Internet](load-balancer-get-started-internet-arm-ps.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

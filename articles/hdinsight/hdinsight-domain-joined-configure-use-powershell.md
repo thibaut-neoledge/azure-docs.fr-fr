@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: a13b2f7a-612d-4800-bc92-7fc0524f3e89
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
-ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -185,11 +187,6 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+* Pour utiliser SSH et vous connecter aux clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 

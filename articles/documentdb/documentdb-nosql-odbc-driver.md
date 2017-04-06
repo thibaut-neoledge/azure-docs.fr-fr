@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f1b0fde1e6e31a8179ed61508348d850c5dd784f
-ms.openlocfilehash: 9e2c0cff442f7c66a4b1c76ab612175410f49497
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5f712c7fa9b6ee06f7c89de40ba4227a925a35ce
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,15 +36,22 @@ C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez d
 
 Familiarisons-nous à présent avec le pilote ODBC.
 
-## <a name="a-idinstallastep-1-install-the-documentdb-odbc-driver"></a><a id="install"></a>Étape 1 : Installation du pilote DocumentDB ODBC
-1. Téléchargez le fichier [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pour un système d’exploitation Windows 64 bits ou [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pour un système d’exploitation Windows 32 bits.2. Exécutez le fichier msi localement pour lancer l’**assistant d’installation du pilote Microsoft Azure DocumentDB ODBC**. 
+## <a id="install"></a>Étape 1 : Installation du pilote DocumentDB ODBC
+
+1. Téléchargez les pilotes correspondant à votre environnement :
+
+    * [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pour Windows 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) pour 32 bits sur Windows 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pour Windows 32 bits
+
+    Exécutez le fichier msi localement pour lancer l’**assistant d’installation du pilote Microsoft Azure DocumentDB ODBC**. 
 2. Terminez l’assistant d’installation en utilisant l’entrée par défaut pour installer le pilote ODBC.
 3. Ouvrez l’application **Administrateur de sources de données ODBC** sur votre ordinateur ; pour cela, tapez **Sources de données ODBC** dans la fenêtre de recherche Windows. 
     Vous pouvez confirmer l’installation du pilote en cliquant dans l’onglet **Pilotes** pour vérifier que le **pilote ODBC Microsoft DocumentDB** est répertorié.
 
     ![Administrateur de sources de données DocumentDB ODBC](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a name="a-idconnectastep-2-connect-to-your-documentdb-database"></a><a id="connect"></a>Étape 2 : Se connecter à la base de données DocumentDB
+## <a id="connect"></a>Étape 2 : Se connecter à la base de données DocumentDB
 
 1. Après [l’installation du pilote DocumentDB ODBC](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, nous créons un DSN utilisateur.
 2. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Pilote Microsoft DocumentDB ODBC**, puis cliquez sur **Terminer**.
@@ -69,7 +77,7 @@ Familiarisons-nous à présent avec le pilote ODBC.
 
     ![Nouveau DSN DocumentDB ODBC dans l’onglet DSN utilisateur](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
-## <a name="a-idcollection-mappingastep-3-create-a-schema-definition-using-the-collection-mapping-method"></a><a id="#collection-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de la collection
+## <a id="#collection-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de la collection
 
 Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : **mappage de la collection** ou **délimiteurs de la table**. Une session d’échantillonnage peut utiliser les deux méthodes d’échantillonnage, mais chaque collection peut uniquement utiliser une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’une ou plusieurs collections à l’aide de la méthode de mappage de la collection. Cette méthode d’échantillonnage récupère les données dans la page d’une collection pour déterminer la structure des données. Elle transpose une collection dans une table du côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’une collection sont homogènes. Si une collection contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping) car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données de la collection. 
 
@@ -87,7 +95,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
     Si vous souhaitez, par la suite, utiliser ce schéma avec un DSN, ouvrez la fenêtre Configuration du DSN du pilote DocumentDB ODBC (via l’Administrateur de sources de données DocumentDB ODBC), cliquez sur Options avancées, puis, dans la boîte de dialogue Fichier de schéma, accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
 
-## <a name="a-idtable-mappingastep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
+## <a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
 
 Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : **mappage de la collection** ou **délimiteurs de la table**. Une session d’échantillonnage peut utiliser les deux méthodes d’échantillonnage, mais chaque collection peut uniquement utiliser une méthode d’échantillonnage spécifique. 
 
@@ -109,7 +117,7 @@ Les étapes suivantes créent un schéma pour les données d’une ou plusieurs 
     - Vous pouvez définir **Masquer la colonne** sur **true** si vous souhaitez exclure cette colonne des résultats de la requête. Les colonnes marquées Masquer la colonne = true ne sont pas retournées pour la sélection et la projection, bien qu’elles fassent toujours partie du schéma. Par exemple, vous pouvez masquer toutes les propriétés système DocumentDB requises commençant par « _ ».
     - La colonne **id** est le seul champ qui ne peut pas être masqué car elle sert de clé primaire dans le schéma normalisé. 
 6. Une fois que vous avez terminé la définition du schéma, cliquez sur **Fichier** | **Enregistrer**, accédez au répertoire d’enregistrement du schéma, puis cliquez sur **Enregistrer**.
-7. Dans la fenêtre **Configuration du DSN du pilote DocumentDB ODBC**, cliquez sur ** Options avancées**. Puis, dans la fenêtre **Fichier de schéma**, accédez au fichier de schéma enregistré et cliquez sur **OK**. Cliquez à nouveau sur **OK** pour enregistrer le DSN. Cette opération enregistre dans le DSN le schéma que vous avez créé. 
+7. Dans la fenêtre **Configuration du DSN du pilote DocumentDB ODBC**, cliquez sur **Options avancées**. Puis, dans la fenêtre **Fichier de schéma**, accédez au fichier de schéma enregistré et cliquez sur **OK**. Cliquez à nouveau sur **OK** pour enregistrer le DSN. Cette opération enregistre dans le DSN le schéma que vous avez créé. 
 
 ## <a name="optional-creating-views"></a>(Facultatif) Création de vues
 Vous pouvez définir et créer des vues dans le cadre du processus d’échantillonnage. Ces vues sont équivalentes aux vues SQL. Elles sont en lecture seule et affichent les sélections et les projections SQL DocumentDB définies. 
@@ -143,8 +151,4 @@ Si l’erreur suivante s’affiche, vérifiez que les valeurs **Hôte** et **Cl�
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur DocumentDB, consultez [Qu'est-ce que DocumentDB ?](documentdb-introduction.md).
-
-
-<!--HONumber=Jan17_HO4-->
-
 

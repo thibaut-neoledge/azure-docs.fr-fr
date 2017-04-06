@@ -13,38 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
 > * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
-Cet article explique comment créer un circuit ExpressRoute à l’aide des applets de commande Windows PowerShell et du modèle de déploiement Azure Resource Manager. Cet article vous montrera également comment vérifier l’état du circuit, le mettre à jour, le supprimer et annuler son approvisionnement.
+Cet article explique comment créer un circuit ExpressRoute à l’aide des applets de commande Windows PowerShell et du modèle de déploiement Azure Resource Manager. Cet article vous montre également comment vérifier l’état du circuit, le mettre à jour, le supprimer et annuler son approvisionnement.
 
 **À propos des modèles de déploiement Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
-* Procurez-vous la dernière version des modules Azure PowerShell (au moins la version 1.0). Pour connaître les étapes de configuration de votre ordinateur afin d’utiliser les modules Azure PowerShell, suivez les instructions de [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour en savoir plus, voir [Prise en main des applets de commande PowerShell](/powershell/azureps-cmdlets-docs). 
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Création et approvisionnement d’un circuit ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
-Pour commencer votre configuration, connectez-vous à votre compte Azure. Pour plus d'informations sur PowerShell, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md). Utilisez les exemples suivants pour faciliter votre connexion :
+Pour commencer votre configuration, connectez-vous à votre compte Azure. Utilisez les exemples suivants pour faciliter votre connexion :
 
     Login-AzureRmAccount
 

@@ -3,7 +3,7 @@ title: "Signaler et contrôler l’intégrité avec Azure Service Fabric | Micro
 description: "Découvrez comment envoyer des rapports d’intégrité à partir de votre code de service et comment contrôler l’intégrité de votre service avec les outils de contrôle d’intégrité fournis par Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
 ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -151,10 +152,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [Présentation approfondie de l’intégrité de Service Fabric](service-fabric-health-introduction.md)
 * [API REST pour les rapports d’intégrité du service](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [API REST pour les rapports d’intégrité de l’application](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/23/2017
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
-ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9a0ba106b4c2aded8aaac673dfba3610bd4ca0fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ DocumentDB est utilisé par des jeux tels que [The Walking Dead: No Man’s Land
 ![Architecture de référence des jeux Azure DocumentDB](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## <a name="web-and-mobile-applications"></a>Applications web et mobiles
-DocumentDB est couramment utilisé dans les applications web et mobiles et il est particulièrement bien adapté à la modélisation des interactions sociales, à l’intégration avec les services tiers et à la création d’expériences personnalisées riches. 
+DocumentDB est couramment utilisé dans les applications web et mobiles et il est particulièrement bien adapté à la modélisation des interactions sociales, à l’intégration avec les services tiers et à la création d’expériences personnalisées riches. Les Kits de développement logiciel (SDK) DocumentDB permettent de générer des applications iOS et Android enrichies utilisant [l’infrastructure Xamarin](documentdb-mobile-apps-with-xamarin.md) qui est connue.  
 
 ### <a name="social-applications"></a>Applications des réseaux sociaux
 Un cas d'utilisation courant pour DocumentDB consiste à stocker et à interroger du contenu généré par l’utilisateur pour des applications web et mobiles, plus particulièrement les applications des réseaux sociaux. Les sessions de conversation, les tweets, les billets de blog, les évaluations et les commentaires sont des exemples de contenus générés par l’utilisateur. Souvent, les contenus générés par les utilisateurs dans les applications des réseaux sociaux combinent du texte au format libre, des propriétés, des balises et des relations qui ne sont pas contraintes par une structure rigide. Les contenus tels que les discussions, les commentaires et les publications peuvent être stockés dans DocumentDB sans nécessiter des transformations ou un objet complexe de couches de mappage relationnelles.  Des propriétés de données peuvent être ajoutées ou modifiées facilement pour répondre aux besoins lorsque les développeurs effectuent une itération dans le code d'application, favorisant ainsi un développement rapide.  
