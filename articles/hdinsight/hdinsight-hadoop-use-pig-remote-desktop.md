@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ Ce document fournit une procédure pas à pas de l'utilisation de la commande Pi
 >
 > Pour HDInsight 3.4 ou les versions ultérieures, consultez l’article [Utiliser Pig avec HDInsight et SSH](hdinsight-hadoop-use-pig-ssh.md) pour plus d’informations sur l’exécution interactive de travaux Pig directement sur le cluster à partir d’une ligne de commande.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Configuration requise
+## <a id="prereq"></a>Configuration requise
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * un cluster HDInsight basé sur Windows (Hadoop sur HDInsight)
 * Un ordinateur client avec Windows 10, Windows 8 ou Windows 7
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Connexion avec le Bureau à distance
+## <a id="connect"></a>Connexion avec le Bureau à distance
 Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Utilisation de la commande Pig
+## <a id="pig"></a>Utilisation de la commande Pig
 1. Lorsque vous disposez d’une connexion Bureau à distance, démarrez la **ligne de commande Hadoop** en cliquant sur l’icône sur le bureau.
 2. Utilisez ce qui suit pour lancer la commande Pig :
 
@@ -116,10 +118,10 @@ Vous pouvez également utiliser la commande Pig pour exécuter le Pig Latin cont
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Résumé
+## <a id="summary"></a>Résumé
 Comme vous pouvez le voir, la commande Pig vous permet d’exécuter interactivement des opérations MapReduce ou d’exécuter des tâches Pig Latin stockées dans un fichier de commandes.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 Pour obtenir des informations générales sur Pig dans HDInsight :
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
@@ -128,9 +130,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
