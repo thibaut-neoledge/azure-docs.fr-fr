@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -65,7 +65,7 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 * [Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche t-elle lors de l’approvisionnement à partir de PowerShell ?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
-* [Où puis-je trouver plus d’informations d’erreur lors de l’échec de déploiement de machines virtuelles](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
+* [Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
@@ -160,7 +160,7 @@ Vous pouvez attacher plusieurs disques aux machines virtuelles.
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si je souhaite utiliser une image de système d’exploitation Windows pour mon test, dois-je acheter un abonnement MSDN ?
 Si vous avez besoin d’utiliser des images de système d’exploitation client Windows (Windows 7 ou version ultérieure) à des fins de développement ou de test dans Azure, alors oui, vous devez soit :
 
-- [Achetez un abonnement MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- [Achetez un abonnement MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
 - Si vous disposez d’un contrat Entreprise, créez un abonnement Azure avec [l’offre Entreprise Dev/Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
 
 Pour plus d’informations sur les crédits Azure pour chaque offre de MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
@@ -216,10 +216,10 @@ Outre la suppression des machines virtuelles de votre laboratoire dans le portai
 
 
 ### <a name="what-are-artifacts"></a>Que sont les artefacts ?
-Les artefacts sont des éléments personnalisables qui peuvent être utilisés pour déployer vos tout derniers bits ou vos outils de développement sur une machine virtuelle. Ils sont attachés à votre machine virtuelle lors de la création en quelques clics simples, et une fois que la machine virtuelle est configurée, les artefacts déploient et configurent votre machine virtuelle. Il existe divers artefacts préexistants dans notre [dépôt GitHub public](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mais vous pouvez également [créer vos propres artefacts](devtest-lab-artifact-author.md) facilement.
+Les artefacts sont des éléments personnalisables qui peuvent être utilisés pour déployer vos tout derniers bits ou vos outils de développement sur une machine virtuelle. Ils sont attachés à votre machine virtuelle lors de la création en quelques clics simples, et une fois que la machine virtuelle est configurée, les artefacts déploient et configurent votre machine virtuelle. Il existe divers artefacts préexistants dans notre [référentiel GitHub public](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mais vous pouvez également [créer vos propres artefacts](devtest-lab-artifact-author.md) facilement.
 
 ### <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>Comment puis-je créer un laboratoire à partir d’un modèle Azure Resource Manager ?
-Nous avons fourni un [dépôt Github de modèles Azure Resource Manager de laboratoire](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que vous pouvez déployer tels quels ou modifier pour créer des modèles personnalisés pour vos laboratoires. Chacun de ces modèles a un lien sur lequel vous pouvez cliquer pour déployer le laboratoire tel quel sous votre propre abonnement Azure, ou vous pouvez personnaliser le modèle et le [déployer à l’aide de PowerShell ou de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy.md).
+Nous avons fourni un [référentiel Github de modèles Azure Resource Manager de laboratoire](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que vous pouvez déployer tels quels ou modifier pour créer des modèles personnalisés pour vos laboratoires. Chacun de ces modèles a un lien sur lequel vous pouvez cliquer pour déployer le laboratoire tel quel sous votre propre abonnement Azure, ou vous pouvez personnaliser le modèle et le [déployer à l’aide de PowerShell ou de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>Pourquoi mes machines virtuelles sont-elles créées dans différents groupes de ressources avec des noms arbitraires ? Puis-je renommer ou modifier ces groupes de ressources ?
 Les groupes de ressources sont créés de cette façon pour qu’Azure DevTest Labs puisse gérer les autorisations utilisateur et l’accès aux machines virtuelles. Même si vous pouvez déplacer la machine virtuelle vers un autre groupe de ressources avec le nom de votre choix, cela n’est pas recommandé. Nous travaillons sur l’amélioration de cette fonctionnalité pour une flexibilité accrue.   
@@ -237,7 +237,7 @@ Pour partager un lien direct à destination des utilisateurs de votre laboratoir
 2. Copiez l’URL du laboratoire dans votre navigateur et partagez-la avec les utilisateurs de votre laboratoire.
 
 > [!NOTE]
-> Si les utilisateurs de votre laboratoire sont des utilisateurs externes avec un [compte Microsoft](#what-is-a-microsoft-account) et s’ils n’appartiennent pas au répertorie Active Directory de votre entreprise, il est possible qu’ils reçoivent une erreur lors de la navigation vers le lien fourni. Le cas échéant, indiquez-leur de cliquer sur leur nom dans le coin supérieur droit du portail Azure et de sélectionner le répertoire où se situe le laboratoire dans la section **Répertoire** du menu.
+> Si les utilisateurs de votre laboratoire sont des utilisateurs externes avec un [compte Microsoft](#what-is-a-microsoft-account) et qu’ils n’appartiennent pas au répertorie Active Directory de votre entreprise, il est possible qu’ils reçoivent une erreur lors de la navigation vers le lien fourni. Le cas échéant, indiquez-leur de cliquer sur leur nom dans le coin supérieur droit du portail Azure et de sélectionner le répertoire où se situe le laboratoire dans la section **Répertoire** du menu.
 >
 >
 
@@ -261,7 +261,7 @@ Lorsqu’une ressource est parent d’une autre ressource, la ressource parent d
 Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles de ressources Azure pour effectuer un déploiement à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?
-Les erreurs de déploiement de machine virtuelle sont capturées dans les journaux d’activité. Vous pouvez trouver les journaux d’activité des machines virtuelles du laboratoire via les **journaux d’audit** ou les **diagnostics de machine virtuelle** dans le menu de la ressource dans le panneau Machine virtuelle du laboratoire (le panneau s’affiche une fois que vous sélectionnez la machine virtuelle à partir de la liste **Mes machines virtuelles**). 
+Les erreurs de déploiement de machine virtuelle sont capturées dans les journaux d’activité. Vous pouvez trouver les journaux d’activité des machines virtuelles du laboratoire via les **journaux d’audit** ou les **diagnostics de machine virtuelle** dans le menu de la ressource dans le panneau Machine virtuelle du laboratoire (le panneau s’affiche une fois que vous sélectionnez la machine virtuelle à partir de la liste **Mes machines virtuelles**).
 
 Parfois, l’erreur de déploiement se produit avant le démarrage du déploiement de la machine virtuelle, par exemple lorsque la limite d’inscriptions pour une ressource créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans le niveau de laboratoire **Journaux d’activité**, qui se trouve en bas des paramètres **Configuration et stratégies**. Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

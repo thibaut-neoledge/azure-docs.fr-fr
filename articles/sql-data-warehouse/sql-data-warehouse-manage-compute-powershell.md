@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
-ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: b2b87ed07a26fa30e49a19e34ca8b06b283da9b3
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,14 +29,14 @@ ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
 ## <a name="before-you-begin"></a>Avant de commencer
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Installer la dernière version d’Azure PowerShell
 > [!NOTE]
 > Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure.  Pour vérifier votre version, exécutez la commande **Get-Module -ListAvailable -Name Azure**. Vous pouvez installer la version la plus récente à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
-> 
+>
 > 
 
 ### <a name="get-started-with-azure-powershell-cmdlets"></a>Prise en main des applets de commande Azure PowerShell
@@ -42,7 +44,7 @@ Pour commencer :
 
 1. Ouvrez Azure PowerShell.
 2. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
-   
+
     ```PowerShell
     Login-AzureRmAccount
     Get-AzureRmSubscription
@@ -70,7 +72,7 @@ Pour interrompre une base de données, utilisez l’applet de commande [Suspend-
 
 > [!NOTE]
 > Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
-> 
+>
 > 
 
 ```Powershell
@@ -107,6 +109,44 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
+<a name="check-database-state-bk"></a>
+
+## <a name="check-database-state"></a>Vérifier l’état de base de données
+
+Comme indiqué dans les exemples ci-dessus, vous pouvez utiliser l’applet de commande [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] pour obtenir des informations sur une base de données, pour vérifier ainsi son état mais aussi pour l’utiliser en tant qu’argument. 
+
+```powershell
+Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-DatabaseName] <String>]
+ [-InformationAction <ActionPreference>] [-InformationVariable <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+De qui donnera quelque chose comme ceci 
+
+```powershell    
+ResourceGroupName             : nytrg
+ServerName                    : nytsvr
+DatabaseName                  : nytdb
+Location                      : West US
+DatabaseId                    : 86461aae-8e3d-4ded-9389-ac9d4bc69bbb
+Edition                       : DataWarehouse
+CollationName                 : SQL_Latin1General_CP1CI_AS
+CatalogCollation              :
+MaxSizeBytes                  : 32212254720
+Status                        : Online
+CreationDate                  : 10/26/2016 4:33:14 PM
+CurrentServiceObjectiveId     : 620323bf-2879-4807-b30d-c2e6d7b3b3aa
+CurrentServiceObjectiveName   : System2
+RequestedServiceObjectiveId   : 620323bf-2879-4807-b30d-c2e6d7b3b3aa
+RequestedServiceObjectiveName :
+ElasticPoolName               :
+EarliestRestoreDate           : 1/1/0001 12:00:00 AM
+```
+
+Où vous pouvez ensuite vérifier *l’état* de la base de données. Dans ce cas, vous pouvez voir que la base de données est en ligne. 
+
+Lorsque vous exécutez cette commande, vous devriez recevoir une valeur d’état En ligne, Suspension, Reprise, Mise à l’échelle ou Suspendu.
+
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -124,13 +164,9 @@ Pour d’autres tâches de gestion, consultez la rubrique [Vue d’ensemble du s
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Get-AzureRmSqlDatabase]: /powershell/servicemanagement/azure.sqldatabase/v1.6.1/get-azuresqldatabase
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

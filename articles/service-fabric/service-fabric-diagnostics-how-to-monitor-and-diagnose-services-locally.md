@@ -3,7 +3,7 @@ title: "Déboguer les microservices Azure dans Windows | Microsoft Docs"
 description: "Découvrez comment analyser et diagnostiquer vos services écrits à l’aide de Microsoft Azure Service Fabric sur un ordinateur de développement local."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -66,10 +67,5 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Collecter les journaux directement à partir d’un processus de service](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

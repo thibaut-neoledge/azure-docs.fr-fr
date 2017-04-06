@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -82,7 +83,7 @@ Dans cette section, nous étudions des exemples sur l’utilisation de Livy pour
 
 Procédez comme suit.
 
-1. Vérifions tout d’abord que Livy est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy,&0; doit être la valeur renvoyée.
+1. Vérifions tout d’abord que Livy est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy, 0 doit être la valeur renvoyée.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
@@ -165,6 +166,16 @@ Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins loc
 2. Dans le volet de navigation gauche, cliquez sur **Livy**, puis sur **Configurations**.
 
 3. Sous **livy-default**, ajoutez le nom de la propriété `livy.file.local-dir-whitelist` et définissez sa valeur sur **"/"** si vous souhaitez autoriser un accès complet au système de fichiers. Si vous souhaitez autoriser uniquement l’accès à un répertoire spécifique, indiquez comme valeur le chemin d’accès à ce répertoire.
+
+## <a name="troubleshooting"></a>résolution des problèmes
+
+Voici quelques problèmes que vous pouvez rencontrer lors de l’utilisation de Livy pour la soumission des travaux à distance à des clusters Spark.
+
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L’utilisation d’un fichier JAR externe à partir du stockage supplémentaire n’est pas prise en charge.
+
+**Problème :** si vous exécutez un travail Spark avec Livy, en faisant référence à un fichier JAR externe à partir du stockage supplémentaire associé au cluster, le travail échoue.
+
+**Résolution :** vérifiez que le fichier JAR que vous voulez utiliser est présent dans le stockage par défaut associé au cluster HDInsight.
 
 
 ## <a name="seealso"></a>Voir aussi

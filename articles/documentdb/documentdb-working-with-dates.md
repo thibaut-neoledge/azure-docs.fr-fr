@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3c07980e09362eabdfc80483213b62912e64ecf6
-ms.openlocfilehash: b57dc0b699d7f7e6d539d6622b3d2769adf4257d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c18d17d40dff658a8fc47ef2126dd2c21b68606a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -66,7 +67,7 @@ Ce document est stocké dans DocumentDB comme suit :
 Vous pouvez également stocker les valeurs DateTime comme horodateurs Unix, autrement dit, comme un nombre représentant le nombre de secondes écoulées depuis le 1er janvier 1970. La propriété Timestamp interne de DocumentDB (`_ts`) suit cette approche. Vous pouvez utiliser la classe [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) pour sérialiser les valeurs DateTime en tant que nombres. 
 
 ## <a name="indexing-datetimes-for-range-queries"></a>Indexation des valeurs DateTime pour les requêtes de plage
-Les requêtes de plage ont souvent des valeurs DateTime. Par exemple, si vous avez besoin de rechercher toutes les commandes créées depuis la veille ou de rechercher toutes les commandes expédiées au cours des cinq dernières minutes, vous devez effectuer des requêtes de plage. Pour exécuter ces requêtes efficacement, vous devez configurer votre collection pour l’index.ation de plage sur les chaînes.
+Les requêtes de plage ont souvent des valeurs DateTime. Par exemple, si vous avez besoin de rechercher toutes les commandes créées depuis la veille ou de rechercher toutes les commandes expédiées au cours des cinq dernières minutes, vous devez effectuer des requêtes de plage. Pour exécuter ces requêtes efficacement, vous devez configurer votre collection pour l’indexation de plage sur les chaînes.
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
@@ -88,12 +89,7 @@ Pour plus d’informations sur le langage de requête SQL de DocumentDB et le fo
 Dans cet article, nous avons vu comment stocker, indexer et interroger les valeurs DateTime dans DocumentDB.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Télécharger et exécuter les [exemples de code sur Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Télécharger et exécuter les [exemples de code sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 * En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

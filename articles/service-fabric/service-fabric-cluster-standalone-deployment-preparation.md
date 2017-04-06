@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c525925cc581b3c95db330a24799056d6aade92d
-ms.openlocfilehash: 35504d3885c09c142502edf35efc36286b3f9024
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -96,7 +96,7 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 * le Kit de développement logiciel (SDK) Service Fabric doit être désinstallé ;
 * le runtime Service Fabric doit être désinstallé ; 
 * le service pare-feu Windows (mpssvc) doit être activé ;
-* le service Registre distant (remoteregistry) doit être activé ;
+* le service Registre distant (remoteregistry) doit être activé ;
 * le partage de fichiers (SMB) doit être activé ;
 * les ports requis doivent être ouverts, selon les ports de configuration du cluster ;
 * les ports requis doivent êtres ouverts pour le service Registre distant et SMB Windows : 135, 137, 138, 139 et 445 ;

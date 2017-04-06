@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
-ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1d568bc6ab8f2801d575d726352f4c68e1f9277a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -61,17 +62,14 @@ Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits da
 
 ## <a name="yarn-cli-tools"></a>Outils de l’interface de ligne de commande YARN
 
-Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des documents suivants :
-
-* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Vous pouvez afficher ces journaux en texte brut en exécutant l’une des commandes suivantes :
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-Lors de l’exécution de ces commandes, vous devez définir les valeurs suivantes : &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> et &ltworker-node-address>.
+Lors de l’exécution de ces commandes, vous devez définir les valeurs suivantes : &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> et &lt;worker-node-address>.
 
 ## <a name="yarn-resourcemanager-ui"></a>Interface utilisateur de ResourceManager YARN
 L’interface utilisateur de ResourceManager YARN s’exécute sur le nœud principal du cluster et est accessible via l’interface utilisateur web Ambari ; cependant, vous devez d’abord [créer un tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) avant de pouvoir accéder l’interface utilisateur de ResourceManager.

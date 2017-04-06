@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: dc8e9647d99b39cdee36ec11e144452326e2d968
 ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ Dans cet article, vous allez apprendre à vous connecter à un Hadoop sur le clu
 >
 > Pour HDInsight 3.4 ou versions ultérieures, consultez [Utiliser MapReduce avec SSH](hdinsight-hadoop-use-mapreduce-ssh.md) pour plus d’informations sur la connexion au cluster HDInsight et l’exécution des travaux MapReduce.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Configuration requise
+## <a id="prereq"></a>Configuration requise
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * un cluster HDInsight basé sur Windows (Hadoop sur HDInsight)
 * Un ordinateur client avec Windows 10, Windows 8 ou Windows 7
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Connexion avec le Bureau à distance
+## <a id="connect"></a>Connexion avec le Bureau à distance
 Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Se connecter à des clusters HDInsight avec RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idhadoopause-the-hadoop-command"></a><a id="hadoop"></a>Utilisation de la commande Hadoop
+## <a id="hadoop"></a>Utilisation de la commande Hadoop
 Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pour exécuter une tâche MapReduce à l’aide de la commande Hadoop :
 
 1. À partir du bureau HDInsight, démarrez la **ligne de commande Hadoop**. Cela ouvre une nouvelle invite de commandes dans le répertoire **c:\apps\dist\hadoop-&lt;numéro de version>**.
@@ -89,10 +91,10 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
         wretched        6
         wriggling       1
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Résumé
+## <a id="summary"></a>Résumé
 Comme vous pouvez le voir, la commande Hadoop fournit un moyen facile pour exécuter des tâches MapReduce sur un cluster HDInsight avant d’afficher le résultat de la tâche.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 Pour obtenir des informations générales sur les tâches MapReduce dans HDInsight :
 
 * [Utilisation de MapReduce dans Hadoop HDInsight](hdinsight-use-mapreduce.md)
@@ -101,9 +103,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

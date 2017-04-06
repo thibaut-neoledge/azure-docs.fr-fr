@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 404b1784717d7a2e56e4154dd8995093b37a3bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Tout d’abord, créez un groupe de ressources pour votre environnement Docker a
 az group create --name myResourceGroup --location westus
 ```
 
-Ensuite, déployez une machine virtuelle avec la commande [az group deployment create](/cli/azure/group/deployment#create) qui inclut l’extension de machine virtuelle Azure Docker de [ce modèle Azure Resource Manager sur Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Indiquez vos propres valeurs pour `newStorageAccountName`, `adminUsername`, `adminPassword` et `dnsNameForPublicIP` :
+Ensuite, déployez une machine virtuelle avec la commande [az group deployment create](/cli/azure/group/deployment#create) qui inclut l’extension de machine virtuelle Azure Docker de [ce modèle Azure Resource Manager sur GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Indiquez vos propres valeurs pour `newStorageAccountName`, `adminUsername`, `adminPassword` et `dnsNameForPublicIP` :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ Lorsque cette commande renvoie `Succeeded`, le déploiement est terminé et vous
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
 Installez la dernière version [d’Azure CLI 1.0](../cli-install-nodejs.md) et connectez-vous à un compte Azure. Assurez-vous que vous utilisez le mode Resource Manager pour créer la machine virtuelle (`azure config mode arm`).
 
-L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine virtuelle avec l’extension de machine virtuelle Azure Docker. Un [modèle Azure Resource Manager issu de Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) est utilisé pour déployer l’environnement :
+L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine virtuelle avec l’extension de machine virtuelle Azure Docker. Un [modèle Azure Resource Manager issu de GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) est utilisé pour déployer l’environnement :
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \

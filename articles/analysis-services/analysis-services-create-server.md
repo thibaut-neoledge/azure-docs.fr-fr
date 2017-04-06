@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 147c27d12b87379ff02b871ceabd8154e53b6c1a
-ms.openlocfilehash: f189e19b5b843d6a7d056c8230bc06d85e568202
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 466595773663d43ad8e25fa9ec0ec0163a3f5962
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="create-an-analysis-services-server"></a>Création d’un serveur Analysis Services
-Cet article vous guide dans le processus de création d’une nouvelle ressource de serveur Analysis Services dans votre abonnement Azure.
+Cet article vous guide lors du processus de création d’une ressource de serveur Analysis Services dans votre abonnement Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour commencer, vous avez besoin des éléments suivants :
@@ -45,17 +46,17 @@ Pour commencer, vous avez besoin des éléments suivants :
    
    * **Nom du serveur** : tapez un nom unique utilisé pour se référencer au serveur.
    * **Abonnement** : sélectionnez l’abonnement de facturation de ce serveur.
-   * **Groupe de ressources** : ce conteneur est conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. Pour en savoir plus, consultez les [groupes de ressources](../azure-resource-manager/resource-group-overview.md).
+   * **Groupe de ressources** : ces conteneurs sont conçus pour vous aider à gérer un ensemble de ressources Azure. Pour en savoir plus, consultez les [groupes de ressources](../azure-resource-manager/resource-group-overview.md).
    * **Emplacement** : cet emplacement du centre de données Azure héberge le serveur. Choisissez l’emplacement le plus proche de votre plus grande base d’utilisateurs.
-   * **Niveau de tarification** : sélectionnez un niveau de tarification. Les modèles tabulaires sont pris en charge jusqu’à 100 Go. Vous pouvez toujours modifier le niveau de tarification ultérieurement.
+   * **Niveau de tarification** : sélectionnez un niveau de tarification. Les modèles tabulaires sont pris en charge jusqu’à 100 Go. Pour en savoir plus, voir [Tarification d’Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Cliquez sur **Create**.
 
-La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **More services (Plus de services)** > **Analysis Services** pour voir si votre serveur est prêt. S’il n’apparaît pas, actualisez la liste.
+La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **More services (Plus de services)** > **Analysis Services** pour voir si votre serveur est prêt.
 
  ![Tableau de bord](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 ## <a name="automate-server-creation"></a>Automatiser la création de serveurs
-Vous pouvez automatiser l’approvisionnement des serveurs à la volée avec les fichiers du modèle Azure Resource Manager. Pour en savoir plus, regardez cette vidéo utile.
+Vous pouvez automatiser l’approvisionnement des serveurs à la volée avec les fichiers du modèle Azure Resource Manager. Cette vidéo utile vous en apprendra plus.
 
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation/player]
 >
@@ -63,13 +64,8 @@ Vous pouvez automatiser l’approvisionnement des serveurs à la volée avec les
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous avez créé votre serveur, vous pouvez y [déployer un modèle](analysis-services-deploy.md) à l’aide de SSDT ou avec SSMS.
+Une fois que vous avez créé votre serveur, vous pouvez y [déployer un modèle](analysis-services-deploy.md) via SSDT ou SSMS.
 
-Si un modèle déployé sur votre serveur se connecte aux sources de données locales, vous devez installer une [passerelle de données locale](analysis-services-gateway.md) sur un ordinateur de votre réseau.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
+Si un modèle déployé sur votre serveur se connecte à des sources de données locales, vous devez installer une [passerelle de données locale](analysis-services-gateway.md) sur un ordinateur de votre réseau.
 
 

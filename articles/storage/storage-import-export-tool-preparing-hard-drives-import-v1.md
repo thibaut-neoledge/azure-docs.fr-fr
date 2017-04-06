@@ -1,7 +1,6 @@
 ---
-
-title: "Préparation des disques durs pour un travail d’importation | Microsoft Docs"
-description: "Apprenez à préparer un ou plusieurs disques durs pour un travail d’importation du service Microsoft Azure Import/Export"
+title: "Préparation des disques durs pour un travail d’importation Azure Import/Export - v1 | Microsoft Docs"
+description: "Découvrez comment préparer des disques durs à l’aide de l’outil WAImportExport v1 afin de créer une tâche d’importation pour le service Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: d4894b4168a524d2378048f2da091298fb010d67
-ms.openlocfilehash: ec7a6df6a39cd1ee7a452439e3580496cfb98adc
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 5ec2f1346e7c9723aeca45f1c278d0731b3a43b5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -35,27 +35,27 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 
  Pour un exemple de workflow, consultez [Sample Workflow to Prepare Hard Drives for an Import Job (Exemple de workflow pour préparer des disques durs à un travail d’importation)](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
-##  <a name="a-nameprepareharddrivesidentifythedatatobeimporteda-identify-the-data-to-be-imported"></a><a name="PrepareHardDrives_IdentifytheDatatoBeImported"></a> Identifier les données à importer
- La première étape pour créer un travail d’importation consiste à déterminer les répertoires et les fichiers que vous allez importer. Il peut s’agir d’une liste de répertoires, d’une liste de fichiers uniques ou d’une combinaison des deux. Lorsqu’un répertoire est inclus, tous les fichiers situés dans ce répertoire et ses sous-répertoires font partie du travail d’importation.
+## <a name="identify-the-data-to-be-imported"></a>Identifier les données à importer
+ La première étape pour créer une tâche d’importation consiste à déterminer les répertoires et les fichiers que vous allez importer. Il peut s’agir d’une liste de répertoires, d’une liste de fichiers uniques ou d’une combinaison des deux. Lorsqu’un répertoire est inclus, tous les fichiers situés dans ce répertoire et ses sous-répertoires font partie du travail d’importation.
 
 > [!NOTE]
 >  Étant donné que les sous-répertoires sont inclus de manière récursive lorsqu’un répertoire parent est inclus, spécifiez uniquement le répertoire parent. Ne spécifiez pas un de ses sous-répertoires.
 >
 >  Actuellement, l’outil Microsoft Azure Import/Export est soumis à la limitation suivante : si un répertoire contient plus de données que ne peut contenir un disque dur, alors le répertoire doit être divisé en répertoires plus petits. Par exemple, si un répertoire contient 2,5 To de données et que la capacité du disque dur est uniquement de 2 To, vous devez scinder le répertoire de 2,5 To en répertoires plus petits. Cette limitation sera supprimée dans une version ultérieure de l’outil.
 
-##  <a name="a-nameprepareharddrivesidentifythedestinationlocationsintheblobservicea-identify-the-destination-locations-in-the-blob-service"></a><a name="PrepareHardDrives_IdentifytheDestinationLocationsintheBlobService"></a> Identifier les emplacements de destination dans le service BLOB
- Pour chaque répertoire ou fichier à importer, vous devez identifier un répertoire virtuel ou un blob de destination dans le service BLOB Azure. Vous utiliserez ces cibles comme des entrées dans l’outil Azure Import/Export. Notez que les répertoires doivent être délimités par la barre oblique « / ».
+## <a name="identify-the-destination-locations-in-the-blob-service"></a>Identifier les emplacements de destination dans le service BLOB
+ Pour chaque répertoire ou fichier à importer, vous devez identifier un répertoire virtuel ou un objet blob de destination dans le service BLOB Azure. Vous utiliserez ces cibles comme des entrées dans l’outil Azure Import/Export. Notez que les répertoires doivent être délimités par la barre oblique « / ».
 
- Le tableau suivant présente des exemples de cibles blob :
+ Le tableau suivant présente des exemples d’objets blob cibles :
 
-|Fichier ou répertoire source|Répertoire virtuel ou blob de destination|
+|Fichier ou répertoire source|Répertoire virtuel ou objet blob cibles|
 |------------------------------|-------------------------------------------|
 |H:\Video|https://mystorageaccount.blob.core.windows.net/video|
 |H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
 |K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
 |\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
 
-##  <a name="a-nameprepareharddrivesdeterminehowmanydrivesareneededa-determine-how-many-drives-are-needed"></a><a name="PrepareHardDrives_DetermineHowManyDrivesAreNeeded"></a> Déterminer le nombre de disques nécessaires
+## <a name="determine-how-many-drives-are-needed"></a>Déterminer le nombre de disques nécessaires
  Ensuite, vous devez déterminer :
 
 -   Le nombre de disques durs nécessaires pour stocker les données.
@@ -64,7 +64,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 
  Assurez-vous d’avoir le bon nombre de disques durs pour stocker les données que vous transférez.
 
-##  <a name="a-nameprepareharddrivescopydatatoasingleharddrivea-copy-data-to-your-hard-drive"></a><a name="PrepareHardDrives_CopyDatatoaSingleHardDrive"></a> Copier les données sur votre disque dur
+## <a name="copy-data-to-your-hard-drive"></a>Copier les données sur votre disque dur
  Cette section décrit comment appeler l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs. Chaque fois que vous appelez l’outil Azure Import/Export, vous créez une *session de copie*. Vous créez au moins une session de copie pour chaque disque sur lequel vous copiez des données. Dans certains cas, plusieurs sessions de copie peuvent être nécessaires pour copier toutes vos données sur un seul disque. Voici quelques raisons pour lesquelles vous devrez peut-être créer plusieurs sessions de copie :
 
 -   Vous devez créer une session de copie distincte pour chaque disque sur lequel vous souhaitez copier des données.
@@ -76,7 +76,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 > [!NOTE]
 >  Si vous avez plusieurs ordinateurs qui répondent aux critères décrits dans [Setting Up the Azure Import-Export Tool (Configuration de l’outil Azure Import/Export)](storage-import-export-tool-setup-v1.md), vous pouvez copier des données sur plusieurs disques durs en parallèle en exécutant une instance de cet outil sur chaque ordinateur.
 
- Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, l’outil crée un fichier journal unique. Vous devez avoir les fichiers journaux de tous vos disques pour créer le travail d’importation. Le fichier journal permet également de reprendre la préparation du disque si l’outil est interrompu.
+ Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, l’outil crée un fichier journal unique. Vous devez avoir les fichiers journaux de tous vos disques pour créer le travail d’importation. Le fichier journal permet également de reprendre la préparation du disque là où l’outil a été interrompu.
 
 ### <a name="azure-importexport-tool-syntax-for-an-import-job"></a>Syntaxe de l’outil Azure Import/Export pour un travail d’importation
  Pour préparer des disques en vue d’un travail d’importation, appelez l’outil Azure Import/Export avec la commande **PrepImport**. Les paramètres inclus varient selon s’il s’agit de la première session de copie ou non.
@@ -138,8 +138,8 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` Chemin d’accès au répertoire virtuel de destination dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non.<br /><br /> Vous pouvez spécifier un conteneur ou un préfixe de blob comme `music/70s/`. Le répertoire de destination doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut inclure un répertoire virtuel de blob se terminant par « / ».<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement le conteneur racine, y compris la barre oblique tel que `$root/`. Comme les blobs du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne sont pas copiés si le répertoire de destination est le conteneur racine.<br /><br /> Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.<br /><br /> La valeur spécifiée pour ce paramètre affecte tous les fichiers dans le répertoire spécifié par le paramètre `/srcdir`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Import-Export Service Metadata and Properties File Format (Format de fichier de propriétés et de métadonnées du service Import/Export)](storage-import-export-file-format-metadata-and-properties.md).|
-|**/MetadataFile:**<MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Import-Export Service Metadata and Properties File Format (Format de fichier de propriétés et de métadonnées du service Import/Export)](storage-import-export-file-format-metadata-and-properties.md).|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md).|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md).|
 
 ### <a name="parameters-for-copying-a-single-file"></a>Paramètres de copie d’un seul fichier
  Lorsque vous copiez un seul fichier, les paramètres obligatoires et facultatifs suivants s’appliquent :
@@ -150,11 +150,11 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |**/dstblob:**<DestinationBlobPath\>|`Required.` Chemin d’accès au blob de destination dans votre compte de stockage Azure. Le blob peut déjà exister ou non.<br /><br /> Spécifiez le nom du blob commençant par le nom du conteneur. Le nom du blob ne peut pas commencer par « / » ni le nom du compte de stockage. Pour connaître les règles d’affectation de noms aux blobs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement `$root` comme conteneur, tel que `$root/sample.txt`. Notez que les blobs sous le conteneur racine ne peuvent pas inclure « / » dans leur nom.|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Import-Export Service Metadata and Properties File Format (Format de fichier de propriétés et de métadonnées du service Import/Export)](storage-import-export-file-format-metadata-and-properties.md).|
-|**/MetadataFile:**<MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Import-Export Service Metadata and Properties File Format (Format de fichier de propriétés et de métadonnées du service Import/Export)](storage-import-export-file-format-metadata-and-properties.md).|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md).|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md).|
 
 ### <a name="resuming-an-interrupted-copy-session"></a>Reprise d’une session de copie interrompue
- Si une session de copie est interrompue pour une raison quelconque, vous pouvez la reprendre en exécutant l’outil avec le fichier journal spécifié :
+ Si une session de copie est interrompue pour une raison quelconque, vous pouvez la reprendre en exécutant l’outil avec le fichier journal spécifié :
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
@@ -163,29 +163,25 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
  Seule la dernière session de copie, si elle s’est terminée anormalement, peut être reprise.
 
 > [!IMPORTANT]
->  Lorsque vous reprenez une session de copie, ne modifiez pas les fichiers et répertoires source en ajoutant ou supprimant des fichiers.
+>  Lorsque vous reprenez une session de copie, ne modifiez pas les fichiers et répertoires source.
 
 ### <a name="aborting-an-interrupted-copy-session"></a>Annulation d’une session de copie interrompue
- Si une session de copie est interrompue et qu’il n’est pas possible de la reprendre (par exemple, si un répertoire source est inaccessible), vous devez annuler la session en cours pour qu’elle puisse être restaurée et que d’autres sessions de copie puissent être lancées :
+ Si une session de copie est interrompue et qu’il n’est pas possible de la reprendre (par exemple, si un répertoire source est inaccessible), vous devez l’annuler pour pouvoir lancer d’autres sessions de copie :
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 ```
 
- Seule la dernière session de copie, si elle s’est terminée anormalement, peut être annulée. Notez que vous ne pouvez pas abandonner la première session de copie d’un disque. Mais, vous devez redémarrer la session de copie avec un nouveau fichier journal.
+ Seule la dernière session de copie, si elle s’est terminée anormalement, peut être annulée. Notez que vous ne pouvez pas annuler la première session de copie d’un disque. Mais, vous devez redémarrer la session de copie avec un nouveau fichier journal.
 
-## <a name="see-also"></a>Voir aussi
- [Setting Up the Azure Import-Export Tool (Configuration de l’outil Azure Import/Export)](storage-import-export-tool-setup-v1.md)
- [Setting Properties and Metadata during the Import Process (Définition des propriétés et métadonnées pendant le processus d’importation)](storage-import-export-tool-setting-properties-metadata-import-v1.md)
- [Sample Workflow to Prepare Hard Drives for an Import Job (Exemple de workflow pour préparer des disques durs à un travail d’importation)](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
- [Quick Reference for Frequently Used Commands (Référence rapide pour les commandes fréquemment utilisées)](storage-import-export-tool-quick-reference-v1.md) 
- [Reviewing Job Status with Copy Log Files (Consultation de l’état du travail avec les fichiers journaux de copie)](storage-import-export-tool-reviewing-job-status-v1.md)
- [Repairing an Import Job (Réparation d’un travail d’importation)](storage-import-export-tool-repairing-an-import-job-v1.md)
- [Repairing an Export Job (Réparation d’un travail d’exportation)](storage-import-export-tool-repairing-an-export-job-v1.md)
- [Troubleshooting the Azure Import-Export Tool (Résolution des problèmes associés à l’outil Azure Import/Export)](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)
+* [Définition des propriétés et métadonnées pendant le processus d’importation](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+* [Exemple de workflow pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+* [Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference-v1.md) 
+* [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
 

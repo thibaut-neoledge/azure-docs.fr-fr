@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 404e621bc1d16d15aeb705a1055ed4c2b9e251a2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02add070405f3f00d3631362a2b139239d44c34d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/23/2017
 La fonctionnalité Topologie de Network Watcher fournit une représentation visuelle des ressources réseau dans un abonnement. Dans le portail, cette visualisation vous est présentée automatiquement. Les informations relatives à la vue Topologie du portail peuvent être récupérées par le biais de PowerShell.
 Cette fonctionnalité rend les informations de topologie plus polyvalentes, car les données peuvent être utilisées par d’autres outils pour générer la visualisation.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Cet article utilise l’interface Azure CLI 1.0 interplateforme, disponible pour Windows, Mac et Linux. Network Watcher utilise actuellement Azure CLI 1.0 pour la prise en charge d’interface CLI.
 
 L’interconnexion est modélisée sous deux relations.
 
@@ -68,7 +68,7 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 
 ## <a name="results"></a>Résultats
 
-Les résultats renvoyés ont affichent une propriété nommée « Resources », qui contient le corps de réponse json pour l’applet de commande `network watcher topology`.  La réponse contient les ressources du groupe de sécurité réseau et leurs associations (autrement dit, Contains et Associated).
+Les résultats renvoyés affichent une propriété nommée « Resources », qui contient le corps de réponse json pour l’applet de commande `network watcher topology`.  La réponse contient les ressources du groupe de sécurité réseau et leurs associations (autrement dit, Contains et Associated).
 
 ```json
 {

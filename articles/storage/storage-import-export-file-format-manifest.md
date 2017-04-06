@@ -1,6 +1,6 @@
 ---
 title: Format de fichier de manifeste du service Azure Import/Export | Microsoft Docs
-description: "Découvrez le format du fichier de manifeste de disque qui décrit le mappage entre les objets blob dans le stockage Blob Azure et le fichier sur le disque dans un travail d’importation ou d’exportation dans le service d’importation/exportation"
+description: "Découvrez le format du fichier de manifeste de disque qui décrit le mappage entre les objets blob dans le stockage Blob Azure et les fichiers sur un disque dans un travail d’importation ou d’exportation dans le service Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -90,7 +90,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## <a name="manifest-xml-elements-and-attributes"></a>Éléments et attributs XML d’un manifeste
 
 Les éléments et attributs de données du format XML de manifeste de disque sont spécifiés dans le tableau suivant.  
   
@@ -101,7 +104,7 @@ Les éléments et attributs de données du format XML de manifeste de disque son
 |`Drive`|Élément XML imbriqué|Contient le manifeste de chaque disque.|  
 |`DriveId`|String|Identificateur de disque unique pour le disque. L’identificateur de disque peut être trouvé en recherchant le numéro de série du disque. Le numéro de série du disque est également généralement imprimé à l’extérieur du disque. L’élément `DriveID` doit apparaître avant tout élément `BlobList` dans le fichier de manifeste.|  
 |`StorageAccountKey`|String|Obligatoire pour les travaux d’importation si et seulement si `ContainerSas` n’est pas spécifié. Clé du compte de stockage Azure associé au travail.<br /><br /> Cet élément est omis du manifeste pour une opération d’exportation.|  
-|`ContainerSas`|String|Obligatoire pour les travaux d’importation si et seulement si `StorageAccountKey` n’est pas spécifié. SAP de conteneur pour accéder aux objets blob associés au travail. Consultez [Travail Put](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) pour connaître son format. Cet élément est omis du manifeste pour une opération d’exportation..|  
+|`ContainerSas`|String|Obligatoire pour les travaux d’importation si et seulement si `StorageAccountKey` n’est pas spécifié. SAP de conteneur pour accéder aux objets blob associés au travail. Consultez [Travail Put](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) pour connaître son format. Cet élément est omis du manifeste pour une opération d’exportation.|  
 |`ClientCreator`|String|Spécifie le client qui a créé le fichier XML. Cette valeur n’est pas interprétée par le service d’importation/exportation.|  
 |`BlobList`|Élément XML imbriqué|Contient une liste d’objets blob qui font partie du travail d’importation ou d’exportation. Chaque objet blob d’une liste d’objets blob partage les mêmes métadonnées et propriétés.|  
 |`BlobList/MetadataPath`|String|facultatif. Spécifie le chemin d’accès relatif d’un fichier sur le disque qui contient les métadonnées par défaut définies sur les objets blob dans la liste d’objets blob pour une opération d’importation. Ces métadonnées peuvent éventuellement être remplacées, objet blob par objet blob.<br /><br /> Cet élément est omis du manifeste pour une opération d’exportation.|  
@@ -131,6 +134,7 @@ Les éléments et attributs de données du format XML de manifeste de disque son
 |`Blob/PropertiesPath`|String|facultatif. Spécifie le chemin d’accès relatif à un fichier de propriétés. Pendant une importation, les propriétés sont définies sur l’objet blob de destination. Pendant une opération d’exportation, les propriétés de l’objet blob sont stockées dans le fichier de propriétés sur le disque.|  
 |`Blob/PropertiesPath/@Hash`|Attribut, Chaîne|Spécifie le hachage MD5 encodé en Base16 du fichier de propriétés de l’objet blob.|  
   
-## <a name="see-also"></a>Voir aussi  
-[API REST d’importation/exportation de stockage](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>Étapes suivantes
+ 
+* [API REST d’importation/exportation de stockage](/rest/api/storageimportexport/)
 

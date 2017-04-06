@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
-ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5fb930cb71fe008ba63d2068bb36643f40259e76
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
 Cette rubrique explique comment approvisionner et configurer une machine virtuelle Azure pour l’analyse avancée utilisable au sein d’un environnement de science des données. La machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure, AzCopy, ainsi que d’autres utilitaires utiles pour les projets d’analyse avancée. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage d’objets blob Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage d’objets blob.
 
-## <a name="a-namecreate-vmastep-1-create-a-general-purpose-azure-virtual-machine"></a><a name="create-vm"></a>Étape 1 : créer une machine virtuelle Azure à usage général
+## <a name="create-vm"></a>Étape 1 : créer une machine virtuelle Azure à usage général
 Si vous disposez déjà d’une machine virtuelle Azure et que vous souhaitez simplement configurer un serveur Notebook IPython sur cette machine, vous pouvez ignorer cette étape et passer directement à l’ [Étape 2 : ajouter un point de terminaison pour Notebook IPython à une machine virtuelle existante](#add-endpoint).
 
 Avant de démarrer la procédure de création d’une machine virtuelle sur Azure, vous devez déterminer la taille de la machine requise pour le traitement des données du projet concerné. Les machines de taille réduite comportent moins de mémoire et de cœurs de processeur que les machines de grande taille, mais se révèlent également moins coûteuses. Pour obtenir la liste des différents types de machine et des prix correspondants, consultez la page <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Tarification des machines virtuelles</a>.
@@ -53,15 +54,15 @@ L’exécution de ce processus peut nécessiter entre 15 et 25 minutes. Une foi
 
 ![Create workspace][29]
 
-## <a name="a-nameadd-endpointastep-2-add-an-endpoint-for-ipython-notebooks-to-an-existing-virtual-machine"></a><a name="add-endpoint"></a>Étape 2 : ajouter un point de terminaison pour Notebook IPython à une machine virtuelle existante
+## <a name="add-endpoint"></a>Étape 2 : ajouter un point de terminaison pour Notebook IPython à une machine virtuelle existante
 Si vous avez créé la machine virtuelle en suivant les instructions de l’étape 1, le point de terminaison pour Notebook IPython a déjà été ajouté, et vous pouvez donc ignorer cette étape.
 
 Si la machine virtuelle existe déjà et que vous devez ajouter un point de terminaison pour Notebook IPython que vous allez installer à l’étape 3 ci-après, commencez par vous connecter au portail Azure Classic, sélectionnez la machine virtuelle, puis ajoutez le point de terminaison pour le serveur Notebook IPython. La figure ci-dessous contient une capture d’écran du portail après l’ajout du point de terminaison pour Notebook IPython sur une machine virtuelle Windows.
 
 ![Create workspace][17]
 
-## <a name="a-namerun-commandsastep-3-install-ipython-notebook-and-other-supporting-tools"></a><a name="run-commands"></a>Étape 3 : installer Notebook IPython et les autres outils connexes
-Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Ouvrez **l’invite de commandes** (et **non la fenêtre Commande Powershell**) en tant **qu’administrateur**, puis exécutez la commande suivante.
+## <a name="run-commands"></a>Étape 3 : installer Notebook IPython et les autres outils connexes
+Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Ouvrez **l’invite de commandes** (et **non la fenêtre Commande Powershell**) en tant **qu’administrateur**, puis exécutez la commande suivante.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -71,7 +72,7 @@ Une fois l’installation terminée, le serveur Notebook IPython est automatique
 
 Lorsque vous y êtes invité, entrez un mot de passe pour Notebook IPython et le mot de passe de l’administrateur de la machine. Ceci permet à Notebook IPython de s’exécuter en tant que service sur la machine.
 
-## <a name="a-nameaccessastep-4-access-ipython-notebooks-from-a-web-browser"></a><a name="access"></a>Étape 4 : accéder à Notebook IPython à partir d’un navigateur web
+## <a name="access"></a>Étape 4 : accéder à Notebook IPython à partir d’un navigateur web
 Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;nom DNS de la machine virtuelle>:&#60;numéro du port public>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;numéro du port public>* doit correspondre au numéro de port que vous avez spécifié durant l’ajout du point de terminaison de Notebook IPython.
 
 La variable *&#60;nom DNS de la machine virtuelle>* correspond au nom DNS de la machine virtuelle, qui est accessible par le biais du portail Azure Classic. Après vous être connecté au portail Azure Classic, cliquez sur **MACHINES VIRTUELLES**, sélectionnez la machine que vous avez créée, puis sélectionnez **TABLEAU DE BORD**. Le nom DNS s’affiche sous la forme suivante :
@@ -86,17 +87,17 @@ Vous verrez apparaître un message d’avertissement signalant *qu’il existe u
 **Chrome :**
 ![Créer un espace de travail][21]
 
-Une fois que vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**référentiel Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) durant le processus de configuration du serveur Notebook IPython. Microsoft gère ce dépôt et le met régulièrement à jour. Les utilisateurs peuvent se connecter au dépôt Github pour obtenir les derniers exemples de notebooks IPython.
+Une fois que vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**référentiel GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) durant le processus de configuration du serveur Notebook IPython. Microsoft gère ce dépôt et le met régulièrement à jour. Les utilisateurs peuvent se connecter au dépôt GitHub pour obtenir les derniers exemples de notebooks IPython.
 ![Create workspace][18]
 
-## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>Étape 5 : charger un notebook IPython figurant sur un ordinateur local vers le serveur Notebook IPython
+## <a name="upload"></a>Étape 5 : charger un notebook IPython figurant sur un ordinateur local vers le serveur Notebook IPython
 Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateur local vers le serveur Notebook IPython exécuté sur les machines virtuelles. Une fois que vous vous êtes connecté au serveur Notebook IPython dans un navigateur web, cliquez sur le **répertoire** dans lequel le notebook IPython sera chargé. Ensuite, dans l’ **Explorateur de fichiers**de l’ordinateur local, sélectionnez le fichier .ipynb Notebook IPython à charger, puis faites-le glisser vers le répertoire Notebook IPython dans le navigateur web. Cliquez sur le bouton **Télécharger** pour charger le fichier .ipynb vers le serveur Notebook IPython. D’autres utilisateurs peuvent alors commencer à utiliser ce fichier dans leur navigateur web.
 
 ![Create workspace][22]
 
 ![Create workspace][23]
 
-## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
+## <a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
 
 > [!NOTE]
@@ -134,9 +135,4 @@ Les étapes suivantes du processus TDSP (Team Data Science Process) sont présen
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

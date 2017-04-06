@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -138,9 +138,6 @@ L’adresse URL fournie dans le message JSON est utilisée par l’écouteur pou
 #### <a name="accepting-the-socket"></a>Accepter le socket
 Pour accepter, l’écouteur établit une connexion de socket web à l’adresse fournie.
 
-Remarque : pour la période d’évaluation, l’URI d’adresse peut utiliser une adresse IP nue ; la validation du certificat TLS fourni par le serveur échoue sur cette adresse.
-Cela sera corrigé dans la version préliminaire.
-
 Si le message « accepter » comporte un en-tête « Sec-WebSocket-Protocol », il est prévu que l’écouteur n’accepte le socket web que s’il le prend en charge et qu’il définisse l’en-tête de la même façon que le socket web.
 
 Il en va de même pour l’en-tête « Sec-WebSocket-Extensions ». Si l’infrastructure prend en charge une extension, elle doit définir l’en-tête comme la réponse côté *serveur* de la liaison « Sec-WebSocket-Extensions » requise pour l’extension.
@@ -187,7 +184,7 @@ Pour rejeter le socket, le client prend l’URI d’adresse du message « accep
 | statusCode |Oui |Code d’état HTTP numérique. |
 | statusDescription |Oui |Motif du rejet lisible. |
 
-L’URI obtenu est ensuite utilisé pour établir une connexion WebSocket ; là encore, gardez à l’esprit que le certificat TLS peut ne pas correspondre à l’adresse de la version préliminaire, auquel cas il faudra peut-être désactiver la validation.
+L’URI obtenu est ensuite utilisé pour établir une connexion WebSocket.
 
 En cas de réussite, cette liaison échoue intentionnellement avec un code d’erreur HTTP 410, car aucun socket web n’a été établi. Si une erreur se produit, voici les options possibles :
 

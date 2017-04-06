@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
-ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Tout d’abord, vous devez savoir à quoi va servir le cluster que vous créez e
 * Étant donné que vous ne pouvez pas prédire l’avenir, prenez les informations que vous connaissez et choisissez le nombre de types de nœuds dont vos applications ont besoin pour démarrer. Vous pourrez toujours ajouter ou supprimer des types de nœuds ultérieurement. Un cluster Service Fabric doit comprendre au moins un type de nœud.
 
 ## <a name="the-properties-of-each-node-type"></a>Propriétés de chaque type de nœud
-Le **type de nœud** peut être considéré comme l’équivalent des rôles dans Cloud Services. Les types de nœuds définissent les tailles de machine virtuelle, le nombre de machines virtuelles et leurs propriétés. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques. Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud étant défini comme un groupe de machines virtuelles identiques distinct, il peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
+Le **type de nœud** peut être considéré comme l’équivalent des rôles dans Cloud Services. Les types de nœuds définissent les tailles de machine virtuelle, le nombre de machines virtuelles et leurs propriétés. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques. Un groupe de machines virtuelles identiques est une ressource de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud étant défini comme un groupe de machines virtuelles identiques distinct, il peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes mesures de capacité.
 
 Lisez [ce document](service-fabric-cluster-nodetypes.md) pour plus d’informations sur la relation entre les types de nœuds et les groupes de machines virtuelles identiques, et savoir comment ouvrir une session RDP sur l’une des instances, ouvrir de nouveaux ports, etc.
 
@@ -71,7 +71,7 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 
 Ce privilège est exprimé dans les valeurs suivantes :
 
-* Gold : Les travaux de l’infrastructure peuvent être suspendus pour une durée de 2 heures par jour
+* Gold : les travaux de l’infrastructure peuvent être suspendus pour une durée de 2 heures par jour. La durabilité Gold ne peut être activée que sur les références de machine virtuelle à nœud complet comme D15_V2, G5, etc.
 * Silver : Les travaux de l’infrastructure peuvent être suspendus pour une durée de 30 minutes par jour (cette valeur n’est pas actuellement disponible pour utilisation. Une fois activée, elle sera disponible sur toutes les machines virtuelles standard avec un cœur minimum).
 * Bronze : Aucun privilège. Il s’agit de la valeur par défaut.
 
@@ -133,7 +133,7 @@ Pour les charges de travail de production
 
 Lisez les informations suivantes pour les charges de travail sans état.
 
-**Nombre d’instances de machine virtuelle :** pour les charges de travail de production sans état, la taille minimale prise en charge pour le type de nœud non principal est de 2. Vous pouvez ainsi exécuter deux instances sans état de votre application, ce qui permet à votre service de continuer à fonctionner en cas de perte d’une instance de machine virtuelle. 
+**Nombre d’instances de machine virtuelle :** pour les charges de travail de production sans état, la taille minimale prise en charge pour le type de nœud non principal est égale à 2. Vous pouvez ainsi exécuter deux instances sans état de votre application, ce qui permet à votre service de continuer à fonctionner en cas de perte d’une instance de machine virtuelle. 
 
 > [!NOTE]
 > Si votre cluster est exécuté sur une version de Service Fabric antérieure à la version 5.6, en raison d’un défaut dans le runtime (dont la résolution est prévue dans la version 5.6), la diminution de la taille du type de nœud non principal pour une valeur inférieure à 5 donne lieu à une défaillance sur le plan de l’intégrité du cluster jusqu’à ce que vous appeliez [ServiceFabricNodeState-Remove cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) avec le nom de nœud approprié. Pour plus d’informations, consultez [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric](service-fabric-cluster-scale-up-down.md).

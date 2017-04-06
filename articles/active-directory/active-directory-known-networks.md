@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: c8f41a5f9dcb6a069850c59e18dfdcfa92daa333
 ms.openlocfilehash: f14ced0c578fc54a48dd027aedfc24ad3478aef4
+ms.lasthandoff: 01/19/2017
 
 
 ---
@@ -69,10 +70,5 @@ Pour empêcher ces cas de générer des rapports de sécurité incorrects, vous 
 * [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 * [Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

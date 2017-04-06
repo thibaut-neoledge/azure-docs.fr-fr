@@ -12,41 +12,121 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
-ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 08298608c2dfbe8b7226ae13bb0fe0f9cd5cec65
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
-Cet article explique comment utiliser l’activité de copie d’une fabrique de données Azure pour copier des données depuis une table dans une page web vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+Cet article explique comment utiliser l’activité de copie d’Azure Data Factory afin de déplacer les données d’une table dans une page web vers un magasin de données récepteur pris en charge. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et la liste de magasins de données pris en charge comme sources/récepteurs.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une table web vers d’autres magasins de données, mais pas l’inverse.
 
 > [!NOTE]
-> Pour l’instant, ce connecteur web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML.
->
->
+> Pour l’instant, ce connecteur web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML. Pour récupérer des données à partir d’un point de terminaison HTTP/S, utilisez plutôt le [Connecteur HTTP](data-factory-http-connector.md).
 
-## <a name="sample-copy-data-from-web-table-to-azure-blob"></a>Exemple : copie de données à partir d’une table web vers un objet blob Azure
-L’exemple ci-dessous présente les éléments suivants :
+## <a name="getting-started"></a>Prise en main
+Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
-1. Un service lié de type [Web](#web-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [WebTable](#WebTable-dataset-properties).
-4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [WebSource](#websource-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour connaître la procédure de création pas à pas d’un pipeline avec une activité de copie, voir [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+
+Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
+
+1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
+2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont créées automatiquement pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON.  Pour consulter un exemple contenant des définitions JSON des entités Data Factory utilisées pour copier des données d’une table web, consultez la section [Exemple JSON : copier des données d’une table web vers Blob Azure](#json-example-copy-data-from-web-table-to-azure-blob) de cet article. 
+
+Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques d’une table web :
+
+## <a name="linked-service-properties"></a>Propriétés du service lié
+Le tableau suivant fournit la description des éléments JSON spécifiques du service lié Web.
+
+| Propriété | Description | Requis |
+| --- | --- | --- |
+| type |La propriété de type doit être définie sur **Web** |Oui |
+| Url |URL de la source web |Oui |
+| authenticationType |Anonyme |Oui |
+
+### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
+
+```json
+{
+    "name": "web",
+    "properties":
+    {
+        "type": "Web",
+        "typeProperties":
+        {
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Propriétés du jeu de données
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
+
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **WebTable** a les propriétés suivantes
+
+| Propriété | Description | Requis |
+|:--- |:--- |:--- |
+| type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
+| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
+
+**Exemple :**
+
+```json
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
+
+En revanche, les propriétés disponibles dans la section typeProperties de l’activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
+
+Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
+
+
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Exemple JSON : copier des données d’une table web vers Blob Azure
+L’exemple suivant montre :
+
+1. Un service lié de type [Web](#linked-service-properties).
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [WebTable](#dataset-properties).
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [WebSource](#copy-activity-properties) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L’exemple copie des données d’une table web vers un objet blob Azure toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
 L’exemple suivant indique comment copier des données à partir d’une table web vers un objet blob Azure. Toutefois, les données peuvent être copiées directement vers l’un des récepteurs indiqués dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) , par le biais de l’activité de copie d’Azure Data Factory.
 
-**Service lié Web** Cet exemple utilise le service lié Web avec l’authentification anonyme. Consultez la section [Service lié Web](#web-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié Web** Cet exemple utilise le service lié Web avec l’authentification anonyme. Consultez la section [Service lié Web](#linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
-```JSON
+```json
 {
     "name": "WebLinkedService",
     "properties":
@@ -63,7 +143,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 
 **Service lié Azure Storage**
 
-```JSON
+```json
 {
   "name": "AzureStorageLinkedService",
   "properties": {
@@ -82,7 +162,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 >
 >
 
-```JSON
+```json
 {
     "name": "WebTableInput",
     "properties": {
@@ -106,7 +186,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
-```JSON
+```json
 {
     "name": "AzureBlobOutput",
     "properties":
@@ -130,11 +210,11 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 **Pipeline avec activité de copie**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **WebSource** et le type **sink** est défini sur **BlobSink**.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **WebSource** et le type **sink** est défini sur **BlobSink**.
 
-Pour obtenir la liste des propriétés prises en charge par WebSource, consultez [propriétés du type WebSource](#websource-copy-activity-type-properties) .
+Pour obtenir la liste des propriétés prises en charge par WebSource, consultez [propriétés du type WebSource](#copy-activity-type-properties) .
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
@@ -180,71 +260,6 @@ Pour obtenir la liste des propriétés prises en charge par WebSource, consultez
 }
 ```
 
-## <a name="web-linked-service-properties"></a>Propriétés du service lié Web
-Le tableau suivant fournit la description des éléments JSON spécifiques du service lié Web.
-
-| Propriété | Description | Requis |
-| --- | --- | --- |
-| type |La propriété de type doit être définie sur **Web** |Oui |
-| Url |URL de la source web |Oui |
-| authenticationType |Anonyme |Oui |
-
-### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-## <a name="webtable-dataset-properties"></a>Propriétés du jeu de données WebTable
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
-
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **WebTable** a les propriétés suivantes
-
-| Propriété | Description | Requis |
-|:--- |:--- |:--- |
-| type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
-| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
-| index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
-
-**Exemple :**
-
-```JSON
-{
-    "name": "WebTableInput",
-    "properties": {
-        "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
-        "typeProperties": {
-            "index": 1,
-            "path": "AFI's_100_Years...100_Movies"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
-}
-```
-
-## <a name="websource---copy-activity-type-properties"></a>WebSource : propriétés de type de l’activité de copie
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
-
-En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
-
-Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
-
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Obtenir l’index d’une table dans une page HTML
 1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.  
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
@@ -270,9 +285,8 @@ Actuellement, lorsque la source de l’activité de copie est de type **WebSourc
 
 Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+> [!NOTE]
+> Pour savoir comment mapper des colonnes d’un jeu de données source à des colonnes d’un jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.

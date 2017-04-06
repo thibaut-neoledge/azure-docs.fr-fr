@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 2/25/2017
 ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e20a30a565198c01f213895a87fe8807a37272cb
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configurer et gérer l’audit de base de données SQL dans le portail Azure
 
-La section suivante explique comment configurer et gérer l’audit avec le Portail Azure. Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit avec PowerShell](sql-database-auditing-powershell.md). 
+La section suivante explique comment configurer et gérer l’audit avec le Portail Azure. Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit avec PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 Pour une présentation de l’audit, consultez [Audit de base de données SQL](sql-database-auditing.md).
 
@@ -188,7 +188,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit de base de données avec PowerShell](sql-database-auditing-powershell.md).
+* Pour configurer et gérer l’audit à l’aide de PowerShell, consultez [Configurer l’audit de base de données avec PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * Pour une présentation de l’audit, consultez [Audit de base de données](sql-database-auditing.md).
 
 

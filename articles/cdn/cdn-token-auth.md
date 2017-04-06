@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
 translationtype: Human Translation
-ms.sourcegitcommit: 69c33986f05181460c9eea73295de5721c9ea3cf
-ms.openlocfilehash: 16e87412fd1cbe34ed8a37d6cebcb9395d1c7e36
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -132,7 +133,7 @@ Ce graphique décrit comment le CDN Azure valide la demande du client lorsque l�
         
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Vous pouvez personnaliser votre jeton, qui est une application qui génère un jeton pour les fonctionnalités d’authentification du jeton. Le code source est accessible dans [Github](https://github.com/VerizonDigital/ectoken).
+5. Vous pouvez personnaliser votre jeton, qui est une application qui génère un jeton pour les fonctionnalités d’authentification du jeton. Le code source est accessible dans [GitHub](https://github.com/VerizonDigital/ectoken).
 Les langages disponibles sont notamment :
     
     - C
@@ -146,9 +147,4 @@ Les langages disponibles sont notamment :
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Tarification du fournisseur et des fonctionnalités du CDN Azure
 
 Consultez la rubrique [Présentation du CDN](cdn-overview.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

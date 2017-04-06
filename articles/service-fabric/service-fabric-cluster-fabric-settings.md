@@ -16,14 +16,38 @@ ms.workload: NA
 ms.date: 02/15/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2e22150f9cea004af4892cd7fa2fb2b59c8787
-ms.openlocfilehash: 16e53dbdb4ce6de02a9c8acb2fb1d8a3ac265b8f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le portail ou à l’aide d’un modèle Azure Resource Manager.
+
+> [!NOTE]
+> Il se peut que certains paramètres ne soient pas disponibles via le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
+> 
+
+## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personnalisation des paramètres de cluster Service Fabric à l’aide de modèles Azure Resource Manager
+Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
+
+1. Accédez à https://resources.azure.com.
+2. Accédez à votre abonnement en développant Abonnements -> Groupes de ressources -> Microsoft.ServiceFabric -> Nom de votre cluster.
+3. Dans l’angle supérieur droit, sélectionnez Lecture/écriture.
+4. Sélectionnez Modifier, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément.
+
+```
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
 
 ## <a name="fabric-settings-that-you-can-customize"></a>Paramètres de structure que vous pouvez personnaliser
 Voici les paramètres de structure que vous pouvez personnaliser :
@@ -63,7 +87,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | FabricDataRoot |String |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux et des traces de SF. |
 | ServiceRunAsAccountName |String |Nom du compte sous lequel exécuter le service hôte Fabric. |
 | ServiceStartupType |String |Type de démarrage du service hôte Fabric. |
-| SkipFirewallConfiguration |Valeur booléenne (valeur par défaut : false) |Spécifie si les paramètres de pare-feu doivent être définis par le système ou non. Cela s’applique uniquement si vous utilisez le pare-feu Windows. Si vous utilisez des pare-feu tiers, vous devez alors ouvrir les ports que le système et les applications doivent utiliser |
+| SkipFirewallConfiguration |Valeur booléenne (valeur par défaut : false) |Indique si les paramètres de pare-feu doivent être définis par le système ou non. Cela s’applique uniquement si vous utilisez le pare-feu Windows. Si vous utilisez des pare-feu tiers, vous devez alors ouvrir les ports que le système et les applications doivent utiliser |
 
 ### <a name="section-name-transactionalreplicator"></a>Nom de la section : TransactionalReplicator
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -71,7 +95,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | MaxCopyQueueSize |Valeur Uint (valeur par défaut : 16384) |Valeur maximale définissant la taille initiale de la file d’attente qui gère les opérations de réplication. Ce nombre doit être une puissance de 2. Si, pendant l’exécution, la file d’attente atteint cette taille, les opérations sont limitées entre les réplicateurs principal et secondaire. |
 | BatchAcknowledgementInterval | Durée en secondes (valeur par défaut : 0.015) | Spécifiez la durée en secondes. Détermine le délai respecté par le réplicateur après la réception d’une opération et avant de renvoyer un accusé de réception. Les autres opérations reçues pendant cette période verront leur accusé de réception renvoyé dans un seul message, ce qui diminue le trafic réseau mais peut potentiellement réduire le débit du réplicateur. |
 | MaxReplicationMessageSize |Valeur Uint (valeur par défaut : 52428800) | Taille maximale des messages des opérations de réplication. Valeur par défaut : 50 Mo. |
-| ReplicatorAddress |Valeur Wstring (valeur par défaut : localhost:0) | Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations. |
+| ReplicatorAddress |Chaîne (valeur par défaut : "localhost:0") | Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations. |
 | InitialPrimaryReplicationQueueSize |Valeur Uint (valeur par défaut : 64) | Valeur définissant la taille initiale de la file d’attente qui gère les opérations de réplication sur le réplicateur principal. Ce nombre doit être une puissance de 2.|
 | MaxPrimaryReplicationQueueSize |Valeur Uint (valeur par défaut : 8192) |Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication principale. Ce nombre doit être une puissance de 2. |
 | MaxPrimaryReplicationQueueMemorySize |Valeur Uint (valeur par défaut : 0) |Valeur maximale de la file d’attente de réplication principale en octets. |
@@ -92,7 +116,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 ### <a name="section-name-fabricclient"></a>Nom de la section : FabricClient
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| NodeAddresses |Valeur Wstring, par défaut : "" |Collection d’adresses (chaînes de connexion) sur différents nœuds pouvant servir à communiquer avec le service d’attribution de noms. Au début, le client se connecte en sélectionnant une des adresses de façon aléatoire. Si plusieurs chaînes de connexion sont fournies et qu’une échoue en raison d’une erreur de communication ou de délai d’attente, le client utilise l’adresse suivante dans la liste. Pour plus d’informations sur la sémantique des nouvelles tentatives, consultez la section sur les nouvelles tentatives concernant l’adresse du service d’attribution de noms. |
+| NodeAddresses |Chaîne (valeur par défaut : "") |Collection d’adresses (chaînes de connexion) sur différents nœuds pouvant servir à communiquer avec le service d’attribution de noms. Au début, le client se connecte en sélectionnant une des adresses de façon aléatoire. Si plusieurs chaînes de connexion sont fournies et qu’une échoue en raison d’une erreur de communication ou de délai d’attente, le client utilise l’adresse suivante dans la liste. Pour plus d’informations sur la sémantique des nouvelles tentatives, consultez la section sur les nouvelles tentatives concernant l’adresse du service d’attribution de noms. |
 | ConnectionInitializationTimeout |Durée en secondes (valeur par défaut : 2) |Spécifiez la durée en secondes. Délai d’expiration de connexion à respecter pour chaque client avant de tenter d’établir une connexion à la passerelle. |
 | PartitionLocationCacheLimit |Entier (valeur par défaut : 100000) |Nombre de partitions mises en cache pour la résolution de service (0 pour aucune limite). |
 | ServiceChangePollInterval |Durée en secondes (valeur par défaut : 120) |Spécifiez la durée en secondes. L’intervalle entre deux interrogations consécutives de modifications de service est différent entre le client et la passerelle pour les rappels de notifications de modification de service enregistrés. |
@@ -121,7 +145,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 ### <a name="section-name-nodedomainids"></a>Nom de la section : NodeDomainIds
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| UpgradeDomainId |Valeur Wstring, par défaut : "" |Décrit le domaine de mise à niveau auquel un nœud appartient. |
+| UpgradeDomainId |Chaîne (valeur par défaut : "") |Décrit le domaine de mise à niveau auquel un nœud appartient. |
 | PropertyGroup |NodeFaultDomainIdCollection |Décrit les domaines d’erreur auquel un nœud appartient. Le domaine par défaut est défini par un URI qui décrit l’emplacement du nœud dans le centre de données.  Les URI de domaine d’erreur sont au format de:/de suivi d’un segment de chemin d’accès d’URI.|
 
 ### <a name="section-name-nodeproperties"></a>Nom de la section : NodeProperties
@@ -139,27 +163,27 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | --- | --- | --- |
 | StartApplicationPortRange |Entier (valeur par défaut : 0) |Début des ports d’application gérés par le sous-système d’hébergement. Requis si EndpointFilteringEnabled a la valeur true dans Hosting. |
 | EndApplicationPortRange |Entier (valeur par défaut : 0) |Fin (non inclusive) des ports d’application gérés par le sous-système d’hébergement. Requis si EndpointFilteringEnabled a la valeur true dans Hosting. |
-| ClusterX509StoreName |Valeur Wstring, par défaut : "My" |Nom du magasin de certificats X.509 qui contient le certificat de cluster utilisé pour sécuriser les communications internes au cluster. |
-| ClusterX509FindType |Valeur Wstring, par défaut : "FindByThumbprint" |Indique comment rechercher le certificat de cluster dans le magasin spécifié par les valeurs ClusterX509StoreName prises en charge : « FindByThumbprint » ; « FindBySubjectName » avec « FindBySubjectName ». S’il y a plusieurs correspondances, celui ayant la date d’expiration la plus lointaine est utilisé. |
-| ClusterX509FindValue |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat de cluster. |
-| ClusterX509FindValueSecondary |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat de cluster. |
-| ServerAuthX509StoreName |Valeur Wstring, par défaut : "My" |Nom du magasin de certificats X.509 qui contient le certificat de serveur pour le service d’entrée. |
-| ServerAuthX509FindType |Valeur Wstring, par défaut : "FindByThumbprint" |Indique comment rechercher le certificat de serveur dans le magasin spécifié par la valeur ServerAuthX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
-| ServerAuthX509FindValue |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat de serveur. |
-| ServerAuthX509FindValueSecondary |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat de serveur. |
-| ClientAuthX509StoreName |Valeur Wstring, par défaut : "My" |Nom du magasin de certificats X.509 qui contient le certificat pour le rôle d’administrateur par défaut FabricClient. |
-| ClientAuthX509FindType |Valeur Wstring, par défaut : "FindByThumbprint" |Indique comment rechercher le certificat de serveur dans le magasin spécifié par la valeur ClientAuthX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
-| ClientAuthX509FindValue |Valeur Wstring, par défaut : "" | Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’administrateur par défaut FabricClient. |
-| ClientAuthX509FindValueSecondary |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’administrateur par défaut FabricClient. |
-| UserRoleClientX509StoreName |Valeur Wstring, par défaut : "My" |Nom du magasin de certificats X.509 qui contient le certificat pour le rôle d’utilisateur par défaut FabricClient. |
-| UserRoleClientX509FindType |Valeur Wstring, par défaut : "FindByThumbprint" |Indique comment rechercher le certificat dans le magasin spécifié par la valeur UserRoleClientX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
-| UserRoleClientX509FindValue |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
-| UserRoleClientX509FindValueSecondary |Valeur Wstring, par défaut : "" |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
+| ClusterX509StoreName |Chaîne (valeur par défaut : "My") |Nom du magasin de certificats X.509 qui contient le certificat de cluster utilisé pour sécuriser les communications internes au cluster. |
+| ClusterX509FindType |Chaîne (valeur par défaut : "FindByThumbprint") |Indique comment rechercher le certificat de cluster dans le magasin spécifié par les valeurs ClusterX509StoreName prises en charge : « FindByThumbprint » ; « FindBySubjectName » avec « FindBySubjectName ». S’il y a plusieurs correspondances, celui ayant la date d’expiration la plus lointaine est utilisé. |
+| ClusterX509FindValue |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat de cluster. |
+| ClusterX509FindValueSecondary |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat de cluster. |
+| ServerAuthX509StoreName |Chaîne (valeur par défaut : "My") |Nom du magasin de certificats X.509 qui contient le certificat de serveur pour le service d’entrée. |
+| ServerAuthX509FindType |Chaîne (valeur par défaut : "FindByThumbprint") |Indique comment rechercher le certificat de serveur dans le magasin spécifié par la valeur ServerAuthX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
+| ServerAuthX509FindValue |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat de serveur. |
+| ServerAuthX509FindValueSecondary |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat de serveur. |
+| ClientAuthX509StoreName |Chaîne (valeur par défaut : "My") |Nom du magasin de certificats X.509 qui contient le certificat pour le rôle d’administrateur par défaut FabricClient. |
+| ClientAuthX509FindType |Chaîne (valeur par défaut : "FindByThumbprint") |Indique comment rechercher le certificat de serveur dans le magasin spécifié par la valeur ClientAuthX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
+| ClientAuthX509FindValue |Chaîne (valeur par défaut : "") | Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’administrateur par défaut FabricClient. |
+| ClientAuthX509FindValueSecondary |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’administrateur par défaut FabricClient. |
+| UserRoleClientX509StoreName |Chaîne (valeur par défaut : "My") |Nom du magasin de certificats X.509 qui contient le certificat pour le rôle d’utilisateur par défaut FabricClient. |
+| UserRoleClientX509FindType |Chaîne (valeur par défaut : "FindByThumbprint") |Indique comment rechercher le certificat dans le magasin spécifié par la valeur UserRoleClientX509StoreName prise en charge : FindByThumbprint; FindBySubjectName. |
+| UserRoleClientX509FindValue |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
+| UserRoleClientX509FindValueSecondary |Chaîne (valeur par défaut : "") |Valeur de filtre de recherche utilisée pour localiser le certificat du rôle d’utilisateur par défaut FabricClient. |
 
 ### <a name="section-name-paas"></a>Nom de la section : Paas
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| ClusterId |Valeur Wstring, par défaut : "" |Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration. |
+| ClusterId |Chaîne (valeur par défaut : "") |Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration. |
 
 ### <a name="section-name-fabrichost"></a>Nom de la section : FabricHost
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -179,7 +203,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60.0 * 30) |Spécifiez la durée en secondes. Lorsqu’un réplica persistant tombe en panne, Windows Fabric attend pendant cette durée que le réplica revienne en ligne avant de créer d’autres réplicas de remplacement (ce qui nécessite une copie de l’état). |
 | QuorumLossWaitDuration |Durée en secondes (valeur par défaut : MaxValue) |Spécifiez la durée en secondes. Il s’agit de la durée maximale pour laquelle nous autorisons une partition à être dans un état de perte de quorum. Si la partition est toujours en perte de quorum au-delà de cette durée, elle est rétablie en considérant les réplicas arrêtés comme perdus. Notez que cela peut potentiellement provoquer une perte de données. |
-| UserStandByReplicaKeepDuration |Durée en secondes (valeur par défaut : 3600.0 * 24 * 7) |Spécifiez la durée en secondes. Lorsqu’un réplica persistant n’est plus défaillant, il peut avoir déjà été remplacé. Ce minuteur détermine la durée pendant laquelle le FM conserve le réplica en attente avant de le rejeter. |
+| UserStandByReplicaKeepDuration |Durée en secondes (valeur par défaut : 3600.0 * 24 * 7) |Spécifiez la durée en secondes. Lorsqu’un réplica persistant n’est plus défaillant, il peut avoir déjà été remplacé. Ce minuteur détermine la durée pendant laquelle le FM conserve le réplica en attente avant de le rejeter. |
 | UserMaxStandByReplicaCount |Entier (valeur par défaut : 1) |Nombre maximum par défaut de réplicas en attente que le système conserve pour les services de l’utilisateur. |
 
 ### <a name="section-name-namingservice"></a>Nom de la section : NamingService
@@ -190,7 +214,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60.0 * 30)| Spécifiez la durée en secondes. Ce minuteur démarre lorsqu’un réplica du service d’attribution de noms tombe en panne.  Lorsqu’il arrive à expiration, le FM commence à remplacer les réplicas qui sont arrêtés (il ne les considère pas encore comme perdus). |
 |QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) | Spécifiez la durée en secondes. Ce minuteur démarre lorsqu’un service d’attribution de noms passe en perte de quorum.  Lorsque ce délai est écoulé, le FM considère les réplicas arrêtés comme perdus et tente de rétablir le quorum. Notez que cela peut entraîner une perte de données. |
 |StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 3600.0*2) | Spécifiez la durée en secondes. Lorsqu’un réplica du Service d’attribution de noms n’est plus défaillant, il peut avoir déjà été remplacé.  Ce minuteur détermine la durée pendant laquelle le FM conserve le réplica en attente avant de le rejeter. |
-|PlacementConstraints | Valeur Wstring, par défaut : "" | Contrainte de placement pour le Service d’attribution de noms. |
+|PlacementConstraints | Chaîne (valeur par défaut : "") | Contrainte de placement pour le Service d’attribution de noms. |
 |ServiceDescriptionCacheLimit | Entier (valeur par défaut : 0) | Nombre maximum d’entrées maintenues dans le cache de description du service LRU au niveau du magasin du Service d’attribution de noms (0 correspond à aucune limite). |
 |RepairInterval | Durée en secondes (valeur par défaut : 5) | Spécifiez la durée en secondes. Durée pendant laquelle la réparation d’une incohérence d’attribution de noms entre le propriétaire de l’autorité et le propriétaire du nom démarre. |
 |MaxNamingServiceHealthReports | Entier (valeur par défaut : 10) | Nombre maximum d’opérations lentes que le magasin du Service d’attribution de noms signale comme défectueuses à la fois. Si vous spécifiez 0, toutes les opérations lentes sont envoyées. |
@@ -207,30 +231,30 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 ### <a name="section-name-runas"></a>Nom de la section : RunAss
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| RunAsAccountName |Valeur Wstring, par défaut : "" |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont domain\user ou "user@domain". |
-|RunAsAccountType|Valeur Wstring, par défaut : "" |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées DomainUser/NetworkService/ManagedServiceAccount/LocalSystem.|
-|RunAsPassword|Valeur Wstring, par défaut : "" |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
+| RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
+|RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées DomainUser/NetworkService/ManagedServiceAccount/LocalSystem.|
+|RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
 ### <a name="section-name-runasfabric"></a>Nom de la section : RunAs_Fabric
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| RunAsAccountName |Valeur Wstring, par défaut : "" |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont domain\user ou "user@domain". |
-|RunAsAccountType|Valeur Wstring, par défaut : "" |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
-|RunAsPassword|Valeur Wstring, par défaut : "" |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
+| RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
+|RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
+|RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
 ### <a name="section-name-runashttpgateway"></a>Nom de la section : RunAs_HttpGateway
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| RunAsAccountName |Valeur Wstring, par défaut : "" |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont domain\user ou "user@domain". |
-|RunAsAccountType|Valeur Wstring, par défaut : "" |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
-|RunAsPassword|Valeur Wstring, par défaut : "" |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
+| RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
+|RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
+|RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
 ### <a name="section-name-runasdca"></a>Nom de la section : RunAs_DCA
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| RunAsAccountName |Valeur Wstring, par défaut : "" |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont domain\user ou "user@domain". |
-|RunAsAccountType|Valeur Wstring, par défaut : "" |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
-|RunAsPassword|Valeur Wstring, par défaut : "" |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
+| RunAsAccountName |Chaîne (valeur par défaut : "") |Indique le nom du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser ou ManagedServiceAccount. Les valeurs autorisées sont "domain\user" ou "user@domain". |
+|RunAsAccountType|Chaîne (valeur par défaut : "") |Indique le type du compte RunAs. Ce paramètre est nécessaire pour toutes les sections RunAs. Les valeurs autorisées sont LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem. |
+|RunAsPassword|Chaîne (valeur par défaut : "") |Indique le mot de passe du compte RunAs. Ce paramètre n’est nécessaire que pour le type de compte DomainUser. |
 
 ### <a name="section-name-httpgateway"></a>Nom de la section : HttpGateway
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -242,12 +266,12 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 ### <a name="section-name-ktllogger"></a>Nom de la section : KtlLogger
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-|AutomaticMemoryConfiguration |Entier (valeur par défaut : 1) | Indicateur spécifiant si les paramètres de mémoire doivent être configurés automatiquement et dynamiquement. Si vous spécifiez&0;, les paramètres de configuration de la mémoire sont utilisés directement et ne sont pas modifiés par les conditions du système. Si vous spécifiez&1;, les paramètres de mémoire sont configurés automatiquement et peuvent varier selon les conditions du système. |
+|AutomaticMemoryConfiguration |Entier (valeur par défaut : 1) | Indicateur spécifiant si les paramètres de mémoire doivent être configurés automatiquement et dynamiquement. Si vous spécifiez 0, les paramètres de configuration de la mémoire sont utilisés directement et ne sont pas modifiés par les conditions du système. Si vous spécifiez 1, les paramètres de mémoire sont configurés automatiquement et peuvent varier selon les conditions du système. |
 |WriteBufferMemoryPoolMinimumInKB |Entier (valeur par défaut : 8388608) |Nombre de Ko à attribuer initialement au pool de mémoires-tampons d’écritures. Utilisez 0 pour spécifier aucune limite. La valeur par défaut doit être cohérente avec la valeur du paramètre SharedLogSizeInMB ci-dessous. |
 |WriteBufferMemoryPoolMaximumInKB | Entier (valeur par défaut : 0) |Nombre de Ko maximum que le pool de mémoires-tampons d’écritures peut atteindre. Spécifiez 0 pour indiquer aucune limite. |
 |MaximumDestagingWriteOutstandingInKB | Entier (valeur par défaut : 0) | Nombre de Ko que le journal partagé peut atteindre, en plus du journal dédié. Spécifiez 0 pour indiquer aucune limite.
-|SharedLogPath |Valeur Wstring, par défaut : "" | Chemin et nom de fichier du conteneur du journal partagé. Utilisez "" pour utiliser le chemin par défaut sous la racine des données de structure. |
-|SharedLogId |Valeur Wstring, par défaut : "" |GUID unique du conteneur du journal partagé. Utilisez "" si vous choisissez le chemin par défaut sous la racine des données de structure. |
+|SharedLogPath |Chaîne (valeur par défaut : "") | Chemin et nom de fichier du conteneur du journal partagé. Utilisez "" pour utiliser le chemin par défaut sous la racine des données de structure. |
+|SharedLogId |Chaîne (valeur par défaut : "") |GUID unique du conteneur du journal partagé. Utilisez "" si vous choisissez le chemin par défaut sous la racine des données de structure. |
 |SharedLogSizeInMB |Entier (valeur par défaut : 8192) | Nombre de Mo à allouer dans le conteneur de journal partagé. |
 
 ### <a name="section-name-applicationgatewayhttp"></a>Nom de la section : ApplicationGateway/Http
@@ -258,11 +282,11 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |DefaultHttpRequestTimeout |Durée en secondes. Valeur par défaut : 60. |Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
 |ResolveServiceBackoffInterval |Durée en secondes (valeur par défaut : 5) |Spécifiez la durée en secondes.  Indique l’interface d’interruption par défaut avant de retenter une opération du service de résolution ayant échoué. |
 |BodyChunkSize |Valeur Uint (valeur par défaut : 4096) |  Indique la taille en octets du bloc utilisé pour lire le corps. |
-|GatewayAuthCredentialType |Valeur Wstring, par défaut : "None" | Indique le type d’informations d’identification de sécurité à utiliser comme point d’extrémité de la passerelle d’application HTTP. Les valeurs autorisées sont None/X509. |
-|GatewayX509CertificateStoreName |Valeur Wstring, par défaut : "My" | Nom du magasin de certificats X.509 qui contient le certificat de la passerelle d’application HTTP. |
-|GatewayX509CertificateFindType |Valeur Wstring, par défaut : "FindByThumbprint" | Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |
-|GatewayX509CertificateFindValue | Valeur Wstring, par défaut : "" | Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
-|GatewayX509CertificateFindValueSecondary | Valeur Wstring, par défaut : "" |Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté.|
+|GatewayAuthCredentialType |Chaîne (valeur par défaut : "None") | Indique le type d’informations d’identification de sécurité à utiliser comme point d’extrémité de la passerelle d’application HTTP. Les valeurs autorisées sont None/X509. |
+|GatewayX509CertificateStoreName |Chaîne (valeur par défaut : "My") | Nom du magasin de certificats X.509 qui contient le certificat de la passerelle d’application HTTP. |
+|GatewayX509CertificateFindType |Chaîne (valeur par défaut : "FindByThumbprint") | Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |
+|GatewayX509CertificateFindValue | Chaîne (valeur par défaut : "") | Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
+|GatewayX509CertificateFindValueSecondary | Chaîne (valeur par défaut : "") |Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté.|
 
 ### <a name="section-name-management"></a>Nom de la section : Management
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -292,8 +316,8 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | MinReplicaSetSize |Entier (valeur par défaut : 0) |Paramètre MinReplicaSetSize pour FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60 minutes)|Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour FaultAnalysisService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour FaultAnalysisService. |
-| StandByReplicaKeepDuration| Durée en secondes (valeur par défaut :&60;*24*7 minutes) |Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour FaultAnalysisService. |
-| PlacementConstraints | Valeur Wstring, par défaut : ""| Paramètre PlacementConstraints pour FaultAnalysisService. |
+| StandByReplicaKeepDuration| Durée en secondes (valeur par défaut : 60*24*7 minutes) |Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour FaultAnalysisService. |
+| PlacementConstraints | Chaîne (valeur par défaut : "")| Paramètre PlacementConstraints pour FaultAnalysisService. |
 | StoredActionCleanupIntervalInSeconds | Entier (valeur par défaut : 3600) |Fréquence de nettoyage du magasin.  Seules les actions dans un état terminal et celles qui exécutées il y a au moins CompletedActionKeepDurationInSeconds secondes seront supprimées. |
 | CompletedActionKeepDurationInSeconds | Entier (valeur par défaut : 604800) | Durée approximative de conservation des actions dans un état terminal.  Cela dépend également de StoredActionCleanupIntervalInSeconds, car le travail de nettoyage ne s’effectue que pendant cette durée. 604800 correspond à 7 jours. |
 | StoredChaosEventCleanupIntervalInSeconds | Entier (valeur par défaut : 3600) |Fréquence à laquelle le système évalue la nécessité du nettoyage. Si le nombre d’événements est supérieur à 30000, le nettoyage se déclenche. |
@@ -309,20 +333,20 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | MaxRequestProcessingThreads | Valeur Uint (valeur par défaut : 200) |Nombre maximum de threads parallèles autorisés pour traiter les requêtes dans le réplica principal. 0 = nombre de cœurs. |
 | MaxSecondaryFileCopyFailureThreshold | Valeur Uint (valeur par défaut : 25)| Nombre maximum de nouvelles tentatives de copie de fichier sur le réplica secondaire avant d’abandonner. |
 | AnonymousAccessEnabled | Valeur booléenne (valeur par défaut : true) |Activez ou désactivez l’accès anonyme aux partages FileStoreService. |
-| PrimaryAccountType | Valeur Wstring, par défaut : "" |Type de compte principal du service principal utilisé pour contrôler l’accès aux partages FileStoreService. |
-| PrimaryAccountUserName | Valeur Wstring, par défaut : "" |Nom d’utilisateur du compte principal du service principal utilisé pour contrôler l’accès aux partages FileStoreService. |
-| PrimaryAccountUserPassword | Valeur SecureString (valeur par défaut : vide) |Mot de passe du compte principal du service principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+| PrimaryAccountType | Chaîne (valeur par défaut : "") |Type de compte principal du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+| PrimaryAccountUserName | Chaîne (valeur par défaut : "") |Nom d’utilisateur du compte principal du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+| PrimaryAccountUserPassword | Valeur SecureString (valeur par défaut : vide) |Mot de passe du compte principal du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
 | FileStoreService | PrimaryAccountNTLMPasswordSecret | Valeur SecureString (valeur par défaut : vide) | Secret de mot de passe utilisé pour générer le même mot de passe en cas d’authentification NTLM. |
-| PrimaryAccountNTLMX509StoreLocation | Valeur Wstring, par défaut : "LocalMachine"| Emplacement du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
-| PrimaryAccountNTLMX509StoreName | Valeur Wstring, par défaut : "MY"| Nom du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
-| PrimaryAccountNTLMX509Thumbprint | Valeur Wstring, par défaut : ""|Empreinte du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
-| SecondaryAccountType | Valeur Wstring, par défaut : ""| Type de compte secondaire du service principal pour contrôler l’accès aux partages FileStoreService. |
-| SecondaryAccountUserName | Valeur Wstring, par défaut : ""| Nom d’utilisateur du compte secondaire du service principal, utilisé pour contrôler l’accès aux partages FileStoreService. |
-| SecondaryAccountUserPassword | Valeur SecureString (valeur par défaut : vide) |Mot de passe du compte secondaire du service principal, utilisé pour contrôler l’accès aux partages FileStoreService.  |
+| PrimaryAccountNTLMX509StoreLocation | Chaîne (valeur par défaut : "LocalMachine")| Emplacement du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| PrimaryAccountNTLMX509StoreName | Chaîne (valeur par défaut : "MY")| Nom du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| PrimaryAccountNTLMX509Thumbprint | Chaîne (valeur par défaut : "")|Empreinte du certificat X509 utilisé pour générer le code HMAC sur le PrimaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| SecondaryAccountType | Chaîne (valeur par défaut : "")| Type de compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+| SecondaryAccountUserName | Chaîne (valeur par défaut : "")| Nom d’utilisateur du compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+| SecondaryAccountUserPassword | Valeur SecureString (valeur par défaut : vide) |Mot de passe du compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService.  |
 | SecondaryAccountNTLMPasswordSecret | Valeur SecureString (valeur par défaut : vide) | Secret de mot de passe utilisé comme valeur initiale pour générer le même mot de passe en cas d’authentification NTLM. |
-| SecondaryAccountNTLMX509StoreLocation | Valeur Wstring, par défaut : "LocalMachine" |Emplacement du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
-| SecondaryAccountNTLMX509StoreName | Valeur Wstring, par défaut : "MY" |Nom du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
-| SecondaryAccountNTLMX509Thumbprint | Valeur Wstring, par défaut : ""| Empreinte du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| SecondaryAccountNTLMX509StoreLocation | Chaîne (valeur par défaut : "LocalMachine") |Emplacement du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| SecondaryAccountNTLMX509StoreName | Chaîne (valeur par défaut : "MY") |Nom du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
+| SecondaryAccountNTLMX509Thumbprint | Chaîne (valeur par défaut : "")| Empreinte du certificat X509 utilisé pour générer le code HMAC sur le SecondaryAccountNTLMPasswordSecret en cas d’authentification NTLM. |
 
 ### <a name="section-name-imagestoreservice"></a>Nom de la section : ImageStoreService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -333,7 +357,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60.0 * 30) | Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour ImageStoreService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) | Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour ImageStoreService. |
 | StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 3600.0*2) | Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour ImageStoreService. |
-| PlacementConstraints | Valeur Wstring, par défaut : "" | Paramètre PlacementConstraints pour ImageStoreService. |
+| PlacementConstraints | Chaîne (valeur par défaut : "") | Paramètre PlacementConstraints pour ImageStoreService. |
 | ClientUploadTimeout | Durée en secondes (valeur par défaut : 1800) |Spécifiez la durée en secondes. Délai d’expiration de la requête de chargement de niveau supérieur dans ImageStoreService. |
 | ClientCopyTimeout | Durée en secondes (valeur par défaut : 1800) | Spécifiez la durée en secondes. Délai d’expiration de la requête de copie de niveau supérieur dans ImageStoreService. |
 | ClientDownloadTimeout | Durée en secondes (valeur par défaut : 1800) | Spécifiez la durée en secondes. Délai d’expiration de la requête de téléchargement de niveau supérieur dans ImageStoreService. |
@@ -352,7 +376,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 ### <a name="section-name-tokenvalidationservice"></a>Nom de la section : TokenValidationService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| Fournisseurs |Valeur Wstring, par défaut : "DSTS" |Liste séparée par des virgules, des fournisseurs de validation de jeton à activer (fournisseurs valides : DSTS, AAD). Pour l’instant, un seul fournisseur peut être activé à la fois. |
+| Fournisseurs |Chaîne (valeur par défault : "DSTS") |Liste séparée par des virgules, des fournisseurs de validation de jeton à activer (fournisseurs valides : DSTS, AAD). Pour l’instant, un seul fournisseur peut être activé à la fois. |
 
 ### <a name="section-name-upgradeorchestrationservice"></a>Nom de la section : UpgradeOrchestrationService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -362,113 +386,113 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 | ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60 minutes)| Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) | Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 60*24*7 minutes) | Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour UpgradeOrchestrationService. |
-| PlacementConstraints | Valeur Wstring, par défaut : "" | Paramètre PlacementConstraints pour UpgradeOrchestrationService. |
+| PlacementConstraints | Chaîne (valeur par défaut : "") | Paramètre PlacementConstraints pour UpgradeOrchestrationService. |
 | AutoupgradeEnabled | Valeur booléenne (valeur par défaut : true) | Interrogation automatique et action de mise à niveau basée sur un fichier d’état d’objectif. |
 | UpgradeApprovalRequired | Valeur booléenne (valeur par défaut : false) | La configuration de la mise à niveau du code requiert une autorisation de l’administrateur. |
 
 ### <a name="section-name-upgradeservice"></a>Nom de la section : UpgradeService
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| PlacementConstraints |Valeur Wstring, par défaut : "" |Paramètre PlacementConstraints pour le service de mise à niveau. |
+| PlacementConstraints |Chaîne (valeur par défaut : "") |Paramètre PlacementConstraints pour le service de mise à niveau. |
 | TargetReplicaSetSize | Entier (valeur par défaut : 3) | Paramètre TargetReplicaSetSize pour UpgradeService. |
 | MinReplicaSetSize | Entier (valeur par défaut : 2) | Paramètre MinReplicaSetSize pour UpgradeService. |
-| CoordinatorType | Valeur Wstring, par défaut : "WUTest"| Paramètre CoordinatorType pour UpgradeService. |
-| BaseUrl | Valeur Wstring, par défaut : "" |Paramètre BaseUrl pour UpgradeService. |
-| ClusterId | Valeur Wstring, par défaut : "" | Paramètre ClusterId pour UpgradeService. |
-| X509StoreName | Valeur Wstring, par défaut : "My"| Paramètre X509StoreName pour UpgradeService. |
-| X509StoreLocation | Valeur Wstring, par défaut : "" | Paramètre X509StoreLocation pour UpgradeService. |
-| X509FindType | Valeur Wstring, par défaut : ""| Paramètre X509FindType pour UpgradeService. |
-| X509FindValue | Valeur Wstring, par défaut : "" | Paramètre X509FindValue pour UpgradeService. |
-| X509SecondaryFindValue | Valeur Wstring, par défaut : "" | Paramètre X509SecondaryFindValue pour UpgradeService. |
+| CoordinatorType | Chaîne (valeur par défault : "WUTest")| Paramètre CoordinatorType pour UpgradeService. |
+| BaseUrl | Chaîne (valeur par défaut : "") |Paramètre BaseUrl pour UpgradeService. |
+| ClusterId | Chaîne (valeur par défaut : "") | Paramètre ClusterId pour UpgradeService. |
+| X509StoreName | Chaîne (valeur par défaut : "My")| Paramètre X509StoreName pour UpgradeService. |
+| X509StoreLocation | Chaîne (valeur par défaut : "") | Paramètre X509StoreLocation pour UpgradeService. |
+| X509FindType | Chaîne (valeur par défaut : "")| Paramètre X509FindType pour UpgradeService. |
+| X509FindValue | Chaîne (valeur par défaut : "") | Paramètre X509FindValue pour UpgradeService. |
+| X509SecondaryFindValue | Chaîne (valeur par défaut : "") | Paramètre X509SecondaryFindValue pour UpgradeService. |
 | OnlyBaseUpgrade | Valeur booléenne (valeur par défaut : false) | Paramètre OnlyBaseUpgrade pour UpgradeService. |
-| TestCabFolder | Valeur Wstring, par défaut : "" | Paramètre TestCabFolder pour UpgradeService. |
+| TestCabFolder | Chaîne (valeur par défaut : "") | Paramètre TestCabFolder pour UpgradeService. |
 
 ### <a name="section-name-securityclientaccess"></a>Nom de la section : Security/ClientAccess
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
 | --- | --- | --- |
-| CreateName |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour la création d’URI d’attribution de noms. |
-| DeleteName |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour la suppression d’URI d’attribution de noms. |
-| PropertyWriteBatch |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour les opérations d’écriture de la propriété d’attribution de noms. |
-| CreateService |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour la création de services. |
-| CreateServiceFromTemplate |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour la création de services à partir d’un modèle. |
-| UpdateService |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour les mises à niveau de services. |
-| DeleteService  |Valeur Wstring, par défaut : "Admin" |Configuration de la sécurité pour la suppression de services. |
-| ProvisionApplicationType |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour l’approvisionnement du type d’application. |
-| CreateApplication |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour la création d’applications. |
-| DeleteApplication |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour la suppression d’applications. |
-| UpgradeApplication |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour démarrer ou arrêter des mises à niveau d’application. |
-| RollbackApplicationUpgrade |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour annuler des mises à niveau d’application. |
-| UnprovisionApplicationType |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour annuler l’approvisionnement du type d’application. |
-| MoveNextUpgradeDomain |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour reprendre des mises à niveau d’application avec un domaine de mise à niveau explicite. |
-| ReportUpgradeHealth |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour reprendre des mises à niveau d’application à leur état d’avancement actuel. |
-| ReportHealth |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour créer un rapport d’intégrité. |
-| ProvisionFabric |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour l’approvisionnement de MSI et/ou du manifeste de cluster. |
-| UpgradeFabric |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour démarrer des mises à niveau de cluster. |
-| RollbackFabricUpgrade |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour annuler des mises à niveau de cluster. |
-| UnprovisionFabric |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour annuler l’approvisionnement de MSI et/ou du manifeste de cluster. |
-| MoveNextFabricUpgradeDomain |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour reprendre des mises à niveau de cluster avec un domaine de mise à niveau explicite. |
-| ReportFabricUpgradeHealth |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour reprendre des mises à niveau de cluster à leur état d’avancement actuel. |
-| StartInfrastructureTask |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour démarrer des tâches d’infrastructure. |
-| FinishInfrastructureTask |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour terminer des tâches d’infrastructure. |
-| ActivateNode |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour activer un nœud. |
-| DeactivateNode |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour désactiver un nœud. |
-| DeactivateNodesBatch |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour désactiver plusieurs nœuds. |
-| RemoveNodeDeactivations |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour annuler la désactivation sur plusieurs nœuds. |
-| GetNodeDeactivationStatus |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour vérifier l’état de désactivation. |
-| NodeStateRemoved |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour signaler l’état de nœud supprimé. |
-| RecoverPartition |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour restaurer une partition. |
-| RecoverPartitions |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour restaurer des partitions. |
-| RecoverServicePartitions |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour restaurer des partitions de service. |
-| RecoverSystemPartitions |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour restaurer des partitions du service système. |
-| ReportFault |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour signaler une défaillance. |
-| InvokeInfrastructureCommand |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
-| FileContent |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour le transfert de fichiers clients du magasin d’images (externe vers le cluster). |
-| FileDownload |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour le lancement du téléchargement de fichiers clients du magasin d’images (externe vers le cluster). |
-| InternalList |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
-| Supprimer |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
-| Télécharger |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour l’opération de chargement de clients du magasin d’images. |
-| GetStagingLocation |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
-| GetStoreLocation |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour récupérer l’emplacement du client du magasin d’images. |
-| NodeControl |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour démarrer, arrêter et redémarrer des nœuds. |
-| CodePackageControl |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour redémarrer des packages de code. |
-| UnreliableTransportControl |Valeur Wstring, par défaut : "Admin" | Transport non fiable pour ajouter et supprimer des comportements. |
-| MoveReplicaControl |Valeur Wstring, par défaut : "Admin" | Déplacez un réplica. |
-| PredeployPackageToNode |Valeur Wstring, par défaut : "Admin" | API de pré-déploiement. |
-| StartPartitionDataLoss |Valeur Wstring, par défaut : "Admin" | Provoque la perte de données sur une partition. |
-| StartPartitionQuorumLoss |Valeur Wstring, par défaut : "Admin" | Provoque la perte de quorum sur une partition. |
-| StartPartitionRestart |Valeur Wstring, par défaut : "Admin" | Redémarre simultanément certains ou l’ensemble des réplicas d’une partition. |
-| CancelTestCommand |Valeur Wstring, par défaut : "Admin" | Annule une commande de test si elle est en cours. |
-| StartChaos |Valeur Wstring, par défaut : "Admin" | Démarre Chaos si ce n’est déjà fait. |
-| StopChaos |Valeur Wstring, par défaut : "Admin" | Arrête Chaos s’il a été démarré. |
-| StartNodeTransition |Valeur Wstring, par défaut : "Admin" | Configuration de la sécurité pour démarrer une transition de nœud. |
-| StartClusterConfigurationUpgrade |Valeur Wstring, par défaut : "Admin" | Déclenche StartClusterConfigurationUpgrade sur une partition. |
-| GetUpgradesPendingApproval |Valeur Wstring, par défaut : "Admin" | Déclenche GetUpgradesPendingApproval sur une partition. |
-| StartApprovedUpgrades |Valeur Wstring, par défaut : "Admin" | Déclenche StartApprovedUpgrades sur une partition. |
-| Ping |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour les tests ping de clients |
-| Requête |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour les requêtes. |
-| NameExists |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour la vérification de l’existence des URI d’attribution de noms. |
-| EnumerateSubnames |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour l’énumération d’URI d’attribution de noms. |
-| EnumerateProperties |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
-| PropertyReadBatch |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour les opérations de lecture de propriétés d’attribution de noms. |
-| GetServiceDescription |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
-| ResolveService |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour la résolution de services en fonction de la réclamation. |
-| ResolveNameOwner |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour résoudre le propriétaire de l’URI d’attribution de noms. |
-| ResolvePartition |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour résoudre les services du système. |
-| ServiceNotifications |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour les notifications de service basées sur l’événement. |
-| PrefixResolveService |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour la résolution de préfixe de service en fonction de la réclamation. |
-| GetUpgradeStatus |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
-| GetFabricUpgradeStatus |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour interroger l’état de mise à niveau du cluster. |
-| InvokeInfrastructureQuery |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour interroger les tâches d’infrastructure. |
-| Énumérer |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
-| ResetPartitionLoad |Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour la charge de réinitialisation d’une unité failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour l’activation ou la désactivation du rapport d’intégrité détaillé sur le placement du service. |
-| GetPartitionDataLossProgress | Valeur Wstring, par défaut : "Admin\|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de données. |
-| GetPartitionQuorumLossProgress | Valeur Wstring, par défaut : "Admin\|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de quorum. |
-| GetPartitionRestartProgress | Valeur Wstring, par défaut : "Admin\|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de redémarrage de partition. |
-| GetChaosReport | Valeur Wstring, par défaut : "Admin\|\|User") | Récupère l’état de Chaos pendant une période donnée. |
-| GetNodeTransitionProgress | Valeur Wstring, par défaut : "Admin\|\|User") | Configuration de la sécurité pour obtenir l’état d’avancement d’une commande de transition de nœud. |
-| GetClusterConfigurationUpgradeStatus | Valeur Wstring, par défaut : "Admin\|\|User") | Déclenche GetClusterConfigurationUpgradeStatus sur une partition. |
-| GetClusterConfiguration | Valeur Wstring, par défaut : "Admin\|\|User") | Déclenche GetClusterConfiguration sur une partition. |
+| CreateName |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour la création d’URI d’attribution de noms. |
+| DeleteName |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour la suppression d’URI d’attribution de noms. |
+| PropertyWriteBatch |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour les opérations d’écriture de la propriété d’attribution de noms. |
+| CreateService |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour la création de services. |
+| CreateServiceFromTemplate |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour la création de services à partir d’un modèle. |
+| UpdateService |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour les mises à niveau de services. |
+| DeleteService  |Chaîne (valeur par défault : "Admin") |Configuration de la sécurité pour la suppression de services. |
+| ProvisionApplicationType |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’approvisionnement du type d’application. |
+| CreateApplication |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour la création d’applications. |
+| DeleteApplication |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour la suppression d’applications. |
+| UpgradeApplication |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour démarrer ou arrêter des mises à niveau d’application. |
+| RollbackApplicationUpgrade |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour annuler des mises à niveau d’application. |
+| UnprovisionApplicationType |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour annuler l’approvisionnement du type d’application. |
+| MoveNextUpgradeDomain |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour reprendre des mises à niveau d’application avec un domaine de mise à niveau explicite. |
+| ReportUpgradeHealth |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour reprendre des mises à niveau d’application à leur état d’avancement actuel. |
+| ReportHealth |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour créer un rapport d’intégrité. |
+| ProvisionFabric |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’approvisionnement de MSI et/ou du manifeste de cluster. |
+| UpgradeFabric |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour démarrer des mises à niveau de cluster. |
+| RollbackFabricUpgrade |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour annuler des mises à niveau de cluster. |
+| UnprovisionFabric |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour annuler l’approvisionnement de MSI et/ou du manifeste de cluster. |
+| MoveNextFabricUpgradeDomain |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour reprendre des mises à niveau de cluster avec un domaine de mise à niveau explicite. |
+| ReportFabricUpgradeHealth |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour reprendre des mises à niveau de cluster à leur état d’avancement actuel. |
+| StartInfrastructureTask |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour démarrer des tâches d’infrastructure. |
+| FinishInfrastructureTask |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour terminer des tâches d’infrastructure. |
+| ActivateNode |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour activer un nœud. |
+| DeactivateNode |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour désactiver un nœud. |
+| DeactivateNodesBatch |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour désactiver plusieurs nœuds. |
+| RemoveNodeDeactivations |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour annuler la désactivation sur plusieurs nœuds. |
+| GetNodeDeactivationStatus |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour vérifier l’état de désactivation. |
+| NodeStateRemoved |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour signaler l’état de nœud supprimé. |
+| RecoverPartition |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour restaurer une partition. |
+| RecoverPartitions |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour restaurer des partitions. |
+| RecoverServicePartitions |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour restaurer des partitions de service. |
+| RecoverSystemPartitions |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour restaurer des partitions du service système. |
+| ReportFault |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour signaler une défaillance. |
+| InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
+| FileContent |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le transfert de fichiers clients du magasin d’images (externe vers le cluster). |
+| FileDownload |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour le lancement du téléchargement de fichiers clients du magasin d’images (externe vers le cluster). |
+| InternalList |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
+| Supprimer |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
+| Télécharger |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour l’opération de chargement de clients du magasin d’images. |
+| GetStagingLocation |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
+| GetStoreLocation |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour récupérer l’emplacement du client du magasin d’images. |
+| NodeControl |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour démarrer, arrêter et redémarrer des nœuds. |
+| CodePackageControl |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour redémarrer des packages de code. |
+| UnreliableTransportControl |Chaîne (valeur par défault : "Admin") | Transport non fiable pour ajouter et supprimer des comportements. |
+| MoveReplicaControl |Chaîne (valeur par défault : "Admin") | Déplacez un réplica. |
+| PredeployPackageToNode |Chaîne (valeur par défault : "Admin") | API de pré-déploiement. |
+| StartPartitionDataLoss |Chaîne (valeur par défault : "Admin") | Provoque la perte de données sur une partition. |
+| StartPartitionQuorumLoss |Chaîne (valeur par défault : "Admin") | Provoque la perte de quorum sur une partition. |
+| StartPartitionRestart |Chaîne (valeur par défault : "Admin") | Redémarre simultanément certains ou l’ensemble des réplicas d’une partition. |
+| CancelTestCommand |Chaîne (valeur par défault : "Admin") | Annule une commande de test si elle est en cours. |
+| StartChaos |Chaîne (valeur par défault : "Admin") | Démarre Chaos si ce n’est déjà fait. |
+| StopChaos |Chaîne (valeur par défault : "Admin") | Arrête Chaos s’il a été démarré. |
+| StartNodeTransition |Chaîne (valeur par défault : "Admin") | Configuration de la sécurité pour démarrer une transition de nœud. |
+| StartClusterConfigurationUpgrade |Chaîne (valeur par défault : "Admin") | Déclenche StartClusterConfigurationUpgrade sur une partition. |
+| GetUpgradesPendingApproval |Chaîne (valeur par défault : "Admin") | Déclenche GetUpgradesPendingApproval sur une partition. |
+| StartApprovedUpgrades |Chaîne (valeur par défault : "Admin") | Déclenche StartApprovedUpgrades sur une partition. |
+| Ping |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour les tests ping de clients |
+| Interroger |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour les requêtes. |
+| NameExists |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour la vérification de l’existence des URI d’attribution de noms. |
+| EnumerateSubnames |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour l’énumération d’URI d’attribution de noms. |
+| EnumerateProperties |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
+| PropertyReadBatch |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour les opérations de lecture de propriétés d’attribution de noms. |
+| GetServiceDescription |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
+| ResolveService |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour la résolution de services en fonction de la réclamation. |
+| ResolveNameOwner |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour résoudre le propriétaire de l’URI d’attribution de noms. |
+| ResolvePartition |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour résoudre les services du système. |
+| ServiceNotifications |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour les notifications de service basées sur l’événement. |
+| PrefixResolveService |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour la résolution de préfixe de service en fonction de la réclamation. |
+| GetUpgradeStatus |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
+| GetFabricUpgradeStatus |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour interroger l’état de mise à niveau du cluster. |
+| InvokeInfrastructureQuery |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour interroger les tâches d’infrastructure. |
+| Énumérer |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
+| ResetPartitionLoad |Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour la charge de réinitialisation d’une unité failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour l’activation ou la désactivation du rapport d’intégrité détaillé sur le placement du service. |
+| GetPartitionDataLossProgress | Chaîne (valeur par défault : "Admin\)|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de données. |
+| GetPartitionQuorumLossProgress | Chaîne (valeur par défault : "Admin\)|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de quorum. |
+| GetPartitionRestartProgress | Chaîne (valeur par défault : "Admin\)|\|User") | Récupère l’état d’avancement de l’invocation d’un appel d’API de redémarrage de partition. |
+| GetChaosReport | Chaîne (valeur par défault : "Admin\)|\|User") | Récupère l’état de Chaos pendant une période donnée. |
+| GetNodeTransitionProgress | Chaîne (valeur par défault : "Admin\)|\|User") | Configuration de la sécurité pour obtenir l’état d’avancement d’une commande de transition de nœud. |
+| GetClusterConfigurationUpgradeStatus | Chaîne (valeur par défault : "Admin\)|\|User") | Déclenche GetClusterConfigurationUpgradeStatus sur une partition. |
+| GetClusterConfiguration | Chaîne (valeur par défault : "Admin\)|\|User") | Déclenche GetClusterConfiguration sur une partition. |
 
 ### <a name="section-name-reconfigurationagent"></a>Nom de la section : ReconfigurationAgent
 | **Paramètre** | **Valeurs autorisées** | **Conseils ou brève description** |
@@ -493,7 +517,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |DetailedVerboseHealthReportLimit | Entier (valeur par défaut : 200) | Définit le nombre de fois qu’un réplica non placé doit être non placé de façon permanente avant que des rapports d’intégrité détaillés soient émis. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Entier (valeur par défaut : 20) | Définit le nombre de fois consécutives que des mouvements émis par ResourceBalancer sont supprimés avant que des diagnostics soient effectués et que des avertissements d’intégrité soient émis. Negative : aucun avertissement émis sous cette condition. |
 |DetailedNodeListLimit | Entier (valeur par défaut : 15) | Définit le nombre de nœuds par contrainte à inclure avant la troncation dans les rapports de réplica non placé. |
-|DetailedPartitionListLimit | Entier (valeur par défaut : 15) | Définit le nombre de partitions par entrée de diagnostic par contrainte à inclure avant la troncation dans Diagnostics. |
+|DetailedPartitionListLimit | Entier (valeur par défaut : 15) | Définit le nombre de partitions par entrée de diagnostic pour une contrainte à inclure avant la troncation dans Diagnostics. |
 |DetailedDiagnosticsInfoListLimit | Entier (valeur par défaut : 15) | Définit le nombre d’entrées de diagnostic (avec informations détaillées) par contrainte à inclure avant la troncation dans Diagnostics.|
 |PLBRefreshGap | Durée en secondes (valeur par défaut : 1) | Spécifiez la durée en secondes. Définit le délai minimum à respecter avant que PLB ne réactualise l’état. |
 |MinPlacementInterval | Durée en secondes (valeur par défaut : 1) | Spécifiez la durée en secondes. Définit le délai minimum à respecter avant deux passes de placement consécutives. |
@@ -504,7 +528,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |ConstraintFixPartialDelayAfterNodeDown | Durée en secondes (valeur par défaut : 120) | Spécifiez la durée en secondes. Ne corrigez pas les violations de contrainte FaultDomain et UpgradeDomain pendant cette période après un événement d’arrêt de nœud. |
 |ConstraintFixPartialDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) | Spécifiez la durée en secondes. Ne corrigez pas les violations de contrainte FaultDomain et UpgradeDomain pendant cette période après l’ajout d’un nouveau nœud. |
 |GlobalMovementThrottleThreshold | Valeur Uint (valeur par défaut : 1000) | Nombre maximum de mouvements autorisés dans la phase d’équilibrage de l’intervalle écoulé spécifié par GlobalMovementThrottleCountingInterval. |
-|GlobalMovementThrottleThresholdForPlacement | Valeur Uint (valeur par défaut : 0) | Nombre maximum de mouvements autorisés dans la phase d’équilibrage de l’intervalle écoulé spécifié par GlobalMovementThrottleCountingInterval.&0; indique aucune limite.|
+|GlobalMovementThrottleThresholdForPlacement | Valeur Uint (valeur par défaut : 0) | Nombre maximum de mouvements autorisés dans la phase d’équilibrage de l’intervalle écoulé spécifié par GlobalMovementThrottleCountingInterval. 0 indique aucune limite.|
 |GlobalMovementThrottleThresholdForBalancing | Valeur Uint (valeur par défaut : 0) | Nombre maximum de mouvements autorisés dans la phase d’équilibrage de l’intervalle écoulé spécifié par GlobalMovementThrottleCountingInterval. 0 indique aucune limite. |
 |GlobalMovementThrottleCountingInterval | Durée en secondes (valeur par défaut : 600) | Spécifiez la durée en secondes. Indiquez la durée de l’intervalle écoulé pendant lequel effectuer le suivi des mouvements de réplica de domaine (utilisés avec GlobalMovementThrottleThreshold). Réglez cette valeur sur 0 pour ignorer complètement la limitation globale. |
 |MovementPerPartitionThrottleThreshold | Valeur Uint (valeur par défaut : 50) | Aucun mouvement d’équilibrage n’est effectué pour une partition si le nombre d’équilibrage des réplicas de cette partition a atteint ou dépassé la valeur MovementPerFailoverUnitThrottleThreshold pendant la période écoulée spécifiée par MovementPerPartitionThrottleCountingInterval. |
@@ -513,13 +537,13 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |UseMoveCostReports | Valeur booléenne (valeur par défaut : false) | Demande à LB d’ignorer l’élément de coût de la fonction de score, ce qui génère un nombre potentiellement important de déplacements et, donc, un placement mieux équilibré. |
 |PreventTransientOvercommit | Valeur booléenne (valeur par défaut : false) | Détermine si PLB doit immédiatement compter sur les ressources qui seront libérées par les déplacements initiés. Par défaut, PLB peut initier un mouvement sortant et un mouvement entrant sur le même nœud, ce qui peut créer une survalidation temporaire. Le réglage de ce paramètre sur true empêche ce type de survalidation et désactive la défragmentation à la demande (également appelée placementWithMove). |
 |InBuildThrottlingEnabled | Valeur booléenne (valeur par défaut : false) | Détermine si la limitation intégrée est activée. |
-|InBuildThrottlingAssociatedMetric | Valeur Wstring, par défaut : "" | Nom de la mesure associée à cette limitation. |
+|InBuildThrottlingAssociatedMetric | Chaîne (valeur par défaut : "") | Nom de la mesure associée à cette limitation. |
 |InBuildThrottlingGlobalMaxValue | Entier (valeur par défaut : 0) |Nombre maximum de réplicas intégrés autorisés globalement. |
 |SwapPrimaryThrottlingEnabled | Valeur booléenne (valeur par défaut : false)| Détermine si la limitation de basculement vers le réplica principal est activée. |
-|SwapPrimaryThrottlingAssociatedMetric | Valeur Wstring, par défaut : ""| Nom de la mesure associée à cette limitation. |
+|SwapPrimaryThrottlingAssociatedMetric | Chaîne (valeur par défaut : "")| Nom de la mesure associée à cette limitation. |
 |SwapPrimaryThrottlingGlobalMaxValue | Entier (valeur par défaut : 0) | Nombre maximum de réplicas principaux basculés autorisés globalement. |
 |PlacementConstraintPriority | Entier (valeur par défaut : 0) | Détermine la priorité de la contrainte de placement : 0 : dure ; 1 : souple ; valeur négative : à ignorer. |
-|PreferredLocationConstraintPriority | Entier (valeur par défaut : 2)| Détermine la priorité de la contrainte de placement préférée : 0 : dure ; 1 : souple ; 2 : optimisation ; valeur négative : à ignorer. |
+|PreferredLocationConstraintPriority | Entier (valeur par défaut : 2)| Détermine la priorité de la contrainte de placement préférée : 0 : dure ; 1 : souple ; 2 : optimisation ; valeur négative : à ignorer. |
 |CapacityConstraintPriority | Entier (valeur par défaut : 0) | Détermine la priorité de la contrainte de capacité : 0 : dure ; 1 : souple ; valeur négative : à ignorer. |
 |AffinityConstraintPriority | Entier (valeur par défaut : 0) | Détermine la priorité de la contrainte d’affinité : 0 : dure ; 1 : souple ; valeur négative : à ignorer. |
 |FaultDomainConstraintPriority | Entier (valeur par défaut : 0) | Détermine la priorité de la contrainte de domaine d’erreur : 0 : dure ; 1 : souple ; valeur négative : à ignorer. |
@@ -571,7 +595,7 @@ Voici les paramètres de structure que vous pouvez personnaliser :
 |ReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60.0 * 30)|Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour ClusterManager. |
 |QuorumLossWaitDuration |Durée en secondes (valeur par défaut : MaxValue) | Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour ClusterManager. |
 |StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 3600.0 * 2)|Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour ClusterManager. |
-|PlacementConstraints | Valeur Wstring, par défaut : "" |Paramètre PlacementConstraints pour ClusterManager. |
+|PlacementConstraints | Chaîne (valeur par défaut : "") |Paramètre PlacementConstraints pour ClusterManager. |
 |SkipRollbackUpdateDefaultService | Valeur booléenne (valeur par défaut : false) |CM ne rétablira pas les services par défaut mis à jour, lors de l’annulation de la mise à niveau de l’application. |
 |EnableDefaultServicesUpgrade | Valeur booléenne (valeur par défaut : false) |Active la mise à niveau des services par défaut lors de la mise à niveau de l’application. Les descriptions de service par défaut sont remplacées après la mise à niveau. |
 |InfrastructureTaskHealthCheckWaitDuration |Durée en secondes (valeur par défaut : 0)| Spécifiez la durée en secondes. Délai à respecter avant de commencer les vérifications d’intégrité après le post-traitement d’une tâche d’infrastructure. |

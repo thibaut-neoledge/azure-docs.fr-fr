@@ -1,5 +1,5 @@
 ---
-title: "Connexion d’ordinateurs et d’appareils à OMS à l’aide de la passerelle OMS | Microsoft Docs"
+title: "Connexion d’ordinateurs à OMS à l’aide de la passerelle OMS | Microsoft Docs"
 description: "Connectez vos appareils gérés par OMS et les ordinateurs contrôlés par Operations Manager à la passerelle OMS pour leur permettre d’envoyer des données au service OMS lorsqu’ils n’ont pas accès à Internet."
 services: log-analytics
 documentationcenter: 
@@ -12,39 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: banders
-ms.custom: H1Hack27Feb2017
+ms.date: 03/27/2017
+ms.author: magoedte;banders
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 93d653c4e70dd058cf0408d821724a175256c918
+ms.lasthandoff: 03/28/2017
 
 ---
-# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Connecter des ordinateurs et des appareils à OMS sans accès Internet à l’aide de la passerelle OMS
 
-Ce document décrit comment vos appareils gérés par OMS et les ordinateurs contrôlés par System Center Operations Manager (SCOM) peuvent envoyer des données au service OMS lorsqu’ils n’ont pas accès à Internet. La passerelle OMS peut collecter les données et les envoyer au service OMS en leur nom.
+# <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Connecter des ordinateurs à OMS sans accès Internet à l’aide de la passerelle OMS
 
-La passerelle est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. La passerelle peut gérer jusqu'à 2 000 appareils OMS connectés simultanément lorsqu’elle est exécutée sur un serveur 16 Go doté d’un processeur 4 cœurs sous Windows.
+Ce document décrit comment vos ordinateurs gérés par OMS et contrôlés par System Center Operations Manager (SCOM) peuvent envoyer des données au service OMS lorsqu’ils n’ont pas accès à Internet. La passerelle OMS, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer au service OMS en son nom.  
 
-Par exemple, les serveurs de votre entreprise ou grande organisation peuvent être connectés au réseau, mais ne pas disposer d’une connectivité Internet. Ou alors, vous pouvez avoir plusieurs appareils de points de vente (PDV), mais aucun moyen de les surveiller directement. Enfin, Operations Manager peut par exemple utiliser la passerelle OMS en tant que serveur proxy. Dans ces exemples, la passerelle OMS peut transférer des données entre les agents installés sur ces serveurs ou les appareils de PDV d’une part, et OMS d’autre part.
+La passerelle OMS prend en charge :
 
-Au lieu que chaque agent individuel envoie des données directement à OMS, ce qui nécessite une connexion directe à Internet, toutes les données de l’agent sont envoyées via un seul ordinateur connecté à Internet. Cet ordinateur se trouve à l’endroit où vous installez et utilisez la passerelle. Dans ce scénario, vous pouvez installer des agents sur tous les ordinateurs sur lesquels vous souhaitez collecter des données. La passerelle transfère ensuite directement les données des agents à OMS. Elle n’analyse aucune des données transférées.
+1. Runbooks Workers hybrides Azure Automation  
+2. Les ordinateurs Windows avec Microsoft Monitoring Agent directement connecté à un espace de travail OMS
+3. System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3 ou le groupe d’administration Operations Manager 2016 intégré dans OMS.  
 
-Vous devez installer l’agent OMS sur l’ordinateur sur lequel la passerelle est également installée. Cela vous permet de surveiller la passerelle OMS et d'analyser les données des performances ou des événements pour le serveur sur lequel il est installé. En outre, l’agent permet à la passerelle OMS d’identifier les points de terminaison de service dont il a besoin pour communiquer.
+Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, par exemple des appareils de point de vente ou des serveurs prenant en charge des services informatiques, mais que vous devez les connecter à OMS pour les gérer et les surveiller, ils peuvent être configurés pour communiquer directement avec la passerelle OMS pour recevoir la configuration et transférer des données en leur nom.  Si ces ordinateurs sont configurés avec l’agent OMS pour se connecter directement à un espace de travail OMS, tous les ordinateurs communiqueront avec la passerelle OMS.  La passerelle transfère directement les données des agents à OMS. Elle n’analyse aucune des données en transit.
 
-La passerelle doit avoir accès à Internet pour charger des données sur OMS. Chaque agent doit également disposer d’une connexion réseau avec sa passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. Pour de meilleurs résultats, n'installez pas la passerelle sur un ordinateur qui est également un contrôleur de domaine.
+Lorsqu’un groupe d’administration Operations Manager est intégré avec OMS, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle OMS pour recevoir des informations de configuration et envoyer les données collectées en fonction de la solution que vous avez activée.  Les agents Operations Manager envoient certaines données liées à Operations Manager, telles que des alertes, évaluations de la configuration, espaces d’instance et données de capacité au serveur d’administration. D’autres données volumineuses, telles que les journaux IIS, les données de performances et les événements de sécurité, sont envoyées directement à la passerelle OMS.  Si vous avez un ou plusieurs serveurs de passerelle Operations Manager déployés dans une zone DMZ ou un autre réseau isolé pour analyser les systèmes non fiables, ils ne peuvent pas communiquer avec une passerelle OMS.  Les serveurs de passerelle Operations Manager peuvent uniquement générer des rapports sur un serveur d’administration.  Lorsqu’un groupe d’administration Operations Manager est configuré pour communiquer avec la passerelle OMS, les informations de configuration de proxy sont automatiquement distribuées à tous les ordinateurs gérés par agent qui sont configurés pour collecter des données pour Log Analytics, même si le paramètre est vide.    
 
-Voici un schéma illustrant le flux de données entre les agents directs et OMS.
+Pour fournir une haute disponibilité pour les groupes directement connectés ou Operations Management qui communiquent avec OMS via la passerelle, vous pouvez utiliser l’équilibrage de charge au niveau du réseau pour rediriger et distribuer le trafic entre plusieurs serveurs de passerelle.  Si un serveur de passerelle tombe en panne, le trafic est redirigé vers un autre nœud disponible.  
 
-![schéma agent direct](./media/log-analytics-oms-gateway/direct-agent-diagram.png)
+Il est recommandé d’installer l’agent OMS sur l’ordinateur exécutant le logiciel de passerelle OMS pour surveiller la passerelle OMS et analyser les données de performances ou d’événements. En outre, l’agent permet à la passerelle OMS d’identifier les points de terminaison de service dont il a besoin pour communiquer.
 
-Voici un schéma illustrant le flux de données entre Operations Manager et OMS.
+Chaque agent doit disposer d’une connexion réseau avec sa passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. L’installation de la passerelle sur un contrôleur de domaine n’est pas recommandée.
 
-![schéma Operations Manager](./media/log-analytics-oms-gateway/scom-mgt-server.png)
+Le diagramme suivant affiche le flux de données entre les agents directs et OMS avec le serveur de passerelle.  La configuration proxy des agents doit correspondre au même port que celui sur lequel la passerelle OMS est configurée pour communiquer avec OMS.  
 
-## <a name="language-availability"></a>Langues disponibles
+![diagramme de communication directe entre l’agent et OMS](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
+
+Le diagramme suivant illustre le flux de données entre un groupe d’administration Operations Manager et OMS.   
+
+![diagramme de communication entre Operations Manager et OMS](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
+
+## <a name="prerequisites"></a>Composants requis
+
+Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerelle OMS, cet ordinateur doit disposer des éléments suivants :
+
+* Système d’exploitation Windows 10, Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2
+* .NET Framework 4.5
+* Au minimum un processeur 4 cœurs et 8 Go de mémoire 
+
+### <a name="language-availability"></a>Langues disponibles
 
 La passerelle OMS est disponible dans les langues suivantes :
 
@@ -67,102 +80,100 @@ La passerelle OMS est disponible dans les langues suivantes :
 
 ## <a name="download-the-oms-gateway"></a>Télécharger la passerelle OMS
 
-Il existe trois méthodes d'obtenir le fichier de configuration de la passerelle OMS.
+Il existe trois méthodes d’obtenir la toute dernière version du fichier de configuration de la passerelle OMS.
 
-### <a name="microsoft-download-center"></a>Centre de téléchargement Microsoft
+1. Téléchargez-le à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=54443).
 
-- Téléchargez la dernière version de la passerelle OMS sur le [Centre de téléchargement de Microsoft](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
+2. Téléchargez-le à partir du portail OMS.  Après vous être connecté à votre espace de travail OMS, accédez à **Paramètres** > **Sources connectées** > **Serveurs Windows** et cliquez sur **Télécharger la passerelle OMS**.
 
-### <a name="oms-portal"></a>Portail OMS
+3. Téléchargez à partir du [portail Azure](https://portal.azure.com).  Après votre connexion :  
 
-1.    Connectez-vous à votre espace de travail OMS.
-2.    Sélectionnez **Paramètres** > **Sources connectées** > **Serveurs Windows**.
-3.    Cliquez sur **Télécharger la passerelle OMS**.
-
-
-### <a name="azure-portal"></a>Portail Azure
-
-1. Accédez au [Portail Azure](https://portal.azure.com) , connectez-vous, parcourez la liste des services, puis sélectionnez **Log Analytics**.
-2. Sélectionnez un espace de travail.
-3. Dans le panneau de votre espace de travail, sous **Général**, cliquez sur **Démarrage rapide**.
-4. Sous **Choisir une source de données pour se connecter à l’espace de travail**, cliquez sur **Ordinateurs**.
-4. Dans le panneau **Agent direct**, cliquez sur **Télécharger la passerelle OMS**.  
-    ![télécharger la passerelle OMS](./media/log-analytics-oms-gateway/download-gateway.png)
+   1. Parcourez la liste des services, puis sélectionnez **Log Analytics**.  
+   2. Sélectionnez un espace de travail.
+   3. Dans le panneau de votre espace de travail, sous **Général**, cliquez sur **Démarrage rapide**.
+   4. Sous **Choisir une source de données pour se connecter à l’espace de travail**, cliquez sur **Ordinateurs**.
+   5. Dans le panneau **Agent direct**, cliquez sur **Télécharger la passerelle OMS**.<br><br> ![télécharger la passerelle OMS](./media/log-analytics-oms-gateway/download-gateway.png)
 
 
 ## <a name="install-the-oms-gateway"></a>Installer la passerelle OMS
-Lorsque vous installez cette passerelle, elle remplace les versions de passerelles précédentes (redirecteur Log Analytics).
 
-Configuration requise : .Net Framework 4.5, Windows Server 2012 R2 SP1 et versions ultérieures
+Pour installer une passerelle, procédez comme suit.  Si vous avez installé une version antérieure, anciennement appelée *Log Analytics Forwarder*, il sera mis à niveau vers cette version.  
 
-
-1. Pour démarrer l’installation, double-cliquez sur **OMS Gateway.msi**.
-2. Sur la page d'accueil, cliquez sur **Suivant**.  
-    ![Assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard01.png)
-3. Dans la page du contrat de licence, sélectionnez **J’accepte les termes du contrat de licence** pour accepter le CLUF, puis cliquez sur **Suivant**.
-4. Sur la page relative au port et à l’adresse proxy :
-   1. Saisissez le numéro de port TCP à utiliser pour la passerelle. Le programme d’installation ouvre ce port à partir du pare-feu Windows. La valeur par défaut est 8080.
+1. Dans le dossier de destination, double-cliquez sur **OMS Gateway.msi**.
+2. Sur la page d’**accueil**, cliquez sur **Suivant**.<br><br> ![Assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+3. Dans la page du **contrat de licence**, sélectionnez **J’accepte les termes du contrat de licence** pour accepter le CLUF, puis cliquez sur **Suivant**.
+4. Sur la page relative au **port et à l’adresse proxy** :
+   1. Saisissez le numéro de port TCP à utiliser pour la passerelle. Le programme d’installation configure une règle entrante avec ce numéro de port sur le pare-feu Windows.  La valeur par défaut est 8080.
       Les numéros de port valides sont compris entre 1 et 65535. Si la valeur saisie n’est pas comprise dans cette plage, un message d’erreur s’affiche.
-   2. Éventuellement, si le serveur sur lequel la passerelle est installée doit utiliser un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, `http://myorgname.corp.contoso.com:80` Si vide, la passerelle essaie de se connecter à Internet directement. Dans le cas contraire, la passerelle se connecte au proxy. Si votre serveur proxy requiert une authentification, tapez votre nom d'utilisateur et votre mot de passe.  
-       ![Configuration du proxy de l’assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
-   3. Cliquez sur **Suivant**
-5. Si vous n’avez pas activé les mises à jour Microsoft, la page des mises à jour Microsoft s’affiche, et vous pouvez choisir d’activer les mises à jour. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
-6. Dans la page Dossier de destination, conservez le dossier par défaut c:\ProgramFiles\OMS Gateway ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
-7. Dans la page Prêt pour l’installation, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
-8. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services.  
-    ![Services – Passerelle OMS](./media/log-analytics-oms-gateway/gateway-service.png)
+   2. Éventuellement, si le serveur sur lequel la passerelle est installée doit communiquer via un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, `http://myorgname.corp.contoso.com:80`.  Si le champ est vide, la passerelle essaie de se connecter à Internet directement.  Si votre serveur proxy requiert une authentification, entrez un nom d'utilisateur et un mot de passe.<br><br> ![Configuration du proxy de l’assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   3. Cliquez sur **Suivant**.
+5. Si vous n’avez pas activé Microsoft Update, la page Microsoft Update s’affiche, et vous pouvez choisir de l’activer. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
+6. Dans la page **Dossier de destination**, conservez le dossier par défaut C:\Program Files\OMS Gateway ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
+7. Dans la page **Prêt pour l’installation**, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
+8. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services et que son statut est défini sur **Exécution en cours**.<br><br> ![Services – Passerelle OMS](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="install-an-agent-on-devices"></a>Installer un agent sur des appareils
-Si nécessaire, consultez la page [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md) pour obtenir plus d’informations sur l’installation directe d’agents connectés. Cet article décrit comment installer l’agent à l’aide d’un assistant d’installation ou à l’aide de la ligne de commande.
+## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau 
+Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de l’équilibrage de charge réseau Microsoft ou basé sur le matériel.  L’équilibrage de charge gère le trafic en redirigeant les connexions demandées à partir de serveurs d’administration OMS Agents ou Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
 
-## <a name="configure-oms-agents"></a>Configurer des agents OMS
-Consultez [Configurer les paramètres de pare-feu et de proxy avec Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) pour plus d’informations sur la configuration d’un agent pour qu’il utilise un serveur proxy, qui dans ce cas est la passerelle.
+Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge réseau Windows Server 2016, consultez [Équilibrage de charge réseau](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Les étapes suivantes décrivent comment configurer un cluster d’équilibrage de charge réseau Microsoft.  
 
-Les agents Operations Manager envoient certaines données liées à Operations Manager, telles que des alertes, évaluations de la configuration, espaces d’instance et données de capacité, via le serveur d’administration. D’autres données volumineuses, telles que les journaux IIS, et les données de performances et de sécurité, sont envoyées directement à la passerelle OMS. Consultez [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour une liste complète des données envoyées via chaque canal.
+1.  Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
+2.  Ouvrez le Gestionnaire d’équilibrage de charge réseau dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire d’équilibrage de charge réseau**.
+3. Pour vous connecter à un serveur de passerelle OMS sur lequel Microsoft Monitoring Agent est installé, faites un clic droit sur l’adresse IP du cluster, puis cliquez sur **Ajouter l’hôte au cluster**.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+4. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connexion](./media/log-analytics-oms-gateway/nlb03.png) 
+    
+## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurer l’agent OMS et le groupe d’administration Operations Manager
+La section suivante contient des étapes sur la configuration d’agents OMS connectés directement, d’un groupe d’administration Operations Manager ou Azure Automation Hybrid Runbook Workers avec la passerelle OMS pour communiquer avec OMS.  
 
-> [!NOTE]
-> Si vous envisagez d’utiliser la passerelle avec un équilibrage de la charge réseau, consultez la page [Configuration éventuelle de l’équilibrage de charge réseau](#optionally-configure-network-load-balancing).
->
->
+Pour comprendre les exigences et la procédure à suivre pour installer l’agent OMS sur des ordinateurs Windows connectés directement à OMS, voir [Connecter des ordinateurs Windows à OMS](log-analytics-windows-agents.md) ou pour les ordinateurs Linux, voir [Connecter des ordinateurs Linux à OMS](log-analytics-linux-agents.md). 
 
-## <a name="configure-a-scom-proxy-server"></a>Configurer un serveur proxy SCOM
-Vous configurez Operations Manager pour que la passerelle ajoutée agisse comme un serveur proxy. Lorsque vous mettez à jour la configuration du proxy, elle est automatiquement appliquée à tous les agents Operations Manager.
+### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configuration de l’agent OMS et d’Operations Manager pour qu’ils utilisent la passerelle OMS comme serveur proxy
+
+### <a name="configure-standalone-oms-agent"></a>Configurer l’agent OMS autonome
+Consultez [Configurer les paramètres de pare-feu et de proxy avec Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) pour plus d’informations sur la configuration d’un agent pour qu’il utilise un serveur proxy, dans ce cas, la passerelle.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent OMS est l’adresse IP virtuelle de l’équilibrage de charge réseau :<br><br> ![Propriétés de Microsoft Monitoring Agent – Paramètres de proxy](./media/log-analytics-oms-gateway/nlb04.png)
+
+### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurer Operations Manager : tous les agents utilisent le même serveur proxy
+Vous configurez Operations Manager pour ajouter le serveur de passerelle.  La configuration du proxy Operations Manager est automatiquement appliquée à tous les agents effectuant un rapport à Operations Manager, même si le paramètre est vide.
 
 Pour que la passerelle prenne en charge Operations Manager, vous devez disposer des éléments suivants :
 
 * Microsoft Monitoring Agent (version **8.0.10900.0** et versions ultérieures) installé sur le serveur de passerelle et configuré pour les espaces de travail OMS avec lequel vous voulez communiquer.
 * La passerelle doit disposer d’une connectivité Internet, ou être connectée à un serveur proxy connecté à Internet.
 
-### <a name="to-configure-scom-for-the-gateway"></a>Pour configurer SCOM pour la passerelle
-1. Ouvrez la console Operations Manager, puis, sous **Operations Management Suite**, cliquez sur **Connexion**, puis sur **Configurer le serveur proxy** :  
-    ![Operations Manager – Configurer le serveur proxy](./media/log-analytics-oms-gateway/scom01.png)
-2. Sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite** puis saisissez l’adresse IP du serveur de la passerelle OMS. Vérifiez que vous démarrez avec le préfixe `http://` :  
-    ![Operations Manager – Adresse du serveur proxy](./media/log-analytics-oms-gateway/scom02.png)
+> [!NOTE]
+> Si vous ne spécifiez pas de valeur pour la passerelle, les valeurs vides sont transférées à tous les agents.
+
+
+1. Ouvrez la console Operations Manager, puis, sous **Operations Management Suite**, cliquez sur **Connexion**, puis sur **Configurer le serveur proxy**.<br><br> ![Operations Manager – Configurer le serveur proxy](./media/log-analytics-oms-gateway/scom01.png)<br> 
+2. Sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite** puis saisissez l’adresse IP du serveur de la passerelle OMS ou l’adresse IP virtuelle de l’équilibrage de charge réseau. Vérifiez que vous démarrez avec le préfixe `http://`.<br><br> ![Operations Manager – Adresse du serveur proxy](./media/log-analytics-oms-gateway/scom02.png)<br> 
 3. Cliquez sur **Terminer**. Votre serveur Operations Manager est connecté à votre espace de travail OMS.
 
-## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau
-Vous pouvez configurer la passerelle afin qu’elle offre une haute disponibilité à l’aide de l’équilibrage de la charge réseau, en créant un cluster. Le cluster gère le trafic de vos agents en redirigeant les connexions demandées à partir des Microsoft Monitoring Agents vers ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
+### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Configurer Operations Manager : des agents spécifiques utilisent le serveur proxy
+Pour les environnements complexes ou volumineux, vous pouvez souhaiter que seuls des serveurs spécifiques (ou groupes) utilisent le serveur de passerelle d’OMS.  Pour ces serveurs, vous ne pouvez pas mettre à jour l’agent Operations Manager directement, cette valeur étant remplacée par la valeur globale du groupe d’administration.  Au lieu de cela, vous devez remplacer la règle utilisée pour transférer ces valeurs.
 
-1. Ouvrez le Gestionnaire d’équilibrage de charge réseau et créez un cluster.
-2. Faites un clic droit sur le cluster avant d’ajouter des passerelles, puis sélectionnez **Propriétés du cluster**. Configurer le cluster afin qu’il dispose de sa propre adresse IP :  
-    ![Gestionnaire d’équilibrage de charge réseau – Adresses IP de cluster](./media/log-analytics-oms-gateway/nlb01.png)
-3. Pour vous connecter à un serveur de passerelle OMS sur lequel Microsoft Monitoring Agent est installé, faites un clic droit sur l’adresse IP du cluster, puis cliquez sur **Ajouter l’hôte au cluster**.  
-    ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster](./media/log-analytics-oms-gateway/nlb02.png)
-4. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter :  
-    ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connexion](./media/log-analytics-oms-gateway/nlb03.png)
-5. Sur les ordinateurs qui n’ont pas de connectivité Internet, veillez à utiliser l’adresse IP du cluster lorsque vous configurez les **Propriétés de Microsoft Monitoring Agent** :  
-    ![Propriétés de Microsoft Monitoring Agent – Paramètres de proxy](./media/log-analytics-oms-gateway/nlb04.png)
+> [!NOTE] 
+> Cette même technique de configuration peut être utilisée pour autoriser l’utilisation de plusieurs serveurs de passerelle OMS dans votre environnement.  Par exemple, vous pouvez exiger que des serveurs de passerelle OMS spécifiques soient spécifiés par région.
 
-## <a name="configure-for-automation-hybrid-workers"></a>Configuration pour les workers hybrides Automation
-Si vous avez des workers hybrides Automation dans votre environnement, les étapes suivantes fournissent des solutions manuelles de contournement temporaires pour configurer la passerelle afin qu’elle les prenne en charge.
+1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Création**.  
+2. Dans l’espace de travail Création, sélectionnez **Règles**, puis cliquez sur **Étendue** dans la barre d’outils Operations Manager. Si ce bouton n’est pas disponible, vérifiez que vous avez bien sélectionné un objet, et non un dossier, dans le volet Analyse. La boîte de dialogue **Objets du pack de gestion de l’étendue** affiche une liste des classes, groupes ou objets couramment ciblés. 
+3. Saisissez **Service d’intégrité** dans le champ **Rechercher** et sélectionnez-le dans la liste.  Cliquez sur **OK**.  
+4. Recherchez la règle **Règle du paramètre proxy Advisor** et, dans la barre d’outils de la console Operations, cliquez sur **Remplace**, puis pointez sur **Remplacer la règle\D’un objet de classe spécifique : Service d’intégrité**, puis sélectionnez un objet spécifique dans la liste.  Si vous le souhaitez, vous pouvez créer un groupe personnalisé qui contient l’objet de service d’intégrité des serveurs auxquels vous souhaitez appliquer ce remplacement, puis appliquer le remplacement à ce groupe.
+5. Dans la boîte de dialogue **Propriétés du remplacement**, cliquez pour placer une coche dans la colonne **Remplacer** en regard du paramètre **WebProxyAddress**.  Dans le champ **Remplacer la valeur**, entrez l’URL du serveur de passerelle OMS pour vérifier que vous démarrez avec le préfixe `http://`.
+   >[!NOTE]
+   > Vous n’avez pas besoin d’activer la règle, car elle est déjà gérée automatiquement avec un remplacement contenu dans le pack d’administration Microsoft System Center Advisor Secure Reference Override ciblant le groupe Microsoft System Center Advisor Monitoring Server.
+   > 
+6. Sélectionnez un pack d’administration dans la liste **Sélectionner un pack d’administration de destination** ou créez un pack de gestion non scellé en cliquant sur **Nouveau**. 
+7. Lorsque vous effectuez vos modifications, cliquez sur **OK**. 
+
+### <a name="configure-for-automation-hybrid-workers"></a>Configuration pour les workers hybrides Automation
+Si vous avez des Runbook Workers hybrides Automation dans votre environnement, les étapes suivantes fournissent des solutions manuelles de contournement temporaires pour configurer la passerelle afin qu’elle les prenne en charge.
 
 Dans les étapes suivantes, vous devez connaître la région Azure dans laquelle réside le compte Automation. Pour localiser l’emplacement :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez le service Azure Automation.
 3. Sélectionnez le compte Azure Automation approprié.
-4. Regardez sa région sous **Emplacement**.  
-    ![Portail Azure – Emplacement du compte Automation](./media/log-analytics-oms-gateway/location.png)
+4. Regardez sa région sous **Emplacement**.<br><br> ![Portail Azure – Emplacement du compte Automation](./media/log-analytics-oms-gateway/location.png)  
 
 Utilisez les tableaux suivants pour identifier l’URL pour chaque emplacement :
 
@@ -196,12 +207,12 @@ Utilisez les tableaux suivants pour identifier l’URL pour chaque emplacement 
 | Japon |jpe-agentservice-prod-1.azure-automation.net |
 | Australie |ase-agentservice-prod-1.azure-automation.net |
 
-Si votre ordinateur est automatiquement inscrit en tant que worker hybride pour l’application de correctifs à l’aide de la solution de gestion des mises à jour, suivez ces étapes :
+Si votre ordinateur est automatiquement inscrit en tant que Runbook Worker hybride pour l’application de correctifs à l’aide de la solution de gestion des mises à jour, suivez ces étapes :
 
 1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle OMS. Par exemple :  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. Redémarrez le service de passerelle OMS en utilisant l’applet de commande PowerShell suivante : `Restart-Service OMSGatewayService`
+2. Redémarrez le service de passerelle OMS en utilisant la cmdlet PowerShell suivante : `Restart-Service OMSGatewayService`
 
-Si votre ordinateur est intégré à Azure Automation à l’aide de l’applet de commande d’enregistrement de worker hybride, suivez ces étapes :
+Si votre ordinateur est intégré à Azure Automation à l’aide de la cmdlet d’inscription Runbook Worker hybride, suivez ces étapes :
 
 1. Ajoutez l’URL d’enregistrement de service de l’agent à la liste d’hôtes autorisés sur la passerelle OMS. Par exemple : `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
 2. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle OMS. Par exemple :  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
@@ -212,12 +223,12 @@ Si votre ordinateur est intégré à Azure Automation à l’aide de l’applet
 Les applets de commande peuvent vous aider à effectuer des tâches qui sont nécessaires pour mettre à jour les paramètres de configuration de la passerelle OMS. Avant de les utiliser, veillez à suivre les instructions suivantes :
 
 1. Installez la passerelle OMS (MSI).
-2. Ouvrez la fenêtre PowerShell.
+2. Ouvrez une fenêtre de console PowerShell.
 3. Pour importer le module, saisissez cette commande : `Import-Module OMSGateway`
-4. Si aucune erreur ne s’est produite lors des étapes précédentes, cela signifie que le module a été importé, et que les applets de commande peuvent être utilisées. Saisissez `Get-Module OMSGateway`
+4. Si aucune erreur ne s’est produite lors des étapes précédentes, cela signifie que le module a été importé, et que les cmdlets peuvent être utilisées. Saisissez `Get-Module OMSGateway`
 5. Une fois que vous avez apporté des modifications à l’aide des applets de commande, assurez-vous de redémarrer le service de passerelle.
 
-Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a pas été importé. L’erreur peut se produire lorsque PowerShell ne trouve pas le module. Vous pouvez le trouver dans le dossier d’installation de la passerelle : C:\Program File\Microsoft OMS Gateway\PowerShell.
+Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a pas été importé. L’erreur peut se produire lorsque PowerShell ne trouve pas le module. Vous pouvez le trouver dans le dossier d’installation de la passerelle : *C:\Program File\Microsoft OMS Gateway\PowerShell.*
 
 | **Applet de commande** | **Paramètres** | **Description** | **Exemples** |
 | --- | --- | --- | --- |
@@ -227,15 +238,13 @@ Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a p
 | `Get-OMSGatewayRelayProxy` | |Récupère l’adresse du proxy de relais (en amont) |`Get-OMSGatewayRelayProxy` |
 | `Add-OMSGatewayAllowedHost` |Hôte (obligatoire) |Ajoute l’hôte à la liste d’éléments autorisés |`Add-OMSGatewayAllowedHost -Host www.test.com` |
 | `Remove-OMSGatewayAllowedHost` |Hôte (obligatoire) |Supprime l’hôte de la liste d’éléments autorisés |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |Récupère l’hôte actuellement autorisé (uniquement l’hôte configuré localement, pas les hôtes autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedHost` |
+| `Get-OMSGatewayAllowedHost` | |Récupère l’hôte actuellement autorisé (uniquement l’hôte autorisé configuré localement, pas les hôtes autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Ajoute l’objet du certificat client à la liste d’éléments autorisés |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
 | `Remove-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Supprime l’objet du certificat client de la liste d’éléments autorisés |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
 | `Get-OMSGatewayAllowedClientCertificate` | |Récupère les objets de certificat client actuellement autorisés (uniquement les objets configurés localement, pas les objets autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedClientCertificate` |
 
-## <a name="troubleshoot"></a>Résolution des problèmes
-Vous devez installer l’agent OMS sur les ordinateurs sur lesquels la passerelle est installée. Vous pouvez ensuite utiliser l’agent pour collecter les événements consignés par la passerelle.
-
-![Observateur d’événements – Journal de la passerelle OMS](./media/log-analytics-oms-gateway/event-viewer.png)
+## <a name="troubleshooting"></a>résolution des problèmes
+Pour collecter des événements journalisés par la passerelle, vous devez également avoir installé l’agent OMS.<br><br> ![Observateur d’événements – Journal de la passerelle OMS](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **Identifiants et descriptions des événements de la passerelle OMS**
 

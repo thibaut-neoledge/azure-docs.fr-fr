@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c30c4653d8a14c7bf68ec6935c26725c6f623c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -122,50 +123,45 @@ Pour plus d’informations sur le développement et la publication de sites web 
 * [Kit de développement logiciel (SDK) Azure pour Python Read The Docs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 * [Kit de développement logiciel (SDK) Azure pour Python GitHub](https://github.com/Azure/azure-sdk-for-python)
 * [Exemples Azure officiels pour Python](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [Distribution de Python par Continuum Analytics][Distribution de Python par Continuum Analytics (en anglais)]
-* [Distribution de Python par Enthought][Distribution de Python par Enthought (en anglais)]
-* [Distribution de Python par ActiveState][Distribution de Python par ActiveState (en anglais)]
-* [SciPy : un vaste panel de bibliothèques Scientific Python][SciPy : un vaste panel de bibliothèques Scientific Python (en anglais)]
-* [NumPy : une bibliothèque de valeurs numériques pour Python][NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)]
-* [Projet Django : une structure Web/un système de gestion du contenu arrivé à maturité][Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)]
-* [IPython : une solution REPL/Notebook avancée pour Python][IPython : une solution REPL/Notebook avancée pour Python (en anglais)]
+* [Distribution de Python par Continuum Analytics (en anglais)][Continuum Analytics Python Distribution]
+* [Distribution de Python par Enthought (en anglais)][Enthought Python Distribution]
+* [Distribution de Python par ActiveState (en anglais)][ActiveState Python Distribution]
+* [SciPy : un vaste panel de bibliothèques Scientific Python (en anglais)][SciPy - A suite of Scientific Python libraries]
+* [NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)][NumPy - A numerics library for Python]
+* [Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)][Django Project - A mature web framework/CMS]
+* [IPython : une solution REPL/Notebook avancée pour Python (en anglais)][IPython - an advanced REPL/Notebook for Python]
 * [IPython Notebook sur Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Python Tools pour Visual Studio sur GitHub][Python Tools pour Visual Studio sur GitHub]
+* [Python Tools pour Visual Studio sur GitHub][Python Tools for Visual Studio on GitHub]
 * [Centre de développement Python](/develop/python/)
 
-[Distribution de Python par Continuum Analytics (en anglais)]: http://continuum.io
-[Distribution de Python par Enthought (en anglais)]: http://www.enthought.com
-[Distribution de Python par ActiveState (en anglais)]: http://www.activestate.com
+[Continuum Analytics Python Distribution]: http://continuum.io
+[Enthought Python Distribution]: http://www.enthought.com
+[ActiveState Python Distribution]: http://www.activestate.com
 [www.python.org]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com
 [www.activestate.com]: http://www.activestate.com
-[SciPy : un vaste panel de bibliothèques Scientific Python (en anglais)]: http://www.scipy.org
-[NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)]: http://www.numpy.org
-[Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)]: http://www.djangoproject.com
-[IPython : une solution REPL/Notebook avancée pour Python (en anglais)]: http://ipython.org
+[SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
+[NumPy - A numerics library for Python]: http://www.numpy.org
+[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
+[IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook sur Azure]: virtual-machines-linux-jupyter-notebook.md
+[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
 [Cloud Services]: cloud-services-python-ptvs.md
-[Sites Web]: web-sites-python-ptvs-django-mysql.md
+[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Python Tools pour Visual Studio sur GitHub]: https://github.com/microsoft/ptvs
+[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
-[Kit de développement logiciel (SDK) Microsoft Azure pour Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
-[Kit de développement logiciel (SDK) Microsoft Azure pour Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Configuration d'une machine virtuelle Linux via le portail Azure]: create-and-configure-opensuse-vm-in-portal.md
-[Utilisation des outils en ligne de commande Azure]: crossplat-cmd-tools.md
-[Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-quick-create-cli.md
-[Création de sites Web avec Django]: web-sites-python-create-deploy-django-app.md
-[Création de sites web avec Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Création de sites web avec Flask]: web-sites-python-create-deploy-flask-app.md
-[Configuration de Python avec des Sites Web Azure]: web-sites-python-configure.md
-[Stockage Table]: storage-python-how-to-use-table-storage.md
-[stockage en file d’attente]: storage-python-how-to-use-queue-storage.md
-[stockage d’objets blob]: storage-python-how-to-use-blob-storage.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
+[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
+[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuring Python with Azure Websites]: web-sites-python-configure.md
+[table storage]: storage-python-how-to-use-table-storage.md
+[queue storage]: storage-python-how-to-use-queue-storage.md
+[blob storage]: storage-python-how-to-use-blob-storage.md
 

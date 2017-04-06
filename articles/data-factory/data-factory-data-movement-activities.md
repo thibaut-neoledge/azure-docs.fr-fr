@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -95,6 +95,8 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Brésil | Sud du Brésil | Sud du Brésil |
 | Europe | Europe du Nord | Europe du Nord |
 | &nbsp; | Europe de l'Ouest | Europe de l'Ouest |
+| Royaume-Uni | Ouest du Royaume-Uni | Sud du Royaume-Uni |
+| &nbsp; | Sud du Royaume-Uni | Sud du Royaume-Uni |
 | Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
 | &nbsp; | Est de l'Asie | Asie du Sud-Est |
 | Australie | Est de l’Australie | Est de l’Australie |
@@ -105,7 +107,7 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | &nbsp; | Inde occidentale | Inde centrale |
 | &nbsp; | Inde du Sud | Inde centrale |
 
-Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour copier entre les banques Azure au Royaume-Uni, vous pouvez spécifier `"executionLocation": "North Europe"` pour un acheminement via l’Europe du Nord (voir [exemple JSON](#by-using-json-scripts) en tant que référence).
+Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
 
 > [!NOTE]
 > Si la région de la banque de données de destination ne figure pas dans la liste précédente ou n’est pas détectable, par défaut, l’activité de copie échoue au lieu de passer par une autre région, sauf si `executionLocation` est spécifié. La liste des régions prises en charge sera développée au fil du temps.
@@ -155,7 +157,7 @@ Voici un exemple de définition JSON :
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,
@@ -181,7 +183,7 @@ Consultez [Guide des performances et de l’optimisation de l’activité de cop
 Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d’informations sur le fonctionnement de la planification et de l’exécution dans Data Factory. Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Consultez la section [Copier de manière séquentielle](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
 
 ## <a name="type-conversions"></a>Conversions des types
-Les magasins de données ont différents types de systèmes natifs. L’activité de copie convertit automatiquement des types source en types récepteur selon l’approche en&2; étapes suivante :
+Les magasins de données ont différents types de systèmes natifs. L’activité de copie convertit automatiquement des types source en types récepteur selon l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET.
 2. Conversion de types .NET en types récepteur natifs.

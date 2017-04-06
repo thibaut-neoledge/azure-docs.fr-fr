@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -114,13 +114,9 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Traffic Manager
 * Machines virtuelles : ne prend pas en charge le déplacement vers un nouvel abonnement lorsque ses certificats sont stockés dans un Key Vault
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-* Virtual Network
+* Réseaux virtuels : actuellement, un réseau virtuel homologué ne peut pas être déplacé tant que l’homologation de réseau virtuel est activée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée.
+* Passerelle VPN 
 
-> [!NOTE] 
-> Pour le moment, il n’est pas possible de déplacer un réseau virtuel contenant une passerelle VPN tant que la passerelle n’est pas supprimée temporairement. Une fois supprimée, le réseau virtuel peut être déplacé et la passerelle peut être créée.
->
-> Actuellement, un réseau virtuel homologué ne peut pas être déplacé jusqu’à ce que l’homologation de réseau virtuel ait été désactivée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée.
->
  
 ## <a name="services-that-do-not-enable-move"></a>Services qui ne permettent pas le déplacement
 Les services qui ne permettent pas actuellement le déplacement d’une ressource sont les suivants :
@@ -137,9 +133,14 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Sécurité
 * Machines virtuelles avec un certificat stocké dans Key Vault
 * Machines virtuelles avec des disques managés
+* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
+* Groupes de machines virtuelles identiques avec des disques gérés
+* Managed Disks
+* Images créées à partir de disques gérés
+* Instantanés créés à partir de disques gérés
 * Groupes de machines virtuelles identiques
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-* Passerelle VPN
+* Les machines virtuelles créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des abonnements. La ressource doit être déprovisionnée dans l’abonnement actuel et déployée à nouveau dans le nouvel abonnement.
 
 ## <a name="app-service-limitations"></a>limitations d’App Service
 Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications App Service, les options disponibles sont :

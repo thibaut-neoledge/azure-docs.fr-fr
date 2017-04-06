@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2deaf44de51a989463826d6e4815f9ce9f0bbee5
-ms.openlocfilehash: 4b1fd3527140bc40299c008071753a91d264d567
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5e2ad5e5eae97645368797c8cdf848d88719bb64
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 4b1fd3527140bc40299c008071753a91d264d567
 Cet article répertorie les outils qui ont été fournis par la communauté afin de faciliter la migration de ressources IaaS à partir de déploiements classiques vers le modèle de déploiement Azure Resource Manager.
 
 > [!NOTE]
-> Ces outils ne sont pas pris en charge officiellement par le Support Microsoft. Ils sont donc disponibles en open source sur Github, et nous acceptons volontiers les demandes de publication de correctifs ou de scénarios supplémentaires. Pour signaler un problème, utilisez la fonctionnalité de problèmes Github.
+> Ces outils ne sont pas pris en charge officiellement par le Support Microsoft. Ils sont donc disponibles en open source sur GitHub, et nous acceptons volontiers les demandes de publication de correctifs ou de scénarios supplémentaires. Pour signaler un problème, utilisez la fonctionnalité de problèmes GitHub.
 > 
 > Une migration avec ces outils entraînera un temps d’arrêt pour votre machine virtuelle Classic. Si vous souhaitez effectuer une migration prise en charge par la plateforme, consultez les articles suivants : 
 > 
@@ -44,10 +45,5 @@ Il s’agit d’un module de script PowerShell pour migrer votre machine virtuel
 migAz est une option supplémentaire pour migrer un ensemble complet de ressources IaaS classiques vers des ressources Azure Resource Manager IaaS. La migration peut être exécutée dans le même abonnement ou entre différents abonnements et types d’abonnements (par ex. : les abonnements CSP).
 
 [Lien vers la documentation des outils](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

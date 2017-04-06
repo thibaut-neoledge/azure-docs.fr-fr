@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 03/28/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,6 +29,7 @@ Cet article a pour objectif de vous aider à mieux comprendre l’offre de sécu
 Cet article Présentation de sécurité réseau Azure se concentre sur les points suivants :
 
 * Mise en réseau Azure
+* Azure Network Watcher
 * Contrôle d’accès réseau
 * Accès à distance sécurisé et connectivité intersite
 * Availability
@@ -43,6 +44,18 @@ Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les m
 En savoir plus :
 
 * [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
+
+## <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher inclut un grand nombre de fonctionnalités de surveillance réseau qui facilitent la résolution des problèmes, et fournissent un nouvel ensemble d’outils pour faciliter l’identification des problèmes de sécurité.
+
+[L’affichage des groupes de sécurité ](/network-watcher/network-watcher-security-group-view-overview.md) contribue à l’audit et à la conformité de la sécurité des machines virtuelles et peut être utilisé pour effectuer des audits de programmation comparant les stratégies de lignes de base définies par votre organisation aux règles en vigueur pour chacune de vos machines virtuelles. Cela peut vous aider à identifier les différences de configuration.
+
+[La capture de paquets](/network-watcher/network-watcher-packet-capture-overview.md) vous permet de capturer le trafic réseau vers et depuis la machine virtuelle. Outre la collecte des statistiques réseau et le dépannage des problèmes d’application, la capture de paquets peut être très utile lors des enquêtes sur les intrusions. Vous pouvez également utiliser cette fonctionnalité avec Azure Functions pour démarrer les captures réseau en réponse à des alertes Azure spécifiques.
+
+Pour plus d’informations sur Azure Network Watcher et pour savoir comment commencer à tester certaines fonctionnalités dans vos laboratoires, jetez un œil à la [présentation de la surveillance Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network Watcher est toujours en version préliminaire publique, il se peut donc qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les services de la version mise à la disposition générale. Certaines fonctionnalités ne sont peut-être pas prises en charge, disposent peut-être de capacités limitées et ne sont peut-être pas disponibles dans tous les emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de ce service, consultez [la page relative aux mises à jour d’Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## <a name="network-access-control"></a>Contrôle d’accès réseau
 Le contrôle d’accès réseau consiste à limiter la connectivité vers et depuis certains appareils ou sous-réseaux au sein d’un réseau virtuel Azure. Le contrôle d’accès réseau permet de vous assurer que seuls les utilisateurs et appareils autorisés peuvent accéder à vos machines virtuelles et à vos services. Les contrôles d’accès sont basés sur des autorisations ou des refus de connexion vers et depuis votre machine virtuelle ou votre service.
@@ -213,6 +226,7 @@ Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.c
 En savoir plus :
 
 * [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+
 
 ## <a name="name-resolution"></a>Résolution de noms
 La résolution de noms est une fonctionnalité essentielle pour tous les services que vous hébergez dans Azure. En effet, une résolution de noms sécurisée permet d’éviter qu’un cybercriminel ne redirige les requêtes de vos sites vers un site malveillant. Une résolution de noms sécurisée est donc requise pour tous vos services hébergés dans le cloud.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 3137773458ca5b50b1bf42972d4cfd8e9b8d5cba
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -40,8 +41,8 @@ Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory
 | [Outil de conversion JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Cet outil vous permet de convertir des fichiers JSON depuis les versions antérieures à 2015-07-01-preview vers la version 2015-07-01-preview, qui est la plus récente (par défaut). |
 | [Exemple de fichier d’entrée U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Il s’agit d’un exemple de fichier utilisé par une activité U-SQL. |
 
-## <a name="azure-resource-manager-templates"></a>Modèles Azure Resource Manager
-Vous trouverez les modèles Azure Resource Manager suivants pour Data Factory sur Github.
+## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
+Vous trouverez les modèles Azure Resource Manager suivants pour Data Factory sur GitHub.
 
 | Modèle | Description |
 | --- | --- |
@@ -120,9 +121,4 @@ Les composants suivants doivent être installés sur votre ordinateur :
 16. Dans la page **État du déploiement** , vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer.
 
 Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, consultez [Créer votre première fabrique de données (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) .          
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

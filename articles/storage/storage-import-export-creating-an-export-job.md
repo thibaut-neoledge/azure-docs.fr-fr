@@ -1,6 +1,6 @@
 ---
 title: "Création d’un travail d’exportation pour Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment créer un travail d’exportation pour le service Microsoft Azure Import/Export"
+description: "Découvrez comment créer un travail d’exportation pour le service Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3440d7e80e6a806c4119dff687fb9c590b8f0d14
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -91,9 +91,10 @@ Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 ## <a name="updating-the-export-job-with-your-package-information"></a>Mise à jour du travail d’exportation avec vos informations de colis
  Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) pour mettre à jour le numéro de suivi et le nom du transporteur correspondant au travail. Vous pouvez éventuellement spécifier le nombre de disques, l’adresse de retour et la date d’expédition.
 
-## <a name="receiving-the-package"></a>Réception du colis
+## <a name="receiving-the-package"></a>Réception du package
  Une fois votre travail d’exportation traité, vos disques vous sont renvoyés avec vos données chiffrées. Vous pouvez récupérer la clé BitLocker pour chacun des disques en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Cette clé vous permettra de déverrouiller le disque. Le fichier manifeste de disque sur chaque disque contient la liste des fichiers sur le disque, ainsi que l’adresse du blob d’origine pour chaque fichier.
 
-## <a name="see-also"></a>Voir aussi
- [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

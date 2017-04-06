@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f0292efd50721ef58028df778052eb0ed6fcda84
-ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0dac2cc79de884def8d4cf0ee89dc2f645d35b34
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,16 +27,19 @@ ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
 ## <a name="introduction"></a>Introduction
 Stream Analytics expose deux types de journaux : 
 * Des [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) qui sont toujours activés et qui fournissent des informations sur les opérations effectuées sur les travaux.
-* Des [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) qui sont configurables par l’utilisateur et qui fournissent des informations plus détaillées sur tout ce qui concerne le travail, depuis sa création jusqu’à sa suppression en passant par sa mise à jour et son exécution.
+* Des [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) qui sont configurables et qui fournissent des informations plus détaillées sur tout ce qui concerne le travail, depuis sa création jusqu’à sa suppression en passant par sa mise à jour et son exécution.
+
+> [!NOTE]
+> Il convient de noter que l’utilisation de services tels que Azure Storage, Event Hub et Log Analytics pour l’analyse de données non conformes sera facturée selon le modèle de tarification pour ces services.
 
 ## <a name="how-to-enable-diagnostic-logs"></a>Comment activer les journaux de diagnostic
 Les journaux de diagnostic sont **désactivés** par défaut. Pour les activer, procédez comme suit :
 
-Connectez-vous au portail Azure et accédez au panneau du travail de streaming et utilisez le panneau « Journaux de Diagnostic » sous « Surveillance ».
+Connectez-vous au portail Azure et accédez au panneau de diffusion en continu de travail. Puis accédez au panneau « Journaux de Diagnostic » sous « Surveillance ».
 
 ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
-Cliquez ensuite sur le lien « Activer les diagnostics ».
+Cliquez ensuite sur le lien « Activer les diagnostics »
 
 ![activer les journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
@@ -45,7 +49,7 @@ Dans les diagnostics ouverts, définissez l’état sur « Activé ».
 
 Configurez la cible d’archivage souhaitée (compte de stockage, Event Hub, Log Analytics) et sélectionnez les catégories de journaux à collecter (Execution, Authoring). Enregistrez ensuite la nouvelle configuration de diagnostic.
 
-Une fois enregistrée, la configuration entre en vigueur après 10 minutes environ. Au terme de ce délai, les journaux commencent à apparaître dans la cible d’archivage configurée que vous pouvez voir dans le panneau « Journaux de Diagnostics » :
+Une fois enregistrée, la configuration prend effet sous 10 minutes environ. Après cela, les journaux commencent à apparaître dans la cible d’archivage configurée que vous pouvez voir dans le panneau « Journaux de Diagnostics » :
 
 ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
@@ -58,7 +62,7 @@ Nous capturons actuellement deux catégories de journaux de diagnostic :
 * **Execution :** capture ce qui se passe pendant l’exécution du travail.
     * Erreurs de connectivité
     * Erreurs de traitement des données
-        * Événements non conformes à la définition de la requête (types et valeurs de champs ne correspondant pas, champs manquants, etc.)
+        * Événements non conformes à la définition de la requête (types et valeurs de champs ne correspondant pas, champs manquants, etc.) ;
         * Erreurs d’évaluation d’expression
     * etc.
 
@@ -68,12 +72,12 @@ Tous les journaux sont stockés au format JSON et chaque entrée comprend les ch
 Nom | Description
 ------- | -------
 time | L’horodatage (heure UTC) du journal.
-resourceId | L’ID de la ressource sur laquelle l’opération a eu lieu (en majuscules). Comprend l’ID d’abonnement, le groupe et le nom du travail. Par exemple, `/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB`
-category | La catégorie du journal (`Execution` ou`Authoring`)
-operationName | Le nom de l’opération qui est journalisée. Par exemple, `Send Events: SQL Output write failure to mysqloutput`
-status | L’état de l’opération. Par exemple : `Failed, Succeeded`.
-minimal | Le niveau du journal. Par exemple, `Error, Warning, Informational`
-properties | détail spécifique de l’entrée du journal ; sérialisé comme chaîne JSON ; voir ci-dessous pour plus de détails
+resourceId | L’ID de la ressource sur laquelle l’opération a eu lieu (en majuscules). Comprend l’ID d’abonnement, le groupe et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+category | La catégorie de journal, **Exécution** ou **Création**.
+operationName | Le nom de l’opération qui est journalisée. Par exemple, **Événements d’envoi : Échec d’écriture de la sortie SQL sur mysqloutput**
+status | L’état de l’opération. Par exemple, **A échoué, A réussi**.
+minimal | Le niveau du journal. Par exemple, **Erreur, Avertissement, informations**.
+properties | détail spécifique de l’entrée du journal ; sérialisé comme chaîne JSON ; voir ce qui suit pour plus de détails
 
 ### <a name="execution-logs-properties-schema"></a>Schéma des propriétés des journaux Execution
 Les journaux Execution contiennent des informations sur les événements qui se sont produits pendant l’exécution du travail Stream Analytics.
@@ -86,10 +90,10 @@ Nom | Description
 ------- | -------
 Source | Nom de l’entrée ou de la sortie du travail où l’erreur s’est produite.
 Message | Message associé à l’erreur.
-Type | Le type d’erreur. Par exemple : `DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError`, etc.
+Type | Le type d’erreur. Par exemple, **DataConversionError, CsvParserError et ServiceBusPropertyColumnMissingError**.
 Données | Contient des données utiles pour localiser avec précision la source de l’erreur. Troncation possible en fonction de la taille.
 
-En fonction de la valeur d’**operationName**, les erreurs de données ont le schéma suivant :
+En fonction de la valeur **d’operationName**, les erreurs de données ont le schéma suivant :
 * **Sérialiser des événements** - se produit pendant les opérations de lecture d’événements quand les données en entrée ne répondent pas aux conditions du schéma de requête :
     * Incompatibilité de type pendant la (dé)sérialisation de l’événement : champ à l’origine de l’erreur.
     * Impossible de lire un événement, sérialisation non valide : informations sur l’emplacement où l’erreur s’est produite dans les données d’entrée : nom d’objet blob pour une entrée d’objet blob, décalage et exemple des données.
@@ -102,7 +106,7 @@ Nom | Description
 -------- | --------
 Error | (facultatif) Informations sur l’erreur, en général des informations sur l’exception si celles-ci sont disponibles.
 Message| Message de journal.
-Type | Type de message, correspond à la catégorisation interne des erreurs : par exemple, JobValidationError, BlobOutputAdapterInitializationFailure etc.
+Type | Type de message, correspond à la catégorisation interne des erreurs : par exemple **JobValidationError, BlobOutputAdapterInitializationFailure** etc.
 ID de corrélation : | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) qui identifie de façon unique l’exécution du travail. Toutes les entrées du journal d’exécution générées depuis le démarrage du travail jusqu’à son arrêt ont le même « ID de corrélation ».
 
 
@@ -113,10 +117,5 @@ ID de corrélation : | [GUID](https://en.wikipedia.org/wiki/Universally_unique_
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

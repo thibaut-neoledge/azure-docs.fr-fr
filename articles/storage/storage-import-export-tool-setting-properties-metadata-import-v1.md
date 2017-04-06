@@ -1,6 +1,6 @@
 ---
-title: "Définition des propriétés et des métadonnées avec Azure Import/Export | Microsoft Docs | Microsoft Docs"
-description: "Découvrez comment spécifier les propriétés et les métadonnées sur les objets blob de destination lors de l’exécution de l’outil Import/Export pour préparer vos disques."
+title: "Définition des propriétés et des métadonnées avec Azure Import/Export - v1 | Microsoft Docs"
+description: "Découvrez comment spécifier les propriétés et les métadonnées sur les objets blob de destination lors de l’exécution de l’outil Azure Import/Export pour préparer vos disques. Cela s’applique à la version v1 de l’outil d’importation/exportation."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -54,7 +54,7 @@ De même, pour spécifier les métadonnées d’objets blob, créez un fichier t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -69,6 +69,7 @@ Lorsque vous exécutez l’outil Azure Import/Export pour préparer le travail d
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## <a name="see-also"></a>Voir aussi  
-[Format du fichier de propriétés et de métadonnées du service Import-Export](storage-import-export-file-format-metadata-and-properties.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Format de fichier de propriétés et de métadonnées du service d’importation / exportation](storage-import-export-file-format-metadata-and-properties.md)
 

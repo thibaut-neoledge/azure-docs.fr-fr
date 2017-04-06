@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -112,7 +112,7 @@ Pour supprimer du coffre les sauvegardes de rétention à long terme, consultez 
     R : Non, le coffre et le serveur doivent se trouver dans la même région afin de réduire les délais de copie et d’éviter les frais de trafic.
 5. Q : Combien de bases de données puis-je stocker dans un coffre ?
 
-    R : Nous prenons actuellement en charge jusqu'à 1 000 de bases de données par coffre. 
+    R : Nous prenons actuellement en charge jusqu'à 1000 de bases de données par coffre. 
 6. Q : Combien de coffres puis-je créer par abonnement ?
 
     R : Vous pouvez créer 25 coffres par abonnement.
@@ -130,7 +130,7 @@ Pour supprimer du coffre les sauvegardes de rétention à long terme, consultez 
     R : Oui, TDE est pris en charge. Même si la base de données d’origine n’existe plus, vous pouvez restaurer la base de données depuis le coffre.
 11. Q : Que se passe-t-il avec les sauvegardes dans le coffre si mon abonnement est interrompu ? 
 
-    R : Si votre abonnement est suspendu, nous conservons les bases de données et les sauvegardes existantes, mais les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations à partir de votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
+    R : Si votre abonnement est suspendu, nous conservons les bases de données existantes et les sauvegardes. Les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations à partir de votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
 12. Q : Puis-je obtenir un accès aux fichiers de sauvegarde SQL Database afin de les télécharger / restaurer sur SQL Server ?
 
     R : Non, pas actuellement.
