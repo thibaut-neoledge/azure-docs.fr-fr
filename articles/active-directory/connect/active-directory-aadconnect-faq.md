@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c22a8f4a895efc86abc328c6cf82685d7db8c19c
-ms.openlocfilehash: 33de5839e1e8fa70f75636488a0769f7aebf8b95
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,7 +51,7 @@ Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux  dont l
 **Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365**  
 Suivez les instructions décrites dans la rubrique [Renouveler les certificats](active-directory-aadconnect-o365-certs.md) concernant le renouvellement du certificat.
 
-**Q : « Mettre à jour automatiquement la partie de confiance » est défini pour la partie de confiance Office&365;. Dois-je effectuer une action lorsque mon certificat de signature de jetons bascule automatiquement ?**  
+**Q : « Mettre à jour automatiquement la partie de confiance » est défini pour la partie de confiance Office 365. Dois-je effectuer une action lorsque mon certificat de signature de jetons bascule automatiquement ?**  
 Utilisez les instructions décrites dans l’article [Renouveler les certificats](active-directory-aadconnect-o365-certs.md).
 
 ## <a name="environment"></a>Environnement
@@ -73,21 +73,13 @@ Non, cela n’est pas pris en charge actuellement.
 **Q : Est-il possible de définir manuellement l’attribut ImmutableId sur des objets Groupe/Contact Azure AD existants pour la mise en correspondance exacte avec les objets Groupe/Contact locaux ?**  
 Non, cela n’est pas pris en charge actuellement.
 
-## <a name="security"></a>Sécurité
-**Q : Les comptes sont-ils verrouillés après un nombre spécifique de tentatives infructueuses, ou une stratégie plus élaborée est-elle utilisée ?**</br>
-Nous appliquons une stratégie plus étoffée pour verrouiller les comptes.  Cette dernière repose sur l’adresse IP de la demande et sur les mots de passe entrés. La durée du verrouillage augmente également en fonction de la probabilité de l’existence d’une attaque.  
 
-**Q : Certains mots de passe (courants) sont rejetés avec un message du type : « Ce mot de passe a été utilisé trop souvent ». Ce message fait-il référence aux mots de passe utilisés dans l’instance Active Directory actuelle ?**</br>
-Ce message s’applique aux mots de passe couramment utilisés au niveau mondial, tels que toutes les variantes de « Password » et de «&12345;6 ».
-
-**Q : Une demande de connexion émanant de sources douteuses (botnets, point de terminaison Tor) sera-t-elle bloquée dans un client B2C ou nécessite-t-elle un client d’une édition De base ou Premium ?**</br>
-Nous disposons d’une passerelle qui filtre les demandes et offre une certaine protection contre les botnets. Elle s’applique à tous les clients B2C. 
 
 ## <a name="custom-configuration"></a>Configuration personnalisée
 **Q : Où réside la documentation sur les applets de commande PowerShell pour Azure Active Directory ?**  
 À l’exception des applets de commande décrites sur ce site, les autres applets de commande PowerShell disponibles dans Azure AD Connect ne sont pas prises en charge par le client.
 
-**Q : Puis-je utiliser « exportation serveur/importation serveur » dans le *Synchronization Service Manager* pour déplacer la configuration entre des serveurs ?**  
+**Q : Puis-je utiliser « Exportation serveur/importation serveur » dans *Synchronization Service Manager* pour déplacer la configuration entre des serveurs ?**  
 Non. Cette option ne récupérera pas tous les paramètres de configuration et ne doit pas être utilisée. Vous devez plutôt utiliser l’Assistant pour créer la configuration de base sur le deuxième serveur et utiliser l’éditeur de règles de synchronisation pour générer des scripts PowerShell afin de déplacer une règle personnalisée entre les serveurs. Consultez la section [Migration « Swing »](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 **Q : Les mots de passe peuvent-ils être mis en cache pour la page de connexion Azure, et est-il possible d’empêcher cela, étant donné que la page contient un élément d’entrée de mot de passe avec l’attribut autocomplete = "false" ?**</br>

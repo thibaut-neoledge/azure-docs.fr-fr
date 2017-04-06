@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ La géo-réplication active permet de configurer jusqu'à quatre bases de donné
 
 Si, pour une raison quelconque, votre base de données primaire échoue ou doit simplement être mise hors connexion, vous pouvez effectuer un *basculement* vers l’une de vos bases de données secondaires. Lorsque le basculement est activé pour l’une des bases de données secondaires, toutes les autres bases de données secondaires sont automatiquement liées à la nouvelle base de données primaire.
 
-Vous pouvez basculer vers une base de données secondaire en utilisant le [portail Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [l’API REST - Basculement planifié](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) ou [l’API REST - Basculement non planifié](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+Vous pouvez basculer vers une base de données secondaire en utilisant le [portail Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [l’API REST - Basculement planifié](https://msdn.microsoft.com/library/mt575007.aspx) ou [l’API REST - Basculement non planifié](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
@@ -107,10 +107,10 @@ Comme indiqué plus haut, la géo-réplication active peut aussi être gérée p
 ### <a name="powershell"></a>PowerShell
 | Applet de commande | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtient une ou plusieurs bases de données. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtient une ou plusieurs bases de données. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Crée une base de données secondaire pour une base de données existante puis lance la réplication des données. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Bascule d’une base de données secondaire à une base de données principale afin de lancer le basculement. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Met fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Bascule d’une base de données secondaire à une base de données principale afin de lancer le basculement. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Met fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Obtient les liens de géo-réplication entre une base de données SQL Azure et un groupe de ressources ou SQL Server. |
 |  | |
 
@@ -119,7 +119,7 @@ Comme indiqué plus haut, la géo-réplication active peut aussi être gérée p
 | --- | --- |
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
 | [Créer ou mettre à jour l’état de la base de données](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Retourne l’état durant une opération de création. |
-| [Définir la base de données secondaire comme principale (basculement planifié)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Promouvoir une base de données secondaire dans un partenariat de géo-réplication afin qu’elle devienne la nouvelle base de données primaire. |
+| [Définir la base de données secondaire comme principale (basculement planifié)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Promouvoir une base de données secondaire dans un partenariat de géo-réplication afin qu’elle devienne la nouvelle base de données primaire. |
 | [Définir la base de données secondaire comme principale (basculement non planifié)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |Pour forcer un basculement vers la base de données secondaire et définir la base de données secondaire comme base de données principale. |
 | [Obtenir des liens de réplication](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Obtenir un lien de réplication](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |

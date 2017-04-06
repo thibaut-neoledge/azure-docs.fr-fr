@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -109,7 +109,7 @@ Oui. Vous pouvez avoir plusieurs circuits ExpressRoute dans votre abonnement. La
 Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de services. Chaque circuit ExpressRoute est associé à un fournisseur de services uniquement. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même emplacement ?
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents, dans le même emplacement. Vous ne pourrez toutefois pas lier plusieurs circuits ExpressRoute au même réseau virtuel.
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents, dans le même emplacement. Vous ne pourrez toutefois pas lier plusieurs circuits ExpressRoute au même réseau virtuel à partir du même emplacement.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 Les étapes de base sont décrites ci-dessous.

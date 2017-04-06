@@ -3,9 +3,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -152,7 +152,7 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 ## <a name="references"></a>Références
 * [Partitionnement côté serveur dans DocumentDB](documentdb-partition-data.md)
 * [Collection DocumentDB et niveaux de performance](documentdb-performance-levels.md)
-* [Partitionnement des exemples de code sur Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
+* [Partitionnement des exemples de code sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentation du Kit de développement logiciel (SDK) DocumentDB .NET sur MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)

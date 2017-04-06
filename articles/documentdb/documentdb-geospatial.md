@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ Cet article est une introduction aux fonctionnalités géospatiales dans [Azure�
 * Comment puis-je interroger des données géographiques dans Azure DocumentDB dans SQL et LINQ ?
 * Comment puis-je activer ou désactiver l'indexation spatiale dans DocumentDB ?
 
-Consultez ce [projet Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) pour obtenir des échantillons de code.
+Consultez ce [projet GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) pour obtenir des échantillons de code.
 
 ## <a name="introduction-to-spatial-data"></a>Présentation des données spatiales
 Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre, c'est-à-dire aux données géographiques. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac. Les scénarios d'utilisation courants impliquent souvent des requêtes de proximité, comme « rechercher tous les cafés près de mon emplacement actuel ». 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB prend en charge l’indexation et l’interrogation des données de point géospatiales représentées à l’aide de la [spécification GeoJSON](http://geojson.org/geojson-spec.html). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l'aide de DocumentDB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) DocumentDB fournissent des classes d'assistance et des méthodes qui facilitent la manipulation des données spatiales. 
+DocumentDB prend en charge l’indexation et l’interrogation des données de point géospatiales représentées à l’aide de la [spécification GeoJSON](https://tools.ietf.org/html/rfc7946). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l'aide de DocumentDB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) DocumentDB fournissent des classes d'assistance et des méthodes qui facilitent la manipulation des données spatiales. 
 
 ### <a name="points-linestrings-and-polygons"></a>Points, LineStrings et polygones
 Un **point** désigne une position unique dans l'espace. Dans les données géographiques, un point représente l’emplacement exact, qui peut être une adresse postale d’une épicerie, un kiosque, une voiture ou une ville.  Un point est représenté dans GeoJSON (et DocumentDB) à l'aide de sa paire de coordonnées ou de longitude et latitude. Voici un exemple JSON pour un point.
@@ -69,7 +69,7 @@ Cela peut être incorporé dans un document DocumentDB, comme illustré dans ce
        }
     }
 
-En plus des points, GeoJSON prend en charge les polygones et LineStrings. **LineStrings** représentent une série de deux ou plusieurs points dans l'espace et les segments de ligne qui les connectent. Dans les données géographiques, les Linestrings sont généralement utilisées pour représenter les autoroutes ou les cours d’eau. Un **polygone** est une limite de points reliés qui constitue une LineString fermée. Les polygones sont couramment utilisés pour représenter des formations naturelles comme des lacs ou des juridictions politiques comme les villes et les États. Voici un exemple de polygone dans DocumentDB. 
+En plus des points, GeoJSON prend en charge les polygones et LineStrings. **LineStrings** représentent une série de deux ou plusieurs points dans l'espace et les segments de ligne qui les connectent. Dans les données géographiques, les LineStrings sont généralement utilisées pour représenter les autoroutes ou les cours d’eau. Un **polygone** est une limite de points reliés qui constitue une LineString fermée. Les polygones sont couramment utilisés pour représenter des formations naturelles comme des lacs ou des juridictions politiques comme les villes et les États. Voici un exemple de polygone dans DocumentDB. 
 
 **Polygones dans DocumentDB**
 
@@ -236,7 +236,7 @@ DocumentDB prend également en charge les requêtes inversées. Vous pouvez, par
 
 ST_ISVALID et ST_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST_ISVALID retourne simplement une valeur booléenne et ST_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
-** Requête **
+** Requête **
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -299,7 +299,7 @@ De même, voici une requête pour rechercher tous les documents dont la « loca
     }
 
 
-Maintenant que nous vu l'interrogation de documents à l'aide de LINQ et SQL, examinons comment configurer DocumentDB pour l'indexation spatiale.
+Maintenant que nous avons vu l'interrogation de documents à l'aide de LINQ et SQL, examinons comment configurer DocumentDB pour l'indexation spatiale.
 
 ## <a name="indexing"></a>Indexation
 Comme décrit dans le livre [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) , nous avons conçu le moteur de base de données DocumentDB pour être véritablement indépendant du schéma et fournir une assistance exceptionnelle pour JSON. Le moteur de base de données optimisé en écriture de DocumentDB comprend les données spatiales (points, polygones et lignes) représentées dans la norme GeoJSON en mode natif.
@@ -385,7 +385,7 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
 
-* Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Commencer à coder avec les [exemples de code .NET Geospatial sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 * En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md)

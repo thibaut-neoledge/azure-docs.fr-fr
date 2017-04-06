@@ -12,25 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 32e3ff626e0f4afe80dac11eccbdaa3146d39c31
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reformer un nouveau service web basé sur Resource Manager à l’aide des applets de commande PowerShell de gestion Machine Learning
 Quand vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.  
 
 ## <a name="prerequisites"></a>Composants requis
-Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md). 
+Vous devez configurer une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> L’expérience prédictive doit être déployée comme un service web Machine Learning basé sur Azure Resource Manager (nouveau). Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
-
-
+> L’expérience prédictive doit être déployée comme un service web Machine Learning basé sur Azure Resource Manager (nouveau). Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 

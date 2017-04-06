@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e1331276cda20d235341171852dffeb4a9cb8bb2
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2673c95d2e312d427454585d46ac790cb126fea6
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows
-Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance. Vous pouvez utiliser le portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell pour réinitialiser le mot de passe. Si vous utilisez PowerShell, assurez-vous d’avoir le [dernier module PowerShell installé et configuré](/powershell/azureps-cmdlets-docs)et d’être connecté à votre abonnement Azure. Vous pouvez également [effectuer ces étapes pour les machines virtuelles créées à l’aide du modèle de déploiement classique](virtual-machines-windows-classic-reset-rdp.md).
+Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance. Vous pouvez utiliser le portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell pour réinitialiser le mot de passe. Si vous utilisez PowerShell, assurez-vous d’avoir le [dernier module PowerShell installé et configuré](/powershell/azureps-cmdlets-docs)et d’être connecté à votre abonnement Azure. Vous pouvez également [effectuer ces étapes pour les machines virtuelles créées à l’aide du modèle de déploiement classique](windows/classic/reset-rdp.md).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Comment réinitialiser la configuration ou les informations d’identification
 Vous pouvez réinitialiser les services Bureau à distance et les informations d’identification de différentes manières, selon vos besoins :
@@ -44,9 +44,15 @@ Sélectionnez votre machine virtuelle Windows, puis cliquez sur **Support + dép
 
 Entrez le nom d’utilisateur et un nouveau mot de passe, puis cliquez sur **Mettre à jour**. Essayez à nouveau de vous connecter à votre machine virtuelle.
 
+> [!NOTE] 
+> - Une fois le mot de passe modifié et l’opération terminée dans le portail, la mise en œuvre de cette modification sur la machine virtuelle peut prendre 3 à 5 minutes. Toutefois, si la modification n’est pas mise en œuvre, essayez de redémarrer la machine virtuelle.
+> - L’extension VMAccess fonctionne uniquement avec le compte d’administrateur local intégré et n’aura aucun impact sur un quelconque autre ID local ou ID de domaine.
+> - Si l’ordinateur cible est un contrôleur de domaine, l’extension réinitialise ou renomme le compte de l’administrateur de domaine.
+
+
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Réinitialiser la configuration du service Bureau à distance**
 
-Sélectionnez votre machine virtuelle Windows, puis cliquez sur **Support + dépannage** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche. 
+Sélectionnez votre machine virtuelle Windows, puis cliquez sur **Support + dépannage** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche comme suit :
 
 ![Réinitialiser la configuration RDP](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Comprendre les points de terminaison Azure IoT Hub | Microsoft Docs
+title: "Présentation des points de terminaison Azure IoT Hub | Microsoft Docs"
 description: "Guide du développeur – informations de référence sur les points de terminaison côté appareil et côté service IoT Hub."
 services: iot-hub
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/22/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 32364c5a681c1d614abbc32cc8b73dba4e5a2d18
-ms.openlocfilehash: 00a576357c6e89d7943e6c6c6a83c2c1535d549e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -57,7 +57,7 @@ L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] décrit 
 Enfin, il est important de noter que tous les points de terminaison IoT Hub utilisent le protocole [TLS][lnk-tls] et qu’aucun point de terminaison n’est jamais exposé sur des canaux non chiffrés/non sécurisés.
 
 ## <a name="custom-endpoints"></a>Points de terminaison personnalisés
-Vous pouvez lier des services Azure existants dans votre abonnement à votre IoT Hub pour qu’ils jouent le rôle de points de terminaison pour le routage des messages. Ces points de terminaison de service jouent le rôle de points de terminaison de service et sont utilisés pour les routages de message. Les appareils ne peuvent pas écrire directement dans des point de terminaison supplémentaires. Pour en savoir plus sur les itinéraires de messages, consultez l’entrée du guide du développeur sur l’[envoi et la réception de messages avec IoT Hub][lnk-devguide-messaging].
+Vous pouvez lier des services Azure existants dans votre abonnement à votre IoT Hub pour qu’ils jouent le rôle de points de terminaison pour le routage des messages. Ces points de terminaison de service jouent le rôle de points de terminaison de service et sont utilisés pour les routages de message. Les appareils ne peuvent pas écrire directement dans des points de terminaison supplémentaires. Pour en savoir plus sur les itinéraires de messages, consultez l’entrée du guide du développeur sur l’[envoi et la réception de messages avec IoT Hub][lnk-devguide-messaging].
 
 IoT Hub prend actuellement en charge les services Azure suivants en tant que points de terminaison supplémentaires :
 
@@ -67,7 +67,7 @@ IoT Hub prend actuellement en charge les services Azure suivants en tant que poi
 
 IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Vous devrez peut-être surveiller vos points de terminaison supplémentaires lors de la première configuration de votre solution IoT, puis apporter les modifications nécessaires en fonction de la charge réelle.
 
-Si un message correspond à plusieurs routages qui pointent vers le même point de terminaison, IoT Hub ne le remet qu’une seule fois à ce point de terminaison. Par conséquent, il est inutile configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Les files d’attente ayant des sessions actives ne sont pas prises en charge en tant que points de terminaison. C’est aussi le cas des files d’attente et rubriques partitionnées pour lesquelles la déduplication est activée.
+Si un message correspond à plusieurs routages qui pointent vers le même point de terminaison, IoT Hub ne le remet qu’une seule fois à ce point de terminaison. Par conséquent, il est inutile de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Les files d’attente ayant des sessions actives ne sont pas prises en charge en tant que points de terminaison. C’est aussi le cas des files d’attente et rubriques partitionnées pour lesquelles la déduplication est activée.
 
 Pour connaître les limites du nombre de points de terminaison que vous pouvez ajouter, consultez [Quotas et limitation][lnk-devguide-quotas].
 

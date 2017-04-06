@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ Les tableaux suivants indiquent si les services Microsoft répertoriés prennent
 | Service de conteneur |Oui |[REST Service de conteneur](/rest/api/compute/containerservices) |[Ressources Container Service](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Oui | | |
 | Scale Sets |Oui |[REST Scale Sets](/rest/api/compute/virtualmachinescalesets) |[Ressources de groupe identique](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Oui |[REST Service Fabric](/rest/api/servicefabric) | [Schéma Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Oui |[REST Service Fabric](/rest/api/servicefabric) | [Ressources Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Machines virtuelles |Oui |[REST Machine virtuelle](/rest/api/compute/virtualmachines) |[Ressources de machine virtuelle](/azure/templates/microsoft.compute/virtualmachines) |
 | Machines virtuelles (classique) |Limité |- |- |
 | Application distante |Non |- |- |
@@ -117,11 +117,11 @@ Les Services cloud (classiques) peuvent être utilisés avec d’autres ressourc
 | CDN |Oui |[REST CDN](/rest/api/cdn) |[Ressources CDN](/azure/templates/microsoft.cdn/profiles) |
 | Media Service |Oui |[REST Media Services](/rest/api/media) |[Ressources de données multimédias](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>Intégration hybride
+## <a name="enterprise-integration"></a>Intégration d’entreprise
 | Service | Resource Manager activé | API REST | Format de modèle |
 | --- | --- | --- | --- |
 | BizTalk Services |Oui | |[Schéma BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Recovery Services |Oui |[REST Recovery Services](/rest/api/recoveryservices) |[Ressources Recovery Services](/azure/templates/microsoft.recoveryservices/vaults) |
+| Relais | Oui |  | [Ressources Relay](/azure/templates/microsoft.relay/namespaces) |
 | Service Bus |Oui |[REST Service Bus](/rest/api/servicebus) |[Ressources Service Bus](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Gestion des identités et des accès
@@ -139,10 +139,11 @@ Azure Active Directory fait appel au Gestionnaire de ressources pour prendre en 
 | Service | Resource Manager activé | API REST | Format de modèle |
 | --- | --- | --- | --- |
 | Advisor | Oui | [Advisor REST](/rest/api/advisor/) | - |
-| Automation |Oui |[REST Automation](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Schéma Automation](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Automation |Oui |[REST Automation](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Ressources Automation](/azure/templates/microsoft.automation/automationaccounts) |
 | Facturation | Oui | [Facturation REST](/rest/api/billing/) | - |
 | Key Vault |Oui |[REST Key Vault](/rest/api/keyvault) |[Ressources Key Vault](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights |Oui | | |
+| Recovery Services |Oui |[REST Recovery Services](/rest/api/recoveryservices) |[Ressources Recovery Services](/azure/templates/microsoft.recoveryservices/vaults) |
 | Scheduler |Oui |[REST Scheduler](/rest/api/scheduler) |[Ressources Scheduler](/azure/templates/microsoft.scheduler/jobcollections) |
 | Sécurité |Oui |[Security REST](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Gestion de serveur | Oui | [Gestion de serveur REST](/rest/api/servermanagement/) | [Ressources de gestion de serveur](/azure/templates/microsoft.servermanagement/gateways) |

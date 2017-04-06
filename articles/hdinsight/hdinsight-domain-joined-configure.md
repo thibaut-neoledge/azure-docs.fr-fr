@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: b0122a87ec64d16d6e026f9b37a563125a5f1920
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -158,7 +160,7 @@ Pour plus d’informations, consultez [Services de domaine Azure AD (version pr
    
    * **Activer les services de domaine pour cet annuaire** : Oui.
    * **Nom de domaine DNS des services de domaine** : affiche le nom DNS par défaut du répertoire Azure. Par exemple, contoso.onmicrosoft.com.
-   * **Connecter les services de domaine à ce réseau virtuel** : sélectionnez le réseeau virtuel Classic créé précédemment, comme **contosoaadvnet**.
+   * **Connecter les services de domaine à ce réseau virtuel** : sélectionnez le réseau virtuel Classic créé précédemment, comme **contosoaadvnet**.
 4. Cliquez sur **Enregistrer** dans la partie inférieure de la page. L’indication **En attente ...** s’affichera en regard de **Activer les services de domaine pour cet annuaire**.  
 5. Attendez que l’indication **En attente ...** disparaisse et que le champ **Adresse IP** soit renseigné. Deux adresses IP sont renseignées. Il s’agit des adresses IP des contrôleurs de domaine configurés par les services de domaine. Chaque adresse IP est visible une fois que le contrôleur de domaine correspondant est configuré et prêt. Notez les deux adresses IP. Vous en aurez besoin ultérieurement.
 
@@ -170,7 +172,7 @@ Si vous utilisez votre propre domaine, vous devez synchroniser le mot de passe. 
 
 **Pour configurer LDAPS pour l’instance Azure AD**
 
-1. Récupérez un certificat SSL signé par une autorité signataire pour votre domaine. Les certificats auto-signés ne peuvent pas être utilisés. Si vous ne pouvez pas obtenir dee certificat SSL, veuillez contacter hdipreview@microsoft.com pour solliciter une exception.
+1. Récupérez un certificat SSL signé par une autorité signataire pour votre domaine. Les certificats auto-signés ne peuvent pas être utilisés. Si vous ne pouvez pas obtenir de certificat SSL, veuillez contacter hdipreview@microsoft.com pour solliciter une exception.
 2. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory** > **contosoaaddirectory**. 
 3. Cliquez sur **Configurer** dans le menu supérieur.
 4. Faites défiler jusqu’à **services de domaine**.
@@ -404,11 +406,6 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine avec Azure PowerShell, consultez [Configuration de clusters HDInsight joints à un domaine avec Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
+* Pour utiliser SSH et vous connecter aux clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 

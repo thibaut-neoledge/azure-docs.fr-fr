@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -155,9 +155,9 @@ Vous pouvez également naviguer vers ***https://CLUSTERNAME.azurehdinsight.net/j
 
 ![Parcourez Jupyter Notebooks](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Sélectionnez PySpark pour afficher un répertoire contenant quelques exemples de blocs-notes prédéfinis qui utilisent l’API PySpark. Les blocs-notes qui contiennent les exemples de code pour cet ensemble de rubriques Spark sont disponibles sur [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
+Sélectionnez PySpark pour afficher un répertoire contenant quelques exemples de blocs-notes prédéfinis qui utilisent l’API PySpark. Les blocs-notes qui contiennent les exemples de code pour cet ensemble de rubriques Spark sont disponibles sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Vous pouvez télécharger les notebooks directement de [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) sur le serveur de notebooks Jupyter de votre cluster Spark. Dans la page d’accueil de votre Jupyter, cliquez sur le bouton **Télécharger** dans la partie droite de l’écran. Cette action ouvre un explorateur de fichiers. Vous pouvez coller l’URL GitHub (contenu brut) du notebook et cliquer sur **Ouvrir**. 
+Vous pouvez télécharger les notebooks directement de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) sur le serveur de notebooks Jupyter de votre cluster Spark. Dans la page d’accueil de votre Jupyter, cliquez sur le bouton **Télécharger** dans la partie droite de l’écran. Cette action ouvre un explorateur de fichiers. Vous pouvez coller l’URL GitHub (contenu brut) du notebook et cliquer sur **Ouvrir**. 
 
 Le nom de fichier réapparaît dans votre liste de fichiers Jupyter avec un bouton **Charger**. Cliquez sur ce bouton **Télécharger** . Le bloc-notes a été importé. Répétez ces étapes pour télécharger les autres blocs-notes de cette procédure.
 
@@ -183,7 +183,7 @@ Vous pouvez désormais :
 ## <a name="whats-next"></a>Et ensuite ?
 Maintenant que vous avez configuré un cluster HDInsight Spark et téléchargé les blocs-notes Jupyter, vous êtes prêt à appliquer les procédures correspondant aux trois blocs-notes PySpark. Elles montrent comment explorer vos données, puis créer et utiliser des modèles. Le bloc-notes d’exploration et de modélisation avancées des données montre comment inclure une validation croisée, un balayage hyperparamétrique et une évaluation du modèle. 
 
-**Exploration et modélisation des données avec Spark :** explorez le jeu de données, puis créez, notez et à évaluez les modèles Machine Learning, en procédant de la manière décrite dans la rubrique [Créer des modèles de classification et de régression binaires pour des données avec la boîte à outils MLlib de Spark](machine-learning-data-science-spark-data-exploration-modeling.md) .
+**Exploration et modélisation des données avec Spark :** explorez le jeu de données, puis créez, notez et évaluez les modèles Machine Learning, en procédant de la manière décrite dans la rubrique [Créer des modèles de classification et de régression binaires pour des données avec la boîte à outils MLlib de Spark](machine-learning-data-science-spark-data-exploration-modeling.md) .
 
 **Consommation de modèles :** pour apprendre à noter les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning créés avec Spark](machine-learning-data-science-spark-model-consumption.md).
 

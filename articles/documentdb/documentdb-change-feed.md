@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1ddf62c155264c5f76d8fd738b979c21cb527962
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -346,12 +346,61 @@ Pour commencer le traitement des événements, instanciez ChangeFeedProcessorHos
 
 Au fil du temps, un équilibre est établi. Cette fonctionnalité dynamique permet d’appliquer aux consommateurs une mise à l'échelle basée sur le processeur pour une augmentation et une diminution d’échelle. Si DocumentDB affichent plus de modifications que ce que les consommateurs peuvent traiter, l'augmentation du processeur sur les consommateurs peut être utilisée pour effectuer une mise à l’échelle automatique sur le nombre d’instances de travail.
 
-La classe ChangeFeedProcessorHost implémente également un mécanisme de point de contrôle à l’aide d’une collection de baux DocumentDB distincte. Ce mécanisme stocke le décalage sur une base par partition, afin que chaque consommateur puisse déterminer quel était le dernier point de contrôle du consommateur précédent. Étant donné que la transition des partitions entre les nœuds se fait via les baux, il s’agit d’un mécanisme de synchronisation qui facilité le déplacement de la charge.
+La classe `ChangeFeedProcessorHost` implémente également un mécanisme de point de contrôle à l’aide d’une collection de baux DocumentDB distincte. Ce mécanisme stocke le décalage sur une base par partition, afin que chaque consommateur puisse déterminer quel était le dernier point de contrôle du consommateur précédent. Étant donné que la transition des partitions entre les nœuds se fait via les baux, il s’agit d’un mécanisme de synchronisation qui facilité le déplacement de la charge.
+
+
+Voici un extrait de code pour un hôte du processus de flux de modification simple qui imprime les modifications apportées à la console :
+
+```cs
+    class DocumentFeedObserver : IChangeFeedObserver
+    {
+        private static int s_totalDocs = 0;
+        public Task OpenAsync(ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
+        }
+        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
+            return Task.CompletedTask;
+        }
+    }
+```
+
+L’extrait de code suivant montre comment inscrire un nouvel hôte chargé d’écouter les modifications à partir d’une collection DocumentDB. Ici, nous configurons une collection distincte pour gérer les baux de connexion aux partitions pour plusieurs consommateurs :
+
+```cs
+    string hostName = Guid.NewGuid().ToString();
+    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "documents"
+    };
+
+    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "leases"
+    };
+
+    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
+    await host.RegisterObserverAsync<DocumentFeedObserver>();
+```
 
 Dans cet article, nous vous avons fourni une procédure pas à pas concernant le support Change Feed (flux de modification) de DocumentDB et expliqué comment effectuer le suivi des modifications apportées aux données de DocumentDB à l’aide de l’API REST de DocumentDB et/ou des Kits de développement logiciel (SDK). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Essayez les [exemples de code de flux de modification DocumentDB sur Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
+* Essayez les [exemples de code de flux de modification DocumentDB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 * Apprenez-en davantage sur [le modèle de ressources et la hiérarchie de DocumentDB](documentdb-resources.md).
 * Commencez à coder avec [les Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 

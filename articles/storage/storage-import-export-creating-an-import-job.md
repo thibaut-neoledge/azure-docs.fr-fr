@@ -1,6 +1,6 @@
 ---
 title: "Création d’un travail d’importation pour Azure Import/Export | Microsoft Docs"
-description: "Découvrez comment créer une importation pour le service Microsoft Azure Import/Export"
+description: "Découvrez comment créer une importation pour le service Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -100,11 +100,12 @@ Pour créer le travail d’importation, appelez l’opération [Put Job](/rest/a
 Vous devez expédier vos disques à l’adresse obtenue à l’étape précédente et vous devez fournir au service Import/Export le numéro de suivi du colis.
 
 > [!NOTE]
->  Vous devez expédier vos disques via un service de transport pris en charge, qui fournira un numéro de suivi pour votre colis.
+>  Vous devez expédier vos disques via un service de transport pris en charge, qui vous fournira un numéro de suivi pour votre colis.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Mise à jour du travail d’importation avec les informations d’expédition
 Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) pour mettre à jour le nom du transporteur, le numéro de suivi du travail et le numéro du compte du transporteur pour le retour d’expédition. Vous pouvez éventuellement spécifier le nombre de disques, ainsi que la date d’expédition.
 
-## <a name="see-also"></a>Voir aussi
-[Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

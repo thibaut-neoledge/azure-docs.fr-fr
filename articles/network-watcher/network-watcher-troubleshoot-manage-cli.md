@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 30475d710dc00ff06683dcb963e9fdfdd762735b
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 0dcc02e4f3b1e512a2c9e4b96894324414182af9
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 02/23/2017
 > - [INTERFACE DE LIGNE DE COMMANDE](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. La résolution des problèmes de ressources peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
+Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. La résolution des problèmes de ressources peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Cet article utilise l’interface Azure CLI 1.0 interplateforme, disponible pour Windows, Mac et Linux. Network Watcher utilise actuellement Azure CLI 1.0 pour la prise en charge de la CLI.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

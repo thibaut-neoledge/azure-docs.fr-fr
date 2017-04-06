@@ -1,10 +1,10 @@
 ---
-title: "Configuration du routage pour un circuit ExpressRoute pour le modèle de déploiement classique à l’aide de PowerShell | Microsoft Docs"
+title: "Configuration de l’acheminement (homologation) d’un circuit ExpressRoute - Azure Classic | Microsoft Docs"
 description: "Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l&quot;état, mettre à jour ou supprimer des homologations pour votre circuit."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
-ms.author: ganesr
+ms.date: 03/21/2017
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Créer et modifier le routage le routage pour un circuit ExpressRoute
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier l’homologation pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
 > * [Gestionnaire des ressources - Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -35,12 +35,14 @@ ms.lasthandoff: 12/14/2016
 
 Cet article vous guide tout au long des étapes de création et de gestion de la configuration du routage d'un circuit ExpressRoute à l'aide de PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d'un circuit ExpressRoute.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **À propos des modèles de déploiement Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-* Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+* Vous devez installer la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour en savoir plus, voir [Prise en main des applets de commande PowerShell](/powershell/azureps-cmdlets-docs).  
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
@@ -49,7 +51,26 @@ Cet article vous guide tout au long des étapes de création et de gestion de la
 > 
 > 
 
-Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation. 
+Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation.
+
+
+### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Connectez-vous à votre compte Azure et sélectionnez un abonnement
+1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+
+        Login-AzureRmAccount
+
+2. Vérifiez les abonnements associés au compte.
+
+        Get-AzureRmSubscription
+
+3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.
+
+        Add-AzureAccount
+
 
 ## <a name="azure-private-peering"></a>Homologation privée Azure
 Cette section fournit des instructions sur la façon de créer, obtenir, mettre à jour et supprimer la configuration d'homologation privée Azure pour un circuit ExpressRoute. 
@@ -93,13 +114,13 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
    * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Cette étape est facultative**.
      
-     Vous pouvez exécuter l’applet de commande suivante pour configurer l’homologation privée Azure pour votre circuit.
+    Vous pouvez exécuter l’applet de commande suivante pour configurer l’homologation privée Azure pour votre circuit.
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
-     Vous pouvez utiliser l'applet de commande ci-dessous si vous choisissez d'utiliser un hachage MD5.
+    Vous pouvez utiliser l'applet de commande ci-dessous si vous choisissez d'utiliser un hachage MD5.
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
@@ -183,13 +204,13 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
    * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Cette étape est facultative**.
      
-     Vous pouvez exécuter l’applet de commande suivante pour configurer l’homologation publique Azure pour votre circuit
+    Vous pouvez exécuter l’applet de commande suivante pour configurer l’homologation publique Azure pour votre circuit
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
-     Vous pouvez utiliser l'applet de commande ci-dessous si vous choisissez d'utiliser un hachage MD5
+    Vous pouvez utiliser l'applet de commande ci-dessous si vous choisissez d'utiliser un hachage MD5
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
@@ -272,9 +293,9 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
    * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Cette étape est facultative.**
      
-     Vous pouvez exécuter l'applet de commande suivante afin de configurer l’homologation Microsoft pour votre circuit
+    Vous pouvez exécuter l'applet de commande suivante afin de configurer l’homologation Microsoft pour votre circuit
      
-       New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Pour afficher les détails de l’homologation Microsoft
 Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de commande suivante.
@@ -298,7 +319,7 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 ### <a name="to-update-microsoft-peering-configuration"></a>Pour mettre à jour la configuration d’homologation Microsoft
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante.
 
-        Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+    Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-delete-microsoft-peering"></a>Pour supprimer une homologation Microsoft
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante.

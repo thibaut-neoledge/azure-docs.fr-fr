@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 104ef38666957c1317b41a28244e05f3132e7fbf
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,8 +36,9 @@ Azure permet de surveiller les ressources grâce à la journalisation et à des 
 
 La passerelle Application Gateway permet de surveiller l’intégrité des membres individuels des pools principaux au moyen du portail, de PowerShell et de l’interface de ligne de commande. Une synthèse de l’intégrité des pools principaux est également accessible via les journaux de diagnostic des performances. Le rapport d’intégrité du serveur principal reflète les résultats de la sonde d’intégrité de la passerelle Application Gateway sur les instances de serveur principal. Une fois la détection réussie et que le trafic peut être orienté vers le serveur principal, celui-ci est considéré comme intègre, dans le cas contraire, il est considéré comme défaillant sur le plan de l’intégrité.
 
-> [!important]
-> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau, les plages de ports 65503-65534 doivent être ouvertes sur le sous-réseau Application Gateway pour les membres du pool principal. Ces ports sont requis pour un fonctionnement correct de l’intégrité du serveur principal.
+> [!IMPORTANT]
+> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau, les plages de ports 65503-65534 doivent être ouvertes sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Ces ports sont requis pour permettre à l’API relative à l’intégrité du serveur principal de fonctionner correctement.
+
 
 ### <a name="view-backend-health-through-the-portal"></a>Afficher l’intégrité du serveur principal via le portail
 
@@ -88,7 +89,7 @@ Les résultats sont renvoyés. Voici un exemple de la réponse dans l’extrait 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Certains de ces journaux sont accessibles par le biais du portail et tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, notamment [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
 
 * **Journal d’activité :** vous pouvez utiliser le [Journal d’activité Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et peuvent être affichées dans le Portail Azure.
-* **Journaux d’accès :** vous pouvez utiliser ce journal pour afficher le modèle d’accès Application Gateway et analyser des informations importantes, notamment l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Le journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance de passerelle Application Gateway. L’instance de la passerelle Application Gateway peut être identifié par la propriété « instanceId ».
+* **Journaux d’accès :** vous pouvez utiliser ce journal pour afficher le modèle d’accès Application Gateway et analyser des informations importantes, notamment l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Le journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance de passerelle Application Gateway. L’instance de la passerelle Application Gateway peut être identifiée par la propriété « instanceId ».
 * **Journaux de performances :** vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances par instance, notamment le nombre total de demandes traitées, le débit en octets, le nombre total de demandes présentées, le nombre de demandes ayant échoué, le nombre d’instances du serveur principal correctes et incorrectes. Le journal des performances est collecté toutes les 60 secondes.
 * **Journaux du pare-feu :** vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle d’application configuré avec un pare-feu d’applications web.
 
@@ -166,7 +167,7 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque pa
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
     "time": "2016-04-11T04:24:37Z",
     "category": "ApplicationGatewayAccessLog",
@@ -194,7 +195,7 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque pa
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayPerformance",
     "time": "2016-04-09T00:00:00Z",
     "category": "ApplicationGatewayPerformanceLog",
@@ -220,22 +221,30 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque pa
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-    "operationName": "ApplicationGatewayFirewall",
-    "time": "2016-09-20T00:40:04.9138513Z",
-    "category": "ApplicationGatewayFirewallLog",
-    "properties":     {
-        "instanceId":"ApplicationGatewayRole_IN_0",
-        "clientIp":"108.41.16.164",
-        "clientPort":1815,
-        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-        "ruleId":"OWASP_973336",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "action":"Logged",
-        "site":"Global",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-}
+  "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+  "operationName": "ApplicationGatewayFirewall",
+  "time": "2017-03-20T15:52:09.1494499Z",
+  "category": "ApplicationGatewayFirewallLog",
+  "properties": {
+    "instanceId": "ApplicationGatewayRole_IN_0",
+    "clientIp": "104.210.252.3",
+    "clientPort": "4835",
+    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
+    "ruleSetType": "OWASP",
+    "ruleSetVersion": "3.0",
+    "ruleId": "941320",
+    "message": "Possible XSS Attack Detected - HTML Tag Handler",
+    "action": "Blocked",
+    "site": "Global",
+    "details": {
+      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
+      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
+      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
+      "line": "865"
+    }
+  }
+} 
+
 ```
 
 ### <a name="view-and-analyze-the-activity-log"></a>Afficher et analyser le journal d’activité
@@ -252,7 +261,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux d’accès et des performances. Une fois que vous avez téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 
 > [!TIP]
-> Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans Github.
+> Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 > 
 > 
 
@@ -316,4 +325,3 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
-

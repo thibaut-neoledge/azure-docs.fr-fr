@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d337114c123151f06a24e80b0208c6eafb1df487
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -293,7 +294,7 @@ Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour 
         }
     }
 
-## <a name="a-idtriggera-database-triggers"></a><a id="trigger"></a> Déclencheurs de base de données
+## <a id="trigger"></a> Déclencheurs de base de données
 ### <a name="database-pre-triggers"></a>Pré-déclencheurs de base de données
 DocumentDB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération dans un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
 
@@ -436,10 +437,10 @@ Ce déclencheur interroge le document de métadonnées et le met à jour avec de
 
 Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans DocumentDB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
 
-## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Fonctions définies par l’utilisateur
+## <a id="udf"></a>Fonctions définies par l’utilisateur
 Les fonctions définies par l'utilisateur permettent d'étendre la grammaire du langage de requête SQL dans DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service DocumentDB.  
 
-L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à&20; 000 $.
+L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à 20 000 $.
 
     var taxUdf = {
         id: "tax",
@@ -723,7 +724,7 @@ Enfin, l’exemple suivant illustre la création d’une fonction définie par l
     }
 
 ## <a name="rest-api"></a>API REST
-Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'architecture REST. Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être enregistrées dans une collection au moyen de HTTP POST. Voici un exemple de la façon d'enregistrer une procédure stockée :
+Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'architecture REST. Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être enregistrés dans une collection au moyen de HTTP POST. Voici un exemple de la façon d'enregistrer une procédure stockée :
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,7 +794,7 @@ Contrairement aux procédures stockées, les déclencheurs ne peuvent pas être 
 Ici, le pré-déclencheur devant s'exécuter avec la demande est spécifié dans l'en-tête x-ms-documentdb-pre-trigger-include. De même, tous les post-déclencheurs sont fournis dans l'en-tête x-ms-documentdb-post-trigger-include. Notez que les pré- et post-déclencheurs peuvent tous deux être spécifiés pour une demande donnée.
 
 ## <a name="sample-code"></a>Exemple de code
-Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans notre [référentiel Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans notre [référentiel GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction ! 
 
@@ -810,10 +811,5 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 * [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339) 
 * [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

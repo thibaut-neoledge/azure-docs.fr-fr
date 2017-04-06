@@ -2,10 +2,10 @@
 title: "Journaux de diagnostic Azure Service Bus | Microsoft Docs"
 description: "Découvrez comment configurer les journaux de diagnostic pour Service Bus dans Azure."
 keywords: 
-documentationcenter: 
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
 Vous pouvez afficher deux types de journaux pour Azure Service Bus :
-* **[Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Ces journaux comportent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
-* **[Journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des insights plus détaillés sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
+* **[Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Ces journaux contiennent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
+* **[Journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillés sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
-Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic :
+Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
 
-1.    Dans le portail Azure, accédez au panneau de diffusion en continu du travail.
+1.    Dans le [portail Azure](https://portal.azure.com), accédez au panneau de diffusion en continu du travail.
 
 2.    Sous **Analyse**, accédez au panneau **Journaux de diagnostic**.
 
     ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    Sélectionnez **Activer les diagnostics**.
+3.    Cliquez sur **Activer les diagnostics**.
 
     ![activer les journaux de diagnostic](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    Sous **État**, sélectionnez **Activé**.
+4.    Pour l’**état**, cliquez sur **ACTIVÉ**.
 
     ![modifier l’état des journaux de diagnostic](./media/service-bus-diagnostic-logs/image3.png)
 
-5.    Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un hub d’événements ou Azure Log Analytics.
+5.    Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un concentrateur d’événements ou Azure Log Analytics.
 
 6.    Sélectionnez les catégories de journaux à collecter, par exemple **Exécution** ou **Création**.
 
@@ -96,5 +96,5 @@ Example:
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Introduction à Service Bus](service-bus-messaging-overview.md)
-* [Bien démarrer avec Service Bus](service-bus-create-namespace-portal.md)
+* [Bien démarrer avec Service Bus](service-bus-dotnet-get-started-with-queues.md)
 

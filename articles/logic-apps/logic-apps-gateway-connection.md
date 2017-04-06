@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -58,6 +58,10 @@ Si vous ne l’avez pas encore fait, suivez ces étapes pour [installer la passe
 
 Une fois la passerelle installée, vous devez associer votre abonnement Azure à la passerelle.
 
+> [!IMPORTANT] 
+> Vérifiez que la ressource de passerelle est créée dans la même région Azure que votre application logique. Si vous ne la déployez pas dans la même région, elle ne sera pas accessible dans votre application logique. 
+> 
+
 1. Connectez-vous à Azure en utilisant la même adresse de messagerie professionnelle ou scolaire que celle utilisée lors de l’installation de la passerelle.
 2. Sélectionnez **Nouveau**.
 3. Recherchez et sélectionnez la **passerelle de données locale**.
@@ -80,6 +84,11 @@ Maintenant que votre abonnement Azure est associé à une instance de la passere
 4. Cliquez sur **Créer** pour créer la connexion.
 
 Votre connexion est maintenant configurée pour être utilisée par votre application logique.
+
+## <a name="data-gateway-connection-modifications"></a>Modifications de la connexion à la passerelle de données
+Une fois que vous avez ajouté à votre application logique la connexion à la passerelle de données, il vous faudra peut-être la modifier pour en ajuster les paramètres. Cette connexion se trouve dans l’un des deux emplacements suivants :
+* Dans le panneau principal de l’application logique se trouve normalement un panneau de configuration pour les connexions d’API, dans la section Outils de développement. Choisissez d’afficher toutes les connexions API associées à l’application logique, dont l’une sera votre connexion à la passerelle de données. Sélectionnez-la, puis visualisez et modifiez les paramètres associés à la connexion.
+* En sélectionnant le panneau principal des connexions API, vous accédez à toutes les connexions API de l’abonnement. Votre connexion à la passerelle de données figure dans cette liste. Sélectionnez-la, puis visualisez et modifiez les paramètres qui lui sont associés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

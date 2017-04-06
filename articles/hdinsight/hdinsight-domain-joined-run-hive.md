@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 213b6b5274ebde8cc460829ff1edc96a66eef994
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -140,7 +141,7 @@ Pour tester la deuxième stratégie (read-hivesampletable-devicemake) que vous a
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](hdinsight-domain-joined-configure.md).
 * Pour gérer un cluster HDInsight joint à un domaine, consultez [Gestion de clusters HDInsight joints à un domaine](hdinsight-domain-joined-manage.md).
-* Pour exécuter des requêtes Hive à l’aide de SSH sur des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sur Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Pour connecter Hive à l’aide de Hive JDBC, consultez [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md)
 * Pour connecter Excel à Hadoop à l’aide de Hive ODBC, consultez [Connexion d’Excel à Hadoop à l’aide du pilote Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md)
 * Pour connecter Excel à Hadoop à l’aide de Power Query, consultez [Connexion d’Excel à Hadoop à l’aide de Power Query](hdinsight-connect-excel-power-query.md)

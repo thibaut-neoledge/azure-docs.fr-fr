@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5a4ca11079ac2a3962d92c7688e8d7337c31389d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,7 +26,7 @@ Ce document montre comment créer des fonctionnalités pour des données stocké
 
 Les opérations nécessaires pour créer des fonctionnalités peuvent utiliser la mémoire de manière intensive. Les performances des requêtes Hive deviennent plus importantes dans ces cas-là et peuvent être améliorées en ajustant certains paramètres. Le réglage de ces paramètres est abordé dans la dernière section.
 
-Des exemples de requêtes présentés propres aux scénarios mettant en œuvre le jeu de données [NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [dépôt Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
+Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de données [NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
 [!INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
@@ -39,7 +40,7 @@ Cet article suppose que vous avez :
 * Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-move-hive-tables.md) .
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Génération de fonctionnalités
+## <a name="hive-featureengineering"></a>Génération de fonctionnalités
 Dans cette section, plusieurs exemples de création de fonctionnalités à l'aide de requêtes Hive sont décrits. Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine. Voici les exemples présentés :
 
 1. [Génération de fonctionnalités basées sur la fréquence](#hive-frequencyfeature)
@@ -48,7 +49,7 @@ Dans cette section, plusieurs exemples de création de fonctionnalités à l'aid
 4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeatures)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
+### <a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
 Parfois, il est intéressant de calculer les fréquences des niveaux d’une variable catégorielle ou des niveaux combinés de plusieurs variables catégorielles. Les utilisateurs peuvent utiliser les scripts suivants pour calculer ces fréquences :
 
         select
@@ -62,7 +63,7 @@ Parfois, il est intéressant de calculer les fréquences des niveaux d’une var
         order by frequency desc;
 
 
-### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
+### <a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
 En classification binaire, il faut convertir des variables catégorielles non numériques en fonctionnalités numériques, lorsque les modèles utilisés n’acceptent que les fonctionnalités numériques. Pour ce faire, chaque niveau non numérique est remplacé par un risque numérique. Cette section présente certaines requêtes Hive génériques qui calculent les valeurs de risque (« log odds ») d’une variable catégorielle.
 
         set smooth_param1=1;
@@ -87,7 +88,7 @@ Dans cet exemple, les variables `smooth_param1` et `smooth_param2` sont configur
 
 Une fois la table de risque calculée, les utilisateurs peuvent attribuer les valeurs de risque à une table en créant une jointure à la table de risque. La requête de jointure Hive est fournie dans la section précédente.
 
-### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d'horodatage
+### <a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d'horodatage
 Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. Dans Hive, le format d’horodatage par défaut est « aaaa-MM-jj 00:00:00 » (comme « 1970-01-01 12:21:32 »). Cette section montre comment extraire le jour du mois et le mois d’un champ d’horodatage, ainsi que des exemples qui convertissent une chaîne d’horodatage d’un format autre que par défaut en une chaîne d’horodatage au format par défaut.
 
         select day(<datetime field>), month(<datetime field>)
@@ -107,13 +108,13 @@ Dans cette requête, si le *&#60;champ DateHeure>* suit le modèle *03/26/2015 1
 
 Dans cette requête, la table *hivesampletable* est installée par défaut sur tous les clusters Hadoop Azure HDInsight lors de leur approvisionnement.
 
-### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
+### <a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
 Lorsque la table Hive a un champ de texte qui contient plusieurs mots séparés par un espace, la requête suivante extrait la longueur de la chaîne et le nombre de mots de celle-ci.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
+### <a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
 La requête fournie dans cette section peut être directement appliquée aux données du jeu « NYC Taxi Trip ». Cette requête montre comment appliquer une fonction mathématique intégrée dans Hive pour générer des fonctionnalités.
 
 Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude**dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
@@ -134,13 +135,13 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lonpi*180*, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon*pi/180*, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Create workspace](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.  
 
-## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
+## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
 1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Vous pouvez arranger cela en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :
@@ -168,10 +169,5 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
         set mapreduce.reduce.java.opts=-Xmx8192m;
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

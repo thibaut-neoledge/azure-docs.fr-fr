@@ -15,429 +15,47 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 90f8a2c0a30c9cce411215e1b98954de0ed9b787
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: beec132956ed4d382517379a47da57db983e7b54
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Déplacer des données vers et depuis Base de données SQL Azure à l’aide d’Azure Data Factory
-Cet article explique comment utiliser l’activité de copie d’une fabrique de données Azure pour déplacer des données vers/à partir d’Azure SQL Database depuis/vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers ou à partir d’Azure SQL Database. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.  
 
-## <a name="supported-sources-and-sinks"></a>Sources et récepteurs pris en charge
-Consultez le tableau [Banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des banques de données prises en charge en tant que sources et réceptrices pour l’activité de copie. Vous pouvez déplacer des données à partir de toute banque de données source prise en charge vers Azure SQL Database ou à partir d’Azure SQL Database vers toute banque de données réceptrice prise en charge.
+Vous pouvez copier des données à partir de toute banque de données source prise en charge vers Azure SQL Database ou à partir d’Azure SQL Database vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 
-## <a name="create-pipeline"></a>Création d’un pipeline
-Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis Azure SQL Database à l’aide de différents outils/API.  
+## <a name="getting-started"></a>Prise en main
+Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis Azure SQL Database à l’aide de différents outils/API.
 
-* Assistant de copie
-* Portail Azure
-* Visual Studio
-* Azure PowerShell
-* API .NET
-* API REST
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Consultez [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec activité de copie de différentes manières.   
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
 
-## <a name="copy-data-wizard"></a>Assistant Copier des données
-Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis la base de données Azure SQL consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
+Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
 
+1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
+2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
+3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis une base de données Azure SQL et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir d’Azure SQL Database, consultez la section [Exemples JSON](#json-examples) de cet article. 
 
+Les sections suivantes offrent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à Azure SQL Database : 
 
-## <a name="sample-copy-data-from-azure-sql-database-to-azure-blob"></a>Exemple : Copie de données depuis Base de données SQL Azure vers un objet blob Azure
-L’exemple définit les entités de fabrique de données suivantes :
-
-1. Un service lié de type [AzureSqlDatabase](#azure-sql-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureSqlTable](#azure-sql-dataset-type-properties).
-
-
-L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’une table Azure SQL Database vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.  
-
-**Service lié SQL Azure**
-
-```JSON
-{
-  "name": "AzureSqlLinkedService",
-  "properties": {
-    "type": "AzureSqlDatabase",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
-}
-```
-Consultez la section [Service lié SQL Azure](#azure-sql-linked-service-properties) pour obtenir la liste des propriétés prises en charge par ce service lié.
-
-**Service lié Azure Blob Storage**
-
-```JSON
-{
-  "name": "StorageLinkedService",
-  "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
-  }
-}
-```
-Consultez l’article [Objets blob Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
-
-
-**Jeu de données d'entrée SQL Azure**
-
-L'exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
-
-La définition de « external » : « true» informe le service Azure Data Factory que le jeu de données est externe à la fabrique de données et n’est pas produit par une activité dans la fabrique de données.
-
-```JSON
-{
-  "name": "AzureSqlInput",
-  "properties": {
-    "type": "AzureSqlTable",
-    "linkedServiceName": "AzureSqlLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
-}
-```
-
-Consultez la section [Propriétés de type du jeu de données SQL Azure](#azure-sql-dataset-type-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.  
-
-**Jeu de données de sortie d'objet Blob Azure**
-
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
-
-```JSON
-{
-  "name": "AzureBlobOutput",
-  "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "StorageLinkedService",
-    "typeProperties": {
-      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
-      "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
-      ],
-      "format": {
-        "type": "TextFormat",
-        "columnDelimiter": "\t",
-        "rowDelimiter": "\n"
-      }
-    },
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
-}
-```
-Consultez la section [Propriétés de type du jeu de données d’objets blob Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.  
-
-**Pipeline avec activité de copie**
-
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
-
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "AzureSQLtoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureSQLInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
-}
-```
-Dans l’exemple, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
-
-Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section Structure du jeu de données JSON sont utilisées pour créer une requête à exécuter sur Azure SQL Database. Par exemple : `select column1, column2 from mytable`. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
-
-Consultez la section [Sql Source](#sqlsource) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) pour obtenir la liste des propriétés prises en charge par SqlSource et BlobSink.
-
-## <a name="sample-copy-data-from-azure-blob-to-azure-sql-database"></a>Exemple : Copie de données d’un objet blob Azure vers Base de données SQL Azure
-L’exemple définit les entités Data Factory suivantes :  
-
-1. Un service lié de type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
-5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
-
-L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’un objet blob Azure vers Azure SQL Database . Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
-
-**Service lié SQL Azure**
-
-```JSON
-{
-  "name": "AzureSqlLinkedService",
-  "properties": {
-    "type": "AzureSqlDatabase",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
-}
-```
-Consultez la section [Service lié SQL Azure](#azure-sql-linked-service-properties) pour obtenir la liste des propriétés prises en charge par ce service lié.
-
-**Service lié Azure Blob Storage**
-
-```JSON
-{
-  "name": "StorageLinkedService",
-  "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
-  }
-}
-```
-Consultez l’article [Objets blob Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
-
-
-**Jeu de données d'entrée d'objet Blob Azure**
-
-Les données sont récupérées à partir d’un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de début et le nom de fichier utilise l’heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la fabrique de données et n’est pas produite par une activité dans la fabrique de données.
-
-```JSON
-{
-  "name": "AzureBlobInput",
-  "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "StorageLinkedService",
-    "typeProperties": {
-      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
-      "fileName": "{Hour}.csv",
-      "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
-      ],
-      "format": {
-        "type": "TextFormat",
-        "columnDelimiter": ",",
-        "rowDelimiter": "\n"
-      }
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
-}
-```
-Consultez la section [Propriétés de type du jeu de données d’objets blob Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
-
-**Jeu de données de sortie SQL Azure**
-
-L’exemple copie les données dans une table nommée « MyOutputTable » dans Azure SQL. Créez la table dans SQL Azure avec le même nombre de colonnes que le fichier CSV d’objets blob doit en contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
-
-```JSON
-{
-  "name": "AzureSqlOutput",
-  "properties": {
-    "type": "AzureSqlTable",
-    "linkedServiceName": "AzureSqlLinkedService",
-    "typeProperties": {
-      "tableName": "MyOutputTable"
-    },
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
-}
-```
-Consultez la section [Propriétés de type du jeu de données SQL Azure](#azure-sql-dataset-type-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
-
-**Pipeline avec activité de copie**
-
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink**.
-
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQL",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSqlOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource",
-            "blobColumnSeparators": ","
-          },
-          "sink": {
-            "type": "SqlSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
-}
-```
-Consultez la section [Sql Sink](#sqlsink) et [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) pour obtenir la liste des propriétés prises en charge par SqlSink et BlobSource.
-
-## <a name="azure-sql-linked-service-properties"></a>Propriétés du service lié SQL Azure
-Dans les exemples, vous avez utilisé un service lié de type **AzureSqlDatabase** pour lier Azure SQL Database à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Azure.
+## <a name="linked-service-properties"></a>Propriétés du service lié
+Un service lié SQL Azure lie une base de données SQL Azure à votre fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Azure.
 
 | Propriété | Description | Requis |
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur : **AzureSqlDatabase** |Oui |
 | connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. |Oui |
 
-> [!NOTE]
+> [!IMPORTANT]
 > Configurez le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Database à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec la passerelle de la fabrique de données, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Database.
->
->
 
-## <a name="azure-sql-dataset-type-properties"></a>Propriétés de type du jeu de données SQL Azure
-Dans les exemples, vous avez utilisé un jeu de données de type **AzureSqlTable** pour représenter une table dans une Azure SQL Database.
+## <a name="dataset-properties"></a>Propriétés du jeu de données
+Pour spécifier un jeu de données afin de représenter les données d’entrée ou de sortie dans une base de données SQL Azure, vous devez définir la propriété de type du jeu de données sur : **AzureSqlTable**. Définissez la propriété **linkedServiceName** du jeu de données sur le nom du service lié Azure SQL.  
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
@@ -447,15 +65,13 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |Oui |
 
-## <a name="azure-sql-copy-activity-type-properties"></a>Propriétés de type d’activité de copie SQL Azure
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 > [!NOTE]
 > L'activité de copie accepte uniquement une entrée et produit une seule sortie.
->
->
 
-En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
+En revanche, les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
 Si vous déplacez des données à partir d’une Azure SQL Database, vous définissez le type de source dans l’activité de copie sur **SqlSource**. De même, si vous déplacez des données vers une Azure SQL Database, vous définissez le type de récepteur dans l’activité de copie sur **SqlSink**. Cette section fournit une liste de propriétés prises en charge par SqlSource et SqlSink.
 
@@ -537,6 +153,388 @@ GO
     }
 }
 ```
+
+## <a name="json-examples"></a>Exemples JSON
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis une base de données Azure SQL et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
+
+## <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Exemple : Copie de données depuis Azure SQL Database vers un objet blob Azure
+L’exemple définit les entités de fabrique de données suivantes :
+
+1. Un service lié de type [AzureSqlDatabase](#linked-service-properties).
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureSqlTable](#dataset-properties).
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [SqlSource](#copy-activity-properties) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+
+L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’une table Azure SQL Database vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.  
+
+**Service lié Azure SQL Database :**
+
+```JSON
+{
+  "name": "AzureSqlLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+    }
+  }
+}
+```
+Consultez la section [Service lié SQL Azure](#linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+
+**Service lié Azure Blob Storage :**
+
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+    }
+  }
+}
+```
+Consultez l’article [Objets blob Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+
+
+**Jeu de données d'entrée SQL Azure :**
+
+L'exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+
+La définition de « external » : « true» informe le service Azure Data Factory que le jeu de données est externe à la fabrique de données et n’est pas produit par une activité dans la fabrique de données.
+
+```JSON
+{
+  "name": "AzureSqlInput",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+
+Consultez la section [Propriétés de type du jeu de données SQL Azure](#dataset) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.  
+
+**Jeu de données de sortie Azure Blob :**
+
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
+      }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+Consultez la section [Propriétés de type du jeu de données d’objets blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.  
+
+**Activité de copie dans un pipeline avec une source SQL et un récepteur blob :**
+
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "AzureSQLtoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureSQLInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
+Dans l’exemple, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
+
+Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section Structure du jeu de données JSON sont utilisées pour créer une requête à exécuter sur Azure SQL Database. Par exemple : `select column1, column2 from mytable`. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
+
+Consultez la section [Sql Source](#sqlsource) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) pour obtenir la liste des propriétés prises en charge par SqlSource et BlobSink.
+
+## <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Exemple : Copie de données d’un objet blob Azure vers Azure SQL Database
+L’exemple définit les entités Data Factory suivantes :  
+
+1. Un service lié de type [AzureSqlDatabase](#linked-service-properties).
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureSqlTable](#dataset-properties).
+5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) et [SqlSink](#copy-activity-properties).
+
+L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’un objet blob Azure vers Azure SQL Database . Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
+
+**Service lié SQL Azure :**
+
+```JSON
+{
+  "name": "AzureSqlLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+    }
+  }
+}
+```
+Consultez la section [Service lié SQL Azure](#linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+
+**Service lié Azure Blob Storage :**
+
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+    }
+  }
+}
+```
+Consultez l’article [Objets blob Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour obtenir la liste des propriétés prises en charge par ce service lié.
+
+
+**Jeu de données d'entrée d'objet Blob Azure :**
+
+Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de début et le nom de fichier utilise l’heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la fabrique de données et n’est pas produite par une activité dans la fabrique de données.
+
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+Consultez la section [Propriétés de type du jeu de données d’objets blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
+
+**Jeu de données de sortie Azure SQL Database :**
+
+L'exemple copie les données dans une table nommée « MyTable » dans SQL Azure. Créez la table dans SQL Azure avec le même nombre de colonnes que le fichier CSV d’objets blob doit en contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
+
+```JSON
+{
+  "name": "AzureSqlOutput",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyOutputTable"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+Consultez la section [Propriétés de type du jeu de données SQL Azure](#dataset) pour obtenir la liste des propriétés prises en charge par ce type de jeu de données.
+
+**Activité de copie dans un pipeline avec une source blob et un récepteur SQL :**
+
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink**.
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQL",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureBlobInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource",
+            "blobColumnSeparators": ","
+          },
+          "sink": {
+            "type": "SqlSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+Consultez la section [Sql Sink](#sqlsink) et [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) pour obtenir la liste des propriétés prises en charge par SqlSink et BlobSource.
+
 ## <a name="identity-columns-in-the-target-database"></a>Colonnes d’identité dans la base de données cible
 Cette section fournit un exemple pour copier des données d’une table source sans colonne d’identité vers une table de destination avec une colonne d’identité.
 
@@ -608,23 +606,24 @@ Notez que la table cible possède une colonne d’identité.
 
 Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n’inclut pas la colonne d’identité.
 
-Ensuite, vous mappez les colonnes à partir du jeu de données source vers les colonnes du jeu de données de destination. Consultez la section [Exemples de mappages de colonnes](#column-mapping-samples) pour obtenir un exemple.
+## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
+Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+## <a name="repeatable-copy"></a>Copie renouvelée
+Lors de la copie de données sur une base de données SQL Server, l’activité de copie ajoute des données à la table de récepteur par défaut. Pour effectuer une opération UPSERT à la place, consultez l’article [Écriture renouvelée sur SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
 
-[!INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)]
+Lorsque vous copiez des données à partir de magasins de données relationnels, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+## <a name="invoke-stored-procedure-from-sql-sink"></a>Appel d’une procédure stockée pour un récepteur SQL
+Pour obtenir un exemple d’appel d’une procédure stockée à partir d’un récepteur SQL dans l’activité de copie d’un pipeline, consultez l’article [Appeler une procédure stockée pour un récepteur SQL dans l’activité de copie](data-factory-invoke-stored-procedure-from-copy-activity.md). 
 
-### <a name="type-mapping-for-sql-server--azure-sql-database"></a>Mappage de type pour SQL Server et Base de données SQL Azure
+## <a name="sql-database-to-net-type-mapping"></a>Mappage SQL Database vers type .NET
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md) , l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion de types .NET en types récepteur natifs
 
-Lors du déplacement de données vers et à partir de SQL Azure, SQL Server, Sybase, les mappages suivants sont utilisés à partir du type SQL en type .NET et vice versa.
-
-Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
+Lors du déplacement de données vers et à partir de SQL Azure, les mappages suivants sont utilisés à partir du type SQL en type .NET et vice versa. Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 | Type de moteur de base de données SQL Server | Type de .NET Framework |
 | --- | --- |
@@ -660,10 +659,6 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
-
-[!INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.

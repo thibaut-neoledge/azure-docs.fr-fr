@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 12df603e22c8c735bf5c3f892575e79725f7313e
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9fc96d70592bd55685ebbf1b80f6017b74f58925
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +46,7 @@ Voici la liste des recommandations de sécurité à prendre en compte lors de la
 ## <a name="considerations-for-securing-connections-to-azure-virtual-machine"></a>Considérations relatives à la sécurisation des connexions vers une machine virtuelle Azure :
 * Envisagez d’utiliser le [réseau virtuel Azure](../../../virtual-network/virtual-networks-overview.md) pour gérer les ordinateurs virtuels au lieu de ports RDP publics.
 * Utilisez un [groupe de sécurité réseau](../../../virtual-network/virtual-networks-nsg.md) (NSG) pour autoriser ou refuser le trafic réseau vers votre machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Si vous utilisez des points de terminaison, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)
+* Si vous utilisez des points de terminaison, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)
 * Activez l’option de connexion chiffrée pour une instance du moteur de base de données SQL Server dans des machines virtuelles Azure. Configurez l’instance SQL Server avec un certificat signé. Pour plus d’informations, voir [Activation des connexions chiffrées dans le moteur de base de données](https://msdn.microsoft.com/library/ms191192.aspx) et [Syntaxe de la chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 * Si vos machines virtuelles doivent être accessibles uniquement à partir d’un réseau spécifique, utilisez le Pare-feu Windows pour limiter l’accès à certaines adresses IP ou sous-réseaux.
 
@@ -53,10 +54,5 @@ Voici la liste des recommandations de sécurité à prendre en compte lors de la
 Si vous vous intéressez également à l’optimisation des performances, voir [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

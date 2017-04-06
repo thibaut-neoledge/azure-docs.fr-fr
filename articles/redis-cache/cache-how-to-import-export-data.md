@@ -12,17 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 9447ccf45cfee74df66b46bd20d872f64ee06efd
-ms.openlocfilehash: 79280958305ba135d23ab9c5c37d83f8b5eaf8f2
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importer et exporter des données dans le Cache Redis Azure
-L’Importation/Exportation est une opération de gestion de données de Cache Redis Azure qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Redis Azure, en important ou en exportant un instantané de base de données du Cache Redis (RDB) depuis un cache premium vers un objet blob de pages dans un compte Azure Storage. L’Importation/Exportation vous permet de migrer entre différentes instances de Cache Redis Azure ou de remplir le cache de données avant utilisation.
+L’Importation/Exportation est une opération de gestion de données de Cache Redis Azure qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Redis Azure, en important ou en exportant une capture instantanée de base de données du Cache Redis (RDB) depuis un cache Premium vers un objet blob dans un compte Azure Storage. 
+
+- **Exportation** : vous pouvez exporter vos captures instantanées Azure Redis Cache RDB vers un objet blob de pages.
+- **Importation** : vous pouvez importer vos captures instantanées Redis Cache RDB à partir d’un objet blob de pages ou d’un objet blob de blocs.
+
+L’Importation/Exportation vous permet de migrer entre différentes instances de Cache Redis Azure ou de remplir le cache de données avant utilisation.
 
 Cet article fournit un guide pour l’importation et l’exportation de données avec le Cache Redis Azure et répond aux questions fréquemment posées.
 
@@ -35,7 +40,7 @@ Cet article fournit un guide pour l’importation et l’exportation de données
 L’importation peut servir à récupérer les fichiers RDB compatibles Redis depuis n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, y compris si Redis est exécuté sur Linux, Windows ou n’importe quel fournisseur de cloud tel qu’Amazon Web Services. Importer des données est un moyen simple de créer un cache pré-rempli de données. Pendant le processus d’importation, le Cache Azure Redis charge les fichiers RDB d’Azure Storage dans la mémoire, puis insère les clés dans le cache.
 
 > [!NOTE]
-> Avant de commencer l’opération d’importation, vérifiez que le ou les fichier(s) de votre base de données Redis (RDB) sont téléchargés vers des objets blob de pages dans Azure Storage, dans les mêmes région et abonnement que votre instance de Cache Redis Azure. Pour plus d’informations, consultez l’article [Prise en main du stockage d’objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md). Si vous avez exporté votre fichier RDB à l’aide de la fonctionnalité [Azure Redis Cache Export](#export) (Exportation Azure Redis Cache), votre fichier RDB est déjà stocké dans un objet blob de pages et est prêt pour l’importation.
+> Avant de commencer l’opération d’importation, vérifiez que le ou les fichier(s) de votre base de données Redis (RDB) sont téléchargés vers des objets blob de pages ou de blocs dans Azure Storage, dans les mêmes région et abonnement que votre instance de Cache Redis Azure. Pour plus d’informations, consultez l’article [Prise en main du stockage d’objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md). Si vous avez exporté votre fichier RDB à l’aide de la fonctionnalité [Azure Redis Cache Export](#export) (Exportation Azure Redis Cache), votre fichier RDB est déjà stocké dans un objet blob de pages et est prêt pour l’importation.
 >
 >
 
@@ -60,7 +65,7 @@ L’importation peut servir à récupérer les fichiers RDB compatibles Redis de
 
     ![Importer][cache-import-blobs]
 
-    Vous pouvez surveiller la progression de l’importation grâce aux notifications du portail Azure ou aux événements de l’audit. Pour plus d’informations, consultez la section « Paramètres de support et dépannage » de l’article [Configuration de Cache Redis Azure](cache-configure.md).
+    Vous pouvez surveiller la progression de l’importation grâce aux notifications du portail Azure ou aux événements dans le [journal d’audit](../azure-resource-manager/resource-group-audit.md).
 
     ![Progression de l’importation][cache-import-data-import-complete]
 
@@ -73,7 +78,7 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 2. Cliquez sur **Choisir un conteneur de stockage** et sélectionnez le compte de stockage souhaité. Le compte de stockage doit être situé dans les mêmes région et abonnement que votre cache.
 
    > [!IMPORTANT]
-   > La fonctionnalité Importation/Exportation fonctionne avec les objets blob de pages, qui sont pris en charge par les comptes de stockage Resource Manager et classiques, mais pas par les [comptes de stockage d’objets Blob](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) pour l’instant.
+   > La fonctionnalité Exportation fonctionne avec les objets blob de pages, qui sont pris en charge par les comptes de stockage Resource Manager et classiques, mais pas par les [comptes de stockage d’objets Blob](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) pour l’instant.
    >
    >
 
@@ -85,9 +90,9 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 
     ![Exportation][cache-export-data]
 
-    Vous pouvez surveiller la progression de l’exportation grâce aux notifications du portail Azure ou aux événements du journal d’audit. Pour plus d’informations, consultez la section « Paramètres de support et dépannage » de l’article [Configuration de Cache Redis Azure](cache-configure.md).
+    Vous pouvez surveiller la progression de l’exportation grâce aux notifications du portail Azure ou aux événements du [journal d’audit](../azure-resource-manager/resource-group-audit.md).
 
-    ![][cache-export-data-export-complete]
+    ![Exportation des données terminées][cache-export-data-export-complete]
 
     Les caches restent disponibles pendant le processus d’exportation.
 
@@ -96,6 +101,7 @@ Cette section contient les questions fréquemment posées sur la fonctionnalité
 
 * [Quels niveaux de tarification permettent d’utiliser l’Importation/Exportation ?](#what-pricing-tiers-can-use-importexport)
 * [Puis-je importer des données à partir de n’importe quel serveur Redis ?](#can-i-import-data-from-any-redis-server)
+* [Quelles versions RDB puis-je importer ?](#what-rdb-versions-can-i-import)
 * [Mon cache est-il disponible pendant une opération d’Importation/Exportation ?](#is-my-cache-available-during-an-importexport-operation)
 * [Puis-je utiliser l’Importation/Exportation avec le cluster Redis ?](#can-i-use-importexport-with-redis-cluster)
 * [Comment l’importation/exportation fonctionne avec un paramètre de base de données personnalisé ?](#how-does-importexport-work-with-a-custom-databases-setting)
@@ -108,7 +114,16 @@ Cette section contient les questions fréquemment posées sur la fonctionnalité
 L’Importation/Exportation n’est disponible que dans le niveau de tarification Premium.
 
 ### <a name="can-i-import-data-from-any-redis-server"></a>Puis-je importer des données à partir de n’importe quel serveur Redis ?
-Oui, en plus des données exportées à partir d’instances de Cache Redis Azure, vous pouvez importer des fichiers RDB à partir de n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, tels que Linux, Windows ou tout autre fournisseur de cloud tel qu’Amazon Web Services. Pour ce faire, téléchargez le fichier RDB à partir du serveur Redis souhaité dans un objet blob de pages d’un compte Azure Storage, puis importez-le dans votre instance Premium de Cache Redis. Vous pouvez par exemple exporter les données de votre cache de production et les importer vers un cache faisant partie d’un environnement intermédiaire, à des fins de test ou de migration.
+Oui, en plus des données exportées à partir d’instances de Cache Redis Azure, vous pouvez importer des fichiers RDB à partir de n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, tels que Linux, Windows ou tout autre fournisseur de cloud tel qu’Amazon Web Services. Pour ce faire, téléchargez le fichier RDB à partir du serveur Redis souhaité dans un objet blob de pages ou de blocs d’un compte Azure Storage, puis importez-le dans votre instance Premium de Cache Redis. Vous pouvez par exemple exporter les données de votre cache de production et les importer vers un cache faisant partie d’un environnement intermédiaire, à des fins de test ou de migration.
+
+> [!IMPORTANT]
+> Pour importer correctement des données exportées à partir de serveurs Redis autres que le Cache Redis Azure lors de l’utilisation d’un objet blob de pages, la taille de l’objet blob de pages doit être alignée sur une limite de 512 octets. Pour que l’exemple de code exécute un remplissage d’octets, voir [Chargement d’un exemple de blog de pages](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
+> 
+> 
+
+### <a name="what-rdb-versions-can-i-import"></a>Quelles versions RDB puis-je importer ?
+
+Cache Redis Azure prend en charge l’importation RDB via la version 7 de RDB.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Mon cache est-il disponible pendant une opération d’Importation/Exportation ?
 * **Exporter** - Les caches restent disponibles et vous pouvez continuer à utiliser votre cache pendant une opération d’exportation.
@@ -141,7 +156,7 @@ Si vous restez sur le panneau **Importer des données** ou **Exporter des donné
 Pour résoudre ce problème, démarrez l’importation ou l’exportation avant que les 15 minutes ne se soient écoulées.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>J’ai obtenu une erreur en exportant mes données vers un stockage d’objets blob Azure. Que s’est-il passé ?
-L’Importation/Exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid.
+L’exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid. Pour plus d’informations, consultez [Comptes de stockage Blob](../storage/storage-blob-storage-tiers.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.

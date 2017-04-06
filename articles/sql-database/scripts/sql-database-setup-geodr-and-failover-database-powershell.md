@@ -38,7 +38,8 @@ Cet exemple de script PowerShell configure la géoréplication active pour une b
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>Explication du script

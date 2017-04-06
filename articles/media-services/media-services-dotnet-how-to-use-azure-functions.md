@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0469880325b907065b95f94f62ab76d252c0eda5
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -339,7 +339,7 @@ Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur 
 
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services. 
  
-Pour plus d’informations, ainsi que des exemples et des solutions de l’utilisation d’Azure Functions et Logic Apps avec Azure Media Services pour créer des workflows de création de contenu personnalisé, consultez [l’exemple Media Services .NET Functions Integration sur Github](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+Pour plus d’informations, ainsi que des exemples et des solutions de l’utilisation d’Azure Functions et de Logic Apps avec Azure Media Services pour créer des flux de travail de création de contenu personnalisé, consultez [l’exemple Media Services .NET Functions Integration sur GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 Consultez également [Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services avec .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 

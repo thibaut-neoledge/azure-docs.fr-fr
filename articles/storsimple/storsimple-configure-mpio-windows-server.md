@@ -4,7 +4,7 @@ description: "Décrit comment configurer Multipath I/O (MPIO) pour votre apparei
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 879fd0f9-c763-4fa0-a5ba-f589a825b2df
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 03/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 4483a395659a09e88fc4174e622143d9acaedf61
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -126,18 +127,17 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 
 > [!NOTE]
 > **Ne modifiez pas les paramètres par défaut.**
-> 
-> 
+
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Étape 4 : configurer MPIO pour la haute disponibilité et l’équilibrage de charge
 Pour les chemins d’accès multiples basés sur la haute disponibilité et l’équilibrage de charge, vous devez ajouter plusieurs sessions manuellement pour déclarer les différents chemins d’accès disponibles. Par exemple, si l’hôte possède deux interfaces connectées au réseau SAN et si l’appareil possède deux interfaces connectées au réseau SAN, vous avez besoin de quatre sessions configurées avec les permutations de chemin d’accès appropriées (seules deux sessions seront requises si chaque interface DATA et interface d’hôte se trouve sur un sous-réseau d’adresse IP différent et n’est pas routable).
 
+**Nous vous recommandons de disposer d’au moins 4 sessions parallèles actives entre l’appareil et votre application hôte.** Cela est possible en activant 4 interfaces réseau sur votre système Windows Server. Utilisez des interfaces réseau physiques ou des technologies de virtualisation de réseau au niveau du matériel ou du système d’exploitation sur votre hôte Windows Server. Avec deux interfaces réseau sur l’appareil, cette configuration peut conduire à 8 sessions dont 4 seront actives (celles connectées au contrôleur actif) et 4 seront passives (celles connectées au contrôleur passif). Cette configuration permet d’optimiser le débit de l’appareil et du cloud.
+
 > [!IMPORTANT]
 > **Nous vous recommandons de ne pas mélanger les interfaces réseau 1 Gigabit Ethernet et 10 Gigabit Ethernet. Si vous utilisez deux interfaces réseau, elles doivent être du même type.**
-> 
-> 
 
-La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau.
+La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau. Cela vous donne seulement 2 sessions actives. Utilisez la même procédure avec un appareil StorSimple possédant deux interfaces réseau et connecté à un hôte avec quatre interfaces réseau. Vous devez configurer 8 sessions au lieu des 4 décrites ici.
 
 ### <a name="to-configure-mpio-for-high-availability-and-load-balancing"></a>Configuration de MPIO pour la haute disponibilité et l’équilibrage de charge
 1. Effectuez une détection de la cible : dans la boîte de dialogue **Propriétés de l’initiateur iSCSI**, sur l’onglet **Détection**, cliquez sur **Découvrir un portail**.
@@ -169,10 +169,5 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l' [utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple](storsimple-modify-device-config.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

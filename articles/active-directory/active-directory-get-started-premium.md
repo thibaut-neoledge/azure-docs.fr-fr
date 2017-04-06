@@ -3,8 +3,8 @@ title: "Prise en main d’Azure Active Directory Premium"
 description: "Une rubrique qui explique comment s’inscrire à l’édition Azure Active Directory Premium par le biais du site web du plan de licences en volume."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services

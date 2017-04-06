@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 8fd6f5ffc076ea861ed29d992a7a94b6cd2c700b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,11 +36,7 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 * **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
-* (Facultatif) **Des connaissances en SSH et SCP** : pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les documents suivants :
-  
-  * [Utilisation de SSH avec Hadoop Linux sur HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Use SSH with Linux-based Hadoop on HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md) (Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows à l’aide de PuTTY)
+* (Facultatif) **Des connaissances en SSH et SCP** : pour plus d’informations, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * (Facultatif) Pour **Visual Studio** : le Kit de développement logiciel (SDK) Azure 2.5.1 ou une version ultérieure et Data Lake Tools pour Visual Studio. Pour plus d’informations, consultez [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) (Prise en main de Data Lake Tools pour Visual Studio).
 
@@ -85,11 +81,7 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Pour plus d’informations sur l’utilisation de SSH pour se connecter à votre cluster HDInsight, consultez les documents suivants :
-   
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Use SSH with Linux-based Hadoop on HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md) (Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows à l’aide de PuTTY)
+    Pour plus d’informations sur l’utilisation de SSH pour se connecter à votre cluster HDInsight, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour démarrer un exemple de topologie :
    

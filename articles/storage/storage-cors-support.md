@@ -3,7 +3,7 @@ title: Prise en charge du service Partage des ressources cross-origine (CORS) | 
 description: "Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure."
 services: storage
 documentationcenter: .net
-author: cbrooks
+author: cbrooksmsft
 manager: carmonm
 editor: tysonn
 ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 2/22/2017
 ms.author: cbrooks
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c61be739ce592d75b04bee15d14850cdf94c09da
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e50e55fb6471add71b3d2ebd477a91ec424a4fab
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -136,7 +137,7 @@ Ensuite, tenez compte des demandes CORS suivantes :
 | **Méthode** |**Origine** |**En-têtes de requête** |**Correspondance de règle** |**Résultat** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Première règle |Succès |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Deuxième règle |Succès |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Deuxième règle |Échec |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Deuxième règle |Échec |
 
 La première demande correspond à la première règle (le domaine d'origine correspond aux origines autorisées, la méthode correspond aux méthodes autorisées et l'en-tête correspond aux en-têtes autorisés). Par conséquent, elle réussit.
 
@@ -167,7 +168,7 @@ Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HE
 
 | Demande | Paramètre de compte et résultat de l'évaluation de la règle |  |  | Réponse |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : « * »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
+| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : «* »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
 | Non |Non |Non |Non |Non |Non |Non |
 | Non |Oui |Non |Non |Oui |Non |Non |
 | Non |Oui |Oui |Non |Non |Oui |Oui |
@@ -189,10 +190,5 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 [Définition des propriétés du service de Table](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

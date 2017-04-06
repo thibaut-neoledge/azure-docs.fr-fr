@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
-ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -66,4 +66,8 @@ Il existe de nombreuses manières de déterminer l’adresse IP source publique 
 Parfois, il n’est pas souhaitable d’autoriser une machine virtuelle à créer un flux sortant, ou il peut y avoir une exigence de gestion les destinations pouvant être atteinte avec des flux sortants. Dans ce cas, vous utilisez des [groupes de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) pour gérer les destinations que la machine virtuelle peut atteindre. Lorsque vous appliquez un groupe de sécurité réseau à une machine Virtuelle à charge équilibrée, vous devez faire attention aux [balises par défaut](../virtual-network/virtual-networks-nsg.md#default-tags) et aux [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’analyse d’intégrité d’Azure Load Balancer. Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre analyse de l’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme défaillante. L’équilibrage de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
+
+## <a name="limitations"></a>Limitations
+
+Le nombre maximal de ports SNAT disponible actuellement est de 64 511 (65 535 - 1 024 ports privilégiés). Toutefois, ce nombre n’est pas garanti.  Cela ne se traduit pas directement par un nombre de connexions disponibles. Pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable, voir ci-dessus.
 

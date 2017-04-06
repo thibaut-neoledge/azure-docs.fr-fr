@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 09747f06d06f2f0e105b3eef9d46e1505b9e1a7b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
+ms.lasthandoff: 03/23/2017
 
 ---
 
@@ -28,9 +28,9 @@ Azure Active Directory Application Proxy et PingAccess se sont associés pour pe
 
 Pour permettre aux utilisateurs d’accéder aux applications qui utilisent des en-têtes d’authentification, vous publiez l’application pour un accès distant dans Application Proxy et PingAccess. Application Proxy traite ces applications comme n’importe quelle autre, en utilisant Azure AD pour authentifier l’accès et faire transiter le trafic via le service de connecteur. PingAccess se trouve devant les applications et convertit le jeton d’accès Azure AD en en-tête afin que l’application reçoive l’authentification dans un format qu’elle puisse lire. 
 
-Vos utilisateurs ne remarqueront rien lorsqu’ils se connecteront pour utiliser vos applications d’entreprise. Ils pourront toujours travailler depuis n’importe où et sur n’importe quel appareil. Lorsque vos utilisateurs sont au bureau, Application Proxy n’achemine pas leurs demandes d’authentification, mais PingAccess joue toujours le rôle d’intermédiaire chargé de convertir les jetons en en-têtes. 
+Vos utilisateurs ne remarqueront rien lorsqu’ils se connecteront pour utiliser vos applications d’entreprise. Ils pourront toujours travailler depuis n’importe où et sur n’importe quel appareil. Lorsque vos utilisateurs sont au bureau, ni Application Proxy ni PingAccess n’interceptent le trafic. Ainsi, ils bénéficient de l’expérience habituelle.
 
-Comme les connecteurs Application Proxy dirigent le trafic vers toutes les applications, quel que soit leur type d’authentification, ils continuent à équilibrer la charge automatiquement. 
+Par ailleurs, comme les connecteurs Application Proxy redirigent le trafic distant vers l’ensemble des applications, quel que soit leur type d’authentification, ils continuent à équilibrer la charge automatiquement. 
 
 ## <a name="how-do-i-get-access"></a>Comment puis-je avoir accès ?
 
@@ -69,20 +69,25 @@ Cette section comprend deux parties. Tout d’abord, vous devez publier l’appl
 3. Sélectionnez **Ajouter** en haut du panneau. 
 4. Sélectionnez **On-premises application (Application locale)**.
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres :
-  - **Internal URL (URL interne)** : indiquez l’URL de la page de connexion de l’application lorsque vous êtes sur le réseau d’entreprise.
+  - **URL interne** : logiquement, vous devez indiquer l’URL de la page de connexion de l’application lorsque vous êtes sur le réseau d’entreprise. Pour les besoins de ce partenariat, le connecteur doit traiter le proxy PingAccess en tant que première page de l’application. Utilisez le format suivant : `https://<host name of your PA server>:<port>/<App path name>`. Le port par défaut est 3000, mais vous pouvez le configurer dans PingAccess.
   - **Méthode de pré-authentification** : Azure Active Directory
   - **Traduire des URL dans les en-têtes** : Non
 6. Sélectionnez **Ajouter** en bas du panneau. Votre application est ajoutée et le menu de démarrage rapide s’ouvre. 
 7. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)**, et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
 8. Sélectionnez **Affecter** pour enregistrer l’affectation de l’utilisateur de test. 
 9. Dans le panneau de gestion de l’application, sélectionnez **Authentification unique**. 
-10. Choisissez **Authentification basée sur un en-tête** dans le menu déroulant. Sélectionnez **Enregistrer**. 
+10. Choisissez **Authentification basée sur un en-tête** dans le menu déroulant. Sélectionnez **Enregistrer**.
+
+  ![Sélectionner l’authentification basée sur un en-tête](./media/application-proxy-ping-access/sso-header.PNG)
+
 11. Fermez le panneau des applications d’entreprise ou faites défiler vers la gauche pour revenir au menu Azure Active Directory. 
 12. Sélectionnez **Inscriptions d’applications**.
 13. Sélectionnez l’application que vous venez d’ajouter, puis sélectionnez **Reply URLs (URL de réponse)**. 
 14. Vérifiez si l’URL externe que vous avez affectée à votre application à l’étape 5 figure dans la liste des URL de réponse. Si tel n’est pas le cas, ajoutez-la maintenant. 
 15. Dans le panneau Paramètres d’application, sélectionnez **Required permissions (Autorisations requises)**. 
-16. Sélectionnez **Ajouter**. Pour l’API, choisissez **Windows Azure Active Directory**, puis **Sélectionner**. Pour les autorisations, choisissez **Read and write all applications (Lire et écrire toutes les applications)**, puis **Sélectionner** et **Terminé**.   
+16. Sélectionnez **Ajouter**. Pour l’API, choisissez **Windows Azure Active Directory**, puis **Sélectionner**. Pour les autorisations, choisissez **Lire et écrire toutes les applications** et **Se connecter et lire le profil utilisateur**, puis **Sélectionner** et **Terminé**.  
+
+  ![Sélectionner les autorisations](./media/application-proxy-ping-access/select-permissions.png) 
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Collecter les informations pour la procédure PingAccess
 
