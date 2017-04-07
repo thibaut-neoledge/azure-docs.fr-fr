@@ -196,7 +196,7 @@ Dans cette section, vous allez créer une application console .NET qui simule un
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
    
-                Task.Delay(1000).Wait();
+                await Task.Delay(1000);
             }
         }
    
