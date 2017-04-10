@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: sync data
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: c8e285fc6fb82ab5c929236ac9cb5dc858924e57
 ms.openlocfilehash: 6535260a1650a2d3cc665eeb9d3ea33ae2de2650
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -179,9 +180,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 * [Télécharger la documentation technique complète sur la synchronisation des données SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 * [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

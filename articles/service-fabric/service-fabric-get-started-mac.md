@@ -3,8 +3,8 @@ title: "Configurer votre environnement de développement sur Mac OS X | Microsof
 description: "Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Mac OS X."
 services: service-fabric
 documentationcenter: java
-author: saysa
-manager: raunakp
+author: sayantancs
+manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 04/06/2017
 ms.author: saysa
 translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -51,7 +51,7 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
     ```
     Cette procédure permet de désactiver le fichier `Vagrantfile` contenant la configuration de la machine virtuelle, ainsi que l’emplacement à partir duquel la machine virtuelle est téléchargée.
 
-   
+
 2. Accédez au clone local du référentiel.
 
     ```bash
