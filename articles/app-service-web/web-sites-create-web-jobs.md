@@ -25,6 +25,8 @@ ms.lasthandoff: 03/01/2017
 ## <a name="overview"></a>Vue d'ensemble
 Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
+
 Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
