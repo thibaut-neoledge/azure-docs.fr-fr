@@ -5,7 +5,6 @@ services: virtual-machines\windows
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: virtual-machines\windows
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,121 +12,68 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 91c81cdba745be375ea6cbdb689d5b6f46e53f98
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: d6358d1a44b85a475cdf2d489112244152f64395
+ms.lasthandoff: 04/08/2017
 
 ---
-# <a name="windows-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Windows
-
-<div class="introHolder">
-    <div class="intro">
-Apprenez à créer des machines virtuelles Windows. Les didacticiels, références d’API et autres documents vous aident à planifier, déployer et gérer un environnement informatique de machines virtuelles dans le cloud.
+<div class="content">
+    <h1>Documentation sur les machines virtuelles Windows</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">Les Machines virtuelles Windows Azure fournissent une infrastructure sécurisée et virtualisée à la demande et à grande échelle avec Windows Server. Découvrez comment créer, configurer, gérer et mettre à l’échelle des machines virtuelles Windows avec nos guides de démarrage rapide, nos didacticiels et nos exemples.</p>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Démarrages rapides</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Créez une machine virtuelle Windows avec :</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+        <img src="media/index/portal.svg" alt="">
+            <span>le Portail Azure</span>
+        </a>
+     ;</div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
+     ;</div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+            <img src="media/index/cli.svg" alt="">
+            <span>l’interface de ligne de commande Azure</span>
+        </a>
+    .</div>
+</div>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">Didacticiels</h2>
+        <p>Créez et déployez des machines virtuelles Windows.</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Créer et gérer des machines virtuelles Windows</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Équilibrer la charge des machines virtuelles hautement disponibles</a></li>
+        </ul>
+        <h2>Exemples</h2>
+        <p>Déployez votre première application dans Azure.</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Interface de ligne de commande Azure</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+        </ul>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" /> Formation vidéo gratuite PluralSight - Gestion de l’infrastructure à l’aide de Microsoft Azure </a>
-        </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">Formation vidéo gratuite</h2>
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
+            <p style="margin-top: 0px">Formation vidéo gratuite Pluralsight – Gestion de l’infrastructure</a></p>
+            <p style="margin-top: 36px"></p>
+                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-vms.png" width="400" alt="" />
+            <p style="margin-top: 0px">Formation vidéo gratuite Pluralsight – Bien démarrer avec les Machines virtuelles</a></p>
+        <p style="margin-top: 36px"></p>
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
+            <p style="margin-top: 0px">Formation vidéo gratuite Pluralsight – Bien démarrer avec la surveillance IaaS</a></p>
     </div>
 </div>
-
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtual-machine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>En savoir plus sur les machines virtuelles Windows</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Bibliothèque vidéo de machines virtuelles</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Prise en main des machines virtuelles Windows à l’aide du Portail Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Prise en main des machines virtuelles Windows à l’aide de PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Prise en main des machines virtuelles Windows à l’aide d’un modèle Resource Manager</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
- 
-<h2>Référence</h2>
+<hr />
+<h2 style="margin-top: 36px">Référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -135,7 +81,7 @@ Apprenez à créer des machines virtuelles Windows. Les didacticiels, référenc
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                         <p><a href="/cli/azure/vm">Interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
@@ -150,7 +96,7 @@ Apprenez à créer des machines virtuelles Windows. Les didacticiels, référenc
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.JS</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
@@ -170,6 +116,5 @@ Apprenez à créer des machines virtuelles Windows. Les didacticiels, référenc
         </div>
     </li>
 </ul>
-
-
+</div>
 
