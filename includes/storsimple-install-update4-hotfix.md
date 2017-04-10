@@ -22,7 +22,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 > [!NOTE]
 > Les correctifs doivent être accessibles à partir des deux contrôleurs pour détecter les messages d’erreur potentiels émis par le contrôleur homologue.
 >
-> Les correctifs doivent être copiés dans trois dossiers séparés. La mise à jour du logiciel de l’appareil doit être copiée dans le dossier _FirstOrderUpdate_, toutes les autres mises à jour non perturbatrices dans le dossier _SecondOrderUpdate_ et les mises à jour du mode maintenance dans le dossier _ThirdOrderUpdate_.
+> Les correctifs doivent être copiés dans trois dossiers séparés. Par exemple, la mise à jour du logiciel de l’appareil peut être copiée dans le dossier _FirstOrderUpdate_, toutes les autres mises à jour non perturbatrices dans le dossier _SecondOrderUpdate_ et les mises à jour du mode maintenance dans le dossier _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Pour installer et vérifier les correctifs logiciels en mode Normal
 
@@ -40,11 +40,11 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
    
     Indiquez le mot de passe lorsque vous y êtes invité.
    
-    Vous trouverez ci-dessous un exemple de sortie pour l’installation des mises à jour prioritaires.
+    Vous trouverez ci-dessous un exemple de sortie pour l’installation des mises à jour prioritaires. Pour la première mise à jour de commande, vous devez pointer vers le fichier spécifique.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -96,7 +96,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     > [!IMPORTANT]
     > Vous devez redémarrer le contrôleur actif via l’applet de commande `Restart-HcsController` avant d’appliquer les autres mises à jour.
      
-7. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. Il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier. La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. Une fois tous les correctifs installés, utilisez l’applet de commande `Get-HcsSystem`. Les versions doivent être les suivantes :
+7. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. **Pour les mises à jour de la deuxième commande, il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier.** La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. Une fois tous les correctifs installés, utilisez l’applet de commande `Get-HcsSystem`. Les versions doivent être les suivantes :
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -247,9 +247,4 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
    `Exit-HcsMaintenanceMode`
 
 5. Les contrôleurs redémarrent quand vous quittez le mode maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode maintenance pendant 24 heures.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

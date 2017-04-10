@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 342f32596c91d2af7c0f33138a43d5c8925d5350
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,9 +37,9 @@ Utilisez Visual Studio pour interroger Azure SQL Data Warehouse en seulement que
 ## <a name="prerequisites"></a>Composants requis
 Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un entrepôt de données SQL existant. Pour en créer un, consultez la page [Créer un entrepôt de données SQL Data Warehouse][Créer un entrepôt de données SQL Data Warehouse].
-* SSDT pour Visual Studio. Si vous avez Visual Studio, vous en disposez probablement déjà. Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT][Installation de Visual Studio et/ou SSDT].
-* Le nom complet du serveur SQL. Pour le trouver, consultez la page [Se connecter à SQL Data Warehouse][Se connecter à SQL Data Warehouse].
+* Un entrepôt de données SQL existant. Pour en créer un, consultez la page [Créer un entrepôt de données SQL][Create a SQL Data Warehouse].
+* SSDT pour Visual Studio. Si vous avez Visual Studio, vous en disposez probablement déjà. Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT][Installing Visual Studio and SSDT].
+* Le nom complet du serveur SQL. Pour le trouver, consultez la page [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse](Connexion à SQL Data Warehouse).
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Connexion à votre SQL Data Warehouse
 1. Ouvrir Visual Studio 2013 ou 2015
@@ -79,19 +81,19 @@ Maintenant qu’une connexion à votre base de données a été établie, passon
     ![Résultats de la requête][7]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [visualiser les données avec Power BI][visualiser les données avec Power BI].
+Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [visualiser les données avec Power BI][visualizing the data with PowerBI].
 
-Pour configurer votre environnement pour l’authentification Azure Active Directory, consultez [Authentification sur SQL Data Warehouse][Authentification sur SQL Data Warehouse].
+Pour configurer votre environnement pour l’authentification Azure Active Directory, voir [Authentification vers SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Se connecter à SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
-[Créer un entrepôt de données SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Installation de Visual Studio et/ou SSDT]: sql-data-warehouse-install-visual-studio.md
-[Authentification sur SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualiser les données avec Power BI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -102,9 +104,4 @@ Pour configurer votre environnement pour l’authentification Azure Active Direc
 [5]: media/sql-data-warehouse-query-visual-studio/new-query2.png
 [6]: media/sql-data-warehouse-query-visual-studio/run-query.png
 [7]: media/sql-data-warehouse-query-visual-studio/query-results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

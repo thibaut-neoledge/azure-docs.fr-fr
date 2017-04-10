@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: manage
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,17 +18,17 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 86471fe29bbc9076624d96b83f7001d8755363bc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données
 
-[Visual Studio Code](https://code.visualstudio.com/docs) est un éditeur de code graphique pour Linux, macOS et Windows qui prend en charge les extensions. Utilisation de Visual Studio Code avec l’[extension mssql](https://aka.ms/mssql-marketplace) pour se connecter à une base de données SQL Azure et l’interroger. Ce guide indique en détail comment utiliser Visual Studio Code pour se connecter à une base de données SQL Azure, puis exécuter une requête, insérer, mettre à jour et supprimer des instructions.
+[Visual Studio Code](https://code.visualstudio.com/docs) est un éditeur de code graphique pour Linux, macOS et Windows qui prend en charge les extensions. Utilisation de Visual Studio Code avec l’[extension mssql](https://aka.ms/mssql-marketplace) pour se connecter à une base de données SQL Azure et l’interroger. Ce guide rapide indique en détail comment utiliser Visual Studio Code pour se connecter à une base de données SQL Azure, puis exécuter une requête, insérer, mettre à jour et supprimer des instructions.
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces instructions de démarrage rapide :
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)

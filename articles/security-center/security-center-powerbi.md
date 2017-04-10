@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Vous pouvez par ailleurs combiner de diverses manières les recommandations et a
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Accéder à Power BI à l’aide du tableau de bord du Centre de sécurité Azure
 Vous pouvez également utiliser le tableau de bord du Centre de sécurité Azure pour accéder aux rapports Power BI. Pour ce faire, procédez comme suit :
 
-1. Dans le tableau de bord **d’Azure Security Center**, cliquez sur le bouton **Explorer dans Power BI**.
+1. Dans le tableau de bord d’**Azure Security Center**, cliquez sur le bouton **Power BI**.
 
-    ![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Le panneau **Explorer dans Power BI** s’ouvre sur la droite, comme illustré dans l’écran suivant :
+    ![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Le panneau **Power BI** s’ouvre sur la droite, comme illustré dans l’écran suivant :
 
-    ![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Si vous créez le tableau de bord Power BI pour la première fois, vous pouvez choisir l’une des options ci-après dans le panneau dans le panneau **Explore dans Power BI** :
 
    * **Tableau de bord des informations de sécurité**: choisissez cette option si vous voulez créer un tableau de bord qui inclut l’état de la sécurité, les threads et les détections. Il s’agit d’une option plus courante pour le rôle DevOps responsable de l’analyse de l’état de protection et de la détection des alertes sur les différents abonnements.
@@ -119,9 +120,4 @@ Dans ce document, vous avez vu comment utiliser le service Power BI depuis le C
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

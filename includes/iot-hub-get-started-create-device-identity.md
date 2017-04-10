@@ -6,7 +6,7 @@ Dans cette section, vous utilisez un outil Node.js appelé [IoT Hub Explorer][io
     ```
     npm install -g iothub-explorer@latest
     ```
-2. Ensuite, exécutez la commande suivante pour vous connecter à votre hub. N’oubliez pas de remplacer `{iot hub connection string}` par la chaîne de connexion IoT Hub que vous avez copiée précédemment :
+2. Exécutez ensuite la commande ci-dessous pour vous connecter à votre hub. Remplacez `{iot hub connection string}` par la chaîne de connexion IoT Hub que vous avez copié précédemment :
 
     ```
     iothub-explorer login "{iot hub connection string}"
@@ -21,7 +21,7 @@ Prenez note de la chaîne de connexion de l’appareil à partir du résultat. C
 
 ![][img-identity]
 
-Reportez-vous à [Prise en main d’IoT Hub][lnk-getstarted] pour savoir comment créer des identités d’appareil par programme.
+Reportez-vous à [Prise en main d’IoT Hub][lnk-getstarted] pour créer des identités d’appareil par programme.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

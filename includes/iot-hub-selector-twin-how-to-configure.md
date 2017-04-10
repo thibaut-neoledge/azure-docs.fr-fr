@@ -7,7 +7,7 @@
 ## <a name="introduction"></a>Introduction
 Dans l’article [Prise en main des représentations d’appareil IoT Hub][lnk-twin-tutorial], vous avez appris à définir les métadonnées d’appareil à partir de votre serveur principal de solution à l’aide *d’étiquettes*, à signaler les conditions d’appareil à partir d’une application d’appareil au moyen de *propriétés signalées* et à interroger ces informations par le biais d’un langage de type SQL.
 
-Dans ce didacticiel, vous allez découvrir comment combiner les *propriétés souhaitées* des représentations d’appareil et les *propriétés signalées* afin de configurer les applications d’appareil à distance. Plus précisément, ce didacticiel décrit la façon dont les propriétés signalées et souhaitées des représentations d’appareil permettent de procéder à une configuration à plusieurs étapes d’un paramètre d’application d’appareil, ainsi que la façon dont ces propriétés dotent le serveur principal de solution d’une visibilité de l’état de cette opération sur l’ensemble des appareils. Pour plus d’informations sur le rôle des configurations d’appareil, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-dm-overview].
+Dans ce didacticiel, vous allez découvrir comment combiner les *propriétés souhaitées* des représentations d’appareil et les *propriétés signalées* afin de configurer les applications d’appareil à distance. Plus précisément, ce didacticiel décrit la façon dont les propriétés signalées et souhaitées des représentations d’appareil permettent de procéder à une configuration à plusieurs étapes d’une application d’appareil, ainsi que la façon dont ces propriétés dotent le serveur principal de solution d’une visibilité de l’état de cette opération sur l’ensemble des appareils. Pour plus d’informations sur le rôle des configurations d’appareil, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-dm-overview].
 
 À un niveau supérieur, l’utilisation de représentations d’appareil permet au serveur principal de solution de spécifier la configuration souhaitée pour les appareils gérés, en lieu et place de l’envoi de commandes spécifiques. L’appareil doit donc établir lui-même la meilleure façon de mettre à jour sa configuration (cet aspect revêt une grande importance dans les scénarios IoT dans lesquels des conditions d’appareil spécifiques ont une incidence sur la capacité d’exécution immédiate de commandes données), tout en signalant continuellement au serveur principal de solution l’état actuel et les conditions d’erreur possibles du processus de mise à jour. Ce modèle joue un rôle déterminant dans la gestion d’ensembles volumineux d’appareils, car il offre au serveur principal de solution une visibilité totale de l’état du processus de configuration sur l’ensemble des appareils.
 
@@ -16,7 +16,7 @@ Dans ce didacticiel, vous allez découvrir comment combiner les *propriétés so
 > 
 > 
 
-Dans ce didacticiel, le serveur principal de solution modifie la configuration de télémétrie d’un appareil cible. En conséquence, l’application d’appareil suit un processus à plusieurs étapes pour appliquer une mise à jour de configuration (nécessitant par exemple un redémarrage de module logiciel), ce que ce didacticiel simule avec un simple délai.
+Dans ce didacticiel, le serveur principal de solution modifie la configuration de télémétrie d’un appareil cible. En conséquence, l’application d’appareil suit un processus à plusieurs étapes pour appliquer une mise à jour de configuration (nécessitant par exemple un redémarrage de module logiciel, ce que ce didacticiel simule avec un simple délai).
 
 Le serveur principal de la solution stocke la configuration dans les propriétés souhaitées du jumeau d’appareil comme suit :
 
@@ -92,8 +92,3 @@ Ce didacticiel vous explique les procédures suivantes :
 [lnk-dm-overview]: ../articles/iot-hub/iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
-
-
-<!--HONumber=Feb17_HO3-->
-
-

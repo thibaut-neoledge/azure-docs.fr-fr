@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Que contiennent les images de modèle Azure RemoteApp ?
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -111,10 +112,5 @@ Cette image est une extension de l'image vanille et inclut les composants suivan
 > **Informations légales :** cette image n’inclut pas de licence Microsoft Office et *ne peut pas être utilisée en production*. L'image Office 2013 Professionnel Plus peut uniquement être utilisée à des fins d'évaluation. Si vous voulez utiliser des applications Office dans Azure RemoteApp pour la production, vous devez utiliser l'image Office 365 ProPlus. Pour plus d'informations sur la licence Office, consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md)
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 9d80640a58171e94440ca02f44a73866f6412997
-ms.openlocfilehash: 296dfaaa05b89cae265a9926fad08495ea02a647
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a8ee2d2a4862e448d75b075537ef51cbdf8bfc9f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp-faq"></a>FAQ Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -124,10 +125,5 @@ Pour des informations sur le client, notamment une procédure d’installation d
 
 ### <a name="help-us-help-you"></a>Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

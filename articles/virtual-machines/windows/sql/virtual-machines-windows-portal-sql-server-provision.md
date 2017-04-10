@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -60,7 +60,7 @@ Ce didacticiel présente les procédures suivantes :
    > L’édition Developer est utilisée dans ce didacticiel, car il s’agit d’une version complète de SQL Server qui est gratuite à des fins de test de développement. Vous payez uniquement pour le coût d’exécution de la machine virtuelle.
    
    > [!NOTE]
-   > Les images de machines virtuelles SQL incluent les coûts de licence pour SQL Server dans la tarification par minute de la machine virtuelle que vous créez (sauf pour les éditions Développeur et Express). SQL Server Developer est gratuit pour le développement/les tests (hors production) et SQL Express est gratuit pour les charges légers (moins de 1 Go de mémoire, moins de 10 Go de stockage). Vous avez également la possibilité d’utiliser votre solution BYOL (apportez votre propre licence) et de payer seulement pour la machine virtuelle. Ces noms d’images sont préfixés avec {BYOL}. Pour plus d’informations sur cette option, consultez [Premiers pas avec SQL Server sur Machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+   > Les images de machines virtuelles SQL incluent les coûts de licence pour SQL Server dans la tarification par minute de la machine virtuelle que vous créez (sauf pour les éditions Développeur et Express). SQL Server Developer est gratuit pour le développement/les tests (hors production) et SQL Express est gratuit pour les charges légères (moins de 1 Go de mémoire, moins de 10 Go de stockage). Vous avez également la possibilité d’utiliser votre solution BYOL (apportez votre propre licence) et de payer seulement pour la machine virtuelle. Ces noms d’images sont préfixés avec {BYOL}. Pour plus d’informations sur cette option, consultez [Premiers pas avec SQL Server sur Machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. Sous **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Resource Manager est le modèle de déploiement recommandé pour les nouvelles machines virtuelles. Cliquez sur **Create**.
@@ -97,14 +97,17 @@ Dans le panneau **De base** , fournissez les informations suivantes :
     ![Panneau SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Choisir la taille de machine virtuelle
-Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Le panneau affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée. Le coût mensuel lié à l’exécution de la machine virtuelle est également estimé.
+Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Le panneau affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée.
+
+> [!IMPORTANT]
+> Le coût mensuel estimé affiché sur le panneau **Choisir une taille** n’inclut pas les coûts de licence SQL Server. Il s’agit uniquement du coût de la machine virtuelle. Pour les éditions Express et Developer de SQL Server, il s’agit du coût total estimé. Pour les autres éditions, consultez la [page de tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et sélectionnez votre édition de SQL Server. 
 
 ![Options de taille de machine virtuelle SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 Pour les charges de travail de production, nous vous recommandons de sélectionner une taille de machine virtuelle qui prend en charge [Premium Storage](../../../storage/storage-premium-storage.md). Si vous n’avez pas besoin d’un tel niveau de performances, utilisez le bouton **Afficher tout** pour afficher toutes les options de taille de machine. Par exemple, vous pouvez utiliser une plus petite taille de machine pour un environnement de test ou de développement.
 
 > [!NOTE]
-> Pour plus d’informations sur les tailles de machines virtuelles, voir [Tailles des machines virtuelles](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour des considérations sur les tailles de machines virtuelles SQL Server, consultez la rubrique [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> Pour plus d’informations sur les tailles de machines virtuelles, voir [Tailles des machines virtuelles](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour des considérations sur les tailles de machines virtuelles SQL Server, consultez la rubrique [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -123,7 +126,7 @@ Dans le panneau **Paramètres** , configurez le stockage Azure, la mise en rése
 * Sous **Compte de stockage**, vous pouvez accepter le nom de compte de stockage automatiquement approvisionné. Vous pouvez également cliquer sur **Compte de stockage** pour choisir un compte existant et configurer le type de compte de stockage. Par défaut, Azure crée un compte de stockage avec un stockage localement redondant. Pour plus d’informations sur les options de stockage, consultez [Réplication Azure Storage](../../../storage/storage-redundancy.md).
 * Sous **Réseau**, vous pouvez accepter les valeurs remplies automatiquement. Vous pouvez également cliquer sur chaque fonctionnalité pour configurer manuellement le **Réseau virtuel**, **Sous-réseau**, **Adresse IP publique** et **Groupe de sécurité réseau**. Dans le cadre de ce didacticiel, vous pouvez conserver les valeurs par défaut.
 * Azure permet **l’analyse** par défaut avec le même compte de stockage désigné pour la machine virtuelle. Vous pouvez modifier ces paramètres ici.
-* Dans **Groupe à haute disponibilité**, spécifiez un groupe à haute disponibilité. Dans le cadre de ce didacticiel, vous pouvez sélectionner **aucun**. Si vous envisagez de configurer des groupes de disponibilité SQL AlwaysOn, configurez la disponibilité pour éviter de recréer la machine virtuelle.  Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Dans **Groupe à haute disponibilité**, spécifiez un groupe à haute disponibilité. Dans le cadre de ce didacticiel, vous pouvez sélectionner **aucun**. Si vous envisagez de configurer des groupes de disponibilité SQL AlwaysOn, configurez la disponibilité pour éviter de recréer la machine virtuelle.  Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Une fois que vous avez terminé la configuration des paramètres, cliquez sur **OK**.
 
@@ -195,7 +198,7 @@ Vous pouvez spécifier des exigences comme les opérations d’entrée/sortie pa
 
 Par défaut, Azure optimise le stockage pour 5 000 E/S par seconde, 200 Mbit/s et 1 To d’espace de stockage. Vous pouvez modifier ces paramètres de stockage en fonction de la charge de travail. Sous **Stockage optimisé pour**, sélectionnez l’une des options suivantes :
 
-* **Général** est le paramètre par défaut ; il prend en charge la plupart des charges de travail.
+* **Général** est le paramètre par défaut ; il prend en charge la plupart des charges de travail.
 * **transactionnel** optimise le stockage pour les charges de travail OLTP de base de données traditionnelles.
 * **Entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
 

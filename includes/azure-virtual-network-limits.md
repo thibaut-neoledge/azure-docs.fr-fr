@@ -1,4 +1,4 @@
-Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement.
+<a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement.
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP publiques (statiques) |20 |contacter le support technique |
 | Équilibreurs de charge (internes et accessibles sur Internet) |100 |contacter le support technique |
 | Règles d’équilibrage de charge par équilibreur de charge |150 |150 |
-| Adresse IP frontale publique par équilibreur de charge |10 |contacter le support technique |
+| Adresse IP frontale publique par équilibreur de charge |10 |30 |
 | Adresse IP frontale privée par équilibreur de charge |10 |contacter le support technique |
 | Homologations VNet par réseau virtuel |10 |50 |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |

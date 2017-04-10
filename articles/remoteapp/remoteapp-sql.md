@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure avec Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -56,10 +57,5 @@ Si l’expérience d’utilisation d’une application cliente hébergée dans A
 * La latence du réseau à partir de votre appareil dans Azure est élevée. Passez sur la meilleure connexion, la plus rapide pour obtenir les meilleures performances. Utilisez [azurespeed.com](http://azurespeed.com/) comme outil général pour tester la latence de vos périphériques vers le centre de données Azure.  
 * L’application cliente hébergée dans Azure RemoteApp est surchargée. En sélectionnant un autre plan de facturation, par exemple, la facturation Premium, vous pouvez améliorer les performances. Une autre astuce consiste à analyser les ressources que votre application utilise : pendant une session active, appuyez sur les touches CTRL, ALT et Fin pour lancer l’écran SAP, sélectionnez Gestionnaire des tâches et observez le taux d’utilisation des ressources correspondant à votre application.
 * SQL Server est surchargé ou n’est pas optimisé. Suivez les instructions SQL pour le dépannage. 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

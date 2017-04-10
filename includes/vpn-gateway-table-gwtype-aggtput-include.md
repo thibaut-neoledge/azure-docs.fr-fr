@@ -4,7 +4,7 @@ Notez que la référence de la passerelle UltraPerformance n’est pas représen
 
 |  | **Débit de passerelle VPN (1)** | **Tunnels IPsec max de passerelle VPN (2)** | **Débit de passerelle ExpressRoute** | **Passerelle VPN et ExpressRoute coexistants** |
 | --- | --- | --- | --- | --- |
-| **Référence SKU De base (3)(5)** |100 Mbits/s |10 |500 Mbits/s |Non |
+| **Référence de base (3)(5)(6)** |100 Mbits/s |10 |500 Mbits/s (6) |Non |
 | **Référence SKU Standard (4) (5)** |100 Mbits/s |10 |1 000 Mbits/s |Oui |
 | **Référence SKU Hautes performances (4)** |200 Mbits/s |30 |2 000 Mbits/s |Oui |
 
@@ -13,9 +13,4 @@ Notez que la référence de la passerelle UltraPerformance n’est pas représen
 * (3) Le protocole BGP n’est pas pris en charge pour la référence SKU De base.
 * (4) Les VPN basés sur des stratégies ne sont pas pris en charge pour cette référence SKU. Ils sont uniquement pris en charge sur la référence SKU De base.
 * (5) Les connexions VPN S2S en mode actif-actif avec des passerelles ne sont pas prises en charge pour cette référence SKU. Le mode actif/actif est uniquement pris en charge sur la référence SKU HighPerformance.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) La référence de base est déconseillée pour une utilisation avec Expressroute.

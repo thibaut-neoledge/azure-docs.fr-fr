@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ La figure ci-dessus illustre le mode de traitement des règles de groupe de séc
 ### <a name="default-tags"></a>Balises par défaut
 Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d’adresses IP. Vous pouvez utiliser les balises par défaut dans les propriétés du **préfixe d’adresse source** et du **préfixe d’adresse de destination** de toute règle. Il existe trois balises par défaut que vous pouvez utiliser.
 
-* **VIRTUAL_NETWORK :** cette balise par défaut indique tous les espaces d’adressage de votre réseau. Elle inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage local connecté et les réseaux virtuels Azure connectés (réseaux locaux).
-* **AZURE_LOADBALANCER :** cette balise par défaut indique l’équilibreur de charge de l’infrastructure d’Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** si vous utilisez Azure Resource Manager) : cette balise par défaut désigne tous les espaces d’adressage de votre réseau. Elle inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage local connecté et les réseaux virtuels Azure connectés (réseaux locaux).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** si vous utilisez Azure Resource Manager) : cette balise par défaut désigne l’équilibrage de charge de l’infrastructure Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
 * **INTERNET :** cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. Cette plage inclut [espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653) .
 
 ### <a name="default-rules"></a>Règles par défaut
@@ -258,9 +259,4 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 * [Déploiement des groupes de sécurité réseau dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
 * [Déploiement des groupes de sécurité réseau dans Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

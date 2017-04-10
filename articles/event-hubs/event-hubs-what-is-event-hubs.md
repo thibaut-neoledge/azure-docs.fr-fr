@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Les fonctionnalités de traitement des événements et données de télémétrie
 Azure Event Hubs inclut également une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie recueillies sur des machines industrielles ou des véhicules connectés.
 
 ## <a name="azure-event-hubs-overview"></a>Vue d'ensemble des hubs d'événements Azure
-Dans les architectures de solution, les concentrateurs d’événements jouent souvent le rôle de « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements*. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation.
+Dans les architectures de solution, les concentrateurs d’événements jouent souvent le rôle de « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements*. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. La figure suivante illustre cette architecture :
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -104,6 +104,8 @@ Voici quelques exemples de la convention URI de groupe consommateurs :
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 

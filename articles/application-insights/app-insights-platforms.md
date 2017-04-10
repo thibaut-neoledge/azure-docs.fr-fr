@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46e6ab8a9c5d4e6a00d61ee4e5bbfd42307bfc69
-ms.openlocfilehash: 5ec35fb0171a4a62b915579b5a079060132998dd
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 42507475b5d15c4704e6bcb3d56dc00c91006655
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -60,9 +61,10 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 ## <a name="logging-frameworks"></a>Frameworks de journalisation
 * [Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J ou Logback](app-insights-java-trace-logs.md)
-* [Journalisation sémantique (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;s’intègre au [bloc applicatif de journalisation sémantique](https://msdn.microsoft.com/library/dn440729.aspx)
+* [Journalisation sémantique (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - s’intègre au [bloc applicatif de journalisation sémantique](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Tests de charge basés sur le cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [Plug-in LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>Systèmes de gestion de contenu
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
@@ -77,11 +79,6 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)
 
-## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
+## <a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

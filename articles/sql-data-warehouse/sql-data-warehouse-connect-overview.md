@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +28,7 @@ Cet article vous aidera à établir votre première connexion à SQL Data Wareho
 ## <a name="find-your-server-name"></a>Recherche du nom de serveur
 La première étape de connexion à SQL Data Warehouse consiste à déterminer le nom de votre serveur.  Dans l’exemple suivant, le nom du serveur est sample.database.windows.net. Pour rechercher le nom complet du serveur :
 
-1. Accédez au [portail Azure][portail Azure].
+1. Accédez au [portail Azure][Azure portal].
 2. Cliquez sur **Bases de données SQL** 
 3. Cliquez sur la base de données à laquelle vous souhaitez vous connecter.
 4. Recherchez le nom complet du serveur.
@@ -34,7 +36,7 @@ La première étape de connexion à SQL Data Warehouse consiste à déterminer l
     ![Nom complet du serveur][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Chaînes de connexion et pilotes pris en charge
-Azure SQL Data Warehouse prend en charge [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] et [JDBC][JDBC]. Cliquez sur l’un des pilotes ci-dessus pour rechercher la dernière version et accéder à la documentation connexe. Pour générer automatiquement la chaîne de connexion pour le pilote que vous utilisez à partir du portail Azure, vous pouvez cliquer sur l’option **Afficher les chaînes de connexion de la base de données** dans l’exemple précédent.  Voici également quelques exemples montrant à quoi ressemble une chaîne de connexion pour chaque pilote.
+Azure SQL Data Warehouse prend en charge [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] et [JDBC][JDBC]. Cliquez sur l’un des pilotes ci-dessus pour rechercher la dernière version et accéder à la documentation connexe. Pour générer automatiquement la chaîne de connexion pour le pilote que vous utilisez à partir du portail Azure, vous pouvez cliquer sur l’option **Afficher les chaînes de connexion de la base de données** dans l’exemple précédent.  Voici également quelques exemples montrant à quoi ressemble une chaîne de connexion pour chaque pilote.
 
 > [!NOTE]
 > Vous pouvez définir le délai de connexion à 300 secondes pour permettre à votre connexion de résister à des courtes périodes d’indisponibilité.
@@ -72,11 +74,11 @@ SQL Data Warehouse standardise certains paramètres pendant la connexion et la c
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour vous connecter et interroger avec Visual Studio, consultez [Interroger avec Visual Studio][Interroger avec Visual Studio]. Pour en savoir plus sur les options d’authentification, consultez [Authentification sur Azure SQL Data Warehouse][Authentification sur Azure SQL Data Warehouse].
+Pour vous connecter à Visual Studio et l’utiliser pour lancer des requêtes, consultez la page [Envoyer des requêtes avec Visual Studio][Query with Visual Studio]. Pour en savoir plus sur les options d’authentification, consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-[Authentification sur Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -89,15 +91,10 @@ Pour vous connecter et interroger avec Visual Studio, consultez [Interroger avec
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

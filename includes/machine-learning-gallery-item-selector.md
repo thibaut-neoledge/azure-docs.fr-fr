@@ -16,8 +16,3 @@ La galerie contient diverses ressources que vous pouvez utiliser pour développe
 > 
 > 
 -->
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Création d’une base de données SQL Azure à l’aide du portail Azure
 
 Ce didacticiel de démarrage rapide vous guide dans la procédure de création d’une base de données SQL dans Azure.  Azure SQL Database est une offre de « Base de données en tant que service » qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud.  Ce guide de démarrage rapide vous montre comment commencer par créer une base de données SQL à l’aide du portail Azure.
+
+Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -43,10 +45,10 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente : 
-   - Nom de la base de données : utilisez **mySampleDatabase**
-   - Groupe de ressources : utilisez **myResourceGroup**
-   - Source : sélectionnez **Exemple (AdventureWorksLT)**
+3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :     
+   - Nom de la base de données : **mySampleDatabase**
+   - Groupe de ressources : **myResourceGroup**
+   - Source : **Exemple (AdventureWorksLT)**
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire Nouveau serveur** en spécifiant un nom de serveur global unique, fournissez un nom pour la connexion d’administrateur serveur et spécifiez le mot de passe de votre choix. 
 
@@ -66,7 +68,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
     ![notification](./media/sql-database-get-started/notification.png)
 
 
-## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
+## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
 
 Le service SQL Database crée un pare-feu au niveau du serveur pour empêcher les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md) pour l’adresse IP de votre client afin de permettre la connectivité externe via le pare-feu de base de données SQL pour votre adresse IP uniquement. 
 
@@ -82,7 +84,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur pour empêcher le
 
 4. Cliquez sur **OK**, puis cliquez sur la **X** pour fermer la page **Paramètres de pare-feu**.
 
-Vous pouvez maintenant vous connecter à la base de données et à son serveur à l’aide de SQL Server Management Studio ou tout autre outil de votre choix.
+Vous pouvez maintenant vous connecter à la base de données et à son serveur à l’aide de SQL Server Management Studio ou de tout autre outil de votre choix à partir de cette adresse IP à l’aide du compte d’administrateur de serveur créé au préalable.
 
 ## <a name="query-the-sql-database"></a>Interroger la base de données SQL
 
@@ -103,7 +105,7 @@ Lorsque nous avons créé notre base de données SQL, nous l’avons rempli avec
 5. Après vous être authentifié, saisissez la requête suivante dans le volet de l’éditeur de requête.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
