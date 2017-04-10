@@ -32,7 +32,7 @@ ms.lasthandoff: 03/29/2017
 >
 >
 
-L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, le calcul peut être mis à l’échelle pour répondre aux exigences de performance, indépendamment du volume de données. Une conséquence naturelle de cette architecture est la séparation de la [facturation] [ billed] du calcul et du stockage. 
+L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, le calcul peut être mis à l’échelle pour répondre aux exigences de performance, indépendamment du volume de données. Une conséquence naturelle de cette architecture est la séparation de la [facturation][billed] du calcul et du stockage. 
 
 Cette présentation décrit le fonctionnement de la mise à l’échelle avec SQL Data Warehouse. Elle explique également comment utiliser les fonctionnalités de mise en pause, de reprise et de mise à l’échelle de SQL Data Warehouse. Consultez la page sur les [Data Warehouse Units (DWU)][data warehouse units (DWUs)] pour en apprendre davantage sur les DWU et leurs performances. 
 
