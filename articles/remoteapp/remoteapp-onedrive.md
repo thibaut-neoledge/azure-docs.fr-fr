@@ -15,24 +15,20 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 98f592ca96d8c332d7cb99679e1ef3834f84a095
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5fee3d1fed507684b73dc5bb3b6b08014329ace1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="onedrive-for-business-and-azure-remoteapp"></a>OneDrive Entreprise et Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
 L’agent de synchronisation OneDrive Entreprise n’est pas pris en charge avec Azure RemoteApp.
 
 Vous pouvez inclure OneDrive Entreprise au sein d’une collection à utiliser avec Office 365. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

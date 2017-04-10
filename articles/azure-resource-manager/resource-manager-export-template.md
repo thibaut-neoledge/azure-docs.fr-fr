@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ Ce déploiement peut prendre une minute. Une fois le déploiement terminé, votr
 3. Le panneau affiche un résumé du déploiement. Le résumé inclut l’état du déploiement et ses opérations, ainsi que les valeurs de paramètres que vous avez fournies. Pour voir le modèle utilisé pour le déploiement, sélectionnez **Afficher le modèle**.
    
      ![afficher le résumé du déploiement](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager récupère pour vous les six fichiers ci-dessous :
+4. Resource Manager récupère pour vous les sept fichiers ci-dessous :
    
    1. **Modèle** - Modèle définissant l’infrastructure de votre solution. Lorsque vous avez créé le compte de stockage via le portail, Resource Manager a utilisé un modèle pour le déployer et a enregistré ce modèle pour référence ultérieure.
    2. **Paramètres** - Fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement. Il contient les valeurs que vous avez fournies lors du premier déploiement, mais vous pouvez modifier ces valeurs lors du redéploiement du modèle.
@@ -146,30 +146,30 @@ Pour connaître l’état actuel de votre groupe de ressources, exportez un mod�
       ![exporter un groupe de ressources](./media/resource-manager-export-template/export-resource-group.png)
    
      Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Si votre groupe de ressources contient uniquement le compte de stockage et le réseau virtuel indiqués dans cet article, aucune erreur ne s’affiche. Cependant, si vous avez créé d’autres types de ressources, vous pouvez rencontrer une erreur indiquant qu’il existe un problème avec l’exportation. Vous allez apprendre à gérer ces problèmes dans la section [Résoudre les problèmes d’exportation](#fix-export-issues) .
-2. Vous voyez à nouveau les six fichiers que vous pouvez utiliser pour redéployer la solution, mais cette fois le modèle est un peu différent. Ce modèle comporte seulement&2; paramètres : un pour le nom du compte de stockage et un pour le nom du réseau virtuel.
+2. Vous voyez à nouveau les six fichiers que vous pouvez utiliser pour redéployer la solution, mais cette fois le modèle est un peu différent. Ce modèle comporte seulement 2 paramètres : un pour le nom du compte de stockage et un pour le nom du réseau virtuel.
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager n’a pas récupéré les modèles que vous avez utilisés pendant le déploiement. Au lieu de cela, il a généré un nouveau modèle basé sur la configuration actuelle des ressources. Par exemple, le modèle définit l’emplacement et la valeur de réplication du compte de stockage sur :
+   Resource Manager n’a pas récupéré les modèles que vous avez utilisés pendant le déploiement. Au lieu de cela, il a généré un nouveau modèle basé sur la configuration actuelle des ressources. Par exemple, le modèle définit l’emplacement et la valeur de réplication du compte de stockage sur :
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. Vous avez deux possibilités pour continuer à travailler avec ce modèle. Vous pouvez d’une part télécharger le modèle et travailler dessus en local avec un éditeur JSON. Vous pouvez également enregistrer le modèle dans votre bibliothèque et travailler dessus au moyen du portail.
    
      Si vous êtes habitué à utiliser un éditeur JSON comme [VS Code](resource-manager-vs-code.md) ou [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), il peut être intéressant de télécharger le modèle en local et d’utiliser cet éditeur. Si vous ne disposez pas d’un éditeur JSON, vous préférerez peut-être modifier le modèle sur le portail. Le reste de cette rubrique suppose que vous avez enregistré le modèle dans votre bibliothèque sur le portail. Toutefois, les modifications que vous apportez à la syntaxe du modèle sont les mêmes en local avec un éditeur JSON et sur le portail.
@@ -193,7 +193,7 @@ Pour connaître l’état actuel de votre groupe de ressources, exportez un mod�
       ![sélectionner un modèle](./media/resource-manager-export-template/select-library-template.png)
 
 ## <a name="customize-the-template"></a>Personnaliser le modèle
-Le modèle exporté fonctionne bien si vous souhaitez créer le même compte de stockage et le même réseau virtuel pour tous les déploiements. Toutefois, Resource Manager propose des options permettant de déployer des modèles avec une plus grande flexibilité. Par exemple, pendant le déploiement, vous pouvez si vous le souhaitez spécifier le type de compte de stockage à créer ou les valeurs à utiliser pour le préfixe d’adresse de réseau virtuel et le préfixe de sous-réseau.
+Le modèle exporté fonctionne bien si vous souhaitez créer le même compte de stockage et le même réseau virtuel pour tous les déploiements. Toutefois, Resource Manager propose des options permettant de déployer des modèles avec une plus grande flexibilité. Par exemple, pendant le déploiement, vous pouvez, si vous le souhaitez, spécifier le type de compte de stockage à créer ou les valeurs à utiliser pour le préfixe d’adresse de réseau virtuel et le préfixe de sous-réseau.
 
 Dans cette section, vous ajoutez des paramètres au modèle exporté pour pouvoir réutiliser le modèle lors du déploiement de ces ressources vers d’autres environnements. Vous ajoutez également des fonctionnalités à votre modèle pour diminuer la probabilité de rencontrer une erreur lors du déploiement de votre modèle. Vous n’avez plus à trouver un nom unique pour votre compte de stockage. C’est le modèle qui le crée. Vous restreignez les valeurs pouvant être spécifiées pour le type de compte de stockage aux options valides seulement.
 
@@ -205,88 +205,88 @@ Dans cette section, vous ajoutez des paramètres au modèle exporté pour pouvoi
      ![modifier un modèle](./media/resource-manager-export-template/edit-template.png)
 3. Pour permettre la transmission des valeurs à spécifier pendant le déploiement, remplacez la section **parameters** par les nouvelles définitions de paramètres. Notez les valeurs autorisées de **allowedValues** pour **storageAccount_accountType**. Si vous fournissez accidentellement une valeur non valide, cette erreur est reconnue avant le début du déploiement. Notez que vous devez uniquement fournir un préfixe comme nom du compte de stockage, et que ce préfixe est limité à 11 caractères. En limitant le préfixe à 11 caractères, vous êtes certain que le nom complet ne dépasse pas le nombre maximal de caractères pour un compte de stockage. Le préfixe vous permet d’appliquer une convention d’affectation de noms pour vos comptes de stockage. Vous allez apprendre à créer un nom unique à l’étape suivante.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. La section **variables** de votre modèle est actuellement vide. La section **variables** vous permet de créer des valeurs qui simplifient la syntaxe pour le reste de votre modèle. Remplacez cette section par une nouvelle définition de variable. La variable **storageAccount_name** concatène le préfixe du paramètre en une chaîne unique générée en se basant sur l’identificateur du groupe de ressources. Vous n’avez plus à trouver un nom unique lorsque vous fournissez une valeur de paramètre.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
-5. Pour utiliser les paramètres et la variable dans les définitions de ressources, remplacez la section **resources** par les nouvelles définitions de ressources. Notez que peu de choses ont changé dans les définitions de ressources, en dehors de la valeur affectée à la propriété de ressource. Les propriétés sont les mêmes que celles du modèle exporté. Vous affectez simplement des propriétés aux valeurs de paramètres, au lieu de valeurs codées en dur. L’emplacement des ressources est défini pour utiliser le même emplacement que le groupe de ressources via l’expression **resourceGroup().location** . La variable que vous avez créée pour le nom de compte de stockage est référencée via l’expression **variables** .
+5. Pour utiliser les paramètres et la variable dans les définitions de ressources, remplacez la section **resources** par les nouvelles définitions de ressources. Notez que peu de chose a changé dans les définitions de ressources, en dehors de la valeur affectée à la propriété de ressource. Les propriétés sont les mêmes que celles du modèle exporté. Vous affectez simplement des propriétés aux valeurs de paramètres, au lieu de valeurs codées en dur. L’emplacement des ressources est défini pour utiliser le même emplacement que le groupe de ressources via l’expression **resourceGroup().location** . La variable que vous avez créée pour le nom de compte de stockage est référencée via l’expression **variables** .
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. Sélectionnez **OK** lorsque vous avez terminé la modification du modèle.
 7. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées au modèle.
@@ -393,7 +393,7 @@ Dans la ressource de sites web, ajoutez une définition à installer par le biai
 ```
 
 ### <a name="virtual-machine-extension"></a>Extension de machine virtuelle
-Pour obtenir des exemples d’extensions de machine virtuelle, consultez [Exemples de configuration d’extension de machine virtuelle Azure Windows](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour obtenir des exemples d’extensions de machine virtuelle, consultez [Exemples de configuration d’extension de machine virtuelle Azure Windows](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
 Ajoutez un type de ressource de passerelle de réseau virtuel.

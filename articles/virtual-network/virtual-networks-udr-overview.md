@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ Ce flux de communications est rendu possible par l’utilisation, par Microsoft�
 * entre deux sous-réseaux d’un réseau virtuel ;
 * entre les machines virtuelles et Internet ;
 * entre deux réseaux virtuels via une passerelle VPN ;
-* entre deux réseaux virtuels par le biais de VNet Peering (chaînage de services) ;
+* entre deux réseaux virtuels par le biais de VNet Peering (chaînage de services) ;
 * entre un réseau virtuel et votre réseau local via une passerelle VPN.
 
 La figure ci-dessous représente une configuration simple avec un réseau virtuel, deux sous-réseaux et quelques machines virtuelles, avec les itinéraires système qui prennent en charge le trafic IP.
@@ -57,7 +57,7 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
 | --- | --- | --- | --- |
 | Préfixe d’adresse |CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16. |Ceci doit être une plage CIDR valide représentant des adresses sur l’Internet public, le réseau virtuel Azure ou le centre de données local. |Assurez-vous que le **préfixe d’adresse** ne contient pas l’adresse de **l’adresse du tronçon suivant** ; dans le cas contraire, vos paquets entreront dans une boucle allant de la source au tronçon suivant sans jamais atteindre leur destination. |
 | Type de tronçon suivant |Type de tronçon Azure vers lequel le paquet doit être envoyé. |Il doit s’agir de l’une des valeurs suivantes :  <br/> **Réseau virtuel**. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant *Réseau virtuel*. <br/> **Passerelle de réseau virtuel**. Représente une passerelle VPN de site à site Azure. <br/> **Internet**. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure. <br/> **Appliance virtuelle**. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. <br/> **Aucun**. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés. |Envisagez d’utiliser une **Appliance virtuelle** pour diriger le trafic vers une machine virtuelle ou une adresse IP Azure Load Balancer interne.  Ce type permet de spécifier une adresse IP, comme décrit ci-dessous. Envisagez d’utiliser un type **Aucun** afin de mettre fin au transit des paquets vers une destination donnée. |
-| adresse de tronçon suivant |L’adresse de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. |Doit être une adresse IP accessible dans le réseau virtuel où s’applique l’itinéraire défini par l’utilisateur. |Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. Si l’adresse IP représente l’adresse IP interne d’Azure Load Balancer, assurez-vous que vous disposez d’une règle d’équilibrage correspondante pour chaque port dont vous souhaitez équilibrer la charge.|
+| adresse de tronçon suivant |L’adresse de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. |Doit être une adresse IP accessible dans le réseau virtuel où s’applique l’itinéraire défini par l’utilisateur sans passer par une **passerelle de réseau virtuel**. L’adresse IP doit se trouver sur le même réseau virtuel où il est appliqué, ou sur un réseau virtuel homologué. |Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. Si l’adresse IP représente l’adresse IP interne d’Azure Load Balancer, assurez-vous que vous disposez d’une règle d’équilibrage correspondante pour chaque port dont vous souhaitez équilibrer la charge.|
 
 Dans Azure PowerShell, certaines valeurs « NextHopType » ont des noms différents :
 

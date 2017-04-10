@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 756d51e41c43be2e80f8fce1c3965e1723f7cec8
-ms.openlocfilehash: 7cd0c60b3eaaf6c2fd702d4e4b580299cb71c5fc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7533fe3758860111ae6c26630effedd673734b63
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -141,8 +141,8 @@ Cliquez sur **Affichage avancé** pour afficher la vue détaillée indiquant les
 
 Un super utilisateur a plus de droits que tous les utilisateurs de Data Lake Store. Un super utilisateur :
 
-* possède les autorisations RWX sur **tous** les fichiers et dossiers ;
-* peut modifier les autorisations sur n’importe quel fichier ou dossier ;
+* possède les autorisations RWX sur **tous** les fichiers et dossiers ;
+* peut modifier les autorisations sur n’importe quel fichier ou dossier ;
 * peut modifier l’utilisateur ou le groupe propriétaire d’un fichier ou d’un dossier.
 
 Dans Azure, un compte Data Lake Store possède plusieurs rôles Azure :
@@ -161,7 +161,7 @@ Si vous souhaitez créer un rôle personnalisé de contrôle d’accès en fonct
 
 L’utilisateur qui a créé l’élément est automatiquement l’utilisateur propriétaire de l’élément. Les utilisateurs propriétaires peuvent :
 
-* modifier les autorisations de leurs fichiers ;
+* modifier les autorisations de leurs fichiers ;
 * modifier le groupe propriétaire d’un fichier détenu, tant que l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
@@ -179,7 +179,7 @@ Lorsqu’un nouvel élément de système de fichiers est créé, Data Lake Store
 * **Cas 2** (tous les autres cas) : lorsqu’un élément est créé, le groupe propriétaire est copié à partir du dossier parent.
 
 Le groupe propriétaire peut être modifié par :
-* un super utilisateur ;
+* un super utilisateur ;
 * l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
 
 ## <a name="access-check-algorithm"></a>Algorithme de vérification des accès
@@ -330,9 +330,11 @@ Non.
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
-* [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
+* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 
-* [ACL POSIX sous Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
+* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+
+* [ACL POSIX sous Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 
 * [ACL using access control lists on Linux (ACL utilisant des listes de contrôle d’accès sous Linux)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 

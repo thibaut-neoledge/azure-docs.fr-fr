@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Essai d’Azure RemoteApp sur votre périphérique en 3 minutes ou moins
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -42,10 +43,5 @@ Votre opinion est importante. À la fin de chaque session, vous verrez une boît
 > Comme il s’agit d’un environnement contrôlé à des fins de démonstration, nous n’avons pas activé l’accès internet externe à partir des applications de démonstration publiées. Pour cette raison, des services comme OneDrive ne sont pas accessibles. En outre, le partage du presse-papiers (copier-coller), ainsi que la redirection USB et de l’imprimante sont désactivés.  
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

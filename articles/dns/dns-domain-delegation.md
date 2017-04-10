@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
-ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 1a662d23c7b8eef68e0f182792699210d2b80bac
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -31,11 +32,11 @@ DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « 
 
 **Zone DNS**
 
-Un domaine est un nom unique dans le système DNS, par exemple, « contoso.com ». Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
+Un domaine est un nom unique dans le système DNS, par exemple, « contoso.com ». Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine « contoso.com » peut contenir plusieurs enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
 
 **Bureau d’enregistrement de domaines**
 
-Un bureau d’enregistrement de domaines est une société qui peut fournir des noms de domaine Internet. Il vérifie si le domaine Internet que vous souhaitez utiliser est disponible et vous pouvez ensuite l’acheter. Une fois que le nom de domaine est enregistré, vous en êtes le propriétaire légal. Si vous disposez déjà d’un domaine Internet, vous allez utiliser le bureau d’enregistrement de domaines actuel pour la délégation à Azure DNS.
+Un bureau d’enregistrement de domaines est une société qui peut fournir des noms de domaine Internet. Il vérifie si le domaine Internet que vous souhaitez utiliser est disponible. Vous pouvez ensuite l’acheter. Une fois inscrit, le nom de domaine est votre propriété légale. Si vous disposez déjà d’un domaine Internet, vous allez utiliser le bureau d’enregistrement de domaines actuel pour la délégation à Azure DNS.
 
 > [!NOTE]
 > Pour plus d'informations sur le propriétaire d'un nom de domaine donné ou sur l'achat d'un domaine, consultez la page [Gestion des domaines Internet dans Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
@@ -50,27 +51,28 @@ Deux types de serveur DNS sont disponibles :
 > [!NOTE]
 > Azure DNS fournit un service DNS faisant autorité.  Il ne fournit pas un service DNS récursif.
 >
-> Les services cloud et machines virtuelles contenus dans Azure sont configurés automatiquement pour utiliser un service DNS récursif fourni séparément dans le cadre de l’infrastructure Azure.  Pour plus d’informations sur la façon de modifier ces paramètres DNS, consultez [Name Resolution in Azure (Résolution de noms dans Azure)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+> Les services cloud et machines virtuelles contenus dans Azure sont automatiquement configurés pour utiliser un service DNS récursif, fourni séparément, dans le cadre de l’infrastructure Azure.  Pour savoir comment modifier ces paramètres DNS, voir [Résolution de noms dans Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 Les clients DNS des PC ou appareils mobiles appellent généralement un serveur DNS récursif pour effectuer les requêtes DNS dont les applications clientes ont besoin.
 
-Lorsqu’un serveur DNS récursif reçoit une requête pour un enregistrement DNS tel que « www.contoso.com », il doit d’abord rechercher le serveur de noms qui héberge la zone pour le domaine « contoso.com ». Pour ce faire, il commence par les serveurs de noms racines, et à partir de là, il recherche les serveurs de noms hébergeant la zone « com ». Il interroge ensuite les serveurs de noms « com » pour trouver les serveurs de noms hébergeant la zone « contoso.com ».  Enfin, il est en mesure de rechercher « www.contoso.com » parmi ces serveurs de noms.
+Lorsqu’un serveur DNS récursif reçoit une requête pour un enregistrement DNS tel que « www.contoso.com », il doit d’abord rechercher le serveur de noms qui héberge la zone pour le domaine « contoso.com ». Pour ce faire, il commence par les serveurs de noms racines, puis il recherche les serveurs de noms hébergeant la zone « com ». Il interroge ensuite les serveurs de noms « com » pour trouver les serveurs de noms hébergeant la zone « contoso.com ».  Enfin, il est en mesure de rechercher « www.contoso.com » parmi ces serveurs de noms.
 
-On parle dans ce cas de résolution de noms DNS. À strictement parler, la résolution DNS inclut toutefois des étapes supplémentaires, telles que le suivi des enregistrements CNAME, mais ce n’est pas important pour comprendre le fonctionnement de la délégation DNS.
+On parle dans ce cas de résolution de noms DNS. À strictement parler, la résolution DNS inclut toutefois des étapes supplémentaires, telles que le suivi des enregistrements CNAME, mais ce n’est pas important pour comprendre le fonctionnement de la délégation DNS.
 
 Comment une zone parente « pointe-t-elle » vers les serveurs de noms d’une zone enfant ? Elle utilise pour cela un type spécial d’enregistrement DNS appelé enregistrement NS (pour « serveur de noms »). Par exemple, la zone racine contient les enregistrements NS pour « com » et affiche les serveurs de noms pour la zone « com ». La zone « com », quant à elle, contient les enregistrements NS pour « contoso.com » et affiche les serveurs de noms pour la zone « contoso.com ». La configuration d’enregistrements NS pour une zone enfant dans une zone parente est appelée « délégation de domaine ».
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Chaque délégation a en fait deux copies des enregistrements NS : une dans la zone parent qui pointe vers la zone enfant et l’autre dans la zone enfant elle-même. La zone « contoso.com » contient les enregistrements NS pour « contoso.com » (en plus des enregistrements NS dans « com »). Il s’agit d’enregistrements NS faisant autorité qui se trouvent au sommet de la zone enfant.
+Chaque délégation a en fait deux copies des enregistrements NS : une dans la zone parent qui pointe vers la zone enfant et l’autre dans la zone enfant elle-même. La zone « contoso.com » contient les enregistrements NS pour « contoso.com » (en plus des enregistrements NS dans « com »). Il s’agit d’enregistrements NS faisant autorité ; ils se trouvent au sommet de la zone enfant.
 
 ## <a name="delegating-a-domain-to-azure-dns"></a>Délégation d’un domaine à Azure DNS
-Une fois que vous avez créé votre zone DNS dans Azure DNS, vous devez configurer les enregistrements NS de la zone parente pour qu’Azure DNS deviennent la source faisant autorité pour la résolution de noms pour votre zone. Pour les domaines achetés auprès d’un bureau d’enregistrement de domaines, ce dernier offre la possibilité de définir ces enregistrements NS.
+
+Une fois que vous avez créé votre zone DNS dans Azure DNS, vous devez configurer les enregistrements NS de la zone parente pour qu’Azure DNS deviennent la source faisant autorité pour la résolution de noms pour votre zone. Pour les domaines achetés auprès d’un bureau d’enregistrement de domaines, ce dernier offre la possibilité de définir ces enregistrements NS.
 
 > [!NOTE]
-> Il est inutile de posséder un domaine pour créer une zone DNS avec ce domaine dans Azure DNS. Toutefois, vous avez besoin de posséder le domaine pour configurer la délégation à Azure DNS dans le bureau d’enregistrement de domaines.
+> Pour créer une zone DNS avec un nom de domaine dans le DNS Azure, vous ne devez pas nécessairement être propriétaire de ce domaine. Toutefois, vous avez besoin de posséder le domaine pour configurer la délégation à Azure DNS dans le bureau d’enregistrement de domaines.
 
-Par exemple, supposons que vous achetez le domaine « contoso.com » et que vous créez une zone avec le nom « contoso.com » dans Azure DNS. En tant que propriétaire du domaine, votre bureau d’enregistrement vous permet de configurer les adresses de serveur de noms (par exemple, les enregistrements NS) pour votre domaine. Le bureau d’enregistrement stocke ces enregistrements NS dans le domaine parent, dans ce cas « .com ». Les clients du monde entier sont ensuite redirigés vers votre domaine dans la zone Azure DNS lors de la tentative de résolution des enregistrements DNS dans « contoso.com ».
+Par exemple, supposons que vous achetez le domaine « contoso.com » et que vous créez une zone avec le nom « contoso.com » dans Azure DNS. En tant que propriétaire du domaine, votre bureau d’enregistrement vous permet de configurer les adresses de serveur de noms (par exemple, les enregistrements NS) pour votre domaine. Le bureau d’enregistrement stocke ces enregistrements NS dans le domaine parent, dans ce cas « .com ». Les clients du monde entier peuvent ensuite être redirigés vers votre domaine dans la zone Azure DNS lors de la tentative de résolution des enregistrements DNS dans « contoso.com ».
 
 ### <a name="finding-the-name-server-names"></a>Recherche de noms de serveur de noms
 Avant de pouvoir déléguer votre zone DNS à Azure DNS, vous devez d’abord connaître les noms de serveur de noms correspondant à votre zone. Azure DNS alloue des serveurs de noms à partir d’un pool chaque fois qu’une zone est créée.
@@ -81,7 +83,7 @@ Le moyen le plus simple d’afficher les serveurs de noms attribués à votre zo
 
 Azure DNS crée automatiquement des enregistrements NS faisant autorité dans une zone qui contient les serveurs de noms attribués.  Pour afficher les noms de serveur de noms via Azure PowerShell ou l’interface de ligne de commande Azure, vous devez simplement récupérer ces enregistrements.
 
-À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit. Notez que le nom de l’enregistrement "@" est utilisé pour faire référence à des enregistrements au sommet de la zone.
+À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit. Notez que le nom d’enregistrement « @ » est utilisé pour faire référence à des enregistrements au sommet de la zone.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
@@ -131,7 +133,7 @@ info:    network dns record-set show command OK
 
 Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifier les enregistrements de serveur de noms pour un domaine. Dans la page de gestion du bureau d’enregistrement DNS, modifiez les enregistrements NS et remplacez-les par ceux créés par Azure DNS.
 
-Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS.  Vous devez toujours utiliser les 4 noms de serveur de noms, quel que soit le nom de votre domaine.  La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de premier niveau que votre domaine.
+Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS. Nous vous recommandons d’utiliser les quatre noms de serveur de noms, quel que soit le nom de votre domaine.  La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de premier niveau que votre domaine.
 
 Vous ne devez pas utiliser d’enregistrements de type glue pour pointer vers les adresses IP de serveur de noms Azure DNS, car ces adresses IP peuvent changer ultérieurement. Les délégations utilisant les noms de serveurs de noms dans votre propre zone (parfois appelés « serveurs de noms de redirection vers un microsite ») ne sont actuellement pas prises en charge dans Azure DNS.
 
@@ -139,7 +141,7 @@ Vous ne devez pas utiliser d’enregistrements de type glue pour pointer vers le
 
 Une fois la délégation effectuée, vous pouvez vérifier que la résolution de noms fonctionne à l’aide d’un outil tel que « nslookup » pour interroger l’enregistrement SOA de votre zone (qui est créé automatiquement en même temps que la zone).
 
-Notez que vous n’avez pas à spécifier les serveurs de noms Azure DNS, dans la mesure où le processus de résolution DNS normal trouve les serveurs de noms automatiquement si la délégation a été correctement configurée.
+Vous n’êtes pas obligé de spécifier les serveurs de noms Azure DNS ; si la délégation a été correctement configurée, le processus de résolution DNS normal trouve les serveurs de noms automatiquement.
 
 ```
 nslookup -type=SOA contoso.com
@@ -169,7 +171,7 @@ La configuration d’un sous-domaine suit un processus similaire à celui d’un
 
 ### <a name="to-delegate-a-sub-domain"></a>Délégation d’un sous-domaine
 
-L’exemple PowerShell suivant illustre cette procédure. Vous pouvez exécuter les mêmes étapes à l’aide du portail Azure ou de l’interface de ligne de commande interplateforme.
+L’exemple PowerShell suivant illustre cette procédure. Vous pouvez exécuter les mêmes étapes à l’aide du portail Azure ou de la version interplateforme d’Azure CLI.
 
 #### <a name="step-1-create-the-parent-and-child-zones"></a>Étape 1. Création des zones parent et enfant
 Commencez par créer les zones parent et enfant. Ces zones peuvent se trouver dans le même groupe de ressources ou dans des groupes de ressources différents.
@@ -189,7 +191,7 @@ $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType
 
 #### <a name="step-3-delegate-the-child-zone"></a>Étape 3. Délégation de la zone enfant
 
-Créez un jeu d’enregistrements NS correspondant dans la zone parent pour effectuer la délégation. Notez que le nom du jeu d’enregistrements se trouvant dans la zone parent correspond au nom de la zone enfant (dans ce cas « partenaires »).
+Créez un jeu d’enregistrements NS correspondant dans la zone parent pour effectuer la délégation. Le nom du jeu d’enregistrements se trouvant dans la zone parent correspond au nom de la zone enfant (dans ce cas, « partenaires »).
 
 ```powershell
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
@@ -222,10 +224,5 @@ partners.contoso.com
 [Gestion des zones DNS](dns-operations-dnszones.md)
 
 [Gestion des enregistrements DNS](dns-operations-recordsets.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

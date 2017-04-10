@@ -6,13 +6,16 @@ Les machines virtuelles de série F sont un excellent choix pour les charges de 
 
 La série Fs propose tous les avantages de la série F, en plus du stockage Premium.
 
+> [!NOTE]
+> À partir du 15 avril, toutes les machines virtuelles Azure, indépendamment de leur taille, prendront en charge au moins 2 interfaces réseau (NIC). Pour obtenir des informations spécifiques à une région, ne ratez pas les [mises à jour du service](https://azure.microsoft.com/en-us/updates/). Elles sont signalées ci-dessous par le caractère « ^ ».
+
 ## <a name="fs-series"></a>Série Fs*
 
 ACU : 210-250
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4 000 / 32 (12) |3 200 / 48 |1 / Modérée |
+| Standard_F1s |1 |2 |4 |2 |4 000 / 32 (12) |3 200 / 48 |2^ / Modérée |
 | Standard_F2s |2 |4 |8 |4 |8 000 / 64 (24) |6 400 / 96 |2 / Élevée |
 | Standard_F4s |4 |8 |16 |8 |16 000 / 128 (48) |12 800 / 192 |4 / Élevée |
 | Standard_F8s |8 |16 |32 |16 |32 000 / 256 (96) |25 600 / 384 |8 / Élevée |
@@ -29,7 +32,7 @@ ACU : 210-250
 
 | Taille         | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Débit de disque local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / Modérée                 |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2^ / Modérée                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / Élevée                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / Élevée                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / Élevée                     |

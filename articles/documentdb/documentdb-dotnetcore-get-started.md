@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/23/2017
+ms.date: 03/28/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: c8a915055318697ade229837653df4c105279299
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a2ebd1181535087dbd33c5088fc495ccebf76e4f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -314,7 +314,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 
 Insérez ensuite deux documents, un pour la famille Andersen, l’autre pour la famille Wakefield.
 
-Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en dessous de la création de la collection de documents.
+Copiez et collez le code suivant `// ADD THIS PART TO YOUR CODE` dans votre méthode **GetStartedDemo** en dessous de la création de la collection de documents.
 
 ```csharp
 await this.CreateDatabaseIfNotExists("FamilyDB_oa");

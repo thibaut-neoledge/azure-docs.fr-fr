@@ -49,7 +49,3 @@ Ce didacticiel vous explique les procédures suivantes :
 [lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
-
-<!--HONumber=Feb17_HO3-->
-
-

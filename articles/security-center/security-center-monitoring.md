@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Pour plus d’informations sur la façon d’appliquer des recommandations, cons
 
 La mosaïque **Intégrité de la sécurité des ressources** vous permet de surveiller l’état de sécurité de vos ressources. L’exemple suivant représente des problèmes de niveau de gravité élevé ou moyen, qui nécessitent une attention particulière. Les stratégies de sécurité qui sont activées ont un impact sur les types de contrôles surveillés.
 
-![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Si Azure Security Center identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](/virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
 
-### <a name="monitor-virtual-machines"></a>Surveillance des machines virtuelles
-Quand vous cliquez sur **Machines virtuelles** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Machines virtuelles** s’ouvre et affiche des informations détaillées sur les étapes d’intégration et de prévention, ainsi que la liste de toutes les machines virtuelles surveillées par Azure Security Center, comme illustré dans la capture d’écran suivante.
+### <a name="monitor-compute"></a>Suivre les calculs
+Lorsque vous cliquez sur **Calcul** dans la vignette **Intégrité de la sécurité des ressources**, le panneau **Calcul** qui s’ouvre affiche trois onglets :
 
-![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Vue d’ensemble** : recommandations relatives aux machines virtuelles et à la surveillance.
+- **Machines virtuelles** : liste de toutes les machines virtuelles et informations relatives à l’intégrité de leur sécurité.
+- **Services cloud** : liste de tous les rôles web et de travail contrôlés par Security Center.
 
-* Étapes de mise en route
-* Recommandations pour machines virtuelles
-* Machines virtuelles
+![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-Dans chaque section, vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème. Les sections suivantes explique ces points plus en détail.
+Chaque onglet peut contenir plusieurs sections, et dans chaque section vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème en question. 
 
 #### <a name="monitoring-recommendations"></a>Recommandations concernant la surveillance
-Cette section indique la quantité totale de machines virtuelles qui ont été initialisées pour la collecte des données et leur état actuel. Une fois la collecte des données initialisée sur toutes les machines virtuelles, cette dernière est prête à recevoir les stratégies de sécurité d’Azure Security Center. Lorsque vous cliquez sur cette entrée, le panneau **État de l’installation de la collecte de données** s’affiche et vous permet de voir le nom des machines virtuelles et l’état actuel de la collecte de données dans la colonne **ÉTAT D’INSTALLATION**, comme illustré dans la capture d’écran suivante.
+Cette section indique la quantité totale de machines virtuelles qui ont été initialisées pour la collecte des données et leur état actuel. Une fois la collecte des données initialisée sur toutes les machines virtuelles, cette dernière est prête à recevoir les stratégies de sécurité d’Azure Security Center. Lorsque vous cliquez sur cette entrée, le panneau **L’agent de machine virtuelle est manquant ou ne répond ne pas** s’ouvre. 
 
-![État de l’initialisation des machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Recommandations pour machines virtuelles
 Cette section contient une série de [recommandations pour chaque machine virtuelle](security-center-virtual-machine-recommendations.md) surveillée par Azure Security Center. La première colonne indique la recommandation. La deuxième colonne indique le nombre total de machines virtuelles qui sont affectées par cette recommandation. La troisième colonne indique la gravité du problème, comme illustré dans la capture d’écran suivante.
 
-![Recommandations pour machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Recommandations pour machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Seules les machines virtuelles ayant au moins un point de terminaison public sont affichées dans le panneau **Intégrité de mise en réseau** dans la liste **Topologie du réseau**.
@@ -93,7 +95,7 @@ Pour afficher des informations détaillées sur les recommandations, cliquez sur
 #### <a name="virtual-machines-section"></a>Section Machines virtuelles
 La section Machines virtuelles vous fournit un aperçu de toutes les machines virtuelles et des recommandations. Chaque colonne représente un ensemble de recommandations, comme illustré dans la capture d’écran suivante :
 
-![Vue d’ensemble des machines virtuelles et des recommandations](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Vue d’ensemble des machines virtuelles et des recommandations](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 L’icône qui s’affiche sous chaque recommandation vous aide à identifier rapidement les machines virtuelles qui requièrent votre attention, ainsi que le type de recommandation.
 
@@ -103,12 +105,12 @@ Dans l’exemple précédent, une machine virtuelle a une recommandation critiqu
 
 Ce panneau comporte des informations détaillées sur la sécurité de la machine virtuelle. L’action recommandée et le niveau de gravité de chaque recommandation sont affichés en bas du panneau.
 
-#### <a name="cloud-services-preview-section"></a>Section Cloud services (version préliminaire)
-L’état d’intégrité des services cloud est inclus dans la mosaïque **Intégrité de la sécurité** de la machine virtuelle. Une recommandation est créée lorsque la version du système d’exploitation est obsolète, comme illustré dans la capture d’écran suivante :
+#### <a name="cloud-services-section"></a>Section Services cloud
+Pour les services cloud, une recommandation est créée lorsque la version du système d’exploitation est obsolète, comme illustré dans la capture d’écran suivante :
 
-![État d’intégrité des services cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![État d’intégrité des services cloud](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Vous devez suivre les étapes de la recommandation pour mettre à jour la version du système d’exploitation. Par exemple, si vous cliquez sur l’alerte rouge dans les liugnes WebRole1 (exécute Windows Server avec votre application web automatiquement déployée sur IIS) ou WorkerRole1 (exécute Windows Server avec votre application web automatiquement déployée sur IIS), un nouveau panneau s’ouvre et affiche des informations détaillées sur cette recommandation, comme illustré dans la capture d’écran suivante :
+Si vous avez une recommandation (qui n’est pas le cas dans l’exemple précédent), vous devez suivre les étapes de la recommandation pour mettre à jour la version du système d’exploitation. Lorsqu’une mise à jour est disponible, vous recevez une alerte (rouge ou orange en fonction de la gravité du problème). Lorsque vous cliquez sur cette alerte rouge dans les lignes WebRole1 (exécute Windows Server avec votre application web automatiquement déployée sur IIS) ou WorkerRole1 (exécute Windows Server avec votre application web automatiquement déployée sur IIS), un nouveau panneau s’ouvre et affiche des informations détaillées sur cette recommandation, comme illustré dans la capture d’écran suivante :
 
 ![Détails du service cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 * [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

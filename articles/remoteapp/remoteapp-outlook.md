@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Utilisation de Microsoft Outlook dans Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -36,10 +37,5 @@ Lisez [des instructions étape par étape sur l’activation du mode mis en cach
 
 ## <a name="search"></a>Search
 Dans Azure RemoteApp, l’utilisation de la recherche dans Outlook présente des limites. Azure RemoteApp utilise des machines virtuelles mises en pool pour héberger les sessions utilisateur. L’indexation de la recherche dépend de l’ID de la machine, qui est différent pour les différentes machines virtuelles. Il est possible que chaque fois qu’un utilisateur se connecte à Azure RemoteApp, il soit dirigé vers une nouvelle machine virtuelle. Cela signifierait que, si nous activons la recherche locale, l’indexeur sera exécuté chaque fois que l’ID de machine change (lorsque l’utilisateur est sur une machine virtuelle différente). Selon la taille du fichier .OST, l’indexeur peut prendre beaucoup de temps pour terminer et épuiser les ressources nécessaires aux autres applications. La recherche ne serait pas seulement ralentie, mais elle ne renverrait pas de résultats. L’utilisation d’un profil de compte Mode en ligne permettrait de contourner ce problème, mais compromettrait les performances globales en raison de l’absence d’un cache local (pour plus d’informations sur les différences entre le mode mis en cache et le mode en ligne, voir le lien ci-dessus). Malheureusement, la recherche indexée/locale ne peut pas être désactivée et la recherche en ligne ne peut pas être activée par défaut dans Outlook 2013.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: edfdba3105aba1079d3c707e7320770c4a999a32
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 747b75cf813144fe64c650c4a8d1148ee1d86d9d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Azure HDInsight propose un service Spark entièrement géré. Les avantages li�
 | Intégration aux outils décisionnels |Spark pour HDInsight fournit des connecteurs pour certains outils de BI, notamment [Power BI](http://www.powerbi.com/) et [Tableau](http://www.tableau.com/products/desktop), pour l’analyse des données. |
 | Bibliothèques Anaconda préchargées |Les clusters Spark sur HDInsight sont fournis avec des bibliothèques Anaconda préinstallées. [Anaconda](http://docs.continuum.io/anaconda/) fournit près de 200 bibliothèques pour l’apprentissage automatique, l’analyse des données, la visualisation, etc. |
 | Extensibilité |Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight vous permettent de modifier le nombre de nœuds du cluster. En outre, les clusters Spark peuvent être supprimés sans perte de données puisque toutes les données sont stockées dans Azure Storage. |
-| Support technique&24; heures sur 24,&7; jours sur 7 |Spark sur HDInsight est fourni avec un support technique de niveau d’entreprise assuré 24 heures sur 24, 7 jours sur 7 et un contrat de niveau de service de 99,9 % de disponibilité. |
+| Support technique 24 heures sur 24, 7 jours sur 7 |Spark sur HDInsight est fourni avec un support technique de niveau d’entreprise assuré 24 heures sur 24, 7 jours sur 7 et un contrat de niveau de service de 99,9 % de disponibilité. |
 
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Quels sont les cas d’utilisation de Spark sur HDInsight ?
 Apache Spark dans HDInsight autorise les principaux scénarios suivants.
@@ -84,6 +84,7 @@ Spark dans HDInsight inclut les composants suivants qui sont disponibles dans le
 * [Anaconda](http://docs.continuum.io/anaconda/)
 * [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 * [Bloc-notes Jupyter](https://jupyter.org)
+* [Bloc-notes Zeppelin](http://zeppelin-project.org/)
 
 Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.com/fwlink/?LinkId=616229) pour la connectivité aux clusters Spark dans HDInsight à partir d’outils décisionnels comme Microsoft Power BI et Tableau.
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: e9eae9ea648fc0e657d32f3f91e6641046bfae79
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,30 +26,36 @@ ms.lasthandoff: 03/15/2017
 Sélectionnez un connecteur pour découvrir comment générer rapidement des flux de travail.
 
 ## <a name="standard-connectors"></a>Connecteurs standard
+
 | Connecteurs |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![Icône API][appFiguresicon]<br/>**appFigures**|![Icône API][Asanaicon]<br/>**Asana**|![Icône API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![Icône API][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Icône API][Basecamp-3icon]<br/>**Basecamp 3**|
-|![Icône API][Bitlyicon]<br/>**Bitly**|![Icône API][BizTalk-Servericon]<br/>**BizTalk Server**|![Icône API][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
-|![Icône API][Campfireicon]<br/>**Campfire**|![Icône API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Icône API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
-|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Icône API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![Icône API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Icône API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
-|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Icône API][GitHubicon]<br/>**GitHub**|![Icône API][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
-|![Icône API][Google-Sheetsicon]<br/>**Google Sheets**|![Icône API][Google-Tasksicon]<br/>**Google Tasks**|![Icône API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**Requête<br/>HTTP**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**Réponse<br/>HTTP**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![Icône API][Insightlyicon]<br/>**Insightly**|![Icône API][Instagramicon]<br/>**Instagram**|![Icône API][Instapapericon]<br/>**Instapaper**|![Icône API][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Icône API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Application<br/>logique imbriquée**][Nested-Logic-Appdoc]|
-|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Utilisateurs**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icône API][PagerDutyicon]<br/>**PagerDuty**|
-|![Icône API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Requête**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Récurrence**][Recurrencedoc]|
-|![Icône API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
-|![Icône API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Icône API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![Icône API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![Icône API][Vimeoicon]<br/>**Vimeo**|![Icône API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icône API][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Icône API][YouTubeicon]<br/>**YouTube**|
+|[![API Icon][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![Icône API][appFiguresicon]<br/>**appFigures**|![Icône API][Asanaicon]<br/>**Asana**|![Icône API][Azure-Automation-icon]<br/>**Azure Automation**|
+|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Icône API][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![Icône API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
+|![Icône API][Azure-MLicon]<br/>**Azure ML**|![Icône API][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![Icône API][Azure-Queues-icon]<br/>**Files d’attente Azure**|![Icône API][Basecamp-3icon]<br/>**Basecamp 3**|
+|![Icône API][Bitbucket-icon]<br/>**Bitbucket**|![Icône API][Bitlyicon]<br/>**Bitly**|![Icône API][BizTalk-Servericon]<br/>**BizTalk Server**|![Icône API][Bloggericon]<br/>**Blogger**|
+|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|![Icône API][Campfireicon]<br/>**Campfire**|![Icône API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Icône API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
+|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
+|![Icône API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|![Icône API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Icône API][Easy-Redmineicon]<br/>**Easy Redmine**|[! [Icône API] [Icône Concentrateurs d’événements]<br/>**Event Hubs**][event-hubs-doc]|
+|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Icône API][GitHubicon]<br/>**GitHub**|
+|![Icône API][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![Icône API][Google-Sheetsicon]<br/>**Google Sheets**|![Icône API][Google-Tasksicon]<br/>**Google Tasks**|
+|![Icône API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**Requête<br/>HTTP**][HTTP-Requestdoc]|
+|[![API Icon][HTTP-Responseicon]<br/>**Réponse<br/>HTTP**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![Icône API][Insightlyicon]<br/>**Insightly**|![Icône API][Instagramicon]<br/>**Instagram**|
+|![Icône API][Instapapericon]<br/>**Instapaper**|![Icône API][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Icône API][Mandrillicon]<br/>**Mandrill**|
+|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Application<br/>logique imbriquée**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Utilisateurs**|
+|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icône API][PagerDutyicon]<br/>**PagerDuty**|![Icône API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Requête**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Récurrence**][Recurrencedoc]|![Icône API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Icône API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|
+|![Icône API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Icône API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![Icône API][Vimeoicon]<br/>**Vimeo**|![Icône API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icône API][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![Icône API][YouTubeicon]<br/>**YouTube**|
 
-### <a name="integration-account-connectors"></a>Connecteurs de compte d’intégration 
+> [!TIP]
+> Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Try Logic Apps (Essayer Logic Apps)](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
+
+## <a name="integration-account-connectors"></a>Connecteurs de compte d’intégration 
 
 | Compte d’intégration<br/>connecteurs |  |  |  |
 | --- | --- | --- | --- |
@@ -57,29 +63,37 @@ Sélectionnez un connecteur pour découvrir comment générer rapidement des flu
 | [![API Icon][as2icon]<br/>**AS2 :</br> décodage**][as2decode] |[![API Icon][as2icon]<br/>**AS2 :</br> encodage**][as2encode] |[![API Icon][x12icon]<br/>**X12 :</br> décodage**][x12decode] |[![API Icon][x12icon]<br/>**X12 :</br> encodage**][x12encode] |
 | [![API Icon][x12icon]<br/>**EDIFACT :</br> décodage**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT :</br> encodage**][EDIFACTencode] | | |
 
-> [!NOTE]
-> Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Try Logic Apps (Essayer Logic Apps)](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
-
 ## <a name="enterprise-connectors"></a>Connecteurs d’entreprise
-Les connecteurs d’entreprise permettent de créer des applications logiques pour les scénarios B2B incluant EAI et EDI.  
+
+Pour créer des applications logiques pour les scénarios B2B incluant EAI et EDI, incluez ces connecteurs d’entreprise.
 
 | Entreprise<br/>connecteurs |  |
 | --- | --- |
 |![Icône API][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
+## <a name="connectors-as-triggers"></a>Connecteurs en tant que déclencheurs
 
-
-<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### <a name="connectors-can-be-triggers"></a>Les connecteurs peuvent être des déclencheurs
-Plusieurs connecteurs fournissent des déclencheurs qui préviennent votre application lorsque des événements spécifiques se produisent. Par exemple, le connecteur FTP comporte le déclencheur OnUpdatedFile. Vous pouvez créer une application logique, une application PowerApp ou un flux qui écoute ce déclencheur et effectue une action à chaque fois que ce dernier est activé.
+Certains connecteurs fournissent des déclencheurs qui préviennent votre application lorsque des événements spécifiques se produisent. Par exemple, le connecteur FTP a le déclencheur OnUpdatedFile qui informe votre application lorsqu’un fichier est mis à jour. Vous pouvez créer une application logique, une application PowerApp ou un flux qui écoute ce déclencheur et effectue une action à chaque fois que ce dernier est activé.
 
 Il existe deux types de déclencheurs :  
 
-* Déclencheurs d’interrogation : ces déclencheurs interrogent votre service selon une fréquence spécifiée pour vérifier l’existence de nouvelles données. Quand de nouvelles données sont disponibles, une nouvelle instance de votre application s’exécute avec les données comme entrée. Pour empêcher que les mêmes données soient consommées plusieurs fois, le déclencheur peut nettoyer les données qui ont été lues et transmises à votre application.
-* Déclencheurs d’interrogation : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu’un événement se produise, puis déclenchent une nouvelle instance de votre application. Le connecteur Twitter en est un exemple.
+* *Déclencheurs d’interrogation* : ces déclencheurs interrogent votre service selon une fréquence spécifiée pour vérifier l’existence de nouvelles données. Quand de nouvelles données sont disponibles, une nouvelle instance de votre application s’exécute avec les données comme entrée. Pour empêcher que les mêmes données soient consommées plusieurs fois, le déclencheur peut nettoyer les données qui ont été lues et transmises à votre application.
 
-### <a name="connectors-can-be-actions"></a>Les connecteurs peuvent être des actions
-Vous pouvez également utiliser les connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l’exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d’une base de données SQL lors du traitement d’une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d’une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
+* *Déclencheurs d’émission* : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu’un événement se produise, puis déclenchent une nouvelle instance de votre application. Le connecteur Twitter en est un exemple.
+
+## <a name="connectors-as-actions"></a>Connecteurs en tant qu’actions
+
+Les connecteurs fournissent également des actions que vous pouvez utiliser dans le flux de travail de votre application. Par exemple, votre application peut rechercher des données que vous pouvez ensuite utiliser lors de l’exécution de votre application. Plus précisément, vous pouvez rechercher des données client à partir d’une base de données SQL lors du traitement d’une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d’une table de destination. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
+
+## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Connecteurs personnalisés et certification pour Microsoft Azure
+
+Vous voulez créer vos propres connecteurs ou ne trouvez pas le connecteur que vous souhaitez ? Vous pouvez [étendre la plate-forme Logic Apps](../logic-apps/logic-apps-create-api-app.md) et créer des applications API qui font appel à des API ou des systèmes qui ne sont pas disponibles en tant que connecteurs prêts à l’emploi. Vous pouvez également soumettre vos applications API pour la certification de Microsoft Azure et les rendre ensuite disponibles via Azure. En savoir plus sur l’obtention de vos solutions [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+
+## <a name="get-help"></a>Obtenir de l’aide
+
+Pour poser des questions, répondre aux questions et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Afin d’améliorer Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créez votre première application logique](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -95,6 +109,7 @@ Vous pouvez également utiliser les connecteurs comme des actions dans vos appli
 [delaydoc]: ./connectors-native-delay.md "Effectuer des actions différées"
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Se connecter à Dropbox. Télécharger, obtenir, supprimer, répertorier vos fichiers et bien plus encore"
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Se connecter à Dynamics CRM Online pour exploiter les données CRM Online"
+[event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connectez-vous à Azure Event Hubs. Recevez et envoyez des événements entre les applications logiques et Azure Event Hubs"
 [facebookdoc]: ./connectors-create-api-facebook.md "Se connecter à Facebook. Publier sur une timeline, obtenir un flux de page et bien plus encore."
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Se connecter à un système de fichiers local"
 [ftpdoc]: ./connectors-create-api-ftp.md "Se connecter à un serveur FTP/FTPS pour les tâches FTP (notamment télécharger, obtenir et supprimer des fichiers)."
@@ -118,7 +133,7 @@ Vous pouvez également utiliser les connecteurs comme des actions dans vos appli
 [office365-videodoc]: ./connectors-create-api-office365-video.md "Obtenir des informations vidéo, des listes et des canaux vidéo, et des URL de lecture pour les vidéos Office 365"
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Se connecter à votre compte Microsoft OneDrive personnel. Télécharger, supprimer, répertorier des fichiers et bien plus encore"
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Se connecter à votre compte Microsoft OneDrive professionnel. Télécharger, supprimer, répertorier vos fichiers et bien plus encore"
-[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Se connecter à une base de données Oracle"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connectez-vous à une base de données Oracle pour ajouter, insérer, supprimer des lignes et bien plus encore"
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Se connecter à votre boîte aux lettres Outlook. Gérer votre courrier électronique, vos calendriers, vos contacts et bien plus encore"
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Se connecter à Microsoft Project Online. Gérer vos projets, vos tâches, vos ressources et bien plus encore"
 [querydoc]: ./connectors-native-query.md "Sélectionner et filtrer des tableaux avec l’action de requête"
@@ -159,10 +174,15 @@ Vous pouvez également utiliser les connecteurs comme des actions dans vos appli
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
 [Asanaicon]: ./media/apis-list/asana.png
+[Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
-[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
+[Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
+[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
+[Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
+[Azure-Queues-icon]: ./media/apis-list/azure-queues.png
 [Basecamp-3icon]: ./media/apis-list/basecamp.png
+[Bitbucket-icon]: ./media/apis-list/bitbucket.png
 [Bitlyicon]: ./media/apis-list/bitly.png
 [BizTalk-Servericon]: ./media/apis-list/biztalk.png
 [Bloggericon]: ./media/apis-list/blogger.png
@@ -175,6 +195,7 @@ Vous pouvez également utiliser les connecteurs comme des actions dans vos appli
 [Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
+[Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png

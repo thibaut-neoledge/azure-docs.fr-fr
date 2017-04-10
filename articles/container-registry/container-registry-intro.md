@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
@@ -48,9 +48,7 @@ Les développeurs peuvent également effectuer un push vers un registre de conte
 
 
 ## <a name="key-concepts"></a>Concepts clés
-* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements.
-
-  Les registres sont nommés dans un domaine racine basé sur le [client Azure Active Directory](../active-directory/active-directory-howto-tenant.md) de l’abonnement. Par exemple, si vous avez un compte professionnel dans le domaine Contoso, votre nom complet de registre se présente sous la forme `myregistry-contoso.azurecr.io`.
+* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneur à l’aide d’un [principal de service](../active-directory/active-directory-application-objects.md) pris en charge par Azure Active Directory ou un compte d’administration fourni. Exécutez la commande `docker login` standard pour vous authentifier auprès d’un registre.
 

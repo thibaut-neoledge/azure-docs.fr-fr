@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp (version préliminaire)
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,7 +44,7 @@ Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonct
    * En mode application, l’affectation des utilisateurs dans la collection ne peut pas être gérée via le portail Azure. Elle ne peut être gérée qu’au moyen des applets de commande PowerShell.
 3. Les utilisateurs ne voient que les applications qui ont été directement publiées à leur attention. Un utilisateur a toutefois la possibilité de lancer les autres applications disponibles sur l’image en y accédant directement depuis le système d’exploitation.
    
-   * Cette fonctionnalité ne garantit pas un verrouillage sécurisé des applications ; elle ne fait que restreindre la visibilité dans le flux d’applications.
+   * Cette fonctionnalité ne garantit pas un verrouillage sécurisé des applications ; elle ne fait que restreindre la visibilité dans le flux d’applications.
    * Si vous souhaitez isoler les utilisateurs de certaines applications, vous devez utiliser des collections distinctes.
 
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Comment obtenir les applets de commande PowerShell pour Azure RemoteApp
@@ -102,10 +103,5 @@ Nous vous remercions de nous faire part de vos commentaires et suggestions conce
 
 ## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Vous n’avez pas eu l’occasion de tester la fonctionnalité en version préliminaire ?
 Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enquête](http://www.instant.ly/s/AY83p) pour demander l’accès à la fonctionnalité.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

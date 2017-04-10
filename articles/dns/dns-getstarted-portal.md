@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 0fee02286f6d5dd4614a933590cdab43cc69237f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -79,7 +79,7 @@ L’exemple suivant vous guide tout au long du processus de création d’un enr
 
 ## <a name="view-records"></a>Affichage des enregistrements
 
-Les enregistrements de la zone DNS s’affichent dans la partie inférieure du panneau Zone DNS. Vous devez voir les enregistrements NS et SOA par défaut, qui sont créés dans chaque zone, ainsi que les nouveaux enregistrements que vous avez créés.
+Les enregistrements de la zone DNS s’affichent dans la partie inférieure du panneau Zone DNS. Vous devez voir les enregistrements DNS et SOA par défaut, qui sont créés dans chaque zone, ainsi que les nouveaux enregistrements que vous avez créés.
 
 ![zone](./media/dns-getstarted-portal/viewzone500.png)
 

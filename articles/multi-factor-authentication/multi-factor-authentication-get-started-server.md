@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -121,13 +121,13 @@ Maintenant que le serveur est installé et configuré, vous pouvez importer trè
 ## <a name="send-users-an-email"></a>Envoi d’un e-mail aux utilisateurs
 Maintenant que vous avez importé les utilisateurs sur le serveur MFA, envoyez un e-mail les informant qu’ils ont été inscrits pour la vérification en deux étapes.
 
-L’e-mail que vous envoyez doit être déterminé par la façon dont vous avez configuré vos utilisateurs pour la vérification en deux étapes. Par exemple, si vous avez pu importer les numéros de téléphone à partir du répertoire de l’entreprise, l’e-mail doit inclure les numéros de téléphone par défaut afin que les utilisateurs sachent à quoi s’attendre. De même, si vous n’avez pas importé les numéros de téléphone ou si les utilisateurs vont utiliser l’application mobile, envoyez-leur un e-mail leur demandant de terminer l’inscription de leur compte via un lien hypertexte permettant d’accéder au portail utilisateur Azure Multi-Factor Authentication.
+L’e-mail que vous envoyez doit être déterminé par la façon dont vous avez configuré vos utilisateurs pour la vérification en deux étapes. Par exemple, si vous avez pu importer les numéros de téléphone à partir du répertoire de l’entreprise, l’e-mail doit inclure les numéros de téléphone par défaut afin que les utilisateurs sachent à quoi s’attendre. De même, si vous n’avez pas importé les numéros de téléphone ou si les utilisateurs doivent recourir à l’application mobile, envoyez-leur un e-mail leur demandant de terminer l’inscription de leur compte, en fournissant un lien hypertexte permettant d’accéder au portail utilisateur Azure Multi-Factor Authentication.
 
 Le contenu de l’e-mail varie en fonction de la méthode de vérification définie pour l'utilisateur (appel téléphonique, SMS ou application mobile).  Par exemple, si l'utilisateur doit saisir un code confidentiel pour s'authentifier, l’e-mail lui indique le code confidentiel initial qui a été défini.  Les utilisateurs doivent modifier leur code PIN lors de leur première vérification.
 
 
 ### <a name="configure-email-and-email-templates"></a>Configuration du courrier électronique et des modèles de courrier électronique
-Cliquez sur l'icône de courrier électronique sur la gauche pour configurer les paramètres d'envoi de ces e-mails. Ici, vous pouvez entrer les informations SMTP de votre serveur de messagerie et envoyer des e-mails en cochant la case **Envoyer des e-mails aux utilisateurs**.
+Cliquez sur l'icône de courrier électronique sur la gauche pour configurer les paramètres d'envoi de ces e-mails. Cette page vous permet de saisir les informations SMTP de votre serveur de messagerie et d’envoyer des e-mails, en cochant la case **Envoyer des e-mails aux utilisateurs**.
 
 ![Paramètres de courrier électronique](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ En plus des champs ci-dessus, le résultat de la vérification (réussite/échec
 
 - Installez et configurez le [portail utilisateur](multi-factor-authentication-get-started-portal.md) pour une utilisation en libre-service.
 
-- Configurez Azure Multi-Factor Authentication avec les [services AD FS (Active Directory Federation Services)](multi-factor-authentication-get-started-adfs.md).
-
-- Installez et configurez le serveur Azure MFA avec [l’authentification RADIUS](multi-factor-authentication-get-started-server-radius.md). RADIUS vous permet d’intégrer différents systèmes tiers avec un serveur Azure MFA. 
-
-- Installez et configurez le serveur Azure MFA avec [l’authentification Windows](multi-factor-authentication-get-started-server-windows.md).
+- Installez et configurez le serveur Azure MFA avec [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [l’authentification RADIUS](multi-factor-authentication-get-started-server-radius.md) ou [l’authentification LDAP](multi-factor-authentication-get-started-server-ldap.md).
 
 - Installez et configurez la [passerelle des services Bureau à distance et Azure Multi-Factor Authentication Server avec RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
 

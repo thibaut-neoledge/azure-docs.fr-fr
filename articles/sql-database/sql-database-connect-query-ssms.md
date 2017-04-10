@@ -18,17 +18,17 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
-Utilisez [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) pour créer et gérer des ressources SQL Server à partir de l’interface utilisateur ou de scripts. Ce guide indique en détail comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis exécuter une requête, insérer, mettre à jour et supprimer des instructions.
+Utilisez [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) pour créer et gérer des ressources SQL Server à partir de l’interface utilisateur ou de scripts. Ce guide de démarrage rapide indique en détail comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis exécuter une requête, insérer, mettre à jour et supprimer des instructions.
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
@@ -45,11 +45,11 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Connexion au serveur
+## <a name="connect-to-the-server-and-your-new-database"></a>Se connecter au serveur et à votre base de données
 
 Utilisez SQL Server Management Studio pour établir une connexion à votre serveur de base de données SQL Azure.
 
-1. Saisissez **SSMS** dans la zone de recherche Windows, puis cliquez sur **Entrée** pour ouvrir SSMS.
+1. Ouvrez SQL Server Management Studio.
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
    - **Type de serveur** : spécifiez le moteur de base de données

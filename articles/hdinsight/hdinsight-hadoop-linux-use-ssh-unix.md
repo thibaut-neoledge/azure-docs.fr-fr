@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Se connecter à HDInsight (Hadoop) à l’aide de SSH
@@ -30,16 +30,19 @@ Le tableau suivant contient les informations d’adresse et de port nécessaires
 
 | Adresse | Port | Se connecte au... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nœud de périmètre (le cas échéant) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nœud de périmètre (R Server sur HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nœud de périmètre (n’importe quel autre type de cluster, si un nœud de périmètre existe) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nœud principal primaire |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nœud principal secondaire |
 
 > [!NOTE]
-> Remplacez `<edgenodename>` par le nom du nœud de périmètre. Pour plus d’informations sur l’utilisation des nœuds de périmètre, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Remplacez `<edgenodename>` par le nom du nœud de périmètre.
 >
 > Remplacez `<clustername>` par le nom de votre cluster HDInsight :
 >
 > Nous vous recommandons de __toujours vous connecter au nœud de périmètre__ si vous en avez un. Les nœuds principaux hébergent des services qui sont essentiels au bon fonctionnement du cluster. Le nœud de périmètre exécute uniquement ce que vous placez dans celui-ci.
+>
+> Pour plus d’informations sur l’utilisation des nœuds de périmètre, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>Clients SSH
 
