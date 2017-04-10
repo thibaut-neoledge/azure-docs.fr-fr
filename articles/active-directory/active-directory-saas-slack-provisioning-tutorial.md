@@ -17,15 +17,16 @@ ms.author: asmalser-msft
 translationtype: Human Translation
 ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
 ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
+ms.lasthandoff: 02/08/2017
 
 ---
 
-#<a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Slack pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Slack pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Slack et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Slack. 
 
-##<a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -45,9 +46,9 @@ Avant de configurer et activer le service d’approvisionnement, vous devez dét
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Conseils importants pour l’affectation d’utilisateurs à Slack
 
-*   Il est recommandé qu’un seul utilisateur Azure AD soit affecté à Slack pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*    Il est recommandé qu’un seul utilisateur Azure AD soit affecté à Slack pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*   Lorsque vous affectez un utilisateur à Slack, vous devez sélectionner le rôle **Utilisateur** ou « Groupe » dans la boîte de dialogue d’attribution. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*    Lorsque vous affectez un utilisateur à Slack, vous devez sélectionner le rôle **Utilisateur** ou « Groupe » dans la boîte de dialogue d’attribution. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-slack"></a>Configuration de l'approvisionnement des utilisateurs sur Slack 
@@ -60,17 +61,17 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Pour configurer l’approvisionnement automatique de comptes utilisateur vers Slack dans Azure AD :
 
 
-1)  Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1)    Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 2) Si vous avez déjà configuré Slack pour l’authentification unique, recherchez votre instance de Slack à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Slack** dans la galerie d’applications. Sélectionnez Slack dans les résultats de recherche et ajoutez-le à votre liste d’applications.
 
-3)  Sélectionnez votre instance de Slack, puis sélectionnez l’onglet **Approvisionnement**.
+3)    Sélectionnez votre instance de Slack, puis sélectionnez l’onglet **Approvisionnement**.
 
-4)  Définissez le **Mode d’approvisionnement** sur **Automatique**.
+4)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement Slack](./media/active-directory-saas-slack-provisioning-tutorial/Slack1.PNG)
 
-5)  Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur. 
+5)    Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur. 
 
 6) Dans la nouvelle fenêtre, connectez-vous à Slack à l’aide de votre compte d’administrateur d’équipe. Dans la boîte de dialogue d’autorisation qui s’affiche, sélectionnez l’équipe Slack pour laquelle vous souhaitez activer l’approvisionnement, puis sélectionnez **Autoriser**. Une fois cela terminé, revenez au portail Azure pour terminer la configuration de l’approvisionnement.
 
@@ -113,9 +114,4 @@ Ainsi, les objets de groupe affectés à Slack dans la section **Utilisateurs et
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

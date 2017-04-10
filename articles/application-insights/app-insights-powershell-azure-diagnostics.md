@@ -10,12 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
 ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -137,10 +138,5 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 * [Surveiller les applications Azure Cloud Services avec Application Insights](app-insights-cloudservices.md)
 * [Envoyer des diagnostics Azure vers Application Insights.](app-insights-azure-diagnostics.md)
 * [Automatisation de la configuration des alertes](app-insights-powershell-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
