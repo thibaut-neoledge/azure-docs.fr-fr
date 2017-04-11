@@ -230,7 +230,7 @@
 #### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
 #### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 #### [Backend .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
-#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/) :
+#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Meilleures pratiques App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Liste des ressources WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
