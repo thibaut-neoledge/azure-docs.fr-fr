@@ -3,7 +3,7 @@ title: "Présentation du Kit de développement logiciel (SDK) Azure WebJobs"
 description: "Présentation du Kit de développement logiciel WebJobs Azure Explique la nature du Kit de développement logiciel (SDK), les scénarios typiques pour lesquels il est utile et fournit des exemples de code."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682

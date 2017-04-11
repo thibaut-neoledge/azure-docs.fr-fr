@@ -3,7 +3,7 @@ title: "Exécuter des tâches en arrière-plan avec les tâches web"
 description: "Découvrez comment exécuter des tâches en arrière-plan dans les applications web Azure."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b

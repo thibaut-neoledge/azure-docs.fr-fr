@@ -3,7 +3,7 @@ title: "Utilisation de Microsoft Azure Service Bus avec le Kit de développemen
 description: "Apprenez à utiliser les files d’attente et les rubriques Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs."
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76

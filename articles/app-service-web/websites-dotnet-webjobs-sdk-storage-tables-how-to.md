@@ -3,7 +3,7 @@ title: "Utilisation du stockage de tables Microsoft Azure avec le Kit de dével
 description: "Découvrez comment utiliser le stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez des tables, ajoutez des entités à des tables et lisez les tables existantes."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe

@@ -3,7 +3,7 @@ title: "Utilisation du stockage d’objets blob Azure avec le Kit de développem
 description: "Découvrez comment utiliser le stockage d’objets blob Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Déclenchez un processus lorsqu’un nouvel objet blob apparaît dans un conteneur et gérez les « objets blob incohérents »."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c
