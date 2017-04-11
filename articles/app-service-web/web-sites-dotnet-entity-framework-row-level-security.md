@@ -17,6 +17,7 @@ ms.author: thmullan
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -203,7 +204,7 @@ Si vous avez déjà créé quelques utilisateurs dans l‘application (par exemp
 
 ![Tableau AspNetUsers SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copiez l’ID de user1@contoso.com, et collez-le dans l’instruction T-SQL ci-dessous. Exécutez cette instruction pour associer trois des Contacts à cet ID utilisateur.
+Copiez l’ID de user1@contoso.com et collez-le dans l’instruction T-SQL ci-dessous. Exécutez cette instruction pour associer trois des Contacts à cet ID utilisateur.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
@@ -236,7 +237,7 @@ go
 
 Ce code exécute trois opérations. Tout d‘abord, il crée un nouveau schéma en tant que meilleure pratique pour la centralisation et la limitation d’accès aux objets RLS. Ensuite, il crée une fonction de prédicat qui renverra « 1 » lorsque le UserId d’une ligne correspond au UserId dans SESSION_CONTEXT. Enfin, il crée une stratégie de sécurité qui ajoute cette fonction en tant que prédicat de bloc et de filtre sur la table Contacts. Le prédicat de filtre fait en sorte que les requêtes retournent uniquement des lignes appartenant à l’utilisateur actuel et le prédicat de bloc agit comme un dispositif de protection pour empêcher l‘application d‘insérer une ligne pour le mauvais utilisateur.
 
-Maintenant, exécutez l’application puis connectez-vous en tant que user1@contoso.com. Cet utilisateur voit à présent que les Contacts que nous avons attribués à ce UserId :
+Maintenant, exécutez l’application puis connectez-vous en tant que user1@contoso.com. Cet utilisateur voit à présent que les Contacts que nous avons attribués à ce UserId:
 
 ![Application du Gestionnaire de contacts avant d‘activer la RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-After.png)
 
@@ -248,10 +249,5 @@ Et voilà ! L’application web Gestionnaire de contact a été transformée en
 Ce didacticiel a seulement effleuré la surface de ce qui est possible avec RLS. Par exemple, il est possible d‘avoir des logiques d’accès plus sophistiquées ou granulaires, et il est possible de stocker davantage que le simple UserId dans SESSION_CONTEXT. Il est également possible d’ [intégrer RLS avec les bibliothèques client des outils de base de données élastique](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) pour prendre en charge des partitions mutualisées dans une couche de données mise à l’échelle.
 
 Au-delà de ces possibilités, nous nous efforçons d’améliorer encore RLS. Si vous avez des questions, des idées ou des choses que vous aimeriez voir, faites-le nous savoir par le biais de vos commentaires. Nous apprécions vos commentaires !
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
