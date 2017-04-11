@@ -3,7 +3,7 @@ title: "Déployer des tâches web à l’aide de Visual Studio"
 description: "Découvrez comment déployer des tâches web Azure dans Azure App Service Web Apps à l’aide de Visual Studio."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
