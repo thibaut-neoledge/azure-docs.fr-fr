@@ -316,7 +316,7 @@ Les développeurs qui utilisent les bibliothèques Common Language Infrastructur
 ## <a name="user-and-group-schema"></a>Schéma des utilisateurs et des groupes
 Azure Active Directory peut configurer deux types de ressources pour les services web SCIM.  Ces types de ressources sont des utilisateurs et des groupes.  
 
-Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http//tools.ietf.org/html/draft-ietf-scim-core-schema.  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
+Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http://tools.ietf.org/html/draft-ietf-scim-core-schema .  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
 
 Les ressources du groupe sont identifiées par l’identificateur de schéma, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Le tableau 2 ci-dessous montre le mappage par défaut des attributs de groupes dans Azure Active Directory sur les attributs de ressources http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
