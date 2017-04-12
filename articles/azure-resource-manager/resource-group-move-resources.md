@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,6 +114,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Traffic Manager
 * Machines virtuelles : ne prend pas en charge le déplacement vers un nouvel abonnement lorsque ses certificats sont stockés dans un Key Vault
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+* Jeux de mise à l’échelle de machine virtuelle
 * Réseaux virtuels : actuellement, un réseau virtuel homologué ne peut pas être déplacé tant que l’homologation de réseau virtuel est activée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée.
 * Passerelle VPN 
 
@@ -134,11 +135,9 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Machines virtuelles avec un certificat stocké dans Key Vault
 * Machines virtuelles avec des disques managés
 * Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
-* Groupes de machines virtuelles identiques avec des disques gérés
 * Managed Disks
 * Images créées à partir de disques gérés
 * Instantanés créés à partir de disques gérés
-* Groupes de machines virtuelles identiques
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Les machines virtuelles créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des abonnements. La ressource doit être déprovisionnée dans l’abonnement actuel et déployée à nouveau dans le nouvel abonnement.
 

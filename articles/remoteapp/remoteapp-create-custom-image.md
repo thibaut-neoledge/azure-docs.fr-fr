@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c5b87c3a814b816e8bdc28d3e22b64c2197579af
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-custom-template-image-for-azure-remoteapp"></a>Création d’une image de modèle personnalisée pour Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -130,7 +131,7 @@ La procédure détaillée de création d'une image se présente comme suit :
    
      HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 3. Si vous créez une image dans une machine virtuelle Azure, renommez le fichier **\%windir%\Panther\Unattend.xml**, car cela bloquera le script de téléchargement utilisé plus tard pour travailler. Remplacez le nom de ce fichier par Unattend.old de façon à conserver le fichier et pouvoir inverser votre déploiement, si nécessaire.
-4.  accédez à Windows Update et installez toutes les mises à jour importantes. Vous devrez peut-être exécuter plusieurs fois Windows Update pour obtenir toutes les mises à jour. (Parfois, vous installez une mise à jour et celle-ci requiert elle-même une mise à jour.)
+4. accédez à Windows Update et installez toutes les mises à jour importantes. Vous devrez peut-être exécuter plusieurs fois Windows Update pour obtenir toutes les mises à jour. (Parfois, vous installez une mise à jour et celle-ci requiert elle-même une mise à jour.)
 5. Préparez l'image avec SYSPREP. Exécutez la commande suivante dans une invite de commandes avec élévation de privilèges :
    
    **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
@@ -142,10 +143,5 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 
 * [Comment créer une collection hybride de RemoteApp](remoteapp-create-hybrid-deployment.md)
 * [Comment créer une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

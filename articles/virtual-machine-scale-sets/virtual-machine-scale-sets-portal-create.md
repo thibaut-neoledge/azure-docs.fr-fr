@@ -18,9 +18,9 @@ ms.date: 09/15/2016
 ms.author: negat
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
-ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 308355e7d66c977f5cbfc8de3b939b76c2f8f83c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +38,7 @@ Tout d’abord, accédez au [portail Azure](https://portal.azure.com) dans un na
 Vous pouvez à présent utiliser les paramètres par défaut pour créer rapidement le jeu de mise à l’échelle.
 
 * Sur le panneau `Basics` , entrez un nom pour le jeu de mise à l’échelle. Ce nom constituant la base du nom de domaine complet (FQDN) de l’équilibreur de charge placé devant le jeu de mise à l’échelle, assurez-vous qu’il est unique dans Azure.
-* Sélectionnez le type de système d’exploitation souhaité, entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez. Si vous choisissez de définir un mot de passe, celui-ci doit compter au moins 12 caractères et remplir trois des quatre conditions suivantes : une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Si vous choisissez `SSH public key`, assurez-vous de coller uniquement votre clé publique, PAS votre clé privée :
+* Sélectionnez le type de système d’exploitation souhaité, entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez. Si vous choisissez de définir un mot de passe, celui-ci doit compter au moins 12 caractères et remplir trois des quatre conditions suivantes : une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Si vous choisissez `SSH public key`, assurez-vous de coller uniquement votre clé publique, PAS votre clé privée :
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

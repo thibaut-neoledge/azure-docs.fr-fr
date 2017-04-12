@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
@@ -67,7 +67,7 @@ L’incidence de l’installation de l’agent Microsoft Azure AD Connect Health
 
 Les données suivantes sont fournies uniquement à titre approximatif :
 
-* Consommation du processeur : environ&1;-5 % d’augmentation.
+* Consommation du processeur : environ 1-5 % d’augmentation.
 * Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système.
 
 > [!NOTE]
@@ -75,7 +75,7 @@ Les données suivantes sont fournies uniquement à titre approximatif :
 >
 >
 
-* Stockage de mémoire tampon locale pour les agents Azure AD Connect Health : environ&20; Mo.
+* Stockage de mémoire tampon locale pour les agents Azure AD Connect Health : environ 20 Mo.
 * Pour les serveurs AD FS, il est recommandé de mettre en service un espace disque de 1 024 Mo (1 Go) pour permettre au canal d’audit AD FS dédié aux agents Azure AD Connect Health de traiter l’ensemble des données d’audit avant qu’elles ne soient remplacées.
 
 **Q : Devrai-je redémarrer mes serveurs durant l’installation des agents Azure AD Connect Health ?**
@@ -138,22 +138,6 @@ Non. Il n’est pas nécessaire d’activer l’audit sur les serveurs proxy d�
 **Q : Comment les alertes Azure AD Connect Health sont-elles résolues ?**
 
 Les alertes Azure AD Connect Health sont résolues en cas de condition de réussite. Les agents Azure AD Connect Health détectent et signalent régulièrement au service les conditions de réussite. Pour certaines alertes, la suppression s’effectue en fonction d’un intervalle de temps. Concrètement, cela signifie que si la condition d’erreur n’est pas observée dans les 72 heures suivant la génération de l’alerte, cette dernière est automatiquement résolue.
-
-## <a name="migration-questions"></a>Questions relatives à la migration
-
-Cette section s’applique uniquement aux clients qui ont été informés d’une prochaine migration de leurs données Azure AD Connect Health.
-
-**Q : Dois-je réinscrire mes agents ou reconfigurer mes paramètres de notification une fois la migration effectuée ?**
-
-Non. Les paramètres de notification et les informations d’inscription d’agent sont déplacés dans le cadre de la migration.
-
-**Q : Dans quel délai après la migration les données commencent-elles à apparaître dans le portail ?**
-
-Les données commencent à apparaître dans le portail dans l’heure suivant la migration.
-
-**Q : Que se passe-t-il pour les alertes actives existantes ?**
-
-Les alertes applicables seront réactivées dans l’heure suivant la migration.
 
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
     },
     ```
 
-6. Notez que l’élément **vmSize** contient la valeur *Standard_DS3*. Seules certaines tailles de machine virtuelle permettent l’utilisation de plusieurs cartes réseau. Vous pouvez vérifier les tailles de machine virtuelle qui prennent en charge plusieurs cartes réseau en lisant les articles [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tailles des machines virtuelles Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Notez que l’élément **vmSize** contient la valeur *Standard_DS3*. Seules certaines tailles de machine virtuelle permettent l’utilisation de plusieurs cartes réseau. Vous pouvez vérifier les tailles de machine virtuelle qui prennent en charge plusieurs cartes réseau en lisant les articles [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tailles des machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Faites défiler jusqu’à **resources** et notez le premier élément. Il décrit un compte de stockage. Ce compte de stockage permet de gérer les disques de données utilisés par chaque machine virtuelle de la base de données. Dans ce scénario, chaque machine virtuelle de base de données possède un disque de système d’exploitation stocké dans le stockage standard et deux disques de données stockés dans le stockage SSD (Premium).
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
 Ce didacticiel explique comment créer des applications web et des plans App Service dans un [environnement App Service](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Si vous voulez apprendre à créer une application web mais pas spécialement dans un environnement App Service, consultez [Créer une application web .NET](web-sites-dotnet-get-started.md) ou l’un des didacticiels associés pour d’autres langages et infrastructures.
+> Si vous voulez apprendre à créer une application web mais pas spécialement dans un environnement App Service, consultez [Créer une application web .NET](app-service-web-get-started-dotnet.md) ou l’un des didacticiels associés pour d’autres langages et infrastructures.
 > 
 > 
 
@@ -58,7 +59,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
     Si votre ASE utilise une adresse VIP interne, alors l’URL d’une application de l’ASE aura le format : [*nomsite*]. [*sous-domaine spécifié lors de la création de l’ASE*]   
     Après avoir sélectionné votre ASP lors de la création de l’ASE vous verrez le sous-domaine mis à jour sous **Nom**
 
-## <a name="a-namecreateplana-create-an-app-service-plan"></a><a name="createplan"></a> Créer un plan App Service
+## <a name="createplan"></a> Créer un plan App Service
 Lorsque vous créez un plan App Service dans un environnement App Service, vos choix de travaux sont différents, car il n’existe pas de travaux partagés dans un environnement App Service.  Les travaux que vous devez utiliser sont ceux qui ont été alloués à l’ASE par l’administrateur.  Cela signifie que pour créer un plan, le nombre de travaux alloués à votre pool de travail ASE doit être supérieur au nombre total d’instances à travers l’ensemble de vos plans déjà présents dans ce pool de travail.  Si vous n’avez pas suffisamment de travaux dans votre pool de travail ASE pour créer votre plan, demandez à l’administrateur de votre ASE de les ajouter.
 
 L’absence du choix de tarification constitue une autre différence avec les plans App Service hébergés par un environnement App Service.  Lorsque vous avez un environnement App Service, vous payez les ressources de calcul utilisées par le système et n’avez pas de frais supplémentaires pour les plans de cet environnement.  Normalement lorsque vous créez un plan App Service, vous sélectionnez un niveau de tarification qui détermine votre facturation.  Un environnement App Service est essentiellement un emplacement privé où vous pouvez créer un contenu.  Vous payez l'environnement et non l'hébergement de votre contenu.
@@ -107,9 +108,4 @@ Après avoir créé votre application web et votre plan App Service, il peut êt
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

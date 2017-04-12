@@ -1,0 +1,2 @@
+> [!NOTE]
+> Avant de commencer ce didacticiel, assurez-vous que vous avez suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md). Dans le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md), vous configurez votre appareil IoT et votre instance IoT Hub, puis déployez un exemple d’application à exécuter sur votre appareil. L’application envoie les données de capteur collectées à votre instance IoT Hub.

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
-ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -70,7 +71,7 @@ Si les critères d'éligibilité sont reconnues par les [Politiques concernant l
 ### <a name="virtual-machine-image-specific"></a>Propre à l’image de machine virtuelle
 * [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Créer une machine virtuelle exécutant Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Création d’une machine virtuelle exécutant Windows dans le portail Azure](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Création d’une machine virtuelle exécutant Windows dans le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Dépannage des problèmes courants rencontrés lors de la création du disque dur virtuel](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
 ## <a name="how-to-manage-your-solution"></a>Gestion de votre solution
@@ -92,9 +93,4 @@ Si les critères d'éligibilité sont reconnues par les [Politiques concernant l
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-L’application squelette comprend l’ensemble du code réutilisable associé à une API simple, mais n’intègre pas l’ensemble des éléments liés à l’identité. Si vous ne souhaitez pas suivre la procédure, vous pouvez cloner ou [télécharger l’exemple terminé](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+L’application squelette comprend l’ensemble du code réutilisable associé à une API simple, mais n’intègre pas l’ensemble des éléments liés à l’identité. Si vous ne souhaitez pas suivre la procédure, vous pouvez cloner ou [télécharger l’exemple terminé](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -161,14 +162,9 @@ Vous pouvez à présent passer à d’autres rubriques.  Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur&2;.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
 * [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

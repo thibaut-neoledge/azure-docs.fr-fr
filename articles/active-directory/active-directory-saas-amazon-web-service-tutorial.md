@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
-ms.openlocfilehash: 391943c6057081b48594d74898d798e5365509d3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2cbd477776329ef84ef615b6c28c56cfee12fc99
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 L’objectif de ce didacticiel est de vous montrer comment intégrer Amazon Web Services (AWS) dans Azure Active Directory (Azure AD).  
+
 L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avantages suivants : 
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Amazon Web Services (AWS) 
@@ -37,27 +38,28 @@ Pour configurer l’intégration d’Azure AD avec Amazon Web Services (AWS),
 * Un abonnement Azure AD
 * Un abonnement Amazon Web Services (AWS) avec authentification unique
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Amazon Web Services (AWS) à partir de la galerie 
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Ajout d’Amazon Web Services (AWS) à partir de la galerie
+## <a name="add-amazon-web-services-aws-from-the-gallery"></a>Ajouter Amazon Web Services (AWS) à partir de la galerie
 Pour configurer l’intégration d’Amazon Web Services (AWS) avec Azure AD, vous devez ajouter Amazon Web Services (AWS), disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-### <a name="to-add-amazon-web-services-aws-from-the-gallery-perform-the-following-steps"></a>Pour ajouter Amazon Web Services (AWS) à partir de la galerie, procédez comme suit :
+**Pour ajouter Amazon Web Services (AWS) à partir de la galerie, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
     ![Active Directory][1] 
@@ -84,23 +86,27 @@ Pour configurer l’intégration d’Amazon Web Services (AWS) avec Azure AD,
    
     ![Applications][6]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Amazon Web Services (AWS) avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir qui est l’utilisateur Amazon Web Services (AWS) équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Amazon Web Services (AWS) associé doit être établie.  
+
 Pour cela, attribuez la valeur du **nom d’utilisateur** dans Azure AD au **nom d’utilisateur** dans Amazon Web Services (AWS).
 
 Pour configurer et tester l’authentification unique Azure AD avec Amazon Web Services (AWS), vous avez besoin de suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Amazon Web Services (AWS)](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Amazon Web Services (AWS) lié à sa représentation dans Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Amazon Web Services (AWS).  
-Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des **attributs du jeton saml**. La capture d’écran suivante montre un exemple :
+
+Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des **attributs du jeton saml**. 
+
+La capture d’écran suivante montre un exemple :
 
 ![Configurer l’authentification unique][27]
 
@@ -114,7 +120,7 @@ Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML 
    
     ![Configurer l’authentification unique][8]
 
-3. Dans la page **Configurer les paramètres de l’application** , cliquez sur Suivant. 
+3. Dans la page **Configurer les paramètres de l’application** , cliquez sur **Suivant**. 
    
     ![Configurer les paramètres d’application][9]
 
@@ -138,15 +144,11 @@ Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML 
 
 9. Dans la page **Configure Provider** , procédez comme suit : 
    
-    ![Configurer l’authentification unique][14]
-   
-     a. Pour **Provider Type**, sélectionnez **SAML**.
-   
-     b. Dans la zone de texte **Provider Name**, tapez le nom d’un fournisseur (par ex. : *WAAD*).
-   
-     c. Pour télécharger votre fichier de métadonnées, cliquez sur **Choose File**.
-   
-     d. Cliquez sur **Next Step**.
+    ![Configurer l’authentification unique][14]   
+  1. Pour **Provider Type**, sélectionnez **SAML**.
+  2. Dans la zone de texte **Provider Name**, tapez le nom d’un fournisseur (par ex. : *WAAD*).
+  3. Pour télécharger votre fichier de métadonnées, cliquez sur **Choose File**.
+  4. Cliquez sur **Next Step**.
 
 10. Dans la page **Verify Provider Information**, cliquez sur **Create**. 
     
@@ -158,27 +160,21 @@ Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML 
 
 12. Dans la boîte de dialogue **Set Role Name** , procédez comme suit : 
     
-    ![Configurer l’authentification unique][17]
-    
-    a. Dans la zone de texte **Role Name**, tapez un nom de rôle (par ex. : *Utilisateur_test*).
-    
-    b. Cliquez sur **Next Step**.
+    ![Configurer l’authentification unique][17] 
+  1. Dans la zone de texte **Role Name**, tapez un nom de rôle (par ex. : *Utilisateur_test*). 
+  2. Cliquez sur **Next Step**.
 
 13. Dans la boîte de dialogue **Select Role Type** , procédez comme suit : 
     
-    ![Configurer l’authentification unique][18]
-    
-    a. Sélectionnez **Role For Identity Provider Access**.
-    
-    b. Dans la section **Grant Web Single Sign-On (WebSSO) access to SAML providers**, cliquez sur **Select**.
+    ![Configurer l’authentification unique][18] 
+  1. Sélectionnez **Role For Identity Provider Access**. 
+  2. Dans la section **Grant Web Single Sign-On (WebSSO) access to SAML providers**, cliquez sur **Select**.
 
 14. Dans la boîte de dialogue **Establish Trust** , procédez comme suit :  
     
-    ![Configurer l’authentification unique][19]
-    
-     a. Pour le fournisseur SAML, sélectionnez celui que vous avez déjà créé (par ex. : *WAAD*) 
-    
-     b. Cliquez sur **Next Step**.
+    ![Configurer l’authentification unique][19] 
+  1. Pour le fournisseur SAML, sélectionnez celui que vous avez déjà créé (par ex. : *WAAD*)   
+  2. Cliquez sur **Next Step**.
 
 15. Dans la boîte de dialogue **Verify Role Trust**, cliquez sur **Next Step**. 
     
@@ -190,13 +186,10 @@ Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML 
 
 17. Dans la boîte de dialogue **Review** , procédez comme suit :   
     
-    ![Configurer l’authentification unique][34]
-    
-     a. Copiez la valeur du champ **Role ARN** .
-    
-     b. Copiez la valeur du champ **Trusted Entities ARN** .
-    
-     c. Cliquez sur **Create Role**. 
+    ![Configurer l’authentification unique][34] 
+  1. Copiez la valeur du champ **Role ARN** .  
+  2. Copiez la valeur du champ **Trusted Entities ARN** . 
+  3. Cliquez sur **Create Role**. 
 
 18. Dans le Portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
     
@@ -216,40 +209,30 @@ Votre application Amazon Web Services (AWS) attend les mêmes assertions SAML 
 
 22. Dans la boîte de dialogue Ajouter un attribut utilisateur, procédez comme suit. 
     
-    ![Configurer l’authentification unique][24] 
+    ![Configurer l’authentification unique][24]  
+  1. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/Role**.  
+  2. Dans la zone de texte **Valeur d’attribut**, tapez **[valeur du champ Role ARN] [valeur du champ Trusted Entity ARN]**.
     
-    a. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/Role**.
-    
-    b. Dans la zone de texte **Valeur d’attribut**, tapez **[valeur du champ Role ARN] [valeur du champ Trusted Entity ARN]**.
-    
-    > [!TIP]
-    > Ce sont les valeurs que vous avez copiées dans la boîte de dialogue Review quand vous avez créé votre rôle. 
-    > 
-    > 
-    
-    c. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
+     >[!TIP]
+     >Ce sont les valeurs que vous avez copiées dans la boîte de dialogue Review quand vous avez créé votre rôle. 
+     > 
+     
+  3. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
 
 23. Cliquez sur **Ajouter un attribut utilisateur**. 
     
     ![Configurer l’authentification unique][23]
 
-24. Dans la boîte de dialogue Ajouter un attribut utilisateur, procédez comme suit. 
+24. Dans la boîte de dialogue Ajouter un attribut utilisateur, procédez comme suit, puis cliquez sur **Appliquer les modifications**. 
     
     ![Configurer l’authentification unique][25]
+ 1. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+ 2. Dans la zone de texte **Valeur d’attribut**, tapez ou sélectionnez **user.userprincipalname** dans la liste déroulante.
 
-     a. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     ![Configurer l’authentification unique][35]
+ 3. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
 
-     b. Dans la zone de texte **Valeur d’attribut **, tapez ou sélectionnez **user.userprincipalname** dans la liste déroulante.
-
-    ![Configurer l’authentification unique][35]
-
-     c. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
-
-1. Cliquez sur **Appliquer les modifications**. 
-   
- 
-
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
 
 ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png)
@@ -273,26 +256,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit : 
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-
-    c. Cliquez sur Suivant.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+ 3. Cliquez sur Suivant.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**. 
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -300,21 +275,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**.  
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-amazon-web-services-aws-test-user"></a>Création d’un utilisateur de test Amazon Web Services (AWS)
+### <a name="create-a-amazon-web-services-aws-test-user"></a>Créer un utilisateur de test Amazon Web Services (AWS)
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Amazon Web Services (AWS).
 
-> [!NOTE]
-> AWS prend en charge l’approvisionnement juste-à-temps des utilisateurs. Comme il est activé par défaut, il est inutile d’approvisionner les utilisateurs dans AWS.
-> 
-> 
+**Pour créer un utilisateur appelé Britta Simon dans Amazon Web Service (AWS), procédez comme suit :**
 
-### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>Pour créer un utilisateur appelé Britta Simon dans Amazon Web Service (AWS), procédez comme suit :
 1. Connectez-vous au site de votre entreprise **Amazon Web Services (AWS)** en tant qu’administrateur.
 
 2. Cliquez sur l’icône **Console Home** . 
@@ -331,13 +300,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 5. Dans la boîte de dialogue Create User, procédez comme suit : 
    
-    ![Configurer l’authentification unique][30]
-   
-     a. Dans les zones de texte **Entrer les noms d’utilisateur** , tapez le nom d’utilisateur de Brita Simon (userprincipalname) dans Azure AD.
-   
-     b. Cliquez sur **Create**.
+    ![Configurer l’authentification unique][30]   
+ 1. Dans les zones de texte **Entrer les noms d’utilisateur** , tapez le nom d’utilisateur de Brita Simon (userprincipalname) dans Azure AD. 
+ 2. Cliquez sur **Create**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Cette section décrit comment permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Amazon Web Services (AWS).
 
 ![Affecter des utilisateurs][31]
@@ -362,8 +329,9 @@ Cette section décrit comment permettre à Britta Simon d’utiliser l’authent
    
     ![Affecter des utilisateurs][29]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+
 Lorsque vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d’accès, vous devez être connecté automatiquement à votre application Amazon Web Services (AWS).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

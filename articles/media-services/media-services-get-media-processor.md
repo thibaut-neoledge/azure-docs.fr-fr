@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc3c3bff6179b634b82884dfcb3f8f8395f6bb89
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,10 +39,10 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 | Media Encoder Premium Workflow |Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
 | Azure Media Indexer |Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés. |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse (version préliminaire) |Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Encodeur multimédia Azure |Amorti | |
-| Storage Decryption |Amorti | |
-| Azure Media Packager |Amorti | |
-| Azure Media Encryptor |Amorti | |
+| Encodeur multimédia Azure |Déconseillé | |
+| Storage Decryption |Déconseillé | |
+| Azure Media Packager |Déconseillé | |
+| Azure Media Encryptor |Déconseillé | |
 
 ## <a name="get-media-processor"></a>Obtention d'un processeur multimédia
 La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [Comment : se connecter à Media Services par programmation](media-services-dotnet-connect-programmatically.md).
@@ -66,10 +67,5 @@ La méthode suivante montre comment obtenir une instance de processeur multiméd
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d’un élément multimédia](media-services-dotnet-encode-with-media-encoder-standard.md) pour savoir comment utiliser Media Encoder Standard afin d’encoder un élément multimédia.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

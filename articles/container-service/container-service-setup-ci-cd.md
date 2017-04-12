@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ Voici certains aspects clés de l’application et de son flux de déploiement q
 >[!IMPORTANT]
 > Pour créer un cluster sécurisé, transmettez le fichier de clés publiques SSH requis lorsque vous appelez `az acs create`. Vous pouvez utiliser Azure CLI 2.0 pour générer et transmettre les clés en utilisant l’option `--generate-ssh-keys`, ou renseigner le chemin d’accès à vos clés en utilisant l’option `--ssh-key-value` (l’emplacement par défaut est `~/.ssh/id_rsa.pub` sous Linux et `%HOMEPATH%\.ssh\id_rsa.pub` sous Windows, mais vous pouvez le modifier).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Pour créer des fichiers de clés SSH publiques et privées sous Linux, consultez l’article [Créer des clés SSH sur Linux et Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> Pour créer des fichiers de clés SSH publiques et privées sous Windows, consultez l’article [Créer des clés SSH sur Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Pour créer des fichiers de clés SSH publiques et privées sous Linux, consultez l’article [Créer des clés SSH sur Linux et Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Pour créer des fichiers de clés SSH publiques et privées sous Windows, consultez l’article [Créer des clés SSH sur Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Tout d’abord, saisissez la commande [az login](/cli/azure/#login) dans une fenêtre de terminal pour vous connecter à votre abonnement Azure avec Azure CLI : 
 

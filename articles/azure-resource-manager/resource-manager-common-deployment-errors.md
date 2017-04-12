@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -230,7 +230,7 @@ Cette erreur peut résulter de différents types d’erreurs.
   ]
   ```
 
-   Obtenir des segments valides peut être difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec quatre segments. Par conséquent, le nom comporte&3; segments :
+   Obtenir des segments valides peut être difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec quatre segments. Par conséquent, le nom comporte 3 segments :
 
   ```json
   {
@@ -662,15 +662,15 @@ Si cette approche ne résout pas la dépendance circulaire, essayez de déplacer
 
 1. Machine virtuelle 1
 2. Machine virtuelle 2
-3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
-4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
+3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
+4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
 
 Cette approche fonctionne aussi pour les applications App Service. Essayez de déplacer des valeurs de configuration dans une ressource enfant de la ressource d’application. Vous pouvez déployer deux applications web dans l’ordre suivant :
 
 1. Application web 1
 2. Application web 2
-3. La configuration de l’application web 1 dépend des applications web 1 et&2;. Elle contient des paramètres d’application avec les valeurs de l’application web 2.
-4. La configuration de l’application web 2 dépend des applications web 1 et&2;. Elle contient des paramètres d’application avec les valeurs de l’application web 1.
+3. La configuration de l’application web 1 dépend des applications web 1 et 2. Elle contient des paramètres d’application avec les valeurs de l’application web 2.
+4. La configuration de l’application web 2 dépend des applications web 1 et 2. Elle contient des paramètres d’application avec les valeurs de l’application web 1.
 
 ## <a name="troubleshooting-other-services"></a>Résolution des problèmes d’autres services
 Si les codes d’erreur de déploiement précédents ne vous permettent pas de résoudre votre problème, vous pouvez rechercher des instructions de dépannage plus détaillées pour chaque service Azure.
@@ -679,13 +679,13 @@ Le tableau suivant répertorie les rubriques de dépannage des machines virtuell
 
 | Erreur | Articles |
 | --- | --- |
-| Erreurs d’extension de script personnalisé |[Échecs d’extension de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Échecs d’extension de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erreurs de configuration d’image de système d’exploitation |[Erreurs liées aux nouvelles machines virtuelles Windows](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Erreurs liées au nouvelles machines virtuelles Linux](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Échecs d’allocation |[Échecs d’allocation de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Échecs d’allocation de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erreurs de Secure Shell (SSH) lors de la tentative de connexion |[Connexions Secure Shell à la machine virtuelle Linux](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erreurs de connexion à l’application s’exécutant sur la machine virtuelle |[Application s’exécutant sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Application s’exécutant sur une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Erreurs de connexion Bureau à distance |[Connexions Bureau à distance avec une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Erreurs de connexion résolues par un nouveau déploiement |[Redéployer une machine virtuelle vers un nouveau nœud Azure](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Erreurs d’extension de script personnalisé |[Échecs d’extension de machine virtuelle Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Échecs d’extension de machine virtuelle Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erreurs de configuration d’image de système d’exploitation |[Erreurs liées aux nouvelles machines virtuelles Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Erreurs liées au nouvelles machines virtuelles Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Échecs d’allocation |[Échecs d’allocation de machine virtuelle Windows](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Échecs d’allocation de machine virtuelle Linux](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erreurs de Secure Shell (SSH) lors de la tentative de connexion |[Connexions Secure Shell à la machine virtuelle Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erreurs de connexion à l’application s’exécutant sur la machine virtuelle |[Application s’exécutant sur une machine virtuelle Windows](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />ou<br />[Application s’exécutant sur une machine virtuelle Linux](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Erreurs de connexion Bureau à distance |[Connexions Bureau à distance avec une machine virtuelle Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Erreurs de connexion résolues par un nouveau déploiement |[Redéployer une machine virtuelle vers un nouveau nœud Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Erreurs de service cloud |[Problèmes de déploiement de service cloud](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 Le tableau suivant répertorie les rubriques de dépannage des autres services Azure. Il présente des problèmes liés au déploiement ou à la configuration des ressources. Si vous avez besoin d’aide pour résoudre les problèmes d’exécution d’une ressource, consultez la documentation du service Azure concerné.

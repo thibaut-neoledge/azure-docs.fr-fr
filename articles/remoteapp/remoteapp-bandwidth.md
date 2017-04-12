@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8b5f4568fa4e505b28011134cc8669ea50e17cf6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimation de l’utilisation de la bande passante réseau Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,10 +44,5 @@ Lorsque vous examinez les tests proposés et nos recommandations globales (et il
 Bien que nous abordions le thème de la redirection de périphériques, nous n’avons pas pris en compte l’impact de la bande passante du trafic réseau provoqué par les périphériques connectés, tels que les périphériques de stockage, les imprimantes, les scanneurs, les caméras web et d’autres périphériques USB. En général, l’effet de ces périphériques augmente de façon temporaire les besoins en bande passante et disparaît lorsque la tâche est terminée. Mais dans le cas d’une utilisation fréquente, la demande en bande passante pourrait être relativement importante.
 
 Nous ne parlons pas non plus de la façon dont un utilisateur peut affecter d’autres utilisateurs au sein du même réseau. Par exemple, un utilisateur consommant une vidéo 4K sur un réseau 100 Mbits/s peut avoir un impact significatif sur les autres utilisateurs de ce même réseau essayant d’effectuer la même tâche. Malheureusement, il est de plus en plus difficile de déterminer l’impact de l’utilisation simultanée pour donner une recommandation commune ou complète sur les performances du système en cas d’agrégation. Tout ce que nous pouvons dire est que la technologie de protocole sous-jacente utilisera au mieux la bande passante réseau disponible, mais elle a ses limites.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

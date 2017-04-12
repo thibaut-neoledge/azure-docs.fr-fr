@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ En plus des applications web dans App Service, Azure offre d’autres services q
 Pour démarrer en déployant un exemple de code vers une nouvelle application web dans App Service, suivez un des didacticiels de la liste déroulante suivante. Vous devrez créer un compte Azure gratuit
 
 > [!div class="op_single_selector"]
-> * [Déployer votre premier site HTML dans Azure en 5 minutes](app-service-web-get-started-html-cli-nodejs.md)
-> * [Déployer votre première application web ASP.NET dans Azure en 5 minutes](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Déployer votre première application web PHP dans Azure en 5 minutes](app-service-web-get-started-php-cli-nodejs.md)
-> * [Déployer votre première application web Node.js dans Azure en 5 minutes](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Déployer votre première application web Python dans Azure en 5 minutes](app-service-web-get-started-python-cli-nodejs.md)
+> * [Déployer votre première application web ASP.NET dans Azure en 5 minutes](app-service-web-get-started-dotnet.md)
+> * [Déployer votre première application web PHP dans Azure en 5 minutes](app-service-web-get-started-php.md)
+> * [Déployer votre première application web Node.js dans Azure en 5 minutes](app-service-web-get-started-nodejs.md)
 > * [Déployer votre première application web Java dans Azure en 5 minutes](app-service-web-get-started-java.md)
+> * [Déployer votre première application web Python dans Azure en 5 minutes](app-service-web-get-started-python.md)
+> * [Déployer votre premier site HTML dans Azure en 5 minutes](app-service-web-get-started-html.md)
 > 
 > 
 

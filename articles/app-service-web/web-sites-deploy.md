@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 283b1cfda82b4f96ad5148c522a4c9833cb4c381
-ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>Déploiement de votre application dans Azure App Service
 Cet article vous aidera à déterminer la meilleure solution pour déployer les fichiers de votre application web, un serveur d’application mobile ou une application API sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puis de vous orienter vers des articles et des blocs contenant des informations sur les procédures spécifiques à votre option préférée.
 
-## <a name="a-nameoverviewaazure-app-service-deployment-overview"></a><a name="overview"></a>Vue d’ensemble du déploiement d’Azure App Service
+## <a name="overview"></a>Vue d’ensemble du déploiement d’Azure App Service
 Azure App Service gère l'infrastructure d'application pour vous (ASP.NET, PHP, Node.js, etc.). Certaines infrastructures sont activées par défaut tandis que d’autres, comme Java et Python, peuvent nécessiter une simple configuration avec coche pour l’activer. En outre, vous pouvez personnaliser votre infrastructure d’application, notamment la version de PHP ou le nombre de bits de votre runtime. Pour plus d’informations, consultez [Configurer votre application dans Azure App Service](web-sites-configure.md).
 
 Comme vous n’avez pas à vous soucier du serveur web ou de l’infrastructure d’application, le déploiement de votre application sur App Service consiste à déployer votre code, les fichiers binaires, les fichiers de contenu et leur structure de répertoire respective sur l’annuaire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou le répertoire **/site/wwwroot/App_Data/Jobs/** pour les tâches web). App Service prend en charge trois processus de déploiement distincts. Toutes les méthodes de déploiement décrites dans cet article utilisent l’un des processus suivants : 
@@ -43,7 +44,7 @@ Les outils de développement web populaires prennent en charge un ou plusieurs d
 > 
 > 
 
-## <a name="a-nameftpadeploy-manually-by-uploading-files-with-ftp"></a><a name="ftp"></a>Déployer manuellement en chargeant des fichiers avec FTP
+## <a name="ftp"></a>Déployer manuellement en chargeant des fichiers avec FTP
 Si vous êtes habitué à copier manuellement votre contenu web sur un serveur web, vous pouvez utiliser un utilitaire [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers, notamment l’Explorateur Windows ou [FileZilla](https://filezilla-project.org/).
 
 Les avantages de la copie manuelle de fichiers sont :
@@ -59,12 +60,12 @@ Les inconvénients de la copie manuelle de fichiers sont :
 * Aucun historique de déploiement intégré pour résoudre les problèmes de déploiement.
 * Des délais de déploiement potentiellement plus longs car de nombreux outils FTP ne sont pas dotés de la copie différentielle, et se contentent de copier tous les fichiers.  
 
-### <a name="a-namehowtoftpahow-to-upload-files-with-ftp"></a><a name="howtoftp"></a>Comment charger des fichiers avec FTP
+### <a name="howtoftp"></a>Comment charger des fichiers avec FTP
 Le [Portail Azure](https://portal.azure.com) vous permet d’obtenir toutes les informations nécessaires pour vous connecter aux répertoires de votre application à l’aide de FTP ou de FTPS.
 
 * [Déployer votre application dans Azure App Service avec FTP](app-service-deploy-ftp.md)
 
-## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Déploiement par synchronisation avec un dossier cloud
+## <a name="dropbox"></a>Déploiement par synchronisation avec un dossier cloud
 Une bonne alternative à la [copie manuelle de fichiers](#ftp) consiste à synchroniser les fichiers et les dossiers avec App Service en utilisant un service de stockage hébergé sur le cloud comme OneDrive et Dropbox. La synchronisation avec un dossier de cloud utilise le processus de Kudu pour le déploiement (voir [Vue d’ensemble du processus de déploiement](#overview)).
 
 Les avantages de la synchronisation avec un dossier cloud sont :
@@ -78,12 +79,12 @@ Les inconvénients de la synchronisation avec un dossier cloud sont :
 * Aucun contrôle de version pour la restauration en cas de défaillance.
 * Aucun déploiement automatisé, une synchronisation manuelle est nécessaire.
 
-### <a name="a-namehowtodropboxahow-to-deploy-by-syncing-with-a-cloud-folder"></a><a name="howtodropbox"></a>Comment déployer par synchronisation avec un dossier cloud
+### <a name="howtodropbox"></a>Comment déployer par synchronisation avec un dossier cloud
 Dans le [portail Azure](https://portal.azure.com), vous pouvez désigner un dossier pour la synchronisation du contenu dans votre stockage cloud OneDrive ou Dropbox, travailler avec votre code d’application et votre contenu dans ce dossier et à synchroniser avec App Service sur un simple clic.
 
 * [Synchronisez le contenu à partir d’un dossier cloud dans Azure App Service](app-service-deploy-content-sync.md). 
 
-## <a name="a-namecontinuousdeploymentadeploy-continuously-from-a-cloud-based-source-control-service"></a><a name="continuousdeployment"></a>Déploiement en continu à partir d’un système de contrôle source hébergé sur le cloud
+## <a name="continuousdeployment"></a>Déploiement en continu à partir d’un système de contrôle source hébergé sur le cloud
 Si votre équipe de développement utilise un service de gestion de code source (SCM) basé sur le cloud comme [Visual Studio Team Services](http://www.visualstudio.com/), [GitHub](https://www.github.com) ou [BitBucket](https://bitbucket.org/), vous pouvez configurer App Service pour l’intégrer à votre référentiel et déployer en continu. 
 
 Les avantages du déploiement à partir d’un système de contrôle source sont :
@@ -97,14 +98,14 @@ L’inconvénient du déploiement à partir d’un service de contrôle de sourc
 
 * Implique une certaine connaissance du service SCM respectif.
 
-### <a name="a-namevstsahow-to-deploy-continuously-from-a-cloud-based-source-control-service"></a><a name="vsts"></a>Comment déployer en continu à partir d’un système de contrôle source hébergé sur le cloud
+### <a name="vsts"></a>Comment déployer en continu à partir d’un système de contrôle source hébergé sur le cloud
 Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer un déploiement continu à partir de GitHub, Bitbucket et Visual Studio Team Services.
 
 * [Déploiement continu vers Azure App Service](app-service-continuous-deployment.md). 
 
 Pour savoir comment configurer manuellement le déploiement continu à partir d’un référentiel cloud non répertorié par le portail Azure (tel que [GitLab](https://gitlab.com/)), consultez la rubrique sur la[configuration manuelle du déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
-## <a name="a-namelocalgitdeploymentadeploy-from-local-git"></a><a name="localgitdeployment"></a>Déployer à partir de Git local
+## <a name="localgitdeployment"></a>Déployer à partir de Git local
 Si votre équipe de développement utilise un service de gestion du code source local (SCM) basé sur Git, vous pouvez le configurer comme une source de déploiement pour App Service. 
 
 Avantages du déploiement à partir de Git local :
@@ -118,7 +119,7 @@ Inconvénient du déploiement à partir de Git local :
 * Implique une certaine connaissance du système SCM respectif.
 * Aucune solution clés en main pour un déploiement continu. 
 
-### <a name="a-namevstsahow-to-deploy-from-local-git"></a><a name="vsts"></a>Comment déployer à partir de Git local
+### <a name="vsts"></a>Comment déployer à partir de Git local
 Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer un déploiement Git local.
 
 * [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md). 
@@ -146,20 +147,20 @@ Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
 * Explorateur Azure intégré.
 * Déploiement différentiel uniquement. 
 
-### <a name="a-namevsahow-to-deploy-from-visual-studio-directly"></a><a name="vs"></a>Déploiement direct à partir de Visual Studio
-* [Prise en main d'Azure et ASP.NET](web-sites-dotnet-get-started.md). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
+### <a name="vs"></a>Déploiement direct à partir de Visual Studio
+* [Prise en main d'Azure et ASP.NET](app-service-web-get-started-dotnet.md). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
 * [Déployer des tâches Web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md). Explique comment configurer les projets d'application console pour qu'ils se déploient sous forme de tâches web WebJobs.  
 * [Créer une application ASP.NET MVC 5 avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Explique comment créer et déployer un projet Web ASP.NET MVC avec une base de données SQL, en utilisant Visual Studio, Web Deploy et Entity Framework Code First Migrations.
 * [Déploiement web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste. Certaines fonctionnalités de déploiement Azure ont été ajoutées depuis la rédaction de ce didacticiel. Cependant, les notes ajoutées par la suite expliquent les éléments manquants.
 * [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git. À partir de Visual Studio 2013, la prise en charge Git est intégrée et ne nécessite pas l’installation d’un plug-in.
 
-### <a name="a-nameaztkahow-to-deploy-using-the-azure-toolkits-for-eclipse-and-intellij-idea"></a><a name="aztk"></a>Déploiement à l’aide des boîtes à outils Azure pour Eclipse et IntelliJ IDEA
+### <a name="aztk"></a>Déploiement à l’aide des boîtes à outils Azure pour Eclipse et IntelliJ IDEA
 Microsoft permet de déployer des applications web sur Azure directement à partir d’Eclipse et d’IntelliJ via la [boîte à outils Azure pour Eclipse](../azure-toolkit-for-eclipse.md) et la [boîte à outils Azure pour IntelliJ](../azure-toolkit-for-intellij.md). Les didacticiels suivants illustrent les étapes impliquées dans le déploiement d’une simple application web « Hello World » sur Azure à l’aide de l’IDE :
 
 * [Créer une application web « Hello World » pour Azure dans Eclipse](app-service-web-eclipse-create-hello-world-web-app.md). Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application web Hello World pour Azure.
 * [Créer une application web « Hello World » pour Azure dans IntelliJ](app-service-web-intellij-create-hello-world-web-app.md). Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application web Hello World pour Azure.
 
-## <a name="a-nameautomateaautomate-deployment-by-using-command-line-tools"></a><a name="automate"></a>Automatiser le déploiement à l’aide d’outils en ligne de commande
+## <a name="automate"></a>Automatiser le déploiement à l’aide d’outils en ligne de commande
 Si vous préférez utiliser le terminal de ligne de commande comme environnement de développement, vous pouvez exécuter des tâches de déploiement pour votre application App Service en utilisant des outils de ligne de commande. 
 
 Les avantages du déploiement à l’aide d’outils en ligne de commande sont :
@@ -172,20 +173,15 @@ Les inconvénients du déploiement à l’aide d’outils en ligne de commande s
 
 * Une difficulté accrue pour les développeurs qui préfèrent l’interface utilisateur graphique.
 
-### <a name="a-nameautomatehowahow-to-automate-deployment-with-command-line-tools"></a><a name="automatehow"></a>Comment automatiser le déploiement avec des outils en ligne de commande
+### <a name="automatehow"></a>Comment automatiser le déploiement avec des outils en ligne de commande
 
 Consultez la page [Automatiser le déploiement de votre application Azure avec les outils en ligne de commande](app-service-deploy-command-line.md) pour obtenir la liste des outils en ligne de commande et des liens vers des didacticiels. 
 
-## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Étapes suivantes
+## <a name="nextsteps"></a>Étapes suivantes
 Dans certains cas, vous souhaiterez probablement pouvoir basculer facilement entre une version intermédiaire et de production de votre application. Pour plus d’informations, consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
 
 Posséder un programme de sauvegarde et de restauration établi représente une partie essentielle de tout flux de travail de déploiement. Pour plus d’informations sur la fonctionnalité de sauvegarde et de restauration d’App Service, consultez [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).  
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement App Service, consultez [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/)(RBAC et publication Web Apps).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

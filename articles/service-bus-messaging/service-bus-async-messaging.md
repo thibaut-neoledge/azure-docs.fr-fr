@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
-ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3142bea414e54e321e3dc9ae13aca110049ee105
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -81,10 +82,9 @@ Les espaces de noms associés prennent en charge la *disponibilité des fonction
 
 1. Les messages sont reçus uniquement à partir de l’espace de noms principal.
 2. Les messages envoyés à une file d’attente ou rubrique donnée peuvent arriver dans le désordre.
-3. Si votre application utilise des sessions, les messages d’une session peuvent arriver dans le désordre. Ce comportement diffère du comportement normal des sessions. Cela signifie que votre application utilise des sessions pour regrouper les messages de façon logique. L’état de la session est conservé uniquement au niveau de l’espace de noms principal.
-4. Les messages au sein d’une session peuvent arriver dans le désordre. Ce comportement diffère du comportement normal des sessions. Cela signifie que votre application utilise des sessions pour regrouper les messages de façon logique.
-5. L’état de la session est conservé uniquement au niveau de l’espace de noms principal.
-6. La file d’attente principale peut se mettre en ligne et commencer à accepter des messages avant que la file d’attente secondaire ait placé tous les messages dans la file d’attente principale.
+3. Les messages au sein d’une session peuvent arriver dans le désordre. Ce comportement diffère du comportement normal des sessions. Cela signifie que votre application utilise des sessions pour regrouper les messages de façon logique.
+4. L’état de la session est conservé uniquement au niveau de l’espace de noms principal.
+5. La file d’attente principale peut se mettre en ligne et commencer à accepter des messages avant que la file d’attente secondaire ait placé tous les messages dans la file d’attente principale.
 
 Les sections suivantes décrivent les API, la façon dont les API sont implémentées et présente des exemples de code qui utilisent la fonctionnalité. Notez que cette fonctionnalité est associée à des coûts.
 
@@ -152,9 +152,4 @@ Maintenant que vous avez appris les principes fondamentaux de la messagerie asyn
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4debed5ceed2c94b2e5b666d6fcebec5667bfda7
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 806634bb66ebb538020f1ffa693704433fc43352
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ Refernce article:
 
 Cet article vous explique comment attacher des disques nouveaux et existants, créés avec le modèle de déploiement Classic, à une machine virtuelle Windows avec le Portail Azure.
 
-Vous pouvez également [attacher un disque de données à une machine virtuelle Linux dans le portail Azure](../../virtual-machines-linux-attach-disk-portal.md).
+Vous pouvez également [attacher un disque de données à une machine virtuelle Linux dans le portail Azure](../../linux/attach-disk-portal.md).
 
 Avant d’attacher un disque, lisez les conseils suivants :
 

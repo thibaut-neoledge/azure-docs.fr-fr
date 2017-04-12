@@ -17,15 +17,15 @@ ms.date: 01/09/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 00832fcabfb3d1f6d9b7b9745335d4154a2caae3
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8ac408675404fe16042ec4338a8bce37f6e00643
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classique](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classique](../classic/sql-server-agent-extension.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ L’extension Agent IaaS SQL Server (SQLIaaSExtension) s’exécute sur les mach
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Pour afficher la version de cet article pour un déploiement Classic, consultez [Extension Agent SQL Server pour machines virtuelles SQL Server (Classic)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+Pour afficher la version de cet article pour un déploiement Classic, consultez [Extension Agent SQL Server pour machines virtuelles SQL Server (Classic)](../classic/sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Services pris en charge
 L’extension Agent IaaS SQL Server prend en charge les tâches d’administration suivantes :
@@ -51,6 +51,7 @@ Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votr
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versions de SQL Server**:
 

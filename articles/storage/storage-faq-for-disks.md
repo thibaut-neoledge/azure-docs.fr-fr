@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
-ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks est une fonctionnalité qui simplifie la gestion des disques asso
 
 **Si je crée un disque standard géré à partir d’un disque dur virtuel existant présentant une taille de 80 Go, combien cela me coûtera-t-il ?**
 
-Un disque géré Standard créé à partir d’un disque dur virtuel de 80 Go sera traité comme la taille immédiatement supérieure disponible de disque Premium, dont le coût s’élève à 10 dollars. Vous serez facturé&10; dollars par disque. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage).
+Un disque géré Standard créé à partir d’un disque dur virtuel de 80 Go sera traité comme la taille immédiatement supérieure disponible de disque Premium, dont le coût s’élève à 10 dollars. Vous serez facturé 10 dollars par disque. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage).
 
 **Des frais de transaction s’appliquent-ils aux disques gérés Standard ?**
 
@@ -45,7 +45,7 @@ Vous êtes facturé en fonction de la capacité configurée du disque. Pour plus
 
 **En quoi la tarification appliquée aux disques gérés Premium est-elle différente de cette associée aux disques non gérés ?**
 
-La tarification de ces&2; types de disques est identique.
+La tarification de ces 2 types de disques est identique.
 
 **Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques gérés ?**
 
@@ -125,7 +125,7 @@ Actuellement, Azure Managed Disks prend uniquement en charge le stockage localem
 
 **Pourquoi les clients doivent-ils débloquer le trafic sortant sur le port 8443 pour les machines virtuelles avec Azure Managed Disks ?**
 
-L’Agent de machine virtuelle Azure utilise le port 8443 pour signaler l’état de chaque extension de machine virtuelle à la plateforme Azure. Sans le déblocage de ce port, l’Agent de machine virtuelle ne pourra pas signaler l’état des extensions de machines virtuelles. Pour plus d’informations sur l’Agent de machine virtuelle, consultez [Vue d’ensemble de l’Agent de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+L’Agent de machine virtuelle Azure utilise le port 8443 pour signaler l’état de chaque extension de machine virtuelle à la plateforme Azure. Sans le déblocage de ce port, l’Agent de machine virtuelle ne pourra pas signaler l’état des extensions de machines virtuelles. Pour plus d’informations sur l’Agent de machine virtuelle, consultez [Vue d’ensemble de l’Agent de machine virtuelle Azure](../virtual-machines/windows/agent-user-guide.md).
 
 **Que se passe-t-il si une machine virtuelle est déployée avec extensions et que le port n’est pas débloqué ?**
 

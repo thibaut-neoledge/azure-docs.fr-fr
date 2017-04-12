@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 1/24/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66832a5d3f10f370ad486269c566fc948fd72234
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le w
 >
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V vers Azure
-Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le workflow [Activer la réplication](site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication). Dans la quatrième étape du workflow, utilisez la colonne **DISQUE À RÉPLIQUER** pour exclure des disques de la réplication. Par défaut, tous les disques sont sélectionnés pour la réplication. Décochez les cases correspondant aux disques que vous souhaitez exclure de la réplication, puis exécutez la procédure d’activation de la réplication.
+Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le workflow [Activer la réplication](site-recovery-hyper-v-site-to-azure.md#enable-replication). Dans la quatrième étape du workflow, utilisez la colonne **DISQUE À RÉPLIQUER** pour exclure des disques de la réplication. Par défaut, tous les disques sont sélectionnés pour la réplication. Décochez les cases correspondant aux disques que vous souhaitez exclure de la réplication, puis exécutez la procédure d’activation de la réplication.
 
 ![Exclure les disques de la réplication et activer la réplication de la restauration automatique de Hyper-V vers Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -96,10 +96,10 @@ Les disques sur la machine virtuelle source sont les suivants :
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur&1;
+DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
 DB-Disk2 (disque exclu de la protection) | Disk2 | E:\ | Fichiers temporaires
 DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) </br /></br />Notez le chemin du dossier avant de procéder au basculement.
-DB-Disk4 | Disk4 |G:\ |Base de données utilisateur&2;
+DB-Disk4 | Disk4 |G:\ |Base de données utilisateur 2
 
 Étant donné que l’évolution des données sur deux disques de la machine virtuelle est temporaire, lorsque vous protégez la machine virtuelle SalesDB, excluez les disques Disk2 et Disk3 de la réplication. Azure Site Recovery ne répliquera pas ces disques. Lors du basculement, ces disques ne seront pas présents sur la machine virtuelle de basculement sur Azure.
 
@@ -109,8 +109,8 @@ Les disques sur la machine virtuelle Azure après le basculement sont les suivan
 --- | --- | ---
 DISK0 |    C:\ | Disque de système d’exploitation
 Disk1 |    E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
-Disk2 | D:\ | Base de données système SQL et base de données utilisateur&1;
-Disk3 | G:\ | Base de données utilisateur&2;
+Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
+Disk3 | G:\ | Base de données utilisateur 2
 
 Étant donné que les disques Disk2 et Disk3 ont été exclus de la machine virtuelle SalesDB, E: est la première lettre de lecteur disponible dans la liste. Azure attribue donc la lettre E: au volume de stockage temporaire. Pour tous les disques répliqués, la lettre de lecteur reste la même.
 
@@ -173,8 +173,8 @@ Dans l’exemple précédent, les disques de la machine virtuelle Azure sont con
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
 Disk1 |    E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
-Disk2 |    D:\ | Base de données système SQL et base de données utilisateur&1;
-Disk3 |    G:\ | Base de données utilisateur&2;
+Disk2 |    D:\ | Base de données système SQL et base de données utilisateur 1
+Disk3 |    G:\ | Base de données utilisateur 2
 
 
 #### <a name="vmware-to-azure"></a>VMware vers Azure
@@ -185,8 +185,8 @@ Après le basculement planifié d’Azure vers l’hôte VMware local, les disqu
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 |    D:\ | Base de données système SQL et base de données utilisateur&1;
-Disk2 |    G:\ | Base de données utilisateur&2;
+Disk1 |    D:\ | Base de données système SQL et base de données utilisateur 1
+Disk2 |    G:\ | Base de données utilisateur 2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V vers Azure
 Lorsque la restauration automatique est effectuée à l’emplacement d’origine, la configuration des disques de la machine virtuelle de restauration automatique reste la même que celle des disques de la machine virtuelle d’origine pour Hyper-V. Les disques qui étaient exclus de Hyper-V vers Azure sont disponibles sur la machine virtuelle de restauration automatique.
@@ -196,10 +196,10 @@ Après le basculement planifié d’Azure vers l’hôte Hyper-V local, les disq
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 |    C:\ | Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Base de données système SQL et base de données utilisateur&1;
+DB-Disk1 | Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
 DB-Disk2 (disque exclu) | Disk2 | E:\ | Fichiers temporaires
 DB-Disk3 (disque exclu) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\)
-DB-Disk4 | Disk4 | G:\ | Base de données utilisateur&2;
+DB-Disk4 | Disk4 | G:\ | Base de données utilisateur 2
 
 
 #### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Exclure le disque de fichier d’échange (pagefile.sys)

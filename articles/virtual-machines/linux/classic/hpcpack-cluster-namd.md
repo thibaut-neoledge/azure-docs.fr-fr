@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ Générer une paire de clés RSA contenant une clé publique et une clé privée
    ![Clés publiques et privées][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Ajout de la paire de clés au cluster HPC Pack
-1. [Connectez-vous via le Bureau à distance](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à la machine virtuelle du nœud principal en utilisant les informations d’identification du domaine que vous avez fournies au moment de déployer le cluster (par exemple, hpc\admin_cluster). Le cluster est géré à partir du nœud principal.
+1. [Connectez-vous via le Bureau à distance](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à la machine virtuelle du nœud principal en utilisant les informations d’identification du domaine que vous avez fournies au moment de déployer le cluster (par exemple, hpc\admin_cluster). Le cluster est géré à partir du nœud principal.
 2. Utilisez les procédures standard Windows Server pour créer un compte d’utilisateur de domaine dans le domaine Active Directory du cluster. Par exemple, utilisez l’outil Utilisateurs et ordinateurs Active Directory sur le nœud principal. Les exemples de cet article supposent que vous créez un utilisateur de domaine nommé hpcuser dans le domaine hpclab (hpclab\hpcuser).
 3. Ajoutez l’utilisateur de domaine au cluster HPC Pack en tant qu’utilisateur de cluster. Pour obtenir des instructions, consultez [Ajouter ou supprimer des utilisateurs du cluster](https://technet.microsoft.com/library/ff919330.aspx).
 4. Créez un fichier nommé C:\cred.xml et copiez-y les données de clé RSA. Vous trouverez un exemple dans les exemples de fichiers à la fin de cet article.

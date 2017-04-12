@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 08390472c6480200751f37028fef594fb055f118
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -165,7 +165,7 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 * Capturer le suivi du journal dans votre infrastructure de journalisation favorite dans [.NET](app-insights-asp-net-trace-logs.md) ou [Java](app-insights-java-trace-logs.md). Cela signifie que vous pouvez effectuer des recherches dans le suivi du journal et les mettre en corrélation avec les pages vues, les exceptions et autres événements. 
 * [Écrire du code](app-insights-api-custom-events-metrics.md) pour envoyer des événements personnalisés, des affichages de page et des exceptions. 
 
-[Découvrez comment envoyer les journaux et la télémétrie personnalisée à Application Insights](app-insights-search-diagnostic-logs.md).
+[Découvrez comment envoyer les journaux et la télémétrie personnalisée à Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Questions et réponses
 ### <a name="limits"></a>Quelle est la quantité de données conservée ?
@@ -173,7 +173,7 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 Voir la section [Synthèse des limites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Comment puis-je consulter les données POST dans mes demandes serveur ?
-Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez utiliser [TrackTrace ou le journal des appels](app-insights-search-diagnostic-logs.md). Placez les données POST dans le paramètre de message. Vous ne pouvez pas filtrer les messages comme vous le feriez pour les propriétés, mais la limite de taille est plus importante.
+Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez utiliser [TrackTrace ou le journal des appels](app-insights-asp-net-trace-logs.md). Placez les données POST dans le paramètre de message. Vous ne pouvez pas filtrer les messages comme vous le feriez pour les propriétés, mais la limite de taille est plus importante.
 
 ## <a name="video"></a>Vidéo
 
@@ -181,7 +181,7 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
 ## <a name="add"></a>Étapes suivantes
 * [Écrire des requêtes complexes dans Analytics](app-insights-analytics-tour.md)
-* [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-search-diagnostic-logs.md)
+* [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](app-insights-monitor-web-app-availability.md)
 * [Dépannage](app-insights-troubleshoot-faq.md)
 

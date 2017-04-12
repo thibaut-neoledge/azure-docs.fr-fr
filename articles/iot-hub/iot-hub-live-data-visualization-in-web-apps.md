@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 788b3a6ce98c6668a8efc41f66c7e39b8aeda2db
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 03/30/2017
 
 ![Connexion entre le capteur, l’appareil IoT, IoT Hub et l’application web Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
 
-> [!NOTE]
-> Avant de commencer ce didacticiel, assurez-vous que vous avez suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). Dans le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), vous configurez votre appareil IoT et votre instance IoT Hub, puis déployez un exemple d’application à exécuter sur votre appareil. L’application envoie les données de capteur collectées à votre instance IoT Hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Contenu
 
@@ -126,8 +125,4 @@ Vous avez correctement utilisé une application web Azure pour visualiser des do
 
 Il existe un autre moyen de visualiser ces données depuis Azure IoT Hub. Voir [Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI](iot-hub-live-data-visualization-in-power-bi.md).
 
-Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
-
-- [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Enregistrer les messages IoT Hub dans le stockage de données Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

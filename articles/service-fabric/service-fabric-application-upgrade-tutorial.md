@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 Azure Service Fabric simplifie le processus de mise à niveau des applications cloud en veillant à ce que seuls les services modifiés soient mis à niveau et que l'intégrité de l'application soit analysée tout au long de la mise à niveau. Il restaure automatiquement la version précédente de l’application en cas de problème. Les mises à niveau des applications Service Fabric s'effectuent *sans interruption de service*, étant donné que l'application peut être mise à niveau sans interruption du service. Ce didacticiel explique comment effectuer une mise à niveau propagée à partir de Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Étape 1 : Créer et publier l'exemple Visual Objects
-Tout d’abord, téléchargez l’application [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) à partir de GitHub. Ensuite, générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjects**, et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric.
+Tout d’abord, téléchargez l’application [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) à partir de GitHub. Ensuite, générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjects**, et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric.
 
 ![Menu contextuel pour une application Service Fabric][image1]
 

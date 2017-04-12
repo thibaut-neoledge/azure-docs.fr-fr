@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 2dd6e9ba1d08d3528cdf8194e1e338422361d1d5
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 * **Création de machines virtuelles :** une interface réseau avec accélération réseau peut être rattachée uniquement à une machine virtuelle lorsque cette dernière est créée. L’interface réseau ne peut pas être attachée à une machine virtuelle existante.
 * **Régions :** option disponible uniquement dans les régions Azure Ouest-Centre des États-Unis et Europe de l’Ouest. Le nombre de régions augmentera dans le futur.
 * **Systèmes d’exploitation pris en charge :** Microsoft Windows Server 2012 R2 et Windows Server 2016 Technical Preview 5. Linux et Windows Server 2012 seront pris en charge prochainement.
-* **Taille de machine virtuelle :** les tailles Standard_D15_v2 et Standard_DS15_v2 sont les seules tailles d’instance de machine virtuelle prises en charge. Pour plus d’informations, consultez [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Le nombre de tailles d’instance de machine virtuelle augmentera dans le futur.
+* **Taille de machine virtuelle :** les tailles Standard_D15_v2 et Standard_DS15_v2 sont les seules tailles d’instance de machine virtuelle prises en charge. Pour plus d’informations, consultez [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Le nombre de tailles d’instance de machine virtuelle augmentera dans le futur.
 
 Les modifications apportées à ces limites seront annoncées sur la page des [mises à jour concernant l’accélération réseau Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 

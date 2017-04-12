@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 23bdde763de6f437a0dec74c51722cbcfc19b141
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: bd44ba6795bc89ff4d250caf38520a72dd37c448
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous découvrirez comment utiliser les modèles Visual Stud
 * **EventHubWriter**: génère des données de façon aléatoire et les écrit dans les hubs d’événements
 * **EventHubReader** : lit les données à partir d’Event Hubs et enregistre les données dans les journaux de Storm
 
-> [!NOTE] 
+> [!NOTE]
 > Pour obtenir une version Java de ce projet, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## <a name="scpnet"></a>SCP.NET
@@ -46,7 +46,7 @@ Ces projets utilisent SCP.NET, un package NuGet qui vous permet de créer des to
 Le package NuGet Microsoft.SCP.Net.SDK utilisé par votre projet doit correspondre à la version principale de Storm installée sur HDInsight. Les versions 3.3 et 3.4 de Storm sur HDInsight utilisent la version 0.10.x de Storm. Vous devez donc utiliser la version 0.10.x.x de SCP.NET avec ces clusters. La version 3.5 de HDInsight utilise la version 1.0.x de Storm. Vous devez donc utiliser la version 1.0.x.x de SCP.NET avec cette version de cluster.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 La version 3.4 de HDInsight (et les versions suivantes) utilisent Mono pour exécuter des topologies C#. La plupart des éléments fonctionnent avec Mono. Toutefois, vous devez consulter le document [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/) pour identifier les éventuelles incompatibilités.
 
@@ -198,12 +198,12 @@ Créez un répertoire nommé `eventhubspout` et enregistrez le fichier dans le r
 Event Hubs est la source de données pour cet exemple. Utilisez les informations contenues dans la section **Créer un Event Hub** du document [Prise en main des Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 1. Après avoir créé l’Event Hub, affichez le panneau de l’Event Hub dans le portail Azure et sélectionnez **Stratégies d’accès partagé**. Sélectionnez **+ Ajouter** pour ajouter les stratégies suivantes :
-   
+
    | Nom | Autorisations |
    | --- | --- |
    | writer |Envoyer |
    | reader |Écouter |
-   
+
     ![stratégies](./media/hdinsight-storm-develop-csharp-event-hub-topology/sas.png)
 
 2. Sélectionnez les stratégies **reader** et **writer**. Copiez et enregistrez la valeur **CLÉ PRIMAIRE** des deux stratégies, car elles sont utilisées ultérieurement.
@@ -215,7 +215,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 2. Téléchargez la solution depuis [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 3. Dans le projet **EventHubWriter**, ouvrez le fichier **App.config**. Utilisez les informations à partir de l’Event Hub que vous avez configuré précédemment pour renseigner la valeur pour les clés suivantes :
-   
+
    | Clé | Valeur |
    | --- | --- |
    | EventHubPolicyName |writer (si vous avez utilisé un nom différent pour la stratégie avec l’autorisation *Send*, utilisez-le à la place.) |
@@ -231,7 +231,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 1. Ouvrez le projet **EventHubReader**.
 
 2. Ouvrez **App.config** pour **EventHubReader**. Utilisez les informations à partir de l’Event Hub que vous avez configuré précédemment pour renseigner la valeur pour les clés suivantes :
-   
+
    | Clé | Valeur |
    | --- | --- |
    | EventHubPolicyName |reader (si vous avez utilisé un nom différent pour la stratégie avec l’autorisation *listen*, utilisez-le à la place.) |
@@ -245,15 +245,15 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 ## <a name="deploy-the-topologies"></a>Déploiement des topologies
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **EventHubReader** et sélectionnez **Envoyer à Storm sur HDInsight**.
-   
+
     ![envoyer à Storm](./media/hdinsight-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
 2. Dans l’écran **Envoyer la topologie**, sélectionnez votre **Cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d'accès aux fichiers Java**, sélectionnez **...**, puis choisissez le répertoire qui contient le fichier jar que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
-   
+
     ![Image de boîte de dialogue de soumission](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
 3. Une fois la topologie envoyée, la **Visionneuse de topologies Storm** apparaît. Sélectionnez la topologie **EventHubReader** dans le volet gauche pour afficher des informations sur la topologie.
-   
+
     ![affichage d’un exemple de stockage](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
 4. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **EventHubWriter** et sélectionnez **Envoyer à Storm sur HDInsight**.
@@ -267,7 +267,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 8. Pour ouvrir la page **Résumé du composant** pour le bolt, double-cliquez sur le composant **LogBolt** dans le diagramme.
 
 9. Dans la section **Exécuteurs**, sélectionnez un des liens dans la colonne **Port**. Ceci affiche les informations enregistrées par le composant. Les informations enregistrées sont similaires au texte suivant :
-   
+
         2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
         2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
         2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
@@ -289,5 +289,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Guide de programmation SCP](hdinsight-storm-scp-programming-guide.md)
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
-
 
