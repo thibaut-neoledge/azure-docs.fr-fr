@@ -38,4 +38,3 @@ Azure Active Directory expose les points de terminaison d’authentification uni
 
 Pour plus d’informations sur les documents de métadonnées de fédération publiés par Azure AD, consultez la page [Métadonnées de fédération](active-directory-federation-metadata.md).
 
-

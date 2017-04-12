@@ -96,23 +96,23 @@ Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à dist
 ## <a name="InstallIPython"></a>Installer Notebook IPython et les autres outils connexes
 Un script de personnalisation spécial est mis à votre disposition pour vous permettre de configurer la nouvelle machine virtuelle SQL Server en tant que serveur Notebook IPython et pour installer des outils connexes complémentaires, tels qu’AzCopy, l’Explorateur de stockage Azure, des packages de science des données Python très utiles, etc. Pour effectuer l’installation :
 
-* Cliquez avec le bouton droit sur l’icône **Démarrage Windows** et cliquez sur **Invite de commandes (Admin)**
-* Copiez les commandes ci-après et collez-les au niveau de l’invite de commandes.
+1. Cliquez avec le bouton droit sur l’icône **Démarrage Windows** et cliquez sur **Invite de commandes (Admin)**
+2. Copiez les commandes ci-après et collez-les au niveau de l’invite de commandes.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* Lorsque vous y êtes invité, entrez un mot de passe de votre choix pour le serveur Notebook IPython.
-* Le script de personnalisation automatise plusieurs procédures post-installation répertoriées ci-dessous.
-  * Installation et configuration du serveur Notebook IPython
-  * Ouverture de ports TCP dans le Pare-feu Windows pour les points de terminaison créés précédemment :
-  * pour la connectivité à distance de SQL Server ;
-  * pour la connectivité à distance du serveur Notebook IPython.
-  * Extraction des exemples de notebooks IPython et de scripts SQL
-  * Téléchargement et installation des packages de science des données Python utiles
-  * Téléchargement et installation d’outils Azure tels qu’AzCopy et Azure Storage Explorer   
+3. Lorsque vous y êtes invité, entrez un mot de passe de votre choix pour le serveur Notebook IPython.
+4. Le script de personnalisation automatise plusieurs procédures post-installation répertoriées ci-dessous.
+    * Installation et configuration du serveur Notebook IPython
+    * Ouverture de ports TCP dans le Pare-feu Windows pour les points de terminaison créés précédemment :
+    * pour la connectivité à distance de SQL Server ;
+    * pour la connectivité à distance du serveur Notebook IPython.
+    * Extraction des exemples de notebooks IPython et de scripts SQL
+    * Téléchargement et installation des packages de science des données Python utiles
+    * Téléchargement et installation d’outils Azure tels qu’AzCopy et Azure Storage Explorer   
     <br>
-* Vous pouvez accéder à Notebook IPython et l’exécuter depuis n’importe quel navigateur local ou distant en utilisant une URL du type `https://<virtual_machine_DNS_name>:<port>`, où la variable port correspond au port public IPython que vous avez sélectionné lors de l’approvisionnement de la machine virtuelle.
-* Le serveur Notebook IPython s’exécute en tant que service d’arrière-plan et sera redémarré automatiquement quand vous redémarrerez la machine virtuelle.
+5. Vous pouvez accéder à Notebook IPython et l’exécuter depuis n’importe quel navigateur local ou distant en utilisant une URL du type `https://<virtual_machine_DNS_name>:<port>`, où la variable port correspond au port public IPython que vous avez sélectionné lors de l’approvisionnement de la machine virtuelle.
+6. Le serveur Notebook IPython s’exécute en tant que service d’arrière-plan et sera redémarré automatiquement quand vous redémarrerez la machine virtuelle.
 
 ## <a name="Optional"></a>Attacher des disques de données selon vos besoins
 Si l’image de machine virtuelle que vous avez sélectionnée n’inclut aucun disque de données, c’est-à-dire aucun disque autre que le lecteur C (disque du système d’exploitation) ou le lecteur D (disque temporaire), vous devez ajouter un ou plusieurs disques de données pour y stocker vos données. L’image de machine virtuelle pour SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données est préconfigurée avec des disques supplémentaires pour les fichiers de données et les fichiers journaux SQL Server.
