@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
-ms.openlocfilehash: 2275daf25fd916932dbf54a7b069ecbfcf3e68cf
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 1d9aa0e5da9b0bd659b8057739c81b318023cf44
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,23 +38,25 @@ Pour configurer l’intégration d’Azure AD avec Optimizely, vous avez besoin
 * Un abonnement Azure AD
 * Un abonnement **Optimizely** pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
-> 
+
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Optimizely à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-optimizely-from-the-gallery"></a>Ajout d’Optimizely à partir de la galerie
+## <a name="add-optimizely-from-the-gallery"></a>Ajouter Optimizely à partir de la galerie
 Pour configurer l’intégration d’Optimizely avec Azure AD, vous devez ajouter Optimizely à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Optimizely à partir de la galerie, procédez comme suit :**
@@ -85,10 +87,11 @@ Pour configurer l’intégration d’Optimizely avec Azure AD, vous devez ajout
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Optimizely avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Optimizely avec un utilisateur de test nommé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Optimizely équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Optimizely associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Optimizely équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Optimizely associé doit être établie.
+
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Optimizely.
 
 Pour configurer et tester l’authentification unique Azure AD avec Optimizely, vous devez suivre les indications des sections suivantes :
@@ -99,10 +102,12 @@ Pour configurer et tester l’authentification unique Azure AD avec Optimizely,
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Optimizely.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application Optimizely.
 
-L’application Optimizely s’attend à ce que les assertions SAML contiennent un attribut nommé « email ». La valeur de l’attribut « email » doit être un message électronique reconnu par Optimizely et qui peut être authentifié par Azure AD. Configurez la revendication « email » pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attributs** de l’application. La capture d’écran suivante montre un exemple : 
+L’application Optimizely s’attend à ce que les assertions SAML contiennent un attribut nommé « email ». La valeur de l’attribut « email » doit être un message électronique reconnu par Optimizely et qui peut être authentifié par Azure AD. Configurez la revendication « email » pour cette application. 
+
+Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attributs** de l’application. La capture d’écran suivante montre un exemple : 
 
 ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_03.png) 
 
@@ -113,16 +118,12 @@ L’application Optimizely s’attend à ce que les assertions SAML contiennent 
     ![Configurer l’authentification unique][5]
 
 2. Dans la boîte de dialogue des attributs du jeton SAML, ajoutez l’attribut « email ».
-   
-    a. Cliquez sur **add user attribute** to open the **Ajouter un attribut utilisateur** . 
+  1. Cliquez sur **add user attribute** to open the **Ajouter un attribut utilisateur** . 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_05.png)
-   
-    b. Dans la zone de texte **Nom de l’attribut** , indiquez le nom de l’attribut « email ».
-   
-    c. À partir de la liste **Valeur de l’attribut** , sélectionnez la valeur d’attribut « userprincipalname » ou toute valeur qui contient un e-mail reconnu par Azure AD et Optimizely.
-   
-    d. Cliquez sur **Terminé**.
+  2. Dans la zone de texte **Nom de l’attribut** , indiquez le nom de l’attribut « email ».
+  3. À partir de la liste **Valeur de l’attribut** , sélectionnez la valeur d’attribut « userprincipalname » ou toute valeur qui contient un e-mail reconnu par Azure AD et Optimizely.
+  4. Cliquez sur **Terminé**.
 
 3. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
    
@@ -139,48 +140,39 @@ L’application Optimizely s’attend à ce que les assertions SAML contiennent 
 6. Sur la page **Configurer les paramètres d’application** , procédez comme suit : 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
+  1. Dans la zone de texte **URL d’authentification**, tapez : `https://app.optimizely.net/contoso`
+  2. Dans la zone de texte **Identificateur**, tapez : `urn:auth0:optimizely:contoso`
+  3. Cliquez sur **Suivant**. 
 
-    a. Dans la zone de texte **URL d’authentification**, tapez : `https://app.optimizely.net/contoso`
-
-    b. Dans la zone de texte **Identificateur**, tapez : `urn:auth0:optimizely:contoso`
-
-    c. Cliquez sur **Next**. 
-
-    > [!NOTE] 
-    > Les valeurs pour **URL de connexion** et **Identificateur** sont uniquement des espaces réservés pour les valeurs réelles. Vous trouverez des instructions sur l’acquisition des valeurs réelles à partir d’Optimizely plus loin dans ce didacticiel.
+     >[!NOTE] 
+     >Les valeurs pour **URL de connexion** et **Identificateur** sont uniquement des espaces réservés pour les valeurs réelles. Vous trouverez des instructions sur l’acquisition des valeurs réelles à partir d’Optimizely plus loin dans ce didacticiel.
+     >
 
 1. Sur la page **Configurer l’authentification unique sur Optimizely** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Copiez l’ **URL du service d’authentification unique**.
+ 1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
+ 2. Copiez l’ **URL du service d’authentification unique**.
 
 2. Pour obtenir la configuration de l’authentification unique pour votre application, contactez votre responsable de compte Optimizely et envoyez-lui les informations suivantes :
    
-   * Votre certificat téléchargé. 
-   * L’URL du service d’authentification unique.
+  * Votre certificat téléchargé. 
+  * L’URL du service d’authentification unique
      
-     En réponse à votre e-mail, Optimizely vous fournit l’URL de connexion (authentification unique initiée par le fournisseur de service) et l’identificateur (ID d’entité du fournisseur de service).
+  En réponse à votre e-mail, Optimizely vous fournit l’URL de connexion (authentification unique initiée par le fournisseur de service) et l’identificateur (ID d’entité du fournisseur de service).
 
 3. Revenez à la page de boîte de dialogue **Configurer les paramètres d’application** , puis procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
-   
-    a. Dans la zone de texte **URL de connexion**, entrez **l’URL d’authentification unique initiée par le fournisseur de service** fournie par Optimizely.
-   
-    b. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité du fournisseur de service** fourni par Optimizely.
-   
-    c. Cliquez sur **Suivant**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png) 
+ 1. Dans la zone de texte **URL de connexion**, entrez **l’URL d’authentification unique initiée par le fournisseur de service** fournie par Optimizely.  
+ 2. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité du fournisseur de service** fourni par Optimizely.  
+ 3. Cliquez sur **Suivant**.
 
 4. Sur la page **Configurer l’authentification unique sur Optimizely** , procédez comme suit :
    
-    ![Authentification unique Azure AD][10]
-   
-    a. Sélectionnez la confirmation de la configuration de l’authentification unique.
-   
-    b. Cliquez sur **Suivant**.
+    ![Authentification unique Azure AD][10] 
+ 1. Sélectionnez la confirmation de la configuration de l’authentification unique.  
+ 2. Cliquez sur **Suivant**.
 
 5. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
@@ -196,9 +188,10 @@ L’application Optimizely s’attend à ce que les assertions SAML contiennent 
    
     ![Authentification unique Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+* Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -220,27 +213,19 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)  
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation. 
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Suivant**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.  
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -248,16 +233,14 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**.  
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-an-optimizely-test-user"></a>Création d’un utilisateur de test Optimizely
+### <a name="create-an-optimizely-test-user"></a>Créer un utilisateur de test Optimizely
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Optimizely.
 
-1. Sur la page d’accueil, sélectionnez l’onglet **Collaborateurs**
+1. Sur la page d’accueil, sélectionnez l’onglet **Collaborateurs**.
 
 2. Cliquez sur **Nouveau collaborateur** pour ajouter un nouveau collaborateur au projet.
    
@@ -269,7 +252,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans O
 
 1. Il reçoit une invitation par courrier électronique. À l’aide de l’adresse de messagerie, il doit se connecter à Optimizely.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Optimizely.
 
 ![Affecter des utilisateurs][200] 
@@ -294,7 +277,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Optimizely dans le volet d’accès, vous devez être connecté automatiquement à votre application Optimizely.

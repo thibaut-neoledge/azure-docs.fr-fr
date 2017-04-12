@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
-ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 3d1f24cb23a58b4478a30c5e4a0858b474d5d90e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -32,16 +32,17 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour ITRP
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-itrp"></a>Activation de l’intégration d’application pour ITRP
+## <a name="enable-the-application-integration-for-itrp"></a>Activer l’intégration d’applications pour ITRP
 Cette section décrit l’activation de l’intégration d’application pour ITRP.
 
-### <a name="to-enable-the-application-integration-for-itrp-perform-the-following-steps"></a>Pour activer l’intégration d’application pour ITRP, procédez comme suit :
+**Pour activer l’intégration de l’application ITRP, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
@@ -68,13 +69,16 @@ Cette section décrit l’activation de l’intégration d’application pour IT
    
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur ITRP avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+
 La configuration de l’authentification unique pour ITRP vous oblige à récupérer une valeur d’empreinte dans un certificat.  
+
 Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique, procédez comme suit :**
+
 1. Sur la page d’intégration d’applications **ITRP** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurer l’authentification unique")
@@ -105,33 +109,30 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
    
     ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775572.png "Authentification unique")
     
-    ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775573.png "Authentification unique")
-   
-    a. Cliquez sur **Enable**.
-   
-    b. Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion distante**.
-   
-    c. Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **URL SSO SAML**.
-   
-    d. Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
+    ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775573.png "Authentification unique")   
+  1. Cliquez sur **Enable**.
+  2. Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion distante**.
+  3. Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **URL SSO SAML**.
+  4. Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
       
-    > [!TIP]
-    > Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-   
-    e. Cliquez sur **Enregistrer**.
+     >[!TIP]
+     >Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+     >
+    
+  5. Cliquez sur **Save**.
 
 9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour pouvoir se connecter à ITRP, les utilisateurs d’Azure Active Directory doivent être approvisionnés dans ITRP.  
+
 Dans le cas d’ITRP, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+
 1. Connectez-vous à votre locataire **ITRP** .
 
 2. Dans la barre d’outils située en haut, cliquez sur **Records**.
@@ -148,24 +149,22 @@ Dans le cas d’ITRP, l’approvisionnement est une tâche manuelle.
 
 5. Dans la boîte de dialogue Add New Person, procédez comme suit :
    
-    ![Utilisateur](./media/active-directory-saas-itrp-tutorial/IC775577.png "Utilisateur")
-   
-    a. Entrez le **nom**, et **l’adresse de messagerie** d’un compte AAD valide que vous voulez approvisionner.
-   
-    b. Cliquez sur **Enregistrer**.
+    ![Utilisateur](./media/active-directory-saas-itrp-tutorial/IC775577.png "Utilisateur")   
+  1. Entrez le **nom**, et **l’adresse de messagerie** d’un compte AAD valide que vous voulez approvisionner.
+  2. Cliquez sur **Save**.
 
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par ITRP pour approvisionner des comptes d’utilisateurs Azure Active Directory.
-> 
+>[!NOTE]
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par ITRP pour approvisionner des comptes d’utilisateurs Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-itrp-perform-the-following-steps"></a>Pour affecter des utilisateurs à Bime, procédez comme suit :
+**Pour affecter des utilisateurs à ITRP, procédez comme suit :**
+
 1. Dans le portail Azure AD, créez un compte de test.
 
-2. Dans la page d’intégration d’applications **ITRP**, cliquez sur **Affecter des utilisateurs**.
+2. Dans la page d’intégration de l’application **ITRP**, cliquez sur **Affecter des utilisateurs**.
    
     ![Affecter des utilisateurs](./media/active-directory-saas-itrp-tutorial/IC775588.png "Affecter des utilisateurs")
 

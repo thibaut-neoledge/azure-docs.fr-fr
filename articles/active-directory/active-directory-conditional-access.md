@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
-ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -81,7 +82,7 @@ Consultez les articles et catégories de ressources suivants pour en savoir plus
 
 ### <a name="multi-factor-authentication-and-location-policies"></a>Stratégies basées sur l’emplacement et l’authentification multifacteur
 * [Getting started with conditional access to Azure AD-connected apps based on group, location, and multi-factor authentication policies (Prise en main de l’accès conditionnel aux applications connectées à Azure AD en fonction de stratégies basées sur le groupe, l’emplacement et l’authentifiaction multifacteur)](active-directory-conditional-access-azuread-connected-apps.md)
-* [Prise en charge de l’accès conditionnel des applications](active-directory-conditional-access-supported-apps.md)
+* [Applications et navigateurs pris en charge](active-directory-conditional-access-supported-apps.md)
 
 ### <a name="device-based-conditional-access"></a>Accès conditionnel basé sur les appareils
 * [Définir la stratégie d’accès conditionnel en fonction de l’appareil pour contrôler l’accès aux applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
@@ -95,10 +96,5 @@ Consultez les articles et catégories de ressources suivants pour en savoir plus
 ### <a name="next-steps"></a>Étapes suivantes
 * [Conditional access FAQs (Forums Aux Questions sur l’accès conditionnel)](active-directory-conditional-faqs.md)
 * [Référence technique](active-directory-conditional-access-technical-reference.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

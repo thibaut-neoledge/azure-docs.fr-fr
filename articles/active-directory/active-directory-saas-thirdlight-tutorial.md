@@ -11,37 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 3/07/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
-ms.openlocfilehash: 559c9fd7ff57eebff81da3fd491803442c6d0d9e
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 0ed8c8a24fd5125690c8fadee4918c25498b6693
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Didacticiel : Intégration d’Azure AD à Thirdlight
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Thirdlight.  
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
-* Un abonnement Thirdlight pour lequel l’authentification unique est activée
+* Un abonnement Thirdlight pour lequel l’authentification unique (SSO) est activée
 
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Thirdlight pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Thirdlight (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Thirdlight pourront se connecter à l’application à l’aide de l’authentification unique sur votre site d’entreprise Thirdlight (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour Thirdlight
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-thirdlight-tutorial/IC805836.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-thirdlight"></a>Activation de l’intégration d’applications pour Thirdlight
+## <a name="enable-the-application-integration-for-thirdlight"></a>Activer l’intégration d’applications pour Thirdlight
 Cette section décrit l’activation de l’intégration de l’application pour Thirdlight.
 
-### <a name="to-enable-the-application-integration-for-thirdlight-perform-the-following-steps"></a>Pour activer l’application de l’intégration pour Thirdlight, procédez comme suit :
+**Pour activer l’intégration de l’application Thirdlight, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.png "Active Directory")
@@ -68,12 +70,15 @@ Cette section décrit l’activation de l’intégration de l’application pour
    
     ![ThirdLight](./media/active-directory-saas-thirdlight-tutorial/IC805838.png "ThirdLight")
 
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Thirdlight avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour Thirdlight oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
+
+La configuration de l’authentification unique pour Thirdlight vous oblige à récupérer une valeur d’empreinte dans un certificat.
+
 Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique, procédez comme suit :**
+
 1. Dans la page d’intégration d’application **Thirdlight** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configurer l’authentification unique")
@@ -98,25 +103,23 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 7. Dans la section de configuration de SAML2, procédez comme suit :
    
-    ![Authentification unique SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Authentification unique SAML")
-   
-    a. Sélectionnez **Enable SAML2 Single Sign-On**.
-   
-    b. Dans **Source for IdP Metadata**, sélectionnez **Load IdP Metadata from XML**.
-   
-    c. Ouvrez le fichier de métadonnées téléchargé, copiez son contenu, puis collez-le dans la zone de texte **Idp Metadata XML** .
-   
-    d. Cliquez sur **Save SAML2 settings**.
+    ![Authentification unique SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Authentification unique SAML")   
+ 1. Sélectionnez **Enable SAML2 Single Sign-On**. 
+ 2. Dans **Source for IdP Metadata**, sélectionnez **Load IdP Metadata from XML**. 
+ 3. Ouvrez le fichier de métadonnées téléchargé, copiez son contenu, puis collez-le dans la zone de texte **Idp Metadata XML** . 
+ 4. Cliquez sur **Save SAML2 settings**.
 
 8. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configurer l’authentification unique")
 
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 Pour se connecter à Thirdlight, les utilisateurs d’Azure AD doivent être approvisionnés dans Thirdlight.  
-Dans le cas de Thirdlight, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+* Dans le cas de Thirdlight, l’approvisionnement est une tâche manuelle.
+
+**Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
+
 1. Connectez-vous au site d’entreprise **Thirdlight** en tant qu’administrateur.
 
 2. Cliquez sur l’onglet **Users** .
@@ -129,15 +132,15 @@ Dans le cas de Thirdlight, l’approvisionnement est une tâche manuelle.
 
 6. Cliquez sur **Create**.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thirdlight, pour approvisionner des comptes d’utilisateur AAD.
-> 
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thirdlight, pour approvisionner des comptes d’utilisateur AAD. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-thirdlight-perform-the-following-steps"></a>Pour affecter des utilisateurs à Thirdlight, procédez comme suit :
+**Pour affecter des utilisateurs à Thirdlight, procédez comme suit :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
 
 2. Dans la page d’intégration d’application **Thirdlight**, cliquez sur **Affecter des utilisateurs**.

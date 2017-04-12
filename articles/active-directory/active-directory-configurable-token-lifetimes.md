@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource p
 Il est important de distinguer les clients confidentiels des clients publics. Pour plus d’informations sur les différents types de client, consultez [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Durées de vie des jetons avec des jetons d’actualisation de client confidentiel
-Les clients confidentiels sont des applications qui peuvent stocker un mot de passe client (secret). Ils peuvent prouver que les demandes proviennent de l’application cliente et non d’un acteur malveillant. Par exemple, une application web est un client confidentiel, car elle peut stocker un secret de client sur le serveur web. Elle n’est pas exposée. Comme ces flux sont plus sécurisés, les durées de vie par défaut des jetons d’actualisation émis pour ces flux sont supérieures et ne peuvent pas être modifiées à l’aide de la stratégie.
+Les clients confidentiels sont des applications qui peuvent stocker un mot de passe client (secret). Ils peuvent prouver que les demandes proviennent de l’application cliente et non d’un acteur malveillant. Par exemple, une application web est un client confidentiel, car elle peut stocker un secret de client sur le serveur web. Elle n’est pas exposée. Comme ces flux sont plus sécurisés, les durées de vie par défaut des jetons d’actualisation émis en direction de ces flux sont de `until-revoked`, ne peuvent pas être modifiées à l’aide de la stratégie et ne peuvent pas être révoquées sur les réinitialisations de mot de passe volontaires.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durées de vie des jetons avec des jetons d’actualisation de client public
 
@@ -203,7 +203,7 @@ Pour commencer, suivez les étapes ci-dessous :
     Connect-AzureAD -Confirm
     ```
 
-3. Pour afficher toutes les stratégies qui ont été créées dans votre organisation, exécutez la commande suivante. Exécutez cette commande après la plupart des opérations dans les scénarios suivants. L’exécution de la commande vous aide également à obtenir **l’ID d’objet** de vos stratégies.
+3. Pour afficher toutes les stratégies qui ont été créées dans votre organisation, exécutez la commande suivante. Exécutez cette commande après la plupart des opérations dans les scénarios suivants. L’exécution de la commande vous aide également à obtenir le ** ** de vos stratégies.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ Dans cet exemple, vous allez créer une stratégie qui permet à vos utilisateur
     Vous pouvez décider que la première stratégie que vous définissez dans cet exemple n’est pas aussi stricte que ce que votre service requiert. Pour définir votre jeton d’actualisation à facteur unique de façon qu’il expire dans deux jours, exécutez la commande suivante :
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exemple : Créer une stratégie de connexion web
 
@@ -274,7 +273,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
     2.  Une fois que vous disposez de **l’ID d’objet** de votre principal de service, exécutez la commande suivante :
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
    Une fois que vous disposez de **l’ID d’objet** de votre application, exécutez la commande suivante :
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ Dans cet exemple, vous créez quelques stratégies, pour savoir comment fonction
     2.  Une fois que vous disposez de **l’ID d’objet** de votre principal de service, exécutez la commande suivante :
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Définissez l’indicateur `IsOrganizationDefault` sur false :
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Créez une stratégie par défaut d’organisation :
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> [Facultatif] |**ID d’objet** de la stratégie souhaitée. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Facultatif] |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 Permet d’obtenir toutes les applications et tous les principaux de service liés à une stratégie.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de la stratégie souhaitée. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 Met à jour une stratégie existante.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de la stratégie souhaitée. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Facultatif] |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Facultatif] |Si la valeur est true, elle définit la stratégie comme stratégie par défaut de l’organisation. Si la valeur est false, rien ne se produit. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Supprime la stratégie spécifiée.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de la stratégie souhaitée. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Vous pouvez utiliser les applets de commande suivantes pour les stratégies d’
 Lie la stratégie spécifiée à une application.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 Permet d’obtenir la stratégie affectée à une application.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 Supprime une stratégie d’une application.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Vous pouvez utiliser les applets de commande suivantes pour les stratégies de p
 Lie la stratégie spécifiée à un principal de service.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 Permet d’obtenir une stratégie liée au principal de service spécifié.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 Supprime la stratégie du principal de service spécifié.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | parameters | Description | Exemple |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ID d’objet** de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
 

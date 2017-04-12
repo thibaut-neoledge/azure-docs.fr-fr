@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -131,7 +132,7 @@ Cela étant, il est possible d'empêcher les utilisateurs de votre répertoire d
 En savoir plus sur les procédures d'ajout d'applications à Azure AD et de configuration des services pour les applications.
 
 * Développeurs : [Apprendre à intégrer une application avec AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Développeurs : [Consulter des exemples de code pour les applications intégrées à Azure Active Directory sur Github](https://github.com/AzureADSamples)
+* Développeurs : [Consulter des exemples de code pour les applications intégrées à Azure Active Directory sur GitHub](https://github.com/AzureADSamples)
 * Développeurs et professionnels de l'informatique : [Lire la documentation de l'API REST pour l'API Graph d'Azure Active Directory](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * Professionnels de l'informatique : [Apprendre à utiliser les applications pré-intégrée d'Azure Active Directory à partir de la galerie d'applications](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * Professionnels de l'informatique : [Rechercher des didacticiels pour la configuration des applications spécifiques pré-intégrées](https://msdn.microsoft.com/library/azure/dn893637.aspx)
@@ -143,9 +144,4 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
