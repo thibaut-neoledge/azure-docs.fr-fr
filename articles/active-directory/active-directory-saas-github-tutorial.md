@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 74b354778e775146ed6384b50b4e21cfd5c75858
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -28,7 +28,7 @@ L’intégration de GitHub à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à GitHub
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à GitHub (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes de manière centralisée dans le Portail de gestion Azure.
+- Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -62,7 +62,7 @@ Pour configurer l’intégration de GitHub à Azure AD, vous devez ajouter GitH
 
 **Pour ajouter GitHub à partir de la galerie, procédez comme suit :**
 
-1. Dans le **[Portail de gestion Azure](https://portal.azure.com)**, dans le panneau de navigation gauche, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le panneau de navigation gauche du **[Portail de gestion Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -74,7 +74,7 @@ Pour configurer l’intégration de GitHub à Azure AD, vous devez ajouter GitH
 
     ![Applications][3]
 
-4. Dans la zone de recherche, tapez **Github.com**.
+4. Dans la zone de recherche, tapez **GitHub.com**.
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
@@ -92,10 +92,10 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme va
 
 Pour configurer et tester l'authentification unique Azure AD avec GitHub, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d'un utilisateur de test GitHub](#creating-a-Github-test-user)** pour avoir un équivalent de Britta Simon dans GitHub lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+3. **[Création d'un utilisateur de test GitHub](#creating-a-GitHub-test-user)** pour avoir un équivalent de Britta Simon dans GitHub lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -254,7 +254,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Github.com**.
+2. Dans la liste des applications, sélectionnez **GitHub.com**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
@@ -301,3 +301,4 @@ Lorsque vous cliquez sur la vignette GitHub dans le volet d’accès, vous devez
 [201]: ./media/active-directory-saas-github-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-github-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-github-tutorial/tutorial_general_203.png
+

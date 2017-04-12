@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f8d21f6964d26a2e17e31d1f2947e7eb07c177d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/28/2016
 Cet article explique comment joindre une machine virtuelle exécutant Windows Server 2012 R2 à un domaine géré par les services de domaine Azure Active Directory, à l’aide du portail Azure Classic.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Étape 1 : créer la machine virtuelle Windows Server
-Suivez les instructions du didacticiel [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) . Vous devez impérativement vérifier que la nouvelle machine virtuelle est bien jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. L’option Création rapide ne vous permet pas de joindre la machine virtuelle à un réseau virtuel. Vous devez donc utiliser l’option À partir de la galerie pour créer la machine virtuelle.
+Suivez les instructions du didacticiel [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](../virtual-machines/windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) . Vous devez impérativement vérifier que la nouvelle machine virtuelle est bien jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. L’option Création rapide ne vous permet pas de joindre la machine virtuelle à un réseau virtuel. Vous devez donc utiliser l’option À partir de la galerie pour créer la machine virtuelle.
 
 Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD, procédez comme suit :
 
@@ -91,7 +91,7 @@ Pour joindre la machine virtuelle Windows Server au domaine géré par les servi
     ![Spécifier les informations d’identification pour la jonction au domaine](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Vous pouvez spécifier les informations d’identification de l’une des manières suivantes :
 
-   * Format UPN : spécifiez le suffixe UPN du compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur « bob » est « bob@domainservicespreview.onmicrosoft.com ».
+   * Format UPN : spécifiez le suffixe UPN du compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur « bob » est bob@domainservicespreview.onmicrosoft.com.
    * Format SAMAccountName : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur « bob » doit saisir « CONTOSO100\bob ».
 
      > [!NOTE]
@@ -119,7 +119,7 @@ Reportez-vous à la procédure suivante si vous rencontrez des problèmes concer
 * Essayez d’utiliser le format UPN pour spécifier les informations d’identification. La valeur de SAMAccountName pour votre compte peut être générée automatiquement s’il existe plusieurs utilisateurs avec le même préfixe UPN sur votre client ou si votre préfixe UPN est trop long. Par conséquent, le format SAMAccountName de votre compte peut différer de ce à quoi vous vous attendiez ou de ce que vous utilisez dans votre domaine local.
 * Essayez d’utiliser les informations d’identification d’un compte d’utilisateur appartenant au groupe « AAD DC Administrators » pour joindre des machines au domaine géré.
 * Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
-* Veillez à utiliser l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, 'bob@domainservicespreview.onmicrosoft.com') pour vous connecter.
+* Veillez à utiliser l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, bob@domainservicespreview.onmicrosoft.com) pour vous connecter.
 * Vérifiez que vous avez bien attendu la fin de la synchronisation des mots de passe, comme indiqué dans le guide de prise en main.
 
 ## <a name="related-content"></a>Contenu connexe

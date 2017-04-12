@@ -11,17 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 3/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
-ms.openlocfilehash: 6a9a1cf616531de1d0b8194bc0e6c186acc27008
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 3a58f6d2d3bc39af650f5d62acdf09d769cd7ad0
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Thoughtworks Mingle.  
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
@@ -30,16 +31,17 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour Thoughtworks Mingle
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785150.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-thoughtworks-mingle"></a>Activation de l’intégration d’applications pour Thoughtworks Mingle
+## <a name="enable-the-application-integration-for-thoughtworks-mingle"></a>Activer l’intégration d’applications pour Thoughtworks Mingle
 Cette section décrit l’activation de l’intégration de l’application pour Thoughtworks Mingle.
 
-### <a name="to-enable-the-application-integration-for-thoughtworks-mingle-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour Thoughtworks Mingle, procédez comme suit :
+**Pour activer l’intégration d’applications pour Thoughtworks Mingle, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700993.png "Active Directory")
@@ -66,11 +68,13 @@ Cette section décrit l’activation de l’intégration de l’application pour
    
     ![Thoughtworks Mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785152.png "Thoughtworks Mingle")
 
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Thoughtworks Mingle avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+
 Dans le cadre de cette procédure, vous devez charger un certificat dans Thoughtworks Mingle.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique, procédez comme suit :**
+
 1. Dans la page d’intégration d’application **Thoughtworks Mingle** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurer l’authentification unique")
@@ -95,21 +99,21 @@ Dans le cadre de cette procédure, vous devez charger un certificat dans Thought
 
 7. Dans la section **SSO Config** , procédez comme suit :
    
-    ![Configuration de l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "Configuration de l’authentification unique")
-   
-    a. Pour charger le fichier de métadonnées, cliquez sur **Choose file**.
-   
-    b. Cliquez sur **Enregistrer les modifications**.
+    ![Configuration de l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "Configuration de l’authentification unique")   
+ 1. Pour charger le fichier de métadonnées, cliquez sur **Choose file**. 
+ 2. Cliquez sur **Enregistrer les modifications**.
 
 8. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785159.png "Configurer l’authentification unique")
 
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisionnés dans l’application Thoughtworks Mingle à l’aide de leurs noms d’utilisateur Azure AD.  
-Dans le cas de Thoughtworks Mingle, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+* Dans le cas de Thoughtworks Mingle, l’approvisionnement est une tâche manuelle.
+
+**Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
+
 1. Connectez-vous à votre site d’entreprise Thoughtworks Mingle en tant qu’administrateur.
 
 2. Cliquez sur **Profile**.
@@ -126,23 +130,20 @@ Dans le cas de Thoughtworks Mingle, l’approvisionnement est une tâche manuell
 
 5. Dans la boîte de dialogue **New User** , procédez comme suit :
    
-    ![Nouvel utilisateur](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "Nouvel utilisateur")
-   
-    a. Renseignez les zones de texte **Sign-in name (Nom de connexion)**, **Display name (Nom d’affichage)**, **Choose password (Choisir le mot de passe)** et **Confirm password (Confirmer le mot de passe)** du compte AAD valide que vous souhaitez approvisionner.
-   
-    b. Dans **User type (Type d’utilisateur)**, sélectionnez **Full user (Utilisateur complet)**.
-   
-    c. Cliquez sur **Create This Profile**.
+    ![Nouvel utilisateur](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "Nouvel utilisateur")   
+  1. Renseignez les zones de texte **Sign-in name (Nom de connexion)**, **Display name (Nom d’affichage)**, **Choose password (Choisir le mot de passe)** et **Confirm password (Confirmer le mot de passe)** du compte AAD valide que vous souhaitez approvisionner. 
+  2. Dans **User type (Type d’utilisateur)**, sélectionnez **Full user (Utilisateur complet)**.
+  3. Cliquez sur **Create This Profile**.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thoughtworks Mingle, pour approvisionner des comptes d’utilisateur AAD.
-> 
-> 
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thoughtworks Mingle, pour approvisionner des comptes d’utilisateur AAD.
+>  
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-thoughtworks-mingle-perform-the-following-steps"></a>Pour affecter des utilisateurs à Thoughtworks Mingle, procédez comme suit :
+**Pour affecter des utilisateurs à Thoughtworks Mingle, procédez comme suit :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
 
 2. Dans la page d’intégration d’application **Thoughtworks Mingle**, cliquez sur **Affecter des utilisateurs**.

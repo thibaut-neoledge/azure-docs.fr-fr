@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 935246ad590af0dcdb6d52257a94169f94dd66e5
-ms.openlocfilehash: 3ff7256578cffd30ae9b75ead2dd7f08babca171
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -33,10 +33,10 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Recherches DNS dans la forêt de destination. |
 | Kerberos |88 (TCP/UDP) |Authentification Kerberos auprès de la forêt AD. |
-| MS-RPC |135 (TCP/UDP) |Utilisé pendant la configuration initiale de l’Assistant Azure AD au moment où d’établir une liaison avec la forêt AD. |
+| MS-RPC |135 (TCP/UDP) |Utilisé pendant la configuration initiale de l’Assistant Azure AD au moment d’établir une liaison avec la forêt AD, ainsi que pendant la synchronisation du mot de passe. |
 | LDAP |389 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Les données sont chiffrées à l’aide de Kerberos Sign & Seal. |
 | LDAP/SSL |636 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Le transfert de données est signé et chiffré. Utilisé uniquement si vous utilisez SSL. |
-| RPC |49152- 65535 (port RPC aléatoire élevé)(TCP/UDP) |Utilisé pendant la configuration initiale d’Azure AD au moment d’établir une liaison avec les forêts AD. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
+| RPC |49152- 65535 (port RPC aléatoire élevé)(TCP/UDP) |Utilisé pendant la configuration initiale d’Azure AD Connect au moment d’établir une liaison avec les forêts AD, ainsi que pendant la synchronisation du mot de passe. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tableau 2 : Azure AD Connect et Azure AD
 Ce tableau décrit les ports et les protocoles nécessaires à la communication entre le serveur Azure AD Connect et Azure AD.
@@ -80,7 +80,7 @@ Les tableaux suivants décrivent les ports et les protocoles nécessaires à la 
 | --- | --- | ---
 |HTTP|80|Active le trafic HTTP sortant pour valider la sécurité, comme SSL.
 |HTTPS|443|    Active l’authentification utilisateur auprès d’Azure AD
-|HTTPS|10100 à&10120;|    Active les réponses à partir du connecteur vers Azure AD 
+|HTTPS|10100 à 10120|    Active les réponses à partir du connecteur vers Azure AD 
 |Azure Service Bus|9352, 5671|    Active la communication depuis le connecteur vers le service Azure pour les requêtes entrantes.
 |HTTPS|9350|    Facultatif ; pour de meilleures performances pour les requêtes entrantes
 |HTTPS|8080/443|    Active la séquence de démarrage du connecteur et la mise à jour automatique du connecteur.

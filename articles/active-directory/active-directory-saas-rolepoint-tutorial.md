@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 319eaccb0613a7829da01e28112e9510bdf66e67
-ms.openlocfilehash: 7f806619f794b9e9d943a125e59936e51658070c
-ms.lasthandoff: 12/23/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ea9ddb361d013e58d55401112c98a72b487d92d3
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -39,25 +39,24 @@ Pour configurer l’intégration d’Azure AD à RolePoint, vous avez besoin des
 - Un abonnement Azure AD
 - Un abonnement RolePoint pour lequel l’authentification unique est activée
 
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de RolePoint à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-
-## <a name="adding-rolepoint-from-the-gallery"></a>Ajout de RolePoint à partir de la galerie
+## <a name="add-rolepoint-from-the-gallery"></a>Ajouter RolePoint à partir de la galerie
 Pour configurer l’intégration de RolePoint avec Azure AD, vous devez ajouter RolePoint, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter RolePoint à partir de la galerie, procédez comme suit :**
@@ -88,25 +87,24 @@ Pour configurer l’intégration de RolePoint avec Azure AD, vous devez ajouter 
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_0001.png)
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec RolePoint avec un utilisateur de test appelé « Britta Simon ».
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec RolePoint, avec un utilisateur de test nommé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur RolePoint équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur RolePoint associé doit être établie.
 
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans RolePoint.
 
-Pour configurer et tester l’authentification unique Azure AD avec RolePoint, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec RolePoint, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test RolePoint](#creating-a-rolepoint-test-user)** pour avoir un équivalent de Britta Simon dans RolePoint lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application RolePoint.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application RolePoint.
 
 L’application RolePoint attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet**Attribut**de l’application. La capture d’écran suivante montre un exemple : 
 
@@ -125,16 +123,13 @@ L’application RolePoint attend les assertions SAML dans un format spécifique.
     | FirstName | user.givenname |
     | LastName | user.surname |
     | Email | user.mail |
-
-    a. Cliquez sur **ajouter un attribut utilisateur** pour ouvrir la boîte de dialogue **Ajouter un attribut utilisateur**.
+ 
+  1. Cliquez sur **ajouter un attribut utilisateur** pour ouvrir la boîte de dialogue **Ajouter un attribut utilisateur**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_03.png)
-    
-    b. Dans la zone de texte **Nom de l’attribut** , indiquez le nom d’attribut pour cette ligne.
-    
-    c. Dans la liste **Valeur de l’attribut**, entrez la valeur d’attribut pour cette ligne.
-    
-    d. Cliquez sur **Terminé**
+  2. Dans la zone de texte **Nom de l’attribut** , indiquez le nom d’attribut pour cette ligne.
+  3. Dans la liste **Valeur de l’attribut**, entrez la valeur d’attribut pour cette ligne.
+  4. Cliquez sur **Terminé**.
 
 3. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
 
@@ -147,13 +142,12 @@ L’application RolePoint attend les assertions SAML dans un format spécifique.
 5. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_06.png)
-
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.rolepoint.com/login`
-
-    b. Cliquez sur **Suivant**.
-
-    > [!NOTE] 
-    > Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique de RolePoint](emaiLto:info@rolepoint.com) pour obtenir cette valeur.
+  1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.rolepoint.com/login`
+  2. Cliquez sur **Suivant**.
+  
+    >[!NOTE] 
+    >Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique de RolePoint](emaiLto:info@rolepoint.com) pour obtenir cette valeur.
+    >
 
 6. Sur la page **Configurer l’authentification unique sur RolePoint**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur :
 
@@ -169,8 +163,7 @@ L’application RolePoint attend les assertions SAML dans un format spécifique.
   
     ![Authentification unique Azure AD][11]
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -194,26 +187,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_05.png) 
-
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-
-    c. Cliquez sur **Next**.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+ 3. Cliquez sur **Suivant**.
 
 6.  Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_06.png) 
-
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-
-    e. Cliquez sur **Next**.
+ 1. Dans la zone de texte **First Name**, tapez **Britta**. 
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**.
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+ 5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
@@ -222,19 +207,14 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_08.png) 
+ 1. Notez la valeur du **Nouveau mot de passe**.
+ 2. Cliquez sur **Terminé**.   
 
-    a. Notez la valeur du **Nouveau mot de passe**.
-
-    b. Cliquez sur **Terminé**.   
-
-
-
-### <a name="creating-a-rolepoint-test-user"></a>Création d’un utilisateur de test RolePoint
+### <a name="create-a-rolepoint-test-user"></a>Créer un utilisateur de test RolePoint
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RolePoint. Collaborez avec [l’équipe de support](emaiLto:info@rolepoint.com) RolePoint pour ajouter des utilisateurs dans la plateforme RolePoint.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à RolePoint.
 
@@ -260,14 +240,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
     ![Affecter des utilisateurs][205]
 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la mosaïque RolePoint dans le volet d’accès, vous devez être connecté automatiquement à votre application RolePoint.
-
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

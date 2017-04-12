@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -61,5 +61,5 @@ Vous pouvez utiliser l’éditeur de manifeste en ligne pour modifier certaines 
 ## <a name="next-steps"></a>Étapes suivantes
 
 1. Pour des procédures pas à pas détaillées des applications exécutant l’authentification à l’aide d’Azure AD, consultez les [Démarrages rapides](active-directory-developers-guide.md).
-2. Consultez notre liste complète d’exemples de code dans [Github](https://github.com/azure-samples).
+2. Consultez notre liste complète d’exemples de code dans [GitHub](https://github.com/azure-samples).
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 69473976eb0a9b6a0e9aa929581c0a7cf0c8d188
-ms.openlocfilehash: e9d59c593c3637d72611516fd8a6b03f3f5f917b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 5ec20dee8b1c173af8c28f4a919568aba5f61192
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,23 +38,24 @@ Pour configurer l'intégration d'Azure AD avec Allocadia, vous avez besoin des 
 * Un abonnement Azure AD
 * Un abonnement Allocadia pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Allocadia à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-allocadia-from-the-gallery"></a>Ajout d’Allocadia à partir de la galerie
+## <a name="add-allocadia-from-the-gallery"></a>Ajouter Allocadia à partir de la galerie
 Pour configurer l’intégration d’Allocadia à Azure AD, vous devez ajouter Allocadia à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Allocadia à partir de la galerie, procédez comme suit :**
@@ -85,22 +86,23 @@ Pour configurer l’intégration d’Allocadia à Azure AD, vous devez ajouter 
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Allocadia avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique (SSO) Azure AD avec Allocadia pour un utilisateur de test nommé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Allocadia équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Allocadia associé doit être établie.
+Pour que l’authentification unique (SSO) fonctionne, Azure AD doit savoir qui est l’utilisateur Allocadia équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Allocadia associé doit être établie.
+
 Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans Allocadia.
 
-Pour configurer et tester l’authentification unique Azure AD avec Allocadia, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Allocadia, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur test Allocadia](#creating-an-allocadia-test-user)** pour avoir un équivalent de Britta Simon dans Allocadia lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail classique et configurer l’authentification unique dans votre application Allocadia.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Allocadia.
 
 L’application Allocadia attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attribut** de l’application. La capture d’écran suivante montre un exemple : 
 
@@ -120,59 +122,51 @@ L’application Allocadia attend les assertions SAML dans un format spécifique.
     | lastname |user.surname |
     | email |user.mail |
 
-    a. Cliquez sur **ajouter un attribut utilisateur** pour ouvrir la boîte de dialogue **Ajouter un attribut utilisateur**.
+  1. Cliquez sur **ajouter un attribut utilisateur** pour ouvrir la boîte de dialogue **Ajouter un attribut utilisateur**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png) 
-
-    b. Dans la zone de texte **Nom d’attribut** , tapez le nom d’attribut indiqué pour cette ligne.
-
-    c. Dans la liste **Valeur d’attribut** , sélectionnez la valeur d’attribut indiquée pour cette ligne.
-
-    d. Cliquez sur **Terminé**.    
-
-
-1. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
+  2. Dans la zone de texte **Nom d’attribut** , tapez le nom d’attribut indiqué pour cette ligne.
+  3. Dans la liste **Valeur d’attribut** , sélectionnez la valeur d’attribut indiquée pour cette ligne.
+  4. Cliquez sur **Terminé**.    
+ 
+3. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)  
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Allocadia ?**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+4. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Allocadia ?**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png) 
 
-3. Sur la page de boîte de dialogue **Configurer les paramètres de l’application** , procédez comme suit :
+5. Sur la page de boîte de dialogue **Configurer les paramètres de l’application** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
-   
-    a. Dans la zone IDENTIFER, tapez l’URL au format suivant : pour l’environnement de test, utilisez l’URL **« https://na2standby.allocadia.com »** et, pour l'environnement de production, **« https://na2.allocadia.com »**
-   
-    b. Dans la zone URL de réponse, tapez l’URL au format suivant : pour l’environnement de test, utilisez l’URL **« https://na2standby.allocadia.com/allocadia/saml/SSO »** et, pour l'environnement de production, **« https://na2.allocadia.com/allocadia/saml/SSO »**
+    ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png)  
+  1. Dans la zone IDENTIFER, tapez l’URL au format suivant : pour l’environnement de test, utilisez l’URL **« https://na2standby.allocadia.com »** et, pour l'environnement de production, **« https://na2.allocadia.com »**.
+  2. Dans la zone URL de réponse, tapez l’URL au format suivant : pour l’environnement de test, utilisez l’URL **« https://na2standby.allocadia.com/allocadia/saml/SSO »** et, pour l'environnement de production, **« https://na2.allocadia.com/allocadia/saml/SSO »**
 
-4. Dans la page **Configurer l’authentification unique sur Allocadia** , procédez comme suit :
+6. Dans la page **Configurer l’authentification unique sur Allocadia** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png) 
-   
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
+  1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 
-5. Afin de configurer l’authentification unique pour votre application, contactez l'équipe de [support Allocadia](mailTo:support@allocadia.com) , qui vous aidera à configurer l’authentification unique. Notez que vous devez envoyer un courrier électronique et joindre le fichier de métadonnées téléchargé pour configurer l’authentification unique côté Allocadia.
+7. Afin de configurer l’authentification unique pour votre application, contactez l'équipe de [support Allocadia](mailTo:support@allocadia.com) , qui vous aidera à configurer l’authentification unique. Notez que vous devez envoyer un courrier électronique et joindre le fichier de métadonnées téléchargé pour configurer l’authentification unique côté Allocadia.
    
-    > [!NOTE]
-    > Assurez-vous que l'équipe Allocadia a défini la valeur Identifier dans l’environnement de test sur **« https://na2standby.allocadia.com »** et, pour l'environnement de production, sur **« https://na2.allocadia.com »**
-    > 
-    > 
+   >[!NOTE]
+   >Assurez-vous que l'équipe Allocadia a défini la valeur Identifier dans l’environnement de test sur **« https://na2standby.allocadia.com »** et, pour l'environnement de production, sur **« https://na2.allocadia.com »**
+   >  
 
-6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+8. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
 
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
+9. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+* Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -195,26 +189,18 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.   
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Suivant**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.    
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**. 
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -222,22 +208,19 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**.  
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-an-allocadia-test-user"></a>Création d’un utilisateur test Allocadia
+### <a name="create-an-allocadia-test-user"></a>Créer un utilisateur de test Allocadia
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Allocadia. L'application Allocadia prend en charge la configuration de l'utilisateur au moment opportun. Si vous avez configuré les revendications comme indiqué plus haut dans la section **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** , les utilisateurs de l’application vont être configurés. 
 
-> [!NOTE]
-> Si vous avez besoin de créer un utilisateur manuellement ou un groupe d’utilisateurs, vous devez contacter l’équipe de support Allocadia.
-> 
+>[!NOTE]
+>Si vous avez besoin de créer un utilisateur manuellement ou un groupe d’utilisateurs, vous devez contacter l’équipe de support Allocadia. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Allocadia.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique (SSO) Azure en lui accordant l’accès à Allocadia.
 
 ![Affecter des utilisateurs][200] 
 
@@ -261,8 +244,9 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
+
 Lorsque vous cliquez sur la mosaïque Allocadia dans le volet d’accès, vous devez être connecté automatiquement à votre application Allocadia.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

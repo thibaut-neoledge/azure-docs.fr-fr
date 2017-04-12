@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
-ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: adcc4e35f8febe1d0dc1bc093954dee56bf34652
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Didacticiel : Intégration d’Azure Active Directory à RightScale
-L’objectif de ce didacticiel est de vous montrer comment intégrer RightScale à Azure AD (Azure Active Directory).  
+L’objectif de ce didacticiel est de vous montrer comment intégrer RightScale à Azure AD (Azure Active Directory).
+
 L’intégration de RightScale à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à RightScale
@@ -35,26 +36,26 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à RightScale, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
-* Un abonnement RightScale pour lequel l’authentification unique est activée
+* Un abonnement RightScale pour lequel l’authentification unique (SSO) est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>  
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
+
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de RightScale à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique (SSO) Azure AD
 
-## <a name="adding-rightscale-from-the-gallery"></a>Ajout de RightScale à partir de la galerie
+## <a name="add-rightscale-from-the-gallery"></a>Ajouter RightScale à partir de la galerie
 Pour configurer l’intégration de RightScale à Azure AD, vous devez ajouter RightScale, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter RightScale à partir de la galerie, procédez comme suit :**
@@ -84,21 +85,21 @@ Pour configurer l’intégration de RightScale à Azure AD, vous devez ajouter R
 7. Dans le volet des résultats, sélectionnez **RightScale**, puis cliquez sur **Terminer** pour ajouter l’application.
    
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec RightScale avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec RightScale, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur RightScale équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur RightScale associé doit être établie.  
 
 Pour configurer et tester l’authentification unique Azure AD avec RightScale, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur test RightScale](#creating-a-rightscale-test-user)** pour avoir un équivalent de Britta Simon dans RightScale lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail classique et de configurer l’authentification unique dans votre application RightScale.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application RightScale.
 
 **Pour configurer l’authentification unique Azure AD avec RightScale, procédez comme suit :**
 
@@ -113,62 +114,48 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
-
-    a. Dans la zone de texte URL de réponse, tapez l’URL au format suivant : `https://login.rightscale.com/login/saml2/consume`
-
-    b. Cliquez sur **Suivant**
+  1. Dans la zone de texte URL de réponse, tapez l’URL au format suivant : `https://login.rightscale.com/login/saml2/consume`
+  2. Cliquez sur **Suivant**.
 
 1. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur de service** dans la page de boîte de dialogue **Configurer les paramètres d’application**, cliquez sur **Affichez les paramètres avancés (facultatif)**, saisissez **l’URL de connexion** et cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_06.png) 
-   
-    a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application RightScale, au format suivant : `https://login.rightscale.com/`
-   
-    b. Cliquez sur **Suivant**
+  1. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application RightScale, au format suivant : `https://login.rightscale.com/`
+  2. Cliquez sur **Suivant**.
 
 2. Dans la page **Configurer l’authentification unique sur RightScale**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat encodé en base&64; sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat encodé en base 64 sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 
 3. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire RightScale en tant qu’administrateur.
-   
-    a. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
+  1. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_001.png) 
+  2. Cliquez sur le bouton « **nouveau** » pour ajouter **vos fournisseurs d’identité SAML**.
    
-    b. Cliquez sur le bouton « **nouveau** » pour ajouter **vos fournisseurs d’identité SAML**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png) 
-   
-    c. Dans la zone de texte **Nom d'affichage**, entrez le nom de votre société.
+    ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png)  
+  3. Dans la zone de texte **Nom d'affichage**, entrez le nom de votre société.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png) 
-   
-    d. Sélectionnez **Allow RightScale-initiated SSO using a discovery hint** et entrez votre **nom de domaine** dans la zone de texte située dessous.
+  4. Sélectionnez **Allow RightScale-initiated SSO using a discovery hint** et entrez votre **nom de domaine** dans la zone de texte située dessous.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
-   
-    e. Copiez l’URL SSO SAML d'Azure AD vers **SAML SSO Endpoint** dans RightScale.
+  5. Copiez l’URL SSO SAML d'Azure AD vers **SAML SSO Endpoint** dans RightScale.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_005.png)
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_006.png)
-   
-    f. Copiez l’ID entité d’Azure AD vers **SAML EntityID** dans RightScale.
+  6. Copiez l’ID entité d’Azure AD vers **SAML EntityID** dans RightScale.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_007.png)
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
-   
-    g. Cliquez sur le bouton **Explorateur** pour télécharger le certificat que vous avez téléchargé à l’étape&4;.
+  7. Cliquez sur le bouton **Explorateur** pour télécharger le certificat que vous avez téléchargé à l’étape 4.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
-   
-    h. Cliquez sur **Save**.
+  8. Cliquez sur **Save**.
 
 4. Dans le portail classique, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
@@ -178,7 +165,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -202,26 +189,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
-   
-    a. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.  
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -229,17 +208,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png)  
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-rightscale-test-user"></a>Création d’un utilisateur test RightScale
+### <a name="create-a-rightscale-test-user"></a>Créer un utilisateur test RightScale
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RightScale. Communiquez avec l’équipe de support RightScale via support@rightscale.com pour ajouter des utilisateurs dans la plate-forme RightScale.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à RightScale.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à RightScale.
 
 ![Affecter des utilisateurs][200] 
 
@@ -263,8 +240,9 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+
 Quand vous cliquez sur la mosaïque RightScale dans le volet d’accès, vous devez être connecté automatiquement à votre application RightScale.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

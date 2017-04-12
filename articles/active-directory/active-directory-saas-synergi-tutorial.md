@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 69473976eb0a9b6a0e9aa929581c0a7cf0c8d188
-ms.openlocfilehash: bbd6fbc87fa9676b4c31450479d890abc02a8bf5
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 69b1cecc695c71f226eb28f72dd890df04452359
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,25 +38,24 @@ Pour configurer l’intégration d’Azure AD avec Synergi, vous avez besoin des
 * Un abonnement Azure AD
 * Un abonnement Synergi pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Synergi depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-synergi-from-the-gallery"></a>Ajout de Synergi depuis la galerie
+## <a name="add-synergi-from-the-gallery"></a>Ajouter Synergi depuis la galerie
 Pour configurer l’intégration de Synergi avec Azure AD, vous devez ajouter Synergi, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Synergi depuis la galerie, procédez comme suit :**
@@ -87,22 +86,22 @@ Pour configurer l’intégration de Synergi avec Azure AD, vous devez ajouter Sy
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Synergi avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Synergi avec un utilisateur de test nommé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Synergi équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur Synergi associé doit être établi.
 
 Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans Synergi.
 
-Pour configurer et tester l’authentification unique Azure AD avec Synergi, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Synergi, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Synergi](#creating-a-synergi-test-user)** pour avoir un équivalent de Britta Simon dans Synergi lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Synergi.
 
 **Pour configurer l’authentification unique Azure AD avec Synergi, procédez comme suit :**
@@ -118,26 +117,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_04.png) 
-   
-    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Synergi, au format suivant : **https://\<nom entreprise\>.irmsecurity.com/sso/\<id_organisation\>**.
-   
-    b. Cliquez sur **Suivant**
+  1. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Synergi, au format suivant : **https://\<nom entreprise\>.irmsecurity.com/sso/\<id_organisation\>**. 
+  2. Cliquez sur **Suivant**
 
 4. Dans la page **Configurer l’authentification unique sur Synergi** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_05.png)
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Synergi et fournissez-lui les éléments suivants :
    
-    • Le certificat téléchargé
-   
-    • **L’ID d’entité**
-   
-    • **L’URL du service de déconnexion unique**
+  * Certificat téléchargé
+  * L **’ID d’entité** 
+  * L **’URL du service d’authentification unique**
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
@@ -147,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 ![Créer un utilisateur Azure AD][20]
@@ -171,26 +164,18 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_06.png) 
-   
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-    e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.  
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -199,15 +184,13 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-an-synergi-test-user"></a>Création d’un utilisateur de test Synergi
+### <a name="create-an-synergi-test-user"></a>Créer un utilisateur de test Synergi
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Synergi. Collaborez avec l’équipe du support technique Synergi pour ajouter des utilisateurs dans la plateforme Synergi.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Synergi.
 
 ![Affecter des utilisateurs][200] 
@@ -232,8 +215,8 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Synergi dans le volet d’accès, vous devez être connecté automatiquement à votre application Synergi.
 

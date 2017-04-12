@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1b01c8a16c217350e82db1bc7a6cc54b84888b9e
-ms.openlocfilehash: 17898ff5a2a98383a9956346d7932c31587386a7
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 2250fbe0b7451d875ccdd319af9b77cb4e24fe35
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -40,24 +40,26 @@ Pour configurer l’intégration d’Azure AD à Bridge, vous avez besoin des �
 - Un abonnement Bridge pour lequel l’authentification unique est activée
 
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Bridge à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
-## <a name="adding-bridge-from-the-gallery"></a>Ajout de Bridge à partir de la galerie
+## <a name="add-bridge-from-the-gallery"></a>Ajouter Bridge à partir de la galerie
 Pour configurer l’intégration de Bridge à Azure AD, vous devez ajouter Bridge à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Bridge à partir de la galerie, procédez comme suit :**
@@ -89,8 +91,8 @@ Pour configurer l’intégration de Bridge à Azure AD, vous devez ajouter Brid
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bridge-tutorial/tutorial_bridge_0001.png)
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Bridge avec un utilisateur de test appelé « Britta Simon ».
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Bridge sur un utilisateur de test nommé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Bridge équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Bridge associé doit être établie.
 
@@ -102,11 +104,11 @@ Pour configurer et tester l’authentification unique Azure AD avec Bridge, vou
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Bridge](#creating-a-bridge-test-user)** pour avoir un équivalent de Britta Simon dans Bridge lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail classique et configurer l’authentification unique dans votre application Bridge.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et la configurer dans votre application Bridge.
 
 
 **Pour configurer l’authentification unique Azure AD avec Bridge, procédez comme suit :**
@@ -122,15 +124,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bridge-tutorial/tutorial_bridge_03.png)
+  1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.bridgeapp.com`
+  2. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.bridgeapp.com`
+  3. Cliquez sur **Suivant**.
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.bridgeapp.com`
-
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.bridgeapp.com`
-
-    c. Cliquez sur **Suivant**.
-
-    > [!NOTE] 
-    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Vous pouvez ouvrir un ticket de support auprès de Bridge <a href="https://bridgeapp.zendesk.com/hc/en-us/requests/new">ici</a> pour obtenir ces valeurs.
+    >[!NOTE] 
+    >Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Vous pouvez ouvrir un ticket de support auprès de Bridge <a href="https://bridgeapp.zendesk.com/hc/en-us/requests/new">ici</a> pour obtenir ces valeurs.
+    >
 
 4. Sur la page **Configurer l’authentification unique sur Bridge**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur :
 
@@ -138,15 +138,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Pour configurer l’authentification unique pour votre application, vous pouvez ouvrir un ticket de support auprès de l’équipe Bridge <a href="https://bridgeapp.zendesk.com/hc/en-us/requests/new">ici</a> en lui fournissant les éléments suivants : 
 
-    •  Le **fichier de certificat** téléchargé
+ *  Le **fichier de certificat** téléchargé
+ *  L **’ID d’entité**
+ *  **L’URL du service d’authentification unique**
+ *  l’ **URL du service d’authentification unique**
 
-    • **L’ID d’entité**
-
-    • **L’URL du service d’authentification unique**
-
-    •  **L’URL du service de déconnexion unique**
-
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
     ![Authentification unique Azure AD][10]
 
@@ -155,7 +152,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Authentification unique Azure AD][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -179,26 +176,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bridge-tutorial/create_aaduser_05.png) 
-
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-
-    c. Cliquez sur **Next**.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+ 3. Cliquez sur **Suivant**.
 
 6.  Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bridge-tutorial/create_aaduser_06.png) 
-
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-
-    e. Cliquez sur **Next**.
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.  
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**.
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+ 5. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
@@ -207,21 +196,16 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bridge-tutorial/create_aaduser_08.png) 
+ 1. Notez la valeur du **Nouveau mot de passe**.
+ 2. Cliquez sur **Terminé**.   
 
-    a. Notez la valeur du **Nouveau mot de passe**.
-
-    b. Cliquez sur **Terminé**.   
-
-
-
-### <a name="creating-a-bridge-test-user"></a>Création d’un utilisateur de test Bridge
+### <a name="create-a-bridge-test-user"></a>Créer un utilisateur de test Bridge
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bridge. Collaborez avec l’équipe de support de Bridge pour créer un utilisateur dans la plateforme. Vous pouvez ouvrir un ticket de support auprès de Bridge <a href="https://bridgeapp.zendesk.com/hc/en-us/requests/new">ici</a> pour ajouter les utilisateurs à la plateforme Bridge.
 
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Bridge.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique (SSO) Azure en lui accordant l’accès à Bridge.
 
 ![Affecter des utilisateurs][200] 
 
@@ -245,14 +229,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
     ![Affecter des utilisateurs][205]
 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Bridge dans le volet d’accès, vous êtes automatiquement connecté à votre application Bridge.
-
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

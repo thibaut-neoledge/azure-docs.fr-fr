@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Pour obtenir une vue d’ensemble des étapes requises par votre scénario, util
 | Étape 1 : Configuration du point de connexion de service | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
 | Étape 2 : Configuration de l’émission de revendications           |                                        | ![Vérification][1]                    | ![Vérification][1]        |
 | Étape 3 : Activation d’appareils non-Windows 10      |                                        |                                | ![Vérification][1]        |
-
+| Étape 4 : Contrôle du déploiement et du lancement     | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
+| Étape 5 : Vérification des appareils inscrits          | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
 
 
 
@@ -292,8 +293,13 @@ La définition vous permet de vérifier si les valeurs sont présentes ou si vou
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> La revendication issuerID pour l’ordinateur dans la règle ci-dessus doit contenir l’un des noms de domaine vérifiés dans Azure AD. Il ne s’agit pas de l’URL des services AD FS.
+
+Dans la revendication ci-dessus,
+
+- `$<domain>` est l’URL des services AD FS
+- `<verified-domain-name>` est un espace réservé que vous devez remplacer par un de vos noms de domaine vérifiés dans Azure AD
+
+
 
 Pour plus d’informations sur la vérification du domaine, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md).  
 Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 

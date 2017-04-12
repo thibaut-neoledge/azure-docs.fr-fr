@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: f67e96618ea25e4463a4fdf83ea20f238498fac0
-ms.openlocfilehash: 838a19ef05adad59e0317fb62e2acec8a40d7a64
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 97c6724261e35063c461ee95ccad36372dd907db
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -112,7 +113,7 @@ Si vous développez actuellement une application à client unique, mais que vous
 Chaque scénario répertorié dans ce document inclut une sous-section décrivant les exigences d’approvisionnement associées. Pour obtenir des informations plus détaillées sur l’approvisionnement d’une application dans Azure AD et sur les différences entre les applications à client unique et les applications mutualisées, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md) . Poursuivez votre lecture pour comprendre les scénarios d’application courants dans Azure AD.
 
 ## <a name="application-types-and-scenarios"></a>Types d’application et scénarios
-Chacun des scénarios décrits dans ce document peut être développé à l'aide de différents langages et plates-formes. Ils sont tous soutenus par des exemples de code complets disponibles dans notre [guide d’exemples de code](active-directory-code-samples.md), ou directement à partir des [référentiels d’exemples Github](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondants. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
+Chacun des scénarios décrits dans ce document peut être développé à l'aide de différents langages et plates-formes. Ils sont tous soutenus par des exemples de code complets disponibles dans notre [guide d’exemples de code](active-directory-code-samples.md), ou directement à partir des [dépôts d’exemples GitHub](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondants. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
 
 ![Types d’application et scénarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -294,10 +295,5 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
