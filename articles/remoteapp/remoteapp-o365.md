@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c04dc5a91b7859b5d75f919da55846599038f61
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5a8af257eb964be4677d5da6a57aadaad1eb2cc3
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-office-with-azure-remoteapp"></a>Utilisation d'Office avec Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ L'activation de votre compte concerne toutes les collections RemoteApp de votre 
 * L'image de modèle Office Professionnel Plus 2013 (version d'évaluation) est destinée à des fins d'évaluation uniquement. Les collections qui s'exécutent dans cette image de modèle ne peuvent pas être passées en mode de production. Elles sont mises en état « désactivé ».
 
 Si vous ne passez pas en mode de production à l'expiration de votre version d'évaluation, vos collections RemoteApp sont désactivées. Ne vous inquiétez pas, vos paramètres et données utilisateur sont enregistrés pendant 90 jours supplémentaires, vous pouvez donc toujours activer votre service et passer en mode de production sans perte de données.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

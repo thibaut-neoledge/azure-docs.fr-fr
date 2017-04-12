@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/02/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d010dd85ccf2dd708a7740eb8399fc06a603574
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -65,7 +65,7 @@ Les organisations qui n’appliquent aucun contrôle d’accès aux données gr�
 
 ## <a name="vm-availability-and-network-access"></a>Disponibilité des machines virtuelles et accès au réseau
 
-Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour une meilleure disponibilité, créez au moins deux machines virtuelles dans le [groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md).
+Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour une meilleure disponibilité, créez au moins deux machines virtuelles dans le [groupe à haute disponibilité](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) requiert également que les machines virtuelles dont la charge est équilibrée appartiennent au même groupe à haute disponibilité. Si ces machines virtuelles doivent être accessibles à partir d’Internet, vous devez configurer un [équilibrage de charge sur Internet](../load-balancer/load-balancer-internet-overview.md).
 
@@ -123,7 +123,7 @@ Les organisations qui n’appliquent pas une sécurité renforcée à leurs mach
 
 Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser problème. Une machine virtuelle insuffisamment performante peut entraîner une interruption de service, réduisant ainsi la disponibilité. C’est pourquoi il est impératif de surveiller l’accès aux machines virtuelles de façon réactive (lorsqu’un problème survient) et de façon proactive (par rapport à des performances de référence mesurées pendant un fonctionnement normal).
 
-En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de votre ressource.
 

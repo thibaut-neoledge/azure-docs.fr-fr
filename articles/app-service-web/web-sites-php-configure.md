@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b62ee732f1730e8934443fb4320327e64d110833
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52db4d82faa0db07224f48b6600e690e34808e91
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -158,7 +158,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Activation de l’automatisation du Compositeur dans Azure
-Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](app-service-web-php-get-started.md), vous pouvez activer le traitement de composer.json pendant `git push` en activant l’extension du Compositeur.
+Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](app-service-deploy-local-git.md), vous pouvez activer le traitement de composer.json pendant `git push` en activant l’extension du Compositeur.
 
 > [!NOTE]
 > Vous pouvez [voter pour la prise en charge haut de gamme de Compositeur dans App Service ici](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!

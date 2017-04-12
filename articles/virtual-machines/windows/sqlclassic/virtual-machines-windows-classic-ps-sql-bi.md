@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -91,13 +92,13 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 ## <a name="general-recommendations-and-best-practices"></a>Instructions générales et meilleures pratiques
 * La taille minimale recommandée d’une machine virtuelle est la taille **A3** quand vous utilisez SQL Server Enterprise Edition. La taille de machine virtuelle **A4** est recommandée pour les déploiements SQL Server BI d’Analysis Services et de Reporting Services.
   
-    Pour plus d’informations sur les tailles des machines virtuelles actuelles, consultez [Tailles de machines virtuelles pour Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Pour plus d’informations sur les tailles des machines virtuelles actuelles, consultez [Tailles de machines virtuelles pour Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * La meilleure pratique de gestion du disque consiste à stocker les fichiers de données, de journal et de sauvegarde sur des lecteurs autres que **C**: et **D**:. Par exemple, créez des disques de données **E**: et **F**:.
   
   * La stratégie de mise en cache du lecteur **C**: par défaut n’est pas optimale pour l’utilisation de données.
   * Nous vous déconseillons d’utiliser le lecteur **D**: qui est un disque temporaire principalement utilisé pour le fichier d’échange. Nous vous déconseillons d’utiliser le lecteur **D**: qui n’est pas persistant et n’est pas stocké dans le stockage d’objets blob. Les tâches de gestion telles qu’une simple modification de la taille d’une machine virtuelle réinitialisent le lecteur **D**:. Nous vous **DÉCONSEILLONS** d’utiliser le lecteur **D**: pour les fichiers de base de données, y compris tempdb.
     
-    Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Arrêtez ou désinstallez les services que vous ne prévoyez pas d’utiliser. Par exemple, si la machine virtuelle est uniquement utilisée pour Reporting Services, arrêtez ou désinstallez Analysis Services et SQL Server Integration Services. L’image suivante est un exemple de services qui sont démarrés par défaut.
   
     ![Services SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -138,7 +139,7 @@ Analysis Services, Reporting Services, le moteur de base de données SQL Server 
 L’image de la galerie de machines virtuelles pour SQL Server inclut l’installation du mode natif de Reporting Services, mais le serveur de rapports n’est pas configuré. Les étapes de cette section permettent de configurer le serveur de rapports Reporting Services. Pour plus d’informations sur la configuration du mode natif de Reporting Services, consultez la page [Installer le serveur de rapports Reporting Services en mode natif](https://msdn.microsoft.com/library/ms143711.aspx).
 
 > [!NOTE]
-> Pour obtenir un contenu semblable qui utilise des scripts Windows PowerShell pour configurer le serveur de rapports, consultez la page [Utilisation de PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](virtual-machines-windows-classic-ps-sql-report.md).
+> Pour obtenir un contenu semblable qui utilise des scripts Windows PowerShell pour configurer le serveur de rapports, consultez la page [Utilisation de PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](../classic/ps-sql-report.md).
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Se connecter à la machine virtuelle et démarrer le Gestionnaire de configuration Reporting Services
 Il existe deux flux de travail courants pour la connexion à une machine virtuelle Azure :
@@ -242,7 +243,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
   
   1. Créez un disque dur .VHD sur votre ordinateur local qui contient vos rapports.
   2. Créez et installez un certificat de gestion.
-  3. Téléchargez le fichier VHD sur Azure à l’aide de l’applet de commande Add-AzureVHD en procédant de la manière décrite dans [Créer et charger un disque dur virtuel Windows Server dans Azure](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  3. Téléchargez le fichier VHD sur Azure à l’aide de l’applet de commande Add-AzureVHD en procédant de la manière décrite dans [Créer et charger un disque dur virtuel Windows Server dans Azure](../classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   4. Attachez le disque à la machine virtuelle.
 
 ## <a name="install-other-sql-server-services-and-features"></a>Installation d’autres services et fonctionnalités SQL Server
@@ -322,7 +323,7 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 
 Pour plus d’informations sur la création de points de terminaison, consultez les rubriques suivantes :
 
-* Créer des points de terminaison :[Comment configurer des points de terminaison sur une machine virtuelle](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Créer des points de terminaison :[Comment configurer des points de terminaison sur une machine virtuelle](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * SQL Server : Consultez la section « Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur » dans [Approvisionnement d’une machine virtuelle SQL Server sur Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine virtuelle pour autoriser l’accès à distance aux fonctionnalités et aux composants de la machine virtuelle.
@@ -334,7 +335,7 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 * [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Configuration d'une machine virtuelle SQL Server sur Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Association d’un disque de données à une machine virtuelle](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Association d’un disque de données à une machine virtuelle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrating a Database to SQL Server on an Azure VM](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Déterminer le mode serveur d’une instance Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modélisation multidimensionnelle (didacticiel Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
@@ -346,10 +347,5 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 ### <a name="community-content"></a>Contenu de la communauté
 * [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

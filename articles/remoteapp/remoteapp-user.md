@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3dbeba840501f395c9bad07109fe8ea47947a5fa
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a84aa7e3ac7de717c2a628abcf6f5f11b05411e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Procédure : ajout d'un utilisateur dans votre collection Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -42,7 +43,7 @@ Vous pouvez utiliser ce tableau de référence pour déterminer rapidement quell
 
 | Comptes d'utilisateurs | Cloud | Hybride |
 | --- | --- | --- |
-| Compte Microsoft |OUI |Non |
+| Compte Microsoft |Oui |Non |
 | Azure Active Directory (Azure AD) | | |
 | Cloud Azure AD uniquement |OUI |Non |
 | ADsync avec synchronisation de mot de passe |OUI |OUI |
@@ -60,10 +61,5 @@ Consultez [plus d'informations](remoteapp-ad.md) sur la configuration d'Active D
 
 ## <a name="office-365-proplus-user-account-information"></a>Informations de compte d'utilisateur Office 365 ProPlus
 Si vous utilisez l’image de modèle Office 365 ProPlus dans votre collection *ou* si vous avez créé une image personnalisée qui utilise Office 365, vous êtes uniquement autorisé à ajouter des utilisateurs Azure Active Directory disposant d’abonnements Office 365 pour le domaine par défaut de votre abonnement. Consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md) pour plus d'informations.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

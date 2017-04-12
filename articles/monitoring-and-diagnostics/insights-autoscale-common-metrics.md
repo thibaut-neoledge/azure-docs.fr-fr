@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
-ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +39,7 @@ Si vous utilisez des jeux de mise à l’échelle de machine virtuelle et qu’u
 
 Si une métrique particulière n’est pas en cours d’échantillonnage ou de transfert vers la fréquence souhaitée, vous pouvez mettre à jour la configuration des diagnostics.
 
-Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Windows Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
+Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Windows Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métriques de l’hôte pour les machines virtuelles Windows et Linux basées sur Resource Manager
 Les métriques de niveau hôte suivantes sont émies par défaut pour les machines virtuelles et jeux de mise à l’échelle de machine virtuelle Azure dans les instances Windows et Linux. Ces métriques décrivent votre machine virtuelle Azure, mais sont collectées à partir de l’hôte de la machine Virtuelle Azure plutôt que via l’agent installé sur la machine virtuelle invitée. Vous pouvez utiliser ces métriques dans les règles de mise à l’échelle automatique. 
@@ -196,10 +197,5 @@ Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre �
 > Le concept de groupe de ressources n’existe pas pour Service Bus, mais Azure Resource Manager crée un groupe de ressources par défaut par région. Le groupe de ressources est généralement affiché au format « [Région] Service Bus par défaut ». Par exemple, « Est des États-Unis Service Bus par défaut », « Ouest des États-Unis Service Bus par défaut », « Est de l’Australie Service Bus par défaut », etc.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

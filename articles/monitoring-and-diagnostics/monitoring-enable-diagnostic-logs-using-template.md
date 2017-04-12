@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
-ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -231,19 +232,14 @@ Pour activer les diagnostics pour une ressource de calcul, par exemple un cluste
 3. Ajouter le contenu de votre fichier WADCfg XML dans la propriété XMLCfg, en échappant correctement tous les caractères XML.
 
 > [!WARNING]
-> Cette dernière étape peut être difficile à réaliser. [Consultez cet article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) pour obtenir un exemple qui montre comment fractionner le schéma de configuration de diagnostics en variables échappées et mises en forme correctement.
+> Cette dernière étape peut être difficile à réaliser. [Consultez cet article](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) pour obtenir un exemple qui montre comment fractionner le schéma de configuration de diagnostics en variables échappées et mises en forme correctement.
 > 
 > 
 
-L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

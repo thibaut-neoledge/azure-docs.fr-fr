@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c526faeef2418cfbbca7948004691e127327020
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7891ce3b04cd5978440dd8af73dc95d1d123ed92
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-kind-of-collection-do-you-need-for-azure-remoteapp"></a>De quel type de collection avez-vous besoin pour Azure RemoteApp ?
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -61,14 +62,14 @@ Azure RemoteApp prend en charge les comptes Microsoft et Azure Active Directory,
 
 | Type de compte |  | Cloud | Cloud + réseau virtuel | Hybride |
 | --- | --- | --- | --- | --- |
-| Compte Microsoft | |OUI |OUI |Non |
+| Compte Microsoft | |OUI |Oui |Non |
 | Azure Active Directory (Azure AD) | | | | |
-| Azure AD uniquement |OUI |OUI |Non | |
-| AD Connect avec synchronisation de mot de passe |OUI |OUI |OUI | |
-| AD Connect sans synchronisation de mot de passe |OUI |OUI |Non | |
-| AD Connect avec les services AD FS |OUI |OUI |OUI | |
-| Fournisseurs d’identités tiers pris en charge par Azure (par exemple Ping) |OUI |OUI |OUI | |
-| Azure Multi-Factor Authentication | |OUI |OUI |OUI |
+| Azure AD uniquement |OUI |Oui |Non | |
+| AD Connect avec synchronisation de mot de passe |OUI |Oui |OUI | |
+| AD Connect sans synchronisation de mot de passe |OUI |Oui |Non | |
+| AD Connect avec les services AD FS |OUI |Oui |OUI | |
+| Fournisseurs d’identités tiers pris en charge par Azure (par exemple Ping) |OUI |Oui |OUI | |
+| Azure Multi-Factor Authentication | |OUI |Oui |OUI |
 
 ### <a name="cloud-and-cloud--vnet"></a>Cloud et Cloud + réseau virtuel
 Avec les collections cloud, vous pouvez utiliser des comptes Microsoft, des comptes Azure AD ou une combinaison des deux. Utilisez les comptes qui conviennent le mieux à vos utilisateurs.
@@ -90,10 +91,5 @@ Pour connaître les étapes nécessaires à la configuration d’Azure AD et d�
 Il ne vous reste plus qu’une chose à faire : créer votre première collection Azure RemoteApp.
 
 [Créez une collection cloud](remoteapp-create-cloud-deployment.md) ou [créez une collection hybride](remoteapp-create-hybrid-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6bc820657da4a72455d76f38dbdb06fe50b0c895
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -162,8 +162,8 @@ Lorsqu’une alerte est émise, Application Insights peut automatiquement créer
 ## <a name="but-what-about"></a>Mais qu’en est-il de... ?
 * [Confidentialité et stockage](app-insights-data-retention-privacy.md) - Vos données télémétriques sont conservées sur des serveurs Azure sécurisés.
 * Performances - L’impact est très faible. Les données télémétriques sont traitées par lot.
-* [Prise en charge](app-insights-get-dev-support.md) - Vous pouvez tirer parti du programme d’assistance Azure. Il existe des forums animés où vous pouvez obtenir des réponses de nos développeurs. Et en dernier ressort, nous pouvons vous apporter une aide individuelle.
 * [Tarification](app-insights-pricing.md) - Vous pouvez démarrer gratuitement tant que votre volume reste faible.
+
 
 ## <a name="video"></a>Vidéo
 

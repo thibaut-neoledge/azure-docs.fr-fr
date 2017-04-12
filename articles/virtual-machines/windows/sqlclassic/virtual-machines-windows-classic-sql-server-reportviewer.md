@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3d9bdd4f07d22a7bc6c80150ae27453813d39f07
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -78,7 +78,7 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 ReportViewer doit utiliser les informations d’identification appropriées pour s’authentifier auprès du serveur de rapports, et ces informations d’identification doivent être autorisées par le serveur de rapports pour accéder aux rapports souhaités. Pour plus d’informations sur l’authentification, lisez le livre blanc [Contrôle de visionneuse de rapports Reporting Services et serveurs de rapports basés sur une machine virtuelle Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publier l’application web ASP.NET sur Azure
-Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez les articles [Procédure : Migration et publication d’une application web vers Azure depuis Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
+Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez les articles [Procédure : Migration et publication d’une application web vers Azure depuis Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si la commande permettant d’ajouter un projet de déploiement Azure ou d’ajouter un projet de service cloud Azure n’apparaît pas dans le menu contextuel, vous devez remplacer la version cible de .NET Framework du projet par .NET Framework 4.

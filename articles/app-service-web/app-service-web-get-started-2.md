@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
-ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Ajouter des fonctionnalités à votre première application web
-Dans [Déployer votre première application web dans Azure en&5; minutes](app-service-web-get-started-cli-nodejs.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
+Dans [Déployer votre première application web dans Azure en 5 minutes](app-service-web-get-started-dotnet.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
 
 * appliquer l’authentification aux utilisateurs ;
 * mettre automatiquement à l’échelle votre application ;
@@ -82,7 +82,7 @@ En bref, vous pouvez adapter la taille de votre application web de deux manière
 
 Sans plus attendre, préparons à présent la mise à l’échelle automatique.
 
-1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Monter en puissance (Plan App Service)**.  
+1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Monter en puissance (Plan App Service)**.  
     ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
 2. Faites défiler la page, puis sélectionnez le niveau **S1 Standard** (le plus bas niveau prenant en charge la mise à l’échelle automatique, encerclé dans la capture d’écran), puis cliquez sur **Sélectionner**.  
     ![Monter en puissance - choisir un niveau](./media/app-service-web-get-started/scale-up-select.png)

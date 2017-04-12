@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
    
     ![][4]
 2. Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Créez un projet de service cloud Azure ou un projet MVC ASP.NET. Assurez-vous que le projet cible le .NET Framework 4 ou version ultérieure. Si vous créez un projet de service cloud, ajoutez un rôle web ASP.NET MVC et un rôle de travail.
-   Si vous voulez créer une application web, choisissez le modèle de projet **Application web ASP.NET**, puis sélectionnez **MVC**. Pour plus d’informations, consultez la rubrique [Création d’une application web ASP.NET dans Azure App Service](../app-service-web/web-sites-dotnet-get-started.md) .
+   Si vous voulez créer une application web, choisissez le modèle de projet **Application web ASP.NET**, puis sélectionnez **MVC**. Pour plus d’informations, consultez la rubrique [Création d’une application web ASP.NET dans Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md) .
 3. Ouvrez le menu contextuel de la solution et choisissez **Valider**.
    
     ![][7]
@@ -232,9 +233,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visua
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

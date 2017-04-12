@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a1d6dba724b93d1ea05474b8680bf2226c23bddc
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -287,9 +287,5 @@ Si vous voyez la sortie suivante dans la fenêtre Moniteur série, et si la LED 
 
 Vous avez correctement connecté une carte Sparkfun ESP8266 Thing Dev à votre instance IoT Hub et envoyé les données de capteur collectées à cette instance. 
 
-Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-- [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Enregistrer les messages IoT Hub dans le stockage de données Azure](iot-hub-store-data-in-azure-table-storage.md)
-- [Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-- [Utiliser Azure Web Apps pour visualiser les données de capteur en temps réel à partir d’Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md)

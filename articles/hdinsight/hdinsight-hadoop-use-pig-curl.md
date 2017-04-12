@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: e7489b0485fe4779a72daeef0467a244bb55ff65
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ed5df94ec3455803cb3ea60f3a958132e0312ede
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -41,7 +41,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)

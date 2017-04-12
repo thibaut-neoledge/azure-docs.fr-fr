@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: efd70d9843f3d8db0c2396c79eacb230fcdfa467
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c7ecd590503fcd2bc3ba06919a2f1a5c0fd0943e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="create-a-azure-remoteapp-image-based-on-an-azure-virtual-machine"></a>Création d’une image Azure RemoteApp basée sur une machine virtuelle Azure
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bd313ae585667cc80d44ae50f9d97659b8de62eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 De nombreux facteurs, en matière de choix de matériel virtuel et de configuration logicielle, ont une incidence sur les performances de MySQL sur Azure. Cet article se concentre sur l’optimisation des performances grâce aux configurations de stockage, système et de base de données.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager](../../../resource-manager-deployment-model.md) et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les optimisations de machines virtuelles Linux avec le modèle Resource Manager, consultez [Optimiser votre machine virtuelle Linux sur Azure](../../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager](../../../resource-manager-deployment-model.md) et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les optimisations de machines virtuelles Linux avec le modèle Resource Manager, consultez [Optimiser votre machine virtuelle Linux sur Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Utiliser RAID sur une machine virtuelle Azure
 Le stockage est le facteur clé en matière d’incidence sur les performances de base de données dans les environnements de cloud. Grâce à la concurrence, RAID peut fournir un accès plus rapide qu’un seul disque. Pour plus d’informations, consultez [Niveaux RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -71,7 +71,7 @@ Vous pouvez voir les disques ajoutés à la machine virtuelle en examinant le jo
     sudo grep SCSI /var/log/dmesg
 
 #### <a name="create-raid-with-the-additional-disks"></a>Création de RAID avec les disques supplémentaires
-Les étapes suivantes décrivent la [configuration logicielle de RAID sur Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Les étapes suivantes décrivent la [configuration logicielle de RAID sur Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Si vous utilisez le système de fichiers XFS, exécutez les étapes ci-dessous après avoir créé le RAID.

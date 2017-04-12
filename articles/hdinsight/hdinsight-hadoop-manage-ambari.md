@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 290271855ac54af8c99311ff675a08d1e6942d93
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,14 +38,14 @@ Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Am
 L’interface utilisateur Web d’Ambari est fournie par défaut avec les clusters HDInsight utilisant le système d’exploitation Linux.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
 
 ## <a name="connectivity"></a>Connectivité
 
-L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsight à l’adresse HTTPS://CLUSTERNAME.azurehdidnsight.net, où **CLUSTERNAME** correspond au nom de votre cluster. 
+L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsight à l’adresse HTTPS://CLUSTERNAME.azurehdidnsight.net, où **CLUSTERNAME** correspond au nom de votre cluster.
 
 > [!IMPORTANT]
-> Une connexion à Ambari sur HDInsight requiert HTTPS. Vous devez également vous authentifier auprès d’Ambari en utilisant le nom du compte d’administrateur (la valeur par défaut est **admin**) et le mot de passe que vous avez fournis au moment de la création du cluster. 
+> Une connexion à Ambari sur HDInsight requiert HTTPS. Vous devez également vous authentifier auprès d’Ambari en utilisant le nom du compte d’administrateur (la valeur par défaut est **admin**) et le mot de passe que vous avez fournis au moment de la création du cluster.
 
 ## <a name="ssh-tunnel-proxy"></a>Tunnel SSH (proxy)
 
@@ -147,7 +147,7 @@ La sélection de l’un de ces liens ouvre un nouvel onglet dans votre navigateu
 
 > [!NOTE]
 > La sélection d’un lien **Liens rapides** pour un service quelconque entraîne l’apparition d’une erreur vous indiquant que le serveur est introuvable, à moins que vous n’utilisiez un tunnel SSL pour le trafic proxy web vers le cluster. Cela est lié au fait que les applications Web utilisées pour afficher ces informations ne sont pas exposées sur Internet.
-> 
+>
 > Pour plus d’informations sur l’utilisation d’un tunnel SSL avec HDInsight, consultez [Utilisation de SSH Tunneling pour accéder à l’interface utilisateur Web d’Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Gestion
@@ -171,7 +171,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
 1. Sélectionnez le ou les hôtes que vous souhaitez gérer.
 
 2. Utilisez le menu **Actions** pour sélectionner l'action que vous souhaitez effectuer :
-   
+
    * **Démarrer tous les composants** : démarre tous les composants sur l'hôte.
 
    * **Arrêter tous les composants** : arrête tous les composants sur l'hôte.
@@ -189,12 +189,12 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
    * **Redémarrer** : arrête et redémarre DataNode ou NodeManagers sur l'hôte.
 
    * **Désactiver** : supprime un hôte du cluster.
-     
+
      > [!NOTE]
      > N'utilisez pas cette action sur les clusters HDInsight.
 
    * **Réactiver** : ajoute un hôte préalablement désactivé au cluster.
-     
+
      > [!NOTE]
      > N'utilisez pas cette action sur les clusters HDInsight.
 
@@ -212,14 +212,14 @@ Bien que le bouton **Actions** permette de redémarrer tous les services, vous s
 1. Depuis la page **Tableau de bord** ou **Services**, sélectionnez un service.
 
 2. En haut de l'onglet **Résumé**, utilisez le bouton **Actions de service** et sélectionnez l'action que vous souhaitez effectuer. Ceci redémarre le service sur tous les nœuds.
-   
+
     ![action de service](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
-   
+
    > [!NOTE]
    > Le redémarrage de certains services lorsque le cluster fonctionne peut générer des alertes. Pour éviter cela, vous pouvez utiliser le bouton **Actions de service** afin d'activer le **Mode Maintenance** avant de lancer le redémarrage.
 
 3. Lorsqu’une action est sélectionnée, l’entrée **# op** située en haut de la page s’incrémente pour indiquer qu’une opération s’exécute en arrière-plan. Si leur affichage est configuré, une liste des opérations exécutées en arrière-plan apparaît.
-   
+
    > [!NOTE]
    > Si vous avez activé **Mode Maintenance** pour le service, n'oubliez pas de le désactiver à l'aide du bouton **Actions de service** une fois l'opération terminée.
 
@@ -228,7 +228,7 @@ Pour configurer un service, procédez comme suit :
 1. Depuis la page **Tableau de bord** ou **Services**, sélectionnez un service.
 
 2. Sélectionnez l'onglet **Configurations** . La configuration actuelle apparaît. Une liste des configurations précédentes est également affichée.
-   
+
     ![configurations](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
 3. Utilisez les champs affichés pour modifier la configuration, puis sélectionnez **Enregistrer**. Ou sélectionnez une configuration antérieure, puis sélectionnez **Définir comme actuelle** pour rétablir des paramètres utilisés précédemment.
@@ -242,5 +242,4 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 * Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Affichage Tez : l’affichage Tez vous permet de mieux comprendre et optimiser les tâches en affichant des informations sur le mode d’exécution des tâches Tez et les ressources utilisées par la tâche.
-
 

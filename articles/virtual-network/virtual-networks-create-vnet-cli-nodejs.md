@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: acfb9345b789df7664075ef0fb6280beedf0dfb9
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0649c5c8c04dda72d2f147601efb37217f9bade
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -118,6 +118,6 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI, procédez comme suit 
 
 Apprenez à connecter :
 
-- Une machine virtuelle à un réseau virtuel en lisant l’article [Création d’une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Au lieu de créer un réseau virtuel et un sous-réseau comme indiqué dans les procédures de ces articles, vous pouvez sélectionner un réseau virtuel et un sous-réseau existants pour établir la connexion à une machine virtuelle.
+- Une machine virtuelle à un réseau virtuel en lisant l’article [Création d’une machine virtuelle Linux](../virtual-machines/linux/quick-create-cli.md). Au lieu de créer un réseau virtuel et un sous-réseau comme indiqué dans les procédures de ces articles, vous pouvez sélectionner un réseau virtuel et un sous-réseau existants pour établir la connexion à une machine virtuelle.
 - Le réseau virtuel à d’autres réseaux virtuels en lisant l’article sur la [connexion des réseaux virtuels](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 - Le réseau virtuel à un réseau local à l’aide d’un réseau privé virtuel (VPN) site à site ou d’un circuit ExpressRoute. Découvrez comment en lisant [Connecter un réseau virtuel à un réseau local à l’aide d’un VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) et [Lier un réseau virtuel à un circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

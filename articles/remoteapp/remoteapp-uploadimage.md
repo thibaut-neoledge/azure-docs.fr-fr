@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: dcf897cfb03316312613a641f1758cd4636d06b7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="upload-a-custom-image-for-azure-remoteapp"></a>Téléchargement d'une image personnalisée pour Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 * Veillez à utiliser Windows PowerShell, et non Azure PowerShell. Vous devez installer le module Azure PowerShell, car certains modules sont nécessaires pour le processus de téléchargement.
 * Ne modifiez jamais le script, les validations sont pensées pour vous faciliter la tâche.
 * Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

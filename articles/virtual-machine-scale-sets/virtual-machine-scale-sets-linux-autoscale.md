@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Dans votre interface de ligne de commande (Bash, Terminal, invite de commandes),
     ```
    
     > [!NOTE]
-    > Si vous disposez d’un ID professionnel ou scolaire et n’avez pas d’authentification à deux facteurs activée, vous pouvez utiliser `azure login -u` avec l’ID pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Si vous disposez d’un ID professionnel ou scolaire et n’avez pas d’authentification à deux facteurs activée, vous pouvez utiliser `azure login -u` avec l’ID pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     
 2. **Créer un groupe de ressources**  
 Toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
@@ -132,7 +132,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
    * Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
    * Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
    * Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
-   * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les cinq comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
    

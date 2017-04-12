@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 522463673b9ac6e53da616e435a465d2d2ce0524
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +28,7 @@ Cet article vous montre comment redimensionner une machine virtuelle Windows cr�
 En ce qui concerne la possibilité de redimensionner une machine virtuelle, deux concepts contrôlent la plage de tailles disponibles pour redimensionner la machine virtuelle. Le premier est la région dans laquelle votre machine virtuelle est déployée. La liste des tailles de machines virtuelles disponibles par région se trouve sous l’onglet Services de la page web des régions Azure. Le deuxième concept est le matériel physique qui héberge actuellement votre machine virtuelle. Les serveurs physiques hébergeant des machines virtuelles sont regroupés dans des clusters de matériel physique commun. La méthode de modification de la taille d’une machine virtuelle est différente selon que la nouvelle taille souhaitée de la machine virtuelle est ou non prise en charge par le cluster matériel qui l’héberge actuellement.
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [redimensionner une machine virtuelle créée avec le modèle de déploiement Resource Manager](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [redimensionner une machine virtuelle créée avec le modèle de déploiement Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Ajouter votre compte
 Vous devez configurer Azure PowerShell pour qu’il fonctionne avec des ressources Azure classiques. Suivez les étapes ci-dessous pour configurer Azure PowerShell de sorte qu’il gère les ressources classiques.
@@ -68,6 +68,6 @@ Pour redimensionner une machine virtuelle à une taille non disponible dans le c
 Vous trouverez [ici](https://github.com/Azure/azure-vm-scripts) un exemple de script de suppression et de recréation d’un service cloud avec une nouvelle taille de machines virtuelles. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Redimensionnez une machine virtuelle créée avec le modèle de déploiement Resource Manager](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Redimensionnez une machine virtuelle créée avec le modèle de déploiement Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

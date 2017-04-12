@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 758a7e3792869d532d1667277d230f5f5b9d38ca
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,17 +30,17 @@ Les signatures d’accès partagé (SAP) sont une fonctionnalité des comptes de
 ## <a name="requirements"></a>Configuration requise
 * Un abonnement Azure
 * C# ou Python. Un exemple de code C# est fourni en tant que solution Visual Studio.
-  
+
   * La version de Visual Studio doit être 2013, 2015 ou 2017
   * La version de Python doit être 2.7 ou une version ultérieure.
-  
+
 * Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Fichiers d’exemple à l’adresse [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce dépôt contient les éléments suivants :
-  
+
   * Un projet Visual Studio permettant de créer un conteneur de stockage, une stratégie stockée et une SAP pour une utilisation avec HDInsight.
   * Un script Python permettant de créer un conteneur de stockage, une stratégie stockée et une SAP pour une utilisation avec HDInsight
   * Un script PowerShell permettant de créer un cluster HDInsight et de le configurer afin d’utiliser la SAP.
@@ -59,9 +59,9 @@ La différence entre les deux formes est importante pour un scénario clé : la
 4. La clé de compte qui a été utilisée pour créer la signature d'accès partagé est régénérée. Cette régénération provoque l’échec de l’authentification de tous les composants de l’application qui utilisent la clé précédente jusqu’à ce qu’ils soient mis à jour avec la nouvelle clé.
 
 > [!IMPORTANT]
-> L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte. 
-> 
-> 
+> L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
+>
+>
 
 Il est recommandé de toujours utiliser les stratégies d’accès stockées, afin de pouvoir révoquer des signatures ou étendre la date d’expiration si nécessaire. Les étapes décrites dans ce document utilisent les stratégies d’accès stockées pour générer des SAP.
 
@@ -74,29 +74,29 @@ Actuellement, vous devez créer une stratégie stockée par programme. Vous trou
 1. Ouvrez la solution dans Visual Studio.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SASToken**, puis sélectionnez **Propriétés**.
 3. Sélectionnez **Paramètres** et ajoutez des valeurs pour les entrées suivantes :
-   
+
    * StorageConnectionString : chaîne de connexion pour le compte de stockage pour lequel vous souhaitez créer une stratégie stockée et une SAP. Le format doit être `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, où `myaccount` est le nom de votre compte de stockage et `mykey` est la clé pour le compte de stockage.
    * ContainerName : conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.
    * SASPolicyName : nom à utiliser pour la stratégie stockée à créer.
    * FileToUpload : chemin d’accès à un fichier qui est chargé sur le conteneur.
 4. Exécutez le projet. Une fenêtre de console apparaît et des informations semblables au texte suivant s’affichent une fois la signature d’accès partagé générée :
-   
+
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Enregistrez le jeton de stratégie SAP, le nom du compte de stockage et le nom du conteneur. Ces valeurs sont utilisées quand vous associez le compte de stockage à votre cluster HDInsight.
 
 ### <a name="create-a-stored-policy-and-sas-using-python"></a>Créer une stratégie stockée et une SAP à l’aide de Python
 1. Ouvrez le fichier SASToken.py et modifiez les valeurs suivantes :
-   
+
    * nom\_stratégie : nom à utiliser pour la stratégie stockée à créer.
    * storage\_account\_name : le nom de votre compte de stockage.
    * storage\_account\_key : la clé du compte de stockage.
    * storage\_container\_name : conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.
    * exemple\_chemin\_fichier : chemin d’accès à un fichier qui est chargé sur le conteneur.
 2. Exécutez le script. Il affiche le jeton SAP semblable au texte suivant quand il est terminé :
-   
+
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Enregistrez le jeton de stratégie SAP, le nom du compte de stockage et le nom du conteneur. Ces valeurs sont utilisées quand vous associez le compte de stockage à votre cluster HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Utilisation de la SAP avec HDInsight
@@ -111,7 +111,7 @@ Pour utiliser une signature d’accès partagé afin de limiter l’accès à un
 Un exemple de création de cluster HDInsight utilisant les SAP est inclus dans le répertoire `CreateCluster` du dépôt. Pour l’utiliser, procédez comme suit :
 
 1. Ouvrez le fichier `CreateCluster\HDInsightSAS.ps1` dans un éditeur de texte et modifiez les valeurs suivantes au début du document.
-   
+
         # Replace 'mycluster' with the name of the cluster to be created
         $clusterName = 'mycluster'
         # Valid values are 'Linux' and 'Windows'
@@ -130,35 +130,35 @@ Un exemple de création de cluster HDInsight utilisant les SAP est inclus dans l
         $SASToken = 'sastoken'
         # Set the number of worker nodes in the cluster
         $clusterSizeInNodes = 2
-   
+
     Par exemple, remplacez `'mycluster'` avec le nom du cluster que vous souhaitez créer. Les valeurs SAP doivent correspondre aux valeurs des étapes précédentes lors de la création du compte de stockage et du jeton SAP.
-   
+
     Une fois que vous avez modifié les valeurs, enregistrez le fichier.
 2. Ouvrez une nouvelle invite Azure PowerShell. Si vous ne maîtrisez pas Azure PowerShell ou que vous ne l’avez pas installé, consultez la rubrique [Installer et configurer Azure PowerShell][powershell].
 3. À partir de l’invite, utilisez la commande suivante pour vous identifier auprès de votre abonnement Azure :
-   
+
         Login-AzureRmAccount
-   
+
     Quand vous y êtes invité, connectez-vous avec le compte associé à votre abonnement Azure.
-   
+
     Si votre compte est associé à plusieurs abonnements Azure, vous devrez peut-être utiliser `Select-AzureRmSubscription` pour sélectionner l’abonnement que vous souhaitez utiliser.
 4. À partir de l’invite, remplacez les répertoires par le répertoire `CreateCluster` qui contient le fichier HDInsightSAS.ps1. Utilisez ensuite la commande suivante pour exécuter le script
-   
+
         .\HDInsightSAS.ps1
-   
+
     Quand il s’exécute, le script consigne la sortie dans l’invite PowerShell et crée le groupe de ressources et les comptes de stockage. Il vous invite à entrer le nom d’utilisateur HTTP pour le cluster HDInsight. Ce compte est utilisé pour sécuriser l’accès HTTP/s au cluster.
-   
+
     Si vous créez un cluster basé sur Linux, vous êtes invité à saisir un nom et un mot de passe de compte d’utilisateur SSH. Ce compte est utilisé pour la connexion à distance au cluster.
-   
+
    > [!IMPORTANT]
    > Lorsque vous êtes invité à saisir le nom d’utilisateur et le mot de passe HTTP/s ou SSH, vous devez fournir un mot de passe qui répond aux critères suivants :
-   > 
+   >
    > * Il doit contenir au moins 10 caractères.
    > * Il doit contenir au moins un chiffre.
    > * Il doit contenir au moins un caractère non alphanumérique.
    > * Il doit contenir au moins une lettre minuscule et une lettre majuscule.
-   > 
-   > 
+   >
+   >
 
 L’exécution de ce script prend un certain temps, environ 15 minutes en général. Lorsque le script se termine sans erreur, le cluster a été créé.
 
@@ -170,21 +170,21 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
 2. Dans la partie gauche de l’interface utilisateur web d’Ambari, sélectionnez **HDFS**, puis sélectionnez l’onglet **Configurations** au milieu de la page.
 3. Sélectionnez l’onglet **Avancé** et faites défiler jusqu’à ce que vous trouviez la section **Configuration core-site personnalisée**.
 4. Développez la section **Configuration core-site personnalisée**, puis faites défiler jusqu’à la fin et sélectionnez le lien **Ajouter une propriété...**. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
-   
+
    * **Clé**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Valeur**: la SAP retournée par l’application C# ou Python exécutée précédemment.
-     
+
      Remplacez **CONTAINERNAME** avec le nom du conteneur que vous avez utilisé avec l’application C# ou SAP. Remplacez **STORAGEACCOUNTNAME** avec le nom du compte de stockage que vous avez utilisé.
 5. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer**.
-   
+
     Cliquez sur **OK** lorsque les modifications ont été effectuées.
-   
+
    > [!IMPORTANT]
    > Vous devez redémarrer plusieurs services pour que la modification prenne effet.
-   > 
-   > 
+   >
+   >
 6. Dans l’interface utilisateur web Ambari, sélectionnez **HDFS** dans la liste sur la gauche, puis sélectionnez **Redémarrer tout** dans la liste déroulante **Actions de service** située à droite. Lorsque vous y êtes invité, sélectionnez **Activer le mode de maintenance**, puis sélectionnez __Conform Restart All".
-   
+
     Répétez ce processus pour les entrées MapReduce2 et YARN.
 
 7. Une fois les services redémarrés, sélectionnez chacun d’entre eux et désactivez le mode maintenance à partir de la liste déroulante **Actions de service**.
@@ -193,39 +193,39 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
 Pour vérifier que vous disposez d’un accès restreint, procédez comme suit :
 
 * Pour les clusters HDInsight **basés sur Windows**, utilisez le Bureau à distance pour vous connecter au cluster. Pour plus d’informations, consultez [Se connecter à HDInsight à l’aide du protocole RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-  
+
     Une fois la connexion établie, utilisez l’icône de **ligne de commande Hadoop** du Bureau pour ouvrir une invite de commandes.
 * Pour les clusters HDInsight **basés sur Linux** , utilisez SSH pour vous connecter au cluster. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouvez uniquement lire et répertorier les éléments sur le compte de stockage SAP :
 
 1. À partir de l’invite de commandes, tapez ce qui suit. Remplacez **SASCONTAINER** avec le nom du conteneur créé pour le compte de stockage SAP. Remplacez **SASACCOUNTNAME** avec le nom du compte de stockage utilisé pour la SAP :
-   
+
         hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
-   
+
     Cette commande répertorie le contenu du conteneur, qui doit inclure le fichier chargé quand le conteneur et la signature d’accès partagé ont été créés.
 2. Utilisez la commande suivante pour vérifier que vous pouvez lire le contenu du fichier. Remplacez **SASCONTAINER** et **SASACCOUNTNAME** comme à l’étape précédente. Remplacez **FILENAME** avec le nom du fichier affiché dans la commande précédente :
-   
+
         hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
-   
+
     Cette commande répertorie le contenu du fichier.
 3. Pour télécharger le fichier sur le système de fichiers local, utilisez la commande suivante :
-   
+
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
-   
+
     Cette commande télécharge le fichier sur un fichier local nommé **testfile.txt**.
 4. Utilisez la commande suivante pour charger le fichier local sur un nouveau fichier nommé **testupload.txt** sur le stockage SAP :
-   
+
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
-   
+
     Vous recevez un message similaire au texte suivant :
-   
+
         put: java.io.IOException
-   
+
     Cette erreur se produit, car l’emplacement de stockage est en lecture + liste uniquement. Pour placer les données sur le stockage par défaut pour le cluster, accessible en écriture, utilisez la commande suivante :
-   
+
         hdfs dfs -put testfile.txt wasbs:///testupload.txt
-   
+
     Cette fois, l’opération doit se terminer normalement.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes

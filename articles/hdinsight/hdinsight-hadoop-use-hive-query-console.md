@@ -17,9 +17,9 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7de810dc712e7fdcd66ddedae5ccaa2a9753102f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [!IMPORTANT]
-> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Pour HDInsight 3.4 ou version supérieure, consultez [Run Hive queries in Ambari Hive View (Exécution de requêtes Hive dans la vue Hive d’Ambari)](hdinsight-hadoop-use-hive-ambari-view.md) pour plus d’informations sur l’exécution de requêtes Hive à partir d’un navigateur web.
 
@@ -42,29 +42,29 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 ## <a id="run"></a> Exécution de requêtes Hive à l'aide de la console de requêtes
 1. Dans un navigateur web, accédez à l’adresse **https://CLUSTERNAME.azurehdinsight.net**, où **CLUSTERNAME** est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
 2. À partir des liens situés en haut de la page, sélectionnez **Éditeur Hive**. Cela affiche un formulaire qui peut être utilisé pour saisir les instructions HiveQL que vous souhaitez exécuter sur le cluster HDInsight.
-   
+
     ![l’éditeur Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
-   
+
     Remplacez le texte `Select * from hivesampletable` par les instructions HiveSQL suivantes :
-   
+
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   
+
     Ces instructions effectuent les opérations suivantes :
-   
+
    * **DROP TABLE**: supprime la table et le fichier de données, si la table existe déjà.
    * **CREATE EXTERNAL TABLE**: crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
-     
+
      > [!NOTE]
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
-     > 
+     >
      > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
-     > 
-     > 
+     >
+     >
    * **ROW FORMAT**: indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
    * **STORED AS TEXTFILE LOCATION**: indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3** , car trois lignes contiennent cette valeur.

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 228737056b813c76bf26ee07023db27be710f6d7
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ Cet article explique comment créer une machine virtuelle dans le modèle de dé
 
 ## <a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
-Si vous souhaitez créer une machine virtuelle avec plusieurs adresses IP ou une adresse IP privée statique, vous devez utiliser PowerShell ou l’interface Azure CLI. Pour savoir comment procéder, cliquez sur l’option relative à PowerShell ou à Azure CLI dans la zone située en haut de cet article. Vous pouvez utiliser le portail pour créer une machine virtuelle avec une seule adresse IP publique statique et (éventuellement) une seule adresse IP publique. Pour cela, suivez les étapes décrites dans l’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Une fois la machine virtuelle créée, vous pouvez modifier les types d’adresse IP de dynamique à statique et ajouter d’autres adresses à l’aide du portail, en suivant les étapes de la section [Ajouter des adresses IP à une machine virtuelle](#add) du présent article.
+Si vous souhaitez créer une machine virtuelle avec plusieurs adresses IP ou une adresse IP privée statique, vous devez utiliser PowerShell ou l’interface Azure CLI. Pour savoir comment procéder, cliquez sur l’option relative à PowerShell ou à Azure CLI dans la zone située en haut de cet article. Vous pouvez utiliser le portail pour créer une machine virtuelle avec une seule adresse IP publique statique et (éventuellement) une seule adresse IP publique. Pour cela, suivez les étapes décrites dans l’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](../virtual-machines/linux/quick-create-portal.md). Une fois la machine virtuelle créée, vous pouvez modifier les types d’adresse IP de dynamique à statique et ajouter d’autres adresses à l’aide du portail, en suivant les étapes de la section [Ajouter des adresses IP à une machine virtuelle](#add) du présent article.
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 

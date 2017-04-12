@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1dc2883056eab9764cda674b42fa40c517550ccd
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -128,7 +128,7 @@ Si vous souhaitez personnaliser la machine virtuelle que vous créez à partir d
 
 Une fois l’opération de restauration terminée, vous pouvez :
 * [Utiliser un modèle pour personnaliser la machine virtuelle restaurée](#use-templates-to-customize-restore-vm)
-* [Utilisez les disques restaurés pour les attacher à une machine virtuelle existante](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [Utilisez les disques restaurés pour les attacher à une machine virtuelle existante](../virtual-machines/windows/attach-disk-portal.md)
 * [Créer une machine virtuelle à l’aide de PowerShell à partir de disques restaurés](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 Sur le panneau **Configuration de la restauration**, cliquez sur **OK** pour finaliser la configuration de la restauration. Sur le panneau **Restaurer**, cliquez sur **Restaurer** pour déclencher l’opération de restauration.
@@ -193,7 +193,7 @@ Après avoir entré les valeurs requises, acceptez les *Conditions générales*,
 * Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/linux/classic/reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
 * Les extensions présentes au cours de la configuration de sauvegarde sont installées, mais pas activées. En cas de problème, réinstallez les extensions. 
 * Si la machine virtuelle sauvegardée a une IP statique, la machine virtuelle restaurée aura une adresse IP dynamique après la restauration pour éviter tout conflit lors de la création d’une machine virtuelle restaurée. En savoir plus sur la façon dont vous pouvez [ajouter une adresse IP statique à la machine virtuelle restaurée](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* La machine virtuelle restaurée n’aura pas de valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) lors de la création d’une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
+* La machine virtuelle restaurée n’aura pas de valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) lors de la création d’une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
 
 ## <a name="backup-for-restored-vms"></a>Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même groupe de ressources avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre groupe de ressources ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci est traitée comme une machine virtuelle nouvelle et vous devez configurer la sauvegarde pour la machine virtuelle restaurée.

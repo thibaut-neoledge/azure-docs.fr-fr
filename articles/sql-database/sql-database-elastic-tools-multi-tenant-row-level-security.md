@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 09e3828172d06a8c7ef39c89e69653c48a7e729e
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -27,7 +28,7 @@ Les [outils de base de données élastique](sql-database-elastic-scale-get-start
 Cet article explique comment utiliser ces technologies conjointement, afin de créer une application proposant une couche Données hautement évolutive, capable de prendre en charge des partitions multi-locataires, en utilisant **SqlClient ADO.NET** et/ou **Entity Framework**.  
 
 * **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données d’une application via des pratiques de partitionnement normalisées, reposant sur un ensemble de bibliothèques .NET et des modèles de service Microsoft Azure. En gérant les partitions via la bibliothèque cliente de base de données élastique, vous rationalisez et automatisez nombre des tâches de l’infrastructure portant généralement sur le partitionnement. 
-* **sécurité au niveau des lignes** permet aux développeurs de stocker les données de plusieurs locataires dans la même base de données, à l’aide de stratégies de sécurité permettant de filtrer les lignes qui n’appartiennent pas au locataire exécutant une requête. Grâce à la centralisation de la logique d’accès avec RLS dans la base de données plutôt que dans l’application, vous simplifiez la maintenance et réduisez le risque d’erreurs lorsque la codebase d’une application s’agrandit. RLS nécessite [Azure SQL Database (V12)](sql-database-technical-overview.md). 
+* **sécurité au niveau des lignes** permet aux développeurs de stocker les données de plusieurs locataires dans la même base de données, à l’aide de stratégies de sécurité permettant de filtrer les lignes qui n’appartiennent pas au locataire exécutant une requête. Grâce à la centralisation de la logique d’accès avec RLS dans la base de données plutôt que dans l’application, vous simplifiez la maintenance et réduisez le risque d’erreurs lorsque la codebase d’une application s’agrandit. 
 
 Grâce à l’utilisation conjointe de ces fonctionnalités, une application peut bénéficier d’une réduction des coûts et d’une optimisation de l’efficacité, via le stockage des données de plusieurs locataires au sein de la base de données d’une seule et même partition. Parallèlement à cela, elle a toujours la possibilité de proposer des partitions isolées, incluant un seul locataire, aux locataires « premium » qui doivent respecter des exigences plus élevées en termes de performances. En effet, les partitions multi-locataires ne garantissent pas la distribution équitable des ressources entre les locataires.  
 
@@ -317,10 +318,5 @@ Pour toute question, contactez-nous sur le [forum SQL Database](http://social.ms
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

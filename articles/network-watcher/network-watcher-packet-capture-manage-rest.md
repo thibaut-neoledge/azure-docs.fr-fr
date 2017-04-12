@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3408fa87794c47b48fb64c579fc5191aec73a333
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 67934dca806510c7ec46523fbb3063313e833c16
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/04/2017
 > - [API REST](network-watcher-packet-capture-manage-rest.md)
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 Cet article passe en revue les différentes tâches de gestion actuellement disponibles pour la capture de paquets.
 
@@ -49,7 +47,7 @@ Dans ce scénario, vous appelez l’API REST Network Watcher pour exécuter la v
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
 
-> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md). Pour une machine virtuelle Linux, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Windows](../virtual-machines/windows/extensions-nwa.md). Pour une machine virtuelle Linux, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Se connecter à ARMClient
 

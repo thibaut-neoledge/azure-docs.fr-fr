@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 92cad42344fb6f77b3088f74ea0e37a542bd0378
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -58,11 +58,11 @@ Voici la procédure à suivre pour créer votre collection Azure RemoteApp avec�
 Utilisez l’image « Windows Server 2012 R2 Hôte de session Bureau à distance Windows Server » de la galerie pour créer votre machine virtuelle.
 
 ### <a name="2-install-ssms-from-sql-express"></a>2. Installer SSMS à partir de SQL Express
-Accédez à la nouvelle machine virtuelle et à cette page de téléchargement : [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
+Accédez à la nouvelle machine virtuelle et à cette page de téléchargement : [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
 
 Une option permet de télécharger uniquement SSMS. À l’issue du téléchargement, accédez au répertoire d’installation et exécutez le programme d’installation de SSMS.
 
-Vous devez également installer SQL Server 2014 Service Pack 1. Vous pouvez le télécharger ici : [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+Vous devez également installer SQL Server 2014 Service Pack 1. Vous pouvez le télécharger ici : [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
 
 SQL Server 2014 Service Pack 1 inclut des fonctionnalités essentielles pour l’utilisation de la base de données SQL Azure.
 

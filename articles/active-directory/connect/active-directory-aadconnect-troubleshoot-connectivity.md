@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 253b7fe3614579d5a9a74d1de21bd2d3efe50d09
-ms.openlocfilehash: bf642e08d92414543f55ddeceff297c886b82882
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 9684a04b9ce12e6ca09e60909167f7557212c8be
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -51,7 +51,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | \**.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
 ## <a name="errors-in-the-wizard"></a>Erreurs dans l’Assistant
-L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.
+L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.
 
 Voici les erreurs les plus courantes de l’Assistant Installation.
 

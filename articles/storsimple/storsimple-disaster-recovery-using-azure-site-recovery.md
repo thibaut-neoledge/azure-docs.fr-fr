@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -122,7 +123,7 @@ Reportez-vous à la [documentation d’Azure Site Recovery](../site-recovery/sit
    > Les partages de fichiers seront alors temporairement indisponibles.
    >
    >
-2. [Activez la protection des machines virtuelles](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) du serveur de fichiers à partir du portail Azure Site Recovery.
+2. [Activez la protection des machines virtuelles](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) du serveur de fichiers à partir du portail Azure Site Recovery.
 3. Vous pouvez reconnecter la cible dès le lancement de la synchronisation initiale. Accédez à l’initiateur iSCSI, sélectionnez l’appareil StorSimple, puis cliquez sur **Connecter**.
 4. Lorsque la synchronisation est terminée et que la machine virtuelle passe à l’état **Protégé**, sélectionnez la machine virtuelle, puis cliquez sur l’onglet **Configurer** et mettez à jour le réseau de la machine virtuelle en conséquence (il s’agit du réseau auquel sont rattachées les machines virtuelles ayant fait l’objet du basculement). Si le réseau ne s’affiche pas, cela signifie que la synchronisation est en cours.
 
@@ -301,9 +302,4 @@ La planification de la capacité comporte au moins deux processus importants :
 
 ## <a name="summary"></a>Résumé
 Utilisez Azure Site Recovery pour créer un plan de récupération d’urgence automatisée complet pour une machine virtuelle du serveur de fichiers comportant des partages de fichiers sur le stockage StorSimple. Vous pouvez lancer le basculement en quelques secondes, où que vous soyez, et bénéficier d’une application opérationnelle en quelques minutes.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

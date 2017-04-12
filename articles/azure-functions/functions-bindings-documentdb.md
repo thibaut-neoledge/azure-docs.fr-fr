@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ La liaison de sortie utilise l’objet JSON suivant dans le tableau `bindings` d
 Notez les points suivants :
 
 * Définissez `createIfNotExists` sur `true` pour créer la base de données et la collection si elle n’existe pas. La valeur par défaut est `false`. Les collections sont créées avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` doit être le nom d’un paramètre d’application qui pointe vers le point de terminaison pour votre compte DocumentDB (avec la valeur `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si vous créez un compte DocumentDB par le biais de l’interface utilisateur du portail de Functions, le processus de création du compte crée automatiquement un paramètre d’application. Pour utiliser un compte DocumentDB existant, vous devez [configurer ce paramètre d’application manuellement](). 
+* `connection` doit être le nom d’un paramètre d’application qui pointe vers le point de terminaison pour votre compte DocumentDB (avec la valeur `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si vous créez un compte DocumentDB par le biais de l’interface utilisateur du portail de Functions, le processus de création du compte crée automatiquement un paramètre d’application. Pour utiliser un compte DocumentDB existant, vous devez [configurer ce paramètre d’application manuellement](functions-how-to-use-azure-function-app-settings.md). 
 
 ## <a name="output-usage"></a>Utilisation en sortie
 Cette section vous montre comment utiliser la liaison de sortie DocumentDB dans le code de votre fonction.

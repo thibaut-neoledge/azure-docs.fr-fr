@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
@@ -158,7 +159,7 @@ Une fois vos modifications locales validées et transférées vers le dépôt du
 
 ![Déployer][api-management-configuration-deploy]
 
-Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Référence de la structure des fichiers et des dossiers du dépôt Git local
 Les fichiers et dossiers dans le dépôt git local contiennent les informations de configuration sur l’instance de service.
@@ -308,10 +309,5 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

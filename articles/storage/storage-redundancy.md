@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
-ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -108,6 +109,7 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Sud-est de l’Australie |Est de l’Australie |
 | Sud de l'Inde |Inde-Centre |
 | Inde-Centre |Sud de l'Inde |
+| Inde-Ouest |Sud de l'Inde |
 | Gouvernement américain - Iowa |Gouvernement américain - Virginie |
 | Gouvernement américain - Virginie |Gouvernement américain - Iowa |
 | Centre du Canada |Est du Canada |
@@ -140,10 +142,5 @@ Considérations :
 * [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
 * [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

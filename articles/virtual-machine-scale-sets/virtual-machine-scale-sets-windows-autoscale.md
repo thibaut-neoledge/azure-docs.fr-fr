@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
-ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -110,7 +110,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
         * Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
         * Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
         * Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
-        * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les cinq comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage est nommé avec un indicateur de lettre défini dans les variables, combiné au préfixe que vous fournissez dans les paramètres du modèle.
 

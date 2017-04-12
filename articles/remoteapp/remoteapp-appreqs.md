@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 74bba898d2a4f5e35b2312dd28cb515a2e159df2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a9a305e4c07e2c348b1c1503d53f1da05da57966
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="app-requirements"></a>Configuration requise des applications
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -59,10 +60,5 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 * Pour optimiser la disponibilité du processeur pour tous les utilisateurs, désactivez les [tâches en arrière-plan ](https://msdn.microsoft.com/library/aa380665.aspx) ou créez des tâches en arrière-plan efficaces, qui ne nécessitent pas de nombreuses ressources.
 * Paramétrez et équilibrez l’ [utilisation de threads](https://msdn.microsoft.com/library/aa383520.aspx) de l’application pour un environnement multi-utilisateur et multiprocesseur.
 * Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s’exécutent dans une session client.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

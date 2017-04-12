@@ -17,9 +17,9 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 58881fd4608deddd8390cf4905b31a57f526e492
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d25038c05e50e4abc51dd2af829477f8f90dd3ed
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/18/2017
 Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel à l’aide de Power View.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historique produites par les systèmes de chauffage, de ventilation et de climatisation, et ainsi identifier les systèmes qui ne sont pas en mesure de maintenir de façon fiable une température donnée. Vous apprendrez à :
@@ -42,22 +42,21 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 ## <a name="prerequisites"></a>Composants requis
 * Un cluster HDInsight (Hadoop) : consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) pour des informations sur la création d’un cluster
 * Microsoft Excel 2013
-  
+
   > [!NOTE]
   > Microsoft Excel est utilisé pour la visualisation des données avec [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
-  > 
-  > 
+  >
+  >
 * [Pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ## <a name="to-run-the-sample"></a>Exécution de l'exemple
 1. À partir d’un navigateur web, accédez à l'URL suivante. Remplacez `<clustername>` par le nom de votre cluster HDInsight :
-   
+
          https://<clustername>.azurehdinsight.net
-   
+
     À l’invite, authentifiez-vous au moyen du nom d’utilisateur et du mot de passe d’administrateur que vous avez utilisés lors de l’approvisionnement de ce cluster.
 2. Dans la page web qui s’ouvre, cliquez sur l’onglet **Galerie de mise en route**, puis sous la catégorie **Solutions avec des exemples de données**, cliquez sur l’exemple **Analyse des données de capteur**.
-   
+
     ![Image Galerie de mise en route](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
-
 

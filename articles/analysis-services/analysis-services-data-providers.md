@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 14218a7c2acf6b68025095c1ecb60cb480233044
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 197e32058908533bc46b2ea2e38ff521a4a1fa3f
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -36,10 +36,10 @@ Les fournisseurs de données pour les connexions clientes sont différents des f
 ## <a name="download-the-latest-preview-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **préliminaires**  
 Utilisez les fournisseurs de données suivants pour obtenir les derniers correctifs de bogues et mises à jour. Ces fournisseurs de données sont recommandés lors de la connexion à la version préliminaire d’Azure Analysis Services ou de SQL Server vNext Analysis Services.
 
-[MSOLAP (amd64) en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
-[Version préliminaire de MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
-[AMO en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
-[Version préliminaire de ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+[MSOLAP (amd64) en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
+[Version préliminaire de MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
+[AMO en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_AMO.msi)</br>
+[Version préliminaire de ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_ADOMD.msi)</br>
 
 ## <a name="download-the-latest-rtm-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **RTM**  
 Utilisez les fournisseurs de données suivants si vous êtes dans un environnement de production et avez besoin de versions entièrement publiées et prises en charge.

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
-ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 Parmi les éléments à prendre en considération :
 
 * De combien de cœurs chaque machine virtuelle dispose-t-elle et chargez-vous chaque cœur ?
-  L’exemple de modèle Azure QuickStart ci-dessus a un script do_work.php, qui charge un seul cœur. Si vous utilisez une machine virtuelle plus volumineuse qu’une machine virtuelle à un seul cœur telle qu’une machine Standard_A1 ou D1, vous devez exécuter cette charge plusieurs fois. Vérifiez le nombre de cœurs de vos machines virtuelles en consultant [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  L’exemple de modèle Azure QuickStart ci-dessus a un script do_work.php, qui charge un seul cœur. Si vous utilisez une machine virtuelle plus volumineuse qu’une machine virtuelle à un seul cœur telle qu’une machine Standard_A1 ou D1, vous devez exécuter cette charge plusieurs fois. Vérifiez le nombre de cœurs de vos machines virtuelles en consultant [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Combien de machines virtuelles le jeu de mise à l’échelle de machines virtuelles inclut-il, travaillez-vous sur chacun d’eux ?
   
     La taille des instances augmentera uniquement lorsque l’utilisation moyenne du processeur sur **toutes** les machines virtuelles d’un jeu de mise à l’échelle dépassera la valeur seuil, sur la période définie dans les règles de mise à l’échelle automatique.
@@ -82,9 +83,4 @@ Parmi les éléments à prendre en considération :
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

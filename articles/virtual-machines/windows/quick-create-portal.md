@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 3cb94144addabf2371c8a058cebff25def4b6338
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
+ms.lasthandoff: 04/06/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Créer une machine virtuelle Windows avec le portail Azure
 
-Les machines virtuelles Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer des machines virtuelles et toutes les ressources liées. Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle en utilisant le portail Azure. Une fois le déploiement terminé, connectez-vous au serveur et installez les services IIS.
+Les machines virtuelles Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer des machines virtuelles et toutes les ressources liées. Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle en utilisant le portail Azure. Une fois le déploiement terminé, connectez-vous au serveur et installez IIS.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -55,8 +55,8 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 Pour autoriser le trafic pour IIS, vous devez ouvrir le port 80 pour le trafic web. Cette étape vous guide lors de la création d’une règle de groupe de sécurité réseau (NSG) pour autoriser les connexions entrantes sur le port 80.
 
 1. Dans le panneau de la machine virtuelle, dans la section **Essentials**, cliquez sur le nom du **groupe de ressources**.
-2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit être le nom de la machine virtuelle suivi de - NSG ajouté à la fin.
-3. Cliquez sur le titre **règle de sécurité entrante** pour ouvrir la liste des règles entrantes. Vous devriez voir une règle pour RDP dans la liste.
+2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit être le nom de la machine virtuelle suivi de -nsg ajouté à la fin.
+3. Cliquez sur le titre **Règle de sécurité entrante** pour ouvrir la liste des règles entrantes. Vous devriez voir une règle pour RDP dans la liste.
 4. Cliquez sur **+ Ajouter** pour ouvrir le panneau **ajouter une règle de sécurité entrante**.
 5. Dans **Nom** type **IIS** et assurez-vous que l’**Étendue du port** est définie sur 80 et **Action** est défini sur **Autoriser**, puis cliquez sur **OK**.
 
@@ -84,7 +84,7 @@ Maintenant que vous êtes connecté à la machine virtuelle Azure, vous pouvez u
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>Affichez la page d’accueil IIS
+## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
 Avec IIS installé et le port 80 désormais ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil par défaut IIS. Obtenez l’**adresse IP publique** à partir du panneau pour la machine virtuelle, puis utilisez la pour visiter la page web par défaut. 
 

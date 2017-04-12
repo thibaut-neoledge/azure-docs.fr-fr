@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: e1101c92118e56768c668d19f6556517d5a79c51
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -49,7 +49,7 @@ Avant de commencer le didacticiel, veillez à ce que vos mots de passe réponden
 * **Principal de service Active Directory Azure** : ce didacticiel explique comment créer un principal de service dans Azure Active Directory (Azure AD). Toutefois, vous devez être administrateur Azure AD pour pouvoir créer un principal du service. Si vous êtes administrateur, vous pouvez ignorer ce prérequis et poursuivre le didacticiel.
 
     >[!NOTE]
-    >Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Votre administrateur Azure AD doit créer un principal de service. Vous pouvez ensuite créer un cluster HDInsight avec Data Lake Store. Le principal de service doit être créé à l’aide d’un certificat, comme décrit dans [Créer un principal de service avec certificat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Votre administrateur Azure AD doit créer un principal de service. Vous pouvez ensuite créer un cluster HDInsight avec Data Lake Store. Le principal de service doit être créé à l’aide d’un certificat, comme décrit dans [Créer un principal de service avec certificat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Créer un compte Data Lake Store
@@ -71,7 +71,7 @@ Pour créer un compte Data Lake Store, procédez comme suit :
 
     > [!NOTE]
     > Si vous recevez une erreur similaire à `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Store, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Data Lake Store. Pour activer votre abonnement Azure pour la préversion publique Data Lake Store, suivez les instructions à la page [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
-    > 
+    >
 
 2. Lorsque vous êtes invité à vous connecter, connectez-vous en tant qu’administrateur ou propriétaire de l’abonnement.
 3. Un compte Data Lake Store est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources.

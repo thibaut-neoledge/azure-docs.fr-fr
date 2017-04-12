@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c654db0142df904acc5212b0f53991c54cbf2087
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -31,7 +31,9 @@ Il remplace le clé publique SSH par votre clé publique afin que vous ayez acc�
 Vous devez disposer d’un VHD amorçable.
 Vous pouvez télécharger le VHD que nous avons utilisé à partir de https://azclisamples.blob.core.windows.net/vhds/sample.vhd, ou utiliser votre propre VHD. Le script recherche `~/sample.vhd`.
 
-Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -67,5 +69,5 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle dans la [documentation relative aux machines virtuelles Linux Azure](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle dans la [documentation relative aux machines virtuelles Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

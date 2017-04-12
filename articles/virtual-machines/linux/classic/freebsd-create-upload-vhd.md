@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6b0d90724f4b7cc065eb186b06816ba818cdaa18
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5311274867de6e0d863ac532a5b3a31cf964351e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) contenant le système d'exploitation FreeBSD. Après l’avoir téléchargé, vous pouvez l’utiliser comme image personnelle pour créer une machine virtuelle (VM) dans Azure.
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur le téléchargement d'un disque virtuel avec le modèle Resource Manager, suivez [ce lien](../../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur le téléchargement d'un disque virtuel avec le modèle Resource Manager, suivez [ce lien](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Composants requis
 Cet article part du principe que vous disposez des éléments suivants :

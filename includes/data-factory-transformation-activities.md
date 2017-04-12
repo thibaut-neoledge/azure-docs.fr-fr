@@ -6,6 +6,7 @@ Azure Data Factory prend en charge les activités de transformation suivantes, q
 | [Pig](../articles/data-factory/data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](../articles/data-factory/data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Diffusion en continu Hadoop](../articles/data-factory/data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
+| [Spark](../articles/data-factory/data-factory-spark.md) | HDInsight [Hadoop] |
 | [Activités Machine Learning : exécution de lot et mise à jour de ressource](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) |Microsoft Azure |
 | [Procédure stockée](../articles/data-factory/data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 | [Langage U-SQL du service Analytique Data Lake](../articles/data-factory/data-factory-usql-activity.md) |Service Analytique Azure Data Lake |
@@ -16,9 +17,4 @@ Azure Data Factory prend en charge les activités de transformation suivantes, q
 > Vous pouvez créer une activité personnalisée pour exécuter des scripts R sur votre cluster HDInsight si R est installé. Consultez la page [Exécuter des scripts R avec Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

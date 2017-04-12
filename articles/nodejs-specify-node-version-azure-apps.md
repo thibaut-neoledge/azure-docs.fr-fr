@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 754e07e1942a809e415a1da6d1eab6307c65a47a
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -90,12 +90,12 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
     Une fois l'application publiée, ouvrez le site web dans un navigateur. Le message suivant doit apparaître : « Hello from Azure running node version: v0.8.1 ».
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules], [créer et déployer un site Web Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) et [utiliser des outils en ligne de commande Azure pour Mac et Linux].
+Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules], [créer et déployer un site Web Node.js](app-service-web/app-service-web-get-started-nodejs.md) et [utiliser des outils en ligne de commande Azure pour Mac et Linux].
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [utiliser des outils en ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
 [outils en ligne de commande Azure]:cli-install-nodejs.md
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
 

@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters 
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sous Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="open-the-hive-view"></a>Ouvrir la vue Hive
 
@@ -68,7 +68,7 @@ Dans la section **Explorateur de bases de données** de la page, sélectionnez l
 Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l’affichage Hive.
 
 1. Dans la section **Éditeur de requêtes** de la page, collez les instructions HiveQL suivantes dans la feuille de calcul :
-   
+
     ```hiveql
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -76,12 +76,12 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
-   
+
     Ces instructions effectuent les opérations suivantes :
-   
+
    * **DROP TABLE** : supprime la table et le fichier de données, au cas où la table existe déjà.
 
-   * **CREATE EXTERNAL TABLE** : crée une nouvelle table « externe » dans Hive. 
+   * **CREATE EXTERNAL TABLE** : crée une nouvelle table « externe » dans Hive.
    Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
    * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
@@ -89,42 +89,42 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
    * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
 
    * **SELECT** : sélectionne toutes les lignes dont la colonne t4 contient la valeur [ERROR].
-     
+
      > [!NOTE]
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, par exemple, par un processus de téléchargement de données automatisé ou une autre opération MapReduce. La suppression d'une table externe ne supprime *pas* les données, mais seulement la définition de la table.
 
 2. Pour démarrer la requête, utilisez le bouton **Exécuter** au bas de l’éditeur de requête. Il devient orange et affiche **Arrêter l’exécution**. Une section de **résultats du processus de requête** doit apparaître en dessous de l’éditeur de requêtes et afficher des informations sur la tâche.
-   
+
    > [!IMPORTANT]
    > Certains navigateurs peuvent ne pas actualiser correctement le fichier journal ou les informations de résultats. Si vous exécutez une tâche et que celle-ci semble s’exécuter indéfiniment sans mettre à jour le journal ou renvoyer des résultats, essayez d’utiliser Mozilla FireFox ou Google Chrome.
- 
+
 3. Une fois la requête terminée, la section de **résultats du processus de requête** affiche les résultats de l’opération. Le bouton **Arrêter l’exécution** s’affiche de nouveau en vert avec le libellé **Exécuter** à la fin de l’exécution de la requête. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
-   
+
         sev       cnt
         [ERROR]   3
-   
+
     L’onglet **Journaux** peut être utilisé pour afficher les informations de journalisation créées par la tâche.
-   
+
    > [!TIP]
    > La boîte de dialogue déroulante **Enregistrer les résultats** dans le coin supérieur gauche de la section **Résultats du processus de requête** vous permet de télécharger ou d’enregistrer les résultats.
 
 4. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez **Exécuter**. Notez qu’aucun résultat n’est renvoyé à la fin de la tâche. Si vous utilisez le bouton **Exécuter** alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées sont exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton **Exécuter**, vous devriez obtenir les résultats attendus.
 
 5. Pour ajouter une nouvelle feuille de calcul, utilisez le bouton **Nouvelle feuille de calcul** au bas de **l’Éditeur de requête**. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
-   
+
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
-   
-    These statements perform the following actions:
-   
+
+  Ces instructions effectuent les opérations suivantes :
+
    * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, une table interne est créée. Une table interne est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive. Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
    * **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
 
    * **INSERT OVERWRITE ... SELECT** : sélectionne les lignes de la table **log4jLogs** qui contiennent [ERROR], puis insère les données dans la table **errorLogs**.
-     
+
      Utilisez le bouton **Exécuter** pour exécuter cette requête. L’onglet **Résultats** ne contient pas d’informations lorsque la requête ne retourne aucune ligne. L’état doit être **SUCCEEDED** une fois la requête terminée.
 
 ### <a name="hive-settings"></a>Paramètres Hive
@@ -174,13 +174,13 @@ Les notifications sont des messages qui sont générés lors de l’exécution d
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
 1. À partir de l’éditeur de requête, créez une feuille de calcul et entrez la requête suivante :
-   
+
     ```hiveql
     SELECT * from errorLogs;
     ```
-   
+
     Exécutez la requête pour vérifier qu’elle fonctionne. Le résultat ressemble à l’exemple qui suit :
-   
+
         errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
         2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
         2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
@@ -235,5 +235,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-
 

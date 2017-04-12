@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22bc0b6c047737a291e79d9794e113b0821340ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 08a75e9ccf952097416e82ed42fb26a43d0f39f0
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure
 Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.
 
-Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle sous Linux](../../virtual-machines-linux-mac-create-ssh-keys.md).
+Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle sous Linux](../../linux/mac-create-ssh-keys.md).
 
 <!--
 Deleting, but not 100% sure
-Learn how to [perform these steps using new Azure portal](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Learn how to [perform these steps using new Azure portal](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur la connexion à une machine virtuelle avec le modèle Resource Manager, suivez [ce lien](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur la connexion à une machine virtuelle avec le modèle Resource Manager, suivez [ce lien](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 1. Connectez-vous au portail Azure.
@@ -65,5 +65,5 @@ Learn how to [perform these steps using new Azure portal](../../virtual-machines
 
     ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
-Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](../../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
+Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 

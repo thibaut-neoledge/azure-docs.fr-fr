@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Enregistrer les messages IoT Hub qui contiennent des informations telles que des données de capteur à un stockage de table Azure
 
-> [!Note]
-> Avant de commencer ce didacticiel, assurez-vous que vous avez suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). Dans le didacticiel [ESP8266 de se connecter à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), vous configurez votre appareil IoT et votre IoT Hub, et déployez un exemple d’application à exécuter sur votre appareil. L’application envoie les données de capteur collectées à votre IoT Hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>Contenu
 
@@ -39,7 +38,7 @@ Vous allez découvrir comment créer un compte de stockage Azure et une applicat
 
 ## <a name="what-you-will-need"></a>Éléments requis
 
-- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
+- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
   - Un abonnement Azure actif.
   - Un Azure IoT Hub associé à votre abonnement.
   - Une application fonctionnelle qui envoie des messages à votre Azure IoT Hub.
@@ -205,6 +204,4 @@ L’application Function App est maintenant créée. Elle stocke les messages re
 
 Vous avez créé votre compte de stockage Azure et votre application Azure Function App pour stocker les messages que votre IoT Hub reçoit dans votre stockage de table Azure.
 
-Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
-
-- [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

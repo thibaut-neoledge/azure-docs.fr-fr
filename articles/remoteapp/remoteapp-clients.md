@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 7a34394ebc83e106bd2755ea2e3d966837c01be6
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c07773be6e4a2274287920de9420f4c8b96f58e1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="accessing-your-apps-in-azure-remoteapp"></a>Accès à vos applications dans Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -173,10 +174,5 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 8. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
    
     ![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

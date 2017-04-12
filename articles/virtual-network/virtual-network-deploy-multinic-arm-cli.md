@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 4f5eaf5f6ba56709b69d97c1f646f71396fd031b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 19b1757dd694e756cfd2d0d6cd67e64f43ccab7f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/22/2017
 Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) ou d’[Azure CLI 1.0](virtual-network-deploy-multinic-cli-nodejs.md). Les valeurs des variables comprises entre symboles "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
 
 1. Installez [Azure CLI 2.0](/cli/azure/install-az-cli2) si vous ne l’avez pas encore fait.
-2. Créez une paire de clés SSH publique et privée pour les machines virtuelles Linux en effectuant les étapes décrites dans l’article [Créer une paire de clés publique et privée SSH pour les machines virtuelles Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Créez une paire de clés SSH publique et privée pour les machines virtuelles Linux en effectuant les étapes décrites dans l’article [Créer une paire de clés publique et privée SSH pour les machines virtuelles Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Dans un interpréteur de commandes, connectez-vous par le biais de la commande `az login`.
 4. Créez la machine virtuelle en exécutant le script suivant sur un ordinateur Linux ou Mac. Ce script crée un groupe de ressources, un réseau virtuel comprenant deux sous-réseaux, deux cartes réseau, et une machine virtuelle avec deux cartes réseau associées. L’une des cartes réseau est connectée à un sous-réseau, et une adresse IP publique et privée statique lui est attribuée. L’autre carte réseau est associée à l’autre sous-réseau. Une adresse IP privée statique lui est attribuée, mais aucune adresse IP publique. La carte réseau, l’adresse IP publique, le réseau virtuel et les ressources de la machine virtuelle doivent se trouver au même emplacement et correspondre au même abonnement. Bien que les ressources n’aient pas toutes à se trouver dans le même groupe de ressources, c’est le cas dans le script suivant.
 
@@ -159,7 +159,7 @@ az vm create \
 ```
 
 Outre la création d’une machine virtuelle avec deux cartes réseau, le script crée :
-- Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Consultez l’article [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
+- Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Consultez l’article [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
 - Un réseau virtuel avec deux sous-réseaux et une seule adresse IP publique. Vous pouvez également utiliser des ressources *existantes* en matière de réseau virtuel, sous-réseau, carte réseau ou adresse IP publique. Pour savoir comment utiliser des ressources réseau existantes au lieu de créer des ressources supplémentaires, utilisez `az vm create -h`.
 
 ## <a name = "validate"></a>Valider la création d’une machine virtuelle et de cartes réseau

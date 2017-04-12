@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1d9c1c75d29e39bbd9433197ad06a56da5dc799
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ Vous apprendrez ce qui suit :
 * Déployer un projet web qui utilise une base de données associée à une [application web](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service.
 
 > [!NOTE]
-> Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting) .
+> Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](app-service-web-get-started-dotnet.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting) .
 > 
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/). Vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
@@ -581,7 +581,7 @@ Si vous rencontrez des problèmes, voici quelques suggestions pour essayer de le
 
 * Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.8.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs au moment où Visual Studio essaie de créer le serveur de base de données ou la base de données.
 * Message d’erreur « Opération non prise en charge pour votre type d’offre d’abonnement » lors de la création de ressources Azure : comme ci-dessus.
-* Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](web-sites-dotnet-get-started.md) . Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
+* Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](app-service-web-get-started-dotnet.md) . Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
 * Aucune option pour sélectionner la chaîne de connexion dans l’Assistant de publication Web lors du déploiement : si vous avez utilisé une autre méthode pour créer vos ressources Azure (par exemple, vous essayez de déployer vers une application web et une base de données SQL créée dans le portail), la base de données SQL peut ne pas être associée à l’application web. La solution la plus simple consiste à créer une application web et une base de données en utilisant Visual Studio comme indiqué dans le didacticiel. Vous n’êtes pas obligé de reprendre le didacticiel du début. Dans l’Assistant de publication web, vous pouvez choisir de créer une application web ; vous obtiendrez la même boîte de dialogue de création de ressources Azure que lorsque vous créez le projet.
 * Les indications pour les portails de développeurs Google ou Facebook sont obsolètes : consultez le commentaire Disqus proposé à la fin de ce didacticiel.
 

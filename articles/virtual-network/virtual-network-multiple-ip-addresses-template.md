@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,8 +47,8 @@ Le déploiement d’un modèle vous permet de créer rapidement et de manière c
 
 |Nom|Description|
 |---|---|
-|adminUsername|Nom d’utilisateur administrateur. Le nom d’utilisateur doit satisfaire aux [exigences de nom d’utilisateur Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|adminPassword|Mot de passe administrateur. Le mot de passe doit satisfaire les [exigences de mot de passe Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Nom d’utilisateur administrateur. Le nom d’utilisateur doit satisfaire aux [exigences de nom d’utilisateur Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Mot de passe administrateur. Le mot de passe doit satisfaire les [exigences de mot de passe Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nom DNS de PublicIPAddressName1. Le nom DNS est résolu en une des adresses IP publiques affectées à la machine virtuelle. Le nom doit être unique au sein de la région Azure (emplacement) dans laquelle vous créez la machine virtuelle.|
 |dnsLabelPrefix1|Nom DNS de PublicIPAddressName2. Le nom DNS est résolu en une des adresses IP publiques affectées à la machine virtuelle. Le nom doit être unique au sein de la région Azure (emplacement) dans laquelle vous créez la machine virtuelle.|
 |OSVersion:|La version de Windows/Linux pour la machine virtuelle. Le système d’exploitation est une image entièrement corrigée de la version de Windows/Linux sélectionnée.|
@@ -81,7 +81,7 @@ Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `-TemplateParameterFile`.
     
-    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
     >[!TIP]
     >Si vous ne savez pas si un dnslabelprefix est disponible, entrez la commande `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` pour le déterminer. S’il est disponible, la commande renvoie `True`.
@@ -96,7 +96,7 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `--parameters-file` (-e).
     
-    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
 2. Une fois la machine virtuelle déployée, connectez la machine virtuelle et ajoutez les adresses IP privées au système d’exploitation que vous avez déployé en suivant les étapes de la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.
 

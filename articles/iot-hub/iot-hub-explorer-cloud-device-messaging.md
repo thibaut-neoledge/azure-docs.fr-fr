@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 8c25b8f558aae638a95d6e7186e19e77d02edbb2
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: df1cf03bc452b76569bdca030b60719d6d2f29f3
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Iothub-explorer pour envoyer et recevoir des messages entre votre appareil et IoT Hub
 
-> [!NOTE]
-> Avant de commencer ce didacticiel, assurez-vous que vous avez suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). Dans le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), vous configurez votre appareil IoT et votre instance IoT Hub, puis déployez un exemple d’application à exécuter sur votre appareil. L’application envoie les données de capteur collectées à votre instance IoT Hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) dispose d’un certain nombre de commandes qui facilitent la gestion d’IoT Hub. Ce didacticiel se concentre sur l’utilisation d’iothub-explorer pour l’envoi et la réception de messages entre votre appareil et l’instance IoT Hub.
 
@@ -40,7 +39,7 @@ Vous apprenez à utiliser iothub-explorer pour surveiller les messages appareil 
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
+- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -86,6 +85,4 @@ La commande fait clignoter le voyant connecté à votre appareil et envoie le me
 
 Vous avez appris à analyser des messages appareil vers cloud et à envoyer des messages cloud vers appareil entre votre appareil IoT et l’instance IoT Hub.
 
-Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
-
-- [Enregistrer les messages IoT Hub dans le stockage de données Azure](iot-hub-store-data-in-azure-table-storage.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

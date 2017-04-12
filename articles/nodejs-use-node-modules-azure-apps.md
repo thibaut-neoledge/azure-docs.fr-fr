@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 2d57fc14803e273157151d24efb12c3f5dd15a61
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 4ef028e7dbacc126a94b383d0fb13e255bcedcaf
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -81,14 +81,11 @@ Lorsque votre application est prête pour la production, vous pouvez verrouiller
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js], [créer et déployer une application web Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux].
+Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js], [créer et déployer une application web Node.js](app-service-web/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux].
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [spécifier la version de Node.js]: nodejs-specify-node-version-azure-apps.md
 [utiliser l'interface de ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
-[build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
-[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de déploiement de site web personnalisés avec Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 

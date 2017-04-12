@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: d10ae92ba79014d9700613c06ef37a437089f5ac
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +36,7 @@ La figure illustre une machine virtuelle équipée de trois cartes réseau, chac
 * Pour l’instant, les adresses IP publiques de niveau d’instance (LPIP) (déploiements classiques) ne sont pas prises en charge pour les machines virtuelles à plusieurs NIC.
 * L’ordre des NIC à l’intérieur de la machine virtuelle est aléatoire et peut changer lors des mises à jour de l’infrastructure Azure. Toutefois, les adresses IP et les adresses MAC Ethernet correspondantes restent identiques. Par exemple, supposons qu’**Eth1** a l’adresse IP 10.1.0.100 et l’adresse MAC 00-0D-3A-B0-39-0D. Après une mise à jour et un redémarrage de l’infrastructure Azure, il se peut qu’Eth1 devienne **Eth2**, mais l’association d’adresses IP et MAC ne change pas. Lorsqu’un redémarrage est effectué par le client, l’ordre des NIC reste identique.
 * L’adresse de chaque NIC équipant chacune des machines virtuelles doit figurer dans un sous-réseau, et les différentes NIC d’une même machine virtuelle peuvent recevoir des adresses situées dans le même sous-réseau.
-* La taille de machine virtuelle détermine le nombre de NIC que vous pouvez créer pour une machine virtuelle. Reportez-vous aux articles sur les tailles des machines virtuelles [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour déterminer le nombre de cartes réseau que chaque taille de machine virtuelle prend en charge. 
+* La taille de machine virtuelle détermine le nombre de NIC que vous pouvez créer pour une machine virtuelle. Reportez-vous aux articles sur les tailles des machines virtuelles [Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour déterminer le nombre de cartes réseau que chaque taille de machine virtuelle prend en charge. 
 
 ## <a name="network-security-groups-nsgs"></a>Groupes de sécurité réseau (NSG)
 Dans un déploiement avec gestionnaire de ressources, les NIC d’une machine virtuelle peuvent être associées à un groupe de sécurité réseau (NSG), y compris les NIC d’une machine virtuelle sur laquelle la fonctionnalité Multi-NIC est activée. Si une NIC reçoit une adresse d’un sous-réseau associé à un NSG, les règles qui régissent le NSG du sous-réseau s’appliquent également à cette NIC. Outre l’association de sous-réseaux à des NSG, vous pouvez également associer une NIC à un NSG.
@@ -227,10 +228,5 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 ## <a name="next-steps"></a>Étapes suivantes
 * Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement Resource Manager](virtual-network-deploy-multinic-arm-template.md).
 * Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement classique](virtual-network-deploy-multinic-classic-ps.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

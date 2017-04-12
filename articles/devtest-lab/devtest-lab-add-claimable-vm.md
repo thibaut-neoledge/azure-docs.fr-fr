@@ -3,7 +3,7 @@ title: "Ajouter une machine virtuelle exigible à un laboratoire dans Azure DevT
 description: "Découvrez comment ajouter une machine virtuelle exigible à un laboratoire dans Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
+author: tomarcher
 manager: douge
 editor: 
 ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: v-craic
+ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: fde776806c3b5eb126540841c12267ba1a6a90e4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 1b6e826426ebafe10abdf33f9bcfecc1c6315cfc
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Ajout d’une machine virtuelle à un laboratoire dans Azure DevTest Labs
 Vous ajoutez une machine virtuelle exigible à un laboratoire comme vous [ajouteriez une machine virtuelle standard](devtest-lab-add-vm.md), à partir d’une *base* qui est une [image personnalisée](devtest-lab-create-template.md), une [formule](devtest-lab-manage-formulas.md) ou une [image de la plateforme Place de marché](devtest-lab-configure-marketplace-images.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle exigible à un laboratoire dans DevTest Labs, et vous présente la procédure qu’un utilisateur suit pour revendiquer la machine virtuelle.
+
+> [!NOTE]
+> Si vous déployez des machines virtuelles via des [Modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md), vous pouvez créer des machines virtuelles exigibles qui peuvent être revendiquées en définissant la propriété **allowClaim** sur true dans la section Propriétés.
+>
+>
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Procédure d’ajout d’une machine virtuelle exigible à un laboratoire dans Azure DevTest Labs
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -51,12 +56,8 @@ Vous ajoutez une machine virtuelle exigible à un laboratoire comme vous [ajoute
 1. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 1. Le panneau du laboratoire affiche l’état de la création de la machine virtuelle, tout d’abord sous la forme **Création en cours**, puis sous la forme **En cours d’exécution** après le démarrage de la machine virtuelle.
 
-> [!NOTE]
-> Si vous déployez des machines virtuelles via des [Modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md), vous pouvez créer des machines virtuelles exigibles qui peuvent être revendiquées en définissant la propriété **allowClaim** sur true dans la section Propriétés.
->
->
 
-### <a name="using-a-claimable-vm"></a>Utilisation d’une machine virtuelle exigible
+## <a name="using-a-claimable-vm"></a>Utilisation d’une machine virtuelle exigible
 
 Un utilisateur peut revendiquer toute machine virtuelle dans la liste des « Machines virtuelles exigibles » en procédant comme suit :
 

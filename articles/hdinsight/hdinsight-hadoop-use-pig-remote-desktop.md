@@ -17,9 +17,9 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 Ce document fournit une procédure pas à pas de l'utilisation de la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster HDInsight Windows. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Pour HDInsight 3.4 ou les versions ultérieures, consultez l’article [Utiliser Pig avec HDInsight et SSH](hdinsight-hadoop-use-pig-ssh.md) pour plus d’informations sur l’exécution interactive de travaux Pig directement sur le cluster à partir d’une ligne de commande.
 
