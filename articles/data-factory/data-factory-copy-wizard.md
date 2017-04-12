@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
 ms.openlocfilehash: 0fc9eb7869ebe7316e4aed0d561638a05bc9a91c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,10 +90,5 @@ Une opération de copie unique ne permet le déplacement des données à d’une
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour découvrir une procédure pas à pas rapide sur l’utilisation de l’Assistant Data Factory Copy afin de créer un pipeline avec une activité de copie, consultez le [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
