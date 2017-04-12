@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
@@ -35,14 +35,20 @@ Pour vérifier avec PowerShell, installez la dernière version des applets de co
 
 ### <a name="log-in-to-your-azure-account"></a>Connectez-vous à votre compte Azure
 1. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Vérifiez les abonnements associés au compte.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. Spécifiez l’abonnement que vous souhaitez utiliser.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### <a name="verify-your-connection"></a>Vérifier votre connexion
 
@@ -57,17 +63,25 @@ Pour vérifier avec PowerShell, installez les dernières versions des applets de
 
 ### <a name="log-in-to-your-azure-account"></a>Connectez-vous à votre compte Azure
 1. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Vérifiez les abonnements associés au compte.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. Spécifiez l’abonnement que vous souhaitez utiliser.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Connectez-vous pour utiliser les applets de commande Service management pour le modèle de déploiement classique.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="verify-your-connection"></a>Vérifier votre connexion
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]

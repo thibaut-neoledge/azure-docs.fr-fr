@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "application ble, application de surveillance de capteur, collecte des données de capteur, données de capteurs, données de capteur vers le cloud"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
 ms.service: iot-hub
 ms.devlang: c

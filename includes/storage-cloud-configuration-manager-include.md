@@ -3,7 +3,7 @@ La [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.n
 Pour référencer le package CloudConfigurationManager, ajoutez la directive `using` suivante :
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Voici un exemple indiquant comment récupérer une chaîne de connexion d’un fichier de configuration :
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 L’utilisation d’Azure Configuration Manager est facultative. Vous pouvez également utiliser une API comme la [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) de .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -59,7 +59,7 @@ Cette procédure vous indique comment vous connecter au portail Azure à l’aid
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
 3. Dans la page **de connexion** , entrez les informations d’identification de votre abonnement.
    
-   ![de connexion](./media/sql-database-get-started/login.png)
+   ![de connexion](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -84,11 +84,11 @@ Les étapes de cette procédure vous montrent comment afficher des informations 
 
 1. Ouvrez SQL Server Management Studio et connectez-vous à votre serveur en tant qu’administrateur du serveur à l’aide de l’authentification SQL Server et du compte d’administrateur de serveur.
 
-   ![connect to server](./media/sql-database-get-started/connect-to-server.png)
+   ![connect to server](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Cliquez sur **Connecter**.
 
-   ![connected to server](./media/sql-database-get-started/connected-to-server.png)
+   ![connected to server](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. Dans l’Explorateur d’objets, développez **Sécurité**, puis **Connexions** pour afficher les connexions existantes de votre serveur ; la seule connexion sur un nouveau serveur est la connexion du compte d’administrateur de serveur.
 

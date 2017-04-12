@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "développement iot, logiciel iot, service cloud iot, logiciel internet des objets, azure cli, installer git sur ubuntu, exécuter gulp, installer node js ubuntu"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: cf673154-ce67-4ed7-a9f7-2440301c6270
 ms.service: iot-hub
 ms.devlang: c

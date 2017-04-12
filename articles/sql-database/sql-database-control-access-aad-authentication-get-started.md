@@ -64,7 +64,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Stud
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
 3. Dans la page **de connexion** , entrez les informations d’identification de votre abonnement.
    
-   ![de connexion](./media/sql-database-get-started/login.png)
+   ![de connexion](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -99,7 +99,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur la 
 
 2. Une fois l’installation terminée, saisissez **Microsoft SQL Server Management Studio** dans la zone de recherche de Windows, puis cliquez sur **Entrée** pour ouvrir SSMS.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+   ![SQL Server Management Studio](./media/sql-database-connect-query-ssms/ssms.png)
 
 3. Dans la boîte de dialogue **Se connecter au serveur**, sélectionnez l’une des méthodes d’authentification Active Directory et fournissez les informations d’authentification adéquates. Pour savoir comment choisir une méthode d’authentification, voir [Authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 

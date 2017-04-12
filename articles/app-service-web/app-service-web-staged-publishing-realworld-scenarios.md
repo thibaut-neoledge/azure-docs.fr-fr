@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -164,7 +165,7 @@ Dans cette section, vous allez apprendre à configurer un flux de travail de dé
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>Utiliser des chemins relatifs
 Les chemins d’accès relatifs sont le dernier élément à configurer dans l’application WordPress. WordPress stocke les informations d’URL dans la base de données. Ce stockage complique le déplacement de contenus d’un environnement vers un autre. Vous devez mettre à jour la base de données chaque fois que vous passez de l’environnement local à l’environnement intermédiaire ou de l’environnement intermédiaire à l’environnement de production. Pour réduire les risques de problèmes liés au déploiement d’une base de données à chaque déploiement d’un environnement dans un autre, utilisez le module complémentaire [Relative Root URLs](https://wordpress.org/plugins/root-relative-urls/) que vous pouvez installer à l’aide du tableau de bord de l’administrateur WordPress.
@@ -442,9 +443,4 @@ Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez él
 [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](web-sites-staged-publishing.md)
 
 [Comment limiter l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

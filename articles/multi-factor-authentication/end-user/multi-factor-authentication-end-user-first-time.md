@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
@@ -97,9 +98,4 @@ Si vous souhaitez ajouter manuellement un compte à l’application mobile sans 
 * Modifier les options préférées et [gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 * Configurer des [mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) pour les applications natives sur des appareils qui ne prennent pas en charge la vérification en deux étapes
 * Découvrir l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour mettre en place une authentification rapide et sécurisée, même sans accès au réseau de téléphonie mobile
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
