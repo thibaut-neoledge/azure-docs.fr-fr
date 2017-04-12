@@ -171,7 +171,7 @@ La mise à l’échelle de la base de données requiert les autorisations décri
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants pour mieux comprendre certains concepts supplémentaires essentiels en matière de performances :
 
-* [Gestion de l’accès concurrentiel et des charges de travail][Gestion de l’accès concurrentiel et des charges de travail]
+* [Gestion de l’accès concurrentiel et des charges de travail][Workload and concurrency management]
 * [Vue d’ensemble de conception de table][Table design overview]
 * [Distribution de tables][Table distribution]
 * [Indexation de table][Table indexing]
