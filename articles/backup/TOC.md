@@ -19,6 +19,7 @@
 ## Azure Backup Server
 ### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure](backup-azure-microsoft-azure-backup.md)
 ### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail classique](backup-azure-microsoft-azure-backup-classic.md)
+### [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
 ### [Utiliser Azure Backup Server pour sauvegarder Exchange](backup-azure-exchange-mabs.md)
 ### [Utiliser Azure Backup Server pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint-mabs.md)
 ### [Utiliser Azure Backup Server pour sauvegarder SQL](backup-azure-sql-mabs.md)

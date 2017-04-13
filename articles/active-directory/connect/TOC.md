@@ -47,6 +47,7 @@
 ### [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Modifier le mot de passe du compte de service Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Modifier le mot de passe du compte AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Activer la Corbeille Active Directory](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Gérer les services de fédération
 ### [Gérer et personnaliser](active-directory-aadconnect-federation-management.md)
+### [Fédérer plusieurs instances d’Azure AD avec une seule instance AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Résolution des problèmes

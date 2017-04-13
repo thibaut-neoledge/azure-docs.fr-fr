@@ -18,10 +18,13 @@
 
 # Procédures
 ## Planifier et concevoir
+### [🔧 Scénarios d’intégration courants avec les services Azure](event-hubs-common-integrations.md)
 ### [Concentrateurs d’événements dédiés](event-hubs-dedicated-overview.md)
 ### [Présentation du modèle de sécurité et de l’authentification](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilité et cohérence](event-hubs-availability-and-consistency.md)
 ## Développement
+### [🔧 Gestion des erreurs et nouvelle tentative](event-hubs-handling-errors-retry.md)
+### [🔧 Gestion des performances et mise à l’échelle](event-hubs-performance-scale.md)
 ### [API disponibles](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Azure Event Hubs Archive](event-hubs-archive-overview.md)
 #### [Activer Event Hubs Archive à l’aide d’un modèle](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Utiliser Python pour activer Event Hubs Archive](event-hubs-archive-python.md)
+### [Utilisation de PowerShell pour approvisionner des entités](event-hubs-manage-with-ps.md) 
 ### [Diffuser des données de diagnostics Azure en continu à l’aide d’Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Créer et déployer un Event Hub à l’aide d’un modèle Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 

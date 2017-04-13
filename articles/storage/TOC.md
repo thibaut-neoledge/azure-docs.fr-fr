@@ -79,6 +79,7 @@
 ### [Forum aux Questions sur les disques de machine virtuelle Azure IaaS](storage-faq-for-disks.md)
 ### Stockage Premium
 #### [Stockage Premium hautes performances pour les disques de machine virtuelle](storage-premium-storage.md)
+#### [Migration vers le stockage Premium à l’aide d’Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Conception pour de hautes performances](storage-premium-storage-performance.md)
 ### Stockage standard
 #### [Stockage standard économique et disques de machine virtuelle gérés et non gérés](storage-standard-storage.md)

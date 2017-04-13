@@ -31,10 +31,12 @@
     href: regions-and-availability.md
   - name: "Storage"
     href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Setworking"
+  - name: "Mise en réseau"
     href: network-overview.md
   - name: "Groupes de machines virtuelles identiques (VMSS)"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: "Service de métadonnées Instance" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Conteneurs"
     href: containers.md
   - name: "Gestionnaire de ressources"

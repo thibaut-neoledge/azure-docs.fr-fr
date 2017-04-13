@@ -185,6 +185,8 @@
     items:
     - name: "Copier une base de données"
       href: sql-database-copy.md
+    - name: "Importer une base de données"
+      href: sql-database-import.md
     - name: "Exporter une base de données"
       href: sql-database-export.md
   - name: "Surveiller et régler"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "Procédures"
   items:
-  - name: "Gérer le pare-feu"
-    items:
-    - name: "Portail"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "API REST"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "Gérer les pools élastiques"
     items:
     - name: "Portail"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "Configurer le masquage"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "Récupérer"
-    items:
-    - name: "Portail"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "Table unique"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "Rétention"
-    items:
-    - name: "Rétention - Portail"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "Rétention - PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "Récupérer une table unique"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "Configurer le coffre pour les sauvegardes"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "Géorépliquer les données"
     items:
     - name: "Portail"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "Transfert de données"
     items:
-    - name: "Importer - Portail"
-      href: sql-database-import-portal.md
-    - name: "Importer - SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "Chargement des données avec BCP"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "Chargement des données avec ADF"
