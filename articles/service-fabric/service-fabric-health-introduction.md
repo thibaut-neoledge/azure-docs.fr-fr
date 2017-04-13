@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 240ae97458747099bde6807bf13e0ce6fd9452d1
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -318,10 +319,5 @@ Le modèle d’intégrité est très utilisé pour la surveillance et le diagnos
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

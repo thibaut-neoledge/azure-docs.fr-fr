@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
 ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
 ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -681,10 +682,5 @@ HealthEvents          :
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
