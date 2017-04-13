@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
 
 Vous pouvez également écrire du code pour envoyer des événements personnalisés, des rapports d’exception et des suivis. Et si vous utilisez déjà un framework de journalisation, tel que log4J, log4net, NLog, ou System.Diagnostics.Trace, vous pouvez capturer ces journaux et les inclure dans la recherche. Cela simplifie la corrélation des suivis des journaux avec les actions utilisateur, les exceptions et les autres événements.
 
-## <a name="a-namesendabefore-you-write-custom-telemetry"></a><a name="send"></a>Avant d’écrire une télémétrie personnalisée
+## <a name="send"></a>Avant d’écrire une télémétrie personnalisée
 Si ce n’est déjà fait, [configurez Application Insights pour votre projet][start].
 
 Lorsque vous exécutez votre application, celle-ci envoie des données de télémétrie qui s’affichent dans Recherche de diagnostic, y compris des demandes reçues par le serveur, des affichages de pages consignées au niveau du client et des exceptions non interceptées.
@@ -40,7 +41,7 @@ Les informations varient selon le type d’application. Vous pouvez cliquer dans
 ## <a name="sampling"></a>Échantillonnage
 Si votre application envoie des données en grand nombre et si vous utilisez le Kit SDK Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
-## <a name="a-nameeventsacustom-events"></a><a name="events"></a>Événements personnalisés
+## <a name="events"></a>Événements personnalisés
 Les événements personnalisés apparaissent à la fois dans [Recherche de diagnostic][diagnostic] et [Metrics Explorer][metrics]. Vous pouvez les envoyer à partir d’appareils, de pages web et d’applications de serveur. Ils peuvent servir à des fins de diagnostic et à [comprendre les modèles d’utilisation][track].
 
 Un événement personnalisé a un nom et peut également comporter des propriétés que vous pouvez filtrer, ainsi que des mesures numériques.
@@ -95,7 +96,7 @@ Explorez un événement pour afficher ses propriétés détaillées.
 
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-## <a name="a-namepagesa-page-views"></a><a name="pages"></a> Affichages de pages
+## <a name="pages"></a> Affichages de pages
 La télémétrie des affichages de pages est envoyée par l’appel trackPageView() dans l’[extrait de code JavaScript que vous insérez dans vos pages web][usage]. Son principal objectif est de contribuer au nombre d’affichages de pages que vous voyez sur la page de présentation.
 
 En général, il est appelé une fois dans chaque page HTML, mais vous pouvez insérer plusieurs appels. Par exemple, si vous disposez d’une application d’une seule page et que vous souhaitez enregistrer une nouvelle page chaque fois que l’utilisateur obtient plus de données.
@@ -108,7 +109,7 @@ Il est parfois utile de joindre des propriétés que vous pouvez utiliser comme 
      {Game: currentGame.name, Difficulty: currentGame.difficulty});
 
 
-## <a name="a-nametracea-trace-telemetry"></a><a name="trace"></a> Télémétrie de trace
+## <a name="trace"></a> Télémétrie de trace
 La télémétrie de trace est le code que vous insérez de manière spécifique pour créer des journaux de diagnostic. 
 
 Par exemple, vous pouvez insérer des appels tels que :
@@ -133,7 +134,7 @@ Vous pouvez également rechercher des journaux générés à l’aide d’un fra
 
 Le package NuGet installe les assemblys nécessaires et modifie également le fichier web.config ou app.config.
 
-#### <a name="a-namepepperainsert-diagnostic-log-calls"></a><a name="pepper"></a>Insérer des appels de journaux de diagnostic
+#### <a name="pepper"></a>Insérer des appels de journaux de diagnostic
 Si vous utilisez System.Diagnostics.Trace, un appel standard serait :
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
@@ -146,7 +147,7 @@ Exécutez votre application en mode débogage, ou déployez-la.
 
 Les messages s’affichent dans Recherche de diagnostic lorsque vous sélectionnez le filtre Suivi.
 
-### <a name="a-nameexceptionsaexceptions"></a><a name="exceptions"></a>Exceptions
+### <a name="exceptions"></a>Exceptions
 La fonctionnalité d’obtention de rapports d’exception dans Application Insights est très puissante, d’autant plus qu’elle vous permet de parcourir les demandes ayant échoué et les exceptions, et de lire la pile d’exceptions.
 
 Dans certains cas, vous devez [insérer quelques lignes de code][exceptions] pour vous assurer que vos exceptions sont détectées automatiquement.
@@ -246,24 +247,24 @@ Dans l'initialiseur de l'application, par exemple Global.asax.cs :
         .Add(new MyTelemetryInitializer());
     }
 
-### <a name="a-namerequestsa-server-web-requests"></a><a name="requests"></a> Requêtes de serveur web
+### <a name="requests"></a> Requêtes de serveur web
 Les données de télémétrie concernant les requêtes sont envoyées automatiquement lorsque vous [installez Status Monitor sur votre serveur web][redfield] ou lorsque vous [ajoutez Application Insights à votre projet web][greenbrown]. Elles sont également introduites dans les graphiques relatifs aux requêtes et aux temps de réponse dans Metrics Explorer et sur la page de présentation.
 
 Si vous souhaitez envoyer des événements supplémentaires, vous pouvez utiliser l’API TrackRequest().
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Questions et réponses
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
+## <a name="questions"></a>Questions et réponses
+### <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
 Vous avez peut-être installé le package Nuget de l'enregistreur de données sans installer Application Insights.
 
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config` , puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante. Ceci devrait résoudre le problème.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
+### <a name="limits"></a>Quelle est la quantité de données conservée ?
 Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 
 ### <a name="some-of-my-events-or-traces-dont-appear"></a>Certains événements ou certaines traces n’apparaissent pas
 Si votre application envoie des données en grand nombre et si vous utilisez le Kit SDK Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Étapes suivantes
+## <a name="add"></a>Étapes suivantes
 * [Configuration des tests de disponibilité et de réactivité][availability]
 * [Résolution des problèmes][qna]
 
@@ -278,12 +279,7 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
