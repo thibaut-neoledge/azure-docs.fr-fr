@@ -103,6 +103,7 @@
 #### [Visualisation des données dans Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Visualisation des données avec des applications web](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Prévisions météo avec Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Gestion des appareils avec iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 ### [Développement de Sparkfun ESP8266 Thing](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Visualisation des données dans Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Visualisation des données avec des applications web](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Prévisions météo avec Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Gestion des appareils avec iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,54 +140,13 @@
 ### [Simulation sur Linux](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Simulation sur Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Utiliser le Kit de démarrage de la passerelle IoT
-### [Appareil simulé](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Leçon 1 : Configuration de votre NUC
-##### [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### Configurer votre Kit de démarrage de la passerelle IoT
+#### [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Connecter la passerelle IoT à IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Utiliser la passerelle IoT pour la conversion de données](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Leçon 2 : Création de votre IoT Hub
-##### [Obtenir les outils (Windows 7 +)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Obtenir les outils (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Obtenir les outils (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Créer un hub IoT et enregistrer votre appareil](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Leçon 3 : Réception de messages à partir de l’appareil simulé
-##### [Configurer et exécuter l’exemple d’application BLE](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Lire des messages à partir de votre IoT hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Leçon 4 : Enregistrer des messages sur le stockage de table Azure
-##### [Créer une application de fonction Azure et un compte de stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Lire des messages conservés dans le stockage de table Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Leçon 5 : Créer votre premier module de passerelle Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Dépannage](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [Appareil SensorTag](iot-hub-gateway-kit-c-get-started.md)
-#### Leçon 1 : Configuration de votre NUC
-##### [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Leçon 2 : Création de votre IoT Hub
-##### [Obtenir les outils (Windows 7 +)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Obtenir les outils (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Obtenir les outils (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Créer un hub IoT et enregistrer votre appareil](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Leçon 3 : Réception de messages à partir de l’appareil simulé
-##### [Configurer et exécuter l’exemple d’application BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Lire des messages à partir de votre IoT hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Leçon 4 : Enregistrer des messages sur le stockage de table Azure
-##### [Créer une application de fonction Azure et un compte de stockage Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Lire des messages conservés dans le stockage de table Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Leçon 5 : Créer votre premier module de passerelle Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Dépannage](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
-### [Utiliser IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Utiliser le sérialiseur](iot-hub-device-sdk-c-serializer.md)
 
 # Procédure
 ## Planification
@@ -211,6 +172,9 @@
 #### [Kits de développement logiciel (SDK) de services et d’appareils](iot-hub-devguide-sdks.md)
 #### [Support MQTT](iot-hub-mqtt-support.md)
 #### [Glossaire](iot-hub-devguide-glossary.md)
+### [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
+#### [Utiliser IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Utiliser le sérialiseur](iot-hub-device-sdk-c-serializer.md)
 ### Traitement des messages appareil-à-cloud
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Version préliminaire d’Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (service)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (appareils)](/java/api/com.microsoft.azure.iothub)
+## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (appareils)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Kits de développement logiciel (SDK) Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [Kit de développement logiciel (SDK) Gateway](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (fournisseur de ressources)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

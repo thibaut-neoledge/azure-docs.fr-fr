@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "Groupes de machines virtuelles identiques (VMSS)"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Service de métadonnées Instance" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Conteneurs"
     href: containers.md
   - name: "Gestionnaire de ressources"
