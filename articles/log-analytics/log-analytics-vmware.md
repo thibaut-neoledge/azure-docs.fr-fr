@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
 ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
+ms.lasthandoff: 11/17/2016
 
 ---
 
@@ -197,9 +198,4 @@ Il peut y avoir plusieurs raisons :
 * Utiliser des [recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher des données détaillées de l’hôte VMware.
 * [Créer vos propres tableaux de bord](log-analytics-dashboards.md) affichant des données de l’hôte VMware.
 * [Créer des alertes](log-analytics-alerts.md) lorsque des événements d’hôte VMware spécifiques se produisent.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
