@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
 L[’audit de base de données](sql-database-auditing.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS. Notez que la redirection ne s’applique pas lorsque vous utilisez la méthode de l’audit d’objets Blob.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Prise en charge des clients de niveau inférieur
+## <a id="subheading-1"></a>Prise en charge des clients de niveau inférieur
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
 
 Pour les « clients de niveau inférieur », c’est-à-dire ceux qui prennent en charge la version 7.3 de TDS et les versions antérieures, le nom de domaine complet du serveur dans la chaîne de connexion doit être modifié :
@@ -43,7 +43,7 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Modification des points de terminaison IP lors de l’activation de l’audit
+## <a id="subheading-2"></a>Modification des points de terminaison IP lors de l’activation de l’audit
 Notez que l’activation de l’audit de table a pour effet de modifier le point de terminaison IP de votre base de données. Si vous avez défini des paramètres de pare-feu stricts, mettez-les à jour en conséquence.
 
 Le nouveau point de terminaison IP de la base de données dépend de la région de votre base de données :
