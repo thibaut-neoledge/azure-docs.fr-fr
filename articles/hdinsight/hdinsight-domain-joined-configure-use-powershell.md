@@ -178,7 +178,7 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
    * **LDAPUrls** : ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (saisissez le nom d’utilisateur de l’administrateur du domaine)
    * **DomainAdminPassword** : (saisissez le mot de passe utilisateur de l’administrateur du domaine)
-   * **J’accepte les termes et conditions mentionnés ci-dessus **: (vérification)
+   * **J’accepte les termes et conditions mentionnés ci-dessus**: (vérification)
    * **Épingler au tableau de bord** : (vérification)
 3. Cliquez sur **Achat**. Vous verrez une nouvelle vignette intitulée **Déploiement du déploiement de modèle**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 
