@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Pour monter le partage de fichiers à partir d’un client local, vous devez d�
 > Certains fournisseurs de services Internet bloquent le port 445. Il se peut donc que vous deviez vérifier cela auprès de votre fournisseur de services.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Démontage du partage de fichiers
+Pour démonter le partage de fichiers, vous pouvez utiliser la commande `net use` avec l’option `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Développement avec le stockage de fichiers
 Pour écrire du code faisant appel au stockage de fichiers, vous pouvez utiliser les bibliothèques clientes de stockage pour .NET et Java ou l’API REST d’Azure Storage. L’exemple présenté dans cette section décrit comment travailler avec un partage de fichiers en utilisant la [bibliothèque cliente Azure Storage pour .NET](https://msdn.microsoft.com/library/mt347887.aspx) à partir d’une simple application console exécutée sur le Bureau.
@@ -615,7 +625,7 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
    
     À l’heure actuelle, l’authentification ou les listes de contrôle d’accès basées sur Active Directory ne sont pas prises en charge, mais elles figurent dans notre liste de demandes de fonctionnalités. Pour l’instant, les clés de compte de stockage Azure sont utilisées pour l’authentification auprès du partage de fichiers. Nous offrons néanmoins une solution de contournement utilisant les signatures d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes. À l’aide des SAP, vous pouvez générer des jetons assortis d’autorisations spécifiques valides pendant une période définie. Par exemple, vous pouvez générer un jeton offrant un accès en lecture seule à un fichier donné. Toute personne qui possède ce jeton pendant sa période de validité dispose d’un accès en lecture seule à ce fichier.
    
-    Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers via le protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu. 
+    Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers par le biais du protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu. 
 
 2. **Comment fournir l’accès à un fichier spécifique via un navigateur web ?**
    À l’aide des SAP, vous pouvez générer des jetons assortis d’autorisations spécifiques valides pendant une période définie. Par exemple, vous pouvez générer un jeton avec un accès en lecture seule à un fichier spécifique pendant une période donnée. Toute personne qui possède cette url peut effectuer le téléchargement directement à partir de n’importe quel navigateur web tant qu’il est valide. Les clés SAP peuvent être facilement générées à partir d’une interface utilisateur telle que Storage Explorer.
@@ -633,7 +643,7 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
     Oui. Le trafic est gratuit s’il concerne une même région.
 7. **La connexion depuis des machines virtuelles locales au stockage de fichiers Azure repose-t-elle sur Azure ExpressRoute ?**
    
-    Non. Si vous ne disposez pas d’ExpressRoute, vous pouvez accéder au partage de fichiers depuis votre site à condition que le port 445 (TCP sortant) soit ouvert pour l’accès Internet. Vous pouvez toutefois utiliser ExpressRoute avec le stockage de fichiers si vous le souhaitez.
+    Non. Si vous ne disposez pas d’ExpressRoute, vous pouvez toujours accéder au partage de fichiers à partir de votre site à condition que le port 445 (TCP sortant) soit ouvert pour l’accès Internet. Vous pouvez toutefois utiliser ExpressRoute avec le stockage de fichiers si vous le souhaitez.
 8. **Un « témoin de partage de fichiers » pour un cluster de basculement constitue-t-il un des cas d’utilisation du stockage de fichiers Azure ?**
    
     Cela n’est pas pris en charge à l’heure actuelle.
@@ -651,7 +661,7 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
     Non. Le partage de fichiers est le pilote virtuel que vous pouvez monter et les partages imbriqués ne sont donc pas pris en charge.
 13. **Est-il possible de spécifier des autorisations en lecture seule ou en écriture seule sur des dossiers au sein du partage ?**
     
-    Vous ne bénéficiez pas de ce niveau de contrôle sur les autorisations si vous montez le partage de fichiers via SMB. Toutefois, vous pouvez y parvenir en créant une signature d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes.  
+    Vous ne bénéficiez pas de ce niveau de contrôle sur les autorisations si vous montez le partage de fichiers par le biais de SMB. Toutefois, vous pouvez y parvenir en créant une signature d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes.  
 14. **Les performances étaient lentes lorsque j’ai essayé de décompresser des fichiers dans File Storage. Que dois-je faire ?**
     
     Pour transférer un grand nombre de fichiers dans le stockage de fichiers, nous vous recommandons d’utiliser AzCopy, Azure Powershell (Windows) ou CLI Azure (Unix/Linux), car ces outils ont été optimisés pour le transfert réseau.
@@ -666,11 +676,13 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
     Vous pouvez vous référer à [l’article Résolution des problèmes relatifs aux fichiers Azure](storage-troubleshoot-file-connection-problems.md) pour obtenir une aide de bout en bout.               
 
 18. **Comment activer le chiffrement côté serveur pour les fichiers Azure ?**
+> [!NOTE]
+> Le [chiffrement côté serveur](storage-service-encryption.md) pour les fichiers Azure est actuellement en version préliminaire. Si vous avez des questions concernant la version préliminaire, contactez [SSEDiscussion](mailto:ssediscussions@microsoft.com).
 
-    Le [chiffrement côté serveur](storage-service-encryption.md) pour les fichiers Azure est actuellement en version préliminaire. Pendant la version préliminaire, vous pouvez uniquement activer cette fonction sur les comptes de stockage Azure Resource Manager à l’aide du [portail Azure](https://portal.azure.com). L’activation de cette fonction sera sans frais supplémentaires. Lorsque vous activez le chiffrement du service de stockage pour le stockage de fichiers Azure, vos données sont chiffrées automatiquement pour vous. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Nous envisageons de prendre prochainement en charge l’activation du chiffrement pour le stockage de fichiers avec [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [l’interface de ligne de commande Azure](storage-azure-cli.md) et [l’API REST du fournisseur de ressources Azure Storage](/rest/api/storagerp/storageaccounts). 
-    Pour plus d’informations sur le chiffrement au repos dans Azure Storage, voir [Storage Service Encryption](storage-service-encryption.md). Vous pouvez également contacter ssediscussions@microsoft.com si vous avez des questions au cours de la version préliminaire.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.

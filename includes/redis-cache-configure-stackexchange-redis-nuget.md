@@ -25,7 +25,7 @@ Le package NuGet télécharge et ajoute les références d'assembly nécessaires
 > 
 > 
 
-Vous pouvez également installer le package NuGet StackExchange.Redis en cliquant sur **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**, et en exécutant la commande suivante à partir de la fenêtre `Package Manager Console`.
+Vous pouvez également installer le package NuGet StackExchange.Redis en cliquant sur **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**, et en exécutant la commande suivante à partir de la fenêtre **Console du gestionnaire de package**.
     
 ```
 Install-Package StackExchange.Redis

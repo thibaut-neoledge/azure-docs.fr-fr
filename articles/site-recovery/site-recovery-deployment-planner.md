@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ Le dossier contient plusieurs fichiers et sous-dossiers. Le fichier exécutable 
 
     Exemple :  
     Copiez le fichier .zip sur le lecteur E:\ et extrayez-le.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Fonctionnalités
 Vous pouvez exécuter l’outil de ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Mot de passe | (Facultatif) Le mot de passe utilisé pour se connecter au serveur vCenter/à l’hôte vSphere ESXi. Si vous spécifiez aucun mot de passe maintenant, vous êtes invité à l’indiquer à l’exécution de la commande.|
 | -StorageAccountName | (Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit.|
 | -StorageAccountKey | (Facultatif) La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour le compte de stockage classique). |
+| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
+
 
 Nous recommandons que vous profiliez vos machines virtuelles pendant au moins 15 à 30 jours. Pendant la période de profilage, ASRDeploymentPlanner.exe continue de s’exécuter. Les entrées du temps de profilage de l’outil sont indiquées en jours. Si vous souhaitez procéder au profilage pendant quelques heures ou quelques minutes dans le cadre d’un test rapide de l’outil, dans la préversion publique, vous devez convertir le temps en nombre de jours équivalent. Par exemple, pour un profilage de 30 minutes, l’entrée doit être égale à 30/(60*24) = 0,021 jours. Le temps de profilage minimum autorisé est de 30 minutes.
 
@@ -281,11 +283,12 @@ Ouvrez une console de ligne de commande et accédez au dossier de l’outil de p
 
 |Nom du paramètre | Description |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Répertoire | (Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom de répertoire n’est spécifié, le répertoire ProfiledData est utilisé. |
 | -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. |
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour un compte de stockage classique). |
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom/une adresse IP de machine virtuelle par ligne. Les noms de machine virtuelle spécifiés dans le fichier doivent être identiques au nom des machines virtuelles sur le serveur vCenter/l’hôte vSphere ESXi.<br>Par exemple, le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
 
 L’outil crée plusieurs fichiers asrvhdfile<#>.vhd de 64 Mo (où # représente le nombre de fichiers) dans le répertoire spécifié. L’outil charge ces fichiers sur le compte de stockage pour déterminer le débit. Une fois le débit mesuré, l’outil supprime tous les fichiers du compte de stockage et du serveur local. Si l’outil est interrompu pour une raison quelconque alors qu’il calcule le débit, cela ne supprime pas les fichiers du stockage ou du serveur local. Vous devrez les supprimer manuellement.
 
@@ -477,6 +480,10 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles. 
+
+**OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
+
 ## <a name="incompatible-vms"></a>Machines virtuelles incompatibles
 
 ![Feuille de calcul Excel des machines virtuelles incompatibles](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 **VM Compatibility** : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](https://aka.ms/azure-storage-scalbility-performance), peuvent figurer parmi les suivantes :
 
 * Taille du disque > 1 023 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de supérieures à 1 To.
+* Le type de démarrage est EFI. Pour l’instant, Azure Site Recovery ne prend en charge que les machines virtuelles qui présentent le type de démarrage BIOS.
 
 * La taille totale de machine virtuelle (réplication + TFO) dépasse la limite de taille du compte de stockage prise en charge (35 To). Cette incompatibilité se produit généralement lorsqu’un seul disque de la machine virtuelle présente une caractéristique de performances dépassant les limites maximales prises en charge Azure ou Site Recovery pour le stockage standard. Une telle instance envoie la machine virtuelle dans la zone de stockage premium en mode Push. Néanmoins, la taille maximale prise en charge d’un compte de stockage premium est de 35 To, et une seule et même machine virtuelle protégée ne peut pas être protégée sur plusieurs comptes de stockage. Notez également que, lorsqu’un test de basculement est exécuté sur une machine virtuelle protégée, elle s’exécute dans le compte de stockage où la réplication est en cours. Dans ce cas, configurez 2 fois la taille du disque pour que la progression de la réplication et le test de basculement réussissent en parallèle.
 * Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 5 000 par disque.
@@ -508,6 +516,10 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 **Memory (MB)** : la quantité de RAM sur la machine virtuelle.
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
+
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles. 
+
+**OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
 
 
 ## <a name="site-recovery-limits"></a>Limites Azure Site Recovery
@@ -546,6 +558,18 @@ Pour mettre à jour Deployment planner, procédez comme suit :
 
 
 ## <a name="version-history"></a>Historique des versions
+### <a name="12"></a>1.2
+Mise à jour : 7 avril 2017
+
+Ajout des correctifs suivants :
+
+* Ajout de la vérification du type de démarrage (BIOS ou EFI) pour chaque machine virtuelle afin de déterminer si la machine virtuelle est compatible ou incompatible pour la protection.
+* Ajout des informations du type de système d’exploitation pour chaque machine virtuelle dans les feuilles de calcul des machines virtuelles compatibles et incompatibles.
+* L’opération GetThroughput est désormais prise en charge dans les régions Microsoft Azure Gouvernement des États-Unis et Chine.
+* Ajout de quelques autres vérifications préalables pour les serveurs vCenter et ESXi.
+* Génération d’un rapport incorrect lorsque les paramètres régionaux sont définis sur une valeur autre que l’anglais.
+
+
 ### <a name="11"></a>1.1
 Mise à jour : 9 mars 2017
 

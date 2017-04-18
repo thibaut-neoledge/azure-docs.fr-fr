@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,14 +50,14 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
   3. Obtenez l’ **ID de locataire**. 
   4. Attribuez l’application **ADFCopyTutorialApp** au rôle **Collaborateur de Data Factory**.  
 * Installez [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
-* Démarrez **PowerShell** et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devrez réexécuter ces commandes.
+* Lancez **PowerShell** et procédez comme suit. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
   
-  1. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
+  1. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Exécutez la commande suivante pour afficher tous les abonnements de ce compte.
+  2. Exécutez la commande suivante pour afficher tous les abonnements de ce compte :
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell.  
+  4. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell :  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -171,11 +172,11 @@ La définition JSON spécifie un jeu de données nommé **AzureBlobInput**, qui 
 * Le **type** de jeu de données est défini sur **AzureBlob**.
 * **linkedServiceName** est défini sur la valeur **AzureStorageLinkedService**. 
 * **folderPath** est défini sur le conteneur **adftutorial** et **fileName** est défini sur **emp.txt**.  
-* Le **type** de format a la valeur **TextFormat**
-* Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**)    
-* **availability** est défini sur **hourly** (frequency a la valeur hour et interval est défini sur 1). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**). 
+* Le**type** de format a la valeur **TextFormat**.
+* Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (columnDelimiter).    
+* **availability** est défini sur **hourly** (frequency a la valeur hour et interval est défini sur 1). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (adftutorial). 
 
-Si vous ne spécifiez pas de nom (**fileName**) pour un jeu de données d’entrée, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
+Si vous ne spécifiez pas de nom (**fileName**) pour un jeu de données d’entrée, tous les fichiers/objets blob du dossier d’entrée (folderPath) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
 
 Si vous ne spécifiez pas de nom (**fileName**) pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -230,7 +231,7 @@ Notez les points suivants :
 * **linkedServiceName** est défini sur **AzureSqlLinkedService**.
 * **tablename** est défini sur **emp**.
 * La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
-* **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
+* **availability** est défini sur **hourly** (frequency a la valeur hour et interval est défini sur 1).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -315,8 +316,8 @@ $rg = "ADFTutorialResourceGroup"
 $adf = "ADFCopyTutorialDF"
 ```
 
-## <a name="authenticate-with-aad"></a>S’authentifier avec AAD
-Exécutez la commande suivante pour vous authentifier auprès d’Azure Active Directory (AAD). 
+## <a name="authenticate-with-aad"></a>Authentifier avec AAD
+Exécutez la commande suivante pour vous authentifier auprès d’Azure Active Directory (AAD) : 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ Notez les points suivants :
 * Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 * Si vous recevez le message d’erreur : «**L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory**», effectuez l’une des opérations suivantes et essayez de relancer la publication : 
   
-  * Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
+  * Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory : 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ Effectuez les étapes suivantes pour préparer le stockage d’objets blob Azure
 * Créez et téléchargez un fichier texte, **emp.txt**, en tant qu’objet blob vers le conteneur **adftutorial**. 
 * Créez une table nommée **emp** dans la base de données SQL Azure vers laquelle pointe **AzureSqlLinkedService**.
 
-1. Lancez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStartedPSH** sur votre disque dur. 
+1. Lancez le bloc-notes. Copiez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStartedPSH** sur votre disque dur. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ Effectuez les étapes suivantes pour préparer le stockage d’objets blob Azure
     Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
 
 ### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
-Dans cette étape, vous créez un jeu de données nommé **AzureBlobInput** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **AzureStorageLinkedService**. Ce conteneur d’objets blob (**adftutorial**) contient les données d’entrée dans le fichier : **emp.txt**. 
+Dans cette étape, vous créez un jeu de données nommé **AzureBlobInput** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **AzureStorageLinkedService**. Ce conteneur d’objets blob (adftutorial) contient les données d’entrée dans le fichier : **emp.txt**. 
 
 1. Attribuez la commande à une variable nommée **cmd**. 
 
@@ -475,7 +476,7 @@ Dans cette étape, vous créez un jeu de données nommé **AzureBlobInput** qui 
     ```
 
 ### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
-Dans cette étape, vous créez une table de sortie nommée **AzureSqlOutput**. Ce jeu de données pointe vers une table SQL (**emp**) dans la base de données SQL Azure représentée par **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp** . 
+Dans cette étape, vous créez une table de sortie nommée **AzureSqlOutput**. Ce jeu de données pointe vers une table SQL (emp) dans la base de données SQL Azure représentée par **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp** . 
 
 1. Attribuez la commande à une variable nommée **cmd**.
 
@@ -573,9 +574,4 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

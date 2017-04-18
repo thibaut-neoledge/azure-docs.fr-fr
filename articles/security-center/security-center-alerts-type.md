@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Voici un exemple de ce type d’alerte :
 ![Alerte de processus suspect](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Plusieurs comptes de domaine interrogés
-Azure Security Center peut détecter plusieurs tentatives d’interrogation de comptes de domaine, généralement effectuées par des personnes malveillantes au cours de la reconnaissance du réseau. Les personnes malveillantes peuvent exploiter cette technique pour interroger le domaine et identifier les utilisateurs, les comptes d’administration de domaine, les ordinateurs qui sont des contrôleurs de domaine et la relation d’approbation potentielle d’un domaine avec d’autres domaines.
+Azure Security Center peut détecter plusieurs tentatives d’interrogation de comptes de domaine Active Directory, généralement effectuées par des personnes malveillantes au cours de la reconnaissance du réseau. Les personnes malveillantes peuvent exploiter cette technique pour interroger le domaine et identifier les utilisateurs, les comptes d’administration de domaine, les ordinateurs qui sont des contrôleurs de domaine et la relation d’approbation potentielle d’un domaine avec d’autres domaines.
 
 Voici un exemple de ce type d’alerte :
 
 ![Alerte de compte de domaines multiples](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Les membres du groupe Administrateurs locaux ont été énumérés
+
+Security Center va déclencher une alerte lorsque l’événement de sécurité 4798, dans Windows Server 2016 et Windows 10, est déclenché. Cela se produit lorsque le groupe Administrateurs locaux est énuméré, ce qui est généralement effectué par des pirates au cours de la reconnaissance du réseau. Les pirates peuvent exploiter cette technique pour interroger l’identité des utilisateurs avec des privilèges d’administrateur.
+
+Voici un exemple de ce type d’alerte :
+
+![Administrateur local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Combinaison anormale de majuscules et minuscules
+
+Security Center déclenche une alerte lorsqu’il détecte l’utilisation d’une combinaison de majuscules et minuscules à la ligne de commande. Certains pirates peuvent utiliser cette technique pour se dérober aux règles de hachage ou de casse.
+
+Voici un exemple de ce type d’alerte :
+
+![Combinaison anormale](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Suspicion d’attaque de golden ticket Kerberos
+
+Une clé [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) compromise peut être utilisée par un pirate pour créer des « golden tickets » Kerberos, lui permettant d’emprunter l’identité de l’utilisateur de leur choix. Security Center déclenche une alerte lorsqu’il détecte ce type d’activité.
+
+> [!NOTE] 
+> Pour plus d’informations sur les golden ticket Kerberos, lisez le [guide de prévention contre le vol d’informations d’identification Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+Voici un exemple de ce type d’alerte :
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Création d’un compte suspect
+
+Security Center déclenche une alerte lorsqu’un compte ressemblant fortement à un compte bénéficiant de privilèges d’administrateur intégré existant est créé. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté par une vérification humaine.
+ 
+Voici un exemple de ce type d’alerte :
+
+![Compte suspect](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Création d’une règle de pare-feu suspecte
+
+Les pirates peuvent tenter de contourner la sécurité de l’ordinateur hôte en créant des règles de pare-feu personnalisées pour permettre aux applications malveillantes de communiquer avec la commande et le contrôle, ou pour lancer des attaques sur le réseau par le biais de l’hôte compromis. Security Center déclenche une alerte lorsqu’il détecte qu’une règle de pare-feu a été créée à partir d’un fichier exécutable à un emplacement suspect.
+ 
+Voici un exemple de ce type d’alerte :
+
+![Règle de pare-feu](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinaison suspecte de HTA et PowerShell
+
+Security Center déclenche une alerte lorsqu’il détecte qu’un hôte d’application HTML (HTA) lance des commandes PowerShell. Il s’agit d’une technique utilisée par les pirates pour lancer des scripts PowerShell malveillants.
+ 
+Voici un exemple de ce type d’alerte :
+
+![HTA et PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Analyse du réseau
 La détection des menaces sur le réseau assurée par Azure Security Center fonctionne en collectant automatiquement les informations de sécurité à partir du trafic IPFIX (Internet Protocol Flow Information Export) Azure. Elle analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces.

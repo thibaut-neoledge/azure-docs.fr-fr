@@ -1,4 +1,4 @@
-Si vous disposez d’une URL de signature d’accès partagé (SAP) qui vous permet d’accéder aux ressources d’un compte de stockage, vous pouvez utiliser la SAP dans une chaîne de connexion. Comme la SAS inclut dans l’URI les informations requises pour authentifier la demande, l’URI de la SAS fournit le protocole, le point de terminaison de service et les informations d’identification nécessaires pour accéder à la ressource.
+Si vous disposez d’une URL de signature d’accès partagé (SAP) qui vous permet d’accéder aux ressources d’un compte de stockage, vous pouvez utiliser la SAP dans une chaîne de connexion. Étant donné que la SAP contient les informations requises pour authentifier la requête, une chaîne de connexion avec une SAP fournit le protocole, le point de terminaison de service et les informations d’identification nécessaires pour accéder à la ressource.
 
 Pour créer une chaîne de connexion incluant une signature d’accès partagé, spécifiez la chaîne au format suivant :
 
@@ -23,13 +23,15 @@ Chaque point de terminaison de service est facultatif, mais la chaîne de connex
 Voici un exemple de chaîne de connexion incluant la SAS d’un service pour Blob Storage :
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 Et voici un exemple de la même chaîne de connexion avec encodage de caractères spéciaux :
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 ### <a name="account-sas-example"></a>Exemple de SAP de compte
@@ -48,9 +50,4 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;
 FileEndpoint=https://storagesample.file.core.windows.net;
 SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Avec les informations fournies par le rapport sur les connexions des utilisateur
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
+La zone **Connexions** de la section Activité de **Microsoft Azure Active Directory** constitue votre premier point d’entrée pour toutes les activités de connexion .
+
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/61.png "Activité de connexion")
+
+
+Un journal d’audit inclut un mode Liste par défaut, qui indique :
+
+- l’utilisateur associé ;
+- l’application à laquelle l’utilisateur est connecté ;
+- l’état de la connexion ;
+- l’heure de la connexion.
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/41.png "Activité de connexion")
+
+Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la barre d’outils.
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/19.png "Activité de connexion")
+
+Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des champs qui sont déjà affichés.
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/42.png "Activité de connexion")
+
+En cliquant sur un élément dans le mode Liste, vous pouvez obtenir toutes les informations disponibles le concernant.
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/43.png "Activité de connexion")
+
+
+## <a name="filtering-sign-in-activities"></a>Filtrage des activités de connexion
+
+Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données de connexion à l’aide des champs suivants :
+
+- Intervalle de temps
+- Utilisateur
+- Application
+- Client
+- État de la connexion
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/44.png "Activité de connexion")
+
+
+Le filtre **Intervalle de temps** vous permet de définir un intervalle de temps pour les données renvoyées.  
+Les valeurs possibles sont les suivantes :
+
+- 1 mois
+- 7 jours
+- 24 heures
+- Personnalisée
+
+Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
+
+Le filtre **Utilisateur** vous permet de spécifier le nom ou le nom d’utilisateur principal de l’utilisateur qui vous intéresse.
+
+Le filtre **Application** vous permet de spécifier le nom de l’application qui vous intéresse.
+
+Le filtre **Client** vous permet de spécifier des informations sur l’appareil qui vous intéresse.
+
+Le filtre **État de la connexion** vous permet de sélectionner l’un des filtres suivants :
+
+- Tout
+- Succès
+- Échec
+
+
+## <a name="sign-in-activities-shortcuts"></a>Raccourcis relatifs aux activités de connexion
+
+En plus d’Azure Active Directory, le portail Azure vous offre deux autres points d’entrée pour les données sur les activités de connexion :
+
+- Utilisateurs et groupes
+- Applications d’entreprise
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>Activités de connexion des utilisateurs et des groupes
+
+Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
+
+- Quel est le modèle de connexion d’un utilisateur ?
+- Combien d’utilisateurs se sont connectés au cours d’une semaine ?
+- Quel est l’état de ces connexions ?
+
+
+
 Votre point d’entrée pour ces données est le graphique des connexions des utilisateurs dans la section **Overview** (Vue d’ensemble) sous **Utilisateurs et groupes**.
 
- ![Reporting](./media/active-directory-reporting-activity-sign-ins/05.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/45.png "Activité de connexion")
 
 Le graphique des connexions des utilisateurs affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
-![Reporting](./media/active-directory-reporting-activity-sign-ins/02.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/46.png "Activité de connexion")
 
-Lorsque vous cliquez sur un jour dans le graphique des connexions, vous obtenez une liste détaillée des activités de connexion.
+Lorsque vous cliquez sur un jour dans le graphique des connexions, vous obtenez une liste détaillée des activités de connexion correspondantes.
 
-![Reporting](./media/active-directory-reporting-activity-sign-ins/03.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/41.png "Activité de connexion")
 
 Chaque ligne dans la liste des activités de connexion vous fournit des informations détaillées sur la connexion sélectionnée, par exemple :
 
@@ -63,6 +145,12 @@ Chaque ligne dans la liste des activités de connexion vous fournit des informat
 * Quelle application a été la cible de la connexion ?
 * Quelle est l’adresse IP de la connexion ?
 * Quel est l’état de la connexion ?
+
+L’option **Connexions** vous fournit une vue d’ensemble complète de toutes les connexions utilisateur.
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/51.png "Activité de connexion")
+
+
 
 ## <a name="usage-of-managed-applications"></a>Utilisation des applications gérées
 
@@ -74,43 +162,27 @@ En disposant d’une vue centrée sur les applications de vos données de connex
 
 Les 3 principales applications de votre organisation dans le rapport sur les 30 derniers jours apparaissant dans la section **Vue d’ensemble** sous **Enterprise applications** (Applications d’entreprise) constituent votre point d’entrée.
 
- ![Reporting](./media/active-directory-reporting-activity-sign-ins/06.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/64.png "Activité de connexion")
 
 Le graphique d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos 3 principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
-![Reporting](./media/active-directory-reporting-activity-sign-ins/78.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/47.png "Activité de connexion")
 
 Si vous le souhaitez, vous pouvez définir la focalisation sur une application spécifique.
+
 
 ![Reporting](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Reporting")
 
 Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applications, vous obtenez une liste détaillée des activités de connexion.
 
-![Reporting](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Reporting")
+
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/48.png "Activité de connexion")
+
 
 L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.
 
-![Reporting](./media/active-directory-reporting-activity-sign-ins/85.png "Reporting")
+![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/49.png "Activité de connexion")
 
-En utilisant le sélecteur de colonne, vous pouvez sélectionner les champs de données que vous souhaitez afficher.
-
-![Reporting](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Reporting")
-
-## <a name="filtering-sign-ins"></a>Filtrage des connexions
-Vous pouvez filtrer les connexions pour limiter la quantité de données affichées en utilisant les champs suivants :
-
-* Date et heure 
-* Nom d’utilisateur principal de l’utilisateur
-* Nom de l’application
-* Nom du client
-* État de la connexion
-
-![Reporting](./media/active-directory-reporting-activity-sign-ins/293.png "Reporting")
-
-Une autre méthode de filtrage des entrées des activités de connexion consiste à rechercher des entrées spécifiques.
-La méthode de recherche vous permet de centrer les connexions sur des **utilisateurs**, des **groupes** ou des **applications** spécifiques.
-
-![Reporting](./media/active-directory-reporting-activity-sign-ins/84.png "Reporting")
 
 
 ## <a name="next-steps"></a>Étapes suivantes
