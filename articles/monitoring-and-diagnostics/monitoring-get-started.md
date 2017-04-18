@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,11 +30,6 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
 2. Cliquez sur l’option **Monitor** pour ouvrir le panneau **Monitor**. Ce panneau rassemble tous vos paramètres de surveillance et données dans une vue consolidée. Il ouvre d’abord la section **Journal d’activité** .
    
     ![Navigation dans le panneau Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > Les options **Notifications de service** et **Groupes de notifications** affichées ci-dessus sont disponibles uniquement dans la version préliminaire privée de ces fonctionnalités.
-   > 
-   > 
    
     Azure Monitor a trois catégories de base de données d’analyse de données : le **journal d’activité**, les **mesures** et les **journaux de diagnostic**.
 3. Cliquez sur le **Journal d’activité** pour vous assurer que la section du journal d’activité est affichée.
@@ -88,7 +84,7 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
     
     ![panneau alertes pour public](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Ici, vous pouvez gérer toutes les [**alertes**](monitoring-overview-alerts.md) sur vos ressources Azure. Cela inclut les alertes sur les mesures, événements de journal d’activité (version préliminaire privée), tests web Application Insights (emplacements) et diagnostics proactifs Application Insights. Les alertes peuvent déclencher un l’envoi d’un e-mail ou d’une requête HTTP POST vers une URL webhook.
+    Ici, vous pouvez gérer toutes les [**alertes**](monitoring-overview-alerts.md) sur vos ressources Azure. Cela inclut les alertes sur les mesures, les événements de journal d’activité, les tests web Application Insights (emplacements) et les diagnostics proactifs Application Insights. Les alertes peuvent déclencher un l’envoi d’un e-mail ou d’une requête HTTP POST vers une URL webhook.
 13. Cliquez sur **Ajouter une alerte de mesure** pour créer une alerte.
     
     ![Ajouter une alerte de mesure](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -103,10 +99,5 @@ En suivant ces étapes et en épinglant toutes les mosaïques pertinentes à un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Lisez la [Présentation d’Azure Monitor](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

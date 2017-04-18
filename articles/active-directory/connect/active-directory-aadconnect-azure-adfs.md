@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
@@ -119,8 +119,8 @@ Créez les groupes à haute disponibilité suivants :
 | contosodcset |Contrôleur de domaine/AD FS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Déployer les machines virtuelles
-L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez six machines virtuelles dans le cadre du déploiement de base.
+### <a name="4-deploy-virtual-machines"></a>4. Déployer les machines virtuelles
+L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez quatre machines virtuelles dans le cadre du déploiement de base.
 
 | Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Une fois le déploiement terminé, le volet de votre machine virtuelle devrait r
 * Déployez les deux serveurs en tant que réplicas de contrôleurs de domaine avec DNS
 * Configurez les serveurs AD FS en installant le rôle AD FS à l’aide du gestionnaire de serveurs.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Déployer l’équilibreur de charge interne (ILB)
-**6.1.    Création de l’équilibreur de charge interne**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Déployer l’équilibreur de charge interne (ILB)
+**6.1. Création de l’équilibreur de charge interne**
 
 Pour déployer un équilibreur de charge interne, sélectionnez Équilibreurs de charge dans le portail Azure, puis cliquez sur Ajouter (+).
 
@@ -172,7 +172,7 @@ Cliquez sur Créer pour déployer l’équilibreur de charge interne ; celui-ci 
 
 L’étape suivante consiste à configurer le pool principal et la sonde principale.
 
-**6.2.    Configuration du pool principal de l’équilibreur de charge interne**
+**6.2. Configuration du pool principal de l’équilibreur de charge interne**
 
 Dans le panneau Équilibreurs de charge, sélectionnez l’équilibreur de charge interne que vous venez de créer. Vous accédez au panneau Paramètres. 
 
@@ -183,7 +183,7 @@ Dans le panneau Équilibreurs de charge, sélectionnez l’équilibreur de charg
 
 ![Configuration du pool principal de l’équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Configuration de la sonde**
+**6.3. Configuration de la sonde**
 
 Dans le panneau Équilibreurs de charge internes, sélectionnez Sondes.
 
@@ -192,7 +192,7 @@ Dans le panneau Équilibreurs de charge internes, sélectionnez Sondes.
 
 ![Configuration de la sonde d’équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Création des règles d’équilibrage de charge**
+**6.4. Création des règles d’équilibrage de charge**
 
 Pour équilibrer au mieux le trafic, l’équilibreur de charge interne doit être configuré avec des règles d’équilibrage de charge. Pour créer une règle d’équilibrage de charge, procédez comme suit : 
 
@@ -202,23 +202,23 @@ Pour équilibrer au mieux le trafic, l’équilibreur de charge interne doit êt
 
 ![Configuration des règles d’équilibrage de l’équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Mise à jour du serveur DNS avec l’équilibreur de charge interne**
+**6.5. Mise à jour du serveur DNS avec l’équilibreur de charge interne**
 
 Accédez à votre serveur DNS et créez un enregistrement CNAME pour l’équilibreur de charge interne. L’enregistrement CNAME doit correspondre au service de fédération avec une adresse IP pointant vers l’adresse IP de l’équilibreur de charge interne. Par exemple, si l’adresse IP de l’équilibreur de charge interne est 10.3.0.8 et si le service de fédération installé est fs.contoso.com, créez un enregistrement CNAME pour fs.contoso.com pointant vers 10.3.0.8.
 De cette manière, toutes les communications concernant fs.contoso.com pointeront vers l’équilibreur de charge interne et seront routées de façon appropriée.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Configurer le serveur Web Application Proxy
-**7.1.    Configuration des serveurs Web Application Proxy pour atteindre les serveurs AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Configurer le serveur Web Application Proxy
+**7.1. Configuration des serveurs Web Application Proxy pour atteindre les serveurs AD FS**
 
 Pour faire en sorte que les serveurs Web Application Proxy soient en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, créez un enregistrement dans le répertoire %systemroot%\system32\drivers\etc\hosts de l’équilibreur de charge interne. Notez que le nom unique (DN) doit être le nom du service de fédération (par exemple fs.contoso.com). L’entrée IP doit être celle de l’adresse IP de l’équilibreur de charge interne (10.3.0.8, dans notre exemple).
 
-**7.2.    Installation du rôle Web Application Proxy**
+**7.2. Installation du rôle Web Application Proxy**
 
 Après avoir vérifié que les serveurs Web Application Proxy sont bien en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, vous pouvez installer les serveurs Web Application Proxy. Les serveurs Web Application Proxy ne doivent pas être joints au domaine. Installez les rôles Web Application Proxy sur les deux serveurs Web Application Proxy en sélectionnant le rôle Accès à distance. Le gestionnaire de serveurs vous guide dans l’installation du serveur WAP.
 Pour plus d’informations sur le déploiement de WAP, consultez la page [Installer et configurer le serveur proxy d’application web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Déployer l’équilibreur de charge (public) accessible sur Internet
-**8.1.    Création d’un équilibreur de charge (public) accessible sur Internet**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Déployer l’équilibreur de charge (public) accessible sur Internet
+**8.1.  Création d’un équilibreur de charge (public) accessible sur Internet**
 
 Dans le portail Azure, sélectionnez Équilibreurs de charge, puis cliquez sur Ajouter. Dans le panneau Créer un équilibreur de charge, entrez les informations suivantes :
 
@@ -232,7 +232,7 @@ Après le déploiement, l’équilibreur de charge s’affiche dans la liste des
 
 ![Liste des équilibreurs de charge](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Attribution d’un nom DNS à l’adresse IP publique**
+**8.2. Attribution d’un nom DNS à l’adresse IP publique**
 
 Dans le panneau Équilibreurs de charge, cliquez sur la nouvelle entrée d’équilibreur de charge pour afficher le panneau de configuration. Suivez les étapes ci-dessous pour configurer le nom DNS pour l’adresse IP publique :
 
@@ -244,26 +244,26 @@ Dans le panneau Équilibreurs de charge, cliquez sur la nouvelle entrée d’éq
 
 ![Configuration de l’équilibreur de charge accessible sur Internet (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configuration d’un pool principal pour l’équilibreur de charge (public) accessible sur Internet** 
+**8.3. Configuration d’un pool principal pour l’équilibreur de charge (public) accessible sur Internet** 
 
 Suivez les mêmes étapes que pour la création de l’équilibreur de charge interne afin de configurer le pool principal de l’équilibreur de charge (public) accessible sur Internet en tant que groupe à haute disponibilité pour les serveurs WAP. Par exemple, contosowapset.
 
 ![Configuration d’un pool principal pour l’équilibreur de charge accessible sur Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Configuration de la sonde**
+**8.4. Configuration de la sonde**
 
 Suivez les mêmes étapes que pour la configuration de l’équilibreur de charge interne afin de configurer la sonde pour le pool principal de serveurs WAP.
 
 ![Configuration de la sonde d’équilibreur de charge accessible sur Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Création d’une ou plusieurs règles d’équilibrage de charge**
+**8.5. Création d’une ou plusieurs règles d’équilibrage de charge**
 
 Suivez les mêmes étapes que pour l’équilibreur de charge interne afin de configurer la règle d’équilibrage de charge pour le port TCP 443.
 
 ![Configuration des règles d’équilibrage de l’équilibreur de charge accessible sur Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Sécuriser le réseau
-**9.1.    Sécurisation du sous-réseau interne**
+### <a name="9-securing-the-network"></a>9. Sécuriser le réseau
+**9.1. Sécurisation du sous-réseau interne**
 
 En général, vous devez appliquer les règles suivantes pour sécuriser efficacement votre sous-réseau interne (dans l’ordre indiqué ci-dessous)
 
@@ -276,7 +276,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 
 [comment]: <> (![règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![(règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Sécurisation du sous-réseau DMZ**
+**9.2. Sécurisation du sous-réseau DMZ**
 
 | Règle | Description | Flux |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Tester l’authentification dans AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Tester l’authentification dans AD FS
 Le moyen le plus simple consiste à tester AD FS à l’aide de la page IdpInitiatedSignon.aspx. Pour cela, vous devez activer l’authentification IdpInitiatedSignOn sur les propriétés AD FS. Suivez les étapes ci-dessous pour vérifier votre configuration AD FS
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer.

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière ver
 
     Vérifiez que la valeur **Aucune authentification** est spécifiée dans les paramètres **Authentification**. Selon votre version de Visual Studio, la valeur par défaut peut être différente. Pour la modifier, cliquez sur **Modifier l’authentification** et sélectionnez **Aucune authentification**.
 
-    Si vous poursuivez la procédure avec Visual Studio 2015, décochez la case **Héberger dans le cloud**. Vous [approvisionnerez les ressources Azure](#provision-the-azure-resources) et [publierez l’application sur Azure](#publish-the-application-to-azure) au cours des étapes suivantes du didacticiel. Pour obtenir un exemple d’approvisionnement d’application web App Service à partir de Visual Studio en laissant la case à cocher **Héberger sur le cloud** activée, consultez [Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+    Si vous poursuivez la procédure avec Visual Studio 2015, décochez la case **Héberger dans le cloud**. Vous [approvisionnerez les ressources Azure](#provision-the-azure-resources) et [publierez l’application sur Azure](#publish-the-application-to-azure) au cours des étapes suivantes du didacticiel. Pour obtenir un exemple d’approvisionnement d’application web App Service à partir de Visual Studio en laissant la case à cocher **Héberger sur le cloud** activée, consultez [Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![Sélectionner un modèle de projet][cache-select-template]
 4. Cliquez sur **OK** pour créer le projet.
@@ -86,7 +86,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 ### <a name="add-the-entity-framework-nuget-package"></a>Ajouter le package NuGet Entity Framework
 
 1. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis **Console du Gestionnaire de package**.
-2. Exécutez la commande suivante depuis la fenêtre `Package Manager Console`.
+2. Exécutez la commande suivante dans la fenêtre **Console du Gestionnaire de package**.
     
     ```
     Install-Package EntityFramework

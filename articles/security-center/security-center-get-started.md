@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ Dans le portail, procédez comme suit pour accéder au Centre de sécurité :
 1. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**.
 
    ![Menu Azure][1]
-2. Si vous accédez à Azure Security Center pour la première fois, le panneau **Bienvenue** s’ouvre. Sélectionnez **Oui ! Je souhaite lancer l’Azure Security Center** pour ouvrir le panneau **Security Center** et activer la collecte des données.
+2. Si vous accédez à Azure Security Center pour la première fois, le panneau **Bienvenue** s’ouvre. Sélectionnez **Lancer Security Center** pour ouvrir le panneau **Security Center** et activer la collecte des données.
    ![Écran d’accueil][10]
 3. Après avoir démarré Azure Security Center à partir du panneau Bienvenue ou sélectionné Azure Security Center dans le menu Microsoft Azure, le panneau **Security Center** s’ouvre. Pour accéder facilement au panneau **Security Center** à l’avenir, sélectionnez l’option **Épingler le panneau au tableau de bord** (en haut à droite).
    ![Option Épingler le panneau au tableau de bord][2]
@@ -81,11 +81,17 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
 2. Sélectionnez une recommandation sur le panneau **Recommandations** pour visualiser plus d’informations et/ou prendre des mesures afin de résoudre le problème.
 
 ### <a name="view-the-health-and-security-state-of-your-resources"></a>Afficher l’état d’intégrité et de sécurité de vos ressources
-1. Retournez au panneau **Centre de sécurité** . La mosaïque **Intégrité des ressources** contient des indicateurs de l’état de sécurité pour les machines virtuelles, la mise en réseau, les données et les applications.
-2. Pour plus d’informations, sélectionnez **Machines virtuelles** . Le panneau **Machines virtuelles** s’ouvre et affiche un résumé présentant l’état des logiciels anti-programme malveillant, les mises à jour du système, les redémarrages et les vulnérabilités du système d’exploitation de vos machines virtuelles.
-   ![La mosaïque d’intégrité des ressources dans Azure Security Center][6]
-3. Sélectionnez une recommandation sous **RECOMMANDATIONS POUR MACHINES VIRTUELLES** pour afficher des informations supplémentaires et/ou configurer les contrôles nécessaires.
-4. Sélectionnez une machine virtuelle sous **Machines virtuelles** pour afficher des détails supplémentaires.
+1. Retournez au panneau **Centre de sécurité** . La vignette **Intégrité des ressources** contient des indicateurs de l’état de sécurité pour les machines virtuelles, la mise en réseau, les données et les applications.
+2. Sélectionnez **Compute** pour afficher plus d’informations. Le panneau **Compute** s’ouvre affichant trois onglets :
+
+  - **Vue d’ensemble** : contient des recommandations relatives aux machines virtuelles et à la surveillance.
+  - **Machines virtuelles** : liste toutes les machines virtuelles et les informations relatives à l’intégrité de leur sécurité.
+  - **Services cloud** : liste les rôles web et de travail contrôlés par Security Center.
+
+    ![La mosaïque d’intégrité des ressources dans le Centre de sécurité Azure][6]
+
+3. Dans l’onglet **Vue d’ensemble**, sélectionnez une recommandation sous **RECOMMANDATIONS POUR MACHINES VIRTUELLES** afin d’afficher des informations supplémentaires et/ou de configurer les contrôles nécessaires.
+4. Dans l’onglet **Machines virtuelles**, sélectionnez une machine virtuelle pour afficher des détails supplémentaires.
 
 ### <a name="view-security-alerts"></a>Afficher les alertes de sécurité
 1. Retournez dans le panneau **Security Center** et sélectionnez la mosaïque **Alertes de sécurité**. Le panneau **Alertes de sécurité** s’ouvre et affiche la liste des alertes. Les alertes sont générées par l’analyse de vos journaux de sécurité et de l’activité réseau par Azure Security Center. Des alertes de solutions de partenaires intégrées sont incluses.
@@ -102,7 +108,7 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
 1. Retournez au panneau **Centre de sécurité** . La mosaïque **Solutions de partenaires** permet de surveiller en un coup d’œil l’état d’intégrité de vos solutions de partenaires intégrées à votre abonnement Azure.
 2. Sélectionnez la vignette **Solutions de partenaires** . Un panneau s’ouvre et affiche la liste de vos solutions de partenaires connectées à Azure Security Center.
    ![solutions de partenaires][9]
-3. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **F5-WAF**.  Un panneau s'ouvre et affiche l’état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
+3. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **QualysVa1**.  Un panneau s'ouvre et affiche l’état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté les composants de surveillance de sécurité et de gestion des stratégies de sécurité dans Azure Security Center. Maintenant que vous êtes familiarisé avec Azure Security Center, procédez comme suit :

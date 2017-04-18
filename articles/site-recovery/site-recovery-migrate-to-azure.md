@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Vous pouvez :
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migrer des machines virtuelles et des serveurs physiques locaux
 
-Pour migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux, vous suivez presque les mêmes étapes que celles utilisées pour la réplication normale. Vous configurez un coffre Recovery Services et les serveurs d’administration nécessaires (en fonction de ce que vous voulez migrer), puis vous les ajoutez au coffre et spécifiez les paramètres de réplication. Vous activez la réplication pour les machines que vous souhaitez migrer, puis vous exécutez un test rapide de basculement pour vous assurer que tout fonctionne comme prévu.
+Pour migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux, vous suivez presque les mêmes étapes que celles utilisées pour la réplication normale.
 
-Après avoir vérifié que votre environnement de réplication fonctionne, vous utilisez un basculement planifié ou non en fonction de [ce qui est pris en charge](site-recovery-failover.md) pour votre scénario. Pour la migration, vous n’avez pas besoin de valider un basculement. Au lieu de cela, vous sélectionnez l’option **Effectuer la migration** pour chacune des machines que vous souhaitez migrer. L’action **Effectuer la migration** termine le processus de migration, supprime la réplication de la machine et arrête la facturation de Site Recovery pour la machine.
+1. Configurez un coffre Recovery Services.
+2. Configurez les serveurs d’administration nécessaires (VMware, VMM, Hyper-V, en fonction de ce que vous voulez migrer), ajoutez-les au coffre et spécifiez les paramètres de réplication.
+3. Activez la réplication pour les machines que vous souhaitez migrer.
+4. Après la migration initiale, exécutez un test basculement rapide pour vérifier que tout fonctionne comme prévu.
+5. Après avoir vérifié que votre environnement de réplication fonctionne, vous utilisez un basculement planifié ou non en fonction de [ce qui est pris en charge](site-recovery-failover.md) pour votre scénario. Nous vous recommandons d’utiliser un basculement planifié dans la mesure du possible.
+6. Pour la migration, vous n’avez pas besoin de valider de basculement, ni de le supprimer. Au lieu de cela, vous sélectionnez l’option **Effectuer la migration** pour chacune des machines que vous souhaitez migrer.
+     - Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle et cliquez sur **Terminer la migration**. Cliquez sur **OK** pour terminer. Vous pouvez suivre la progression dans les propriétés de la machine virtuelle ou en surveillant le travail Terminer la migration dans **Travaux Site Recovery**.
+     - L’action **Effectuer la migration** termine le processus de migration, supprime la réplication de la machine et arrête la facturation de Site Recovery pour la machine.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

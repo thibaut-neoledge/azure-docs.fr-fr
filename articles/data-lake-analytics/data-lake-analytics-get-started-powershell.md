@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure Data Lake Analytics à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment utiliser Azure PowerShell pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail. "
+description: "Utilisez Azure PowerShell pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2016
+ms.date: 04/06/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 32f115a4d901a43abf1bf69d1c0c72b65ec7368c
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -112,7 +113,7 @@ Un exemple de fichier journal de recherche a été copié vers un conteneur d’
 
     # Download the sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
     $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
     # Upload the file to the default Data Lake Store account    
@@ -122,7 +123,7 @@ Le script PowerShell suivant montre comment obtenir le nom de magasin Data Lake 
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
     echo $dataLakeStoreName
 
 > [!NOTE]
@@ -206,9 +207,4 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 * Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 * Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

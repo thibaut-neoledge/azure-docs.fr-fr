@@ -13,16 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Classic
+
+Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Ce type de connexion requiert un périphérique VPN local auquel est affectée une IP publique, et qui ne se situe pas derrière un NAT. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
+
+![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement et du portail classiques. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Vous pouvez également créer cette configuration pour le modèle de déploiement Resource Manager en sélectionnant une autre option dans la liste suivante :
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,22 +38,14 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
-Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement et du portail classiques. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
-
-![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Méthodes et modèles de déploiement pour les connexions de site à site
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de site à site. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>Configurations supplémentaires
 Si vous souhaitez connecter des réseaux virtuels, consultez [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](virtual-networks-configure-vnet-to-vnet-connection.md). Si vous souhaitez ajouter une connexion de site à site à un réseau virtuel qui possède déjà une connexion, consultez [Connecter plusieurs sites locaux à un réseau virtuel](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Vérifiez que vous disposez des éléments suivants avant de commencer la configuration :
 
 * Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
 * Une adresse IP publique exposée en externe pour votre appareil VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.

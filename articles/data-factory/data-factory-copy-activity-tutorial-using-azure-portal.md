@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 079cb3e69954a9b02e26e005ad4bb1b7ef14c909
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -175,12 +175,12 @@ Dans cette étape, vous créez un jeu de données nommé **InputDataset** qui po
     ```   
     Notez les points suivants : 
    
-   * Le **type** de jeu de données est défini sur **AzureBlob**.
-   * Le paramètre **linkedServiceName** est défini sur la valeur **AzureStorageLinkedService**. Vous avez créé ce service lié à l’étape 2.
-   * Le paramètre **folderPath** est défini sur le conteneur **adftutorial**. Vous pouvez également spécifier le nom d’un objet blob dans le dossier à l’aide de la propriété **fileName** . Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
-   * Le**type** de format a la valeur **TextFormat**.
-   * Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).    
-   * Le paramètre **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval**, la valeur **1**). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. 
+    - Le **type** de jeu de données est défini sur **AzureBlob**.
+    - Le paramètre **linkedServiceName** est défini sur la valeur **AzureStorageLinkedService**. Vous avez créé ce service lié à l’étape 2.
+    - Le paramètre **folderPath** est défini sur le conteneur **adftutorial**. Vous pouvez également spécifier le nom d’un objet blob dans le dossier à l’aide de la propriété **fileName** . Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.
+    - Le**type** de format a la valeur **TextFormat**.
+    - Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).
+    - Le paramètre **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval**, la valeur **1**). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. 
      
      Si vous ne spécifiez pas de nom (**fileName**) pour un jeu de données **d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
      
@@ -240,11 +240,11 @@ Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé
     ```       
     Notez les points suivants : 
    
-   * Le **type** de jeu de données est défini sur **AzureSQLTable**.
-   * Le paramètre **linkedServiceName** est défini sur **AzureSqlLinkedService** (vous avez créé ce service lié à l’étape 2).
-   * Le paramètre **tablename** est défini sur **emp**.
-   * La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
-   * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
+    - Le **type** de jeu de données est défini sur **AzureSQLTable**.
+    - Le paramètre **linkedServiceName** est défini sur **AzureSqlLinkedService** (vous avez créé ce service lié à l’étape 2).
+    - Le paramètre **tablename** est défini sur **emp**.
+    - La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
+    - **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 3. Dans la barre d’outils, cliquez sur **Déployer** pour créer et déployer le jeu de données **OutputDataset**. Vérifiez que **OutputDataset** apparaît dans l’arborescence. 
 
 > [!NOTE]
@@ -303,17 +303,17 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
     
     Notez les points suivants :
    
-   * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
-   * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
-   * Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur.
+    - Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
+    - L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
+    - Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur.
      
-     Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
+    Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
      
-     Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
+    Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
      
-     Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
+    Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
      
-     Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
+    Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
 3. Cliquez sur **Déployer** dans la barre d’outils pour créer et déployer le pipeline **ADFTutorialPipeline**. Vérifiez que le pipeline apparaît dans l’arborescence. 
 4. Maintenant, fermez le panneau **Éditeur** en cliquant sur **X**. Cliquez sur **X** à nouveau pour afficher la page d’accueil **Data Factory** de **ADFTutorialDataFactory**.
 

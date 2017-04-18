@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
-ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6508b5a5d7d654954c68f9390c62a7871c1f032c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -75,7 +75,7 @@ Exécutez ensuite l'exemple d'application :
 ## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Exécution locale de votre première application Azure Storage sur l’émulateur d’Azure Storage
 L' [émulateur de stockage](storage-use-emulator.md) fournit un environnement local qui émule les services d’objets blob, de File d'attente et de Table Azure à des fins de développement. Vous pouvez utiliser l’émulateur de stockage pour tester votre application de stockage localement, sans souscrire d’abonnement Azure ni de compte de stockage et sans frais.
 
-Pour l’essayer, nous allons créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets de **stockage blob Azure**, de **stockage Table Azure** et de **stockage File d’attente Azure** :
+Pour l’essayer, créons une application de Stockage Azure simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets de **stockage blob Azure**, de **stockage Table Azure** et de **stockage File d’attente Azure** :
 
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.

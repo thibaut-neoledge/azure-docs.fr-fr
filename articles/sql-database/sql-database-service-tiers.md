@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 827394be9485685388879c1eb4cee4d79ef9fe51
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -127,29 +127,30 @@ Lorsque vous créez une base de données P11/P15, vous pouvez définir la valeur
 
 Pour les bases de données P11/P15 existantes situées dans l’une des régions prises en charge, vous pouvez augmenter la taille maximale du stockage à 4 To. Pour ce faire, utilisez le portail Azure, PowerShell ou Transact-SQL. L’exemple suivant illustre la modification du paramètre de taille maximale (maxsize) à l’aide de la commande ALTER DATABASE :
 
-```ALTER DATABASE <DatabaseName> MODIFY (MAXSIZE = 4096 GB);
+ ```t-sql
+ALTER DATABASE <myDatabaseName> 
+   MODIFY (MAXSIZE = 4096 GB);
 ```
 
-Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
-If executed in a supported region the configuration will be updated immediately. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. The database will remain online during the upgrade process. However, you will not be able to utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
+La mise à niveau d’une base de données P11 ou P15 existante ne peut être effectuée que par le biais d’une connexion du principal au niveau du serveur ou par les membres du rôle de base de données dbmanager. La configuration est mise à jour immédiatement si elle est exécutée dans une région prise en charge. Vous pouvez vous en assurer avec l’option [SÉLECTIONNER DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) ou en examinant la taille de la base de données sur le Portail Azure. La base de données reste en ligne pendant le processus de mise à niveau. Toutefois, vous ne pourrez pas utiliser la totalité des 4 To de stockage tant que les fichiers de base de données n’auront pas été mis à niveau vers la nouvelle taille maximale. La durée requise dépend de la taille de la base de données mise à niveau.  
 
-### Error messages
-When creating or upgrading an P11/P15 database in an unsupported region, the create or upgrade operation will fail with the following error message: **P11 and P15 database with up to 4TB of storage are available in US East 2, West US, South East Asia, West Europe, Canada East, Canada Central, Japan East, and Australia East.**
+### <a name="error-messages"></a>messages d'erreur
+Lors de la création ou de la mise à niveau d’une base de données P11/P15 dans une région non prise en charge, l’opération de création ou de mise à niveau échoue avec le message d’erreur suivant : **Les bases de données P11 et P15 avec 4 To de stockage maximum sont disponibles dans les régions Est des États-Unis 2, États-Unis de l’Ouest, Asie du Sud-Est, Europe de l’Ouest, Est du Canada, Centre du Canada, Est du Japon et Est de l’Australie.**
 
-## Current limitations of P11 and P15 databases with 4 TB maxsize
+## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To
 
-- When creating or updating a P11 or P15 database, you can only chose between 1 TB and 4 TB maxsize. Intermediate storage sizes are not currently supported.
-- The 4 TB database maxsize cannot be changed to 1 TB even if the actual storage used is below 1 TB. Thus, you cannot downgrade a P11-4TB/P15-4TB to a P11-1TB/P15-1TB or a lower performance tier (e.g., to P1-P6) until we are providing additional storage options for the rest of the performance tiers. This restriction also applies to the restore and copy scenarios including point-in-time, geo-restore, long-term-backup-retention, and database copy. Once a database is configured with the 4 TB option, all restore operations of this database must be into a P11/P15 with 4 TB maxsize.
-- For Active Geo-Replication scenarios:
-   - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers will be rejected as secondaries since they are not capable of supporting 4 TB.
-   - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database will trigger the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary will not be upgraded.
-- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import-sqlpackage.md) and [export](sql-database-export-sqlpackage.md) data.
+- Lors de la création ou de la mise à jour d’une base de données P11 ou P15, vous pouvez uniquement choisir une taille maximale de 1 To ou de 4 To. Les tailles de stockage intermédiaires ne sont actuellement pas prises en charge.
+- La taille maximale de base de données de 4 To ne peut pas être modifiée pour 1 To, même si le stockage réel utilisé est inférieur à 1 To. Par conséquent, vous ne pouvez pas rétrograder une base de données P11-4 To/P15-4 To vers un niveau de performance P11-1 To/P15-1 To ou un niveau de performance inférieur (par exemple, vers P1-P6) avant que nous ne mettions à disposition des options de stockage supplémentaire pour les autres niveaux de performance. Cette restriction s’applique également aux scénarios de restauration et de copie, notamment la limite de restauration dans le temps, la restauration géographique, la rétention de sauvegarde à long terme et la copie de bases de données. Une fois qu’une base de données est configurée avec l’option 4 To, toutes les opérations de restauration de cette base de données doivent s’effectuer vers une base de données P11/P15 avec une taille maximale de 4 To.
+- Pour les scénarios de géo-réplication active :
+   - Configuration d’une relation de géo-réplication : si la base de données primaire est de niveau P11 ou P15, la ou les bases de données secondaires doivent également être de niveau P11 ou P15. Les niveaux de performance inférieurs sont rejetés pour les bases de données secondaires, car ils ne sont pas en mesure de prendre en charge 4 To.
+   - Mise à niveau de la base de données primaire dans une relation de géo-réplication : le fait de modifier la taille maximale de la base de données primaire pour 4 To déclenche la même modification sur la base de données secondaire. Les deux mises à niveau doivent aboutir pour que la modification sur la base de données principale prenne effet. Des limitations de région pour l’option de 4 To s’appliquent (voir ci-dessus). Si la base de données secondaire se situe dans une région qui ne prend pas en charge l’option de 4 To, la base de données principale ne sera pas mise à niveau.
+- L’utilisation du service Import/Export pour le chargement des bases de données P11-4 To/P15-4 To n’est pas prise en charge. Utilisez SqlPackage.exe pour [importer](sql-database-import-sqlpackage.md) et [exporter](sql-database-export.md) les données.
 
-## Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-* Learn the details of [elastic pools](sql-database-elastic-pool-guidance.md) and [price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md).
-* Learn how to [Monitor, manage, and resize elastic pools](sql-database-elastic-pool-manage-portal.md) and [Monitor the performance of single databases](sql-database-single-database-monitor.md).
-* Now that you know about the SQL Database tiers, try them out with a [free account](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md).
-* For migration scenarios, use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
+* Découvrez en détail les [pools élastiques](sql-database-elastic-pool-guidance.md) et les [considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md).
+* Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
+* Maintenant que vous êtes au fait des différents niveaux disponibles pour le service Base de données SQL, essayez-les à l’aide d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
+* Dans le cas des scénarios de migration, utilisez l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire. 
 
 

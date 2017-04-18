@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -33,7 +33,7 @@ Un périphérique VPN est requis pour configurer une connexion VPN site à site 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Éléments à noter lorsque vous affichez les tables :
 
-* Une modification de la terminologie a eu lieu pour les passerelles VPN Azure. Vous rencontrerez probablement les deux termes. Seuls les noms ont été modifiés, pas la fonctionnalité.
+* Une modification de la terminologie a eu lieu pour les passerelles VPN Azure. Seuls les noms ont été modifiés, pas la fonctionnalité.
   * Routage statique = basé sur des stratégies
   * Routage dynamique = basé sur un itinéraire
 * Sauf indication contraire, les spécifications des passerelles VPN hautes performances sont identiques à celles des passerelles VPN basées sur itinéraire. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN basées sur itinéraire sont également compatibles avec la passerelle VPN hautes performances Azure.
@@ -45,7 +45,7 @@ Un périphérique VPN est requis pour configurer une connexion VPN site à site 
 ## <a name="devicetable"></a>Périphériques VPN validés
 Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs de périphériques. Tous les périphériques des familles de périphériques figurant dans la liste suivante doivent fonctionner avec les passerelles VPN Azure. Consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md) pour vérifier le type de passerelle dont vous avez besoin pour créer la solution que vous souhaitez configurer.
 
-Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée. Pour une prise en charge des appareils VPN, contactez le fabricant de votre appareil.
+Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée.  Les liens vers les instructions de configuration sont fournis dans la mesure du possible. Pour une prise en charge des appareils VPN, contactez le fabricant de votre appareil.
 
 |**Fournisseur**          |**Famille de périphériques**     |**Version de système d’exploitation minimale** |**PolicyBased** |**RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -59,7 +59,6 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemples de configuration*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
-| Dell SonicWALL |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Guide de configuration pour SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guide de configuration pour SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guide de configuration pour SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guide de configuration pour SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |Série BIG-IP |12.0 |[Guide de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guide de configuration](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[Guide de configuration](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Guide de configuration](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |Série SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guide de configuration](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Non compatible |
@@ -71,6 +70,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Open Systems AG |Passerelle Mission Control Security |N/A |[Guide de configuration](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Guide de configuration](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Bientôt disponible) |Non compatible |
 | Palo Alto Networks |Tous les périphériques exécutant PAN-OS |PAN-OS<br>PolicyBased : 6.1.5 ou version ultérieure<br>RouteBased : 7.1.4 |[Guide de configuration](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guide de configuration](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Guide de configuration pour SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guide de configuration pour SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guide de configuration pour SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guide de configuration pour SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | WatchGuard |Tout |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) Les routeurs de la série ISR 7200 prennent uniquement en charge les VPN basés sur des stratégies.
@@ -100,11 +100,11 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | &lt;SP_AzureGatewayIpAddress&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
 | &lt;SP_PresharedKey&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
-## <a name="IPSec"></a>Paramètres IPsec/IKE
+## <a name="ipsec"></a>Paramètres IPsec/IKE
 > [!NOTE]
-> Même si les valeurs répertoriées dans le tableau ci-dessous sont prises en charge par la passerelle VPN Azure, il n’existe pour le moment aucun moyen de spécifier ou de sélectionner une combinaison d’algorithmes ou de paramètres spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local.
+> Même si les valeurs répertoriées dans le tableau ci-dessous sont prises en charge par la passerelle VPN Azure, il n’existe pour le moment aucun moyen de spécifier ou de sélectionner une combinaison d’algorithmes ou de paramètres spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local. En outre, vous devez définir **MSS** sur **1350**.
 > 
-> En outre, vous devez définir **MSS** sur **1350**.
+>
 
 Dans les tableaux ci-dessous :
 
@@ -182,6 +182,8 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 
 > [!IMPORTANT]
 > Il s’agit de problèmes de compatibilité connus entre les appareils VPN tiers et les passerelles VPN Azure. L’équipe Azure travaille en étroite collaboration avec les fournisseurs pour résoudre les problèmes répertoriés ici. Une fois les problèmes résolus, cette page sera mise à jour avec les informations les plus récentes. Revenez la consulter régulièrement.
+>
+>
 
 ###<a name="feb-16-2017"></a>16 février 2017
 
@@ -189,5 +191,5 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 
 1. Vérifiez la version du microprogramme de votre appareil Palo Alto Networks. Si votre version de PAN-OS est antérieure à la version 7.1.4, mettez à niveau vers la version 7.1.4.
 2. Sur l’appareil Palo Alto Networks, modifiez la durée de SA de phase 2 (ou SA mode rapide) sur 28 800 secondes (8 heures) au moment de vous connecter à la passerelle VPN Azure.
-3. Si vous continuez à rencontrer des problèmes de connectivité, ouvrez une demande de support à partir du portail Azure.
+3. Si vous continuez à rencontrer des problèmes de connectivité, ouvrez une demande de support sur le Portail Azure.
 
