@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Avec ExpressRoute, vous pouvez établir une communication réseau virtuel-résea
 ![Scénario ExpressRoute n° 3 : routage non optimal entre réseaux virtuels](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Solution : attribuer plus de poids à la connexion locale
-La solution est simple. Étant donné que vous savez où se trouvent les réseaux virtuels et les circuits, vous pouvez nous indiquer le chemin à privilégier pour chaque réseau virtuel. Spécifiquement pour cet exemple, vous attribuez plus de poids à la connexion locale qu’à la connexion distante. Lorsqu’un réseau virtuel reçoit le préfixe de l’autre réseau virtuel sur plusieurs connexions, il préfère la connexion avec le plus de poids pour envoyer le trafic destiné à ce préfixe.
+La solution est simple. Étant donné que vous savez où se trouvent les réseaux virtuels et les circuits, vous pouvez nous indiquer le chemin à privilégier pour chaque réseau virtuel. Spécifiquement pour cet exemple, vous attribuez plus de poids à la connexion locale qu’à la connexion à distance (consultez l’exemple de configuration [ici](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). Lorsqu’un réseau virtuel reçoit le préfixe de l’autre réseau virtuel sur plusieurs connexions, il préfère la connexion avec le plus de poids pour envoyer le trafic destiné à ce préfixe.
 
 ![Solution ExpressRoute n° 3 : attribuer plus de poids à la connexion locale](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ La solution est simple. Étant donné que vous savez où se trouvent les réseau
 > Vous pouvez également modifier entre le réseau virtuel et votre réseau sur site, si vous disposez de plusieurs circuits ExpressRoute, en configurant le poids attribué à une connexion au lien d’ajouter un préfixe AS PATH, technique décrite dans le second scénario ci-dessus. Pour chaque préfixe, nous examinerons toujours le poids attribué à la connexion avant la longueur du chemin AS pour décider du mode d’envoi du trafic.
 >
 >
+

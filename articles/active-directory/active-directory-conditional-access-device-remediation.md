@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Résolution des problèmes d’accès aux ressources sur le portail Azure depuis un appareil Windows
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Problèmes d’accès aux ressources sur un appareil Windows
 
 Par exemple, lors d’une tentative d’accès à l’intranet SharePoint Online de votre organisation, vous pouvez rencontrer une page indiquant que *vous ne pouvez pas y accéder à partir de votre emplacement*. Or, cette page s’affiche parce que votre administrateur a configuré une stratégie d’accès conditionnel, qui empêche l’accès aux ressources de votre organisation sous certaines conditions. Il peut être nécessaire de contacter le support technique ou votre administrateur pour résoudre ce problème. Toutefois, vous pouvez d’abord essayer de le faire vous-même.
 
@@ -102,7 +102,7 @@ Les étapes permettant de joindre votre appareil à Azure AD sont liées à la 
 
 **Mise à jour anniversaire Windows 10 (version 1607) :**
 
-1. Ouvrez l’application **Paramètres**.
+1. Ouvrez l’application **Paramètres** .
 2. Cliquez sur **Comptes** > **Access work or school** (Accès professionnel ou scolaire).
 3. Cliquez sur **Connecter**.
 4. Cliquez sur **Joindre cet appareil à Azure AD**.

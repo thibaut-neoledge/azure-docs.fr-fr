@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Le flux de travail de haut niveau suivant est caractéristique de la plupart des
 Les sections suivantes portent sur ces points ainsi que sur les autres ressources de Batch qui permettent l’exécution de votre scénario de calcul distribué.
 
 > [!NOTE]
-> Un [compte Batch](batch-account-create-portal.md) est nécessaire pour utiliser le service Batch. En outre, la plupart des solutions utilisent un compte [Stockage Azure][azure_storage] pour le stockage et la récupération de fichiers. Le service Batch prend actuellement en charge uniquement le type de compte de stockage **à usage général**, comme décrit à l’étape 5 de la section [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+> Un [compte Batch](#account) est nécessaire pour utiliser le service Batch. En outre, la plupart des solutions utilisent un compte [Stockage Azure][azure_storage] pour le stockage et la récupération de fichiers. Le service Batch prend actuellement en charge uniquement le type de compte de stockage **à usage général**, comme décrit à l’étape 5 de la section [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et
 * [Packages d’applications](#application-packages)
 
 ## <a name="account"></a>Compte
-Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s’effectue via un compte Batch. Lorsque vous effectuez des opérations avec le service Batch, vous avez besoin du nom et d’une des clés du compte. Vous pouvez [créer un compte Azure Batch à l’aide du portail Azure](batch-account-create-portal.md).
+Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s’effectue via un compte Batch.
+
+Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Au moment de la création du compte, vous pouvez associer un compte de Stockage Azure.
+
+Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Les deux configurations offrent différentes possibilités d’authentification avec le service Batch et d’approvisionnement et de gestion des [pools](#pool) Batch (voir plus loin dans cet article). 
+
+
+* **Service Batch** (par défaut) : vous pouvez accéder aux API Batch avec l’authentification par clé partagée ou [l’authentification Azure Active Directory](batch-aad-auth.md). Les ressources de calcul Batch sont allouées en arrière-plan dans un compte géré par Azure.   
+* **Abonnement utilisateur** : vous ne pouvez accéder aux API Batch qu’avec [l’authentification Azure Active Directory](batch-aad-auth.md). Les ressources de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode vous offre plus de souplesse de configuration des nœuds de calcul et d’intégration à d’autres services. Il implique de configurer un coffre de clés Azure supplémentaire pour votre compte Batch.
+ 
 
 ## <a name="compute-node"></a>Nœud de calcul
 Un nœud de calcul est une machine virtuelle Azure dédiée au traitement d’une partie de la charge de travail de votre application. La taille d’un nœud détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Vous pouvez créer des pools de nœuds Windows ou Linux à l’aide d’images d’Azure Cloud Services ou du Marketplace de machines virtuelles. Pour plus d’informations sur ces options, voir la section suivante [Pool](#pool) .
@@ -89,13 +98,16 @@ Les pools Azure Batch sont créés en parallèle à la plate-forme de calcul Azu
 
 Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse IP. Lorsqu’un nœud est supprimé d’un pool, toutes les modifications apportées au système d’exploitation ou aux fichiers sont perdues, et son nom et son adresse IP sont libérés pour une utilisation ultérieure. Lorsqu’un nœud quitte un pool, sa durée de vie est terminée.
 
-Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
+Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants. Certains paramètres varient en fonction du mode d’allocation de pool du compte [Batch](#account).
 
 * **Système d’exploitation** et **version** de nœud de calcul
 
-    Deux options s’offrent à vous lorsque vous sélectionnez un système d’exploitation pour les nœuds du pool : **Configuration de machines virtuelles** et **Configuration de services cloud**.
+    > [!NOTE]
+    > Dans le mode d’allocation de pool du service Batch, deux options s’offrent à vous lorsque vous sélectionnez un système d’exploitation pour les nœuds du pool : **Configuration d’ordinateur virtuel** et **Configuration des services cloud**. En mode abonnement utilisateur, vous pouvez uniquement utiliser la configuration d’ordinateur virtuel.
+    >
 
-    La **configuration de machines virtuelles** fournit des images Linux et Windows pour les nœuds de calcul à partir du site [Marketplace de machines virtuelles Azure][vm_marketplace].
+    La **configuration d’ordinateur virtuel** fournit des images Linux et Windows pour les nœuds de calcul à partir du site [Place de marché Machines virtuelles Azure][vm_marketplace] et, dans le mode d’allocation abonnement utilisateur, l’option permettant d’utiliser des images de machines virtuelles personnalisées.
+
     Lorsque vous créez un pool contenant des nœuds de la configuration de machines virtuelles, vous devez spécifier la taille des nœuds ainsi que la **référence de l’image de la machine virtuelle** et la **référence de l’agent de nœud** du Batch à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md).
 
     **Configuration de Cloud Services** fournit *uniquement*. Les systèmes d’exploitation disponibles pour les pools de configuration des services coud sont répertoriés dans [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Lorsque vous créez un pool qui contient des nœuds Cloud Services, vous devez spécifier uniquement la taille du nœud et sa *famille de systèmes d’exploitation*. Lorsque vous créez des pools de nœuds de calcul Windows, vous utilisez le plus souvent les services Cloud Services.
@@ -313,17 +325,27 @@ Une approche combinée est généralement utilisée pour la gestion d’une char
 
 ## <a name="pool-network-configuration"></a>Configuration du réseau de pools
 
-Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez spécifier l’ID d’un [réseau virtuel (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) Azure dans lequel les nœuds de calcul du pool doivent être créés.
-
-* Seuls les pools **Configuration des services cloud** peuvent être affectés à un réseau virtuel.
+Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez utiliser les API pour spécifier l’ID d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés.
 
 * Le réseau virtuel doit être :
 
    * Dans la même **région** Azure que le compte Azure Batch.
    * Dans le même **abonnement** que le compte Azure Batch.
-   * Un réseau virtuel **classique**. Les réseaux virtuels créés avec le modèle de déploiement Azure Resource Manager ne sont pas pris en charge.
 
 * Le réseau virtuel doit avoir un nombre suffisant **d’adresses IP** libres pour prendre en charge la propriété `targetDedicated` du pool. Si le sous-réseau n’a pas suffisamment d’adresses IP disponibles, le service Batch alloue partiellement les nœuds de calcul dans le pool et renvoie une erreur de redimensionnement.
+
+* Le sous-réseau spécifié doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**. 
+
+* Si des groupes de sécurité réseau sont associés au réseau virtuel spécifié, la communication entrante doit être activée. Pour un pool Linux, les ports 29876, 29877 et 22 doivent être activés. Pour un pool Windows, le port 3389 doit être activé.
+
+D’autres paramètres du réseau virtuel varient en fonction du mode d’allocation de pool du compte Batch.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Réseaux virtuels pour les pools approvisionnés dans le service Batch
+
+Dans le mode d’allocation du service Batch, seuls les pools **Configuration des services cloud** peuvent être affectés à un réseau virtuel. En outre, le réseau virtuel spécifié doit être un réseau virtuel **classique**. Les réseaux virtuels créés avec le modèle de déploiement Azure Resource Manager ne sont pas pris en charge.
+   
+
+
 * Le principal du service *MicrosoftAzureBatch* doit avoir le rôle de contrôle d’accès en fonction du rôle (RBAC) [Collaborateur de machine virtuelle classique](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) pour le réseau virtuel spécifié. Dans le portail Azure :
 
   * Sélectionnez le **réseau virtuel**, puis **Access control (IAM)** > **Rôles** > **Collaborateur de machine virtuelle classique** > **Ajouter**.
@@ -331,7 +353,13 @@ Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez sp
   * Cochez la case **MicrosoftAzureBatch**.
   * Cliquez sur le bouton **Sélectionner**.
 
-* Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**. Le sous-réseau doit autoriser les communications à partir du service Azure Batch pour pouvoir planifier des tâches sur les nœuds de calcul.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Réseaux virtuels pour les pools approvisionnés dans un abonnement utilisateur
+
+Dans le mode d’allocation abonnement utilisateur, seuls les pools **Configuration d’ordinateur virtuel** sont pris en charge et peut être affectés à un réseau virtuel. En outre, le réseau virtuel spécifié doit être un réseau virtuel **Resource Manager**. Les réseaux virtuels créés avec le modèle de déploiement Classic ne sont pas pris en charge.
+
+
 
 ## <a name="scaling-compute-resources"></a>Mise à l’échelle des ressources de calcul
 Avec la [mise à l’échelle automatique](batch-automatic-scaling.md), le service Batch peut ajuster de manière dynamique le nombre de nœuds de calcul d’un pool en fonction de la charge de travail actuelle et de l’utilisation des ressources de votre scénario de calcul. Cela vous permet de réduire le coût global d’exécution de votre application en utilisant uniquement les ressources dont vous avez besoin et en libérant les autres.

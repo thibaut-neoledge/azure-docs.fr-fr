@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Pour plus d’informations sur les bases de données SQL Azure, consultez [Bases
 
 Les tableaux suivants répertorient les principales fonctionnalités d’Azure SQL Database et de SQL Server, spécifient sa prise en charge et fournissent un lien vers des informations relatives à la fonctionnalité sur chaque plateforme. Pour les fonctionnalités Transact-SQL, suivez le lien dans la table pour la catégorie de la fonctionnalité. Voir aussi [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md) pour plus d’informations sur les raisons du manque de prise en charge de certains types de fonctionnalités.
 
-Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
+Nous continuons d’ajouter des fonctionnalités à Azure SQL Database. Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
 
 * Filtrez sur [Service SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.

@@ -12,7 +12,7 @@
     ```
 2. Ajoutez le relais suivant `constants` à `listener.js` pour les détails de la connexion hybride. Remplacez les espaces réservés entre crochets avec les valeurs appropriées obtenues lors de la création de la connexion hybride.
    
-   1. `const ns` - L’espace de noms du relais
+   1. `const ns` - L’espace de noms de relais (utiliser le nom de domaine complet, par exemple `{namespace}.servicebus.windows.net`)
    2. `const path` - Le nom de la connexion hybride
    3. `const keyrule` - Le nom de la clé SAS
    4. `const key` - La valeur de la clé SAS
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

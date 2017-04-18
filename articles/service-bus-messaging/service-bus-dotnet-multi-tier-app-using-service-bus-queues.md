@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
 ## <a name="introduction"></a>Introduction
-Le développement pour Microsoft Azure est simple grâce à Visual Studio et au Kit de développement logiciel (SDK) Azure gratuit pour .NET. Ce didacticiel vous guide lors de la création d’une application qui utilise plusieurs ressources Azure s’exécutant dans votre environnement local. Ces étapes partent du principe que vous n’avez pas d’expérience en tant qu’utilisateur d’Azure.
+Le développement pour Microsoft Azure est simple grâce à Visual Studio et au Kit de développement logiciel (SDK) Azure gratuit pour .NET. Ce didacticiel vous guide lors de la création d’une application qui utilise plusieurs ressources Azure s’exécutant dans votre environnement local.
 
 Vous allez apprendre les opérations suivantes :
 
@@ -34,16 +34,16 @@ Vous allez apprendre les opérations suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal est un rôle web ASP.NET MVC et le composant principal est un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Pour obtenir des instructions sur les différences à appliquer sur le composant frontal d’un site web Azure, voir [Étapes suivantes](#nextsteps). Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal est un rôle web ASP.NET MVC et le composant principal est un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Les captures d’écran suivantes présentent l’application terminée :
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Vue d’ensemble du scénario : communication entre les rôles
-Pour envoyer une commande en traitement, le composant frontal d’interface utilisateur qui s’exécute dans le rôle web doit communiquer avec la logique centrale qui s’exécute dans le rôle de travail. Cet exemple utilise la messagerie répartie Service Bus pour la communication entre les niveaux.
+Pour envoyer une commande en traitement, le composant frontal d’interface utilisateur qui s’exécute dans le rôle web doit communiquer avec la logique centrale qui s’exécute dans le rôle de travail. Cet exemple utilise la messagerie Service Bus pour la communication entre les niveaux.
 
-L'utilisation de la messagerie répartie entre les niveaux Web et central découple les deux composants. À l’inverse de la messagerie directe (TCP ou HTTP), le niveau web ne se connecte pas directement au niveau central. En effet, il envoie des unités de travail, sous forme de messages, à Service Bus, qui les retient jusqu’à ce que le niveau central soit prêt à les utiliser et à les traiter.
+L’utilisation de la messagerie Service Bus entre les niveaux Web et central découple les deux composants. À l’inverse de la messagerie directe (TCP ou HTTP), le niveau web ne se connecte pas directement au niveau central. En effet, il envoie des unités de travail, sous forme de messages, à Service Bus, qui les retient jusqu’à ce que le niveau central soit prêt à les utiliser et à les traiter.
 
 Service Bus fournit deux entités pour prendre en charge la messagerie répartie : les files d’attente et les rubriques. Avec les files d'attente, chaque message envoyé à la file d'attente est utilisé par un seul destinataire. Les rubriques prennent en charge le modèle de publication/d’abonnement, dans lequel chaque message publié est mis à la disposition d’un abonnement inscrit dans la rubrique. Chaque abonnement gère de façon logique sa propre file d’attente de messages. Les abonnements peuvent également être configurés avec des règles de filtrage, qui ne transmettent à la file d’attente de l’abonnement que les messages correspondant aux critères du filtre. L’exemple suivant utilise les files d’attente Service Bus.
 
@@ -63,7 +63,7 @@ Les sections qui suivent présentent le code de mise en œuvre de cette architec
 Avant de commencer à développer votre application Azure, procurez-vous les outils et configurez votre environnement de développement.
 
 1. Installez le Kit de développement logiciel (SDK) Azure pour .NET depuis la page des [téléchargements SDK](https://azure.microsoft.com/downloads/).
-2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015.
+2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015, mais elles fonctionnent également avec Visual Studio 2017.
 3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
 4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
 5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio.
@@ -78,7 +78,7 @@ Dans cette section, vous générez le composant frontal de votre application. To
 Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’attente Service Bus et d’afficher les informations d’état de la file d’attente.
 
 ### <a name="create-the-project"></a>Création du projet
-1. Avec les privilèges d’administrateur, démarrez Microsoft Visual Studio. Pour démarrer Visual Studio avec des privilèges d’administrateur, cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
+1. Lancez Visual Studio avec des privilèges d’administrateur : cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
    
    Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 2. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Cloud Service**. Nommez ce projet **MultiTierApp**. Cliquez ensuite sur **OK**.
@@ -98,7 +98,7 @@ Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’a
     ![][16]
 7. Dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur **OK** pour créer le projet.
 8. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Références** dans le projet **FrontendWebRole**, puis cliquez sur **Gérer les packages NuGet**.
-9. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
+9. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Sélectionnez le package **WindowsAzure.ServiceBus**, cliquez sur **Installer**, puis acceptez les conditions d’utilisation.
    
    ![][13]
    
@@ -362,7 +362,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :  
 
-* [Azure Service Bus][sbmsdn]  
+* [Documentation Azure Service Bus][sbdocs]  
 * [Page du service Service Bus][sbacom]  
 * [Utilisation des files d’attente Service Bus][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 
 * [Application multiniveau .NET avec tables, files d’attente et objets blob de stockage][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

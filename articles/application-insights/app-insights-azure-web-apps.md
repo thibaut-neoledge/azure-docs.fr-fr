@@ -10,13 +10,13 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: get-started-article
+ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -52,6 +52,8 @@ Plus tard, vous pourrez générer et redéployer l’application avec Applicatio
 Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application. En particulier, vous pouvez collecter les journaux de suivi, [écrire une télémétrie personnalisée](app-insights-api-custom-events-metrics.md), et obtenir des rapports d’exception plus détaillées.
 
 1. **Dans Visual Studio** (2013 mise à jour 2 ou ultérieure), configurez Application Insights pour votre projet.
+
+    Cliquez avec le bouton droit sur le projet web et sélectionnez **Ajouter > Application Insights** ou **Configurer Application Insights**.
    
     ![Cliquez avec le bouton droit sur le projet web et sélectionnez Ajouter ou Configurer Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
    
@@ -91,11 +93,17 @@ Application Insights peut fournir des données de télémétrie détaillée par 
 
 Pour des recherches plus abouties sur vos données de télémétrie, utilisez le [langage de requête Analytics](app-insights-analytics-tour.md).
 
+## <a name="more-telemetry"></a>Données de télémétrie supplémentaires
+
+* [Données de chargement de pages web](app-insights-javascript.md)
+* [Télémétrie personnalisée](app-insights-api-custom-events-metrics.md)
+
 ## <a name="video"></a>Vidéo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Exécuter le profileur sur une application dynamique](app-insights-profiler.md).
 * [Autorisation de l’envoi de diagnostics Azure](app-insights-azure-diagnostics.md) vers Application Insights.
 * [Analyse des mesures d’intégrité du service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.

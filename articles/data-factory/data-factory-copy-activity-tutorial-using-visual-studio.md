@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9716d18773fca8dd4612d681d1f9588106aacb14
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -148,10 +148,10 @@ Dans cette étape, vous créez un jeu de données nommé **InputDataset** qui po
    * Le paramètre **linkedServiceName** est défini sur la valeur **AzureStorageLinkedService**. Vous avez créé ce service lié à l’étape 2.
    * Le paramètre **folderPath** est défini sur le conteneur **adftutorial**. Vous pouvez également spécifier le nom d’un objet blob dans le dossier à l’aide de la propriété **fileName** . Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
    * Le**type** de format a la valeur **TextFormat**.
-   * Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).    
-   * Le paramètre **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval**, la valeur **1**). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. 
+   * Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (columnDelimiter).    
+   * **availability** est défini sur **hourly** (frequency a la valeur hour et interval est défini sur 1). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (adftutorial) que vous avez spécifié. 
    
-   Si vous ne spécifiez pas de nom (**fileName**) pour un jeu de données **d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
+   Si vous ne spécifiez pas de **fileName** pour un jeu de données **d’entrée**, tous les fichiers/objets blob du dossier d’entrée (folderPath) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
    
    Si vous ne spécifiez pas de nom (**fileName**) pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
@@ -180,7 +180,7 @@ Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDatas
 2. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Azure SQL**, puis cliquez sur **Ajouter**. 
 3. Remplacez le texte JSON par le texte JSON suivant, puis enregistrez le fichier **AzureSqlTableLocation1.json** .
 
-    ```json
+  ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -213,7 +213,7 @@ Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDatas
    * Le paramètre **linkedServiceName** est défini sur **AzureSqlLinkedService** (vous avez créé ce service lié à l’étape 2).
    * Le paramètre **tablename** est défini sur **emp**.
    * La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
-   * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
+   * **availability** est défini sur **hourly** (frequency a la valeur hour et interval est défini sur 1).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 > [!NOTE]
 > Pour plus d’informations sur les propriétés JSON, consultez [Déplacer des données vers et depuis SQL Azure Database](data-factory-azure-sql-connector.md#linked-service-properties) .
@@ -227,7 +227,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 2. Sélectionnez **Pipeline de copie de données** dans la boîte de dialogue **Ajouter un nouvel élément**, puis cliquez sur **Ajouter**. 
 3. Remplacez le texte JSON par le texte JSON suivant, puis enregistrez le fichier **CopyActivity1.json** .
 
-    ```json   
+  ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -281,7 +281,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
    
    Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
    
-   Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
+   Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : **start + 48 heures**. Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
    
    Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
 
@@ -325,7 +325,7 @@ Dans cette étape, vous publiez les entités Data Factory (services liés, jeux 
 
 Notez les points suivants : 
 
-* Si vous recevez le message d’erreur : «**L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory**», effectuez l’une des opérations suivantes et essayez de relancer la publication : 
+* Si vous recevez le message d’erreur : « L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory », effectuez l’une des opérations suivantes et essayez de relancer la publication : 
   
   * Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
 

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 3dd207805c1a8f53c6cc74da08cc9378609581c5
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d67043f2e0a062796f4d6167b28774ce494027c2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -33,7 +33,7 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 > L’application cliente et l’API web doivent utiliser le même répertoire Azure AD B2C.
 >
 
-## <a name="create-a-web-api"></a>Créer une application web
+## <a name="create-a-web-api"></a>Créer une API Web
 
 Vous devez maintenant créer dans votre répertoire B2C une application API web. fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
@@ -77,11 +77,11 @@ Notre exemple est configuré pour utiliser les stratégies et l’ID client du c
     * `ida:SignUpSignInPolicyId` avec votre nom de stratégie d’inscription ou de connexion
 
 2. Ouvrez `web.config` dans le projet `TaskWebApp` et remplacez les valeurs de
-    * `ida:Tenant` avec le nom de votre client
-    * `ida:ClientId` avec votre ID d’application web
-    * `ida:ClientSecret`avec votre clé secrète d’application web
-    * `ida:SignUpSignInPolicyId` avec votre nom de stratégie d’inscription ou de connexion
-    * `ida:EditProfilePolicyId`avec votre nom de stratégie « Modifier le profil »
+    * `ida:Tenant` par le nom de votre locataire
+    * `ida:ClientId` par votre ID d’application web
+    * `ida:ClientSecret` par votre clé secrète d’application web
+    * `ida:SignUpSignInPolicyId` par votre nom de stratégie d’inscription ou de connexion
+    * `ida:EditProfilePolicyId` par votre nom de stratégie « Modifier le profil »
     * `ida:ResetPasswordPolicyId`avec votre nom de stratégie « Modifier le mot de passe »
 
 
@@ -105,7 +105,7 @@ Cette opération installe l’intergiciel OWIN qui accepte et valide les jetons 
 
 Ajoutez une classe de démarrage OWIN à l’API appelée `Startup.cs`.  Cliquez avec le bouton droit sur le projet, sélectionnez **Ajouter** et **Nouvel élément**, puis recherchez OWIN. L’intergiciel OWIN appelle la méthode `Configuration(…)` lorsque votre application démarre.
 
-Dans notre exemple, nous avons modifié la déclaration de classe sur `public partial class Startup` et mis en œuvre l’autre partie de la classe dans `App_Start\Startup.Auth.cs`. À l’intérieur de la méthode `Configuration`, nous avons ajouté un appel vers `ConfigureAuth`, qui est défini dans `Startup.Auth.cs`. Après modification, `Startup.cs` ressemble à ceci :
+Dans notre exemple, nous avons modifié la déclaration de classe sur `public partial class Startup` et implémenté l’autre partie de la classe dans `App_Start\Startup.Auth.cs`. À l’intérieur de la méthode `Configuration`, nous avons ajouté un appel vers `ConfigureAuth`, qui est défini dans `Startup.Auth.cs`. Après modification, `Startup.cs` ressemble à ceci :
 
 ```CSharp
 // Startup.cs

@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | **Capacité maximale** |30 To |64 To |
 | **Microsoft Azure** |Standard_A3 (4 cœurs, 7 Go de mémoire) |Standard_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** |Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure |Les versions exécutant Update 2 ou version ultérieure |
-| **Disponibilité des régions** |Toutes les régions Azure |Toutes les régions Azure qui prennent en charge le stockage Premium<br></br> Les régions de stockage Premium sont des régions qui correspondent à la ligne *Stockage sur disque* dans la liste des [services Azure par région](https://azure.microsoft.com/en-us/regions/services). |
+| **Disponibilité des régions** |Toutes les régions Azure |Toutes les régions Azure qui prennent en charge le stockage Premium et les machines virtuelles Azure DS3<br></br> Utilisez [cette liste](https://azure.microsoft.com/en-us/regions/services) afin de déterminer si *Machines virtuelles > Série DS* et *Stockage > Stockage sur disque* sont disponibles dans votre région. |
 | **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md) |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes <br></br>Appareil secondaire pour la récupération d’urgence |
 

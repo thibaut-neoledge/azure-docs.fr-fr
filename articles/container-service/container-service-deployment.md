@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Déployer une solution d’hébergement Conteneur Docker à l’aide du Portail Azure
@@ -36,7 +36,11 @@ Pour obtenir du contexte, consultez [Présentation d’Azure Container Service](
 
 ## <a name="prerequisites"></a>Composants requis
 
-* **Abonnement Azure** : si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Abonnement Azure** : si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Pour un cluster de plus grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
+
+    > [!NOTE]
+    > L’utilisation de votre abonnement Azure et les [quotas des ressources](../azure-subscription-service-limits.md), notamment les quotas de cœurs, peuvent limiter la taille du cluster déployé. Pour demander une augmentation de ce quota, [ouvrez gratuitement une demande de support en ligne](../azure-supportability/how-to-create-azure-support-request.md).
+    >
 
 * **Clé publique SSH RSA** : lorsque vous déployez via le portail ou l’un des modèles de démarrage rapide Azure, vous devez fournir la clé publique pour l’authentification sur les machines virtuelles d’Azure Container Service. Pour créer des clés Secure Shell (SSH) RSA, consultez les conseils [OS X et Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ Le déploiement prend plusieurs minutes. Le cluster Azure Container Service est 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Créer un cluster à l’aide d’un modèle de démarrage rapide
 Des modèles de démarrage rapide Azure sont disponibles pour déployer un cluster dans Azure Container Service. Les modèles de démarrage rapide fournis peuvent être modifiés pour inclure une configuration Azure supplémentaire ou avancée. Pour créer un cluster Azure Container Service à l’aide d’un modèle de démarrage rapide Azure, vous avez besoin d’un abonnement Azure. Si ce n’est pas le cas, inscrivez-vous dès aujourd’hui pour un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Suivez ces étapes pour déployer un cluster à l’aide d’un modèle et d’Azure CLI 2.0 (consultez les [instructions d’installation et de configuration](/cli/azure/install-az-cli2.md)).
+Suivez ces étapes pour déployer un cluster à l’aide d’un modèle et d’Azure CLI 2.0 (consultez les [instructions d’installation et de configuration](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Si vous êtes sur un système Windows, vous pouvez utiliser une procédure similaire pour déployer un modèle à l’aide d’Azure PowerShell. Consultez les étapes plus loin dans cette section. Vous pouvez également déployer un modèle via le [portail](../azure-resource-manager/resource-group-template-deploy-portal.md) ou d’autres méthodes.
