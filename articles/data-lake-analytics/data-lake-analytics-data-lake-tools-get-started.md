@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Découvrez comment installer Data Lake Tools pour Visual Studio et utiliser Data Lake Tools pour Visual Studio pour écrire et tester des scripts U-SQL.
+Écrivez et testez des scripts U-SQL avec Data Lake Tools pour Visual Studio.
 
 U-SQL est un langage hyper évolutif et hautement extensible conçu pour préparer, transformer et analyser toutes les données dans le lac de données et au-delà. Pour plus d'informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Composants requis
-* **Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge. Visual Studio 2017 n’est pas pris en charge pour l’instant.**
+* **Visual Studio 2017 (sous la charge de travail de stockage et de traitement de données), Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge.**
 * **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.7.1 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Une fois les outils Data Lake pour Visual Studio installés, vous verrez un nœud « Data Lake Analytics » dans l’Explorateur de serveurs sous le nœud « Azure » (vous pouvez ouvrir l’Explorateur de serveurs en appuyant sur Ctrl+Alt+S).
+    Une fois les outils Data Lake pour Visual Studio installés, vous verrez un nœud « Data Lake Analytics » dans l’Explorateur de serveurs sous le nœud « Azure » (ouvrez l’Explorateur de serveurs en appuyant sur Ctrl+Alt+S).
 
-* **Compte Data Lake Analytics et exemples de données** Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Vous pouvez créer un compte avec le Portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou l’interface de ligne de commande Azure.
+* **Compte Data Lake Analytics et exemples de données** Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Créez un compte avec le Portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou l’interface de ligne de commande Azure.
 Pour vous faciliter la tâche, un exemple de script PowerShell pour la création d’un service Data Lake Analytics et le chargement du fichier de données source vers le serveur est fourni dans [Annexe A - Exemple PowerShell pour la préparation du didacticiel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-    En option, vous pouvez parcourir les deux sections ci-après de l’article [Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure](data-lake-analytics-get-started-portal.md) pour créer votre compte et charger les données manuellement :
+    En option, vous pouvez parcourir les deux sections ci-après de l’article [Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure](data-lake-analytics-get-started-portal.md) pour créer votre compte et charger les données manuellement :
 
     1. [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
     2. [Télécharger SearchLog.tsv sur le compte Data Lake Storage par défaut](data-lake-analytics-get-started-portal.md#prepare-source-data).
@@ -54,9 +54,9 @@ Pour vous faciliter la tâche, un exemple de script PowerShell pour la création
 ## <a name="upload-source-data-files"></a>Téléchargement des fichiers de données source
 Vous avez téléchargé des données dans la section **Configuration requise** précédemment dans le didacticiel.  
 
-Si vous voulez utiliser vos propres données, voici les procédures de téléchargement des données à partir de Data Lake Tools.
+Pour utiliser vos propres données, procédez comme suit pour charger des données à partir des outils Data Lake.
 
-**Pour charger les fichiers dans le compte Azure Data Lake dépendant**
+**Charger les fichiers dans le compte Azure Data Lake dépendant**
 
 1. Dans l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés. Le compte Data Lake par défaut a une étiquette « Compte de stockage par défaut ».
 2. Cliquez avec le bouton droit sur le compte de stockage Data Lake par défaut, puis cliquez sur **Explorer**.  Le volet de l'Explorateur Data Lake Tools pour Visual Studio s'ouvre.  Une arborescence est affichée à gauche, l'affichage du contenu se trouve à droite.
@@ -65,7 +65,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 
     ![U-SQL Visual Studio projet U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Pour charger les fichiers dans un compte Azure Blob Storage lié**
+**Charger les fichiers dans un compte Azure Blob Storage lié**
 
 1. Dans l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés.
 2. Développez le compte Azure Storage.
@@ -76,7 +76,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 ## <a name="develop-u-sql-scripts"></a>Développer des scripts U-SQL
 Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**Pour créer et soumettre une tâche Data Lake Analytics**
+**Créer et soumettre une tâche Data Lake Analytics**
 
 1. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 2. Sélectionnez le type **Projet U-SQL** .
@@ -130,7 +130,7 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
        IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
    * **Développer les colonnes ***
 
-       Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous*. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas.
+       Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas.
        ![Outils Data Lake Visual Studio : développer *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Cliquez sur **Développer les colonnes**. L’outil remplace alors * par le nom des colonnes.

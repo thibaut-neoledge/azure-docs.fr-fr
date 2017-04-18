@@ -13,43 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c80ddbaf8c2c84735564e514ddaf4308c4aff303
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4133e2e90f51d141044f2ac064c60df1263b498e
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure
+
+La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations de connexion multi-sites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
+
+![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+
+Cet article vous guidera au long des étapes de création d’une connexion entre des réseaux virtuels dans le modèle de déploiement Resource Manager à l’aide d’une passerelle VPN et du portail Azure. Lorsque vous utilisez le portail Azure pour connecter des réseaux virtuels, les réseaux virtuels doivent se trouver dans le même abonnement. Si vos réseaux virtuels se trouvent dans des abonnements différents, vous pouvez toujours les connecter à l’aide des étapes [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] Si vous souhaitez créer une interconnexion de réseaux virtuels à l’aide d’un modèle de déploiement différent, entre différents modèles de déploiement ou au moyen d’un autre outil de déploiement, vous pouvez sélectionner une option dans la liste déroulante d’articles suivante :
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Classic - Portail Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Classic - Portail Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
-> 
-> 
-
-Cet article vous guidera au long des étapes de création d’une connexion entre des réseaux virtuels dans le modèle de déploiement Resource Manager à l’aide d’une passerelle VPN et du portail Azure.
-
-Lorsque vous utilisez le portail Azure pour connecter des réseaux virtuels, les réseaux virtuels doivent se trouver dans le même abonnement. Si vos réseaux virtuels se trouvent dans des abonnements différents, vous pouvez toujours les connecter à l’aide des étapes [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
-![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
-
-### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de connexion de réseau virtuel à réseau virtuel. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
-
-[!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
-
-**VNet Peering**
+> * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+>
+>
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
+
 ## <a name="about-vnet-to-vnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
-La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différents abonnements et différentes régions.
+La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différents abonnements et différentes régions. Notez que si vos réseaux virtuels figurent dans des abonnements différents, vous ne pourrez pas créer la connexion dans le portail. Dans ce cas, vous pouvez utiliser [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
 
@@ -144,7 +140,7 @@ Aucun DNS n’est nécessaire pour les connexions entre des réseaux virtuels. T
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Créer une passerelle de réseau virtuel
-Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. Cette étape peut prendre jusqu’à 45 minutes. Si vous créez cette configuration dans le cadre d’un exercice, vous pouvez vous reporter aux [Exemples de paramètres](#values).
+Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Si vous créez cette configuration dans le cadre d’un exercice, vous pouvez vous reporter aux [Exemples de paramètres](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Pour créer une passerelle de réseau virtuel
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
@@ -153,7 +149,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 Une fois que vous avez configuré TestVNet1, créez TestVNet4 en répétant les étapes précédentes, en remplaçant les valeurs par celles de TestVNet4. Vous n’avez pas besoin d’attendre que la création de la passerelle de réseau virtuel pour TestVNet1 soit terminée pour configurer TestVNet4. Si vous utilisez vos propres valeurs, assurez-vous que les espaces d’adressage ne chevauchent pas les réseaux virtuels auxquels vous souhaitez vous connecter.
 
 ## <a name="TestVNet1Connection"></a>7. Configurer la connexion TestVNet1
-Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont terminées, vous pouvez créer vos connexions de passerelle de réseau virtuel. Dans cette section, vous allez créer une connexion de VNet1 à VNet4.
+Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont terminées, vous pouvez créer vos connexions de passerelle de réseau virtuel. Dans cette section, vous allez créer une connexion de VNet1 à VNet4. Ces étapes s’appliquent uniquement aux réseaux virtuels situés dans le même abonnement. Si vos réseaux virtuels figurent dans des abonnements différents, vous devrez utiliser PowerShell pour établir la connexion. Consultez l’article concernant [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. Dans **Toutes les ressources**, accédez à la passerelle de réseau virtuel pour votre réseau virtuel. Par exemple, **TestVNet1GW**. Cliquez sur **TestVNet1GW** pour ouvrir le panneau de la passerelle de réseau virtuel.
    

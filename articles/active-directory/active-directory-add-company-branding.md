@@ -1,5 +1,5 @@
 ---
-title: "Ajout d’une marque de société aux pages de connexion et du volet d’accès"
+title: "Ajout d’une marque de société aux pages de connexion et du volet d’accès dans Azure Active Directory"
 description: "Découvrir comment ajouter une société à la page de connexion Azure et à la page du panneau d’accès"
 services: active-directory
 documentationcenter: 
@@ -8,109 +8,107 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: infrastructure-services
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 04/07/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Ajout d’une marque de société aux pages de connexion et du volet d’accès
-Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory offre cette possibilité en vous permettant de personnaliser l’apparence des pages Web suivantes pour qu’elles affichent le logo de votre société et sa palette de couleurs personnalisée :
+# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>Ajout d’une marque de société aux pages de connexion et du volet d’accès
+De nombreuses entreprises veulent que tous les sites web et services administrés par leurs soins présentent un aspect similaire. Azure Active Directory offre cette possibilité en permettant aux informaticiens professionnels de personnaliser l’apparence des pages web suivantes, afin qu’elles affichent les logos et images de l’entreprise :
 
-* **Page de connexion** : il s’agit de la page qui s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications Web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page lors de la découverte d’accueil de domaine ou pour entrer vos informations d’identification. La découverte de domaine d’accueil permet au système de rediriger les utilisateurs fédérés vers leurs STS local (par exemple, AD FS).
-* **Page du volet d’accès** : le volet d’accès est un portail Web qui vous permet de consulter et d’exécuter les applications cloud auxquelles votre administrateur Azure AD vous a autorisé à accéder. Pour accéder au volet d’accès, utilisez l’URL suivante : [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Page de connexion** : il s’agit de la page qui s’affiche lorsque les employés et les invités professionnels se connectent à Office 365 ou à d’autres applications qui utilisent Azure AD.
+* **Page du volet d’accès** : le volet d’accès est un portail web qui vous permet de consulter et d’exécuter les applications cloud auxquelles votre administrateur Azure AD vous a autorisé à accéder. Le volet d’accès est disponible ici : [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 Cette rubrique explique comment personnaliser la page de connexion et la page de panneau d’accès.
 
 > [!NOTE]
-> * La promotion de la marque de société est une fonctionnalité disponible uniquement si vous avez effectué une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory, ou si vous êtes un utilisateur Office 365. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-> * Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
->
->
+> * La marque de société est une fonctionnalité disponible uniquement si vous avez effectué une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory, ou si vous disposez d’une licence Office 365. Pour en savoir plus, reportez-vous à la page Éditions d’Azure Active Directory.
+> 
+> * Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour en savoir plus, contactez-nous via le Forum Azure Active Directory.
+
 
 ## <a name="customizing-the-sign-in-page"></a>Personnalisation de la page de connexion
-En règle générale, vous utilisez la page de connexion pour accéder à l’aide d’un navigateur à vos applications et services cloud auxquels votre organisation est abonnée.
+Les utilisateurs interagissent généralement avec la page de connexion Azure AD lorsqu’ils tentent d’accéder aux services et applications cloud auxquels votre organisation est abonnée.
 
-Lorsque vous apportez des modifications à votre page de connexion, un délai pouvant atteindre une heure peut être nécessaire pour qu’elles apparaissent.
+Si vous apportez des modifications à la marque sur votre page de connexion, un délai pouvant atteindre une heure peut être nécessaire pour qu’elles apparaissent sur les systèmes des utilisateurs finaux.
 
-Une page de connexion personnalisée s’affiche uniquement lorsque vous accédez à un service avec une URL spécifique au client, telle que https://outlook.com/**contoso**.com, ou https://mail.**contoso**.com.
+Les éléments de la marque de société s’affichent sur la page de connexion Azure AD lorsque les utilisateurs accèdent à une URL spécifique d’un locataire, par exemple : https://outlook.com/contoso.com.
 
-Lorsque vous visitez un service avec une URL non spécifique au client (par exemple : https://mail.office365.com), une page de connexion non personnalisée s’affiche. Dans ce cas, votre marque apparaît une fois que vous avez entré votre ID d’utilisateur ou que vous avez sélectionné une vignette utilisateur.
+Lorsque l’utilisateur accède à un service se trouvant à une adresse URL générique, comme www.office.com, la page de connexion ne contient aucune information sur la marque de société, car le système ne connaît pas cet utilisateur. Toutefois, la marque de société s’affiche une fois que les utilisateurs ont indiqué leur ID utilisateur, ou sélectionné la mosaïque d’un utilisateur.
 
 > [!NOTE]
 > * Votre nom de domaine doit apparaître « Actif » dans la section **Active Directory** > **Répertoire** > **Domaines** du portail Azure Classic dans lequel vous avez effectué la personnalisation.
-> * La personnalisation de la page de connexion ne s’étend pas à la page de connexion client de Microsoft. Si vous vous connectez avec un compte Microsoft personnel, vous pouvez voir une liste personnalisée de vignettes utilisateur générées par Azure AD, mais la marque de votre organisation ne s’applique pas à la page de connexion du compte Microsoft.
+> * La personnalisation de marque de la page de connexion ne s’étend pas à la page de connexion des comptes Microsoft personnels. Si les employés ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la personnalisation de marque de votre organisation.
 >
->
 
-Si vous souhaitez afficher la marque, la palette de couleurs de votre société ou tout autre élément personnalisable sur cette page, reportez-vous aux images qui suivent pour comprendre la différence entre les deux.
+Les captures d’écran suivantes expliquent de quelle manière les pages de connexion sont personnalisées.
 
-La capture d’écran suivante montre un exemple de la page de connexion Office 365 sur un ordinateur de bureau **avant** une personnalisation :
+### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>Scénario 1 : Un employé de Contoso accède à une adresse URL d’application générique (par exemple, www.office.com)
 
-![Page de connexion Office 365 avant la personnalisation][1]
+Dans cet exemple, un utilisateur Contoso se connecte à une application mobile ou à une application web à l’aide d’une adresse URL générique. L’illustration de gauche représente toujours l’application ; le volet d’interaction, sur la droite, se met à jour pour afficher les éléments de marque Contoso, selon les besoins.
 
-La capture d’écran suivante affiche l’exemple de la page de connexion Office 365 sur un ordinateur de bureau **après** une personnalisation :
+![Page de connexion Office 365 avant et après la personnalisation][1]
 
-![Page de connexion d’Office 365 après la personnalisation][2]
+### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>Scénario 2 : Un employé de Contoso accède à l’application Contoso limitée aux utilisateurs internes
 
-La capture d’écran suivante affiche l’exemple de la page de connexion Office 365 sur un appareil mobile **avant** une personnalisation :
+Dans cet exemple, un utilisateur Contoso se connecte à une application interne à l’aide d’une adresse URL spécifique de la société. L’illustration de gauche représente la marque de société (Contoso). À droite, le volet d’interaction est verrouillé sur Contoso et aide les employés à se connecter.
 
-![Page de connexion Office 365 avant la personnalisation][3]
+![Page de connexion à l’application limitée][2]
 
-La capture d’écran suivante affiche l’exemple de la page de connexion Office 365 sur un appareil mobile **après** une personnalisation :
+### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>Scénario 3 : Un employé de Contoso accède à l’application Contoso ouverte aux utilisateurs externes
 
-![Page de connexion d’Office 365 après la personnalisation][4]
+Dans cet exemple, les utilisateurs se connectent à une application cœur de métier depuis Contoso, mais l’utilisateur peut ou non être un employé de Contoso. L’illustration de gauche représente le propriétaire de la ressource (Contoso), tout comme dans le cas \#2, ci-dessus. Cependant, cette fois-ci, le volet d’interaction de droite n’est pas verrouillé sur Contoso, afin d’indiquer aux utilisateurs externes qu’ils peuvent se connecter.
 
-Lors du redimensionnement de la fenêtre du navigateur, la grande illustration, comme celle présentée précédemment, est souvent rognée pour s’adapter aux différentes tailles d’écrans. Ainsi, il est conseillé de conserver les éléments visuels clés dans l’illustration pour qu’ils apparaissent toujours dans l’angle supérieur gauche (à droite pour les langues qui se lisent de droite à gauche). Ceci est important, car le redimensionnement s’effectue généralement à partir de l’angle inférieur droit vers l’angle supérieur gauche, ou du bas vers le haut.
+![Connexion via un accès ouvert][3]
 
-L’illustration suivante montre comment l’illustration est rognée lorsque le navigateur est redimensionné à gauche :
+### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>Scénario 4 : Un invité professionnel de l’entreprise Fabrikam accède à l’application Contoso accessible aux utilisateurs externes
 
-![][6]
+Dans cet exemple, un utilisateur Contoso se connecte à une application interne à l’aide d’une adresse URL spécifique de la société. L’illustration de gauche représente la marque de société (Contoso). À droite, le volet d’interaction est verrouillé sur Contoso et aide les employés à se connecter.
 
-Voici comment elle apparaît une fois le navigateur redimensionné vers le haut :
+![Connexion en tant qu’utilisateur externe][4]
 
-![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>Quels sont les éléments de la page que je peux personnaliser ?
+
 Vous pouvez personnaliser les éléments suivants sur la page de connexion :
 
 ![][5]
 
 | Élément de la page | Emplacement sur la page |
 |:--- | --- |
-| Logo de bannière |Affiché en haut à droite de la page. Remplace le logo du site de destination auquel vous vous connectez (par exemple Office 365 ou Azure). |
-| Grande illustration/couleur d’arrière-plan |Affichée à gauche de la page. Remplace l’image du site de destination auquel vous vous connectez. La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante ou lorsque l’écran est étroit. |
-| Maintenir la connexion |Affiché sous la zone de texte Mot de passe. |
-| Texte de la page de connexion |S’affiche au-dessus du pied de page, lorsque vous devez transmettre des informations avant une connexion avec un compte professionnel ou scolaire. Par exemple, vous pouvez mentionner le numéro de téléphone de votre support technique ou une mention légale. |
+| Logo de bannière | Affiché en haut à droite de la page. Remplace le logo de l’application une fois que l’organisation de l’utilisateur est identifiée (en règle générale, une fois le nom d’utilisateur saisi). |
+| Illustration d’arrière-plan | Affichée en tant qu’image pleine page sur la gauche de la page de connexion. Remplace l’illustration de l’application pour les scénarios de connexion avec des locataires (lorsque les utilisateurs accèdent à une application publiée par leur organisation, ou par une organisation au sein de laquelle ils jouent le rôle d’invité professionnel).<br>Sur une connexion à faible bande passante, l’illustration d’arrière-plan est remplacée par une couleur d’arrière-plan. Sur les écrans étroits tels que les téléphones, l’illustration n’est pas affichée.<br>L’illustration d’arrière-plan est détourée lorsque les utilisateurs redimensionnent leur navigateur. Lorsque vous concevez votre illustration, placez les éléments visuels clés dans l’angle supérieur gauche, afin qu’ils ne soient pas détourés. | 
+| Case à cocher Maintenir la connexion | Affichée sous la zone de texte **Mot de passe**. |
+| Texte de la page de connexion | Texte réutilisable à afficher au-dessus du pied de page. Il peut être utilisé pour communiquer des informations utiles à vos utilisateurs, telles que le numéro de téléphone de votre support technique ou une mention légale. |
 
 > [!NOTE]
-> Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un logo de bannière mais aucune grande illustration, la page de connexion affiche votre logo et l’illustration du site de destination (autrement dit, l’image de l’autoroute de Californie d’Office 365).
+> Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un logo de bannière mais aucune illustration d’arrière-plan, la page de connexion affiche votre logo et l’illustration du site de destination (par exemple, l’image de l’autoroute de Californie d’Office 365).
 >
->
 
-Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur. Elle n’a pas d’effet sur la durée de vie de session. Vous pouvez masquer la case à cocher sur la page de connexion Azure Active Directory.
+Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur, et n’affecte pas la durée de vie de la session.
 
-L’affichage de la case à cocher dépend du réglage du paramètre **Masquer maintenir la connexion**.
+L’affichage de la case à cocher dépend du réglage du paramètre **Masquer Maintenir la connexion**.
 
-![][9]
+![Paramètre Masquer Maintenir la connexion][6]
 
-Pour masquer la case à cocher, configurez ce paramètre sur **Masqué**.
+Pour masquer la case à cocher, définissez ce paramètre sur **Masqué**.
 
 > [!NOTE]
-> Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à sélectionner cette case à cocher. Si vous configurez ce paramètre sur Masqué, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
+> Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à sélectionner cette case à cocher. Si vous configurez ce paramètre sur Masqué, il se peut que vos utilisateurs voient apparaître des invites de connexion supplémentaires et inattendues.
 >
 >
 
 Vous pouvez également traduire tous les éléments de cette page. Une fois que vous avez configuré un jeu d’éléments de personnalisation « par défaut », vous pouvez configurer des versions supplémentaires avec différents paramètres régionaux. Vous pouvez également combiner différents éléments. Vous pouvez par exemple afficher :
 
-* Créez une grande illustration par défaut adaptée à toutes les cultures, puis créez des versions spécifiques pour l’anglais et le français. Lorsque vous définissez vos navigateurs sur l’une de ces deux langues, l’image spécifique s’affiche, tandis que l’illustration par défaut apparaît pour toutes les autres langues.
+* Créez une illustration par défaut adaptée à toutes les cultures, puis créez des versions spécifiques pour l’anglais et le français. Lorsque vous définissez vos navigateurs sur l’une de ces deux langues, l’image spécifique s’affiche, tandis que l’illustration par défaut apparaît pour toutes les autres langues.
 * Configurez différents logos pour votre organisation (par exemple, des versions en japonais ou en hébreu).
 
 ## <a name="access-panel-page-customization"></a>Personnalisation de la page du volet d’accès
@@ -133,10 +131,6 @@ Imaginez la configuration suivante :
 Si votre langue préférée est l’allemand, vous voyez le logo de bannière par défaut, mais le texte en allemand.
 
 Bien que vous puissiez configurer un jeu pour chaque langue prise en charge par Azure AD, nous vous recommandons de limiter le nombre de variantes, pour des raisons de performances et de maintenance.
-
-> [!IMPORTANT]
-> Yammer n’affiche la page de connexion personnalisée Azure AD qu’une fois que l’utilisateur s’est connecté. L’utilisateur voit d’abord la page de connexion générique Office 365, avant de voir la page personnalisée.   
- 
  
 **Pour ajouter la marque de votre société à votre répertoire, procédez comme suit :**
 
@@ -182,48 +176,31 @@ fs3. Dans la barre d’outils située en haut, cliquez sur **Configurer**.
 8. Si nécessaire, cliquez à nouveau sur **Personnaliser la marque** et répétez ces étapes pour tous les éléments de personnalisation à supprimer.
     Tous les paramètres de personnalisation sont supprimés lorsque vous cliquez sur **Personnaliser la marque** et que vous voyez le formulaire **Personnaliser la marque par défaut** sans aucun paramètre configuré.
 
-## <a name="testing-and-examples"></a>Test et exemples
-Nous vous recommandons d’effectuer un test avec un client test avant d’apporter des modifications à votre environnement de production.
-
-**Pour vérifier si votre marque a été appliquée :**
-
-1. Ouvrez une session de navigateur InPrivate ou Incognito.
-2. Rendez-vous sur https://outlook.com/contoso.com, en remplaçant contoso.com par le domaine que vous avez personnalisé.
-
-Cela fonctionne également avec les domaines qui ressemblent à contoso.onmicrosoft.com.
-
-Pour vous aider à créer des personnalisations efficaces, nous avons personnalisé deux pages de connexion fictives :
-
-* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
-* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
-
-Pour tester les paramètres spécifiques à une langue, vous devez modifier la langue par défaut dans votre navigateur web et choisir une langue que vous avez définie dans votre personnalisation. Dans Internet Explorer, vous configurez ce paramètre dans le menu **Options Internet** .
 
 ## <a name="customizable-elements"></a>Éléments personnalisables
-Certains éléments personnalisables d’Azure AD peuvent être utilisés de plusieurs manières. Vous pouvez configurer des logos d’entreprise une seule fois par répertoire. Ils seront utilisés à la fois sur la page de connexion et sur la page du volet d’accès. Certains éléments personnalisables sont spécifiques à la page de connexion. Le tableau suivant fournit des détails sur les différents éléments personnalisables.
+Les logos de société sont utilisés pour les pages de connexion et du volet d’accès, tandis que d’autres éléments sont utilisés uniquement sur la page de connexion. Le tableau suivant fournit des détails sur les différents éléments personnalisables.
 
 | Nom | Description | Contraintes | Recommandations |
 | --- | --- | --- | --- |
-| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60 x&280; pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
-| Logo de la mosaïque |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer le pictogramme générique « Compte professionnel ou scolaire » à différents endroits. |<p>JPG ou PNG</p><p>120 x&120; pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
+| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60 x 280 pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
+| Logo de la mosaïque | Élément non utilisé actuellement |<p>JPG ou PNG</p><p>120 x 120 pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
 | </p> | | | |
-| Étiquette du nom d’utilisateur de la page de connexion |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer la chaîne générique « Compte professionnel ou scolaire » à différents endroits. Vous pouvez définir par exemple « Compte Contoso » ou « ID Contoso ». |<p>Texte Unicode, jusqu'à 50 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |<p>Court et simple</p><p>Demandez à vos utilisateurs comment ils font généralement référence au compte professionnel ou scolaire que vous leur fournissez.</p> |
-| Texte de la page de connexion |Ce texte « standard » apparaît sous le formulaire de la page de connexion et peut être utilisé pour communiquer des instructions supplémentaires ou des informations sur l’aide et l’assistance. |<p>Texte Unicode, jusqu'à 256 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |Moins de 250 caractères (environ 3 lignes de texte) |
-| Illustration de la page de connexion |Cette illustration est une grande image qui s’affiche sur la page de connexion à gauche du formulaire. |<p>JPG ou PNG</p><p>1420 x&1200;</p><p>500 Ko</p> |<p>1420 x&1200; pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours rognée, pour s’adapter aux différentes tailles d’écrans. Conservez les principaux éléments visuels dans l’angle supérieur gauche (en haut à droite pour les langues qui se lisent de droite à gauche), car le redimensionnement s’effectue à partir de l’angle inférieur droit vers l’angle supérieur gauche, à mesure que la fenêtre du navigateur se réduit.</p> |
-| Couleur d’arrière-plan de la page de connexion |La couleur d’arrière-plan de la page de connexion est utilisée dans la zone à gauche du formulaire de la page. |Il doit s’agir d’une couleur RVB au format hexadécimal (par exemple #FFFFFF) |<p>La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante</p><p>Nous vous suggérons de choisir la couleur principale du Logo de la bannière</p> |
+| Étiquette du nom d’utilisateur de connexion | Élément non utilisé actuellement |<p>Texte Unicode, jusqu'à 50 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |<p>Court et simple</p><p>Demandez à vos utilisateurs comment ils font généralement référence au compte professionnel ou scolaire que vous leur fournissez.</p> |
+| Texte réutilisable de la page de connexion |Ce texte réutilisable apparaît sous le formulaire de la page de connexion et peut être utilisé pour communiquer des instructions supplémentaires ou des informations sur l’aide et le support. |<p>Texte Unicode, jusqu'à 256 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |Moins de 250 caractères (environ 3 lignes de texte) |
+| Illustration d’arrière-plan de la page de connexion | Grande image qui s’affiche sur la gauche de la page de connexion (sur la droite pour les langues DàG) lorsque les utilisateurs accèdent aux adresses URL spécifiques du locataire. |<p>JPG ou PNG</p><p>1420 x 1200</p><p>500 Ko</p> |<p>1420 x 1200 pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours détourée pour s’adapter aux différentes proportions d’écrans. Placez les principaux éléments visuels dans l’angle supérieur gauche.</p> |
+| Couleur d’arrière-plan de la page de connexion | Sur une connexion à faible bande passante, cette couleur unie est utilisée à la place de l’illustration d’arrière-plan. | Il doit s’agir d’une couleur RVB au format hexadécimal (par exemple : \#FFFFFF). | Nous vous suggérons de choisir la couleur principale du logo de bannière. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 * [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
-[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
-[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
-[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
-[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
-[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
-[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
+[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
+[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
+[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
+[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
+[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
+[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
