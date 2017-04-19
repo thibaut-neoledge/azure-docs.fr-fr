@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0a4dba58445cf0fd9fd8f51d443576bacd92251b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -97,11 +97,6 @@ Le jeu de données de référence du modèle de véhicule contient un mappage en
 | XUF99EW9OIQOMV7Q7 |Berline familiale |
 | 8OMCL3LGI7XNCC21U |Cabriolet |
 | ……. | |
-
-### <a name="to-generate-simulated-data"></a>Générer les données simulées
-1. Pour télécharger le package du simulateur de données, cliquez sur la flèche située en haut à droite du nœud Vehicle Telematics Simulator. Enregistrez les fichiers en local et extrayez-les sur votre ordinateur. ![Plan de solution Vechicle Telemetry Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Figure 2 – Plan de solution Vechicle Telemetry Analytics*
-2. Sur votre ordinateur local, accédez au dossier où vous avez extrait le package Vehicle Telematics Simulator. ![Dossier de simulateur de télématique des véhicules](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Figure 3 – Dossier de simulateur de télématique des véhicules*
-3. Exécutez l’application **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Références
 [Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -393,11 +388,9 @@ Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez i
 Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations. 
 
 **Pour exécuter l’application de tableau de bord en temps réel**
-
-1. Cliquez sur le nœud Power BI dans la vue schématique, puis sur le lien « Télécharger l’application de tableau de bord en temps réel » dans le volet des propriétés. ![Instructions de configuration du tableau de bord Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 15 – Instructions de configuration du tableau de bord Power BI*
-2. Extrayez le fichier et enregistrez-le localement ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – Dossier RealtimeDashboardApp*  
-3. Exécutez l’application RealtimeDashboardApp.exe
-4. Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur Accept ![Connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Fin de connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1. Extrayez le fichier et enregistrez-le localement ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – Dossier RealtimeDashboardApp*  
+2. Exécutez l’application RealtimeDashboardApp.exe
+3. Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur Accept ![Connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Fin de connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 17 – RealtimeDashboardApp : connexion à Power BI*
 

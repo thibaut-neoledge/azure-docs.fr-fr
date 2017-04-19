@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: cc5136c209483b6b72e8d456084338688792c0d0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
     Utilisez l'URL de connexion notée à l'étape précédente. Une erreur vous indique qu'il existe un problème avec le certificat de sécurité du site web. Cliquez sur **Poursuivre sur cette page web**.
    
     ![erreur de certificat de sécurité](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. Connectez-vous à l'interface utilisateur web de votre appareil virtuel en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : Démarrage de l’appareil virtuel dans [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Connectez-vous à l'interface utilisateur web de votre appareil virtuel en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : Démarrage de l’appareil virtuel dans [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md). L’utilisateur par défaut est *StorSimpleAdmin* et le mot de passe par défaut est *Password1*. 
    
     ![page de connexion](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. Vous accéderez à la page d’ **accueil** . Cette page décrit les différents paramètres requis pour configurer et inscrire l'appareil virtuel auprès du service StorSimple Manager. Notez que les **paramètres réseau**, **les paramètres du proxy web** et les **paramètres horaires** sont facultatifs. Les seuls paramètres requis sont les **paramètres de l’appareil** et les **paramètres du cloud**.
@@ -242,10 +243,5 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
