@@ -17,7 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
 ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
-ms.lasthandoff: 03/03/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 ou version ultérieure.
+* .NET Framework 4.0 ou version ultérieure.
 * Visual Studio.
 
 Ce didacticiel comprend les tâches suivantes :
