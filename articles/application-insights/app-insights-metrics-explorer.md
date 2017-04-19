@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 9457b4628414400849198222d361d1b51c682ec0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -201,7 +201,7 @@ Dans un graphique de mesures, vous pouvez cliquer sur l’icône Analyse pour ac
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveillance de l’utilisation avec Application Insights](app-insights-overview-usage.md)
+* [Surveillance de l’utilisation avec Application Insights](app-insights-web-track-usage.md)
 * [Utilisation de Diagnostic Search](app-insights-diagnostic-search.md)
 
 <!--Link references-->

@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
-ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -132,14 +133,9 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 [En savoir plus sur les mesures.](app-insights-metrics-explorer.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Ajoutez la télémétrie à vos pages web](app-insights-web-track-usage.md) pour surveiller les affichages de pages et les mesures relatives à l’utilisateur.
+* [Ajoutez la télémétrie à vos pages web](app-insights-javascript.md) pour surveiller les affichages de pages et les mesures relatives à l’utilisateur.
 * [Configurez les tests web](app-insights-monitor-web-app-availability.md) pour vous assurer que votre application est bien active.
 * [Capture le suivi des journaux](app-insights-java-trace-logs.md)
 * [Recherchez les événements et les journaux](app-insights-diagnostic-search.md) pour diagnostiquer les problèmes.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

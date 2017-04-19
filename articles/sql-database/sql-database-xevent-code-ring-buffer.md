@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dcd7aef734da26a4357d11ff3da9501f55963a00
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -49,7 +50,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.
   
-  * Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
+  * Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started-portal.md) en quelques minutes.
 * SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle. 
   Vous pouvez télécharger la dernière version de ssms.exe :
   
@@ -359,9 +360,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

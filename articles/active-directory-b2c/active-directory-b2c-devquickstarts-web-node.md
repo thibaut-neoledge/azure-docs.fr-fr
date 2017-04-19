@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -41,9 +41,6 @@ Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/A
 
 L’application terminée est également fournie à la fin de ce didacticiel.
 
-> [!WARNING]
-Pour la version préliminaire de B2C, vous devez utiliser les mêmes **ID client**/**ID d’application** et stratégies pour le serveur de la tâche API web et le client qui s’y connecte. Cela est également vrai pour les didacticiels iOS et Android. Si vous avez précédemment créé une application dans l’un de ces Démarrages rapides, utilisez ces valeurs au lieu d’en créer d’autres.
-
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obtention d'un répertoire Azure AD B2C
 
 Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client.  Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin dans ce guide.
@@ -61,7 +58,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer cette stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lors de la création de vos&3; stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer cette stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
 
 - Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisissez le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8d8743529f4f0b9e8c036d328d63bea247279fe3
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,11 +29,11 @@ La géo-réplication active permet de configurer jusqu'à quatre bases de donné
 > La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 >  
 
- Vous pouvez configurer la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](sql-database-geo-replication-powershell.md), de [Transact-SQL](sql-database-geo-replication-transact-sql.md) ou de [l’API REST - Créer ou mettre à jour la base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ Vous pouvez configurer la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), de [Transact-SQL](sql-database-geo-replication-transact-sql.md) ou de [l’API REST - Créer ou mettre à jour la base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 Si, pour une raison quelconque, votre base de données primaire échoue ou doit simplement être mise hors connexion, vous pouvez effectuer un *basculement* vers l’une de vos bases de données secondaires. Lorsque le basculement est activé pour l’une des bases de données secondaires, toutes les autres bases de données secondaires sont automatiquement liées à la nouvelle base de données primaire.
 
-Vous pouvez basculer vers une base de données secondaire en utilisant le [portail Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [l’API REST - Basculement planifié](https://msdn.microsoft.com/library/mt575007.aspx) ou [l’API REST - Basculement non planifié](https://msdn.microsoft.com/library/mt582027.aspx).
+Vous pouvez basculer vers une base de données secondaire en utilisant le [portail Azure](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [l’API REST - Basculement planifié](https://msdn.microsoft.com/library/mt575007.aspx) ou [l’API REST - Basculement non planifié](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
@@ -85,7 +85,7 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestion de la géo-réplication active par programme
 Comme indiqué plus haut, la géo-réplication active peut aussi être gérée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
 
-* **API Azure Resource Manager et sécurité basée sur les rôles** : la géo-réplication active comprend un ensemble [d’API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) pour la gestion, dont des [applets de commande PowerShell basées sur Azure Resource Manager](sql-database-geo-replication-powershell.md). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, voir le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
+* **API Azure Resource Manager et sécurité basée sur les rôles** : la géo-réplication active comprend un ensemble [d’API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) pour la gestion, dont des [applets de commande PowerShell basées sur Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, voir le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
 > Parmi les nouvelles fonctionnalités de géo-réplication active, plusieurs sont uniquement prises en charge avec [l’API REST de SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) et les [applets de commande PowerShell de base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) basées sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L’[API REST (classique)](https://msdn.microsoft.com/library/azure/dn505719.aspx) et les [applets de commande Azure SQL Database (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sont prises en charge à des fins de compatibilité descendante. L’utilisation des API basées sur Azure Resource Manager est donc recommandée. 

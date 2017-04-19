@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -94,7 +94,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Accédez à **Nouveau** > **Données + stockage** > **SQL Database**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started-portal.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

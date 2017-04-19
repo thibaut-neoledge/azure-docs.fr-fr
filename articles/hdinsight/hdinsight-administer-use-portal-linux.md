@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 82c12f4a2a24e190babfd88ff667e24d6c45ebac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 636d58cc3bda38c0fb49412b6bd4cbb96d235858
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-L’utilisation du [portail Azure][azure-portal], vous permet de gérer des clusters Hadoop dans HDInsight. Utilisez le sélecteur de tabulations pour obtenir des informations sur la gestion de clusters Hadoop dans HDInsight à l’aide d’autres outils. 
+L’utilisation du [portail Azure][azure-portal], vous permet de gérer des clusters Hadoop dans HDInsight. Utilisez le sélecteur de tabulations pour obtenir des informations sur la gestion de clusters Hadoop dans HDInsight à l’aide d’autres outils.
 
 **Configuration requise**
 
@@ -37,12 +37,12 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 ## <a name="open-the-portal"></a>Ouvrir le portail
 1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com).
 2. Une fois que vous ouvrez le portail, vous pouvez :
-   
+
    * Cliquez sur **Nouveau** dans le menu de gauche pour créer un nouveau cluster :
-     
+
        ![bouton nouveau cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
    * Cliquez sur **Clusters HDInsight** dans le menu de gauche pour afficher les clusters existants
-     
+
        ![bouton de cluster HDinsight du portail Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
        Si vous ne voyez pas de cluster HDInsight, cliquez sur **Plus de services** en bas de la liste, puis cliquez sur **Clusters HDInsight** sous la section **Intelligence + analyse**.
@@ -50,16 +50,16 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 ## <a name="create-clusters"></a>Créer des clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir la liste des composants vérifiés et pris en charge, consultez la rubrique [Version de Hadoop dans Azure HDInsight](hdinsight-component-versioning.md). Pour obtenir des informations générales sur la création de clusters, consultez la section [Création de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md). 
+HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir la liste des composants vérifiés et pris en charge, consultez la rubrique [Version de Hadoop dans Azure HDInsight](hdinsight-component-versioning.md). Pour obtenir des informations générales sur la création de clusters, consultez la section [Création de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="list-and-show-clusters"></a>Énumération et affichage des clusters
 1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche pour afficher les clusters existants.
 3. Cliquez sur le nom du cluster. Si la liste de clusters est longue, vous pouvez utiliser le filtre en haut de la page.
 4. Double-cliquez sur un cluster dans la liste pour afficher la page de la vue d’ensemble :
-   
+
     ![essentials du cluster HDInsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
-   
+
     **Menu de la vue d’ensemble :**
 
    * **Tableau de bord** : ouvre le tableau de bord du cluster, qui est Ambari Web pour les clusters basés sur Linux.
@@ -68,7 +68,7 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
    * **Supprimer**: supprime le cluster.
 
     **Menu de gauche :**
-   
+
    * **Journaux d’activité** : affiche et interroge les journaux d’activité.
    * **Contrôle d’accès (IAM)** : utilise les attributions de rôle.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
    * **Balises** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
@@ -78,7 +78,7 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
    * **Démarrage rapide** : affiche des informations qui vous aideront à prendre en main HDInsight.
    * **Outils pour HDInsight** : informations d’aide pour les outils associés à HDInsight.
    * **Connexion du cluster** : permet d’afficher les informations de connexion du cluster.
-   * **Subscription Core Usage** (Utilisation des cœurs d’abonnement) : permet d’afficher les cœurs disponibles pour votre abonnement. 
+   * **Subscription Core Usage** (Utilisation des cœurs d’abonnement) : permet d’afficher les cœurs disponibles pour votre abonnement.
    * **Mise à l’échelle de cluster**: augmenter et diminuer le nombre de nœuds de travail de cluster. Consultez [Mettre à l’échelle des clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
    * **Secure Shell**: affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH). Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **Partenaire HDInsight**: permet d’ajouter ou de supprimer le partenaire HDInsight actuel.
@@ -87,20 +87,20 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
    * **Applications** : permet d’ajouter/supprimer des applications HDInsight.  Consultez [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
    * **Propriétés**: affichez les propriétés du cluster
    * **Comptes de stockage** : permet d’afficher les comptes de stockage et les clés. Les comptes de stockage sont configurés pendant le processus de création de cluster.
-   * **Identité AAS de cluster**: 
+   * **Identité AAS de cluster**:
    * **Nouvelle demande de support** : permet de créer un ticket de support auprès du support Microsoft.
 
 6. Cliquez sur **Propriétés**:
-   
+
     Les propriétés sont les suivantes :
-   
+
    * **Nom d’hôte**: nom du Cluster.
    * **URL de cluster**. URL de l’interface web Ambari.
    * **État**: inclut Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
    * **Région**: emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Date de création**.
    * **Système d’exploitation** : **Windows** ou **Linux**.
-   * **Type**: Hadoop, Hbase, Storm, Spark. 
+   * **Type**: Hadoop, Hbase, Storm, Spark.
    * **Version**. Voir [Versions HDInsight](hdinsight-component-versioning.md)
    * **Abonnement**: nom de l’abonnement.
    * **Source de données par défaut**: système de fichiers de cluster par défaut.
@@ -122,42 +122,42 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 
 > [!NOTE]
 > Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés.  Voir [Énumération et affichage des clusters](#list-and-show-clusters).
-> 
-> 
+>
+>
 
 Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
 * Hadoop
-  
+
     Vous pouvez augmenter de façon continue le nombre de nœuds de travail dans un cluster Hadoop exécuté sans affecter aucune tâche en attente ou en cours. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les défaillances dans l'opération de mise à l'échelle sont correctement gérées de sorte que le cluster reste toujours fonctionnel.
-  
+
     Lorsqu’un cluster Hadoop est diminué par la réduction du nombre de nœuds de données, certains services du cluster sont redémarrés. Pour cette raison, toutes les tâches en cours ou en attente échouent lors de la réalisation de l'opération de mise à l'échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
 * HBase
-  
+
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
-  
+
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
-  
+
     Pour plus d’informations sur l’utilisation de l’interpréteur de commandes HBase, voir []
 * Storm
-  
+
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
-  
+
     Cela peut se faire de deux façons à l’aide de :
-  
+
   * l'interface utilisateur Web de Storm
   * l’outil d’interface de ligne de commande (CLI)
-    
+
     Pour plus d’informations, consultez la documentation [Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) .
-    
+
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
-    
+
     ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
-    
+
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
-    
+
         ## Reconfigure the topology "mytopology" to use 5 worker processes,
         ## the spout "blue-spout" to use 3 executors, and
         ## the bolt "yellow-bolt" to use 10 executors
@@ -170,7 +170,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 3. Cliquez sur le cluster que vous souhaitez mettre à l’échelle.
 3. Cliquez sur **Mettre à jour le cluster**.
 4. Entrez une valeur dans le champ **Nombre de nœuds de travail**. La limite du nombre de nœuds de cluster varie selon les abonnements Azure. Vous pouvez contacter le support de facturation pour augmenter la limite.  Les informations de coût reflètent les modifications apportées au nombre de nœuds.
-   
+
     ![HDInsight hadoop hbase storm spark mise à l’échelle](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Pause/arrêt de clusters
@@ -195,11 +195,11 @@ Vous pouvez utiliser l’interface utilisateur web d’Ambari pour modifier le m
 
 > [!NOTE]
 > Si vous modifiez le mot de passe d’utilisateur (admin) du cluster, les actions de script exécutées sur ce cluster risquent d’échouer. Si des actions de script persistantes ciblent des nœuds de travail, elles peuvent échouer quand vous ajoutez des nœuds au cluster par le biais d’opérations de redimensionnement. Pour plus d’informations sur les actions de script, consultez la section [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
-> 
-> 
+>
+>
 
 1. Connectez-vous à l’interface utilisateur web d’Ambari à l’aide des informations d’identification de l’utilisateur du cluster HDInsight. Le nom d’utilisateur par défaut est **admin**. L’URL est **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
-2. Cliquez sur **Admin** dans le menu supérieur et cliquez sur « Gérer Ambari ». 
+2. Cliquez sur **Admin** dans le menu supérieur et cliquez sur « Gérer Ambari ».
 3. Dans le menu de gauche, cliquez sur **Utilisateurs**.
 4. Cliquez sur **Admin**.
 5. Cliquez sur **Modifier le mot de passe**.
@@ -208,23 +208,23 @@ Ambari modifie ensuite le mot de passe sur tous les nœuds du cluster.
 
 ### <a name="change-the-ssh-user-password"></a>Modifier le mot de passe d’utilisateur SSH
 1. À l’aide d’un éditeur de texte, enregistrez le texte suivant dans un fichier nommé **changepassword.sh**.
-   
+
    > [!IMPORTANT]
    > Vous devez utiliser un éditeur qui utilise LF comme caractère de fin de ligne. Si l’éditeur utilise CRLF, le script échoue.
-   > 
-   > 
-   
+   >
+   >
+
         #! /bin/bash
         USER=$1
         PASS=$2
-   
+
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Chargez le fichier sur un emplacement de stockage accessible à partir de HDInsight à l’aide d’une adresse HTTP ou HTTPS. Par exemple, un magasin de fichiers public tel que le stockage d’objets blob Azure ou OneDrive. Enregistrez l’URI (adresse HTTP ou HTTPS), dans le fichier, car vous en aurez besoin à l’étape suivante.
 3. À partir du portail Azure, cliquez sur **Clusters HDInsight**.
 4. Cliquez sur votre cluster HDInsight.
 4. Cliquez sur **Actions de script**.
 4. Dans le panneau **Actions de script**, sélectionnez **Envoyer**. Quand le panneau **Envoyer une action de script** s’affiche, entrez les informations suivantes.
-   
+
    | Champ | Valeur |
    | --- | --- |
    | Nom |Modifier le mot de passe SSH |
@@ -272,7 +272,7 @@ Vous ne pouvez pas exécuter un travail Hive directement à partir du portail Az
 
 1. Connectez-vous à l’interface utilisateur web d’Ambari à l’aide des informations d’identification de l’utilisateur du cluster HDInsight. Le nom d’utilisateur par défaut est **admin**. L’URL est **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
 2. Ouvrez l’affichage Hive comme illustré dans la capture d’écran suivante :  
-   
+
     ![Affichage Hive dans HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 3. Cliquez sur **Requête** dans le menu supérieur.
 4. Entrez une requête Hive dans l’**éditeur de requête**, puis cliquez sur **Exécuter**.
@@ -296,11 +296,11 @@ La section **Utilisation** du panneau du cluster HDInsight affiche des informati
 
 > [!IMPORTANT]
 > Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
-> 
-> 
+>
+>
 
 ## <a name="connect-to-a-cluster"></a>Se connecter à un cluster
-Consultez la section [Utilisation de Hive avec Hadoop dans HDInsight via SSH](hdinsight-hadoop-use-hive-ssh.md#ssh).
+Consultez la section [Utilisation de Hive avec Hadoop dans HDInsight via SSH](hdinsight-hadoop-use-hive-beeline.md#a-idsshaconnect-with-ssh).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du portail et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :

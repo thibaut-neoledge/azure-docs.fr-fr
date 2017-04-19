@@ -4,7 +4,7 @@ description: "Les ressources d’informations d’identification dans Azure Auto
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -88,7 +89,7 @@ Vous ajoutez une activité **Get-AutomationPSCredential** à un Runbook graphiqu
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/credential-add-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique.  Dans ce cas, il est utilisé pour l’authentification d’un Runbook auprès des ressources Azure, comme décrit dans [Authentifier des Runbooks avec un compte d’utilisateur Azure AD](automation-sec-configure-aduser-account.md).  La première activité récupère les informations d’identification ayant accès à l’abonnement Azure.  L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent.  C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , étant donné que **Get-AutomationPSCredential** attend un objet unique.  
+L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique.  Dans ce cas, il est utilisé pour l’authentification d’un Runbook auprès des ressources Azure, comme décrit dans [Authentifier des Runbooks avec un compte d’utilisateur Azure AD](automation-create-aduser-account.md).  La première activité récupère les informations d’identification ayant accès à l’abonnement Azure.  L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent.  C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , étant donné que **Get-AutomationPSCredential** attend un objet unique.  
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/get-credential.png)
 
@@ -100,10 +101,5 @@ Bien que les configurations DSC dans Azure Automation puissent se rapporter à d
 * Pour comprendre les différentes méthodes d’authentification avec Automation, consultez [Sécurité dans Azure Automation](automation-security-overview.md)
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

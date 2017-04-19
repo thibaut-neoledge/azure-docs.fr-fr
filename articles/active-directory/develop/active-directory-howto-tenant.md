@@ -4,7 +4,7 @@ description: "Obtention d’un client Azure Active Directory pour l&quot;inscr
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Pour cela, procédez comme suit :  Autrement, vous pouvez créer un nouveau cli
 3. Vous devez être automatiquement connecté au « répertoire par défaut ». Si ce n’est pas le cas, vous pouvez changer de répertoire en cliquant sur le nom de votre compte dans le coin supérieur droit.
 4. À partir de la section **Tâches rapides**, choisissez **Ajouter un utilisateur**.
 5. Dans le formulaire Ajouter un utilisateur, fournissez les informations suivantes :
-   
+
    * Nom : (choisissez une valeur appropriée)
    * Nom d'utilisateur : (choisissez un nom d'utilisateur pour cet administrateur)
    * Profil : (renseigner les valeurs appropriées pour le prénom, le nom, la fonction et le service)
@@ -57,16 +58,10 @@ Pour cela, procédez comme suit :  Autrement, vous pouvez créer un nouveau cli
 8. Pour modifier le mot de passe temporaire, connectez-vous à [https://login.microsoftonline.com](https://login.microsoftonline.com) avec ce nouveau compte d’utilisateur et modifiez le mot de passe lorsque vous y êtes invité.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Utilisation d’un abonnement Azure professionnel
-Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte professionnel, vous avez déjà un client !  Dans le [portail Azure](https://portal.azure.com), vous devez trouver un client lorsque vous accédez à « Plus de services » et « Azure Active Directory ».  Vous êtes libre d'utiliser ce client selon vos besoins. 
+Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte professionnel, vous avez déjà un client !  Dans le [portail Azure](https://portal.azure.com), vous devez trouver un client lorsque vous accédez à « Plus de services » et « Azure Active Directory ».  Vous êtes libre d'utiliser ce client selon vos besoins.
 
 ## <a name="start-from-scratch"></a>Commencer à partir de zéro
 Si tous les éléments ci-dessus vous sont incompréhensibles, ne vous inquiétez pas.  Visitez simplement [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation.  Une fois le processus terminé, vous aurez votre propre client Azure AD avec le nom de domaine que vous avez choisi lors de votre inscription.  Dans le [portail Azure](https://portal.azure.com), vous pouvez trouver votre client en accédant à « Azure Active Directory » dans la barre de navigation de gauche.
 
 Dans le cadre du processus d'inscription à Azure, vous devrez fournir les informations d’une carte de crédit.  Vous pouvez procéder en toute confiance. Vous ne serez pas facturé pour la publication d'applications dans Azure AD ou la création de nouveaux clients.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Prise en main de la gestion de mot de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Voici certains conseils qui se sont avérés utiles pour les clients ayant dépl
 * [**Conseil 9 : RÉSOLUTION DES PROBLÈMES** - Si vous avez besoin d’aide, indiquez suffisamment d’informations pour que nous puissions vous aider](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>CONSEIL : NAVIGATION DANS LA DOCUMENTATION - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses
-Dans notre documentation, nous nous sommes efforcés de fournir dans notre table des matières des liens rapides vers tous les contenus intéressants pour les administrateurs qui souhaitent en savoir plus. 
+Dans notre documentation, nous nous sommes efforcés de fournir dans notre table des matières des liens rapides vers tous les contenus intéressants pour les administrateurs qui souhaitent en savoir plus.
 
-Consultez la table des matières ci-dessous : 
+Consultez la table des matières ci-dessous :
 * [Réinitialisation de mot de passe Azure AD : Table des matières de la documentation](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Conseil 1 : GESTION DES LICENCES -Assurez-vous que vous comprenez les accords de licence
@@ -93,9 +93,9 @@ Les stratégies configurées dans l’expérience utilisateur d’administration
  * ... pendant les 30 premiers jours après le démarrage d’un essai **OU**
  * ... lorsqu’un domaine personnel n’est pas présent **ET** qu’Azure AD Connect ne synchronise pas les identités
  * **_Requiert_** : la présence d’une valeur dans **l’une** des options suivantes : Adresse électronique d’authentification, Adresse de messagerie de secours, Téléphone d’authentification, Téléphone mobile ou Téléphone (bureau)
-* **La stratégie à deux entrées s’applique...** 
+* **La stratégie à deux entrées s’applique...**
  * ... à l’issue des 30 premiers jours de l’essai **OU**
- * ... lorsqu’un domaine personnel est présent **OU** 
+ * ... lorsqu’un domaine personnel est présent **OU**
  * ... si vous avez activé Azure AD Connect pour synchroniser les identités de votre environnement local
  * _**Requiert**_ : la présence d’une valeur dans **deux** des options suivantes : Adresse électronique d’authentification, Adresse de messagerie de secours, Téléphone d’authentification, Téléphone mobile ou Téléphone (bureau)
 
@@ -145,7 +145,7 @@ Pour obtenir la liste complète des conseils de dépannage et des recommandation
 * [Déploiement de l’écriture différée - Étape 3 : Configurer votre pare-feu](#step-3-configure-your-firewall)
 * [Déploiement de l’écriture différée - Étape 4 : Configurer les autorisations appropriées](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Conseil 7 : CRÉATION DE RAPPORTS - Identifiez qui inscrit ou réinitialise des mots de passe grâce aux journaux d’audit SSPR d’Azure AD 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Conseil 7 : CRÉATION DE RAPPORTS - Identifiez qui inscrit ou réinitialise des mots de passe grâce aux journaux d’audit SSPR d’Azure AD
 Une fois que la réinitialisation de mot de passe est déployée et fonctionne, l’étape logique suivante consiste à observer son fonctionnement et à analyser les personnes devant toujours s’inscrire, les problèmes fréquents rencontrés par vos utilisateurs lors de la réinitialisation et votre retour sur investissement par rapport à la fonctionnalité.
 
 Grâce aux journaux d’audit de réinitialisation de mot de passe Azure AD, vous pouvez effectuer cette opération et bien plus encore à partir du portail Azure, à partir de Power BI, à partir de l’API d’événements de rapports Azure AD ou à partir de PowerShell.  Pour en savoir plus sur l’utilisation de ces fonctions de génération de rapports, consultez :
@@ -495,7 +495,7 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.

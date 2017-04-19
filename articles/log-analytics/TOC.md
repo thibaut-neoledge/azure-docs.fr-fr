@@ -48,6 +48,7 @@
 ### [Solution de gestion des alertes](log-analytics-solution-alert-management.md)
 ## Utiliser des solutions
 ### [Présentation des solutions](log-analytics-add-solutions.md)
+### [Log Analytics des activités](log-analytics-activity.md)
 ### [Évaluation d'AD](log-analytics-ad-assessment.md)
 ### [État de la réplication AD](log-analytics-ad-replication-status.md)
 ### [Gestion des alertes](log-analytics-solution-alert-management.md)

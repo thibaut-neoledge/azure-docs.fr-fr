@@ -4,7 +4,7 @@ description: "Cet article explique comment utiliser Azure Automation pour automa
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/14/2017
 ms.author: tiandert; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ff1acafaacc40dd8a04b008df7cd479c811a7af0
-ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 Dans cet article, nous allons vous montrer comment approvisionner une machine virtuelle de votre abonnement Amazon Web Services (AWS) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique ; une opération appelée « balisage » dans AWS.
 
 ## <a name="prerequisites"></a>Composants requis
-Pour les besoins de cet article, vous devez disposer d’un compte Azure Automation et d’un abonnement AWS. Pour plus d’informations sur la création d’un compte Azure Automation et sur sa configuration avec les informations d’identification de votre abonnement AWS, consultez l’article [Authentification des Runbooks avec Amazon Web Services](automation-sec-configure-aws-account.md).  Vous devez au préalable créer ou mettre à jour ce compte avec les informations d’identification de votre abonnement AWS, car nous ferons référence à ce compte dans les étapes suivantes.
+Pour les besoins de cet article, vous devez disposer d’un compte Azure Automation et d’un abonnement AWS. Pour plus d’informations sur la création d’un compte Azure Automation et sur sa configuration avec les informations d’identification de votre abonnement AWS, consultez l’article [Authentification des Runbooks avec Amazon Web Services](automation-configure-aws-account.md).  Vous devez au préalable créer ou mettre à jour ce compte avec les informations d’identification de votre abonnement AWS, car nous ferons référence à ce compte dans les étapes suivantes.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Déployer le module PowerShell Amazon Web Services
 Votre runbook d’approvisionnement de machine virtuelle utilisera le module PowerShell AWS pour exécuter cette tâche. Pour ajouter le module à votre compte Automation qui est configuré avec les informations d’identification de votre abonnement AWS, procédez comme suit.  
@@ -113,10 +114,5 @@ Avant de procéder au test du runbook, nous devons vérifier plusieurs points. P
 * Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 * Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

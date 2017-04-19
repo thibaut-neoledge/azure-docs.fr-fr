@@ -6,7 +6,7 @@
 * [Déploiement d'une application web WordPress prise en charge par le cluster de réplication MySQL](/documentation/templates/wordpress-mysql-replication/)
 * [Génération de votre propre cluster MySQL maître-maître à l’aide du cluster Percona](/documentation/templates/mysql-ha-pxc/) et [en savoir plus sur la gestion du cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Déploiement de WordPress pris en charge par le cluster de réplication MySQL avec une configuration maître-esclave](/documentation/templates/mysql-replication/)
-* [Déploiement d'une application WordPress prise en charge par la base de données SQL Azure gérée par ProjectNami](/marketplace/partners/projectnami/projectnami/)
+* [Déploiement d'une application WordPress prise en charge par la base de données SQL Azure gérée par ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
 ## <a name="troubleshooting-wordpress-application"></a>Résolution des problèmes de l’application WordPress
 * [Résolution des problèmes de votre application WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -24,9 +24,4 @@
 * [Utilisation du plug-in supercache pour accélérer l'application WordPress](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
 * [Mise en cache du serveur à l'aide de la mise en cache de sortie IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Activation de la mise en cache du navigateur pour le contenu statique](http://www.iis.net/configreference/system.webserver/staticcontent)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
