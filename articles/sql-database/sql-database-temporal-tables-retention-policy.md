@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
-ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8687603e7dbb91d60520be8952a78128595d9f46
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -170,7 +170,7 @@ Cependant, si vous interrogez directement la table d’historique, vous pouvez v
 Ne faites pas dépendre votre logique métier sur la lecture de la table d’historique au-delà de la période de rétention, car vous risquez d’obtenir des résultats incohérents ou inattendus. Nous vous recommandons d’utiliser des requêtes temporelles avec la clause FOR SYSTEM_TIME pour l’analyse des données dans les tables temporelles.
 
 ## <a name="point-in-time-restore-considerations"></a>Considérations relatives à la limite de restauration dans le temps
-Lorsque vous créez une base de données en [restaurant une base de données existante à un point spécifique dans le temps](sql-database-point-in-time-restore-portal.md), sa rétention temporelle est désactivée au niveau de la base de données. L’indicateur **is_temporal_history_retention_enabled** est défini sur Désactivé. Cette fonctionnalité vous permet d’examiner toutes les lignes d’historique lors de la restauration, sans craindre que les anciennes lignes soient supprimées avant qu’elles aient été interrogées. Vous pouvez l’utiliser pour *inspecter les données d’historique au-delà de la période de rétention configurée*.
+Lorsque vous créez une base de données en [restaurant une base de données existante à un point spécifique dans le temps](sql-database-recovery-using-backups.md), sa rétention temporelle est désactivée au niveau de la base de données. L’indicateur **is_temporal_history_retention_enabled** est défini sur Désactivé. Cette fonctionnalité vous permet d’examiner toutes les lignes d’historique lors de la restauration, sans craindre que les anciennes lignes soient supprimées avant qu’elles aient été interrogées. Vous pouvez l’utiliser pour *inspecter les données d’historique au-delà de la période de rétention configurée*.
 
 Supposons qu’une table temporelle a une période de rétention de un MOIS. Si votre base de données a été créée dans le niveau de service Premium, vous ne pouvez pas créer de copie de base de données avec l’état de la base de données jusqu’à 35 jours dans le passé. Cela vous permet d’analyser avec efficacité les lignes d’historique qui sont anciennes de moins de 65 jours en interrogeant la table d’historique directement.
 
