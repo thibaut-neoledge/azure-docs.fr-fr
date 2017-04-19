@@ -17,7 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: 9adf266c6a2ac00c3aaa34e2a29aefe34abe2871
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ Vous pouvez répliquer les éléments suivants dans Azure :
 **Zone** | **Composant** | **Détails**
 --- | --- | ---
 **Microsoft Azure** | Dans Azure, vous avez besoin d’un compte Microsoft Azure, d’un compte de stockage Azure et d’un réseau Azure. | Le stockage et le réseau peuvent être des comptes Resource Manager ou Classic.<br/><br/> Les données répliquées sont stockées dans le compte de stockage, et les machines virtuelles Azure sont créées avec les données répliquées lors du basculement à partir de votre site local.<br/><br/> Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
-**Serveur VMM** | Hôtes Hyper-V situés dans des clouds VMM | Si les hôtes Hyper-V sont gérés dans des clouds VMM, vous inscrivez le serveur VMM dans le coffre Recovery Services.<br/><br/> Sur le serveur VMM, vous installez le fournisseur Site Recovery pour orchestrer la réplication avec Azure.<br/><br/> Vous avez besoin d’une logique et de réseaux de machines virtuelles pour configurer le mappage réseau. Un réseau de machines virtuelles doit être lié à un réseau logique lui-même associé au cloud.
+**Serveur VMM** | Hôtes Hyper-V situés dans des clouds VMM | Si les hôtes Hyper-V sont gérés dans des clouds VMM, vous inscrivez le serveur VMM dans le coffre Recovery Services.<br/><br/> Sur le serveur VMM, vous installez le fournisseur Site Recovery pour orchestrer la réplication avec Azure.<br/><br/> Vous avez besoin d’un réseau logique et d’un réseau de machines virtuelles pour configurer le mappage réseau. Un réseau de machines virtuelles doit être lié à un réseau logique lui-même associé au cloud.
 **Hôte Hyper-V** | Les serveurs Hyper-V peuvent être déployés avec ou sans serveur VMM. | S’il n’existe aucun serveur VMM, le fournisseur Site Recovery est installé sur l’hôte pour orchestrer la réplication avec Site Recovery via Internet. S’il existe un serveur VMM, le fournisseur est installé sur ce dernier et non sur l’hôte.<br/><br/> L’agent Recovery Services est installé sur l’hôte pour gérer la réplication des données.<br/><br/> Les communications en provenance du fournisseur et de l’agent sont sécurisées et chiffrées. Les données répliquées dans le stockage Azure sont également chiffrées.
 **Machines virtuelles Hyper-V** | Vous devez avoir une ou plusieurs machines virtuelles sur le serveur hôte Hyper-V. | Rien ne doit explicitement être installé sur les machines virtuelles.
 

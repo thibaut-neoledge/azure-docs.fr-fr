@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 284bf43ceae0c42b88d6ea3fe8a2e68e7530e5fe
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -522,7 +522,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
     Enregistrez et fermez ce fichier **style.css** .
 
 ## <a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
-1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost:&3000;](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :
+1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost: 3000](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :
    
     ![Capture d'écran de l'application MyTodo List dans une fenêtre de navigateur](./media/documentdb-nodejs-application/image18.png)
 
