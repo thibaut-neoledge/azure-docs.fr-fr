@@ -18,6 +18,7 @@
 ## [Traiter les résultats de recherche](search-pagination-page-layout.md)
 ## Didacticiels
 ### [.NET](search-howto-dotnet-sdk.md)
+### [Version préliminaire des synonymes .NET](search-synonyms-tutorial-sdk.md)
 ### [Portail](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [Indexer des objets blob JSON](search-howto-index-json-blobs.md)
 ### [Configurer des connexions d’indexeur à SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mappages de champs dans les indexeurs](search-indexer-field-mappings.md)
-##  Search 
+##  Search
 ### [Fonctionnement de la recherche en texte intégral](search-lucene-query-architecture.md)
 ### Construction des requêtes
 #### [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navigation à facettes](search-faceted-navigation.md)
+### [Version préliminaire des synonymes](search-synonyms.md)
 
 # Référence
 ## [.NET](/dotnet/api/microsoft.azure.search)

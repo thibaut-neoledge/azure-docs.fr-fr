@@ -14,12 +14,15 @@
 ## Créer des modèles
 ### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Sections du modèle](resource-group-authoring-templates.md)
+### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
+### Boucle de copie pour créer plusieurs instances
+#### [Syntaxe de base](resource-group-create-multiple.md)
+#### [Boucle séquentielle](resource-manager-sequential-loop.md)
+#### [Copie de propriété](resource-manager-property-copy.md)
 ### [Définir un emplacement](resource-manager-template-location.md)
 ### [Assigner des balises](resource-manager-template-tags.md)
 ### [Définir un nom et un type de ressource enfant](resource-manager-template-child-resource.md)
-### [Créer plusieurs instances de types de ressource](resource-group-create-multiple.md)
-### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Partager l’état entre les modèles liés](best-practices-resource-manager-state.md)
 ### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
 ## Déployer

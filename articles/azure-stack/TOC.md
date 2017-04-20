@@ -15,7 +15,6 @@
 ### [Ajouter une image par défaut](azure-stack-add-default-image.md)
 ### [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
 ### [Créer un compte de stockage](azure-stack-provision-storage-account.md)
-### [Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
 ### [Redéployer Azure Stack POC](azure-stack-redeploy.md)
 
 # Gérer
@@ -31,15 +30,17 @@
 ## Procédures
 ### [Gérer les mises à jour](azure-stack-updates.md)
 ### [Surveiller l’intégrité et des alertes](azure-stack-monitor-health.md)
-### [Gérer les ressources réseau](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Gérer les ressources réseau](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Gérer les ressources de stockage](azure-stack-manage-storage-accounts.md)
 ### [Gérer les machines virtuelles Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Security & Compliance
 ## Procédures
 ### [Gérer RBAC](azure-stack-manage-permissions.md)
+### [Ajouter des utilisateurs pour Azure AD](azure-stack-add-new-user-aad.md)
 ### [Ajouter des utilisateurs pour AD FS](azure-stack-add-users-adfs.md)
 ### [Créer les principaux du service](Azure-stack-create-service-principals.md)
+### [Activer la mutualisation](azure-stack-enable-multitenancy.md)
 
 # Proposer des services
 ## Prise en main
