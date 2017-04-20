@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/09/2016
+ms.date: 04/19/2016
 ms.author: rsinha
 translationtype: Human Translation
 ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
 ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,10 +63,5 @@ Ce sous-système fournit une messagerie fiable au sein du cluster et la détecti
 
 ## <a name="testability-subsystem"></a>Sous-système de testabilité
 La testabilité est une suite d'outils conçus spécifiquement pour tester les services créés sur la plateforme Service Fabric. Les outils permettent à un développeur de provoquer facilement des erreurs significatives et d’exécuter des scénarios de test pour explorer et valider les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, de manière contrôlée et sécurisée. La testabilité fournit également un mécanisme permettant d’effectuer des tests de durée plus longue par itération dans le cadre de diverses défaillances possibles, sans aucune perte de disponibilité. Vous bénéficiez ainsi d’un environnement de test en production.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

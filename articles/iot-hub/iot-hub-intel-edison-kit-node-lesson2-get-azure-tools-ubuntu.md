@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: interface de ligne de commande azure, service cloud iot, cloud arduino
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 6dcb34bf-54a3-4af0-ba89-95d5cfafceff
 ms.service: iot-hub
 ms.devlang: nodejs
