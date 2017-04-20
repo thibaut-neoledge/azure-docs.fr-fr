@@ -148,7 +148,7 @@
 ### [Migrer un service Mobile Services existant vers App Service](app-service-mobile-migrating-from-mobile-services.md)
 ### Mettre à niveau un service Mobile Services existant vers App Service
 #### [Backend .NET](app-service-mobile-net-upgrading-from-mobile-services.md)
-#### [Back-end Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md) :
+#### [Back-end Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## [Sécuriser](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Sécurisation d'une application dans Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -201,7 +201,7 @@
 ## Résolution des problèmes
 ### Dépannage général pour Mobile Apps
 #### [Backend .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
-#### [Back-end Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging) 
+#### [Back-end Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
 ### [Activer la journalisation des diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Journaux en continu et console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
