@@ -1,4 +1,5 @@
-# [Vue d'ensemble](active-directory-developers-guide.md)
+# Vue d'ensemble
+## [Guide du développeur](active-directory-developers-guide.md)
 ## [Applications et Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Glossaire à l’intention des développeurs](active-directory-dev-glossary.md)
 ## [API Graph AAD](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [Instructions de personnalisation](active-directory-branding-guidelines.md)
 ## Utilisation de SAML
 ### [Azure AD et SAML](active-directory-saml-protocol-reference.md)
-### [Affichage SAML renvoyé par Access Control](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Personnaliser des revendications](active-directory-saml-claims-customization.md)
 ### [Déboguer l’authentification unique SAML](active-directory-saml-debugging.md)
 ### [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocole SAML de déconnexion unique](active-directory-single-sign-out-protocol-reference.md)
 ## Utilisation de Visual Studio
 ### [Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC.md)](vs-active-directory-dotnet-getting-started.md)
-### [Qu’est-il arrivé à mon projet MVC ](Visual Studio Azure Active Directory connected service.md)?(vs-active-directory-dotnet-what-happened
 ### [Erreur lors de la détection de l'authentification](vs-active-directory-error.md)
 ### [Prise en main de WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Qu’est-il arrivé à mon projet d’API web ?](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [Métadonnées de fédération](active-directory-federation-metadata.md)
 ### [OAuth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [Point de terminaison v2.0](active-directory-appmodel-v2-overview.md)
+### [Service aux appels de service](active-directory-protocols-oauth-service-to-service.md)
+# Point de terminaison v2.0
 ## [Vue d'ensemble](active-directory-appmodel-v2-overview.md)
 ### [Différences](active-directory-v2-compare.md)
 ### [Types d’applications](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## Référence
 ### [Informations de référence sur l’inscription des applications](active-directory-v2-registration-portal.md)
 ### [Bibliothèques d’authentification](active-directory-v2-libraries.md)
+### [Protocoles d’authentification v2.0](active-directory-v2-protocols.md)
+#### [Référence sur le jeton](active-directory-v2-tokens.md)
+#### [Flux du code d’autorisation OAuth2.0 ](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID connect](active-directory-v2-protocols-oidc.md)
+#### [Flux implicite](active-directory-v2-protocols-implicit.md)
+#### [Informations d’identification client Oauth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Étendues](active-directory-v2-scopes.md)
-### [Référence sur le jeton](active-directory-v2-tokens.md)
-### [OpenID connect](active-directory-v2-protocols-oidc.md)
-### [Flux implicite](active-directory-v2-protocols-implicit.md)
-### [Flux du code d’autorisation OAuth2.0 ](active-directory-v2-protocols-oauth-code.md)
-### [Informations d’identification client Oauth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-### [Oauth 2.0 et OpenID](active-directory-v2-protocols.md)
-### [Service aux appels de service](active-directory-protocols-oauth-service-to-service.md)
 # [Exemples](active-directory-code-samples.md)

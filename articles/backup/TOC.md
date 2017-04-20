@@ -76,6 +76,7 @@
 ## [Supprimer un coffre de Sauvegarde Azure](backup-azure-delete-vault.md)
 ## [Configurer la sauvegarde hors connexion](backup-azure-backup-import-export.md)
 ## [Remplacer votre bibliothèque de bandes](backup-azure-backup-cloud-as-tape.md)
+## [Sauvegardes cohérentes des applications des machines virtuelles Linux](backup-azure-linux-app-consistent.md)
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)

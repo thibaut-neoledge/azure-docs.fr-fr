@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [Vue d'ensemble](active-directory-b2c-overview.md)
 ## [Types d’applications](active-directory-b2c-apps.md)
-## [Clients de mise à l’échelle pour production et clients de versions préliminaires de B2C](active-directory-b2c-reference-tenant-type.md)
+## [Disponibilité des régions et résidence des données](active-directory-b2c-reference-tenant-type.md)
 
 # Prise en main
 ## [Créer un répertoire Azure AD B2C](active-directory-b2c-get-started.md)

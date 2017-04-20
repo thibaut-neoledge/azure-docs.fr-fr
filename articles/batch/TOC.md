@@ -25,6 +25,16 @@
 ### [Applets de commande PowerShell pour Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interface de ligne de commande Azure](batch-cli-get-started.md)
 ### [Journaux de diagnostic de Batch](batch-diagnostics.md)
+### [Analyse en mode batch](batch-analytics.md)
+#### [Événement de création de pool](batch-pool-create-event.md)
+#### [Événement de démarrage de suppression de pool](batch-pool-delete-start-event.md)
+#### [Événement de fin de suppression de pool](batch-pool-delete-complete-event.md)
+#### [Événement de démarrage de redimensionnement de pool](batch-pool-resize-start-event.md)
+#### [Événements de fin de redimensionnement de pool](batch-pool-resize-complete-event.md)
+#### [Événement de lancement de tâche](batch-task-start-event.md)
+#### [Événement de fin de tâche](batch-task-complete-event.md)
+#### [Événement d’échec de tâches](batch-task-fail-event.md)
+### [Variables d’environnement de nœud de calcul Azure Batch](batch-compute-node-environment-variables.md)
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

@@ -24,7 +24,7 @@
 ### [Migrer vers le portail des partenaires cloud](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ## [Guide du vendeur Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
-## [Gestion des prospects marketing](./cloud-partner-portal-marketing-lead-management.md)
+## [Obtenir des prospects](./cloud-partner-portal-get-customer-leads.md)
 ### [Table Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -32,5 +32,4 @@
 
 ## [Gérer le profil Éditeur](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Gestion des utilisateurs](./cloud-partner-portal-manage-users.md)
-## [Envoyer des commentaires](./cloud-partner-portal-give-feedback.md)
 ## [Obtenir de l'aide](./cloud-partner-portal-support-for-cloud-partner-portal.md)
