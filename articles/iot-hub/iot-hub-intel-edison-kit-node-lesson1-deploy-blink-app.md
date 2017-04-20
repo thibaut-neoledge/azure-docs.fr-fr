@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: projets de led arduino, clignotement de led arduino, code de clignotement de led arduino, programme de clignotement arduino, exemple de clignotement arduino
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: ed2c21d0-c72c-4ac2-9e70-347e9a0711c0
 ms.service: iot-hub
 ms.devlang: nodejs

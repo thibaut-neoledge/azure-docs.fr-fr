@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "contrôler la led avec raspberry pi, contrôle de la led raspberry pi, raspberry pi contrôle de la led"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 0201b8ed-d5e6-4445-9a4d-1305003d1eff
 ms.service: iot-hub
 ms.devlang: c

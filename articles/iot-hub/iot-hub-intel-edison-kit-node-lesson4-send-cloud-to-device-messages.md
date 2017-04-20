@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "contrôle de la led avec arduino à partir du web, contrôle de la led avec arduino via le web"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: bc738bf6-e38d-4024-82d7-39b6c2d4bacb
 ms.service: iot-hub
 ms.devlang: nodejs
