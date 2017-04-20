@@ -29,7 +29,7 @@ Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par 
 ## <a name="numeric-functions"></a>Fonctions numériques
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
-* [ajouter](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
 * [int](#int)
@@ -278,7 +278,7 @@ L’exemple suivant soustrait un paramètre à un autre paramètre.
 }
 ```
 
-## <a name="string-functions"></a>Fonctions de chaîne
+## <a name="string-functions"></a>Fonctions sur les chaînes de caractères
 Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
 * [base64](#base64)
@@ -293,7 +293,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [take](#takestring)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [découper](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
 
@@ -656,7 +656,7 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 
 <a id="trim" />
 
-### <a name="trim"></a>découper
+### <a name="trim"></a>trim
 `trim (stringToTrim)`
 
 Supprime tous les espaces de début et de fin de la chaîne indiquée.
@@ -1094,7 +1094,7 @@ L’objet renvoyé par listKeys a le format suivant :
 
 <a id="providers" />
 
-### <a name="providers"></a>fournisseurs
+### <a name="providers"></a>providers
 `providers (providerNamespace, [resourceType])`
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction renvoie tous les types pris en charge pour le fournisseur de ressources.
@@ -1296,7 +1296,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 <a id="subscription" />
 
-### <a name="subscription"></a>abonnement
+### <a name="subscription"></a>subscription
 `subscription()`
 
 Renvoie des détails sur l’abonnement au format suivant :
