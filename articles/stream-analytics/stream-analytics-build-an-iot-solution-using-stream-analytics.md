@@ -129,10 +129,10 @@ Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](ht
 > 
 > 
 
-Pour tirer pleinement parti de votre crédit Azure gratuit d’une valeur de&200; $, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet exercice.
+Pour tirer pleinement parti de votre crédit Azure gratuit d’une valeur de 200 $, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet exercice.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Configurer les ressources Azure nécessaires pour le didacticiel
-Ce didacticiel nécessite que vous disposiez de&2; concentrateurs d’événements pour la réception des flux de données *d’entrée* et de *sortie*. Azure SQL Database produit les résultats des travaux Stream Analytics. Stockage Azure stocke les données de référence sur les inscriptions de véhicules.
+Ce didacticiel nécessite que vous disposiez de 2 concentrateurs d’événements pour la réception des flux de données *d’entrée* et de *sortie*. Azure SQL Database produit les résultats des travaux Stream Analytics. Stockage Azure stocke les données de référence sur les inscriptions de véhicules.
 
 Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes les ressources nécessaires. Pour gagner du temps, nous vous recommandons de l’exécuter. Pour plus d’informations sur la configuration de ces ressources dans le portail Azure, consultez l’annexe « Configuration des ressources du didacticiel dans le portail Azure ».
 
@@ -255,7 +255,7 @@ Toutefois, si vous êtes intéressé par les détails de l’implémentation, le
 6. La Source est **Event Hub**.
 7. L’**Espace de noms Service Bus** doit être le premier TollData dans la liste déroulante.
 8. Le **Nom du hub d’événements** doit être défini sur **entrée**.
-9. Le **Nom de la stratégie du hub d’événements* est * *RootManageSharedAccessKey** (valeur par défaut).
+9. Le **Nom de la stratégie du hub d’événements* est* *RootManageSharedAccessKey** (valeur par défaut).
 10. Sélectionnez **JSON** pour l’option **Format de sérialisation de l’événement**, et **UTF8** pour **Encodage**.
    
     Vos paramètres ressemblent à ceci :
