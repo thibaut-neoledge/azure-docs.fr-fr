@@ -205,7 +205,7 @@ Pour activer l’affichage de vos sorties dans le portail, vous devez respecter 
 2. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque de conventions de fichier. Si vous utilisez la bibliothèque [Azure Batch File Conventions][nuget_package] pour conserver votre sortie, cette exigence est satisfaite.
 
 ### <a name="view-outputs-in-the-portal"></a>Afficher les sorties dans le portail
-Pour afficher les sorties des tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID «&007; » :
+Pour afficher les sorties des tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
 
 ![Panneau des sorties des tâches dans le Portail Azure][2]
 
@@ -215,7 +215,7 @@ L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [ex
 1. Ouvrez le projet dans **Visual Studio 2015 ou version ultérieure**.
 2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.
 3. **Générez** la solution sans l’exécuter. Restaurez les packages NuGet si vous y êtes invité.
-4. Utilisez le portail Azure pour charger un [package d’application](batch-application-packages.md) pour **PersistOutputsTask**. Insérez le fichier `PersistOutputsTask.exe` et ses assemblys dépendants dans le package .zip, puis définissez l’ID de l’application sur PersistOutputsTask et la version du package d’application sur&1;.0.
+4. Utilisez le portail Azure pour charger un [package d’application](batch-application-packages.md) pour **PersistOutputsTask**. Insérez le fichier `PersistOutputsTask.exe` et ses assemblys dépendants dans le package .zip, puis définissez l’ID de l’application sur PersistOutputsTask et la version du package d’application sur 1.0.
 5. **Démarrez** (exécutez) le projet **PersistOutputs**.
 
 ## <a name="next-steps"></a>Étapes suivantes

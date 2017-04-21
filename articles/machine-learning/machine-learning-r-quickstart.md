@@ -157,7 +157,7 @@ Maintenant que Machine Learning Studio contient des données, nous devons créer
 * Glissez-déplacez le **jeu de données csdairydata.csv** vers l’expérimentation.
 * Dans la zone **Search experiment items** (Rechercher dans les éléments de l’expérimentation) en haut du volet gauche, tapez [Execute R Script][execute-r-script] (Exécution de script R). Le module s'affiche alors dans la liste de recherche.
 * Glissez-déplacez le module [d’exécution de script R][execute-r-script] vers votre palette.  
-* Reliez la sortie du **jeu de données csdairydata.csv** à la première entrée (**Jeu de données&1;**) du module [d’exécution de script R][execute-r-script] en partant de la gauche.
+* Reliez la sortie du **jeu de données csdairydata.csv** à la première entrée (**Jeu de données 1**) du module [d’exécution de script R][execute-r-script] en partant de la gauche.
 * **N’oubliez pas de cliquer sur « Save » (Enregistrer) !**  
 
 À ce stade, votre expérimentation doit être similaire à la figure 3.
@@ -1249,7 +1249,7 @@ Quelques ressources Internet particulièrement utiles :
 * DataCamp : apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez le didacticiel R interactif gratuit à l’adresse https://www.datacamp.com/courses/introduction-to-r
 * Guide de prise en main de R à partir de Programiz https://www.programiz.com/r-programming
 * Un bref didacticiel sur le langage R par Kelly Black de l’Université de Clarkson : http://www.cyclismo.org/tutorial/R/
-* Plus de&60; ressources sur le langage R : http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* Plus de 60 ressources sur le langage R : http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png

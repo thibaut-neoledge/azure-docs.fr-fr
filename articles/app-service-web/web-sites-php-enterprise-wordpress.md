@@ -181,7 +181,7 @@ Une fois que le site WordPress a été créé ou migré, utilisez les informatio
 * [Activation de permaliens conviviaux dans WordPress](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 * [Migration et exécution de votre blog WordPress dans Azure App Service](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 * [Exécution gratuite de WordPress dans Azure App Service](http://architects.dzone.com/articles/how-run-wordpress-azure)
-* [WordPress sur Azure en moins de&2; minutes](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
+* [WordPress sur Azure en moins de 2 minutes](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 * [Déplacement d'un blog WordPress vers Azure - partie 1 : création d'un blog WordPress sur Azure](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 * [Déplacement d’un blog WordPress vers Azure - Partie 2 : transfert de votre contenu](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
 * [Déplacement d'un blog WordPress vers Azure - partie 3 : configuration de votre domaine personnalisé](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)

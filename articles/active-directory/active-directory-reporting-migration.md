@@ -47,7 +47,7 @@ Les rapports suivants sont consolidés dans cette vue :
 -     Activité de réinitialisation de mot de passe
 -     Activité de l’enregistrement de la réinitialisation de mot de passe
 -     Activité de groupes en libre-service
--     Changements de nom de groupe d’Office&365;
+-     Changements de nom de groupe d’Office 365
 -     Activité d’approvisionnement de compte
 -     État de substitution de mot de passe
 -     Erreurs de configuration de compte
@@ -145,7 +145,7 @@ Pour afficher toutes les données d’audit, dans le panneau **Azure Active Dire
 | Activité d’approvisionnement de compte        | Pour **Catégorie d’activité**, sélectionnez **Approvisionnement des utilisateurs de comptes**.         |
 | État de substitution de mot de passe             | Pour **Catégorie d’activité**, sélectionnez **Substitution automatique de mot de passe d’application**.      |
 | Erreurs de configuration de compte          | Pour **Catégorie d’activité**, sélectionnez **Approvisionnement des utilisateurs de comptes**.        |
-| Changements de nom de groupe d’Office&365;         | Pour **Catégorie d’activité**, sélectionnez **Gestion des mots de passe en libre-service**. Pour **Type de ressource activité**, sélectionnez **Groupe**. Pour **Source de l’activité**, sélectionnez **Groupes O365**.|
+| Changements de nom de groupe d’Office 365         | Pour **Catégorie d’activité**, sélectionnez **Gestion des mots de passe en libre-service**. Pour **Type de ressource activité**, sélectionnez **Groupe**. Pour **Source de l’activité**, sélectionnez **Groupes O365**.|
 
 Pour afficher le rapport **d’utilisation des applications**, dans le panneau **Azure Active Directory**, sous **Gérer**, sélectionnez **Applications d’entreprise**, puis **Connexions**.
 

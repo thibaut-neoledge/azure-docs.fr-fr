@@ -48,8 +48,8 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 | DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
 | DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
 | DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
-| DW3000 |22,5 |60 |1&350; |90&000;&000; |5&400;&000;&000; |
-| DW6000 |45 |60 |2&700; |180&000;&000; |10&800;&000;&000; |
+| DW3000 |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
+| DW6000 |45 |60 |2 700 |180 000 000 |10 800 000 000 |
 
 La limite de taille de transaction est appliquée par transaction ou opération. Elle n’est pas appliquée à toutes les transactions simultanées. Par conséquent, chaque transaction est autorisée à écrire cette quantité de données dans le journal. 
 

@@ -58,7 +58,7 @@ En alternative à l'exigence de déploiement d'infrastructure à clé publique, 
 
 Pour permettre un accès conditionnel, vous pouvez créer des paramètres de stratégie de groupe qui autorisent l’accès aux appareils joints au domaine sans déploiements supplémentaires. Pour gérer le contrôle d’accès basé sur la conformité de l’appareil, vous aurez besoin des éléments suivants :
 
-* System Center Configuration Manager Current Branch (version&1606; ou ultérieure) pour les scénarios Windows Hello Entreprise
+* System Center Configuration Manager Current Branch (version 1606 ou ultérieure) pour les scénarios Windows Hello Entreprise
 
 ## <a name="deployment-instructions"></a>Instructions de déploiement
 
