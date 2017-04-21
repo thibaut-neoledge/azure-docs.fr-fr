@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 139980b62aee440ac5f4160e83c7a5eafb32eec2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -145,10 +146,5 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Résolution des problèmes de reformation d’un service web Azure Machine Learning classique](machine-learning-troubleshooting-retraining-models.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
