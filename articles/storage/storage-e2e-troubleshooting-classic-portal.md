@@ -315,7 +315,7 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux de suivi du serveur et du réseau pour rechercher les erreurs 404 et l'autre qui filtre les données sur une période spécifiée.
 
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)**, puis **View Filter (Filtre d’affichage)**.
-2. Dans la fenêtre View Filter (Filtre d’affichage), sélectionnez **Library (Bibliothèque)** et effectuez une recherche sur `Azure Storage` pour trouver les filtres Azure Storage. Sélectionnez le filtre pour **Messages&404; (Introuvable) dans tous les journaux**.
+2. Dans la fenêtre View Filter (Filtre d’affichage), sélectionnez **Library (Bibliothèque)** et effectuez une recherche sur `Azure Storage` pour trouver les filtres Azure Storage. Sélectionnez le filtre pour **Messages 404 (Introuvable) dans tous les journaux**.
 3. Affichez de nouveau le menu **Library (Bibliothèque)**, puis localisez et sélectionnez **Global Time Filter (Filtre de temps global)**.
 4. Modifiez l'horodatage indiqué dans le filtre en indiquant la plage que vous souhaitez afficher. Cela vous aidera à limiter la plage de données à analyser.
 5. Le filtre doit apparaître comme dans l'exemple ci-dessous. Cliquez sur **Appliquer** pour appliquer le filtre à la grille d'analyse.

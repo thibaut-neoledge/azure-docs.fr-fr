@@ -29,7 +29,7 @@ Les éléments suivants sont conçus pour vous aider dans vos recherches et conc
 * Éléments d’infographie relatifs à l’architecture
 * Plans d’architecture
 * Jeu de symboles Cloud et Enterprise
-* Modèle&3;D Blueprint Visio
+* Modèle 3D Blueprint Visio
 
 ## <a name="architectural-infographics"></a>Éléments d’infographie relatifs à l’architecture
 Microsoft publie plusieurs affiches/éléments d’infographie relatifs à l’architecture. À savoir :
@@ -48,7 +48,7 @@ Chaque plan inclut les éléments suivants :
 ## <a name="cloud-and-enterprise-symbol-set"></a>Jeu de symboles Cloud et Enterprise
 [Visionnez la vidéo de formation sur Visio et les symboles](http://aka.ms/CnESymbolsVideo), puis [téléchargez le jeu de symboles Cloud et Enterprise](http://aka.ms/CnESymbols) pour créer des documents techniques qui décrivent Azure, Windows Server, SQL Server, etc. Vous pouvez utiliser les symboles dans les diagrammes d’architecture, les supports de formation, les présentations, les fiches techniques, les infographies, les livres blancs et même les ouvrages tiers si le livre est destiné à former des personnes à l’utilisation des produits Microsoft. Toutefois, ils ne sont pas destinés à être utilisés dans les interfaces utilisateur.
 
-## <a name="3d-blueprint-visio-template"></a>Modèle&3;D Blueprint Visio
+## <a name="3d-blueprint-visio-template"></a>Modèle 3D Blueprint Visio
 Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 (et versions ultérieures) a été publié le 5 août 2015 dans le cadre d’un [cours de certification d’architecture Microsoft distribué sur EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 Le modèle est également disponible en dehors du cours.

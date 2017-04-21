@@ -119,7 +119,7 @@ Après avoir réalisé la sauvegarde initiale, la stratégie de sauvegarde crée
 6. Cliquez sur **Next**.
 7. Sur la page **Spécifier une planification de la sauvegarde**, spécifiez la **planification de la sauvegarde**, puis cliquez sur **Suivant**.
 
-    Vous pouvez planifier des sauvegardes quotidiennes (au maximum&3; fois par jour) ou hebdomadaires.
+    Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
 
     ![Éléments de sauvegarde de Windows Server](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 

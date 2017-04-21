@@ -101,7 +101,7 @@ class Program
 ## <a name="other-methods"></a>Autres méthodes
 * [Interface de ligne de commande Azure](../cli-install-nodejs.md)
   
-    Lors du chargement de l’objet blob, définissez la propriété *cacheControl* à l’aide du switch `-p`.  Cet exemple définit la durée de vie sur une heure (3&600; secondes).
+    Lors du chargement de l’objet blob, définissez la propriété *cacheControl* à l’aide du switch `-p`.  Cet exemple définit la durée de vie sur une heure (3 600 secondes).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt

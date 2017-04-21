@@ -106,7 +106,7 @@ La chaîne de connexion est au format MongoDB standard :
 > 
 > 
 
-Saisissez le nom de la collection depuis laquelle les données seront importées. Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête (par exemple, {pop: {$gt:&5000;}} ) et/ou une projection (par exemple, {loc:0} ) pour filtrer et mettre en forme les données à importer.
+Saisissez le nom de la collection depuis laquelle les données seront importées. Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête (par exemple, {pop: {$gt: 5000}} ) et/ou une projection (par exemple, {loc:0} ) pour filtrer et mettre en forme les données à importer.
 
 Voici quelques exemples de ligne de commande pour l’importation depuis MongoDB :
 
@@ -410,7 +410,7 @@ Pour importer dans seule collection, entrez le nom de la collection dans laquell
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
 3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1] [0-9] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
 
-Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit >&10;&000; RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, vous devrez envoyer une demande d’augmentation de votre compte dans le portail.
+Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit > 10 000 RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, vous devrez envoyer une demande d’augmentation de votre compte dans le portail.
 
 > [!NOTE]
 > Le paramètre de débit s’applique uniquement à la création de collections. Si la collection spécifiée existe déjà, son débit ne sera pas modifié.

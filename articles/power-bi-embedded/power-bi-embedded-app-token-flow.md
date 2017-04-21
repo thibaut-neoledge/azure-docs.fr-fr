@@ -42,7 +42,7 @@ Votre jeton d’application peut contenir les revendications suivantes :
 
 | Revendication | Description |
 | --- | --- |
-| **ver** |Version de jeton d’application. La version actuelle est&0;.2.0. |
+| **ver** |Version de jeton d’application. La version actuelle est 0.2.0. |
 | **aud** |Destinataire du jeton. Pour Power BI Embedded, utilisez : https://analysis.windows.net/powerbi/api. |
 | **iss** |Chaîne indiquant l’application qui a émis le jeton. |
 | **type** |Type de jeton d’application en cours de création. Le seul type pris en charge pour l’instant est **embed**. |
