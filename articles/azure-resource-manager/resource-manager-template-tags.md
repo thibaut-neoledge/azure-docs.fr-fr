@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: cec255f5bf017c98fbd1f198a78dfb963acc3cd0
 ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -30,10 +31,5 @@ ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations sur la gestion des balises, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
