@@ -1,8 +1,3 @@
 ## <a name="pricing"></a>Tarification
 
 Le service Azure Batch est gratuit ; vous n’êtes pas facturé pour le compte Batch lui-même. En revanche, vous êtes facturé pour les ressources de calcul Azure que vos solutions Batch consomment, ainsi que pour les ressources utilisées par d’autres services pendant l’exécution de vos charges de travail. Par exemple, vous êtes facturé pour les nœuds de calcul dans vos pools et pour les données que vous stockez dans Azure Storage comme entrées ou sorties de vos tâches. De même, si vous utilisez la fonctionnalité des [packages d’application](../articles/batch/batch-application-packages.md) , vous êtes facturé pour les ressources Azure Storage utilisées pour stocker les versions de vos packages d’application. Pour en savoir plus, consultez la page de [tarification du service Batch](https://azure.microsoft.com/pricing/details/batch/).
-
-
-<!--HONumber=Dec16_HO3-->
-
-
