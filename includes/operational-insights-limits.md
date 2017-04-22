@@ -28,8 +28,3 @@ Les limites suivantes s’appliquent à chaque espace de travail Log Analytics�
 | API du collecteur de données | La taille maximale d’une publication est de 30 Mo<br>La taille maximale des valeurs de champ est de 32 Ko | Fractionner les volumes plus importants en plusieurs publications<br>Les champs de plus de 32 Ko de champs sont tronqués. |
 | API de recherche | 5 000 enregistrements renvoyés pour des données non agrégées<br>500 000 enregistrements pour des données agrégées | La recherche de données agrégées inclut la commande `measure`
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-
