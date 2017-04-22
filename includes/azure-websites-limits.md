@@ -38,8 +38,3 @@
 <sup>9</sup>Exécution d’exécutables et/ou de scripts personnalisés à la demande, de manière programmée ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Azure Scheduler (version Gratuite ou Standard) est nécessaire aux tâches web programmées. Aucune limite n’est prédéfinie quant au nombre de tâches web pouvant s’exécuter dans une instance App Service ; par contre, il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.   
 <sup>10</sup>Contrat de niveau de service de 99,95 % pour les déploiements qui utilisent plusieurs instances avec Azure Traffic Manager configuré pour le basculement.  
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
