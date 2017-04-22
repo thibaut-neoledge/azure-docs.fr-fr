@@ -231,7 +231,7 @@ Spécifiez l’option `--app-package-ref` lors de la création d’un pool pour 
 
     azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Lorsque vous créez un pool à l’aide des options de ligne de commande, vous ne pouvez pas pour le moment spécifier *quelle* version de package d’application déployer sur les nœuds de calcul, par exemple «&1;.10-beta3 ». Par conséquent, vous devez spécifier une version par défaut de l’application avec `azure batch application set [options] --default-version <version-id>` avant de créer le pool (voir la section précédente). Vous pouvez toutefois spécifier une version de package pour le pool si vous utilisez un [fichier JSON](#json-files) à la place des options de ligne de commande lorsque vous créez le pool.
+Lorsque vous créez un pool à l’aide des options de ligne de commande, vous ne pouvez pas pour le moment spécifier *quelle* version de package d’application déployer sur les nœuds de calcul, par exemple « 1.10-beta3 ». Par conséquent, vous devez spécifier une version par défaut de l’application avec `azure batch application set [options] --default-version <version-id>` avant de créer le pool (voir la section précédente). Vous pouvez toutefois spécifier une version de package pour le pool si vous utilisez un [fichier JSON](#json-files) à la place des options de ligne de commande lorsque vous créez le pool.
 
 Pour plus d’informations sur les packages d’application, consultez [Déploiement d’applications avec des packages d’application Azure Batch](batch-application-packages.md).
 
