@@ -5,9 +5,3 @@ Dans le portail Azure, vous pouvez afficher l’état de la connexion d’une p
 3. Cliquez sur le nom de la connexion que vous souhaitez vérifier pour ouvrir **Essentials**. Dans Essentials, vous pouvez afficher plus d’informations sur la connexion. Ce **champ** indique « Opération réussie » et « Connecté » lorsqu’une connexion a été établie.
    
     ![Vérifier la connexion de la passerelle VPN à l’aide du portail Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-
