@@ -9,8 +9,3 @@
 | Verrouiller le compte d'utilisateur après **X** refus MFA consécutifs |Non défini |99 |
 | Réinitialiser le compteur de verrouillage du compte après **X** minutes |Non défini |9 999 |
 | Déverrouiller le compte après **X** minutes |Non défini |9 999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-
