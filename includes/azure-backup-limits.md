@@ -10,8 +10,3 @@ Les limites suivantes s’appliquent à la sauvegarde Azure.
 
 * <sup>1</sup>La limite de 54 400 Go ne s’applique pas à la sauvegarde de la machine virtuelle IaaS.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
