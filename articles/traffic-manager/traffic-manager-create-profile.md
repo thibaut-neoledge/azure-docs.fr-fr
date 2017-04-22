@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
@@ -39,7 +39,7 @@ Dans cet article, deux points de terminaison Azure Web Apps créés précédemme
     6. Cliquez sur **Create**.
     7. Lorsque le déploiement global de votre profil Traffic Manager est terminé, il est répertorié comme l’une des ressources dans le groupe de ressources respectif.
 
-![Créer un profil Traffic Manager](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Créer un profil Traffic Manager](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
@@ -57,7 +57,7 @@ Dans cet article, deux points de terminaison Azure Web Apps créés précédemme
 5.    Répétez les étapes 3 et 4 pour le prochain point de terminaison Azure Web Apps. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
 6.    Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
 
-![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Utiliser le profil Traffic Manager
 1.    Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente. Dans les résultats affichés, cliquez sur le profil Traffic Manager.

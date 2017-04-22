@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -36,37 +37,53 @@ Vous pouvez également ouvrir cette boîte de dialogue à partir du lien **Compt
 
 ## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>Pour importer vos comptes de stockage à l'aide d'un fichier de paramètres de publication
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur **Importer à partir du fichier PUBLISH-SETTINGS**.
+
 2. (Ignorez cette étape si vous avez déjà enregistré un fichier de paramètres de publication sur votre ordinateur local). Dans la boîte de dialogue **Importer les informations d’abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n’êtes pas encore connecté à votre compte Azure, vous y êtes maintenant invité. Vous serez ensuite invité à enregistrer un fichier de paramètres de publication Azure. (Vous pouvez ignorer les instructions affichées sur les pages d'ouverture de session ; elles sont fournies par le portail Azure et sont destinées aux utilisateurs de Visual Studio.) Enregistrez-le sur votre ordinateur local.
+
 3. Toujours dans la boîte de dialogue **Importer les informations d’abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres que vous avez enregistré localement, puis cliquez sur **Ouvrir**.
+
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Importer les informations d’abonnement**.
 
 ## <a name="to-create-a-new-storage-account"></a>Pour créer un compte de stockage
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur **Ajouter**.
+
 2. Dans la boîte de dialogue **Ajouter un compte de stockage**, cliquez sur **Nouveau**.
+
 3. Dans la boîte de dialogue **Nouveau compte de stockage** , entrez des valeurs pour les éléments suivants :
+
    * Nom du compte de stockage.
+
    * Emplacement du compte de stockage.
+
    * Description du compte de stockage.
+
    * Abonnement auquel appartient le compte de stockage.
+
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Nouveau compte de stockage**.
 
 La création de votre compte de stockage peut prendre plusieurs minutes. Après sa création, cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un compte de stockage** : votre compte de stockage sera ajouté à la liste des comptes de stockage disponibles.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>Pour ajouter un compte de stockage existant à la liste
 1. Si vous ne disposez pas déjà d'un compte de stockage Azure, créez-en un en suivant les étapes indiquées dans la section **Pour créer un compte de stockage** ci-dessus. (Vous pouvez aussi créer un compte de stockage dans le [portail de gestion Azure][Azure Management Portal].)
+
 2. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur **Ajouter**.
+
 3. Dans la boîte de dialogue **Ajouter un compte de stockage**, entrez des valeurs pour le **nom** et la **clé d’accès**. La clé d'accès et le nom de compte doivent être ceux d'un compte de stockage Azure existant. Utilisez la section **Stockage** du [portail de gestion Azure][Azure Management Portal] pour afficher les noms et les clés de votre compte de stockage. La boîte de dialogue **Ajouter un compte de stockage** doit avoir l'aspect suivant.
    
-    ![][ic719497]
+   ![][ic719497]
+
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un compte de stockage**.
 
 ## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>Pour modifier un compte de stockage pour utiliser une nouvelle clé d'accès
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur le compte de stockage que vous souhaitez modifier, puis cliquez sur **Modifier**.
+
 2. Dans la boîte de dialogue **Modifier la clé d’accès du compte de stockage**, modifiez la valeur **Clé d’accès**.
+
 3. Cliquez sur **OK** pour fermer la boîte de dialogue **Modifier la clé d’accès du compte de stockage**.
 
 ## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>Pour supprimer un compte de stockage dans la liste d'Eclipse
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur le compte de stockage que vous souhaitez modifier, puis cliquez sur **Supprimer**.
+
 2. Cliquez sur **OK** lorsque vous êtes invité à supprimer le compte de stockage.
 
 > [!NOTE]
@@ -98,9 +115,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
