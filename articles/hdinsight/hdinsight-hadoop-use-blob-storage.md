@@ -18,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -106,6 +106,9 @@ Le conteneur d’objets blob par défaut stocke les informations spécifiques de
 Lorsque vous créez un cluster HDInsight à partir du portail, vous avez la possibilité (comme indiqué ci-dessous) de fournir les détails du compte de stockage. Vous pouvez également spécifier si vous souhaitez un compte de stockage supplémentaire associé au cluster et, si c’est le cas, choisir Data Lake Store ou un autre Azure Storage Blob en tant que stockage supplémentaire.
 
 ![source de données de création hadoop HDInsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
 #### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -285,6 +288,8 @@ $clusterName = "<HDInsightClusterName>"
 
 Lors de la création d’un cluster HDInsight, vous spécifiez le compte de stockage Azure que vous souhaitez lui associer. Outre ce compte de stockage, vous pouvez en ajouter d’autres à partir du même abonnement Azure ou à partir d’autres abonnements Azure pendant le processus de création ou à l’issue de la création d’un cluster. Pour en savoir plus sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Utilisation d’Azure Data Lake Store avec des clusters HDInsight
 

@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ En cliquant sur un élément dans la vue sous forme de liste, vous pouvez obteni
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’audit à l’aide des champs suivants :
 
 - Plage de dates
-- Initié par
-- Catégorie
+- Initié par (intervenant)
 - Catégorie
 - Type de ressource d’activité
 - Activité
@@ -311,7 +310,7 @@ Les rapports d’audit basés sur les applications vous permettent d’obtenir d
 * Les noms des applications ont-ils été modifiés ?
 * Qui a donné son consentement à une application ?
 
-Si vous souhaitez simplement consulter les données d’audit connexes à vos applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** du panneau **Applications d’entreprise**. Dans ce point d’entrée, **Application** est présélectionné comme **Type de ressource d’activité**.
+Si vous souhaitez simplement consulter les données d’audit connexes à vos applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** du panneau **Applications d’entreprise**. Dans ce point d’entrée, **Applications d’entreprise** est présélectionné comme **Type de ressource d’activité**.
 
 ![Journaux d’audit](./media/active-directory-reporting-activity-audit-logs/134.png "Journaux d’Audit")
 

@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**.
+3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**.
 
    ![informations de connexion](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Se connecter au serveur et à votre base de données
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Se connecter à votre base de données sur le serveur logique SQL Database
 
 Utilisez SQL Server Management Studio pour établir une connexion à votre serveur de base de données SQL Azure. 
 
@@ -65,7 +66,7 @@ Utilisez SQL Server Management Studio pour établir une connexion à votre serve
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Cliquez sur **Options**. Dans la section **Se connecter à la base de données**, entrez **mySampleDatabase** pour vous connecter à cette base de données que vous avez créée précédemment.
+3. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans la section **Se connecter à la base de données**, entrez **mySampleDatabase** pour vous connecter à cette base de données.
 
    ![connexion à la base de données sur le serveur](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Utilisez SQL Server Management Studio pour établir une connexion à votre serve
 
    ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. Dans l’Explorateur d’objets, développez **Bases de données**, puis **mySampleDatabase** pour afficher les objets dans la base de données exemple.
+5. Dans l’Explorateur d’objets, développez **Bases de données**, puis **mySampleDatabase** pour afficher les objets dans la base de données exemple.
 
 ## <a name="query-data"></a>Données de requête
 
@@ -91,7 +92,7 @@ Utilisez l’instruction Transact-SQL [SELECT](https://msdn.microsoft.com/librar
 
 3. Dans la barre d’outils, cliquez sur **Exécuter** pour récupérer des données à partir des tables Product et ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Insertion des données
 
@@ -158,10 +159,10 @@ Utilisez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/librar
 
 - Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de .NET, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de PHP, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Node.js, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Java, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Python, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Ruby, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+- Pour vous connecter et exécuter des requêtes avec .NET, consultez la page [Se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
+- Pour vous connecter et exécuter des requêtes avec PHP, consultez la page [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
+- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
+- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
+- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
+- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 

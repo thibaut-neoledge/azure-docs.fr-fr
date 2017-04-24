@@ -1,4 +1,4 @@
-Vous pouvez utiliser la commande `Get-AzureVNetConnection` pour vérifier la connexion à une passerelle de réseau virtuel classique. 
+Vous pouvez utiliser la commande **Get-AzureVNetConnection** pour vérifier la connexion à une passerelle de réseau virtuel classique. 
 
 1. Utilisez l’exemple d’applet de commande suivant, en configurant les valeurs sur les vôtres. Le nom du réseau virtuel doit être placé entre guillemets s’il contient des espaces.
 

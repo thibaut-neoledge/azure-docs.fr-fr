@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: ace9fc76cd1f007ffbee1dbc3df3e91858f35b93
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 91ef7f432d0954cc8456e5d98c48943aa0ad72a7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 04/04/2017
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide détaille l’utilisation de PowerShell pour la création d’une machine virtuelle Azure exécutant Windows Server 2016.  Une fois le déploiement terminé, connectez-vous au serveur et installez IIS.  
 
-Avant de commencer, assurez-vous que la dernière version du module Azure PowerShell est installée. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Assurez-vous également que la dernière version du module Azure PowerShell est installée. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 

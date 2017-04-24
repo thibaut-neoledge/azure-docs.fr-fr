@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d131a13d0d347a676c3cff0d668034ffc9373e4c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
+ms.lasthandoff: 04/12/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Windows avec l’interface Azure CLI
 
-L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de l’interface de ligne de commande Azure pour le déploiement d’une machine virtuelle Azure exécutant Windows Server 2016. Une fois le déploiement terminé, connectez-vous au serveur et installez les services IIS.
+L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de l’interface de ligne de commande Azure pour le déploiement d’une machine virtuelle Azure exécutant Windows Server 2016. Une fois le déploiement terminé, connectez-vous au serveur et installez IIS.
 
-Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Assurez-vous également que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
@@ -98,11 +98,11 @@ Maintenant que vous êtes connecté à la machine virtuelle Azure, vous pouvez u
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
+## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Une fois IIS installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil IIS par défaut. Veillez à utiliser le `publicIpAddress` décrit ci-dessus pour vous rendre sur la page par défaut. 
+Une fois IIS installé et le port 80, ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web pour afficher la page d’accueil IIS par défaut. Veillez à utiliser la valeur `publicIpAddress` indiquée ci-dessus pour accéder à la page par défaut. 
 
-![Site par défaut IIS](./media/quick-create-powershell/default-iis-website.png) 
+![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle
 
 Lorsque vous n’en avez plus besoin, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.

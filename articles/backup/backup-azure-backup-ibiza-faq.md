@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,6 +40,7 @@ Les coffres Recovery Services prennent en charge les deux modèles.  Vous pouvez
 Les sauvegardes de machines virtuelles en mode Classic dans le code Azure Backup ne sont pas migrées automatiquement vers le coffre Recovery Services, lorsque vous migrez les machines virtuelles du mode Classic vers le mode Resource Manager. Pour migrer des sauvegardes de machines virtuelles, procédez comme suit :
 
 1. Dans le coffre Azure Backup, accédez à l’onglet **Éléments protégés** et sélectionnez la machine virtuelle. Cliquez sur [Arrêter la protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
-2. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que le stockage et le réseau correspondant à la machine virtuelle sont également migrés vers le mode Resource Manager.
-3. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée, à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. En savoir plus sur la [sauvegarde dans le coffre Recovery Services](backup-azure-vms-first-look-arm.md)
+2. Dans le [portail Azure](https://portal.azure.com), accédez au menu **Extensions** de la machine virtuelle et désinstallez l’extension **VMSnapshot/VMSnapshotLinux**.
+3. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que le stockage et le réseau correspondant à la machine virtuelle sont également migrés vers le mode Resource Manager.
+4. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée, à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. En savoir plus sur la [sauvegarde dans le coffre Recovery Services](backup-azure-vms-first-look-arm.md)
 

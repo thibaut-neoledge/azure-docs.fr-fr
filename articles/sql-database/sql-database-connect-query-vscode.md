@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Avant de commencer, assurez-vous que vous avez installé la toute dernière vers
 ## <a name="configure-vs-code-mac-os-only"></a>Configurer VS Code (Mac OS uniquement)
 
 ### <a name="mac-os"></a>**Mac OS**
-Pour macOS, vous devrez installer OpenSSL qui est un composant requis pour DotNet Core utilisé par l’extension mssql. Ouvrez votre terminal et entrez les commandes ci-après pour installer **brew** et **OpenSSL***. 
+Pour macOS, vous devez installer OpenSSL qui est un composant requis pour DotNet Core utilisé par l’extension mssql. Ouvrez votre terminal et entrez les commandes ci-après pour installer **brew** et **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Il vous servira ultérieurement dans ce démarrage rapide.
+3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image suivante. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![informations de connexion](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe. 
 
 ## <a name="set-language-mode-to-sql"></a>Définition du mode de langage sur SQL
 
@@ -65,17 +67,22 @@ Définissez le mode de langage sur **SQL** dans Visual Studio Code pour active
 
 1. Ouvrez une nouvelle fenêtre Visual Studio Code. 
 
-2. Appuyez sur **⌘+K,M** ou sur **CTRL+K,M** (options Mac et Windows respectivement), tapez **SQL**, puis appuyez sur **ENTRÉE** pour définir le mode de langage sur SQL. 
+2. Cliquez sur **Texte brut** dans le coin inférieur droit de la barre d’état.
+3. Dans le menu déroulant **Sélectionner un mode de langage** qui s’ouvre, tapez **SQL**, puis appuyez sur **Entrée** pour définir le mode de langage sur SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![Mode de langage SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Connexion au serveur
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Se connecter à votre base de données sur le serveur logique SQL Database
 
 Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure SQL Database.
 
+> [!IMPORTANT]
+> Avant de poursuivre, assurez-vous que votre serveur et votre base de données sont prêts, et que vous disposez de vos informations de connexion. Une fois que vous avez commencé à saisir les informations concernant le profil de connexion, si vous modifiez le focus à partir de Visual Studio Code, vous devez redémarrer la création du profil de connexion.
+>
+
 1. Dans VS Code, appuyez sur **CTRL+MAJ+P** (ou **F1**) pour ouvrir la Palette de commandes.
 
-2. Tapez **sqlcon**, puis appuyez sur **ENTRÉE** et définissez votre langage sur **SQL**.
+2. Tapez **sqlcon**, puis appuyez sur **ENTRÉE**.
 
 3. Appuyez sur **ENTRÉE** pour sélectionner **Créer un profil de connexion**. Cela crée un profil de connexion à votre instance SQL Server.
 
@@ -97,7 +104,7 @@ Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure
 
 6. Vérifiez votre connexion dans la barre d’état.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![État de la connexion](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Données de requête
 
@@ -114,7 +121,7 @@ Utilisez l’instruction Transact-SQL [SELECT](https://msdn.microsoft.com/librar
 
 2. Appuyez sur **CTRL+MAJ+E** pour récupérer des données à partir des tables Product et ProductCategory.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Interroger](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Insertion des données
 
@@ -175,9 +182,9 @@ Utilisez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/librar
 
 - Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 - Pour vous connecter et exécuter des requêtes à l’aide de .NET, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de PHP, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Node.js, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Java, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Python, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Ruby, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+- Pour vous connecter et exécuter des requêtes avec PHP, consultez la page [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
+- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
+- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
+- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
+- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 

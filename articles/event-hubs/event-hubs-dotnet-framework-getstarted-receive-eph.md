@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/09/2017
 ## <a name="introduction"></a>Introduction
 Event Hubs constitue un service qui traite de grandes quantités de données d'événement (télémétrie) à partir de périphériques et d'applications connectés. Après avoir collecté des données dans les concentrateurs d’événements, vous pouvez les stocker à l’aide d’un cluster de stockage ou les transformer à l’aide d’un fournisseur d’analyses en temps réel. Cette fonctionnalité de collecte et de traitement d’événements à grande échelle représente un élément clé des architectures d’applications modernes, notamment l’Internet des objets (IoT).
 
-Ce didacticiel explique comment écrire une application console .NET Framework qui reçoit des messages d’un Event Hub à l’aide de **[l’hôte du processeur d’événements][EventProcessorHost]**. Pour envoyer des événements avec .NET Framework, consultez l’article [Envoyer des événements vers les hubs d’événements Azure avec .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) ou cliquez sur le langage d’envoi approprié dans le sommaire à gauche.
+Ce didacticiel explique comment écrire une application console .NET Framework qui reçoit des messages d’un concentrateur d’événements à l’aide de **[l’hôte du processeur d’événements][EventProcessorHost]**. Pour envoyer des événements avec .NET Framework, consultez l’article [Envoyer des événements vers les hubs d’événements Azure avec .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) ou cliquez sur le langage d’envoi approprié dans le sommaire à gauche.
 
-[L’hôte du processeur d’événements][EventProcessorHost] est une classe .NET qui simplifie la réception d’événements provenant d’Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d’Event Hubs. [L’hôte du processeur d’événements][Event Processor Host] vous permet de répartir des événements sur plusieurs récepteurs, même lorsqu’ils sont hébergés dans des nœuds différents. Cet exemple illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle][Scale out Event Processing with Event Hubs] illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour plusieurs récepteurs.
+[L’hôte du processeur d’événements][EventProcessorHost] est une classe .NET qui simplifie la réception d’événements provenant de concentrateurs d’événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle de ces concentrateurs d’événements. [L’hôte du processeur d’événements][Event Processor Host] vous permet de répartir des événements sur plusieurs récepteurs, même lorsqu’ils sont hébergés dans des nœuds différents. Cet exemple illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle][Scale out Event Processing with Event Hubs] illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour plusieurs récepteurs.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -37,11 +37,11 @@ Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 * [Microsoft Visual Studio 2015 ou une version ultérieure](http://visualstudio.com). Les captures d’écran de ce didacticiel utilisent Visual Studio 2017.
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Créer un espace de noms Event Hubs et un hub d’événements
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
 
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes.
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un concentrateur d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes.
 
-## <a name="create-an-azure-storage-account"></a>Création d'un compte de Stockage Azure
+## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
 Pour utiliser [l’hôte du processeur d’événements][EventProcessorHost], vous devez disposer d’un [compte de stockage Azure][Azure Storage account] :
 
@@ -119,14 +119,14 @@ Pour utiliser [l’hôte du processeur d’événements][EventProcessorHost], vo
      }
      ```
     
-     Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost** . Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
+     Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le concentrateur d’événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost** . Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 11. Dans la classe **Program**, ajoutez l’instruction `using` suivante en haut du fichier :
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     Remplacez ensuite la méthode `Main` dans la classe `Program` par le code suivant, en remplaçant le nom d’Event Hub et la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment, ainsi que la clé et le compte de stockage que vous avez copiés dans les sections précédentes : 
+     Remplacez ensuite la méthode `Main` dans la classe `Program` par le code suivant, en remplaçant le nom de concentrateur d’événements et la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment, ainsi que la clé et le compte de stockage que vous avez copiés dans les sections précédentes. 
     
      ```csharp
      static void Main(string[] args)
@@ -152,7 +152,7 @@ Pour utiliser [l’hôte du processeur d’événements][EventProcessorHost], vo
 
 12. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
   
-Félicitations ! Vous recevez maintenant les messages d’un hub d’événements à l’aide de l’hôte du processeur d’événements.
+Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Félicitations ! Vous recevez maintenant les messages d’un hub d’événemen
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez conçu une application opérationnelle qui crée un hub d’événements et envoie et reçoit des données. Pour en savoir plus, consultez les liens suivants :
+Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Pour en savoir plus, consultez les liens suivants :
 
 * [hôte du processeur d’événements](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]

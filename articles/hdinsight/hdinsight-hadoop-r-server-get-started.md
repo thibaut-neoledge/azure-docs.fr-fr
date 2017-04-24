@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Commencer à utiliser R Server sur HDInsight
+
 HDInsight inclut une option R Server à intégrer dans votre cluster HDInsight. Cela permet aux scripts R d’utiliser Spark et MapReduce pour exécuter des calculs distribués. Dans ce document, vous allez apprendre à créer un R Server sur cluster HDInsight, puis à exécuter un script R illustrant l’utilisation de Spark pour effectuer des calculs R distribués.
 
 ## <a name="prerequisites"></a>Composants requis
-* **Abonnement Azure** : avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations, consultez [Obtenir la version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) .
-* **Client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-  * **Clés SSH (facultatives)** : vous pouvez sécuriser le compte SSH utilisé pour la connexion au cluster à l’aide d’un mot de passe ou d’une clé publique. Le recours à un mot de passe est plus facile et vous permet de commencer sans avoir à créer une paire de clés publique/privée. Toutefois, il est plus sûr d’utiliser une clé.
+* **Abonnement Azure** : avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations, consultez l’article [How to get Azure Free trial for testing Hadoop in HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Comment obtenir une version d’essai d’Azure gratuite pour tester Hadoop dans HDInsight).
+* **Client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, consultez [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Clés SSH (facultatives)** : vous pouvez sécuriser le compte SSH utilisé pour la connexion au cluster à l’aide d’un mot de passe ou d’une clé publique. Le recours à un mot de passe est plus facile et vous permet de commencer sans avoir à créer une paire de clés publique/privée. Toutefois, il est plus sûr d’utiliser une clé.
 
-      Les étapes décrites dans ce document supposent que vous utilisez un mot de passe.
+> [!NOTE]
+> Les étapes décrites dans ce document supposent que vous utilisez un mot de passe.
+
 
 ### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>Création du cluster
-> [!NOTE]
-> Les étapes décrites dans ce document expliquent comment créer un R Server sur cluster HDInsight à l’aide des informations de configuration de base. Pour d’autres paramètres de configuration du cluster (par exemple, l’ajout de comptes de stockage à l’aide d’Azure Virtual Network ou la création d’un metastore pour Hive), voir [Créer des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md). Pour créer un R Server à l’aide d’un modèle Azure Resource Management, consultez la rubrique [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Déployer un cluster HDInsight R Server).
->
->
+## <a name="automated-cluster-creation"></a>Création de cluster automatisée
+
+Vous pouvez automatiser la création de HDInsight R Server à l’aide de modèles ARM, du Kit de développement logiciel (SDK) et de PowerShell.
+
+* Pour créer un R Server à l’aide d’un modèle Azure Resource Management, consultez la rubrique [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Déployer un cluster HDInsight R Server).
+* Pour obtenir un R Server à l’aide du Kit de développement logiciel (SDK) .NET, consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* Pour déployer R Server à l’aide de PowerShell, consultez l’article sur la [création d’un R Server avec PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Créer le cluster à l’aide du portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -164,6 +173,7 @@ Si vous avez choisi d’inclure RStudio Server Community Edition dans votre inst
    > Peu importe la méthode, vous devrez vous authentifier la première fois que vous vous connecterez.  À la première authentification, fournissez le nom d’utilisateur et le mot de passe administrateur pour le cluster. À la seconde invite, indiquez le nom d’utilisateur et le mot de passe SSH. Les connexions suivantes ne nécessiteront que le nom d’utilisateur et le mot de passe SSH.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>Se connecter au nœud de périmètre R Server
+
 Connectez-vous au nœud de périmètre R Server du cluster HDInsight à l’aide de SSH :
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ Vous pouvez également utiliser l’adressage de style WASB.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>À l’aide de R Server sur HDI à partir d’une instance distante de Microsoft R serveur ou Microsoft R Client
+
 Conformément à la section ci-dessus concernant l’utilisation de paires de clés publiques/privées pour accéder au cluster, il est possible de configurer l’accès au contexte de calcul HDI Hadoop Spark à partir d’une instance distante de Microsoft R Server ou Microsoft R Client exécutée sur un ordinateur de bureau ou un ordinateur portable (voir la section Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Utilisation de Microsoft R Server en tant que client Hadoop pour la création d’un contexte de calcul pour Spark) du [guide en ligne de mise en route RevoScaleR Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  Pour cela, vous devez spécifier les options suivantes lorsque vous définissez le contexte de calcul RxSpark sur votre ordinateur portable : hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript. Par exemple :
 
 ```
@@ -253,6 +264,7 @@ Conformément à la section ci-dessus concernant l’utilisation de paires de cl
 
 
 ## <a name="use-a-compute-context"></a>Utiliser un contexte de calcul
+
 Un contexte de calcul vous permet de contrôler si calcul sera effectué localement sur le nœud de périmètre, ou si elle sera distribuée entre les nœuds du cluster HDInsight.
 
 1. Dans RStudio Server ou la console R (dans une session SSH), utilisez ce qui suit pour charger les exemples de données dans le stockage par défaut pour HDInsight.
@@ -376,6 +388,7 @@ Un contexte de calcul vous permet de contrôler si calcul sera effectué localem
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuer le code R à plusieurs nœuds
+
 Avec R Server, vous pouvez facilement utiliser du code R existant pour l’exécuter sur plusieurs nœuds du cluster à l’aide de `rxExec`. Cela est utile lors d’un balayage paramétrique ou de simulations. L’exemple suivant montre comment utiliser `rxExec`.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ Si vous utilisez encore le contexte Spark ou MapReduce, la valeur du nom de nœu
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Accès aux données dans Hive et Parquet
+
 Une nouvelle fonctionnalité disponible dans R Server 9.0 et versions ultérieures permet un accès direct aux données de Hive et Parquet pour une utilisation par les fonctions de ScaleR dans le contexte de calcul Spark. Ces fonctionnalités sont disponibles via les nouvelles fonctions de source de données ScaleR appelées RxHiveData et RxParquetData qui fonctionnent à l’aide de Spark SQL pour charger les données directement dans un tableau de données Spark pour analyse par ScaleR.  
 
 Vous trouverez ci-dessous un exemple de code relatif à l’utilisation des nouvelles fonctions :
@@ -456,6 +470,7 @@ Pour des informations supplémentaires sur l’utilisation de ces nouvelles fonc
 
 
 ## <a name="install-r-packages"></a>Installer des packages R
+
 Si vous souhaitez installer des packages R supplémentaires sur le nœud de périphérie, vous pouvez utiliser `install.packages()` directement à partir de la console R quand vous êtes connecté au nœud de périphérie par le biais de SSH. Toutefois, si vous avez besoin installer des packages R sur les nœuds de travail du cluster, vous devez utiliser une action de script.
 
 Les actions de script sont des scripts Bash permettant de modifier la configuration du cluster HDInsight ou d’installer des logiciels supplémentaires. Dans ce cas, il s’agit d’installer des packages R supplémentaires. Pour installer des packages supplémentaires à l’aide d’une action de Script, procédez comme suit.
@@ -501,6 +516,7 @@ Les actions de script sont des scripts Bash permettant de modifier la configurat
 4. Sélectionnez **Créer** pour exécuter le script. Une fois le script exécuté, les packages R sont disponibles sur tous les nœuds de travail.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Utilisation de l’opérationnalisation de Microsoft R Server
+
 Lorsque votre modélisation des données est terminée, vous pouvez opérationnaliser le modèle pour effectuer des prévisions. Pour configurer l’opérationnalisation de Microsoft R Server, suivez les étapes ci-dessous.
 
 Tout d’abord, utilisez SSH dans le nœud de périphérie. Par exemple, ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>Désactiver le(s) nœud(s) Worker
+
 Microsoft R Server n’est actuellement pas géré par YARN. Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionnera pas comme prévu, car il n’aura pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker par rapport auxquels vous souhaitez mettre à l’échelle les nœuds de calcul.
 
 Étapes de désactivation des nœuds Worker :
@@ -604,6 +621,7 @@ Microsoft R Server n’est actuellement pas géré par YARN. Si les nœuds Worke
 * Quittez l’utilitaire d’administration.
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Ajouter des détails sur les nœuds de calcul sur le nœud web
+
 Une fois que tous les nœuds Worker désactivés ont été configurés pour exécuter le nœud de calcul, revenez au nœud de périphérie et ajoutez les adresses IP des nœuds Worker désactivés dans la configuration du nœud web de Microsoft R Server :
 
 * Utiliser SSH dans le nœud de périphérie
@@ -613,6 +631,7 @@ Une fois que tous les nœuds Worker désactivés ont été configurés pour exé
 ![Ligne de commande Désactiver les nœuds Worker](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous savez comment créer un cluster HDInsight incluant R Server et connaissez les rudiments de l’utilisation de la console R à partir d’une session SSH, utilisez les informations suivantes pour découvrir d’autres manière d’utiliser R Server sur HDInsight.
 
 * [Ajouter RStudio Server à HDInsight (s’il n’est pas installé lors de la création du cluster)](hdinsight-hadoop-r-server-install-r-studio.md)

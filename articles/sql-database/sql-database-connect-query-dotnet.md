@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de conn
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de votre base de données, vérifiez le nom complet du serveur. 
+3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Cliquez sur **Afficher les chaînes de connexion de la base de données**.
+4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
-5. Passez en revue la chaîne de connexion **ADO.NET** complète.
+5. Cliquez sur **Afficher les chaînes de connexion de la base de données**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Passez en revue la chaîne de connexion **ADO.NET** complète.
+
+    ![Chaîne de connexion ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>Ajouter System.Data.SqlClient
 Lorsque vous utilisez .NET Core, ajoutez System.Data.SqlClient au fichier ***csproj*** de votre projet en tant que dépendance.
 
@@ -94,8 +96,7 @@ Lorsque vous utilisez .NET Core, ajoutez System.Data.SqlClient au fichier ***cs
 1. Dans votre environnement de développement, ouvrez un fichier de code vide.
 2. Ajoutez ```using System.Data.SqlClient``` à votre fichier de code ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Utilisez [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) avec une instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) pour rechercher des données dans votre base de données Azure SQL Database. Ajoutez les valeurs appropriées pour votre serveur
-
+3. Utilisez [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) avec une instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) pour rechercher des données dans votre base de données Azure SQL Database. Ajoutez les valeurs appropriées pour votre serveur.
 ```csharp
 using System;
 using System.Data;
@@ -309,8 +310,8 @@ namespace ConsoleApplication1
 - Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 - Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
 - Pour vous connecter et exécuter des requêtes à l’aide de PHP, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Node.js, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Java, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Python, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Ruby, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
+- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
+- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
+- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 

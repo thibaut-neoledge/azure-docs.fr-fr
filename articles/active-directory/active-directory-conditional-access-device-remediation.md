@@ -1,6 +1,6 @@
 ---
-title: "Résolution des problèmes d’accès aux ressources sur le portail Azure depuis un appareil Windows | Microsoft Docs"
-description: "Découvrez les étapes permettant de résoudre les problèmes d’accès aux ressources en ligne de votre organisation."
+title: "Résolution des problèmes d’accès aux ressources sur le portail Azure depuis un appareil Windows | Microsoft Docs"
+description: "Découvrez d’où proviennent les problèmes d’accès et quels éléments vérifier pour éviter de rencontrer cette boîte de dialogue."
 services: active-directory
 keywords: "accès conditionnel en fonction de l’appareil, inscription de l’appareil, activer l’inscription de l’appareil, inscription de l’appareil et GPM"
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.lasthandoff: 04/12/2017
 
 
 ---

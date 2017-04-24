@@ -7,9 +7,5 @@
 | Nombre de balises (par ressource ou groupe de ressources) |15 |15 |
 | Longueur de clé de la balise |512 |512 |
 | Longueur de valeur de la balise |256 |256 |
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+| Ressources dans les modèles exportés |200 |200 |
 

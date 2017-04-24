@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Il existe deux types de tests web :
 
 Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
-## <a name="create"></a>1. Créer une ressource pour vos rapports de test
-Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights][start] pour cette application et que vous souhaitez visualiser les rapports de disponibilité au même emplacement.
+## <a name="create"></a>1. Ouvrir une ressource pour vos rapports de test web
 
-Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azure](https://portal.azure.com), et créez une ressource Application Insights.
+**Si vous avez déjà configuré Application Insights** pour votre application web, ouvrez sa ressource Application Insights dans le [portail Azure](https://portal.azure.com).
+
+**Ou, si vous souhaitez visualiser vos rapports dans une nouvelle ressource,** inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azure](https://portal.azure.com) et créez une ressource Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de la nouvelle ressource.
 
 ## <a name="setup"></a>2. Créer un test Ping d’URL
-Dans votre ressource Application Insights, recherchez la vignette de disponibilité. Cliquez dessus pour ouvrir le panneau des tests web de votre application et ajouter un test web.
+Ouvrez le panneau de disponibilité et ajoutez un test web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-* **Analyser les requêtes dépendantes**: les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test, et le temps de réponse enregistré inclut ces durées. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
-* **Autoriser de nouvelles tentatives**: une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
+* **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
+* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. 
+
+    Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
+* **Autoriser de nouvelles tentatives**: si cette option est cochée, une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. Nous recommandons cette option. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.
 * **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
 * **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 * **Critères de réussite**:
@@ -67,14 +70,23 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 ### <a name="test-more-urls"></a>Test d'autres URL
 Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
+
 ## <a name="monitor"></a>3. Consulter les résultats des tests web
-Après 1 à 2 minutes, les résultats s’affichent dans le panneau du test web.
+
+Après 5 minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Cliquez sur une barre du graphique de synthèse pour obtenir une vue plus détaillée de cette période.
 
-Ces graphiques combinent les résultats de tous les tests web de cette application.
+## <a name="edit"></a>Examiner et modifier des tests
+
+Dans la page de résumé, sélectionnez un test spécifique. Ici, vous pouvez voir ses résultats spécifiques et le modifier ou le désactiver temporairement.
+
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des opérations de maintenance sur votre service.
+
 
 ## <a name="failures"></a>Si vous constatez des erreurs
 Cliquez sur un point rouge.
@@ -103,7 +115,9 @@ Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple,
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l’aide de Visual Studio Enterprise et téléchargez ensuite l’enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
-Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
+> [!NOTE]
+> Vous ne pouvez pas utiliser de fonctions codées ni de boucles dans vos tests. Le test doit être entièrement contenu dans le script .webtest. Toutefois, vous pouvez utiliser des plug-ins standard.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Enregistrement d’un scénario
 Utilisez Visual Studio Enterprise pour enregistrer une session web.
@@ -144,13 +158,19 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
     Définissez les emplacements de test, la fréquence et les paramètres d’alerte comme pour les tests ping.
 
-Affichez les résultats de votre test et les échecs éventuels de la même manière que pour les tests d'URL unique.
+#### <a name="3-see-the-results"></a>3. Afficher les résultats
 
-Un échec est souvent dû à un test trop long. Le test ne doit pas durer plus de deux minutes.
+Visualisez les résultats de votre test et les échecs éventuels de la même manière que les tests d’URL unique.
 
-N’oubliez pas que toutes les ressources d’une page doivent se charger correctement pour que le test réussisse, y compris les scripts, les feuilles de style, les images, etc.
+En outre, vous pouvez télécharger les résultats des tests pour les afficher dans Visual Studio.
 
-Notez que le test web doit être entièrement contenu dans le fichier .webtest : vous ne pouvez pas utiliser de fonctions codées dans le test.
+#### <a name="too-many-failures"></a>Trop d’échecs ?
+
+* Un échec est souvent dû à un test trop long. Le test ne doit pas durer plus de deux minutes.
+
+* N’oubliez pas que toutes les ressources d’une page doivent se charger correctement pour que le test réussisse, y compris les scripts, les feuilles de style, les images, etc.
+
+* Le test web doit être entièrement contenu dans le script .webtest : vous ne pouvez pas utiliser de fonctions codées dans le test.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Ajout de plug-ins de temps et de nombres aléatoires à votre test à plusieurs étapes
 Supposons que vous testiez un outil qui obtient des données temporelles, telles que des actions à partir d’un flux externe. Lorsque vous enregistrez votre test web, vous devez utiliser des heures spécifiques, mais vous les définissez en tant que paramètres de test, à savoir StartTime et EndTime.
@@ -211,12 +231,6 @@ Si votre test doit se connecter à l’aide d’OAuth, l’approche générale e
 * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site.
   (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
-## <a name="edit"></a> Modification ou désactivation d’un test
-Ouvrez un test à modifier ou à désactiver.
-
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des opérations de maintenance sur votre service.
 
 ## <a name="performance-tests"></a>Tests de performance
 Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test de disponibilité, vous pouvez envoyer des requêtes uniques ou des requêtes à plusieurs étapes à partir de nos points de présence dans le monde. Contrairement à un test de disponibilité, de nombreuses demandes sont envoyées, afin de simuler la présence de plusieurs utilisateurs simultanés.
@@ -229,7 +243,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 * [Utilisez des scripts PowerShell pour configurer un test web](app-insights-powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
 
-## <a name="questions-problems"></a>Des questions ? Des problèmes ?
+## <a name="qna"></a>Des questions ? Des problèmes ?
 * *Puis-je appeler du code à partir de mon test web ?*
 
     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.

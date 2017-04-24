@@ -16,14 +16,14 @@
 | Taille maximale d'un partage de fichiers |5 To |
 | Taille maximale d'un fichier dans un partage de fichiers |1 To |
 | Nombre maximal de fichiers dans un partage de fichiers |La seule limite est celle de 5 To de la capacité totale du partage de fichiers |
-| Max 8 Ko IOPS par partage |1 000 |
+| Nb max. d’E/S par seconde par partage |1 000 |
 | Nombre maximal de fichiers dans un partage de fichiers |La seule limite est celle de 5 To de la capacité totale du partage de fichiers |
 | Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage |La seule limite est celle de 500 To de la capacité du compte de stockage |
 | Nombre maximal de stratégies d'accès stockées par conteneur, partage de fichiers, table ou file d'attente |5 |
 | Taux de requête maximal par compte de stockage |Objets blob : 20 000 requêtes par seconde pour les objets blob de toute taille valide (limitées uniquement par les limites d’entrées/sorties du compte) <br />Fichiers : 1 000 IOPS (8 Ko) par partage de fichiers <br />Files d’attente : 20 000 messages par seconde (en supposant que la taille des messages soit de 1 Ko)<br />Tables : 20 000 transactions par seconde (en supposant que la taille d’entité soit de 1 Ko) |
 | Débit cible pour un objet blob unique |Jusqu'à 60 Mo par seconde ou jusqu'à 500 demandes par seconde |
-| Débit cible pour une file d'attente unique (messages de&1; Ko) |Jusqu'à 2 000 messages par seconde |
-| Débit cible pour une partition de table unique (entités de&1; Ko) |Jusqu'à 2 000 entités par seconde |
+| Débit cible pour une file d'attente unique (messages de 1 Ko) |Jusqu'à 2 000 messages par seconde |
+| Débit cible pour une partition de table unique (entités de 1 Ko) |Jusqu'à 2 000 entités par seconde |
 | Débit cible pour un partage de fichier unique |Jusqu’à 60 Mo par seconde |
 | Entrée max.<sup>2</sup> par compte de stockage (régions des États-Unis) |10 Gbit/s si GRS/ZRS<sup>3</sup> est activé, 20 Gbit/s pour LRS |
 | Sortie max.<sup>2</sup> par compte de stockage (régions des États-Unis) |20 Gbit/s si RA-GRS/GRS/ZRS<sup>3</sup> est activé, 30 Gbit/s pour LRS |

@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
@@ -39,7 +39,7 @@ Pour plus d’informations sur Docker et les conteneurs, voir :
 Extrayez des images à partir d’un registre de conteneur Azure pour différents objectifs de déploiement :
 
 * Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris du [contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) et [Kubernetes](http://kubernetes.io/docs/).
-* Des **services Azure** qui prennent en charge la création et l’exécution des applications à grande échelle, y compris [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) et [Service Fabric](../service-fabric/index.md).
+* Des **services Azure** qui prennent en charge la création et l’exécution des applications à grande échelle, y compris [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) et d’autres services.
 
 Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/).
 

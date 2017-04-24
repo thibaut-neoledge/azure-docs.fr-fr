@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +115,7 @@ Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [E
 Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Quand vous déployez votre application dans la configuration Release, les données s’accumulent plus lentement.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Les données n’apparaissent pas après leur publication sur votre serveur ?
-Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Ouvrez les ports pour le trafic sortant dans le pare-feu de votre serveur. Consultez [cette page](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) pour obtenir la liste d’adresses requises 
 
 #### <a name="trouble-on-your-build-server"></a>Vous rencontrez des problèmes sur votre serveur de builds ?
 Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

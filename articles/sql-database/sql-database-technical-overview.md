@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Définition de la base de données SQL Présentation de SQL Database
@@ -35,7 +35,7 @@ Pour accéder à des exemples Azure CLI et PowerShell, consultez :
  - [Exemples Azure PowerShell pour Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajustez les performances et la mise à l'échelle sans interruption de service
-SQL Database propose trois niveaux de service : De base, Standard et Premium. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois et [modifier le niveau de service](sql-database-service-tiers.md) manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Cette opération ne perturbe pas le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+SQL Database propose trois niveaux de service : De base, Standard et Premium, ainsi que Premium RS. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois et [modifier le niveau de service](sql-database-service-tiers.md) manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Cette opération ne perturbe pas le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données uniques et d’augmenter ou de ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. [Les pools élastiques](sql-database-elastic-pool.md) sont conçus pour résoudre ce problème. Le concept est simple. Vous allouez des ressources de performance à un pool plutôt qu’à une base de données individuelle et vous payez pour les ressources de performance d’un pool plutôt que pour celles d’une base de données unique. Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Enfin, vous pouvez également contrôler le nombre minimum et maximum de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données regroupée dispose d’un nombre minimum de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
@@ -61,6 +61,6 @@ Maintenant que vous avez lu l’introduction à la base de données SQL et répo
 
 * Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/sql-database/) pour obtenir un comparatif des coûts entre une base de données unique et des pools élastiques et accéder à des calculateurs.
 * En savoir plus sur les [pools élastiques](sql-database-elastic-pool.md).
-* Commencez par [créer votre première base de données](sql-database-get-started.md).
+* Commencez par [créer votre première base de données](sql-database-get-started-portal.md).
 * Créez votre première application en C#, Java, Node.js, PHP, Python ou Ruby : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 

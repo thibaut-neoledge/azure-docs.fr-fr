@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 04/17/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
-ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/23/2017
 
 Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure. 
 
+Vous trouverez un exemple qui montre comment utiliser les fonctions Azure avec Aspera et Media Services [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
 >Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur les limites de taille des fichiers.
