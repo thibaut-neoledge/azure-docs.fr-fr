@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Connecter une application web à un réseau de distribution de contenu
@@ -28,7 +28,7 @@ Tout d’abord, ouvrez votre navigateur préféré et accédez au [Portail](http
 
 ## <a name="step-2---create-a-cdn-profile"></a>Étape 2 : Créez un profil CDN
 
-Cliquez sur le bouton `+ New` situé dans le volet de navigation de gauche, cliquez sur **Web et mobilité**. Sous la catégorie Web et mobilité, sélectionnez **CDN**.
+Cliquez sur le bouton **+ Nouveau** situé dans le volet de navigation de gauche, puis sur **Web et mobilité**. Sous la catégorie Web et mobilité, sélectionnez **CDN**.
 
 Spécifiez le **Nom**, l’**Emplacement**, le **Groupe de ressources** et le **Niveau tarifaire**, puis cliquez sur **Créer**.
 
@@ -38,7 +38,7 @@ Ouvrez le concentrateur de groupes de ressources à partir de la barre de naviga
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Étape 3 : Créer un point de terminaison CDN
 
-Cliquez sur `+ Endpoint` à partir des commandes à proximité de la zone de recherche, cette action lance le panneau de création de point de terminaison.
+Cliquez sur **+ Point de terminaison** à partir des commandes à proximité de la zone de recherche ; cette action lance le panneau de création de point de terminaison.
 
 Spécifiez le **Nom**, le **Type d’origine**, le **Nom d’hôte d’origine**, puis cliquez sur **Ajouter**.
 

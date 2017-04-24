@@ -28,6 +28,8 @@ La passerelle VPN Azure publiera les itinéraires suivants pour vos périphériq
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Puis-je publier l’itinéraire par défaut (0.0.0.0/0) vers les passerelles VPN Azure ?
 Oui.
 
+Notez que cela dirigera tout le trafic de sortie du réseau virtuel vers votre site local et empêchera les machines virtuelles du réseau virtuel d’accepter des communications publiques directement à partir d’Internet, par exemple RDP ou SSH d’Internet vers les machines virtuelles.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Puis-je publier les mêmes préfixes que ceux de mon adresse de réseau virtuel ?
 
 Non. La publication des mêmes préfixes que ceux de votre adresse de réseau virtuel est bloquée ou filtrée par la plateforme Azure. Toutefois, vous pouvez publier un préfixe qui soit un sur-ensemble des éléments de votre réseau virtuel. 
@@ -65,9 +67,4 @@ La passerelle de réseau local Azure spécifie les préfixes d’adresse initiau
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Que dois-je ajouter à mon périphérique VPN local pour la session d’homologation BGP ?
 Vous devez ajouter un itinéraire hôte de l’adresse IP d’homologue BGP Azure sur votre périphérique VPN pointant vers le tunnel VPN S2S IPsec. Par exemple, si l’adresse IP d’homologue VPN Azure est « 10.12.255.30 », vous devez ajouter un itinéraire hôte pour « 10.12.255.30 » avec l’interface de tronçon suivant de l’interface de tunnel IPsec correspondante sur votre périphérique VPN.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

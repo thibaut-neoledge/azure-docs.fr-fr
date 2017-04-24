@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Les machines virtuelles Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer des machines virtuelles et toutes les ressources liées. Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle en utilisant le portail Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-ssh-key-pair"></a>Créer la paire de clés SSH
 
@@ -52,9 +52,9 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Choisissez une taille pour la machine virtuelle et cliquez sur **Sélectionner**. 
+4. Choisissez une taille pour la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. 
 
-    ![Sélectionner une taille pour votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. Dans le panneau Paramètres, sélectionnez **Oui** sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
 
@@ -71,7 +71,7 @@ Par défaut, seules les connexions SSH sont autorisées dans les machines virtue
 2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit être le nom de la machine virtuelle suivi de -nsg ajouté à la fin.
 3. Cliquez sur le titre **Règle de sécurité entrante** pour ouvrir la liste des règles entrantes. Vous devriez voir une règle pour RDP dans la liste.
 4. Cliquez sur **+ Ajouter** pour ouvrir le panneau **Ajouter une règle de sécurité entrante**.
-5. Dans **Nom**, tapez **nginx** et assurez-vous que la **plage de ports** est définie sur 80 et que **Action** est défini sur **Autoriser**, puis cliquez sur **OK**.
+5. Sous **Nom**, tapez **nginx**. Assurez-vous que l’option **Plage de ports** est définie sur 80 et l’option **Action** sur **Autoriser**. Cliquez sur **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Afficher la page d’accueil NGNIX
 
-Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Veillez à utiliser le `publicIpAddress` décrit ci-dessus pour vous rendre sur la page par défaut. 
+Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Veillez à utiliser le `publicIpAddress` décrit pour vous rendre sur la page par défaut. 
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle

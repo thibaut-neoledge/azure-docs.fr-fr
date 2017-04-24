@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,18 +35,18 @@ Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell e
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quelles sont mes options de connexion entre différents locaux ?
 Les connexions intersites suivantes sont prises en charge :
 
-* [Site à Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) : connexion VPN sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service RRAS.
-* [Point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) : connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Cette connexion ne nécessite pas un périphérique VPN.
-* [Réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) : ce type de connexion est identique à une configuration site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN.
-* [Multisite](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) : il s’agit d’une variante d’une configuration site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) : ExpressRoute est une connexion directe à Azure à partir de votre WAN, qui ne passe pas par l’Internet public. Pour plus d’informations, consultez [Vue d’ensemble technique d’ExpressRoute](../expressroute/expressroute-introduction.md) et la [FAQ ExpressRoute](../expressroute/expressroute-faqs.md).
+* Site à site : connexion VPN sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service RRAS. Pour plus d’informations, consultez [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Point à site : connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configuration d’une connexion point à site à un réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Réseau virtuel à réseau virtuel : ce type de connexion est identique à une configuration site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Multisite : il s’agit d’une variante d’une configuration site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel. Pour plus d’informations, consultez [Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute : ExpressRoute est une connexion directe à Azure à partir de votre WAN, pas une connexion VPN qui passe par l’Internet public. Pour plus d’informations, consultez [Vue d’ensemble technique d’ExpressRoute](../expressroute/expressroute-introduction.md) et la [FAQ ExpressRoute](../expressroute/expressroute-faqs.md).
 
 Pour plus d’informations sur les connexions à la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Quelle est la différence entre une connexion site à site et point à site ?
-Les configurations **Site à site** se trouvent entre votre emplacement local et Azure. Elles vous permettent de vous connecter à partir de n’importe quel ordinateur se trouvant sur votre serveur local vers une machine virtuelle ou une instance de rôle au sein de votre réseau virtuel, selon le mode de configuration du routage que vous choisissez. Il s’agit d’une excellente solution pour une connexion entre différents locaux toujours disponibles et elle convient parfaitement aux configurations hybrides. Ce type de connexion s'appuie sur une appliance VPN IPsec (matériel ou application logicielle), qui doit être déployée à la périphérie de votre réseau. Pour créer ce type de connexion, vous devrez disposer du matériel VPN nécessaire et d’une adresse IPv4 externe.
+Les configurations **Site à site** (tunnel VPN IPsec/IKE) se trouvent entre votre emplacement local et Azure. Elles vous permettent donc de vous connecter à partir de n’importe quel ordinateur se trouvant sur votre serveur local vers une machine virtuelle ou une instance de rôle au sein de votre réseau virtuel, selon le mode de configuration du routage et les autorisations que vous choisissez. Il s’agit d’une excellente solution pour une connexion entre différents locaux toujours disponibles et elle convient parfaitement aux configurations hybrides. Ce type de connexion s’appuie sur une appliance VPN IPsec (matériel ou application logicielle), qui doit être déployée à la périphérie de votre réseau. Pour créer ce type de connexion, vous devez disposer d’une adresse IPv4 externe ne se trouvant pas derrière un NAT.
 
-Les configurations **Point à site** vous permettent de vous connecter à partir d’un seul ordinateur depuis n’importe où vers n’importe quel emplacement sur votre réseau virtuel. Ces connexions utilisent le client VPN fourni avec Windows. Dans le cadre de la configuration point à site, vous installez un certificat et un package de configuration client VPN qui contient les paramètres permettant à votre ordinateur de se connecter à une machine virtuelle ou à une instance de rôle au sein du réseau virtuel. Cela est très intéressant lorsque vous souhaitez vous connecter à un réseau virtuel mais que vous ne vous trouvez pas en local. Il s’agit également d’une solution intéressante lorsque vous n’avez pas accès au matériel VPN ou à une adresse IPv4 externe, tous deux étant nécessaires à une connexion site à site.
+Les configurations **Point à site** (VPN sur SSTP) vous permettent de vous connecter à partir d’un seul ordinateur depuis n’importe où et vers n’importe quel emplacement sur votre réseau virtuel. Ces connexions utilisent le client VPN fourni avec Windows. Dans le cadre de la configuration point à site, vous installez un certificat et un package de configuration client VPN qui contient les paramètres permettant à votre ordinateur de se connecter à une machine virtuelle ou à une instance de rôle au sein du réseau virtuel. Cela est très intéressant lorsque vous souhaitez vous connecter à un réseau virtuel mais que vous ne vous trouvez pas en local. Il s’agit également d’une solution intéressante lorsque vous n’avez pas accès au matériel VPN ou à une adresse IPv4 externe, tous deux étant nécessaires à une connexion site à site.
 
 Vous pouvez configurer votre réseau virtuel pour utiliser la connexion site à site et point à site simultanément, à condition de créer votre connexion site à site à l’aide d’un type de réseau privé virtuel basé sur un itinéraire pour votre passerelle. Les types de réseau privé virtuel basé sur un itinéraire sont appelés des passerelles dynamiques dans le modèle de déploiement classique.
 
@@ -63,7 +64,7 @@ Les passerelles basées sur des itinéraires implémentent les VPN basés sur de
 ### <a name="do-i-need-a-gatewaysubnet"></a>Ai-je besoin d’un « sous-réseau de passerelle » ?
 Oui. Le sous-réseau de passerelle contient les adresses IP utilisées par les services de passerelle de réseau virtuel. Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle de réseau virtuel. Tous les sous-réseaux de passerelle doivent être nommés « GatewaySubnet » afin de fonctionner correctement. N’attribuez pas un autre nom au sous-réseau de passerelle, et ne déployez pas de machines virtuelles ou d’autres éléments vers le sous-réseau de passerelle.
 
-Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d’adresses IP que contient le sous-réseau. Les adresses IP dans le sous-réseau de passerelle sont allouées au service de passerelle. Certaines configurations nécessitent d’allouer davantage d’adresses IP aux services de passerelle. Assurez-vous que votre sous-réseau de passerelle contient suffisamment d’adresses IP pour pouvoir évoluer au rythme de votre croissance future et prendre en charge d’éventuelles nouvelles configurations de connexion. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de passerelle de taille /28 ou supérieure (/28, /27, /26, etc.). Prenez connaissance des recommandations relatives à la configuration que vous souhaitez créer et vérifiez que votre sous-réseau de passerelle suit ces recommandations.
+Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d’adresses IP que contient le sous-réseau. Les adresses IP dans le sous-réseau de passerelle sont allouées au service de passerelle. Certaines configurations nécessitent d’allouer davantage d’adresses IP aux services de passerelle. Assurez-vous que votre sous-réseau de passerelle contient suffisamment d’adresses IP pour pouvoir évoluer au rythme de votre croissance future et prendre en charge d’éventuelles nouvelles configurations de connexion. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de passerelle de taille /27 ou supérieure (/27, /26, /25, etc.). Prenez connaissance des recommandations relatives à la configuration que vous souhaitez créer et vérifiez que votre sous-réseau de passerelle suit ces recommandations.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Puis-je déployer des machines virtuelles ou des instances de rôle vers mon sous-réseau de passerelle ?
 Non.
@@ -106,11 +107,23 @@ Une passerelle VPN est, fondamentalement, un périphérique multirésident avec 
 Pour plus d’informations, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Connexions de site à site et périphériques VPN
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Que dois-je prendre en compte lors de la sélection d'un périphérique VPN ?
-Nous avons validé un ensemble de périphériques VPN site à site standard en partenariat avec des fournisseurs de périphériques. Vous trouverez une liste de périphériques VPN compatibles, leurs instructions de configuration correspondantes ainsi que les caractéristiques du périphérique [ici](vpn-gateway-about-vpn-devices.md). Tous les périphériques des familles de périphériques répertoriées et reconnus comme compatibles doivent fonctionner avec Virtual Network. Pour aider à configurer votre périphérique VPN, reportez-vous à l'exemple de configuration de périphérique ou au lien qui correspond à la famille de périphériques appropriée.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Que faire si je dispose d'un périphérique VPN qui ne figure pas dans la liste de périphériques compatibles connus ?
-Si votre périphérique n’est pas répertorié comme un périphérique VPN compatible connu et que vous souhaitez l’utiliser pour votre connexion VPN, vous devez vérifier qu’il offre les paramètres et les options de configuration IPsec/IKE pris en charge [ici](vpn-gateway-about-vpn-devices.md). Les périphériques qui répondent à la configuration requise minimale sont censés fonctionner avec les passerelles VPN. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Que dois-je prendre en compte lors de la sélection d'un périphérique VPN ?
+Nous avons validé un ensemble de périphériques VPN site à site standard en partenariat avec des fournisseurs de périphériques. Vous trouverez une liste de périphériques VPN compatibles, leurs instructions de configuration correspondantes ou des exemples, ainsi que les caractéristiques du périphérique dans l’article [À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site](vpn-gateway-about-vpn-devices.md). Tous les périphériques des familles de périphériques répertoriées et reconnus comme compatibles doivent fonctionner avec Virtual Network. Pour aider à configurer votre périphérique VPN, reportez-vous à l'exemple de configuration de périphérique ou au lien qui correspond à la famille de périphériques appropriée.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>Où puis-je trouver les paramètres de configuration pour les périphériques VPN ?
+
+Vous trouverez des liens vers les paramètres de configuration des périphériques sur la page [Périphériques VPN validés](vpn-gateway-about-vpn-devices.md#devicetable). Les liens de configuration des périphériques sont fournis dans la mesure du possible. Il est toujours préférable de vérifier les dernières informations de configuration auprès du fabricant du périphérique.
+
+Avant de configurer votre périphérique VPN, identifiez également les éventuels [Problèmes de compatibilité connus avec le matériel](vpn-gateway-about-vpn-devices.md#known) pour le périphérique VPN que vous souhaitez utiliser.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>Comment dois-je modifier les exemples de configuration de périphérique VPN ?
+
+Pour plus d’informations sur la modification des exemples de configuration des périphériques, consultez la page [Modifier les exemples](vpn-gateway-about-vpn-devices.md#editing).
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>Où puis-je trouver les paramètres IPsec et IKE ?
+
+En ce qui concerne les paramètres IPsec/IKE, consultez la page [Paramètres](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Pourquoi mon tunnel VPN basé sur une stratégie tombe-t-il en panne lorsque le trafic est inactif ?
 Il s’agit du comportement attendu pour les passerelles VPN basées sur une stratégie (également appelé routage statique). Lorsque le trafic via le tunnel est inactif pendant plus de 5 minutes, le tunnel est détruit. Lorsque le trafic recommence à circuler dans les deux sens, le tunnel est immédiatement rétabli.
@@ -120,11 +133,11 @@ Nous prenons en charge les serveurs de routage et d’accès distant (RRAS) Wind
 
 D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'elles sont conformes aux implémentations IPsec standard. Contactez le fournisseur du logiciel pour obtenir des instructions de configuration et de prise en charge.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Connexions de point à site
+## <a name="P2S"></a>Connexions de point à site
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Connexions multi-sites et réseau virtuel à réseau virtuel
+## <a name="V2VMulti"></a>Connexions multi-sites et réseau virtuel à réseau virtuel
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -151,7 +164,7 @@ Oui, les réseaux VPN point à site peuvent être utilisés avec les passerelles
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Puis-je me connecter à un réseau virtuel avec les VPN IPsec sur mon circuit ExpressRoute ?
 Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Connectivité entre locaux et machines virtuelles
@@ -170,8 +183,3 @@ Des informations supplémentaires sur les réseaux virtuels sont disponibles dan
 
 * Pour plus d’informations sur la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 * Pour plus d’informations sur les paramètres de configuration de la passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

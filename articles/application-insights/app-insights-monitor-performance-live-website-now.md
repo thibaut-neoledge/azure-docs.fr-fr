@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ Identifiez les applications qui sont surveillées :
 
 * Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
 
+## <a name="questions"></a>Questions sur Status Monitor
+
+### <a name="what-is-status-monitor"></a>Qu’est-ce que Status Monitor ?
+
+Il s’agit d’une application de bureau que vous installez sur votre serveur web IIS. Il vous permet d’instrumenter et de configurer des applications web. 
+
+### <a name="when-do-i-use-status-monitor"></a>Quand dois-je utiliser Status Monitor ?
+
+* Vous pouvez l’utiliser pour instrumenter une application web qui s’exécute sur votre serveur IIS, même si elle est déjà en cours d’exécution.
+* Vous pouvez également vous en servir pour activer la télémétrie supplémentaire pour les applications web qui ont été [générées avec le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) au moment de la compilation. 
+
+### <a name="can-i-close-it-after-it-runs"></a>Puis-je le fermer il après son exécution ?
+
+Oui. Une fois qu’il a instrumenté les sites web que vous avez sélectionnés, vous pouvez le fermer.
+
+Il ne collecte pas la télémétrie par lui-même. Il configure simplement les applications web et définit certaines autorisations.
+
+### <a name="what-does-status-monitor-do"></a>Que fait Status Monitor ?
+
+Lorsque vous sélectionnez une application web que Status Monitor doit instrumenter :
+
+* Celui-ci télécharge et place les assemblys Application Insights et le fichier .config dans le dossier de fichiers binaires de l’application web.
+* Il modifie `web.config` pour ajouter le module de suivi HTTP Application Insights.
+* Il active le profilage CLR pour collecter les appels de dépendance.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Dois-je exécuter Status Monitor à chaque mise à jour d’une application ?
+
+Cela n’est pas nécessaire si vous la redéployez de façon incrémentielle. 
+
+Si vous sélectionnez l’option « Supprimer les fichiers existants » dans le processus de publication, vous devrez à nouveau exécuter Status Monitor pour configurer Application Insights.
+
+### <a name="what-telemetry-is-collected"></a>Quel type de télémétrie est collecté ?
+
+Pour les applications que vous instrumentez uniquement au moment de l’exécution à l’aide de Status Monitor :
+
+* Des requêtes HTTP
+* Des appels de dépendances
+* Exceptions
+* Compteurs de performances
+
+Pour les applications déjà instrumentées au moment de la compilation :
+
+ * Des compteurs de processus.
+ * Des appels de dépendances (.NET 4.5) ; des valeurs de retour dans des appels de dépendances (.NET 4.6).
+ * Des valeurs d’arborescence des appels de procédure d’exception.
+
+[En savoir plus](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Vidéo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ Ajoutez des données de télémétrie :
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

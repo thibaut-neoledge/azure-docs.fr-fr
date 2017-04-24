@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b575e92d2140ecc0e0f30186302e7733e08d0415
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -94,8 +94,8 @@ Votre application web Azure nécessite également un _plan App Service_.
 > Les plans App Service définissent :
 >
 > - Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique)
-> - La taille d’instance (« Petit », « Moyen », « Grand »)
-> - Comptage (un, deux ou trois instances, etc.) 
+> - Taille d’instance (« Petit », « Moyen » ou « Grand »)
+> - Comptage (une, deux ou trois instances, etc.) 
 > - Référence (SKU) (gratuit, partagé, basique, standard, premium)
 >
 >
@@ -155,26 +155,26 @@ Lorsque Visual Studio a terminé, il lance l’application web Azure mise à jou
 
 ## <a name="manage-your-new-azure-web-app"></a>Gérer votre nouvelle application web Azure
 
-Accédez au portail Azure pour voir l’application web que vous venez de créer. 
+Accédez au portail Azure pour voir l’application web que vous venez de créer. 
 
-Pour ce faire, connectez-vous à : [https://portal.azure.com](https://portal.azure.com).
+Pour ce faire, connectez-vous au portail : [https://portal.azure.com](https://portal.azure.com).
 
-Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
 
-![Navigation du portail à l’application web Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
 
-Vous êtes dans le _panneau_ de votre application web (une page de portail qui s’ouvre horizontalement). 
+Vous accédez au _panneau_ de votre application web (une page du portail qui s’ouvre horizontalement). 
 
-Par défaut, le panneau de votre application web affiche la page de **Présentation**. Cette page vous donne un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base telles que parcourir, arrêter, démarrer, redémarrer et supprimer. Les onglets sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir. 
+Par défaut, le panneau de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets figurant sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir. 
 
-![Panneau App Service sur le portail Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Panneau App Service sur le portail Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Ces onglets dans le panneau affichent les nombreuses fonctionnalités exceptionnelles que vous pouvez ajouter à votre application web. La liste suivante vous fournit quelques exemples des possibilités :
+Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous pouvez ajouter à votre application web. La liste suivante fournit quelques exemples des possibilités :
 
-- Mapper un nom DNS personnalisé
-- Lier un certificat SSL personnalisé
+- Mapper un nom DNS personnalisé
+- Lier un certificat SSL personnalisé
 - Configurer le déploiement continu
-- Adapter la taille des sites
+- Montée en puissance et augmentation de la taille des instances
 - Ajouter une authentification utilisateur
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

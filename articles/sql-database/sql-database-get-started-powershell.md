@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7f75b57c5d409ad9c4c79c48e4b7ee0021e7846b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8fcd907a03350dc21106944e72e6f06109b5f6
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,23 +39,43 @@ Connectez-vous à votre abonnement Azure avec la commande [Add-AzureRmAccount](h
 Add-AzureRmAccount
 ```
 
+## <a name="create-variables"></a>Créer des variables
+
+Définissez des variables à utiliser dans les scripts de ce démarrage rapide.
+
+```powershell
+# The data center and resource name for your resources
+$resourcegroupname = "myResourceGroup"
+$location = "WestEurope"
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+$servername = "server-$(Get-Random)"
+# Set an admin login and password for your database
+# The login information for the server
+$adminlogin = "ServerAdmin"
+$password = "ChangeYourAdminPassword1"
+# The ip address range that you want to allow to access your server - change as appropriate
+$startip = "0.0.0.0"
+$endip = "0.0.0.1"
+# The database name
+$databasename = "mySampleDatabase"
+```
+
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Créez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec la commande [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
+New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Création d'un serveur logique
 
 Créez un [serveur logique Azure SQL Database](sql-database-features.md) avec la commande [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Un serveur logique contient un groupe de bases de données gérées en tant que groupe. L’exemple suivant illustre la création d’un serveur nommé de façon aléatoire dans votre groupe de ressources avec un identifiant d’administrateur nommé `ServerAdmin` et un mot de passe `ChangeYourAdminPassword1`. Remplacez les valeurs prédéfinies par ce que vous souhaitez.
 
 ```powershell
-$servername = "server-$(Get-Random)"
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "westeurope" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
@@ -63,9 +83,9 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](sql-database-firewall-configure.md) avec la commande [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Une règle de pare-feu au niveau du serveur permet à une application externe, telle que SQL Server Management Studio ou l’utilitaire SQLCMD, de se connecter à une base de données SQL via le pare-feu du service SQL Database. Dans l’exemple suivant, le pare-feu n’est ouvert qu’à d’autres ressources Azure. Pour activer la connectivité externe, remplacez l’adresse IP par une adresse correspondant à votre environnement. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
 
 > [!NOTE]
@@ -77,9 +97,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 Créez une base de données SQL vide avec un [niveau de performance S0](sql-database-service-tiers.md) sur le serveur avec la commande [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). L’exemple suivant illustre la création d’une base de données nommée `mySampleDatabase`. Remplacez cette valeur prédéfinie par ce que vous souhaitez.
 
 ```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName databasename `
     -RequestedServiceObjectiveName "S0"
 ```
 
@@ -88,7 +108,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, utilisez la commande suivante pour supprimer toutes les ressources créées par ce démarrage rapide.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -101,3 +121,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 - Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
 - Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
 - Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+

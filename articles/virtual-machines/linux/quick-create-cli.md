@@ -9,16 +9,16 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 67b4af9f3ef7fb078d6d125e0d3257ea85e288b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: d051382954db989ce4152602d249383e7b9dfa46
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 04/04/2017
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de la CLI Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu 16.04 LTS. Une fois le serveur déployé, nous nous connectons via SSH à la machine virtuelle afin d’installer NGINX. 
 
-Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Assurez-vous également que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 

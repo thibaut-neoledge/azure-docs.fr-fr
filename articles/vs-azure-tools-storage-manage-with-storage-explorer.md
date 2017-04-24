@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -54,9 +55,70 @@ L’explorateur de stockage (version préliminaire) offre plusieurs façons de s
 3. Une fois que vous êtes connecté avec un compte Microsoft, le volet gauche indique les abonnements Azure associés à ce compte. Sélectionnez les abonnements Azure que vous souhaitez utiliser, puis sélectionnez **Appliquer**. (La case à cocher **Tous les abonnements** permet de sélectionner ou de désélectionner l’ensemble des abonnements Azure répertoriés.)
 
     ![Sélectionner les abonnements Azure][3]
-4. Le volet gauche affiche tous les abonnements de compte associés aux abonnements Azure sélectionnés.
+4. Le volet gauche affiche les comptes de stockage associés aux abonnements Azure sélectionnés.
 
     ![Abonnements Azure sélectionnés][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Connexion à un abonnement Azure Stack
+
+1. Une connexion VPN est nécessaire pour que l’explorateur de stockage puisse accéder à distance à l’abonnement Azure Stack. Pour savoir comment configurer la connexion VPN à Azure Stack, reportez-vous à [Connect to Azure Stack](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Se connecter à Azure Stack avec un VPN).
+
+2. Pour Azure Stack POC, vous devez exporter le certificat racine d’autorité Azure Stack. Ouvrez `mmc.exe` sur MAS-CON01, la machine hôte Azure Stack ou la machine locale avec la connexion VPN à Azure Stack. Dans **Fichier**, sélectionnez **Ajouter/Supprimer un composant logiciel enfichable**, ajoutez **Certificats** pour gérer le **compte d’ordinateur** d’un **ordinateur local**.
+
+   ![Charger le certificat racine Azure Stack via mmc.exe][25]   
+
+   Recherchez **AzureStackCertificationAuthority** sous **Racine de la console\Certificats (ordinateur local)\Autorités de certification racines de confiance\Certificats**. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **All Tasks (Toutes les tâches) -> Exporter**. Suivez ensuite les boîtes de dialogue pour exporter le certificat avec **X.509 encodé en base 64 (*.cer)**. Le certificat exporté sera utilisé à l’étape suivante.   
+
+   ![Exporter le certificat racine d’autorité Azure Stack][26]   
+
+3. Dans l’Explorateur de stockage (version préliminaire), sélectionnez le menu **Modifier**, puis **Certificats SSL**, puis **Importer les certificats**. Utilisez la boîte de dialogue du sélecteur de fichier pour rechercher et ouvrir le certificat que vous avez découvert à l’étape précédente. Vous serez invité à redémarrer l’explorateur de stockage suite à l’importation.
+
+   ![Importer le certificat dans l’explorateur de stockage (version préliminaire)][27]
+
+4. Après le redémarrage de l’explorateur de stockage (version préliminaire), sélectionnez le menu **Modifier** et vérifiez que l’option **Target Azure Stack** (Cibler Azure Stack). Dans le cas contraire, cochez l’option et redémarrez l’explorateur de stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack.
+
+   ![S’assurer que l’option Target Azure Stack (Cibler Azure Stack) est sélectionnée][28]
+
+5. Dans la barre latérale gauche, sélectionnez **Gérer les comptes**. Le volet de gauche affiche tous les comptes Microsoft auxquels vous êtes connecté. Pour vous connecter au compte Azure Stack, sélectionnez **Ajouter un compte**.
+
+   ![Ajouter un compte Azure Stack][29]
+
+6. Choisissez **Create Custom Environment** (Créer un environnement personnalisé) sous **Environnement Azure** dans la boîte de dialogue **Ajouter un compte**, puis cliquez sur **Suivant**.
+
+7. Entrez toutes les informations requises de l’environnement personnalisé Azure Stack, puis cliquez sur **Se connecter**.  Renseignez la boîte de dialogue **Sign in to a Custom Cloud environment** (Se connecter à un environnement cloud personnalisé) pour vous connecter au compte Azure Stack associé à un abonnement Azure Stack actif minimum. Les détails de chaque champ de la boîte de dialogue sont les suivants :
+
+    * **Nom de l’environnement** : le champ peut être personnalisé par l’utilisateur.
+    * **Autorité** : la valeur doit être https://login.windows.net. Pour Azure en Chine (Mooncake), utilisez https://login.chinacloudapi.cn.
+    * **Sign in resource id (ID de ressource de connexion)** : récupérez la valeur en exécutant l’instance PowerShell suivante :
+
+    Si vous êtes administrateur de cloud :
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Si vous êtes client :
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Point de terminaison Graph** : la valeur doit être https://graph.windows.net. Pour Azure en Chine (Mooncake), utilisez https://graph.chinacloudapi.cn.
+    * **ID de ressource ARM** : utilisez la même valeur que l’ID de ressource de connexion.
+    * **ARM resource endpoint (Point de terminaison de ressource ARM)** : les exemples de point de terminaison de ressource ARM :
+
+    Pour l’administrateur de cloud : https://adminmanagement.local.azurestack.external   
+    Pour le client : https://management.local.azurestack.external
+ 
+    * **ID de locataire** : facultatif. La valeur est fournie uniquement lorsque le répertoire doit être spécifié.
+
+8. Une fois que vous êtes connecté avec un compte Azure Stack, le volet de gauche indique les abonnements Azure Stack associés à ce compte. Sélectionnez les abonnements Azure Stack que vous souhaitez utiliser, puis sélectionnez **Appliquer**. (La case à cocher **Tous les abonnements** permet de sélectionner ou de désélectionner l’ensemble des abonnements Azure Stack répertoriés.)
+
+   ![Sélectionner les abonnements Azure Stack après avoir renseigné la boîte de dialogue Custom Cloud Environment (Environnement cloud personnalisé)][30]
+
+9. Le volet de gauche affiche les comptes de stockage associés aux abonnements Azure Stack sélectionnés.
+
+   ![Liste des comptes de stockage, y compris les comptes d’abonnement Azure Stack][31]
 
 ## <a name="work-with-local-development-storage"></a>Utilisation du stockage de développement local
 L’explorateur de stockage (version préliminaire) vous permet de travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Vous pouvez ainsi écrire du code pour le stockage et le tester sans nécessairement disposer d’un compte de stockage déployé sur Azure (étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure).
@@ -207,9 +269,11 @@ Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherc
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

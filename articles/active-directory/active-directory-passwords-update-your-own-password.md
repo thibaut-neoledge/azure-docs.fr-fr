@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Si les scénarios suivants s’appliquent à vous, nous pouvons vous aider.
 * Vous ne savez pas comment accéder à votre compte et avez oublié votre mot de passe.
 * Aucun mot de passe ne vous a été affecté et votre administrateur vous a invité à consulter cette page.
 
-## <a name="unlock-your-account"></a>Déverrouiller votre compte
+## <a name="unlock-my-account"></a>Déverrouillage de mon compte
 
 Si vous consultez cette page pour déverrouiller votre compte, suivez les étapes ci-dessous. Si vous voyez apparaître la mention **Choisir un nouveau mot de passe** à l’étape 6 ci-dessous, cela signifie que vous pouvez déverrouiller votre mot de passe, ou le modifier afin de le déverrouiller.
 
@@ -43,6 +43,11 @@ Pour pouvoir accéder à nouveau à votre compte, procédez comme suit.
     ![Vous ne pouvez pas accéder à votre compte ?][Login]
 
 2. Saisissez **l’ID utilisateur** associé à votre compte professionnel ou scolaire, prouvez que vous n’êtes pas un robot en répondant au test CAPTCHA et en saisissant le texte qui vous est présenté, puis cliquez sur **Suivant**.
+
+   > [!NOTE]
+   > Si l’administrateur n’a pas activé cette fonctionnalité, le lien « Contactez l’administrateur » s’affiche à cette étape, afin de permettre à l’administrateur de vous aider par e-mail, ou via son portail web.
+   >
+
 3. Selon la façon dont l’administrateur a configuré le système, vous verrez apparaître une ou plusieurs des options suivantes :
     * **Envoyer un courrier électronique sur mon adresse de messagerie secondaire** : envoie un e-mail avec un code à 6 chiffres à votre autre adresse e-mail ou à votre adresse e-mail d’authentification (au choix).
     * **Envoyer un SMS à mon téléphone mobile** : envoie un code à 6 chiffres à votre téléphone mobile ou à votre téléphone d’authentification (au choix).
@@ -61,10 +66,6 @@ Pour pouvoir accéder à nouveau à votre compte, procédez comme suit.
 7. Lorsque vous voyez apparaître le message **Votre mot de passe a été réinitialisé**, cela signifie que vous pouvez vous connecter avec votre nouveau mot de passe.
 
     ![Votre mot de passe a été réinitialisé][Complete]
-
-> [!NOTE]
-> Si l’administrateur n’a pas activé cette fonctionnalité, le lien « Contactez l’administrateur » s’affiche, afin de permettre à l’administrateur de vous aider par e-mail, ou via son portail web.
->
 
 Après avoir utilisé cette méthode pour déverrouiller ou réinitialiser votre mot de passe, vous pouvez recevoir un e-mail signalant que la procédure est terminée, qui peut provenir d’un compte tel que « Microsoft pour le compte de votre organisation ici ». Si vous recevez ce type de message et n’avez pas utilisé la fonction de réinitialisation du mot de passe en libre-service pour récupérer l’accès à votre compte, contactez l’administrateur.
 

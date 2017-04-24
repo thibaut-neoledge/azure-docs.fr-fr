@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Ouvrez le panneau Navigateurs pour afficher la synthèse des données de perform
 
 ![Dans portal.azure.com, ouvrez les ressources de votre application, puis cliquez sur Paramètres, Navigateur.](./media/app-insights-javascript/03.png)
 
-*Pas de données pour le moment ? Cliquez sur**Actualiser**en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
+*Pas de données pour le moment ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
 
 Le panneau navigateur est un [Panneau Metrics Explorer](app-insights-metrics-explorer.md) avec filtres prédéfinis et des sélections de graphique. Si vous le souhaitez, vous pouvez modifier l’intervalle de temps, les filtres et la configuration des graphiques, puis enregistrer le résultat en tant que favori. Cliquez sur **Paramètres par défaut** pour revenir à la configuration d’origine du panneau.
 
@@ -230,6 +230,6 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 ## <a name="next"></a> Étapes suivantes
 * [Suivi de l'utilisation](app-insights-web-track-usage.md)
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
-* [Développer-mesurer-apprendre](app-insights-overview-usage.md)
+* [Développer-mesurer-apprendre](app-insights-web-track-usage.md)
 
 

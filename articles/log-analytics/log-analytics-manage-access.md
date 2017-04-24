@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ Si vous utilisez System Center Operations Manager, chaque groupe d’administrat
 
 Vous pouvez afficher des détails sur votre espace de travail dans le portail Azure. Vous pouvez également afficher les détails dans le portail OMS.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Afficher les informations de l’espace de travail dans le portail Azure
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Affichage des informations de l’espace de travail dans le portail Azure
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement Azure.
 2. Dans le menu **Hub**, cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
@@ -177,7 +177,7 @@ Vous pouvez modifier le rôle de compte pour un utilisateur associé à votre co
 4. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Supprimer un utilisateur d’un espace de travail
-Procédez comme suit pour supprimer un utilisateur d’un espace de travail. Notez que cela ne ferme pas l’espace de travail. Au lieu de cela, cela supprime l’association entre cet utilisateur et l’espace de travail. Si un utilisateur est associé à plusieurs espaces de travail, il peut encore se connecter à OMS et afficher les autres espaces de travail.
+Procédez comme suit pour supprimer un utilisateur d’un espace de travail. Notez que cela ne ferme pas l’espace de travail. Au lieu de cela, cela supprime l’association entre cet utilisateur et l’espace de travail. Si un utilisateur est associé à plusieurs espaces de travail, il peut encore se connecter à OMS et afficher ses autres espaces de travail.
 
 1. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
 2. Cliquez sur l’onglet **Comptes**, puis sur l’onglet **Gérer les utilisateurs**.
@@ -202,9 +202,6 @@ Tous les espaces de travail créés après le 26 septembre 2016 doivent être 
     > [!IMPORTANT]
     > Pour que vous puissiez lier un espace de travail, votre compte Azure doit déjà y avoir accès.  En d’autres termes, le compte que vous utilisez pour accéder au portail Azure doit être **le même** que celui que vous utilisez pour accéder à votre espace de travail. Si ce n’est pas le cas, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Pour lier un espace de travail à un abonnement Azure dans le portail Azure
 1. Connectez-vous au [portail Azure](http://portal.azure.com).
 2. Recherchez **Log Analytics** et sélectionnez-le.
@@ -225,7 +222,7 @@ Tous les espaces de travail créés après le 26 septembre 2016 doivent être 
 8. Cliquez sur **OK**. L’espace de travail est maintenant lié à votre compte Azure.
 
 > [!NOTE]
-> Si l’espace de travail que vous souhaitez lier ne s’affiche pas, cela signifie que votre abonnement Azure n’a pas accès à l’espace de travail que vous avez créé sur le site web OMS.  Pour accorder l’accès à ce compte à partir du portail OMS, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
+> Si l’espace de travail que vous souhaitez lier ne s’affiche pas, cela signifie que votre abonnement Azure n’a pas accès à l’espace de travail que vous avez créé sur le portail OMS.  Pour accorder l’accès à ce compte à partir du portail OMS, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -250,7 +247,7 @@ Pour vous assurer que l’utilisation d’un espace de travail est appliquée à
 Les droits de l’abonnement OMS ne sont pas visibles dans le portail Azure ou OMS. Vous pouvez les consulter, ainsi que l’utilisation, dans le portail Enterprise Portal.  
 
 Si vous devez modifier l’abonnement Azure auquel votre espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .
-to
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Utilisation de l’engagement Azure d’un Contrat Entreprise
 Si vous n’avez pas d’abonnement OMS, vous payez séparément pour chaque composant OMS et l’utilisation apparaît sur votre facture Azure.
 
@@ -295,7 +292,7 @@ Au niveau tarifaire Standard, Log Analytics propose les 30 derniers jours de d
 Au niveau tarifaire Premium, Log Analytics propose les 365 derniers jours de données.
 Aux niveaux tarifaires Autonome et OMS, Log Analytics propose par défaut les 31 derniers jours de données.
 
-Lorsque vous utilisez les niveaux tarifaires Autonome et OMS, vous pouvez conserver jusqu’à 2 ans de données (730 jours). Les données stockées pendant une durée supérieure à la durée par défaut de 31 jours entraînent des frais de conservation des données. Pour plus d’informations sur la tarification, reportez-vous aux [frais de dépassement](https://azure.microsoft.com/pricing/details/log-analytics/).
+Lorsque vous utilisez les niveaux tarifaires Autonome et OMS, vous pouvez conserver jusqu’à 2 ans de données (730 jours). Les données stockées pendant une durée supérieure à la durée par défaut de 31 jours entraînent des frais de conservation des données. Pour plus d’informations sur la tarification, reportez-vous aux [frais de dépassement](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Pour modifier la durée de conservation des données :
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ Un périphérique VPN est requis pour configurer une connexion VPN site à site 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Éléments à noter lorsque vous affichez les tables :
 
-* Une modification de la terminologie a eu lieu pour les passerelles VPN Azure. Seuls les noms ont été modifiés, pas la fonctionnalité.
+* Une modification de la terminologie a eu lieu pour les passerelles VPN Azure. Aucune modification de fonctionnalité n’est à noter. Seuls les noms changent.
   * Routage statique = basé sur des stratégies
   * Routage dynamique = basé sur un itinéraire
 * Sauf indication contraire, les spécifications des passerelles VPN hautes performances sont identiques à celles des passerelles VPN basées sur itinéraire. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN basées sur itinéraire sont également compatibles avec la passerelle VPN hautes performances Azure.
 
 > [!NOTE]
-> Lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.                                                                                                                                                                               
+> Lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.
+>                
 
-
-## <a name="devicetable"></a>Périphériques VPN validés
+## <a name="devicetable"></a>Périphériques VPN validés et guides de configuration des périphériques
 Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs de périphériques. Tous les périphériques des familles de périphériques figurant dans la liste suivante doivent fonctionner avec les passerelles VPN Azure. Consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md) pour vérifier le type de passerelle dont vous avez besoin pour créer la solution que vous souhaitez configurer.
 
-Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée.  Les liens vers les instructions de configuration sont fournis dans la mesure du possible. Pour une prise en charge des appareils VPN, contactez le fabricant de votre appareil.
+Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée. Les liens vers les instructions de configuration sont fournis dans la mesure du possible. Pour une prise en charge des appareils VPN, contactez le fabricant de votre appareil.
 
-|**Fournisseur**          |**Famille de périphériques**     |**Version de système d’exploitation minimale** |**PolicyBased** |**RouteBased** |
+|**Fournisseur**          |**Famille de périphériques**     |**Version de système d’exploitation minimale** |**Instructions de configuration PolicyBased** |**Instructions de configuration RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Non compatible  |[Guide de configuration](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |Routeurs VPN série AR |2.9.2                  |Bientôt disponible     |Non compatible  |
@@ -81,7 +81,7 @@ Si votre appareil n’est pas répertorié dans le tableau des périphériques V
 ## <a name="editing"></a>Modification des exemples de configuration de périphérique
 Après avoir téléchargé l’exemple de configuration de périphérique VPN fourni, vous devrez remplacer certaines des valeurs spécifiées pour qu’elles reflètent les paramètres de votre environnement.
 
-###<a name="to-edit-a-sample"></a>Pour modifier un exemple :
+### <a name="to-edit-a-sample"></a>Pour modifier un exemple :
 
 1. Ouvrez l’exemple à l’aide du Bloc-notes.
 2. Recherchez et remplacez toutes les chaînes au format <*texte*> par les valeurs qui correspondent à votre environnement. Prenez soin d’inclure < et >. Lorsque vous sélectionnez un nom, assurez-vous qu’il est unique. Si une commande ne fonctionne pas, consultez la documentation du fabricant du périphérique.
@@ -106,7 +106,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 > 
 >
 
-Dans les tableaux ci-dessous :
+Dans les tableaux suivants :
 
 * AS = association de sécurité
 * IKE Phase 1 est également appelé « Mode principal »
@@ -185,7 +185,7 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 >
 >
 
-###<a name="feb-16-2017"></a>16 février 2017
+### <a name="feb-16-2017"></a>16 février 2017
 
 **Appareils Palo Alto Networks dont la version est antérieure à la version 7.1.4** pour les VPN Azure basés sur les itinéraires : si vous utilisez des appareils VPN de Palo Alto Networks avec une version de PAN-OS antérieure à la version 7.1.4 et que vous rencontrez des problèmes de connectivité pour les passerelles VPN Azure basées sur les itinéraires, procédez comme suit :
 
