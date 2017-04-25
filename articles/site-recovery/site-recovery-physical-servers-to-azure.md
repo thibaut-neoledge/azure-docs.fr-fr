@@ -107,7 +107,7 @@ Configurez le serveur de configuration, inscrivez-le dans le coffre et découvre
     ![Configurer la source](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
 4. Téléchargez le fichier d’installation unifiée de Site Recovery.
-5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant&5; jours.
+5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
    ![Configurer la source](./media/site-recovery-vmware-to-azure/set-source2.png)
 6. Sur la machine virtuelle du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [serveur horaire](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service), puis exécutez le programme d’installation unifiée pour installer le serveur de configuration, le serveur de traitement et le serveur cible maître.
