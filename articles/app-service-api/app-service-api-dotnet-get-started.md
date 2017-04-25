@@ -162,7 +162,7 @@ Dans cette section du didacticiel, nous allons examiner les métadonnées Swagge
    
     ![Méthodes disponibles dans l’interface utilisateur Swagger](./media/app-service-api-dotnet-get-started/methods.png)
 9. Cliquez sur le premier bouton **Obtenir** de la liste.
-10. Dans la section **Paramètres`owner`, entrez un astérisque comme valeur du paramètre **, puis cliquez sur **Faites un essai**.
+10. Dans la section **Paramètres`owner`, entrez un astérisque comme valeur du paramètre**, puis cliquez sur **Faites un essai**.
     
     Lorsque vous ajouterez l’authentification dans les autres didacticiels, la couche intermédiaire fournira l’ID d’utilisateur à la couche de données. Pour l’instant, toutes les tâches ont un astérisque comme ID de leur propriétaire tandis que l’application s’exécute sans que l’authentification ne soit activée.
     

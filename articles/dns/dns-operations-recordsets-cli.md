@@ -143,7 +143,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
 
 ```azurecli
 az network dns record srv add --resource-group myresourcegroup --zone-name contoso.com --record-set-name "_sip.tls" --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
@@ -201,7 +201,7 @@ Vous devez spécifier l’enregistrement à supprimer et la zone de laquelle il 
 
 Cette commande vous demande de confirmer l’opération. Cette invite peut être supprimée par le biais du switch `--yes`.
 
-L’exemple suivant supprime l’enregistrement A avec la valeur «&1;.2.3.4 » du jeu d’enregistrements *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’invite de confirmation est supprimée.
+L’exemple suivant supprime l’enregistrement A avec la valeur « 1.2.3.4 » du jeu d’enregistrements *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’invite de confirmation est supprimée.
 
 ```azurecli
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4 --yes
