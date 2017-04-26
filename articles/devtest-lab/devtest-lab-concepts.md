@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 79a880ed30b1fd50e7d4f232f03629c228a72a2e
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -91,10 +91,10 @@ Pour découvrir comment créer des rôles personnalisés dans DevTest Labs, cons
 
 Étant donné que les étendues sont hiérarchiques, lorsqu’un utilisateur dispose d’autorisations pour une certaine étendue, il reçoit automatiquement ces autorisations pour chaque niveau d’étendue inférieur englobé. Par exemple, si un utilisateur est affecté au rôle de propriétaire d’abonnement, il a accès à toutes les ressources dans un abonnement, notamment à toutes les machines virtuelles, tous les réseaux virtuels et tous les laboratoires. Ainsi, un propriétaire d’abonnement hérite automatiquement du rôle de propriétaire de laboratoire. Toutefois, l’inverse n’est pas vrai. Un propriétaire de laboratoire a accès à un laboratoire, qui est une étendue inférieure au niveau d’abonnement. Par conséquent, un propriétaire de laboratoire ne sera pas en mesure de voir les machines virtuelles ou réseaux virtuels ou toutes les ressources qui sont en dehors du laboratoire.
 
-## <a name="arm-templates"></a>Modèles ARM
-Tous les concepts abordés dans cet article peuvent être configurés à l’aide de modèles Azure Resource Manager (ARM). Les modèles ARM vous permettent de définir l’infrastructure/la configuration de votre solution Azure et de la déployer plusieurs fois de manière cohérente.
+## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
+Tous les concepts abordés dans cet article peuvent être configurés à l’aide de modèles Azure Resource Manager, qui vous permettent de définir l’infrastructure/la configuration de votre solution Windows Azure et de la déployer de façon répétée dans un état cohérent.
 
-Les [modèles ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) décrivent la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
+[Comprendre la structure et la syntaxe des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) décrit la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

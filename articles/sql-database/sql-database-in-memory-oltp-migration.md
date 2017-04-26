@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -25,13 +26,13 @@ ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
 [L’OLTP en mémoire](sql-database-in-memory.md) peut être utilisé pour améliorer les performances de traitement des transactions, l’ingestion des données et des scénarios de données temporaires, dans des bases de données SQL Azure [Premium](sql-database-service-tiers.md) sans augmenter le niveau tarifaire. 
 
 > [!NOTE] 
-> Découvrez comment le [Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 % avec la SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Découvrez comment le [Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 % avec la SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Suivez ces étapes pour adopter OLTP en mémoire dans votre base de données existante.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Étape 1 : vérifiez que vous utilisez une base de données Premium
-L’OLTP en mémoire est pris en charge uniquement dans des bases de données v12 Premium. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
+OLTP en mémoire est pris en charge uniquement dans les bases de données Premium. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -173,10 +174,5 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 * [In-Memory OLTP (optimisation en mémoire)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Présentation des procédures stockées compilées en mode natif](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

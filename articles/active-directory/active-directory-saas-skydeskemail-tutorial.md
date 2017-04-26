@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: fcea07a412de7b35931ff95b01fbe1276302f1ea
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 27f428d4f93e81aa896f958307129b3c1008eb48
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer SkyDesk Ema
 L’intégration de SkyDesk Email à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à SkyDesk Email
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SkyDesk Email (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SkyDesk Email via l’authentification unique avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -38,25 +38,25 @@ Pour configurer l’intégration d’Azure AD avec SkyDesk Email, vous avez bes
 * Un abonnement Azure AD
 * Un abonnement SkyDesk Email pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SkyDesk Email à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-skydesk-email-from-the-gallery"></a>Ajout de SkyDesk Email à partir de la galerie
+## <a name="add-skydesk-email-from-the-gallery"></a>Ajouter SkyDesk Email à partir de la galerie
 Pour configurer l’intégration de SkyDesk Email à Azure AD, vous devez ajouter SkyDesk Email disponible dans la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter SkyDesk Email à partir de la galerie, procédez comme suit :**
@@ -81,8 +81,8 @@ Pour configurer l’intégration de SkyDesk Email à Azure AD, vous devez ajout
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L'objectif de cette section est de vous montrer comment configurer et tester l'authentification unique Azure AD avec SkyDesk Email avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec SkyDesk Email, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SkyDesk Email équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur SkyDesk Email associé doit être établie.
 
@@ -90,14 +90,14 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comm
 
 Pour configurer et tester l’authentification unique Azure AD avec SkyDesk Email, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test SkyDesk Email](#creating-a-Skydesk-Email-test-user)** pour avoir un équivalent de Britta Simon dans SkyDesk Email lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application SkyDesk Email.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application SkyDesk Email.
 
 **Pour configurer l’authentification unique Azure AD avec SkyDesk Email, procédez comme suit :**
 
@@ -118,33 +118,33 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png) 
    
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-    b. Cliquez sur **Next**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 5. Pour activer l’authentification unique dans **SkyDesk Email**, procédez comme suit :
-   1. Connectez-vous à votre compte SkyDesk Email en tant qu’administrateur.
-   2. Dans le menu situé en haut, cliquez sur Setup, puis sélectionnez Org. 
+  1. Connectez-vous à votre compte SkyDesk Email en tant qu’administrateur.
+  2. Dans le menu situé en haut, cliquez sur Setup, puis sélectionnez Org. 
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)  
-   3. Cliquez sur Domains dans le volet de gauche.
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)  
+  3. Cliquez sur Domains dans le volet de gauche.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
-   4. Cliquez sur Add Domain.
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+  4. Cliquez sur Add Domain.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
-   5. Entrez votre nom de domaine et vérifiez le domaine.
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+  5. Entrez votre nom de domaine et vérifiez le domaine.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
-   6. Cliquez sur **Authentification SAML** dans le panneau de gauche.
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+  6. Cliquez sur **Authentification SAML** dans le panneau de gauche.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 6. Dans la page de boîte de dialogue **SAML Authentication** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+      ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
    
-   > [!NOTE]
-   > Pour utiliser l’authentification SAML, un **domaine vérifié** ou **l’URL du portail** doit être configuré. Vous pouvez définir l’URL du portail avec un nom unique.
-   > 
-   > 
+    >[!NOTE]
+    >Pour utiliser l’authentification SAML, un **domaine vérifié** ou **l’URL du portail** doit être configuré. Vous pouvez définir l’URL du portail avec un nom unique.
+    > 
+    > 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
@@ -162,7 +162,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
 
 ![Créer un utilisateur Azure AD][20]
@@ -182,12 +182,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_06.png) 
@@ -207,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    1. Notez la valeur du **Nouveau mot de passe**.
    2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-skydesk-email-test-user"></a>Création d’un utilisateur de test SkyDesk Email
+### <a name="create-a-skydesk-email-test-user"></a>Créer un utilisateur de test SkyDesk Email
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SkyDesk Email.
 
 1. Cliquez sur **User Access** (Accès utilisateur) dans le panneau de gauche de SkyDesk Email, puis entrez votre nom d’utilisateur. 
@@ -218,8 +215,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans S
 >Si vous avez besoin de créer des utilisateurs en bloc, contactez l’équipe de support SkyDesk Email.
 >
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à SkyDesk Email.
 
 ![Affecter des utilisateurs][200] 
@@ -237,9 +233,9 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
    
-    ![Affecter des utilisateurs][205]
+   ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque SkyDesk Email dans le volet d’accès, vous devez être connecté automatiquement à votre application SkyDesk Email.

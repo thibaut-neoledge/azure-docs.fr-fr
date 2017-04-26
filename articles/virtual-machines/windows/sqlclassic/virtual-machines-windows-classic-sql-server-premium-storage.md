@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d055a859ec89ef7fec23db9bf1d574dd8cb76293
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/25/2017
 ## <a name="overview"></a>Vue d'ensemble
 [stockage Premium Azure](../../../storage/storage-premium-storage.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’ [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
@@ -47,7 +47,7 @@ Pour plus de détails sur l’utilisation de SQL Server dans les machines virtue
 Il existe plusieurs conditions préalables à l'utilisation du stockage Premium.
 
 ### <a name="machine-size"></a>Taille de la machine
-Pour utiliser le stockage Premium, vous devrez utiliser des machines virtuelles (VM) de série DS. Si vous n'avez jamais utilisé de machines de série DS dans votre service cloud, vous devez supprimer la machine virtuelle existante, conserver les disques connectés, puis créer un nouveau service cloud avant de recréer la machine virtuelle avec une taille de rôle DS*. Pour plus d’informations sur l’utilisation des tailles des machines virtuelles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour utiliser le stockage Premium, vous devrez utiliser des machines virtuelles (VM) de série DS. Si vous n'avez jamais utilisé de machines de série DS dans votre service cloud, vous devez supprimer la machine virtuelle existante, conserver les disques connectés, puis créer un nouveau service cloud avant de recréer la machine virtuelle avec une taille de rôle DS*. Pour plus d’informations sur l’utilisation des tailles des machines virtuelles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Services cloud
 Vous pouvez uniquement utiliser des machines virtuelles DS* avec un stockage Premium si elles ont été créées dans un nouveau service cloud. Si vous utilisez SQL Server Always On dans Azure, l’écouteur Always On fera référence à l’adresse IP de l’équilibreur de charge interne (ILB) ou de l’équilibreur de charge externe (ELB) Azure associée à un service cloud. Cet article explique comment effectuer la migration tout en conservant la disponibilité dans ce scénario.
@@ -142,9 +142,9 @@ Vous pouvez désormais utiliser ces informations pour associer des disques durs 
 Une fois que vous avez mappé les disques durs virtuels aux disques physiques dans les pools de stockage, vous pouvez les déconnecter et les copier vers un compte de stockage Premium, puis les connecter en utilisant le paramètre de cache approprié. Consultez les étapes 8 à 12 de l' [annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Ces étapes indiquent comment extraire dans un fichier CSV une configuration de disque de disque dur virtuel connecté à une machine virtuelle, copier les disques durs virtuels, modifier les paramètres de cache de la configuration de disque, puis redéployer la machine virtuelle comme machine virtuelle de série DS avec tous les disques connectés.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Bande passante de stockage de la machine virtuelle et débit de stockage du disque dur virtuel
-Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d’informations, [consultez le tableau des opérations d’E/S et des types de disque](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d’informations, [consultez le tableau des opérations d’E/S et des types de disque](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
 
 Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
 
@@ -271,7 +271,7 @@ Ce scénario vous montre où sont placées les images personnalisées existantes
 
 
 #### <a name="step-3-use-existing-image"></a>Étape 3 : utilisation d’une image existante
-Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, les étapes suivantes indiquent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell**Start-AzureStorageBlobCopy**.
+Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, appliquez les étapes suivantes, qui montrent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account

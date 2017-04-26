@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4c32d3cf70b222e2795df2b94e23da67bf38d72b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 
 1. La bibliothèque cliente suppose que l’utilisateur gère la clé de chiffrement de clés (KEK) localement. L’utilisateur n’est pas obligé de savoir quelle clé a été spécifiquement utilisée pour le chiffrement. Il est en effet possible d’utiliser et de configurer un programme de résolution de clés qui résout les différents identificateurs de clés.
 2. La bibliothèque cliente télécharge les données chiffrées ainsi que  tout le  matériel de chiffrement stocké sur le service.
-3. La clé de chiffrement de contenu (CEK) encapsulée est ensuite désencapsulée (déchiffrée) à l’aide de la clé de chiffrement de clés (KEK). Là encore, la bibliothèque cliente n’a pas accès à la clé de chiffrement de clés. Elle appelle simplement l’algorithme de désencapsulage personnalisée ou du fournisseur.
+3. La clé de chiffrement de contenu (CEK) encapsulée est ensuite désencapsulée (déchiffrée) à l’aide de la clé de chiffrement de clés (KEK). Là encore, la bibliothèque cliente n’a pas accès à la clé de chiffrement de clés. Elle appelle simplement l’algorithme de désencapsulage du fournisseur personnalisé.
 4. La clé de chiffrement de contenu (CEK) est alors utilisée pour déchiffrer les données utilisateur chiffrées.
 
 ## <a name="encryption-mechanism"></a>Mécanisme de chiffrement

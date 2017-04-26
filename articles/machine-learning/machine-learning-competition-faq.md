@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/10/2017
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
-ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ed387d9ef595312d4fcde78b2fdc3644e96ee27
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ Accédez à la page d’accueil des [concours](https://gallery.cortanaintelligen
 
 1. Recherchez le concours auquel que vous voulez participer, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton **Participer au concours** pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
 
-2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.   
+2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour qu’ils soient conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.   
 
 3. Déployez un service web en dehors de votre expérience prédictive. Testez votre service web à l’aide du bouton **Test** ou du modèle Excel créé automatiquement pour vous afin de vérifier que le service fonctionne correctement.   
 
@@ -50,7 +50,7 @@ Une fois que vous avez correctement envoyé une contribution, vous pouvez reveni
 
 **Puis-je utiliser des outils open source pour participer à ces concours ?**
 
-Les participants au concours tirent parti d’Azure Machine Learning Studio, un service cloud intégré à Cortana Intelligence Suite pour développer les modèles de science des données et créer les contributions à envoyer dans le cadre du concours. Machine Learning Studio fournit non seulement une interface utilisateur graphique pour créer des expériences d’apprentissage automatique, mais il vous permet également de proposer vos propres scripts R et/ou Python pour une exécution native. Les runtimes R et Python dans Studio comprennent un ensemble complet de packages R/Python open source, et vous pouvez également importer vos propres packages dans le cadre de l’expérience. Studio comporte également un service Jupyter Notebook intégré pour vous permettre d’explorer les données comme vous le souhaitez. Bien sûr, vous pouvez toujours télécharger les jeux de données utilisés dans le concours et les explorer dans l’outil de votre choix en dehors de Machine Learning Studio. 
+Les participants au concours bénéficient d’Azure Machine Learning Studio, d’un service cloud dans Cortana Intelligence Suite pour développer les modèles de science des données et créer les contributions à envoyer dans le cadre du concours. Machine Learning Studio fournit non seulement une interface utilisateur graphique pour créer des expériences d’apprentissage automatique, mais il vous permet également de proposer vos propres scripts R et/ou Python pour une exécution native. Les runtimes R et Python dans Studio comprennent un ensemble complet de packages R/Python open source, et vous pouvez également importer vos propres packages dans le cadre de l’expérience. Studio comporte également un service Jupyter Notebook intégré pour vous permettre d’explorer les données comme vous le souhaitez. Bien sûr, vous pouvez toujours télécharger les jeux de données utilisés dans le concours et les explorer dans l’outil de votre choix en dehors de Machine Learning Studio. 
 
 **Dois-je être un scientifique de données pour participer ?**
 
@@ -62,7 +62,7 @@ Non. En fait, nous encourageons les passionnés de données, ceux qui s’intér
 
 **Puis-je participer avec mes collaborateurs en équipe ?**
 
-La plateforme de concours ne prend pas en charge la participation en équipe pour le moment. Chaque contribution au concours est associée à une seule identité d’utilisateur. 
+La plateforme de concours ne prend actuellement pas en charge la participation en équipe. Chaque contribution au concours est associée à une seule identité d’utilisateur. 
 
 **Dois-je payer pour participer à un concours ?**
 
@@ -80,7 +80,7 @@ Voici ce qui se passe :
 * Les données de formation sont chargées et fournies dans le cadre de l’expérience de démarrage dans la configuration du module Importer des données.
 * Les données de test sont à leur tour divisées en données de test publiques et privées, à l’aide de la même stratification.
 * Les données de test publiques sont utilisées pour l’évaluation initiale. Le résultat correspond au score public et apparaît dans votre historique d’envoi quand vous envoyez votre contribution. Ce score est calculé pour chaque contribution que vous envoyez. Ce score public est utilisé pour vous positionner dans le classement public.
-* Les données de test privées sont utilisées pour la dernière évaluation à la fin du concours. Ceci est appelé le score privé. 
+* Les données de test privées sont utilisées pour la dernière évaluation après la fin du concours. Ceci est appelé le score privé. 
 * Pour chaque participant, un nombre fixe de contributions que vous avez envoyées et qui ont reçu le score public le plus élevé est automatiquement sélectionné pour participer à l’élaboration du score privé (ce nombre peut varier en fonction du concours). La contribution qui reçoit le score privé le plus élevé est alors sélectionnée pour participer au classement final, ce qui permet de déterminer les gagnants du prix.  
 
 **Les clients peuvent-ils héberger un concours sur notre plateforme ?**
@@ -111,7 +111,7 @@ Non. Vous devez utiliser un espace de travail gratuit ou standard pour participe
 
 La plateforme de concours ne prend actuellement en charge que les contributions envoyées à partir d’un espace de travail dans la région Azure **Sud du Centre des États-Unis**. Tous les espaces de travail gratuits résident dans le Sud du Centre des États-Unis, ce qui vous permet d’envoyer une contribution à partir de n’importe quel espace de travail gratuit. Si vous choisissez d’utiliser un espace de travail standard, assurez-vous simplement qu’il réside dans la région Azure Sud du Centre des États-Unis, sinon votre contribution échouera. 
 
-**Conservons-nous les solutions/contributions de concours des utilisateurs ?**
+**Conservons-nous les solutions/contributions des concours des utilisateurs ?**
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
 

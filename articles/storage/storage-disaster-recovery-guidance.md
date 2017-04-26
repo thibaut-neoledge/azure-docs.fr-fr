@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
-ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -54,11 +55,11 @@ Quelques points relatifs à l’expérience de basculement géographique du stoc
 
 * Le basculement géographique du stockage est déclenché uniquement par l’équipe Azure Storage et ne nécessite donc aucune intervention du client.
 * Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS devra être mise à jour pour basculer de la région primaire à la région secondaire.
-* Avant et pendant le basculement géographique, vous n’aurez pas d’accès en écriture à votre compte de stockage en raison de l’impact de l’incident, mais vous pourrez toujours lire les données à partir de la base de données secondaire si votre compte de stockage a été configuré en tant que RA-GRS.
+* Avant et pendant le basculement géographique, vous n’avez pas d’accès en écriture à votre compte de stockage en raison de l’impact de l’incident, mais vous pouvez toujours lire les données à partir de la base de données secondaire si votre compte de stockage a été configuré en tant que RA-GRS.
 * Une fois le basculement géographique effectué et les modifications DNS propagées, vous bénéficiez de nouveau d’un accès en lecture-écriture à votre compte de stockage. L’emplacement pointé est votre point de terminaison secondaire précédent. 
 * Notez que vous bénéficierez d’un accès en écriture si un stockage GRS ou RA-GRS est configuré pour le compte de stockage. 
 * Vous pouvez interroger [« l’heure du dernier basculement géographique » de votre compte de stockage](https://msdn.microsoft.com/library/azure/ee460802.aspx) pour obtenir plus de détails.
-* Après le basculement, votre compte de stockage sera entièrement opérationnel, mais dans un état « détérioré », puisqu’il sera en réalité hébergé dans une région autonome qui ne permet aucune géo-réplication. Pour atténuer ce risque, nous restaurerons la région primaire d’origine et effectuerons une géo-restauration afin de restaurer l’état d’origine. Si la région primaire d’origine est irrécupérable, nous allouerons une autre région secondaire.
+* Après le basculement, votre compte de stockage sera entièrement opérationnel, mais dans un état « dégradé », car il sera en réalité hébergé dans une région autonome sans aucune géoréplication possible. Pour atténuer ce risque, nous restaurerons la région primaire d’origine et effectuerons une géo-restauration afin de restaurer l’état d’origine. Si la région primaire d’origine est irrécupérable, nous allouerons une autre région secondaire.
   Pour plus d’informations sur l’infrastructure de géo-réplication d’Azure Storage, consultez l’article sur le blog de l’équipe Azure Storage relatif aux [options de redondance et à RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Meilleures pratiques pour la protection de vos données
@@ -70,10 +71,5 @@ Il existe des approches recommandées pour sauvegarder régulièrement vos donn�
 * Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
 
 Pour plus d’informations sur la création d’applications tirant pleinement parti de la fonctionnalité RA-GRS, consultez [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

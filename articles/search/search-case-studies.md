@@ -16,8 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 197e5eba551d60ec33bcb5705bfa13f145554b74
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -42,8 +43,8 @@ En tant que start-up avec de grands projets pour son site web de recherche de so
 ## <a name="weichert-realtorshttpscustomersmicrosoftcompagescustomerstoryaspxrecid21252"></a>[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 Weichert Realtors passe au cloud, modifiant ainsi en profondeur sa manière de mener ses activités. La migration vers Microsoft Azure a permis à la société de réduire ses coûts d’exploitation de 60 pour cent après avoir dit adieu aux solutions matérielles et logicielles locales coûteuses. En outre, elle a complètement repensé sa solution de CRM avec des fonctionnalités de recherche robustes et ouvert un éventail de nouveaux services de données, essentiels pour l’avenir de l’entreprise. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-## <a name="whattopediacomsearch-dev-case-study-whattopediamd"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
-Découvrez comment une start-up suédoise a conçu un portail d’informations multimédias qui connecte des acheteurs et des revendeurs grâce à une recherche pertinente et très ciblée, semblable à celle qu’utilisent les agences de voyages pour proposer des hôtels, des restaurants et des divertissements aux clients partant pour des destinations inconnues. [En savoir plus…](search-dev-case-study-whattopedia.md)
+## <a name="whattopediacom"></a>Whattopedia.com
+Découvrez comment une start-up suédoise a conçu un portail d’informations multimédias qui connecte des acheteurs et des revendeurs grâce à une recherche pertinente et très ciblée, semblable à celle qu’utilisent les agences de voyages pour proposer des hôtels, des restaurants et des divertissements aux clients partant pour des destinations inconnues.
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -52,9 +53,4 @@ Découvrez comment une start-up suédoise a conçu un portail d’informations m
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

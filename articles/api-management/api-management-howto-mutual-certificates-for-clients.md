@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
-ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7f1d55b90af4e5397d74a8e37b44b5a88530897d
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,19 +26,46 @@ La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gest
 
 Pour plus d’informations sur la sécurisation de l’accès au service principal d’une API à l’aide de certificats clients (par exemple, gestion des API vers service principal), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
 
-## <a name="checking-a-thumbprint-against-a-desired-value"></a>Vérification d’une empreinte par rapport à une valeur souhaitée
+## <a name="checking-the-expiration-date"></a>Vérification de la date d’expiration
+
+Les stratégies ci-dessous peuvent être configurées pour vérifier si le certificat a expiré :
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter > DateTime.Now)" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-issuer-and-subject"></a>Vérification de l’émetteur et du sujet
+
+Les stratégies suivantes peuvent être configurées pour vérifier l’émetteur et le sujet d’un certificat client :
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-thumbprint"></a>Vérification de l’empreinte numérique
 
 Les stratégies suivantes peuvent être configurées pour vérifier l’empreinte d’un certificat client :
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint-to-validate")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>
-
 ```
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Vérification d’une empreinte par rapport aux certificats téléchargés dans la gestion des API
@@ -47,9 +74,9 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
+    <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>

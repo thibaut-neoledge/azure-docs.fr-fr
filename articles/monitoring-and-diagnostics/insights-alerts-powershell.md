@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 62faba3827e9fc33e9788cd2d487adf04d760791
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---powershell"></a>Création d’alertes dans Azure Monitor pour les services Azure - PowerShell 
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Création d’alertes de métrique dans Azure Monitor pour les services Azure - PowerShell
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -30,14 +30,14 @@ ms.lasthandoff: 03/15/2017
 >
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article vous montre comment définir des alertes Azure avec PowerShell.  
+Cet article vous montre comment configurer des alertes de métrique Azure avec PowerShell.  
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
-* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou uniquement lorsqu’un certain nombre d’événements se produisent.
+* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un certain événement se produit. Pour plus d’informations sur les alertes du journal d’activité, [cliquez ici](monitoring-activity-log-alerts.md)
 
-Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
@@ -74,8 +74,8 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
    ```
 4. Pour créer une règle, vous avez d’abord besoin de différentes informations importantes.
 
-   * **L’ID de la ressource** pour laquelle vous souhaitez définir une alerte
-   * Les **définitions de métriques** disponibles pour cette ressource
+  * **L’ID de la ressource** pour laquelle vous souhaitez définir une alerte
+  * Les **définitions de métriques** disponibles pour cette ressource
 
      Pour obtenir l’ID de la ressource, vous pouvez utiliser le Portail Azure. À supposer que la ressource soit déjà créée, sélectionnez-la dans le portail. Puis, dans le panneau suivant, sélectionnez *Propriétés* sous la section *Paramètres*. **ID DE RESSOURCE** est un champ du panneau suivant. Une autre méthode consiste à utiliser [l’Explorateur de ressources Azure](https://resources.azure.com/).
 
@@ -113,27 +113,14 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
     ```
 
-
-1. Pour créer une alerte qui se déclenche selon une condition spécifique dans le journal d’activité, utilisez des commandes au format suivant
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
-
-    Add-AzureRmLogAlertRule -Name myLogAlertRule -Location "East US" -ResourceGroup myresourcegroup -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup resourcegroupbeingmonitored -Actions $actionEmail, $actionWebhook
-    ```
-
-    operationName correspond à un type d’événement dans le journal d’activité. Par exemple, *Microsoft.Compute/virtualMachines/delete* et *microsoft.insights/diagnosticSettings/write*.
-
-    Vous pouvez utiliser la commande PowerShell [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) pour obtenir la liste des valeurs operationName possibles. De même, vous pouvez utiliser le Portail Azure pour interroger le journal d’activité et trouver les opérations passées pour lesquelles vous souhaitez créer une alerte. Les opérations indiquées dans l’affichage graphique du journal sont les noms conviviaux. Recherchez l’entrée dans JSON et récupérez la valeur operationName.   
-2. Vérifiez que vos alertes ont été correctement créées en examinant les règles en particulier.
+7. Pour vérifier que vos alertes ont été correctement créées en examinant les règles individuelles.
 
     ```PowerShell
     Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
 
     Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
     ```
-3. Supprimez vos alertes. Ces commandes suppriment les règles créées précédemment dans cet article.
+8. Supprimez vos alertes. Ces commandes suppriment les règles créées précédemment dans cet article.
 
     ```PowerShell
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
@@ -144,6 +131,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
+* Découvrez plus d’informations sur la [configuration des alertes sur les événements de journal d’activité](monitoring-activity-log-alerts.md).
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble de la collecte des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) pour collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

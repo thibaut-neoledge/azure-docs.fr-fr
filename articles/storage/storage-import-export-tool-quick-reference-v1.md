@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 632100f324c47d69f64cff020aafbaa300ae8c2b
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 47f450ee87dac3db2ccf7659928d52a6330a5697
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,14 +25,14 @@ ms.lasthandoff: 03/30/2017
 Cette section fournit des références rapides pour certaines commandes fréquemment utilisées. Pour une utilisation détaillée, consultez [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
 
 ## <a name="prepare-the-disks-when-data-already-copied-to-the-disks"></a>Préparer les disques lorsque des données sont déjà copiées sur les disques
- Voici un exemple de commande pour préparer un disque lorsque les données déjà copiées sur le disque dur n’ont pas encore été chiffrées avec BitLocker :  
+ Voici un exemple de commande pour préparer un disque quand les données déjà copiées sur le disque dur n’ont pas encore été chiffrées avec BitLocker :  
   
 ```  
   WAImportExport.exe PrepImport /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movies\drama /dstdir:movies/drama/ /skipwrite
 ```    
 
 ## <a name="copy-a-single-directory-to-a-hard-drive"></a>Copier un répertoire unique sur un disque dur  
- Voici un exemple de commande pour copier un répertoire source unique sur un disque dur qui n’a pas encore été chiffré avec BitLocker :  
+ Voici un exemple de commande pour copier un répertoire source unique sur un disque dur qui n’a pas encore été chiffré avec BitLocker :  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  

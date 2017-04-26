@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -67,7 +67,7 @@ Une fois que le Bureau à distance est activé sur les rôles, vous pouvez initi
 4. Cliquez sur **Ouvrir**, puis sur **Connecter** pour démarrer la connexion Bureau à distance.
 
 >[!NOTE]
-> Si votre service cloud se trouve derrière un groupe de sécurité réseau (NSG), vous serez peut-être amené à créer une règle pour ouvrir le port **20000**.
+> Si votre service cloud se trouve derrière un groupe de sécurité réseau, il peut être nécessaire de créer des règles qui autorisent le trafic sur les ports **3389** et **20000**.  Bureau à distance utilise le port **3389**.  Les instances de service cloud sont soumis à l’équilibrage de charge, donc vous ne pouvez pas contrôler directement à quelle instance vous vous connectez.  Les agents *RemoteForwarder* et *RemoteAccess* gèrent le trafic RDP, et permettent au client d’envoyer un cookie RDP et de spécifier une instance individuelle à laquelle se connecter.  Les agents *RemoteForwarder* et *RemoteAccess* nécessitent que ce port **20000*** soit ouvert : il peut être bloqué si vous avez un groupe de sécurité réseau.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

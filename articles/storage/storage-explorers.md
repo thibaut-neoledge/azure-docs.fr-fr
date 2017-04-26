@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
-Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction de données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
+Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
 
-Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions ravis de les ajouter.
+Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions heureux de les ajouter.
 
 **Outils clients de Microsoft Azure Storage**
 
@@ -252,9 +253,4 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

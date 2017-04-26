@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
 
-Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] vous signale tous les problèmes et exceptions de performances, et vous aide à diagnostiquer les causes principales.
+Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] vous signale tous les problèmes de performances et les exceptions, et vous aide à trouver et à diagnostiquer les causes principales.
 
 Application Insights peut surveiller les services WCF, ainsi que les applications et services web Java et ASP.NET. Ils peuvent être hébergés en local, sur des machines virtuelles, ou en tant que sites web Microsoft Azure. 
 
@@ -110,21 +110,19 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 ## <a name="diagnosis"></a>Problèmes de diagnostic
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
-* Configurez les [tests Web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site Web. 
+* Configurez des [tests web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
-* [Insérez et recherchez des déclarations de trace][diagnostic] dans votre code afin de vous aider à identifier les problèmes.
+* [Insérez et recherchez des instructions de trace][diagnostic] dans votre code pour vous aider à identifier les problèmes.
 
 ## <a name="next"></a>Étapes suivantes
-[Tests Web][availability] : faites envoyer des tests Web à votre application à intervalles réguliers et depuis n'importe où dans le monde.
+[Tests web][availability] : faites envoyer des demandes web à votre application à intervalles réguliers et depuis n’importe où dans le monde.
 
 [Capture et recherche de traces de diagnostic][diagnostic] : insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.
 
-[Suivi de l’utilisation][usage] : découvrez ce que les utilisateurs font avec votre application.
+[Suivi de l’utilisation][usage] : découvrez comment ce que les utilisateurs font avec votre application.
 
-[Résolution des problèmes][qna] et questions et réponses
+[Résolution des problèmes][qna] et Questions et réponses
 
-## <a name="video"></a>Vidéo
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->

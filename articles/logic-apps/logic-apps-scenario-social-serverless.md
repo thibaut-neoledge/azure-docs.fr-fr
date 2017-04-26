@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord Insights client en temps réel avec Azure Logic Apps et Azure Functions
@@ -35,17 +35,17 @@ Les fonctions fournissent le mode de calcul sans serveur dans le cloud.  Dans ce
 
 La solution complète peut être [générée dans Visual Studio](logic-apps-deploy-from-vs.md) et [déployée dans le cadre d’un modèle de ressource](logic-apps-create-deploy-template.md).  Une vidéo de procédure pas à pas du scénario existe également [sur Channel 9](http://aka.ms/logicappsdemo).
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>Génération de l’application logique qui se déclenchera lors des données client
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Générer l’application logique à déclencher sur des données du client
 
 Après avoir [créé une application logique](logic-apps-create-a-logic-app.md) dans Visual Studio ou le portail Azure :
 
 1. Ajoutez un déclencheur pour **On New Tweets (Aux nouveaux tweets)** de Twitter.
-1. Configurez le déclencheur pour qu’il écoute les tweets sur un mot-clé ou un mot-dièse.
+2. Configurez le déclencheur pour qu’il écoute les tweets sur un mot-clé ou un mot-dièse.
 
-> [!NOTE]
-> La propriété de périodicité du déclencheur détermine la fréquence à laquelle l’application logique recherche de nouveaux éléments dans les déclencheurs d’interrogation.
+   > [!NOTE]
+   > La propriété de périodicité du déclencheur détermine la fréquence à laquelle l’application logique recherche de nouveaux éléments dans les déclencheurs d’interrogation.
 
-![Exemple de déclencheur Twitter][1]
+   ![Exemple de déclencheur Twitter][1]
 
 Cette application se déclenche sur tous les nouveaux tweets.  Nous pouvons ensuite prendre ces données de tweet et comprendre davantage les opinions exprimées.  Pour ce faire, nous utilisons [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/).
 
@@ -99,7 +99,7 @@ Une fois qu’une solution a été développée, elle peut être capturée et d�
 
 La solution Azure Functions peut aussi être intégrée au modèle de déploiement. De cette façon, la solution complète avec toutes les dépendances peut être gérée comme un seul et même modèle.  Vous trouverez un exemple de modèle de déploiement de fonction dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="whats-next"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Voir d’autres exemples et scénarios relatifs à Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Regarder une vidéo de procédure pas à pas sur la création de cette solution de bout en bout](http://aka.ms/logicappsdemo)

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: a47a806856be9e2daa9bcac8ce23da4d15386cc8
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/06/2017
 ## <a name="overview"></a>Vue d'ensemble
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
 
-Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
+Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) pour effectuer différentes tâches de développement et d’administration avec Stockage Azure.
 
 Ce guide part du principe que vous avez une certaine expérience en tant qu’utilisateur d’[Azure Storage](https://azure.microsoft.com/documentation/services/storage/) et de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Ce guide contient un certain nombre de scripts qui illustrent l'utilisation de PowerShell avec Azure Storage. Vous devez mettre à jour les variables du script en fonction de votre configuration avant d'exécuter chaque script.
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 1. Téléchargez et installez la dernière version [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
 2. Démarrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE) : sur votre ordinateur local, accédez au menu **Démarrer** . Tapez **outils d’administration** et cliquez pour exécuter ce composant. Dans la fenêtre **Outils d’administration**, cliquez avec le bouton droit sur **Windows PowerShell ISE**, cliquez sur **Exécuter en tant qu’administrateur**.
 3. Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script.
-4. Maintenant, voici un script simple qui affiche les commandes PowerShell de base pour accéder à Azure Storage. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local. Ensuite, le script définit l'abonnement Azure par défaut et crée un nouveau compte de stockage dans Azure. Ensuite, le script crée un nouveau conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
+4. Voici maintenant un script simple qui affiche les commandes PowerShell de base pour accéder à Stockage Azure. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local. Ensuite, le script définit l'abonnement Azure par défaut et crée un nouveau compte de stockage dans Azure. Ensuite, le script crée un nouveau conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
 5. Dans la section de code suivante, sélectionnez le script entre les remarques **#begin** et **#end**. Appuyez sur Ctrl+C pour le copier dans le Presse-papiers.
 
     ```powershell
@@ -123,7 +123,7 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
    * **$Location** : utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
    * **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
    * **$ImageToUpload** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\Images\image.png ».
-   * **$DestinationFolder** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\DownloadImages ».
+   * **$DestinationFolder** : entrez un chemin vers un répertoire local pour stocker les fichiers téléchargés depuis Stockage Azure, par exemple « C:\DownloadImages ».
 8. Après la mise à jour des variables de script dans le fichier « mystoragescript.ps1 », cliquez sur **Fichier** > **Enregistrer**. Ensuite, cliquez sur **Déboguer** > **Exécuter** ou appuyez sur **F5** pour exécuter le script.  
 
 Après l’exécution du script, vous devez avoir un dossier local de destination qui inclut le fichier image téléchargé. La capture d’écran suivante présente un exemple de cette opération :
@@ -154,7 +154,7 @@ Pour gérer Azure Storage avec Azure PowerShell, vous devez authentifier votre e
     Add-AzureAccount
     ```
 
-2. Dans la fenêtre « Connectez-vous à Microsoft Azure », tapez l'adresse électronique et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
+2. Dans la fenêtre « Connectez-vous à Microsoft Azure », tapez l’adresse e-mail et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
 
 3. Ensuite, exécutez la commande suivante pour voir les comptes Azure dans votre environnement PowerShell local et vérifiez que votre compte est répertorié :
    
@@ -284,9 +284,9 @@ Utilisez l’applet de commande suivante pour récupérer une clé spécifique. 
 Si vous souhaitez régénérer vos clés, utilisez l’applet de commande suivante. Les valeurs valides pour -KeyType sont « Primaire » et « Secondaire »
 
 ```powershell
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Primary"
     
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Secondary"
 ```
 
 ## <a name="how-to-manage-azure-blobs"></a>Gestion des objets blob Azure
@@ -450,7 +450,7 @@ Maintenant que vous avez appris à gérer des objets blob Azure et des instantan
 ## <a name="how-to-manage-azure-tables-and-table-entities"></a>Gestion des tables et des entités de table Azure
 Le service de stockage de tables Azure est un magasin de données NoSQL que vous pouvez utiliser pour stocker et interroger de grands ensembles de données non relationnelles structurées. Les principaux composants du service sont les tables, les entités et les propriétés. une table est une collection d’entités. Une entité est un ensemble de propriétés. Chaque entité peut avoir jusqu’à 252 propriétés, qui sont toutes des paires nom-valeur. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de tables Azure. Pour plus d’informations, consultez [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) et [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
 
-Dans les sous-sections suivantes, vous allez apprendre à gérer le service de stockage de tables Azure à l’aide d’Azure PowerShell. Les scénarios abordés sont les suivants : **création**, **suppression** et **récupération** de **tables** et **ajout**, **interrogation** et **suppression des entités d’une table**.
+Dans les sous-sections suivantes, vous allez apprendre à gérer le service de stockage Table Azure à l’aide d’Azure PowerShell. Les scénarios abordés sont les suivants : **création**, **suppression** et **récupération** de **tables** et **ajout**, **interrogation** et **suppression des entités d’une table**.
 
 ### <a name="how-to-create-a-table"></a>Création d'une table
 Toutes les tables doivent se trouver dans un compte de stockage Azure. L'exemple suivant montre comment créer une table dans Azure Storage. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il utilise l’applet de commande [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) pour créer une table dans Azure Storage.
@@ -497,7 +497,7 @@ Pour ajouter une entité à une table, commencez par créer un objet qui défini
 
 Vous pouvez définir au maximum 252 propriétés personnalisées par entité. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-L'exemple suivant montre comment ajouter des entités à une table. L'exemple montre comment récupérer la table des employés et comment y ajouter plusieurs entités. Il établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il récupère la table à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la table n’existe pas, il utilise l’applet de commande [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) pour créer une table dans Azure Storage. Ensuite, l'exemple définit une fonction Add-Entity personnalisée pour ajouter des entités à la table en spécifiant la partition et la clé de ligne de chaque entité. La fonction Add-Entity appelle l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) pour créer un objet d’entité. Plus tard, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) sur cet objet d’entité pour l’ajouter à une table.
+L'exemple suivant montre comment ajouter des entités à une table. L'exemple montre comment récupérer la table des employés et comment y ajouter plusieurs entités. Il établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il récupère la table à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la table n’existe pas, il utilise l’applet de commande [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) pour créer une table dans Azure Storage. Ensuite, l’exemple définit une fonction Add-Entity personnalisée pour ajouter des entités à la table en spécifiant la partition et la clé de ligne de chaque entité. La fonction Add-Entity appelle l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) pour créer un objet d’entité. Plus tard, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) sur cet objet d’entité pour l’ajouter à une table.
 
 ```powershell
 #Function Add-Entity: Adds an employee entity to a table.
@@ -541,7 +541,7 @@ Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 
 ```
 
 #### <a name="how-to-query-table-entities"></a>Interrogation d'entités de table
-Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) . L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table Employees créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . L’appel de l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe Microsoft.WindowsAzure.Storage.Table.TableQuery crée un objet de requête. L'exemple recherche les entités ayant une colonne ID dont la valeur est 1, comme spécifié dans un filtre de chaîne. Pour plus d’informations, consultez [Interrogation de tables et d’entités](http://msdn.microsoft.com/library/azure/dd894031.aspx). Lorsque vous exécutez cette requête, il retourne toutes les entités qui correspondent aux critères du filtre.
+Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) . L’exemple suivant suppose que vous avez déjà exécuté le script donné dans la section « Comment ajouter des entités » de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table « Employees » créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . L’appel de l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe Microsoft.WindowsAzure.Storage.Table.TableQuery crée un objet de requête. L’exemple recherche les entités ayant une colonne « ID » dont la valeur est 1, comme spécifié dans un filtre de chaîne. Pour plus d’informations, consultez [Interrogation de tables et d’entités](http://msdn.microsoft.com/library/azure/dd894031.aspx). Lorsque vous exécutez cette requête, il retourne toutes les entités qui correspondent aux critères du filtre.
 
 ```powershell
 #Define the storage account and context.
@@ -575,7 +575,7 @@ $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$
 ```
 
 #### <a name="how-to-delete-table-entities"></a>Suppression d'entités de table
-Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table Employees créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la table existe, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) pour récupérer une entité en fonction de sa partition et de ses valeurs de clé de ligne. Il transmet ensuite l’entité à la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) en vue de sa suppression.
+Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. L’exemple suivant suppose que vous avez déjà exécuté le script donné dans la section « Comment ajouter des entités » de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table « Employees » créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la table existe, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) pour récupérer une entité en fonction de sa partition et de ses valeurs de clé de ligne. Il transmet ensuite l’entité à la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) en vue de sa suppression.
 
 ```powershell
 #Define the storage account and context.

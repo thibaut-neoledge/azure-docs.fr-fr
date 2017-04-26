@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
 ms.service: sql-database
-ms.custom: overview
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,23 +17,23 @@ ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 8b9b9b70cc7b6a9b89a52523f713b43b74713042
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e3bafbd9f010550f8b7117de27495b21cadbd3c1
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="azure-sql-database-access-control"></a>Contrôle d’accès à Azure SQL Database
 Pour assurer la sécurité, SQL Database contrôle l’accès avec des règles de pare-feu qui limitent la connectivité par adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. 
 
 > [!IMPORTANT]
-> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md). Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md). Pour un didacticiel sur l’authentification Azure Active Directory, consultez [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
+> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Sécurisation de SQL Database](sql-database-security-overview.md). Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md). Pour un didacticiel sur l’authentification Azure Active Directory, consultez [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 
 ## <a name="firewall-and-firewall-rules"></a>Pare-feu et règles de pare-feu
 Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande. Pour en savoir plus, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
 
 Le service Azure SQL Database Azure n’est disponible que via le port TCP 1433. Pour accéder à une base de données SQL depuis votre ordinateur, vérifiez que le pare-feu de votre ordinateur client autorise les communications TCP sortantes sur le port 1433. Si elles ne sont pas nécessaire pour les autres applications, bloquez les connexions entrantes sur le port TCP 1433. 
 
-Dans le cadre du processus de connexion, les connexions à partir des machines virtuelles Azure sont redirigées vers une autre adresse IP et un autre port, propres à chaque rôle de travail. Le numéro du port est compris entre 11000 et 11999. Pour plus d’informations sur les ports TCP, consultez la page [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Dans le cadre du processus de connexion, les connexions à partir des machines virtuelles Azure sont redirigées vers une autre adresse IP et un autre port, propres à chaque rôle de travail. Le numéro du port est compris entre 11000 et 11999. Pour plus d’informations sur les ports TCP, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="authentication"></a>Authentification
 
@@ -62,7 +62,7 @@ Vous devez vous familiariser avec les fonctionnalités suivantes qui peuvent êt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md).
+- Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Sécurisation de SQL Database](sql-database-security-overview.md).
 - Pour en savoir plus sur les règles de pare-feu, consultez [Règles de pare-feu](sql-database-firewall-configure.md).
 - Pour en savoir plus sur les utilisateurs et les connexions, consultez [Gérer les connexions](sql-database-manage-logins.md). 
 - Pour une discussion sur la surveillance proactive, consultez [Audit de base de données](sql-database-auditing.md) et [Détection des menaces pour SQL Database](sql-database-threat-detection.md).

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -116,7 +116,7 @@ La liste suivante présente un exemple de métadonnées complètes utilisant les
 * LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Accès aux données de journalisation
-Toutes les données du conteneur `$logs` sont accessibles à l'aide des API de service BLOB, y compris les API .NET fournies par la bibliothèque gérée Azure. L'administrateur de compte de stockage peut lire et supprimer des journaux, mais il ne peut pas les créer ou les mettre à jour. Les métadonnées et le nom du journal peuvent être utilisés lors de l'interrogation d'un journal. Il est possible que les journaux d'une heure donnée semblent désordonnés, mais les métadonnées spécifient toujours la fourchette de temps des entrées dans un journal. Par conséquent, vous pouvez utiliser une combinaison de noms de journaux et de métadonnées lors de la recherche d'un journal particulier.
+Toutes les données du conteneur `$logs` sont accessibles à l'aide des API de service BLOB, y compris les API .NET fournies par la bibliothèque gérée Azure. L'administrateur de compte de stockage peut lire et supprimer des journaux, mais il ne peut pas les créer ou les mettre à jour. Les métadonnées et le nom du journal peuvent être utilisés lors de l’interrogation d’un journal. Il est possible que les journaux d’une heure donnée semblent désordonnés, mais les métadonnées spécifient toujours la plage de temps des entrées dans un journal. Par conséquent, vous pouvez utiliser une combinaison de noms de journaux et de métadonnées lors de la recherche d'un journal particulier.
 
 ## <a name="about-storage-analytics-metrics"></a>À propos des métriques de Storage Analytics
 Storage Analytics peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage. Les transactions sont indiquées au niveau de l'opération d'API ainsi qu'au niveau du service de stockage, et la capacité est indiquée au niveau du service de stockage. Les données de métriques peuvent être utilisées pour analyser l'utilisation du service de stockage, diagnostiquer les problèmes au niveau des demandes effectuées auprès du service de stockage et améliorer les performances des applications qui utilisent un service.
@@ -138,20 +138,20 @@ Les métriques de transaction sont enregistrées pour les demandes utilisateur e
 > 
 > 
 
-Les données de capacité sont enregistrées quotidiennement pour le service BLOB d'un compte de stockage et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
+Les données de capacité sont enregistrées quotidiennement pour le service BLOB d’un compte de stockage, et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
 
-* **Capacity**: volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
-* **ContainerCount**: nombre de conteneurs d'objet blob dans le service BLOB du compte de stockage.
-* **ObjectCount**: nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
+* **Capacité** : quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.
+* **ContainerCount** : nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.
+* **ObjectCount** : nombre d’objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
 
 Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### <a name="how-metrics-are-stored"></a>Stockage des métriques
-Toutes les données de métriques pour chacun des services de stockage sont stockées dans trois tables réservées à ce service : une table pour les informations sur les transactions, une autre pour les informations sur les transactions par minute et une troisième pour les informations sur la capacité. Les informations relatives aux transactions et aux transactions par minute se composent des données de demande et de réponse, et les informations de capacité se composent des données d'utilisation du stockage. Les métriques par heure et par minute et la capacité pour le service BLOB d’un compte de stockage sont accessibles dans des tables nommées comme indiqué dans le tableau ci-dessous.
+Toutes les données de métriques pour chacun des services de stockage sont stockées dans trois tables réservées à ce service : une table pour les informations sur les transactions, une autre pour les informations sur les transactions par minute et une troisième pour les informations sur la capacité. Les informations relatives aux transactions et aux transactions par minute se composent des données de demande et de réponse, et les informations de capacité se composent des données d'utilisation du stockage. Les métriques par heure, les métriques par minute et la capacité pour le service BLOB d’un compte de stockage sont accessibles dans des tables nommées comme indiqué dans le tableau ci-dessous.
 
 | Niveau de métriques | Noms de tables | Versions prises en charge |
 | --- | --- | --- |
-| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d'utiliser les tables répertoriées ci-dessous. |
+| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d’utiliser les tables listées ci-dessous. |
 | Métriques toutes les heures, emplacement principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques par minute, emplacement principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques toutes les heures, emplacement secondaire |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. La géo-réplication redondante avec accès en lecture doit être activée. |
@@ -174,7 +174,7 @@ Les actions suivantes effectuées par Storage Analytics sont facturables :
 Si vous avez configuré une stratégie de rétention des données, vous n'êtes pas facturé pour les transactions de suppression lorsque Storage Analytics supprime les anciennes données de journalisation et de métriques. Toutefois, les transactions de suppression d'un client sont facturables. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Présentation des demandes facturables
-Chaque demande adressée à un service de stockage d'un compte est soit facturable, soit non facturable. Storage Analytics enregistre chaque demande effectuée à un service, avec un message d'état qui indique comment la demande a été traitée. De même, Storage Analytics stocke des métriques pour un service et pour les opérations de l'API de ce service, y compris les pourcentages et le décompte de certains messages d'état. Conjointement, ces fonctionnalités peuvent vous aider à analyser vos demandes facturables, à améliorer votre application et à diagnostiquer les problèmes liés aux demandes à vos services. Pour plus d'informations sur la facturation, consultez [Présentation de la facturation d’Azure Storage - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Chaque demande adressée à un service de stockage d’un compte est facturable ou non. Storage Analytics enregistre chaque demande effectuée à un service, avec un message d'état qui indique comment la demande a été traitée. De même, Storage Analytics stocke des métriques pour un service et pour les opérations de l'API de ce service, y compris les pourcentages et le décompte de certains messages d'état. Conjointement, ces fonctionnalités peuvent vous aider à analyser vos demandes facturables, à améliorer votre application et à diagnostiquer les problèmes liés aux demandes à vos services. Pour plus d'informations sur la facturation, consultez [Présentation de la facturation d’Azure Storage - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les tables de la rubrique [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/azure/hh343260.aspx) pour identifier les demandes facturables. Vous pouvez ensuite comparer vos données de journaux et de métriques aux messages d'état pour déterminer si vous avez été facturé pour une demande spécifique. Vous pouvez également utiliser les tables de la rubrique précédente pour examiner la disponibilité d'un service de stockage ou d'une opération individuelle de l'API.
 

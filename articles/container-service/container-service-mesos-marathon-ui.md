@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 04/04/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1ec5c2ba9d8662ce37589b87aa16e70d9d27bf16
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gérer un cluster de contrôleur de domaine/système d’exploitation Azure Container Service via l’interface utilisateur web Marathon
-DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend une infrastructure qui gère la planification et l’exécution des charges de travail de calcul.
+DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend un framework qui gère la planification et l’exécution des charges de travail de calcul.
 
-Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec Marathon. 
+Bien qu’il existe des frameworks pour de nombreuses charges de travail courantes, ce document décrit comment commencer à déployer des conteneurs avec Marathon. 
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -35,15 +35,19 @@ Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré da
 * [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
 * [Connexion à un cluster Azure Container Service](container-service-connect.md)
 
+> [!NOTE]
+> Cet article suppose que vous créez un tunnel vers le cluster DC/OS via le port local 80.
+>
+
 ## <a name="explore-the-dcos-ui"></a>Exploration de l’interface utilisateur de DC/OS
 [Créez](container-service-connect.md) un tunnel SSH (Secure Shell), puis accédez à http://localhost/. Cela charge l’interface utilisateur web de DC/OS et affiche des informations sur le cluster, notamment les ressources utilisées, les agents actifs, et les services en cours d’exécution.
 
-![IU DC/OS](./media/dcos/dcos2.png)
+![IU DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Découverte de l’interface utilisateur Marathon
 Pour afficher l’interface utilisateur Marathon, accédez à http://localhost/marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.  
 
-![IU Marathon](./media/dcos/dcos3.png)
+![IU Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>Déployer un conteneur au format Docker
 Pour déployer un nouveau conteneur à l’aide de Marathon, cliquez sur **Créer une application** et entrez les informations suivantes dans les onglets du formulaire :
@@ -57,11 +61,11 @@ Pour déployer un nouveau conteneur à l’aide de Marathon, cliquez sur **Crée
 | Port de l’hôte |80 |
 | Protocole |TCP |
 
-![Nouvelle interface utilisateur d’application : général](./media/dcos/dcos4.png)
+![Nouvelle interface utilisateur d’application : général](./media/container-service-mesos-marathon-ui/dcos4.png)
 
-![Nouvelle interface utilisateur d’application : conteneur Docker](./media/dcos/dcos5.png)
+![Nouvelle interface utilisateur d’application : conteneur Docker](./media/container-service-mesos-marathon-ui/dcos5.png)
 
-![Nouvelle interface utilisateur d’application : détection de service et de ports](./media/dcos/dcos6.png)
+![Nouvelle interface utilisateur d’application : détection de service et de ports](./media/container-service-mesos-marathon-ui/dcos6.png)
 
 Si vous souhaitez mapper le port du conteneur de manière statique à un port de l’agent, cela doit être effectué à l’aide du mode JSON. Pour ce faire, basculez de l’Assistant Nouvelle Application en **Mode JSON** . Ensuite, entrez le paramètre suivant sous la section `portMappings` de la définition d’application. Cet exemple montre comment lier le port 80 du conteneur au port 80 de l’agent DC/OS. Vous pouvez basculer l’Assistant hors du mode JSON après avoir apporté cette modification.
 
@@ -69,40 +73,39 @@ Si vous souhaitez mapper le port du conteneur de manière statique à un port de
 "hostPort": 80,
 ```
 
-![Nouvelle interface utilisateur d’application : exemple de port 80](./media/dcos/dcos13.png)
+![Nouvelle interface utilisateur d’application : exemple de port 80](./media/container-service-mesos-marathon-ui/dcos13.png)
 
 Si vous souhaitez activer les contrôles d’intégrité, définissez un chemin d’accès dans l’onglet **Contrôles d'intégrité**.
 
-![Interface utilisateur de nouvelle application -- contrôles d’intégrité](./media/dcos/dcos_healthcheck.png)
+![Interface utilisateur de nouvelle application -- contrôles d’intégrité](./media/container-service-mesos-marathon-ui/dcos_healthcheck.png)
 
 Le cluster DC/OS est déployé avec un ensemble d’agents privés et publics. Pour que le cluster puisse accéder à des applications à partir d’Internet, vous devez déployer les applications vers un agent public. Pour ce faire, sélectionnez l’onglet **Facultatif** de l’Assistant Nouvelle Application et saisissez **slave_public** pour les **Rôles de ressources acceptés**.
 
 Cliquez ensuite sur **Créer une application**.
 
-![Nouvelle interface utilisateur d’application : paramètre de l’agent public](./media/dcos/dcos14.png)
+![Nouvelle interface utilisateur d’application : paramètre de l’agent public](./media/container-service-mesos-marathon-ui/dcos14.png)
 
 Sur la page principale de Marathon, vous pouvez voir l’état du déploiement du conteneur. Initialement, vous voyez l’état **Déploiement**. Après un déploiement réussi, l’état passe à **En cours d’exécution**.
 
-![Interface utilisateur de la page principale de Marathon : état du déploiement du conteneur](./media/dcos/dcos7.png)
+![Interface utilisateur de la page principale de Marathon : état du déploiement du conteneur](./media/container-service-mesos-marathon-ui/dcos7.png)
 
 Lorsque vous revenez à l’interface utilisateur web de DC/OS (http://localhost/), vous verrez qu’une tâche (en l’occurrence un conteneur formaté par Docker) est en cours d’exécution sur le cluster DC/OS.
 
-![IU web DC/OS : tâche en cours d’exécution sur le cluster](./media/dcos/dcos8.png)
+![IU web DC/OS : tâche en cours d’exécution sur le cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 
 Pour voir le nœud du cluster sur lequel la tâche est exécutée, cliquez sur l’onglet **Nœuds**.
 
-![IU web DC/OS : nœud du cluster de tâche](./media/dcos/dcos9.png)
+![IU web DC/OS : nœud du cluster de tâche](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="scale-your-containers"></a>Mettre vos conteneurs à l’échelle
-L’IU de Marathon peut servir à augmenter ou diminuer le nombre d’instances d’un conteneur. Pour ce faire, accédez à la page de **Marathon**, sélectionnez le conteneur que vous souhaitez mettre à l’échelle, puis cliquez sur **Mettre à l’échelle l’application**. Dans la fenêtre **Mettre à l’échelle l’application**, entrez le nombre d’instances de conteneur de votre choix et cliquez sur **Mettre à l’échelle l’application**.
+## <a name="reach-the-container"></a>Atteindre le conteneur
 
-![IU de Marathon : boîte de dialogue Mettre à l’échelle l’application](./media/dcos/dcos10.png)
+Dans cet exemple, l’application s’exécute sur un nœud d’agent public. Vous atteignez l’application depuis Internet en accédant au nom de domaine complet de l’agent du cluster : `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, où :
 
-Une fois l’opération de mise à l’échelle terminée, plusieurs instances de la même tâche seront réparties sur les agents DC/OS.
+* **DNSPREFIX** est le préfixe DNS que vous avez fourni lors du déploiement du cluster.
+* **REGION** est la région dans laquelle se trouve le groupe de ressources.
 
-![Tableau de bord de l’IU web DC/OS : propagation de tâche sur plusieurs agents](./media/dcos/dcos11.png)
+    ![Nginx à partir d’Internet](./media/container-service-mesos-marathon-ui/nginx.png)
 
-![IU web DC/OS : nœuds](./media/dcos/dcos12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Utilisation de DC/OS et de l’API Marathon](container-service-mesos-marathon-rest.md)

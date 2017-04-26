@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2fb323e8cf6d14d0b5cf10071475cf4669545ed
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos clés et secrets restent disponibles pour votre application même en cas d’échec de composants individuels du service.
 
-Le contenu de votre Key Vault est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 241 kilomètres, mais située au sein de la même zone géographique. Cela maintient une durabilité élevée de vos clés et secrets.
+Le contenu de votre Key Vault est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 241 kilomètres, mais située au sein de la même zone géographique. Cela maintient une durabilité élevée de vos clés et secrets. Consultez le document [Régions jumelées d’Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) pour plus d’informations sur les paires de régions spécifiques.
 
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Il est inutile d’intervenir pour déclencher cette action. Cela se produit automatiquement, sans que vous le perceviez.
 
@@ -47,10 +48,5 @@ Il convient toutefois de prendre quelques précautions :
   * Sign (Signer)
   * Backup (Sauvegarder)
 * Une fois le basculement restauré, tous les types de demandes (y compris de lecture -read- *et* d’écriture write-) sont disponibles.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

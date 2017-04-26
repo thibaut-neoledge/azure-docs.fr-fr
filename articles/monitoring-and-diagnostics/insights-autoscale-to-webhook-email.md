@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,10 +76,7 @@ Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’�
 | properties |yes |la valeur doit être vide ( {} ) ou peut contenir des paires clé-valeur |
 
 ## <a name="authentication-in-webhooks"></a>Authentification dans des webhooks
-Il existe deux formes d’URI d’authentification :
-
-1. L’authentification par jeton qui permet d’enregistrer l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. L’authentification de base qui nécessite l’utilisation d’un ID utilisateur et d’un mot de passe. Par exemple, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+Le webhook peut s’authentifier en utilisant l’authentification par jeton, où vous enregistrez l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Schéma de la charge utile du webhook de notification de mise à l’échelle automatique
 Lorsque la notification de mise à l’échelle automatique est générée, les métadonnées suivantes sont incluses dans la charge utile du webhook :
@@ -128,10 +126,5 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | oldCapacity |yes |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
 | newCapacity |yes |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
 | properties |Non |facultatif. Jeu de paires < clé, valeur > (par exemple, Dictionary < String, String >). Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, vous pouvez entrer des clés et des valeurs transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au webhook sortant consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête). |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 941a795c4c83e05ec3c5bb55790f8fcc72829a65
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -46,7 +46,7 @@ Ce scénario :
 
 ## <a name="creating-an-azure-function-and-overview"></a>Création d’une fonction Azure et vue d’ensemble
 
-La première étape consiste à créer une fonction Azure pour traiter l’alerte et créer une capture de paquets. 
+La première étape consiste à créer une fonction Azure pour traiter l’alerte et créer une capture de paquets.
 
 La liste suivante est une vue d’ensemble du flux de travail qui a lieu.
 
@@ -65,7 +65,7 @@ Il est possible de créer une fonction Azure dans le portail en suivant l’arti
 
 ## <a name="adding-modules"></a>Ajout de modules
 
-Pour utiliser les applets de commande Network Watcher PowerShell, le dernier module PowerShell doit être chargé dans Function App.
+Pour utiliser les applets de commande PowerShell de Network Watcher, le module PowerShell le plus récent doit être chargé dans l’application de fonction.
 
 1. Sur votre ordinateur local avec les derniers modules Azure PowerShell installés, exécutez la commande PowerShell suivante :
 
@@ -73,7 +73,7 @@ Pour utiliser les applets de commande Network Watcher PowerShell, le dernier mod
     (Get-Module AzureRM.Network).Path
     ```
 
-    Cela vous donne le chemin d’accès local de vos modules Azure PowerShell. Ces dossiers sont utilisés dans une étape ultérieure. Les modules utilisés dans ce scénario sont :
+    Cet exemple vous donne le chemin local de vos modules Azure PowerShell. Ces dossiers sont utilisés dans une étape ultérieure. Les modules utilisés dans ce scénario sont :
 
     * AzureRM.Network
 
@@ -107,14 +107,14 @@ Pour utiliser les applets de commande Network Watcher PowerShell, le dernier mod
 
 ## <a name="authentication"></a>Authentification
 
-Pour utiliser les applets de commande PowerShell, vous devez vous authentifier. L’authentification doit être configuré dans Function App. Pour ce faire, les variables d’environnement sont configurées et un fichier de clé chiffré doit être chargé vers Function App.
+Pour utiliser les applets de commande PowerShell, vous devez vous authentifier. L’authentification doit être configuré dans Function App. Pour ce faire, les variables d’environnement sont configurées et un fichier de clé chiffré doit être chargé sur l’application de fonction.
 
-> [!note]
+> [!NOTE]
 > Ce scénario ne fournit qu’un exemple d’implémentation de l’authentification avec Azure Functions, il existe d’autres façons de procéder.
 
 ### <a name="encrypted-credentials"></a>Informations d’identification chiffrées
 
-Le script PowerShell suivant crée un fichier de clé appelé **PassEncryptKey.key** et fournit une version chiffrée du mot de passe fourni.  Ce mot de passe est le même que celui défini pour l’application Azure AD qui est utilisée pour l’authentification.
+Le script PowerShell suivant crée un fichier de clé appelé **PassEncryptKey.key** et fournit une version chiffrée du mot de passe spécifié.  Ce mot de passe est le même que celui défini pour l’application Azure AD qui est utilisée pour l’authentification.
 
 ```powershell
 #variables
@@ -139,7 +139,7 @@ Dans l’Éditeur App Service de Function App, créez un dossier nommé **keys**
 
 ### <a name="retrieving-values-for-environment-variables"></a>Extraction des valeurs pour les variables d’environnement
 
-La dernière configuration requise consiste à définir les variables d’environnement nécessaires pour accéder aux valeurs pour l’authentification. Voici une liste des variables d’environnement qui sont créés.
+La dernière configuration requise consiste à définir les variables d’environnement nécessaires pour accéder aux valeurs pour l’authentification. Voici une liste des variables d’environnement qui sont créées :
 
 * AzureClientID
 
@@ -303,7 +303,7 @@ Accédez à une machine virtuelle existante et ajoutez une règle d’alerte. Un
 ![ajouter une règle d’alerte à une machine virtuelle][1]
 
 > [!NOTE]
-> Certaines mesures ne sont pas activées par défaut. Pour en savoir plus sur l’activation de mesures supplémentaires, consultez l’article [Activation de la surveillance et des diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Par défaut, la métrique des segments TCP n’est pas activée. Pour en savoir plus sur l’activation de métriques supplémentaires, consultez [Activer la surveillance et les diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
 Pour finir, collez l’URL de l’étape précédente dans la zone de texte Webhook de votre alerte. Cliquez sur **OK** pour enregistrer la règle d’alerte.
 

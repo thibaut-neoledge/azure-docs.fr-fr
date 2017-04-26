@@ -15,9 +15,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 35264f1ec5df5a3e171f7631e0d3b46bf9c0b8e7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -82,7 +82,7 @@ Les règles d’alerte d’une solution de gestion sont constituées des trois r
 
 - **Recherche enregistrée.**  Définit la recherche de journal qui sera exécutée.  Plusieurs règles d’alerte peuvent partager une même recherche enregistrée.
 - **Planification.**  Définit la fréquence d’exécution de la recherche de journal.  Chaque règle d’alerte est associée à une planification unique.
-- **Action d’alerte.**  Chaque règle d’alerte est associée à une ressource d’action avec un type **Alert** qui définit les détails de l’alerte, notamment les critères déterminant quand un enregistrement d’alerte est créé et la gravité de l’alerte.  La ressource d’action peut éventuellement définir une réponse par e-mail et basée sur un runbook.
+- **Action d’alerte.**  Chaque règle d’alerte est associée à une ressource d’action avec un type **Alerte**, qui définit les détails de l’alerte, notamment les critères déterminant quand un enregistrement d’alerte est créé et la gravité de l’alerte.  La ressource d’action peut éventuellement définir une réponse par e-mail et basée sur un runbook.
 - **Action webhook (facultative).**  Si la règle d’alerte appelle un webhook, elle requiert une ressource d’action supplémentaire avec un type **Webhook**.    
 
 Les ressources de recherche enregistrée sont décrites ci-dessus.  Les autres ressources sont décrites ci-dessous.
@@ -229,7 +229,7 @@ Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook dé
 
 Les actions de webhook démarrent un processus en appelant une URL et, éventuellement, en fournissant une charge utile à envoyer. Elles sont similaires aux actions correctives, à la différence qu’elles sont destinées à des webhooks qui peuvent appeler des processus autres que des runbooks Azure Automation. En outre, elles permettent de fournir une charge utile à remettre au processus distant.
 
-Si votre alerte appelle un webhook, elle requiert une ressource d’action avec un type **Webhook** en plus de la ressource d’action **Alert**.  
+Si votre alerte appelle un webhook, elle nécessite une ressource d’action avec un type **Webhook** en plus de la ressource d’action **Alerte**.  
 
     {
         "name": "<name-of-the-action>",
@@ -248,7 +248,7 @@ Si votre alerte appelle un webhook, elle requiert une ressource d’action avec 
         }
     }
 
-Les propriétés des ressources d’action d’alerte sont décrites dans les tableaux suivants.
+Les propriétés des ressources d’action Webhook sont décrites dans les tableaux suivants.
 
 | Nom de l'élément | Requis | Description |
 |:--|:--|:--|

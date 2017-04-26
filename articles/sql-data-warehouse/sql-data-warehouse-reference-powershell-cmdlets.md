@@ -16,9 +16,9 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96ac017b469405e0eb106bf5eb391b5273600ab2
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d30a49a79e74c575dd6daba9a260c18822a26462
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -73,8 +73,8 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## <a name="frequently-used-powershell-cmdlets"></a>Applets de commande PowerShell couramment utilisées
-Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data Warehouse :
+## <a name="other-supported-powershell-cmdlets"></a>Autres applets de commande PowerShell prises en charge
+Ces applets de commande PowerShell sont prises en charge avec Azure SQL Data Warehouse.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
@@ -93,7 +93,7 @@ Pour plus d’exemples PowerShell, consultez :
 * [Création de SQL Data Warehouse à l’aide de PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Restauration de base de données][Database restore]
 
-Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande d’Azure SQL Database][Azure SQL Database Cmdlets].  Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations pour Azure SQL Database][Operations for Azure SQL Databases].
+Pour d’autres tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande d’Azure SQL Database][Azure SQL Database Cmdlets]. Notez que certaines applets de commande d’Azure SQL Database ne sont pas prises en charge pour Azure SQL Data Warehouse.  Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations pour Azure SQL Database][Operations for Azure SQL Databases].
 
 <!--Image references-->
 

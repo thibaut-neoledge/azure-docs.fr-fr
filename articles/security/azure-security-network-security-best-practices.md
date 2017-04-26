@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -187,7 +188,7 @@ Le cloud computing public permet de déployer des applications réparties au niv
 
 Par exemple, si l’utilisateur qui envoie une requête à votre service se trouve dans un pays de l’Union européenne, la connexion est redirigée vers vos services qui se trouvent au sein d’un centre de données de cette zone. Cette étape de l’équilibrage de charge global assuré par Traffic Manager permet d’optimiser les performances, car la connexion au centre de données le plus proche est plus rapide que dans le cas de centres de données éloignés.
 
-Du point de vue de la disponibilité, ce type d’équilibrage permet de garantir que votre service reste disponible, même si le centre de données est défaillant.
+Du point de vue de la disponibilité, ce type d’équilibrage de charge permet de garantir que votre service reste disponible, même si tout un centre de données devient indisponible.
 
 Ainsi, si un centre de données Azure est indisponible en raison d’une catastrophe naturelle ou d’une panne (défaillance de réseau, par exemple), les connexions à votre service sont redirigées vers le centre de données actif le plus proche. Cet équilibrage de charge global s’effectue sur la base de stratégies DNS, que vous pouvez créer dans Traffic Manager.
 
@@ -235,9 +236,4 @@ Toutefois, cela implique le traitement préalable de divers problèmes liés à 
 Microsoft a créé le [diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) et la documentation associée pour vous aider à comprendre à quoi ressemble une extension de centre de données de ce type. Il fournit un exemple d’implémentation de référence, que vous pouvez utiliser pour planifier et concevoir une extension de centre de données d’entreprise sécurisée dans le cloud. Nous vous recommandons de consulter ce document pour vous familiariser avec les composants clés d’une solution sécurisée.
 
 Pour en savoir plus sur l’extension sécurisée de votre centre de données dans Azure, consultez notre vidéo portant sur [l’extension de votre centre de données dans Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

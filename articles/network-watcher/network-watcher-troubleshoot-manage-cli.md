@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0dcc02e4f3b1e512a2c9e4b96894324414182af9
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/28/2017
 
 Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. La résolution des problèmes de ressources peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
 
-Cet article utilise l’interface Azure CLI 1.0 interplateforme, disponible pour Windows, Mac et Linux. Network Watcher utilise actuellement Azure CLI 1.0 pour la prise en charge de la CLI.
+Cet article utilise l’interface Azure CLI 1.0 interplateforme, disponible pour Windows, Mac et Linux. Network Watcher utilise actuellement Azure CLI 1.0 pour la prise en charge d’interface CLI.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -55,7 +55,7 @@ Vous pouvez également exécuter la commande pour afficher les connexions associ
 azure network vpn-connection list -s subscription
 ```
 
-Une fois que vous connaissez le nom du compte de stockage, vous pouvez exécuter cette commande pour obtenir son identifiant de ressource :
+Une fois que vous connaissez le nom de la connexion, vous pouvez exécuter cette commande pour obtenir son ID de ressource :
 
 ```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
@@ -65,9 +65,23 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 
 La résolution des problèmes liés aux ressources renvoie des données concernant l’intégrité de la ressource, et elle enregistre les journaux dans un compte de stockage qui fera l’objet d’une révision. À cette étape, nous créons un compte de stockage. Si vous disposez déjà d’un compte de stockage existant, vous pouvez l’utiliser.
 
-```azurecli
-azure storage account create -n storageAccountName -l location -g resourceGroupName
-```
+1. Créer le compte de stockage
+
+    ```azurecli
+    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    ```
+
+1. Obtenir les clés du compte de stockage
+
+    ```azurecli
+    azure storage account keys list storageAccountName -g resourcegroupName
+    ```
+
+1. Créer le conteneur
+
+    ```azurecli
+    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Procéder à la résolution des problèmes liés aux ressources Network Watcher
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: gsacavdm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 826824d6ecf039dcf458dd2444b029f284103ed9
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -39,7 +40,7 @@ La manière dont votre application gère la substitution de la clé dépend de v
 * [Applications web/API protégeant les ressources à l’aide du middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Applications web/API protégeant les ressources à l’aide du middleware .NET Core OpenID Connect ou JwtBearerAuthentication](#owincore)
 * [Applications web/API protégeant les ressources à l’aide du module passport-azure-ad Node.js](#passport)
-* [Applications web/API protégeant les ressources et créées avec Visual Studio 2015](#vs2015)
+* [Applications web/API protégeant les ressources et créées avec Visual Studio 2015 ou Visual Studio 2017](#vs2015)
 * [Applications web protégeant les ressources et créées avec Visual Studio 2013](#vs2013)
 * [API web protégeant les ressources et créées avec Visual Studio 2013](#vs2013_webapi)
 * [Applications web protégeant les ressources et créées avec Visual Studio 2012](#vs2012)
@@ -51,20 +52,20 @@ Ce guide n’est **pas** applicable aux :
 * Applications ajoutées depuis la galerie d’applications Azure AD (y compris les applications personnalisées), pour lesquelles il existe des directives spécifiques en ce qui concerne les clés de signature. [Plus d’informations.](../active-directory-sso-certs.md)
 * Applications locales publiées via le proxy d’application, qui ne sont pas concernées par les clés de signature.
 
-### <a name="a-namenativeclientanative-client-applications-accessing-resources"></a><a name="nativeclient"></a>Applications clientes natives ayant accès aux ressources
+### <a name="nativeclient"></a>Applications clientes natives ayant accès aux ressources
 En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, l’API Outlook et d’autres API Microsoft) obtiennent uniquement un jeton et le transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
 
 Les applications clientes natives, de bureau ou mobiles, appartiennent à cette catégorie et ne sont donc pas affectées par la substitution.
 
-### <a name="a-namewebclientaweb-applications--apis-accessing-resources"></a><a name="webclient"></a>Applications web/API ayant accès aux ressources
+### <a name="webclient"></a>Applications web/API ayant accès aux ressources
 En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, l’API Outlook et d’autres API Microsoft) obtiennent uniquement un jeton et le transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
 
 Les applications Web et les API web qui utilisent le flux d’application uniquement (informations d’identification du client/certificat client) appartiennent à cette catégorie et ne sont donc pas affectées par la substitution.
 
-### <a name="a-nameappservicesaweb-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Applications web/API protégeant les ressources et créées à l’aide d’Azure App Services
+### <a name="appservices"></a>Applications web/API protégeant les ressources et créées à l’aide d’Azure App Services
 La fonctionnalité d’authentification/d’autorisation d’Azure App Services (EasyAuth) possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé.
 
-### <a name="a-nameowinaweb-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication
+### <a name="owin"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication
 Si votre application utilise le middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé.
 
 Vous pouvez vérifier que votre application utilise l’un de ces middlewares en recherchant les extraits de code suivants dans le fichier Startup.cs ou Startup.Auth.cs de l’application.
@@ -91,7 +92,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="a-nameowincoreaweb-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET Core OpenID Connect ou JwtBearerAuthentication
+### <a name="owincore"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET Core OpenID Connect ou JwtBearerAuthentication
 Si votre application utilise le middleware .NET Core OWIN OpenID Connect ou JwtBearerAuthentication, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé.
 
 Vous pouvez vérifier que votre application utilise l’un de ces middlewares en recherchant les extraits de code suivants dans le fichier Startup.cs ou Startup.Auth.cs de l’application.
@@ -111,7 +112,7 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="a-namepassportaweb-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Applications web/API protégeant les ressources à l’aide du module passport-azure-ad Node.js
+### <a name="passport"></a>Applications web/API protégeant les ressources à l’aide du module passport-azure-ad Node.js
 Si votre application utilise le module passport-ad Node.js, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé.
 
 Vous pouvez vérifier que votre application utilise passport-ad en recherchant l’extrait de code suivant dans le fichier app.js de l’application.
@@ -124,12 +125,12 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="a-namevs2015aweb-applications--apis-protecting-resources-and-created-with-visual-studio-2015"></a><a name="vs2015"></a>Applications web/API protégeant les ressources et créées avec Visual Studio 2015
-Si votre application a été générée à l’aide d’un modèle d’application web dans Visual Studio 2015 et que vous avez sélectionné **Comptes professionnels et scolaires** dans le menu **Modifier l’authentification**, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé. Cette logique, incorporée dans le middleware OWIN OpenID Connect, récupère et met en cache les clés à partir du document de découverte OpenID Connect, et les actualise régulièrement.
+### <a name="vs2015"></a>Applications web/API protégeant les ressources et créées avec Visual Studio 2015 ou Visual Studio 2017
+Si votre application a été générée à l’aide d’un modèle d’application web dans Visual Studio 2015 ou Visual Studio 2017, et que vous avez sélectionné **Comptes professionnels et scolaires** dans le menu **Modifier l’authentification**, elle a déjà la logique nécessaire pour gérer automatiquement la substitution de clé. Cette logique, incorporée dans le middleware OWIN OpenID Connect, récupère et met en cache les clés à partir du document de découverte OpenID Connect, et les actualise régulièrement.
 
 Si vous avez ajouté manuellement l’authentification à votre solution, votre application ne possède peut-être pas la logique de substitution de clé nécessaire. Vous devrez l’écrire vous-même ou suivre les étapes décrites dans [Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge](#other).
 
-### <a name="a-namevs2013aweb-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Applications web protégeant les ressources et créées avec Visual Studio 2013
+### <a name="vs2013"></a>Applications web protégeant les ressources et créées avec Visual Studio 2013
 Si votre application a été générée à l’aide d’un modèle d’application web dans Visual Studio 2013 et que vous avez sélectionné **Comptes professionnels** dans le menu **Modifier l’authentification**, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé. Cette logique stocke l’identifiant unique de votre organisation et les informations de clé de signature dans deux tables de base de données associées au projet. Vous trouverez la chaîne de connexion de la base de données dans le fichier Web.config du projet.
 
 Si vous avez ajouté manuellement l’authentification à votre solution, votre application ne possède peut-être pas la logique de substitution de clé nécessaire. Vous devrez l’écrire vous-même ou suivre les étapes décrites dans [Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge](#other).
@@ -144,7 +145,7 @@ Les étapes suivantes vous aideront à vérifier le bon fonctionnement de la log
 6. Générez et exécutez l’application. Une fois connecté à votre compte, vous pouvez arrêter l’application.
 7. Revenez à **l’Explorateur de serveurs** et examinez les valeurs contenues dans les tables **IssuingAuthorityKeys** et **Clients**. Vous remarquerez qu’elles ont été automatiquement complétées avec les informations appropriées extraites du document de métadonnées de fédération.
 
-### <a name="a-namevs2013aweb-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>API web protégeant les ressources et créées avec Visual Studio 2013
+### <a name="vs2013"></a>API web protégeant les ressources et créées avec Visual Studio 2013
 Si vous avez créé une application API web dans Visual Studio 2013 à l’aide du modèle API web et que vous avez sélectionné **Comptes professionnels** dans le menu **Modifier l’authentification**, votre application contient déjà la logique nécessaire.
 
 Si vous avez configuré l’authentification manuellement, suivez les instructions ci-dessous pour savoir comment configurer votre API web afin de mettre automatiquement à jour ses informations de clé.
@@ -239,7 +240,7 @@ namespace JWTValidation
 }
 ```
 
-### <a name="a-namevs2012aweb-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Applications web protégeant les ressources et créées avec Visual Studio 2012
+### <a name="vs2012"></a>Applications web protégeant les ressources et créées avec Visual Studio 2012
 Si votre application a été créée dans Visual Studio 2012, vous avez probablement utilisé l’outil Identité et accès pour configurer votre application. Il est également probable que vous utilisiez le [registre de validation de nom d’émetteur (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). Le VINR est chargé de conserver les informations relatives aux fournisseurs d’identité approuvés (Azure AD) ainsi que les clés utilisées pour valider les jetons qu’ils émettent. Le VINR permet également de mettre à jour automatiquement les informations de clé stockées dans un fichier Web.config en téléchargeant le dernier document de métadonnées de fédération associé à votre annuaire, en vérifiant si la configuration est à jour avec le dernier document et en mettant à jour l’application pour utiliser la nouvelle clé si nécessaire.
 
 Si vous avez créé votre application à l’aide des exemples de code ou de la documentation détaillée fournis par Microsoft, la logique de substitution de clé est déjà incluse dans votre projet. Vous remarquerez que le code ci-dessous existe déjà dans votre projet. Si votre application ne contient pas déjà cette logique, suivez les étapes ci-dessous pour l’ajouter et vérifier qu’elle fonctionne correctement.
@@ -283,9 +284,9 @@ Suivez les étapes ci-dessous pour vérifier que la logique de substitution de c
           </keys>
    ```
 2. La table **<add thumbprint=””>** , modifiez la valeur de l’empreinte en remplaçant l’un des caractères par un caractère différent. Enregistrez le fichier **Web.config** .
-3. Générez puis exécutez l’application. Si vous pouvez terminer le processus de connexion, votre application mettra correctement à jour la clé en téléchargeant les informations requises à partir du document de métadonnées de fédération de votre répertoire. Si vous rencontrez des problèmes de connexion, vérifiez que les modifications apportées à votre application sont correctes. Pour cela, consultez la rubrique [Ajout de l’authentification à votre application web à l’aide d’Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), ou téléchargez et examinez l’exemple de code suivant : [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Application cloud mutualisée pour Azure Active Directory).
+3. Générez puis exécutez l’application. Si vous pouvez terminer le processus de connexion, votre application mettra correctement à jour la clé en téléchargeant les informations requises à partir du document de métadonnées de fédération de votre répertoire. Si vous rencontrez des problèmes de connexion, vérifiez que les modifications apportées à votre application sont correctes. Pour cela, consultez la rubrique [Ajout de l’authentification à votre application web à l’aide d’Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), ou téléchargez et examinez l’exemple de code suivant : [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Application cloud multilocataire pour Azure Active Directory).
 
-### <a name="a-namevs2010aweb-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Applications web protégeant les ressources et créées avec Visual Studio 2008 ou 2010 et avec Windows Identity Foundation (WIF) version 1.0 pour .NET 3.5
+### <a name="vs2010"></a>Applications web protégeant les ressources et créées avec Visual Studio 2008 ou 2010 et avec Windows Identity Foundation (WIF) version 1.0 pour .NET 3.5
 Si vous avez créé une application sur WIF v1.0, aucun mécanisme n’est prévu pour actualiser automatiquement la configuration de votre application afin de permettre l’utilisation d’une nouvelle clé.
 
 * *Moyen le plus simple* Utilisez les outils FedUtil inclus dans le SDK WIF, qui permettent de récupérer le dernier document de métadonnées et de mettre à jour votre configuration.
@@ -299,7 +300,7 @@ Instructions d’utilisation de FedUtil pour mettre à jour votre configuration 
 3. À l’invite, sélectionnez **Mettre à jour** pour mettre à jour vos métadonnées de fédération. Si vous avez accès à l’environnement serveur sur lequel l’application est hébergée, vous pouvez éventuellement utiliser le [planificateur de mise à jour automatique des métadonnées](https://msdn.microsoft.com/library/ee517272.aspx)de FedUtil.
 4. Cliquez sur **Terminer** pour terminer le processus de mise à jour.
 
-### <a name="a-nameotheraweb-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge
+### <a name="other"></a>Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge
 Si vous utilisez une autre bibliothèque ou si vous avez implémenté manuellement l’un des protocoles pris en charge, vous devez examiner la bibliothèque ou votre implémentation afin de vous assurer que la clé est récupérée à partir du document de découverte OpenID Connect ou du document de métadonnées de fédération. Pour le vérifier, vous pouvez rechercher dans votre code ou dans le code de la bibliothèque les appels vers le document de découverte OpenID ou le document de métadonnées de fédération.
 
 Si la clé est stockée quelque part ou codée en dur dans votre application, vous pouvez récupérer la clé et la mettre à jour manuellement en suivant les instructions indiquées à la fin de ce document. **Nous vous recommandons fortement d’améliorer votre application pour prendre en charge la substitution automatique** en utilisant l’une des approches présentées dans cet article pour éviter les perturbations et les surcharges à l’avenir si Azure AD augmente sa cadence de substitution ou doit effectuer une substitution hors bande en urgence.
@@ -309,10 +310,5 @@ Pour vérifier que votre application prend en charge la substitution automatique
 
 ## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Comment effectuer une substitution manuelle si votre application ne prend pas en charge la substitution automatique
 Si votre application ne prend **pas** en charge la substitution automatique, vous devez établir un processus permettant de surveiller périodiquement les clés de signature d’Azure AD et d’effectuer une substitution manuelle en conséquence. [Ce référentiel GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contient des scripts et des instructions sur la façon de procéder.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

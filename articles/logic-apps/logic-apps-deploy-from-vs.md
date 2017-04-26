@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -34,7 +34,7 @@ Pour installer et configurer les outils Visual Studio pour Azure Logic Apps, sui
 
 ### <a name="prerequisites"></a>Composants requis
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) ou Visual Studio 2015
 * [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Accès au web lors de l’utilisation du concepteur intégré
@@ -50,7 +50,7 @@ Une fois les composants requis installés :
 5. Redémarrez Visual Studio après l’installation.
 
 > [!NOTE]
-> Vous pouvez également télécharger des outils Azure Logic Apps pour Visual Studio directement à partir de la [Place de marché Visual Studio](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+> Vous pouvez également télécharger les [Outils Azure Logic Apps pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) et les [Outils Azure Logic Apps pour Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio) directement à partir de la Place de marché Visual Studio.
 
 Une fois l’installation effectuée, vous pouvez utiliser le projet de groupe de ressources Azure avec le Concepteur d’applications logiques.
 
@@ -80,7 +80,7 @@ Une fois que vous disposez d’un projet de groupe de ressources Azure contenant
 > [!NOTE]
 > Pour demander les propriétés et données disponibles aux connecteurs, le concepteur doit disposer d’une connexion à Internet. Par exemple, si vous utilisez le connecteur Dynamics CRM Online, le concepteur interroge votre instance CRM pour afficher les propriétés par défaut et personnalisées disponibles.
 
-1. Cliquez avec le bouton droit sur votre fichier `<template>.json` et sélectionnez **Open with Logic App Designer (Ouvrir avec le Concepteur d’applications logiques)**. (`Ctrl+L`)
+1. Cliquez avec le bouton droit sur votre fichier `<template>.json` et sélectionnez **Ouvrir avec le concepteur d’application logique**. (`Ctrl+L`)
 
 2. Choisissez votre abonnement Azure, le groupe de ressources et l’emplacement de votre modèle de déploiement.
 

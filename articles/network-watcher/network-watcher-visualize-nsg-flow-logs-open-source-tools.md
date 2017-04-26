@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -29,7 +29,7 @@ Ces journaux de flux peuvent être difficiles à analyser et à exploiter manuel
 
 ## <a name="scenario"></a>Scénario
 
-Dans cet article, nous allons configurer une solution qui vous permet de visualiser les journaux des flux de groupe de sécurité réseau à l’aide de la Suite Elastic.  Un plug-in d’entrée Logstash collectera les journaux de flux directement à partir de l’objet blob de stockage configuré pour contenir les journaux de flux. Ensuite, à l’aide de la Suite Elastic, les journaux de flux sont indexés et utilisés pour créer un tableau de bord Kibana permettant de visualiser les informations.
+Dans cet article, nous allons configurer une solution qui vous permet de visualiser les journaux des flux de groupe de sécurité réseau à l’aide de la Suite Elastic.  Un plug-in d’entrée Logstash collecte les journaux de flux directement à partir de l’objet blob de stockage configuré pour contenir les journaux de flux. Ensuite, à l’aide de la Suite Elastic, les journaux de flux sont indexés et utilisés pour créer un tableau de bord Kibana permettant de visualiser les informations.
 
 ![scénario][scenario]
 
@@ -88,7 +88,7 @@ Pour plus d’informations sur l’installation d’Elasticsearch, reportez-vous
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Ensuite, nous devons configurer Logstash pour qu’il puisse lire à partir de la sortie du fichier de eve.json. Créez un fichier logstash.conf à l’aide de :
+1. Ensuite, nous devons configurer Logstash pour accéder aux journaux de flux et les analyser. Créez un fichier logstash.conf à l’aide de :
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -156,7 +156,7 @@ Pour plus d’informations sur l’installation de Logstash, reportez-vous à la
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installer le plug-in d’entrée Logstash pour le stockage Blob Azure
 
-Ce plug-in Logstash vous permettra d’accéder directement aux journaux de flux à partir de leur compte de stockage désigné. Pour installer ce plug-in, exécutez la commande suivante à partir du répertoire d’installation par défaut de Logstash (dans ce cas, /usr/share/logstash/bin) :
+Ce plug-in Logstash vous permet d’accéder directement aux journaux de flux à partir de leur compte de stockage désigné. Pour installer ce plug-in, exécutez la commande suivante à partir du répertoire d’installation par défaut de Logstash (dans ce cas, /usr/share/logstash/bin) :
 
 ```
 logstash-plugin install logstash-input-azureblob

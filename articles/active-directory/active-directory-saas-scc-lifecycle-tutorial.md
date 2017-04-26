@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 86228225275c4486852c17803a99a194458196b7
-ms.openlocfilehash: b2cf981e6a655f5c7f0d429714e0efb8e88e178c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9a30bcca720ff135d0180d73f46e78403e9bca43
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure AD à SCC LifeCycle
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SCC LifeCycle.  
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
@@ -31,105 +33,90 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour SCC LifeCycle
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-scc-lifecycle"></a>Activation de l’intégration d’applications pour SCC LifeCycle
+## <a name="enable-the-application-integration-for-scc-lifecycle"></a>Activer l’intégration d’applications pour SCC LifeCycle
 Cette section décrit comment activer l’intégration d’applications pour SCC LifeCycle.
 
-### <a name="to-enable-the-application-integration-for-scc-lifecycle-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour SCC LifeCycle, procédez comme suit :
+**Pour activer l’intégration d’applications pour SCC LifeCycle, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-scc-lifecycle-tutorial/IC700993.png "Active Directory")
-
 2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications](./media/active-directory-saas-scc-lifecycle-tutorial/IC700994.png "Applications")
-
 4. Cliquez sur **Ajouter** en bas de la page.
    
     ![Ajouter une application](./media/active-directory-saas-scc-lifecycle-tutorial/IC749321.png "Ajouter une application")
-
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
     ![Ajouter une application à partir de la galerie](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-
 6. Dans la **zone de recherche**, entrez **SCC LifeCycle**.
    
     ![Galerie d’applications](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Galerie d’applications")
-
 7. Dans le volet des résultats, sélectionnez **SCC LifeCycle**, puis cliquez sur **Terminer** pour ajouter l’application.
    
     ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur SCC LifeCycle avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique, procédez comme suit :**
+
 1. Dans la page d’intégration d’application **SCC LifeCycle** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configurer l’authentification unique")
-
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à SCC LifeCycle**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configurer l’authentification unique")
-
 3. Dans la zone de texte **URL de connexion** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SCC LifeCycle à l’aide du modèle suivant « *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* », puis cliquez sur **Suivant**.
    
     ![Configurer l’URL de l’application](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configurer l’URL de l’application")
-
 4. Dans la page **Configurer l’authentification unique sur SCC LifeCycle**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC795083.png "Configurer l’authentification unique")
-
 5. Transférez ce fichier de métadonnées à l’équipe de support de SCC LifeCycle.
    
-    > [!NOTE]
-    > L’authentification unique doit être activée par l’équipe de support de SCC LifeCycle.
-    > 
-    > 
+   >[!NOTE]
+   >L’authentification unique doit être activée par l’équipe de support de SCC LifeCycle.
+   > 
+   > 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
-Pour se connecter à SCC LifeCycle, les utilisateurs d’Azure AD doivent être approvisionnés dans SCC LifeCycle.
+Pour se connecter à SCC LifeCycle, les utilisateurs d’Azure AD doivent être approvisionnés dans SCC LifeCycle. Vous n’avez rien à faire pour configurer l’approvisionnement des utilisateurs dans SCC LifeCycle.
 
-Vous n’avez rien à faire pour configurer l’approvisionnement des utilisateurs dans SCC LifeCycle.  
 Lorsqu’un utilisateur tente de se connecter à SCC LifeCycle, un compte SCC LifeCycle est, au besoin, automatiquement créé.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par SCC LifeCycle, pour approvisionner des comptes d’utilisateur AAD.
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par SCC LifeCycle, pour approvisionner des comptes d’utilisateur AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-scc-lifecycle-perform-the-following-steps"></a>Pour affecter des utilisateurs à SCC LifeCycle, procédez comme suit :
-1. Dans le portail Azure Classic, créez un compte de test.
+**Pour affecter des utilisateurs à SCC LifeCycle, procédez comme suit :**
 
-2. Dans la page d’intégration d’applications **SCC LifeCycle**, cliquez sur **Affecter les utilisateurs**.
+1. Dans le portail Azure Classic, créez un compte de test.
+2. Dans la page d’intégration d’applications **SCC LifeCycle**, cliquez sur **Affecter des utilisateurs**.
    
     ![Affecter des utilisateurs](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Affecter des utilisateurs")
-
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
     ![Oui](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

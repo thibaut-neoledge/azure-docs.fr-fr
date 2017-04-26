@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -35,8 +36,8 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
    ![invite de commande](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. Dans la fenêtre de commande, entrez «&1; » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez «&3; », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
-3. Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
+2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
+3. Le [portail Azure](https://portal.azure.com) doit alors montrer trois nouvelles bases de données :
 
    ![Confirmation Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -478,9 +479,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8744c5a133738fc60b86e7abd4b0d4b1cb28314c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 532382c7e15ad9b67915e05e7c980a4123036a0f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Utilisation d’Azure RemoteApp avec des comptes d’utilisateur Office 365
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -44,16 +45,11 @@ Nous allons modifier votre abonnement Azure en remplaçant l’annuaire actuel p
 Suivez les instructions de la rubrique [Modification du client Azure Active Directory dans Azure RemoteApp](remoteapp-changetenant.md). Prêtez une attention particulière aux étapes suivantes :
 
 * Étape 1 : si vous avez déployé Azure RemoteApp (ARA) dans cet abonnement, vérifiez que vous supprimez tous les comptes d’utilisateur Azure AD des collections ARA avant d’aller plus loin. Vous pouvez également supprimer toutes les collections existantes.
-* Étape 2 : il s’agit d’une étape essentielle. Vous devez utiliser un compte Microsoft (par exemple, @outlook.com) en tant qu’administrateur de service de l’abonnement. En effet, il n’est pas possible que des comptes d’utilisateur de l’annuaire Azure AD existant soient associés à l’abonnement. Sinon, nous ne pourrons pas le déplacer vers un autre annuaire Azure AD.
+* Étape 2 : il s’agit d’une étape essentielle. Vous devez utiliser un compte Microsoft (par exemple, @outlook.com )en tant qu’administrateur de service sur l’abonnement. En effet, il n’est pas possible que des comptes d’utilisateur de l’annuaire Azure AD existant soient associés à l’abonnement. Sinon, nous ne pouvons pas le déplacer vers un autre annuaire Azure AD.
 * Étape 4 : lorsque vous ajoutez un annuaire existant, le système vous demande de vous connecter avec le compte d’administrateur associé. Veillez à utiliser le compte d’administrateur de l’étape 1.
 * Étape 5 : remplacez l’annuaire parent de l’abonnement par votre annuaire Office 365. Le résultat final doit être le suivant : sous Paramètres -> Abonnements, votre abonnement répertorie l’annuaire Office 365. 
   ![Remplacer l’annuaire parent de l’abonnement](./media/remoteapp-o365user/settings.png)
 
 À ce stade, votre abonnement Azure RemoteApp est associé à votre annuaire Office 365 Azure AD. Vous pouvez utiliser les comptes d’utilisateur Office 365 existants avec Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

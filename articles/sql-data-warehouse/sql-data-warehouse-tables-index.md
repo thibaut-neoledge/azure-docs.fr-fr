@@ -16,9 +16,9 @@ ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -53,7 +53,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 Il existe quelques scénarios où un columnstore en cluster peut ne pas être pas une bonne option :
 
-* Les tables columnstore ne gèrent pas les index non cluster secondaires.  Envisagez plutôt les segments de mémoire ou les tables d’index en cluster.
 * Les tables columnstore ne prennent pas en charge varchar(max), nvarchar(max) et varbinary(max).  Envisagez plutôt les segments de mémoire ou les index en cluster.
 * Les tables columnstore peuvent être moins efficaces pour les données temporaires.  Envisagez les segments de mémoire, voire les tables temporaires.
 * Petites tables avec moins de 100 millions de lignes.  Envisagez les tables de segments de mémoire.
@@ -168,7 +167,7 @@ Une fois que vous avez exécuté la requête, vous pouvez commencer à examiner 
 | [COMPRESSED_rowgroup_rows_AVG] |Si le nombre moyen de lignes est considérablement inférieur au nombre maximal de lignes pour un groupe de lignes, utilisez CTAS ou ALTER INDEX REBUILD pour recompresser les données |
 | [COMPRESSED_rowgroup_count] |Nombre de groupes de lignes au format columnstore. Si ce nombre est très élevé par rapport à la table, il indique que la densité de columnstore est faible. |
 | [COMPRESSED_rowgroup_rows_DELETED] |Les lignes sont logiquement supprimées au format columnstore. Si le nombre est élevé par rapport à la taille de la table, recréez la partition ou reconstruisez l’index, car cette opération les supprime physiquement. |
-| [COMPRESSED_rowgroup_rows_MIN] |Utilisez cette valeur avec les colonnes AVG et MAX pour comprendre la plage de valeurs des groupes de lignes dans votre columnstore. Un nombre bas au-dessus du seuil de chargement (102&400; par distribution alignée sur la partition) suggère que des optimisations sont disponibles dans le chargement des données |
+| [COMPRESSED_rowgroup_rows_MIN] |Utilisez cette valeur avec les colonnes AVG et MAX pour comprendre la plage de valeurs des groupes de lignes dans votre columnstore. Un nombre bas au-dessus du seuil de chargement (102 400 par distribution alignée sur la partition) suggère que des optimisations sont disponibles dans le chargement des données |
 | [COMPRESSED_rowgroup_rows_MAX] |Identique à ce qui précède |
 | [OPEN_rowgroup_count] |Les groupes de lignes ouverts sont normaux. On peut raisonnablement s’attendre à un groupe de lignes ouvert par distribution de tables (60). Les nombres excessifs suggèrent un chargement des données sur plusieurs partitions de données. Vérifiez la stratégie de partitionnement pour vous assurer qu’elle est saine |
 | [OPEN_rowgroup_rows] |Chaque groupe de lignes peut contenir 1 048 576 lignes maximum. Utilisez cette valeur pour connaître l’état de remplissage actuel des groupes de lignes ouverts |

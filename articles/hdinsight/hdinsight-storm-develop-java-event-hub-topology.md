@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fcca957dc365d8c38b5a08991939860c5af96813
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: e650731c3186b47adeb0e799a852961c30338550
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,22 +31,22 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 ## <a name="prerequisites"></a>Composants requis
 
 * Un cluster Apache Storm sur HDInsight version 3.5. Pour plus d’informations, voir [Prise en main de Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
-    
+
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Dépréciation d’HDInsight 3.3 et 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Un [hub d’événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* [Kit de développeur Java (JDK) Oracle version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou un équivalent, par exemple, [OpenJDK](http://openjdk.java.net/).
+* [Kit de développeur Java (JDK) Oracle version 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ou un équivalent, par exemple, [OpenJDK](http://openjdk.java.net/).
 
 * [Maven](https://maven.apache.org/download.cgi) : Maven est un système de génération de projet pour les projets Java.
 
 * Un éditeur de texte ou un environnement de développement intégré (IDE).
-  
-  > [!NOTE]
-  > Votre éditeur ou IDE peut avoir des fonctionnalités spécifiques pour l’utilisation avec Maven, qui ne sont pas traitées dans ce document. Pour plus d’informations sur les capacités de votre environnement d’édition, consultez la documentation du produit que vous utilisez.
-  
-  * Un client SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+    > [!NOTE]
+    > Votre éditeur ou IDE peut avoir des fonctionnalités spécifiques pour l’utilisation avec Maven, qui ne sont pas traitées dans ce document. Pour plus d’informations sur les capacités de votre environnement d’édition, consultez la documentation du produit que vous utilisez.
+
+    * Un client SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un client SCP. La commande `scp` est fournie avec tous les systèmes Linux, Unix et OS X (y compris Bash sur Windows 10.) Concernant les systèmes Windows non équipés de la commande `scp`, nous recommandons d’utiliser PSCP. PSCP est disponible à partir de la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -64,7 +64,48 @@ Les données sont formatées sous forme de document JSON avant d’être écrite
 
 ### <a name="project-configuration"></a>Configuration du projet
 
-Le fichier **POM.xml** contient des informations de configuration pour ce projet Maven. Éléments intéressants :
+Le fichier `POM.xml` contient des informations de configuration pour ce projet Maven. Éléments intéressants :
+
+#### <a name="hortonworks-repository"></a>Référentiel Hortonworks
+
+HDInsight est basée sur Hortonworks Data Platform. Pour que votre projet soit compatible avec les versions de Storm et d’Hadoop utilisées avec HDInsight 3.5, la section suivante configure le projet pour utiliser des exécutables d’Hortonworks :
+
+```xml
+<repositories>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPReleases</id>
+        <name>HDP Releases</name>
+        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <layout>default</layout>
+    </repository>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPJetty</id>
+        <name>Hadoop Jetty</name>
+        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+```
 
 #### <a name="the-eventhubs-storm-spout-dependency"></a>Dépendance du spout Storm EventHubs
 
@@ -90,33 +131,18 @@ HdfsBolt est normalement utilisé pour stocker des données dans HDFS (Hadoop Di
 <dependency>
     <groupId>org.apache.storm</groupId>
     <artifactId>storm-hdfs</artifactId>
+    <!-- exclude these storm-hdfs dependencies since they are on the server -->
     <exclusions>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-client</artifactId>
-    </exclusion>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-hdfs</artifactId>
-    </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+        </exclusion>
     </exclusions>
     <version>${storm.version}</version>
-</dependency>
-<!--So HdfsBolt knows how to talk to WASB -->
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-client</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-hdfs</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-azure</artifactId>
-    <version>${hadoop.version}</version>
 </dependency>
 <dependency>
     <groupId>org.apache.hadoop</groupId>
@@ -248,7 +274,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 * **JAVA_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** :doit contenir les chemins d’accès suivants :
-  
+
   * **JAVA_HOME** (ou le chemin d’accès équivalent)
   * **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
   * Le répertoire d’installation de Maven
@@ -258,9 +284,9 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 1. Téléchargez `storm-eventhubs-1.0.2-jar-with-dependencies.jar` depuis [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar). Ce fichier contient un composant spout et bolt pour lire et écrire à partir de Event Hubs.
 
 2. Utilisez la commande suivante pour inscrire les composants dans votre référentiel maven local :
-    
+
         mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
-    
+
     Modifiez le paramètre `-Dfile=` pour pointer vers l’emplacement du fichier téléchargé.
 
     Cette commande installe le fichier dans le référentiel Maven local, où il est accessible au moment de la compilation par Maven.
@@ -272,27 +298,27 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NEW** > **Service Bus** > **Event Hub** > **Création personnalisée**.
 
 2. Dans l’écran **Ajouter un nouvel hub d’événements**, entrez le **Nom du hub d’événements**. Sélectionnez la **région** pour créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Enfin, cliquez sur la **flèche** pour continuer.
-   
+
     ![page 1 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
-   
+
    > [!NOTE]
    > Vous devez sélectionner le même **emplacement** que celui de votre serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
 3. Dans l’écran **Configurer un hub d’événements**, entrez les valeurs pour **Nombre de partitions** et **Rétention des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
-   
+
     ![page 2 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
 4. Une fois le hub d’événements créé, sélectionnez l’espace de noms, **Event Hubs**, puis le hub d’événements créé auparavant.
 5. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d’accès en utilisant les informations suivantes :
-   
+
     <table>
     <tr><th>Nom</th><th>Autorisations</th></tr>
     <tr><td>Writer</td><td>Envoyer</td></tr>
     <tr><td>Lecteur</td><td>Écouter</td></tr>
     </table>
-   
+
     Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Ces stratégies d’accès partagé sont utilisées pour lire et écrire dans Event Hub.
-   
+
     ![stratégies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
 6. Après avoir enregistré vos stratégies, utilisez le **Générateur de clés d’accès partagé** situé en bas de page pour récupérer les clés des stratégies **writer** et **reader**. Enregistrez ces clés.
@@ -302,9 +328,9 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 1. Téléchargez le projet à partir de GitHub : [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Vous pouvez télécharger le package dans une archive .zip ou utiliser [git](https://git-scm.com/) pour cloner le projet localement.
 
 2. Pour générer le projet et créer un package, utilisez la commande suivante :
-   
+
         mvn package
-   
+
     Cette commande télécharge les dépendances requises, génère le projet, puis crée le package. Le résultat est stocké dans le répertoire **/target** dans un fichier **EventHubExample-1.0-SNAPSHOT.jar**.
 
 ## <a name="deploy-the-topologies"></a>Déploiement des topologies
@@ -312,62 +338,50 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 Le fichier jar créé par ce projet contient deux topologies : **com.microsoft.example.EventHubWriter** et **com.microsoft.example.EventHubReader**. La topologie EventHubWriter doit être démarrée en premier, car elle écrit des événements dans l’Event Hub qui sont ensuite lus par EventHubReader.
 
 1. Utilisez SCP pour copier le package jar dans votre cluster HDInsight. Remplacez USERNAME par l’utilisateur SSH de votre cluster. Remplacez CLUSTERNAME par le nom de votre cluster HDInsight :
-   
+
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
-   
+
     Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. Par exemple, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
-   
-   > [!NOTE]
-   > Si votre client est une station de travail Windows, vous ne disposez peut-être pas d’une commande SCP installée. Nous vous recommandons PSCP, que vous pouvez télécharger à partir de la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-   
+
     Cette commande copie le fichier sur le répertoire de base de votre utilisateur SSH sur le cluster.
 
 2. Une fois le téléchargement du fichier terminé, utilisez SSH pour vous connecter au cluster HDInsight. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
-   > [!NOTE]
-   > Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
-   > 
-   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
-   
-    Si vous utilisez PuTTY, entrez `CLUSTERNAME-ssh.azurehdinsight.net` dans le champ **Nom d’hôte (ou Adresse IP)**, puis cliquez sur **Ouvrir** pour vous connecter. Vous êtes invité à entrer le nom de votre compte SSH.
-   
-   > [!NOTE]
-   > Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être suivre les étapes ci-après pour sélectionner la clé :
-   > 
-   > 1. Dans **Catégorie**, développez **Connexion**, puis **SSH** et sélectionnez **Auth**.
-   > 2. Cliquez sur **Parcourir** , puis sélectionnez le fichier .ppk qui contient votre clé privée.
-   > 3. Cliquez sur **Ouvrir** pour vous connecter.
+
+    > [!NOTE]
+    > Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+    >
+    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
 3. Utilisez la commande suivante pour démarrer les topologies :
-   
+
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
-   
+
     Ces commandes démarrent les topologies en utilisant les noms conviviaux de « reader » et « writer ».
 
 4. Patientez une minute le temps que les topologies génèrent les données. Utilisez la commande suivante pour vérifier que les données sont écrites dans le stockage HDInsight :
-   
-        hadoop fs -ls /devicedata
-   
+
+        hdfs dfs fs -ls /devicedata
+
     Cette commande renvoie une liste de fichiers qui ressemble à celle décrite ici :
-   
+
         -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
         -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
         -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-   
+
    > [!NOTE]
    > Certains fichiers peuvent indiquer une taille de 0, étant donné qu’ils ont été créés par EventHubReader mais qu’ils ne stockent pas encore de données.
-   
+
     Vous pouvez afficher le contenu de ces fichiers à l’aide de la commande suivante :
-   
-        hadoop fs -text /devicedata/*.txt
-   
+
+        hdfs dfs -text /devicedata/*.txt
+
     Cette commande renvoie des données semblables à ce qui suit :
-   
+
         3409e622-c85d-4d64-8622-af45e30bf774,848981614
         c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
         788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
@@ -375,11 +389,11 @@ Le fichier jar créé par ce projet contient deux topologies : **com.microsoft.
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-   
+
     La première colonne contient la valeur de l’ID d’appareil et la deuxième colonne, la valeur de l’appareil.
 
 5. Utilisez les commandes suivantes pour arrêter les topologies :
-   
+
         storm kill reader
         storm kill writer
 
@@ -400,5 +414,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
-
 

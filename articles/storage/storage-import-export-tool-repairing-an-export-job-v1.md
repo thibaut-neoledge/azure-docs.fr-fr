@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 30ca0f8d06cb1927c19e66035ff485db0fc09e5a
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
-Lorsqu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export localement pour :  
+Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  
   
 1.  Télécharger tous les fichiers que le service Azure Import/Export n’a pas pu exporter.  
   
@@ -45,8 +45,8 @@ Les paramètres suivants peuvent être spécifiés pour **RepairExport** :
 |**/sn:<StorageAccountName\>**|Obligatoire. Nom du compte de stockage du travail d’exportation.|  
 |**/sk:<StorageAccountKey\>**|**Obligatoire** si et seulement si une SAP de conteneur n’est pas spécifiée. Clé du compte de stockage du travail d’exportation.|  
 |**/csas:<ContainerSas\>**|**Obligatoire** si et seulement si la clé du compte de stockage n’est pas spécifiée. SAP de conteneur pour accéder aux objets blob associés au travail d’exportation.|  
-|**/CopyLogFile:<DriveCopyLogFile\>**|Obligatoire. Chemin d’accès au fichier journal de copie du disque. Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob en échec ou les fichiers qui doivent être réparés.|  
-|**/ManifestFile:<DriveManifestFile\>**|facultatif. Chemin d’accès au fichier de manifeste du lecteur d’exportation. Ce fichier est généré par le service Windows Azure Import/Export et stocké sur le lecteur d’exportation et éventuellement dans un objet blob dans le compte de stockage associé au travail.<br /><br /> Le contenu des fichiers sur le lecteur d’exportation sera vérifié avec les hachages MD5 contenus dans ce fichier. Tous les fichiers qui sont considérés comme étant endommagés seront téléchargés et réécrits dans les répertoires cibles.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|Obligatoire. Chemin du fichier journal de copie du disque. Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob en échec ou les fichiers qui doivent être réparés.|  
+|**/ManifestFile:<DriveManifestFile\>**|facultatif. Chemin du fichier de manifeste du lecteur d’exportation. Ce fichier est généré par le service Windows Azure Import/Export et stocké sur le lecteur d’exportation et éventuellement dans un objet blob dans le compte de stockage associé au travail.<br /><br /> Le contenu des fichiers sur le lecteur d’exportation sera vérifié avec les hachages MD5 contenus dans ce fichier. Tous les fichiers qui sont considérés comme étant endommagés seront téléchargés et réécrits dans les répertoires cibles.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilisation du mode RepairExport pour corriger les échecs d’exportation  
 Vous pouvez utiliser l’outil Azure Import/Export pour télécharger les fichiers dont l’exportation a échoué. Le fichier journal de copie contient une liste des fichiers qui n’ont pas pu être exportés.  

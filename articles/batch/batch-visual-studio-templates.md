@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -55,7 +55,7 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 ## <a name="prerequisites"></a>Composants requis
 Voici les composants requis pour utiliser les modèles Batch :
 
-* Un ordinateur disposant de Visual Studio 2015 ou d’une version plus récente.
+* Un ordinateur où Visual Studio 2015 est installé. Les modèles Batch sont actuellement pris en charge seulement pour Visual Studio 2015.
 * Les modèles Batch, qui sont disponibles dans la [galerie Visual Studio][vs_gallery] en tant qu’extensions Visual Studio. Il existe deux façons de se procurer les modèles :
   
   * Les installer à l’aide de la boîte de dialogue **Extensions et mises à jour** dans Visual Studio (pour plus d’informations, consultez [Recherche et utilisation des extensions Visual Studio][vs_find_use_ext]). Dans la boîte de dialogue **Extensions et mises à jour** , recherchez et téléchargez les deux extensions suivantes :

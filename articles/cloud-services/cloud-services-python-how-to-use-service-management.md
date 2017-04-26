@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/05/2017
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 579015f419ac0ee886f8e8497760a562ab324c24
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -38,13 +38,13 @@ Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure]
 Le Kit de développement logiciel (SDK) Azure pour Python inclut l’[API de gestion des services Azure][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 ## <a name="Installation"> </a>Installation
-Toutes les fonctionnalités décrites dans cet article sont disponibles dans le package `azure-servicemanagement-legacy` , que vous pouvez installer à l’aide de pip. Pour plus d’informations sur l’installation (par exemple, si vous ne connaissez pas Python), consultez cet article : [Installation de Python et du Kit de développement logiciel (SDK) Azure](../python-how-to-install.md)
+Toutes les fonctionnalités décrites dans cet article sont disponibles dans le package `azure-servicemanagement-legacy` , que vous pouvez installer à l’aide de pip. Pour plus d’informations sur l’installation (par exemple si vous ne connaissez pas Python), consultez cet article : [Installation de Python et du SDK Azure](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>Connexion à la gestion des services
 Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d’abonnement Azure et d’un certificat de gestion valide. Vous pouvez obtenir votre ID d’abonnement dans le [portail Azure Classic][management-portal].
 
 > [!NOTE]
-> À partir du Kit de développement logiciel (SDK) Azure pour Python v0.8.0, il est maintenant possible d'utiliser des certificats créés avec OpenSSL sous Windows.  Ceci nécessite Python 2.7.4 ou version ultérieure. Nous recommandons aux utilisateurs d’utiliser OpenSSL au lieu de .pfx, car la prise en charge des certificats .pfx risque de disparaître à l’avenir.
+> Il est désormais possible d’utiliser des certificats créés avec OpenSSL sous Windows.  Ceci nécessite Python 2.7.4 ou version ultérieure. Nous recommandons aux utilisateurs d’utiliser OpenSSL au lieu de .pfx, car la prise en charge des certificats .pfx risque de disparaître à l’avenir.
 > 
 > 
 
@@ -78,7 +78,7 @@ Vous pouvez créer un certificat de gestion auto-signé sur votre machine au moy
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-La commande crée le fichier `.cer` et l’installe dans le magasin de certificats **Personnel** . Pour plus de détails, consultez la rubrique [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md).
+La commande crée le fichier `.cer` et l’installe dans le magasin de certificats **Personnel** . Pour plus d’informations, consultez [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md).
 
 Une fois le certificat créé, vous devez télécharger le fichier `.cer` sur Azure par le biais de l’action Télécharger de l’onglet Paramètres dans le [portail Azure Classic][management-portal].
 
@@ -405,7 +405,7 @@ Pour en savoir plus sur la capture d’une machine virtuelle Linux, consultez la
 Pour en savoir plus sur la capture d’une machine virtuelle Windows, consultez la page [Capture d’une machine virtuelle Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="What's Next"> </a>Étapes suivantes
-Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du Kit de développement logiciel (SDK) Azure pour Python](http://azure-sdk-for-python.readthedocs.org/) et effectuer facilement des tâches complexes pour gérer votre application python.
+Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du kit SDK Azure pour Python](http://azure-sdk-for-python.readthedocs.org/) et effectuer facilement des tâches complexes pour gérer votre application python.
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 

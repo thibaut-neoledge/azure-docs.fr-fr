@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 407d50afe3470f5a9e84026eaa2dcccea4d06641
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -45,7 +46,7 @@ Pour obtenir l’URL de clonage du dépôt GitHub et le jeton d’accès personn
 4. Sélectionnez l’image de profil dans le coin supérieur droit de GitHub, puis sélectionnez **Paramètres**.
 5. Dans le menu **Paramètres personnels** situé à gauche, sélectionnez **Jetons d’accès personnels**.
 6. Sélectionnez **Générer un nouveau jeton**.
-7. Dans la page **Nouveau jeton d’accès personnel** entrez une **Description du jeton**, acceptez les éléments par défaut dans le **Choix des étendues**, puis sélectionnez **Générer le jeton**.
+7. Dans la page **Nouveau jeton d’accès personnel**, entrez une **description du jeton**. S’il s’agit d’un dépôt public, acceptez les éléments par défaut dans **Sélectionner des étendues** ; sinon, sélectionnez l’étendue **dépôt**. Ensuite, choisissez **Générer un jeton**. [Découvrez plus d’informations sur les portées OAuth dans GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Enregistrez le jeton généré, car vous en aurez besoin ultérieurement.
 9. Vous pouvez à présent fermer GitHub.   
 10. Passez à la section [Connecter votre laboratoire au dépôt d’artefact](#connect-your-lab-to-the-artifact-repository) .
@@ -95,10 +96,5 @@ Pour obtenir l’URL de clonage du dépôt Visual Studio Team Services et le jet
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs (Comment résoudre les problèmes d’échec des artefacts dans AzureDevTestLabs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Joindre une machine virtuelle à un domaine Active Directory existant à l’aide du modèle ARM dans Azure Dev Test Lab)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
