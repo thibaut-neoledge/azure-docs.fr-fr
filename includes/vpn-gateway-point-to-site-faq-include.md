@@ -35,7 +35,3 @@ Oui, vous pouvez. Néanmoins les réseaux virtuels ne peuvent pas avoir de préf
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quel débit puis-je attendre des connexions site à site ou point à site ?
 Il est difficile de maintenir le débit exact des tunnels VPN. IPsec et SSTP sont des protocoles VPN de chiffrement lourd. Le débit est également limité par la latence et la bande passante entre vos locaux et Internet.
-
-<!--HONumber=Feb17_HO3-->
-
-
