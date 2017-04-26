@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 04/25/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
@@ -230,6 +230,10 @@ Lancée et dirigée par John Langford de Microsoft Research, VW est une Formul
 * Pour obtenir la liste alphabétique complète des algorithmes et des modules d’Azure Machine Learning Studio, consultez [Liste alphabétique des modules de Machine Learning Studio][a-z-list] dans Machine Learning Studio : aide sur les algorithmes et les modules.
 * Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
+
+<!-- Reference links -->
+[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 
 <!-- Media -->
 
