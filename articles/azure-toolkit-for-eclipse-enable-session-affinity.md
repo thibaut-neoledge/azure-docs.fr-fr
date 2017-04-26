@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
-ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ab8623d6f9751ed6d71d9a5b1c0d5e939c442862
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -27,10 +28,14 @@ Dans le Kit de ressources Azure pour Eclipse, vous pouvez activer l'affinité 
 
 ## <a name="to-enable-session-affinity-for-your-role"></a>Pour activer l'affinité de session pour votre rôle
 1. Cliquez avec le bouton droit sur le rôle dans l’Explorateur de projet Eclipse, cliquez sur **Azure**, puis sur **Équilibrage de charge**.
+
 2. Dans la boîte de dialogue **Propriétés d'équilibrage de charge pour WorkerRole1** :
-   1. Cochez **Activer l'affinité de session HTTP (sessions temporaires) pour ce rôle.**
-   2. Pour le **point de terminaison d’entrée à utiliser**, sélectionnez un point de terminaison d’entrée à utiliser, par exemple, **http (public:80, private:8080)**. Votre application doit utiliser ce point de terminaison en tant que point de terminaison HTTP. Vous pouvez activer plusieurs points de terminaison pour votre rôle, mais vous ne pouvez en sélectionner qu'un seul pour prendre en charge des sessions temporaires.
-   3. Régénérez votre application.
+
+   a. Cochez **Activer l'affinité de session HTTP (sessions temporaires) pour ce rôle.**
+
+   b. Pour le **point de terminaison d’entrée à utiliser**, sélectionnez un point de terminaison d’entrée à utiliser, par exemple, **http (public:80, private:8080)**. Votre application doit utiliser ce point de terminaison en tant que point de terminaison HTTP. Vous pouvez activer plusieurs points de terminaison pour votre rôle, mais vous ne pouvez en sélectionner qu'un seul pour prendre en charge des sessions temporaires.
+
+   c. Régénérez votre application.
 
 Après l'activation, si vous avez plusieurs instances de rôle, les requêtes HTTP provenant d'un client particulier continueront d'être gérées par la même instance de rôle.
 
@@ -38,8 +43,11 @@ Le Kit de ressources Eclipse le permet en installant un module IIS spécial appe
 
 ## <a name="notes-about-session-affinity"></a>Remarques sur l'affinité de session
 * L'affinité de session ne fonctionne pas dans l'émulateur de calcul. Les paramètres peuvent être appliqués dans l'émulateur de calcul sans interférer avec votre processus de génération ou d'exécution de l'émulateur de calcul, mais la fonction elle-même ne fonctionne pas dans l'émulateur de calcul.
+
 * L'activation de l'affinité de session entraîne une augmentation de la quantité d'espace disque pris par votre déploiement dans Azure, car des logiciels supplémentaires seront téléchargés et installés dans vos instances de rôle lorsque votre service est démarré dans le cloud Azure.
+
 * Le temps d'initialisation de chaque rôle sera plus long.
+
 * Un point de terminaison interne, servant de dispositif de redirection de trafic comme indiqué ci-dessus, est ajouté.
 
 
@@ -65,9 +73,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

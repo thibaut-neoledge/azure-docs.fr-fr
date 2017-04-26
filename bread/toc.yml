@@ -67,6 +67,9 @@
   - name: "Gouvernement américain"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
+  - name: "Allemagne"
+    tocHref: /azure/germany/
+    topicHref: /azure/germany/
   - name: "Portail"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/

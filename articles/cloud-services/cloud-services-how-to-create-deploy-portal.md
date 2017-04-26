@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
-ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,7 +33,7 @@ Le portail Azure vous permet de créer et de déployer un service cloud de deux 
 Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
 > [!NOTE]
-> Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez Création rapide, puis configurez la publication VSTS dans l’outil de démarrage rapide Azure ou dans le tableau de bord. Pour plus d’informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Team Services][TFSTutorialForCloudService] ou consultez l’aide sur la page de **démarrage rapide**.
+> Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez Création rapide, puis configurez la publication VSTS dans l’outil de démarrage rapide Azure ou dans le tableau de bord. Pour plus d’informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Team Services][TFSTutorialForCloudService] ou **Démarrage rapide**.
 >
 >
 
@@ -108,9 +109,4 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

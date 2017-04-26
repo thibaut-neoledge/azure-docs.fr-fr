@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Prise en main du stockage d’objets blob Azure à l’aide de .NET
@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Pour plus d’informations sur les différences entre les trois types d’objets blob, consultez la page [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) .
+Pour plus d’informations sur les différences entre les trois types d’objets blob, consultez la page [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) .
 
 ## <a name="managing-security-for-blobs"></a>Gestion de la sécurité pour les objets blob
 Par défaut, Azure Storage préserve la sécurité de vos données en limitant l’accès au propriétaire du compte, qui est en possession des clés d’accès au compte. Lorsque vous avez besoin de partager des données d’objets blob de votre compte de stockage, il est important de le faire sans compromettre la sécurité de vos clés d’accès au compte. En outre, vous pouvez chiffrer les données d’objets blob pour vous assurer qu’elles sont sécurisées lors de leur transfert et dans Azure Storage.
@@ -395,7 +395,7 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 
 ### <a name="blob-storage-reference"></a>Documentation de référence sur le stockage d’objets blob
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [Référence d’API REST](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [Référence d’API REST](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Guides conceptuels
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)

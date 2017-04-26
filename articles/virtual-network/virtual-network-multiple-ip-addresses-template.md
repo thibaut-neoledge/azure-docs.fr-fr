@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -57,7 +57,7 @@ Le déploiement d’un modèle vous permet de créer rapidement et de manière c
 
 Chacune des ressources déployées par le modèle est configurée avec plusieurs paramètres par défaut. Vous pouvez afficher ces paramètres à l’aide de l’une des méthodes suivantes :
 
-- **Afficher le modèle dans GitHub :** si vous êtes familiarisé avec les modèles, vous pouvez afficher les paramètres dans le [modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json). 
+- **Afficher le modèle dans GitHub :** si vous êtes familiarisé avec les modèles, vous pouvez afficher les paramètres dans le [modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json).
 - **Afficher les paramètres après le déploiement :** si vous n’êtes pas familiarisé avec les modèles, vous pouvez déployer le modèle à l’aide des étapes de l’une des sections suivantes, puis afficher les paramètres après le déploiement.
 
 Vous pouvez utiliser le portail Azure, PowerShell ou l’interface de ligne de commande (CLI) Azure pour déployer le modèle. Toutes les méthodes produisent le même résultat. Pour déployer le modèle, suivez les étapes de l’une des sections suivantes :
@@ -77,10 +77,10 @@ Quelle que soit la méthode choisie, vous devez fournir des valeurs pour le [par
 
 Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
-1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). L’article décrit plusieurs options de déploiement d’un modèle. Si vous choisissez de déployer à l’aide de `-TemplateUri parameter`, l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `-TemplateFile`, copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement d’un modèle. Si vous choisissez de déployer à l’aide de `-TemplateUri parameter`, l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `-TemplateFile`, copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `-TemplateParameterFile`.
-    
+
     Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
     >[!TIP]
@@ -92,10 +92,10 @@ Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
 Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI) Azure 1.0, procédez comme suit :
 
-1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). L’article décrit plusieurs options de déploiement du modèle. Si vous choisissez de déployer à l’aide de `--template-uri` (-f), l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `--template-file` (f-), copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement du modèle. Si vous choisissez de déployer à l’aide de `--template-uri` (-f), l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `--template-file` (f-), copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `--parameters-file` (-e).
-    
+
     Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
 2. Une fois la machine virtuelle déployée, connectez la machine virtuelle et ajoutez les adresses IP privées au système d’exploitation que vous avez déployé en suivant les étapes de la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.

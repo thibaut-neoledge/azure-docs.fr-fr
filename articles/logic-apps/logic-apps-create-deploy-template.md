@@ -16,33 +16,44 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 18c66b0ade7f96fa377926474f8f278d110b91e4
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: e736bf626cd379e1bffe2dbf023e86addb09539f
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Création de modèles pour le déploiement d’applications logiques et la gestion des versions
 
-Après avoir créé une application logique, vous pouvez, si vous le souhaitez, la définir en tant que modèle Azure Resource Manager. De cette façon, vous pouvez facilement déployer l’application logique dans n’importe quel environnement ou groupe de ressources où elle peut être utile. Pour en savoir plus sur les modèles Resource Manager, consultez les articles sur la [création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Après avoir créé une application logique, vous pouvez, si vous le souhaitez, la définir en tant que modèle Azure Resource Manager.
+De cette façon, vous pouvez facilement déployer l’application logique dans n’importe quel environnement ou groupe de ressources où elle peut être utile.
+Pour en savoir plus sur les modèles Resource Manager, consultez les articles sur la [création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Modèle de déploiement de l’application logique
 
 Une application logique possède trois composants de base :
 
 * **Ressource d’application logique** : regroupe des informations sur certains éléments tels que le plan de tarification, l’emplacement et la définition de workflow.
-* **Définition de workflow** : décrit les étapes de workflow de votre application logique et comment le moteur Logic Apps doit exécuter workflow. Vous pouvez afficher cette définition dans la fenêtre **Mode Code** de votre application logique. Dans la ressource d’application logique, vous pouvez trouver cette définition dans la propriété `definition`.
-* **Connexions** : il s’agit des ressources distinctes qui permettent de stocker les métadonnées en toute sécurité autour de n’importe quelle connexion de connecteur (par exemple, une chaîne de connexion et un jeton d’accès). Dans la ressource d’application logique, votre application logique fait référence à ces ressources dans la section `parameters`.
+* **Définition de workflow** : décrit les étapes de workflow de votre application logique et comment le moteur Logic Apps doit exécuter workflow.
+Vous pouvez afficher cette définition dans la fenêtre **Mode Code** de votre application logique.
+Dans la ressource d’application logique, vous pouvez trouver cette définition dans la propriété `definition`.
+* **Connexions** : il s’agit des ressources distinctes qui permettent de stocker les métadonnées en toute sécurité autour de n’importe quelle connexion de connecteur (par exemple, une chaîne de connexion et un jeton d’accès).
+Dans la ressource d’application logique, votre application logique fait référence à ces ressources dans la section `parameters`.
 
 Vous pouvez afficher tous ces éléments pour les applications logiques existantes en utilisant un outil tel que [l’Explorateur de ressources Azure](http://resources.azure.com).
 
-Pour créer un modèle pour une application logique pouvant être utilisée avec les déploiements de groupes de ressources, vous devez définir les ressources et les paramétrer selon vos besoins. Par exemple, si vous effectuez un déploiement dans un environnement de développement, de test et de production, vous préférez sans doute utiliser différentes chaînes de connexion à une base de données SQL dans chaque environnement. Ou bien, vous pourrez procéder au déploiement dans différents abonnements ou groupes de ressources.  
+Pour créer un modèle pour une application logique pouvant être utilisée avec les déploiements de groupes de ressources, vous devez définir les ressources et les paramétrer selon vos besoins.
+Par exemple, si vous effectuez un déploiement dans un environnement de développement, de test et de production, vous préférez sans doute utiliser différentes chaînes de connexion à une base de données SQL dans chaque environnement.
+Ou bien, vous pourrez procéder au déploiement dans différents abonnements ou groupes de ressources.  
 
 ## <a name="create-a-logic-app-deployment-template"></a>Création d’un modèle de déploiement d’applications logiques
 
-Le moyen le plus simple pour disposer d’un modèle de déploiement d’application logique valide consiste à utiliser les [outils Visual Studio pour Logic Apps](logic-apps-deploy-from-vs.md). Les outils Visual Studio génèrent un modèle de déploiement valide qui peut être utilisé sur n’importe quel abonnement ou emplacement.
+Le moyen le plus simple pour disposer d’un modèle de déploiement d’application logique valide consiste à utiliser les [outils Visual Studio pour Logic Apps](logic-apps-deploy-from-vs.md).
+Les outils Visual Studio génèrent un modèle de déploiement valide qui peut être utilisé sur n’importe quel abonnement ou emplacement.
 
-Certains autres outils peuvent vous être utiles lorsque vous créez un modèle de déploiement d’application logique. Vous pouvez le créer manuellement, c’est-à-dire, en utilisant les ressources déjà présentées ici pour créer des paramètres en fonction des besoins. Vous avez également la possibilité d’utiliser un module PowerShell [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) . Le module open source évalue dans un premier temps l’application logique et les connexions qu’elle utilise, puis génère les ressources de modèle avec les paramètres nécessaires au déploiement. Par exemple, si votre application logique reçoit un message à partir d’une file d’attente Service Bus Azure et ajoute des données à une base de données SQL Azure, l’outil conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin qu’elles puissent être définies à la phase de déploiement.
+Certains autres outils peuvent vous être utiles lorsque vous créez un modèle de déploiement d’application logique.
+Vous pouvez le créer manuellement, c’est-à-dire, en utilisant les ressources déjà présentées ici pour créer des paramètres en fonction des besoins.
+Vous avez également la possibilité d’utiliser un module PowerShell [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) . Le module open source évalue dans un premier temps l’application logique et les connexions qu’elle utilise, puis génère les ressources de modèle avec les paramètres nécessaires au déploiement.
+Par exemple, si votre application logique reçoit un message à partir d’une file d’attente Service Bus Azure et ajoute des données à une base de données SQL Azure, l’outil conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin qu’elles puissent être définies à la phase de déploiement.
 
 > [!NOTE]
 > Les connexions doivent se trouver dans le même groupe de ressources que l’application logique
@@ -71,12 +82,16 @@ Après avoir créé votre modèle d’application logique, vous pouvez continuer
 
 ## <a name="deploy-a-logic-app-template"></a>Déployer un modèle d’application logique
 
-Vous pouvez procéder au déploiement à l’aide d’outils tels que PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) et le déploiement de modèles par le biais du powershell Azure. Nous vous recommandons également de créer un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameters) pour stocker les valeurs du paramètre.
+Vous pouvez procéder au déploiement à l’aide d’outils tels que PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) et le déploiement de modèles par le biais du powershell Azure.
+Nous vous recommandons également de créer un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) pour stocker les valeurs du paramètre.
 Découvrez comment [déployer des ressources à l’aide de modèles Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) ou [déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ### <a name="authorize-oauth-connections"></a>Autoriser des connexions OAuth
 
-Après le déploiement, l’application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, vous devez autoriser des connexions OAuth pour générer un jeton d’accès valide. Pour autoriser les connexions OAuth, ouvrez l’application logique dans le Concepteur d’application logique et autoriser ces connexions. Ou, pour un déploiement automatisé, utilisez un script pour autoriser chacune des connexions OAuth. Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
+Après le déploiement, l’application logique fonctionne de bout en bout avec des paramètres valides.
+Toutefois, vous devez autoriser des connexions OAuth pour générer un jeton d’accès valide.
+Pour autoriser les connexions OAuth, ouvrez l’application logique dans le Concepteur d’application logique et autoriser ces connexions. Ou, pour un déploiement automatisé, utilisez un script pour autoriser chacune des connexions OAuth.
+Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
 ## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services Release Management

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93481fe9c3920ea4c578f3da326de9f9e8531a71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -473,7 +473,7 @@ Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé
 >
 >
 
-Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Mise à jour d’AssetFile
 Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
@@ -962,7 +962,7 @@ Après avoir défini AccessPolicy et le localisateur, vous pouvez télécharger 
 >
 >
 
-Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 Suite à la tâche de codage que vous avez exécutée antérieurement (encodage vers un jeu de MP4 adaptatifs), vous disposez de plusieurs fichiers MP4 que vous pouvez télécharger progressivement. Par exemple :    
 

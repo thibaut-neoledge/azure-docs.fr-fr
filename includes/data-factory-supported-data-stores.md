@@ -1,8 +1,3 @@
-L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Data Factory prend en charge les magasins de données suivants. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
-
-> [!NOTE] 
-> Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](../articles/data-factory/data-factory-use-custom-activities.md).
-
 | Catégorie | Banque de données | Prise en charge en tant que source | Prise en charge en tant que récepteur |
 |:--- |:--- |:--- |:--- |
 | **Microsoft Azure** |[stockage d’objets blob Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
@@ -34,9 +29,6 @@ L’activité de copie dans Data Factory permet de copier les données d’un ma
 | &nbsp; |[ODBC générique](../articles/data-factory/data-factory-odbc-connector.md)* |✓  | |
 | &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md) |✓  | |
 | &nbsp; |[Table web (table HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓  | |
-| &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓  | | |
+| &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](../articles/data-factory/data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
->
->
+

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -40,7 +41,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache les ressources de s
 1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`.  Le DNS achemine la demande à l’emplacement du point de présence (POP) le plus performant.  Il s’agit en général du point de présence le plus proche géographiquement de l'utilisateur.
 2. Si les serveurs Edge du point de présence ne disposent pas du fichier dans leur cache, le serveur Edge demande le fichier à l'origine.  L'origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
 3. L'origine renvoie les fichiers sur le serveur Edge, notamment les en-têtes HTTP facultatifs décrivant la durée de vie du fichier.
-4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice).  Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie.  Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de&7; jours.
+4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice).  Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie.  Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de 7 jours.
 5. Des utilisateurs supplémentaires peuvent demander le même fichier à l’aide de la même URL et peuvent également être dirigés vers ce même point de présence.
 6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge renvoie le fichier à partir du cache.  L’expérience utilisateur est en conséquence plus rapide et plus réactive.
 
@@ -62,7 +63,7 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 | [Purge rapide](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Préchargement de ressources](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Analyse principale](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Assistance HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Assistance HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiques en temps réel](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alertes en temps réel](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -88,10 +89,5 @@ Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016]
 Apprenez à automatiser Azure CDN avec [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 
 Pour obtenir des informations sur la tarification, consultez la page [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

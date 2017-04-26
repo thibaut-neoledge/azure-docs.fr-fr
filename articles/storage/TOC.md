@@ -67,7 +67,7 @@
 ### [Guide de conception de tables](storage-table-design-guide.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Utiliser des fichiers
-### [Vue d’ensemble](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Vue d’ensemble](/rest/api/storageservices/File-Service-Concepts)
 ### [Dépanner Sauvegarde Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Utiliser des disques
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Fournisseur de ressources](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 
