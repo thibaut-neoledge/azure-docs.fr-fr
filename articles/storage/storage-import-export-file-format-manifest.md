@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -123,7 +123,7 @@ Les éléments et attributs de données du format XML de manifeste de disque son
 |`PageRange/@Offset`|Attribut, Entier|Spécifie le décalage dans le fichier de transfert et l’objet blob où la plage de pages spécifiée commence. Cette valeur doit être un multiple de 512.|  
 |`PageRange/@Length`|Attribut, Entier|Spécifie la longueur de la plage de pages. Cette valeur doit être un multiple de 512 et inférieure à 4 Mo.|  
 |`PageRange/@Hash`|Attribut, Chaîne|Spécifie la valeur de hachage MD5 encodée en Base16 pour la plage de pages.|  
-|`BlockList`|Élément XML imbriqué|Obligatoire pour un objet blob de blocs avec des blocs nommés.<br /><br /> Pour une opération d’importation, la liste de blocs spécifie un ensemble de blocs qui seront importés dans le stockage Azure. Pour une opération d’exportation, la liste de blocs spécifie où chaque bloc a été stocké dans le fichier sur le disque d’exportation. Chaque bloc est décrit par un décalage dans le fichier et une longueur de bloc ; chaque bloc est en outre nommé par un attribut d’ID de bloc et contient un hachage MD5 pour le bloc. Jusqu’à 50 000 blocs peut être utilisés pour décrire un objet blob.  Tous les blocs doivent être classées par décalage et doivent couvrir ensemble la plage complète du fichier, *c'est-à-dire* qu’il ne doit y avoir aucun écart entre les blocs. Si la taille de l’objet blob est inférieure à 64 Mo, les ID de chaque bloc doivent être tous absents ou tous présents. Les ID de bloc doivent être des chaînes encodées en Base64. Consultez [Put Block](/rest/api/storageservices/fileservices/put-block) pour plus d’informations sur les conditions requises pour les ID de bloc.|  
+|`BlockList`|Élément XML imbriqué|Obligatoire pour un objet blob de blocs avec des blocs nommés.<br /><br /> Pour une opération d’importation, la liste de blocs spécifie un ensemble de blocs qui seront importés dans le stockage Azure. Pour une opération d’exportation, la liste de blocs spécifie où chaque bloc a été stocké dans le fichier sur le disque d’exportation. Chaque bloc est décrit par un décalage dans le fichier et une longueur de bloc ; chaque bloc est en outre nommé par un attribut d’ID de bloc et contient un hachage MD5 pour le bloc. Jusqu’à 50 000 blocs peut être utilisés pour décrire un objet blob.  Tous les blocs doivent être classées par décalage et doivent couvrir ensemble la plage complète du fichier, *c'est-à-dire* qu’il ne doit y avoir aucun écart entre les blocs. Si la taille de l’objet blob est inférieure à 64 Mo, les ID de chaque bloc doivent être tous absents ou tous présents. Les ID de bloc doivent être des chaînes encodées en Base64. Consultez [Put Block](/rest/api/storageservices/put-block) pour plus d’informations sur les conditions requises pour les ID de bloc.|  
 |`Block`|Élément XML|Représente un bloc.|  
 |`Block/@Offset`|Attribut, Entier|Spécifie le décalage où le bloc spécifié commence.|  
 |`Block/@Length`|Attribut, Entier|Spécifie le nombre d’octets dans le bloc ; cette valeur doit être inférieure à 4 Mo.|  

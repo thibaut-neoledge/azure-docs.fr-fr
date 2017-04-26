@@ -14,6 +14,7 @@
 ## Configurer une connexion de site à site
 ### [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Interface de ligne de commande Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portail Classic (classique)](vpn-gateway-site-to-site-create.md)
 ## Configurer une connexion de point à site
@@ -38,7 +39,6 @@
 ## [Configurer les connexions haut actif-actif](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
-## [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
 ## Supprimer une passerelle VPN
 ### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Créer des certificats racine auto-signés pour les connexions P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
+## Résolution des problèmes
+### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell (classique)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj154113)
+## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)
 
 # Rubriques connexes
 ## [Réseau virtuel](/azure/virtual-network/)

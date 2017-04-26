@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -68,7 +68,7 @@ Ces contraintes résultent des normes DNS. Il ne s’agit pas de limites posées
 
 Un jeu d’enregistrements NS est créé automatiquement au sommet (apex) de chaque zone (nom = « @ »), et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).  Vous pouvez modifier la durée de vie de ce jeu d’enregistrements, mais pas les enregistrements. Ceux-ci sont en effet préconfigurés pour faire référence aux serveurs de noms le DNS Azure affectés à la zone.
 
-Vous pouvez créer et supprimer d’autres enregistrements NS de la zone, mais non au sommet (apex) de celle-ci.  Cela permet de configurer des zones enfants (voir [Délégation de sous-domaines dans Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
+Vous pouvez créer et supprimer d’autres enregistrements NS de la zone, mais non au sommet (apex) de celle-ci.  Cela permet de configurer des zones enfants (voir [Délégation de sous-domaines dans Azure DNS](dns-domain-delegation.md)).
 
 ### <a name="soa-records"></a>Enregistrements SOA
 
@@ -78,11 +78,7 @@ Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la 
 
 ### <a name="spf-records"></a>Enregistrements SPF
 
-Les enregistrements SPF (Sender Policy Framework) servent à spécifier les serveurs de messagerie autorisés à envoyer du courrier électronique pour le compte d’un nom de domaine donné.  Il est important de configurer correctement les enregistrements SPF pour éviter que des destinataires les marquent comme « courrier indésirable ».
-
-Les normes RFC en matière de DNS ont initialement introduit un type d’enregistrement « SPF » pour prendre en charge ce scénario. Pour prendre en charge des serveurs de noms plus anciens, elles permettaient aussi d’utiliser le type d’enregistrement TXT pour spécifier les enregistrements SPF.  Cette ambiguïté a entraîné une certaine confusion qui a été résolue par la norme [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Celle-ci spécifie que des enregistrements SPF ne devaient être créés qu’à l’aide du type d’enregistrement TXT, et déconseille le type d’enregistrement SPF.
-
-**Les enregistrements SPF sont pris en charge par le DNS Azure, et doivent être créés à l’aide du type d’enregistrement TXT.** Le type d’enregistrement SPF obsolète n’est pas pris en charge. Lors de [l’importation d’un fichier de zone DNS](dns-import-export.md), tous les enregistrements SPF utilisant le type d’enregistrement SPF sont convertis au type d’enregistrement TXT.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### <a name="srv-records"></a>Enregistrements SRV
 
@@ -99,7 +95,7 @@ Les normes DNS autorisent un seul enregistrement TXT à contenir plusieurs chaî
 
 Lorsque vous appelez l’API REST DNS Azure, vous devez spécifier chaque chaîne TXT séparément.  Lorsque vous utilisez le portail Azure, PowerShell ou des interfaces CLI, vous devez spécifier une chaîne unique par enregistrement, qui est automatiquement divisée en segments de 254 caractères si nécessaire.
 
-Les chaînes multiples dans un enregistrement DNS ne doivent pas être confondues avec les enregistrements TXT multiples dans un jeu d’enregistrements TXT.  Un jeu d’enregistrements TXT peut contenir plusieurs enregistrements, *chacun d'entre eux* pouvant contenir plusieurs chaînes.  Azure DNS prend en charge une longueur totale pouvant atteindre 1 024 caractères dans chaque jeu d’enregistrements TXT (sur tous les enregistrements combinés). 
+Les chaînes multiples dans un enregistrement DNS ne doivent pas être confondues avec les enregistrements TXT multiples dans un jeu d’enregistrements TXT.  Un jeu d’enregistrements TXT peut contenir plusieurs enregistrements, *chacun d'entre eux* pouvant contenir plusieurs chaînes.  Azure DNS prend en charge une longueur totale pouvant atteindre 1 024 caractères dans chaque jeu d’enregistrements TXT (sur tous les enregistrements combinés).
 
 ## <a name="tags-and-metadata"></a>Balises et métadonnées
 
@@ -141,5 +137,4 @@ Les limites par défaut suivantes s’appliquent lors de l’utilisation du DNS 
 
 * Pour commencer à utiliser le DNS Azure, découvrez comment [créer une zone DNS](dns-getstarted-create-dnszone-portal.md) et [créer des enregistrements DNS](dns-getstarted-create-recordset-portal.md).
 * Pour migrer une zone DNS, découvrez comment [importer et exporter un fichier de zone DNS](dns-import-export.md).
-
 

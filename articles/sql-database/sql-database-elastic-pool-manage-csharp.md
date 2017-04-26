@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
-ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -370,6 +370,6 @@ Récupérez les propriétés du pool existantes. Modifiez les valeurs et exécut
 ## <a name="additional-resources"></a>Ressources supplémentaires
 *  Pour plus d’informations sur les codes d’erreur SQL courants rencontrés dans les applications clientes SQL Database, l’erreur de connexion à la base de données et d’autres problèmes, consultez [Messages d’erreur](sql-database-develop-error-messages.md).
 * [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* Pour obtenir de l’aide sur les pools élastiques, consultez l’article [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
+* Pour obtenir de l’aide sur les pools élastiques, consultez l’article [Quand utiliser un pool élastique ?](sql-database-elastic-pool.md)
 
 

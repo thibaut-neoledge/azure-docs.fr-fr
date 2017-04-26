@@ -1,8 +1,8 @@
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Machines virtuelles par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région |10 000 par région |
-| Nombre total de cœurs de machine virtuelle par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région |10 000 par région |
-| Nombre de cœurs de gamme de machine virtuelle (Dv2, F, etc.) par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région |10 000 par région |
+| Nombre total de cœurs de machine virtuelle par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
+| Nombre de cœurs de gamme de machine virtuelle (Dv2, F, etc.) par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |Illimité |Illimité |
 | [Comptes de stockage](../articles/storage/storage-create-storage-account.md) par abonnement |200 |200<sup>2</sup> |
 | [Groupes de ressources](../articles/azure-resource-manager/resource-group-overview.md) par abonnement |800 |800 |

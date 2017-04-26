@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Une fois le compte Automation créé, plusieurs ressources vous sont automatique
 | Runbook AzureClassicAutomationTutorial | Exemple de Runbook Graphical qui accède à toutes les machines virtuelles créées sur le modèle de déploiement classique dans un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
 | Runbook AzureClassicAutomationTutorialScript | Exemple de Runbook PowerShell qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis écrit leur nom et leur état. |
 | AzureClassicRunAsCertificate | Ressource de certificat créée automatiquement et utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks. Ce certificat a une durée de vie d’1 an. |
-| AzureClassicRunAsConnection | Ressource de connexion créée automatiquement et utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks. |Authentifiez-vous auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des Runbooks. |
+| AzureClassicRunAsConnection | Ressource de connexion créée automatiquement et utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez confirmer que votre nouveau compte Automation s’authentifie auprès de ressources Azure en consultant [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Test d’authentification du compte d’identification Azure Automation).

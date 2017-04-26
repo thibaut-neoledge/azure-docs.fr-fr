@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1ceb55ba137a61d6bc2121a6b23df2c87e5b7ce2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/31/2017
 
 Cet article explique comment configurer un réplica de groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure dans une région Azure distante. Utilisez cette configuration pour prendre en charge la récupération d’urgence.
 
-Cet article s’applique aux machines virtuelles Azure s’exécutant en mode Resource Manager. 
+Cet article s’applique aux machines virtuelles Azure s’exécutant en mode Resource Manager.
 
 L’illustration suivante montre un déploiement classique d’un groupe de disponibilité sur des machines virtuelles Azure :
 
@@ -43,13 +43,13 @@ Cette architecture est vulnérable aux interruptions de service si la région Az
 Le diagramme précédent illustre une nouvelle machine virtuelle appelée SQL-3. SQL-3 se trouve dans une autre région Azure. SQL-3 est ajoutée au cluster de basculement Windows Server. SQL-3 peut héberger un réplica de groupe de disponibilité. Notez enfin que la région Azure de SQL-3 a un nouvel équilibrage de charge Azure.
 
 >[!NOTE]
-> Un groupe à haute disponibilité Azure est requis lorsque plusieurs machines virtuelles se trouvent dans la même région. Si une seule machine virtuelle se trouve dans la région, le groupe à haute disponibilité n’est pas nécessaire. Vous ne pouvez placer une machine virtuelle dans un groupe à haute disponibilité que lors de la création. Si la machine virtuelle se trouve déjà dans un groupe à haute disponibilité, vous pouvez ajouter une machine virtuelle à un réplica supplémentaire ultérieurement. 
+> Un groupe à haute disponibilité Azure est requis lorsque plusieurs machines virtuelles se trouvent dans la même région. Si une seule machine virtuelle se trouve dans la région, le groupe à haute disponibilité n’est pas nécessaire. Vous ne pouvez placer une machine virtuelle dans un groupe à haute disponibilité que lors de la création. Si la machine virtuelle se trouve déjà dans un groupe à haute disponibilité, vous pouvez ajouter une machine virtuelle à un réplica supplémentaire ultérieurement.
 
 Dans cette architecture, le réplica dans la région distante est normalement configuré avec le mode de disponibilité à validation asynchrone et le mode de basculement manuel.
 
 Lorsque les réplicas du groupe de disponibilité se trouvent sur des machines virtuelles Azure dans différentes régions Azure, chaque région requiert :
 
-* Une passerelle de réseau virtuel 
+* Une passerelle de réseau virtuel
 * Une connexion à la passerelle de réseau virtuel
 
 Le schéma suivant montre comment les réseaux communiquent entre les centres de données.
@@ -72,21 +72,21 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. [Créez un contrôleur de domaine dans la nouvelle région](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
-   Ce contrôleur de domaine assure l’authentification si le contrôleur de domaine dans le site principal n’est pas disponible. 
+   Ce contrôleur de domaine assure l’authentification si le contrôleur de domaine dans le site principal n’est pas disponible.
 
 1. [Créez une machine virtuelle SQL Server dans la nouvelle région](virtual-machines-windows-portal-sql-server-provision.md).
 
 1. [Créez un équilibrage de charge Azure dans le réseau sur la nouvelle région](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
    Cet équilibrage de charge doit :
-   
+
    - Être dans les mêmes réseau et sous-réseau que la nouvelle machine virtuelle.
    - Avoir une adresse IP statique pour l’écouteur du groupe de disponibilité.
    - Inclure un pool principal comprenant uniquement des machines virtuelles situées dans la même région que l’équilibrage de charge.
    - Utiliser une sonde de port TCP propre à l’adresse IP.
    - Avoir une règle d’équilibrage de charge propre à SQL Server dans la même région.  
 
-1. [Ajoutez la fonction de Clustering avec basculement au nouveau serveur SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Ajoutez la fonction de Clustering avec basculement au nouveau serveur SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
 1. [Joignez le nouveau SQL Server au domaine](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
@@ -94,20 +94,20 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. [Ajoutez le nouveau SQL Server au cluster de basculement Windows Server](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Créez une ressource à adresse IP sur le cluster. 
+1. Créez une ressource à adresse IP sur le cluster.
 
    Vous pouvez créer la ressource à adresse IP dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur le rôle du groupe de disponibilité, cliquez sur **Ajouter une ressource**, **More Resources (Plus de ressources)** puis **Adresse IP**.
 
    ![Création d’une adresse IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
    Configurez cette adresse IP comme suit :
-   
+
    - Utilisez le réseau à partir du centre de données distant.
    - Attribuez l’adresse IP à partir du nouvel équilibrage de charge Azure. 
 
 1. Sur le nouveau SQL Server dans le Gestionnaire de configuration SQL Server, [activez les groupes de disponibilité AlwaysOn](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Ouvrez les ports de pare-feu sur le nouveau SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
+1. [Ouvrez les ports de pare-feu sur le nouveau SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
 
    Les numéros de port que vous devez ouvrir varient selon votre environnement. Ouvrez les ports du point de terminaison de la mise en miroir et de la sonde d’intégrité d’Azure Load Balancer.
 
@@ -115,7 +115,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
    Pour un réplica dans une région Azure distante, configurez-le pour une réplication asynchrone avec basculement manuel.  
 
-1. Ajoutez la ressource à adresse IP comme une dépendance du cluster (nom de réseau) du point d’accès au client écouteur. 
+1. Ajoutez la ressource à adresse IP comme une dépendance du cluster (nom de réseau) du point d’accès au client écouteur.
 
    La capture d’écran suivante illustre une ressource de cluster à adresse IP configurée correctement :
 
@@ -133,9 +133,9 @@ Exécutez le script PowerShell avec le nom réseau du cluster, une adresse IP et
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
    $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
-   
+
    Import-Module FailoverClusters
-   
+
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
@@ -147,26 +147,26 @@ Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles 
 
 Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Connection Timeouts in Multi-subnet Availability Group (Délais d’expiration de la connexion dans le groupe de disponibilité de plusieurs sous-réseaux)](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## <a name="fail-over-to-remote-region"></a>Basculer vers la région distante 
+## <a name="fail-over-to-remote-region"></a>Basculer vers la région distante
 
 Pour tester la connectivité de l’écouteur à la région distante, vous pouvez basculer le réplica vers la région distante. Si le réplica est asynchrone, le basculement est vulnérable à la perte potentielle de données. Pour effectuer un basculement sans perte de données, modifiez le mode de disponibilité en synchrone et définissez le mode de basculement automatique. Procédez comme suit :
 
 1. Dans l’**Explorateur d’objets**, connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
 1. Sous **Groupes de disponibilité AlwaysOn**, **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité, puis cliquez sur **Propriétés**.
-1. Dans la page **Général**, sous **Réplicas de disponibilité**, configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**. 
+1. Dans la page **Général**, sous **Réplicas de disponibilité**, configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**.
 1. Si vous avez un réplica secondaire dans le même site que le réplica principal pour la haute disponibilité, configurez ce réplica en **Validation asynchrone** et **Manuel**.
 1. Cliquez sur OK.
 1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Afficher le tableau de bord**.
-1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé. 
+1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
 1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...**. SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
 1. Cliquez sur **Suivant** et sélectionnez l’instance de SQL Server sur le site de récupération d’urgence. Cliquez à nouveau sur **Suivant** .
-1. Connectez-vous à l’instance de SQL Server sur le site de récupération d’urgence et cliquez sur **Suivant**. 
+1. Connectez-vous à l’instance de SQL Server sur le site de récupération d’urgence et cliquez sur **Suivant**.
 1. Dans la page **Synthèse**, vérifiez les paramètres et cliquez sur **Terminer**.
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 
 | Emplacement | Instance de serveur | Rôle | Mode de disponibilité | Mode de basculement
-| ----- | ----- | ----- | ----- | ----- 
+| ----- | ----- | ----- | ----- | -----
 | Centre de données principal | SQL-1 | Primaire | Synchrone | Automatique
 | Centre de données principal | SQL-2 | Secondaire | Synchrone | Automatique
 | Centre de données secondaire ou distant | SQL-3 | Secondaire | Asynchrone | Manuel
