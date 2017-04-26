@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Pour préparer ce modèle pour le déploiement, nous devons convertir cette exp�
 Nous pourrions effectuer cette opération manuellement, mais heureusement il est possible d’accomplir ces trois étapes en cliquant sur **Configurer le service web** dans la partie inférieure de la zone de dessin de l’expérience (sélectionnez l’option **Service web prédictif**).
 
 > [!TIP]
-> Pour en savoir plus sur ce qui se passe lorsque vous convertissez une expérience d’apprentissage en une expérience de prévision, consultez [Conversion d’une expérience d’apprentissage Machine Learning en expérience prédictive](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Pour en savoir plus sur ce qui se passe quand vous convertissez une expérience d’apprentissage en une expérience de prévision, consultez [Guide pratique pour préparer votre modèle au déploiement dans Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se produisent :
 

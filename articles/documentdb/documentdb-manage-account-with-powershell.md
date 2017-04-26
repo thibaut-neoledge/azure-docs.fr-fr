@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
-ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1d7691fd5248691f42ad31224f2fff9f7f0d4b9e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +40,7 @@ Suivez les instructions de la page [Installation et configuration d’Azure Powe
 * Si vous voulez exécuter les commandes suivantes sans demander la confirmation de l’utilisateur, ajoutez l’indicateur `-Force` à la commande.
 * L’ensemble des commandes suivantes sont synchrones.
 
-## <a name="a-idcreate-documentdb-account-powershella-create-a-documentdb-database-account"></a><a id="create-documentdb-account-powershell"></a> Création d’un compte de base de données DocumentDB
+## <a id="create-documentdb-account-powershell"></a> Création d’un compte de base de données DocumentDB
 
 Cette commande vous permet de créer un compte de base de données DocumentDB. Configurez votre nouveau compte de base de données pour une seule ou [plusieurs régions][scaling-globally] avec une [stratégie de cohérence](documentdb-consistency-levels.md) déterminée.
 
@@ -72,7 +72,7 @@ Exemple :
 * L’exemple précédent crée un compte de base de données avec deux régions. Il est également possible de créer un compte de base de données avec l’une des régions (désignée comme la région d’écriture, elle présente une valeur de priorité de basculement de 0) ou plus de deux régions. Pour plus d’informations, consultez la section des [comptes de base de données multi-régions][scaling-globally].
 * Les emplacements doivent correspondre à des régions dans lesquelles DocumentDB est généralement disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-powershella-update-a-documentdb-database-account"></a><a id="update-documentdb-account-powershell"></a> Mise à jour d’un compte de base de données DocumentDB
+## <a id="update-documentdb-account-powershell"></a> Mise à jour d’un compte de base de données DocumentDB
 
 Cette commande vous permet de mettre à jour les propriétés de votre compte de base de données DocumentDB. Les informations mises à jour sont notamment la stratégie de cohérence et les emplacements hébergeant le compte de base de données.
 
@@ -103,7 +103,7 @@ Exemple :
     $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
-## <a name="a-iddelete-documentdb-account-powershella-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-powershell"></a> Suppression d’un compte de base de données DocumentDB
+## <a id="delete-documentdb-account-powershell"></a> Suppression d’un compte de base de données DocumentDB
 
 Cette commande vous permet de supprimer un compte existant de base de données DocumentDB.
 
@@ -116,7 +116,7 @@ Exemple :
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idget-documentdb-properties-powershella-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-powershell"></a> Obtention des propriétés d’un compte de base de données DocumentDB
+## <a id="get-documentdb-properties-powershell"></a> Obtention des propriétés d’un compte de base de données DocumentDB
 
 Cette commande vous permet d’obtenir les propriétés d’un compte existant de base de données DocumentDB.
 
@@ -129,7 +129,7 @@ Exemple :
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idupdate-tags-powershella-update-tags-of-a-documentdb-database-account"></a><a id="update-tags-powershell"></a> Mise à jour des balises d’un compte de base de données DocumentDB
+## <a id="update-tags-powershell"></a> Mise à jour des balises d’un compte de base de données DocumentDB
 
 L’exemple suivant vous explique comment définir les [balises des ressources Azure][azure-resource-tags] pour votre compte de base de données DocumentDB.
 
@@ -141,7 +141,7 @@ Exemple :
     $tags = @{"dept" = "Finance”; environment = “Production”}
     Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
-## <a name="a-idlist-account-keys-powershella-list-account-keys"></a><a id="list-account-keys-powershell"></a> Liste des clés de comptes
+## <a id="list-account-keys-powershell"></a> Liste des clés de comptes
 
 Lorsque vous créez un compte DocumentDB, le service génère deux clés d'accès maître qui peuvent être utilisées pour l'authentification lors de l'accès au compte DocumentDB. En fournissant deux clés d'accès, DocumentDB vous permet de régénérer les clés sans interruption de votre compte DocumentDB. Des clés en lecture seule pour l’authentification des opérations en lecture seule sont également disponibles. Il existe deux clés en lecture et écriture (primaire et secondaire) et deux clés en lecture seule (primaire et secondaire).
 
@@ -154,7 +154,20 @@ Exemple :
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idregenerate-account-key-powershella-regenerate-account-key"></a><a id="regenerate-account-key-powershell"></a> Régénération de la clé de compte
+## <a id="list-connection-strings-powershell"></a> Répertorier les chaînes de connexion
+
+Pour les comptes MongoDB, vous pouvez récupérer la chaîne de connexion pour connecter votre application MongoDB au compte de base de données à l’aide de la commande suivante.
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+
+* `<resource-group-name>` Le nom du [groupe de ressources Azure][azure-resource-groups] auquel appartient le nouveau compte de base de données DocumentDB.
+* `<database-account-name>` Le nom du compte de base de données Document DB.
+
+Exemple :
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+
+## <a id="regenerate-account-key-powershell"></a> Régénération de la clé de compte
 
 Vous devez modifier périodiquement les clés d'accès à votre compte DocumentDB pour garantir la sécurité des connexions. Deux clés d'accès vous sont affectées afin de vous permettre de conserver des connexions au compte DocumentDB à l'aide d'une clé d'accès lorsque vous régénérez l'autre clé.
 
@@ -168,7 +181,7 @@ Exemple :
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
-## <a name="a-idmodify-failover-priority-powershella-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-powershell"></a> Modification de la priorité de basculement d’un compte de base de données DocumentDB
+## <a id="modify-failover-priority-powershell"></a> Modification de la priorité de basculement d’un compte de base de données DocumentDB
 
 Pour les comptes de base de données multi-régions, vous pouvez modifier la priorité de basculement des différentes régions dans lesquelles existe le compte de base de données DocumentDB. Pour plus d’informations sur le basculement dans votre compte de base de données DocumentDB, consultez la section [Distribution mondiale des données avec DocumentDB][distribute-data-globally].
 

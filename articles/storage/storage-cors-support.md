@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e50e55fb6471add71b3d2ebd477a91ec424a4fab
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Si CORS est activé pour le service et que l'une des règles CORS correspond à 
 
 Si CORS n'est pas activé pour le service ou si aucune règle CORS ne correspond à la demande préliminaire, le service répond avec le code d'état 403 (Interdit).
 
-Si la demande OPTIONS ne contient pas les en-têtes CORS nécessaires (en-têtes Origin et Access-Control-Request-Method), le service répond avec le code d'état 400 (Demande incorrecte).
+Si la demande OPTIONS ne contient pas les en-têtes CORS nécessaires (en-têtes Origin et Access-Control-Request-Method), le service répond avec le code d’état 400 (Demande incorrecte).
 
 Notez qu'une demande préliminaire est évaluée par rapport au service (Blob, de File d'attente et de Table) et non par rapport à la ressource demandée. Le propriétaire du compte doit avoir activé CORS dans le cadre des propriétés du service de compte pour que la demande réussisse.
 
@@ -168,7 +168,7 @@ Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HE
 
 | Demande | Paramètre de compte et résultat de l'évaluation de la règle |  |  | Réponse |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : «* »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
+| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : «*  »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
 | Non |Non |Non |Non |Non |Non |Non |
 | Non |Oui |Non |Non |Oui |Non |Non |
 | Non |Oui |Oui |Non |Non |Oui |Oui |

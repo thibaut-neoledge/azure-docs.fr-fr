@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: connect
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c44f417d465aedcbbc731757282e18985b0435c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ae025ee2e6865b225efc5e225e261ac579a339aa
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="install-visual-studio-2015-and-ssdt-for-sql-data-warehouse"></a>Installer Visual Studio 2015 et SSDT pour SQL Data Warehouse
-Pour développer des applications pour SQL Data Warehouse, nous recommandons l’utilisation de Visual Studio 2015 avec la dernière version de SQL Server Data Tools (SSDT).  Visual Studio 2013 Update 5 avec SSDT est également pris en charge pour la compatibilité descendante.  
+# <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Installer Visual Studio et SSDT pour SQL Data Warehouse
+Pour développer des applications pour SQL Data Warehouse, nous recommandons l’utilisation de la version la plus récente de Visual Studio avec la dernière version de SQL Server Data Tools (SSDT).  Visual Studio 2013 Update 5 avec SSDT est également pris en charge pour la compatibilité descendante.  
 
 L’utilisation de Visual Studio avec SSDT vous permettra d’utiliser l’Explorateur d’objets SQL Server pour explorer visuellement les tables, les vues, les procédures stockées et un plus grand nombre d’objets dans SQL Data Warehouse, ainsi que pour exécuter des requêtes.
 
@@ -30,10 +32,10 @@ L’utilisation de Visual Studio avec SSDT vous permettra d’utiliser l’Explo
 > 
 > 
 
-## <a name="step-1-install-visual-studio-2015"></a>Étape 1 : Installer Visual Studio 2015
-Suivez ces liens pour télécharger et installer Visual Studio 2015. Si Visual Studio 2013 ou 2015 est déjà installé sur votre machine, passez à l’étape 2 pour installer SSDT.
+## <a name="step-1-install-visual-studio"></a>Étape 1 : Installer Visual Studio
+Suivez ces liens pour télécharger et installer Visual Studio. Si Visual Studio 2013 ou ultérieur est déjà installé sur votre machine, passez à l’étape 2 pour installer SSDT.
 
-1. [Téléchargez Visual Studio 2015][Download Visual Studio 2015].
+1. [Téléchargez Visual Studio][].
 2. Suivez le guide [d’installation de Visual Studio][Installing Visual Studio] sur MSDN et sélectionnez les configurations par défaut.
 
 ## <a name="step-2-install-ssdt"></a>Étape 2 : Installer SSDT
@@ -55,12 +57,7 @@ Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt �
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio 2015]: https://www.visualstudio.com/downloads/
+[Téléchargez Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

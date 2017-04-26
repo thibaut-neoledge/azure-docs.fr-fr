@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7519ff07efd5bb450362fca8d54e4d9e3be8f0df
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: b5b8346c6a645ae18fd0c23a8956274f764710e0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ Parallèlement à la sélection d'une stratégie d'accès concurrentiel adaptée
 Vous pouvez choisir d'utiliser des modèles d'accès concurrentiel optimiste ou pessimiste pour gérer l'accès aux objets blob et aux conteneurs dans le service BLOB. Si vous ne sélectionnez pas une stratégie de manière explicite, la règle de Thomas est utilisée par défaut.  
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Accès concurrentiel optimiste pour les objets blob et les conteneurs
-Le service de stockage attribue un identificateur à chaque objet stocké. Cet identificateur est mis à jour à chaque fois qu'une mise à jour est effectuée sur un objet. L'identificateur est renvoyé au client en tant que réponse HTTP GET à l'aide de l'en-tête ETag (balise d'entité) défini dans le protocole HTTP. L'utilisateur qui procède à une mise à jour sur un tel objet peut envoyer la balise ETag d'origine avec un en-tête conditionnel pour veiller à ce que la mise à jour ne survienne que si une certaine condition est remplie. Dans ce cas, la condition est un en-tête « If-Match », qui nécessite que le service de stockage vérifie que la valeur de la balise ETag indiquée dans la demande de mise à jour soit la même que celle stockée dans le service de stockage.  
+Le service de stockage attribue un identificateur à chaque objet stocké. Cet identificateur est mis à jour à chaque fois qu'une mise à jour est effectuée sur un objet. L'identificateur est renvoyé au client en tant que réponse HTTP GET à l'aide de l'en-tête ETag (balise d'entité) défini dans le protocole HTTP. L’utilisateur qui procède à une mise à jour sur un tel objet peut envoyer la balise ETag d’origine avec un en-tête conditionnel pour que la mise à jour ne survienne que si une certaine condition est remplie. Dans ce cas, la condition est un en-tête « If-Match », qui nécessite que le service de stockage vérifie que la valeur de la balise ETag indiquée dans la demande de mise à jour soit la même que celle stockée dans le service de stockage.  
 
 Ce processus se déroule comme suit :  
 
@@ -131,7 +131,7 @@ Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, 
 
 Les baux permettent la prise en charge de différentes stratégies de synchronisation, dont des stratégies d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Si un bail existe, le service de stockage applique une stratégie d’écriture exclusive (opérations Placement, Définition et Suppression). Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.  
 
-L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif de 30 secondes sur un objet blob, de mise à jour du contenu de l'objet blob et de libération du bail. Si l'objet blob fait déjà l'objet d'un bail valable lorsque vous tentez d'obtenir un nouveau bail, le service BLOB renvoie un message d'état HTTP 409 (Conflit). L'extrait de code ci-dessous utilise un objet **AccessCondition** pour encapsuler les informations relatives au bail lors de la demande de mise à jour de l'objet blob dans le service de stockage.  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif de 30 secondes sur un objet blob, de mise à jour du contenu de l'objet blob et de libération du bail. Si l’objet blob fait déjà l’objet d’un bail valide quand vous tentez d’obtenir un nouveau bail, le service BLOB renvoie un message d’état HTTP 409 (Conflit). L'extrait de code ci-dessous utilise un objet **AccessCondition** pour encapsuler les informations relatives au bail lors de la demande de mise à jour de l'objet blob dans le service de stockage.  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -232,7 +232,7 @@ catch (StorageException ex)
 }  
 ```
 
-Pour désactiver de manière explicite la vérification d’accès concurrentiel, vous devez définir la propriété **ETag** de l’objet **employee** sur « * » avant d’exécuter l’opération de remplacement.  
+Pour désactiver explicitement la vérification d’accès concurrentiel, vous devez définir la propriété **ETag** de l’objet **employee** sur « * » avant d’exécuter l’opération de remplacement.  
 
 ```csharp
 customer.ETag = "*";  

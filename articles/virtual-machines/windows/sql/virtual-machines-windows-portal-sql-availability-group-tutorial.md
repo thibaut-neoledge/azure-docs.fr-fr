@@ -17,14 +17,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
-# <a name="create-always-on-availability-group-to-improve-availability-and-disaster-recovery"></a>Créer un groupe de disponibilité AlwaysOn pour améliorer la disponibilité et la récupération d’urgence
+# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
 Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure. Il crée un groupe de disponibilité avec un réplica de base de données sur deux serveurs SQL Server.
 
@@ -296,7 +296,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur**Suivant**.
+8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de *\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
 
    >[!NOTE]
    >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)**. Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.

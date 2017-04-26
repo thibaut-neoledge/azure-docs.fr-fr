@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/29/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,8 @@ Azure Media Services vous permet désormais de configurer et de demander des lic
 
 La demande de licence Widevine se présente sous forme de message JSON.  
 
-Notez que vous pouvez choisir de créer un message vide sans valeur, simplement « {} », et un modèle de licence sera créé avec les paramètres par défaut.  
+>[!NOTE]
+> Vous pouvez choisir de créer un message vide sans valeur, avec simplement « {} » : un modèle de licence est alors créé avec tous les paramètres par défaut. Les valeurs par défaut fonctionnent pour la plupart des cas. Par exemple, les scénarios de remise de licence MS nécessitent toujours les valeurs par défaut. Si vous n’avez pas besoin de définir les valeurs « provider » et « content_id », un fournisseur doit correspondre aux informations d’identification Widevine de Google.
 
     {  
        “payload”:“<license challenge>”,
@@ -62,7 +64,7 @@ Notez que vous pouvez choisir de créer un message vide sans valeur, simplement 
 | --- | --- | --- |
 | payload |Chaîne encodée Base64 |La demande de licence envoyée par un client. |
 | content_id |Chaîne encodée Base64 |Identificateur utilisé pour dériver KeyId(s) et Content Key(s) pour chaque content_key_specs.track_type. |
-| provider |string |Utilisé pour rechercher les stratégies et les clés de contenu. Obligatoire. |
+| provider |string |Utilisé pour rechercher les stratégies et les clés de contenu. Si la remise de clé MS est utilisée pour la remise de licence Widevine, ce paramètre est ignoré. |
 | policy_name |string |Nom d'une stratégie précédemment enregistrée. Facultatif |
 | allowed_track_types |enum |SD_ONLY ou SD_HD. Contrôle les clés de contenu à inclure dans une licence |
 | content_key_specs |tableau de structures JSON, consultez **Spécifications de clé de contenu** ci-dessous |Un contrôle plus fin sur les clés de contenu à retourner. Pour plus d'informations, consultez Spécifications de clé de contenu ci-dessous.  Une seule valeur allowed_track_types et content_key_specs peut être spécifiée. |
@@ -79,7 +81,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | Nom | Valeur | Description |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
-| content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/>  1 - Chiffrement whitebox logiciel requis. <br/>  2 - Chiffrement logiciel et décodeur masqué requis. <br/>  3 - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel. <br/>  4 - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel.  <br/>  5 - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d'exécution approuvé soutenu par le matériel. |
+| content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/> 1 - Chiffrement whitebox logiciel requis. <br/> 2 - Chiffrement logiciel et décodeur masqué requis. <br/> 3 - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel. <br/> 4 - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel.  <br/> 5 - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d'exécution approuvé soutenu par le matériel. |
 | content_key_specs <br/> required_output_protection.hdc |string - une des options : HDCP_NONE, HDCP_V1, HDCP_V2 |Indique si HDCP est requis |
 | content_key_specs <br/>key |Chaîne  <br/>encodée Base64 |Clé de contenu à utiliser pour cette piste. Si spécifié, track_type ou key_id est requis.  Cette option permet au fournisseur de contenu d'injecter la clé de contenu de cette piste, au lieu de laisser le serveur de licences Widevine générer ou rechercher une clé. |
 | content_key_specs.key_id |Chaîne binaire encodée Base64, 16 octets |Identificateur unique pour la clé. |
@@ -197,10 +199,5 @@ L’exemple suivant montre comment utiliser les API .NET pour configurer une lic
 
 ## <a name="see-also"></a>Voir aussi
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

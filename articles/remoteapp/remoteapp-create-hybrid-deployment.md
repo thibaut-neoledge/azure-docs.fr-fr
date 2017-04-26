@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ae8c26069503a24f3ba17a86160801c60a68d668
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-hybrid-collection-for-azure-remoteapp"></a>Création d'une collection hybride pour Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -52,7 +53,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 * Créer un compte d’utilisateur dans Active Directory à utiliser comme compte de service Azure RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine.
 * Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
 * Installer le module [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-* Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Vous aurez besoin du nom d’utilisateur principal Azure Active Directory (par exemple, name@contoso.com)) pour chaque utilisateur. Assurez-vous que le nom UPN soit cohérent entre Azure AD et Active Directory.
+* Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Vous aurez besoin du nom d’utilisateur principal Azure Active Directory (par exemple, name@contoso.com) pour chaque utilisateur. Assurez-vous que le nom UPN soit cohérent entre Azure AD et Active Directory.
 * Choisir votre image de modèle. Une image de modèle Azure RemoteApp contient les applications et les programmes que vous souhaitez publier pour les utilisateurs. Consultez les [options d’images Azure RemoteApp](remoteapp-imageoptions.md) pour plus d’informations.
 * Vous souhaitez utiliser l'image d'Office 365 ProPlus ? Pour plus d’informations, cliquez [ici](remoteapp-officesubscription.md).
 * [Configuration d'Active Directory pour RemoteApp](remoteapp-ad.md).
@@ -136,10 +137,5 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 
 ### <a name="help-us-help-you"></a>Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
-ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
-ms.lasthandoff: 11/22/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7601449c7f84a4367f9d684d9bbb0cf61fda29b0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 
 1. La bibliothèque cliente suppose que l’utilisateur gère la clé de chiffrement à clé (KEK) localement ou dans des coffres de clés Azure. L’utilisateur n’est pas obligé de savoir quelle clé a été spécifiquement utilisée pour le chiffrement. Il est en effet possible d’utiliser et de configurer un programme de résolution de clés qui résout les différents identificateurs de clés.  
 2. La bibliothèque cliente télécharge les données chiffrées ainsi que  tout le  matériel de chiffrement stocké sur le service.  
-3. La clé de chiffrement de contenu (CEK) encapsulée est ensuite désencapsulée (déchiffrée) à l’aide de la clé de chiffrement de clés (KEK). Là encore, la bibliothèque cliente n’a pas accès à la clé de chiffrement de clés. Elle appelle simplement l’algorithme de désencapsulage personnalisée ou du fournisseur du coffre de clés.  
+3. La clé de chiffrement de contenu (CEK) encapsulée est ensuite désencapsulée (déchiffrée) à l’aide de la clé de chiffrement de clés (KEK). Là encore, la bibliothèque cliente n’a pas accès à la clé de chiffrement de clés. Elle appelle simplement l’algorithme de désencapsulage personnalisée ou du fournisseur Key Vault.  
 4. La clé de chiffrement de contenu (CEK) est alors utilisée pour déchiffrer les données utilisateur chiffrées.
 
 ## <a name="encryption-mechanism"></a>Mécanisme de chiffrement
@@ -193,7 +193,7 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### <a name="table-service-encryption"></a>Chiffrement du service de Table
-En plus de créer une stratégie de chiffrement et de la définir dans les options de demande, vous devez spécifier un **EncryptionResolver** dans **TableRequestOptions** ou définir l’attribut [Encrypt] sur les méthodes getter et setter de l’entité.
+En plus de créer une stratégie de chiffrement et de la définir dans les options de la demande, vous devez spécifier un **EncryptionResolver** dans **TableRequestOptions** ou définir l’attribut [Encrypt] sur les accesseurs Get et Set de propriété de l’entité.
 
 ### <a name="using-the-resolver"></a>Utilisation du programme de résolution
 

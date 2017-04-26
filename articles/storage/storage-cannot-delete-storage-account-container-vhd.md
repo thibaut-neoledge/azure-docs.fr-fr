@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
-ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -133,7 +133,7 @@ Les machines virtuelles créées dans le modèle de déploiement classique et co
 
 ![Statut Arrêté (désalloué) pour les machines virtuelles sur le portail Azure Classic.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
-Le statut « Arrêté (désalloué) » libère les ressources de l'ordinateur (processeur, mémoire et réseau). Les disques, cependant, sont toujours conservés de façon à vous permettre de recréer rapidement la machine virtuelle si nécessaire. Ces disques sont créés sur les disques durs virtuels sauvegardés par Azure Storage. Le compte de stockage contient ces disques durs virtuels et les disques ont des baux sur ces disques durs virtuels.
+Le statut « Arrêté (désalloué) » libère les ressources de l’ordinateur (processeur, mémoire et réseau). Les disques, cependant, sont toujours conservés de façon à vous permettre de recréer rapidement la machine virtuelle si nécessaire. Ces disques sont créés sur les disques durs virtuels sauvegardés par Azure Storage. Le compte de stockage contient ces disques durs virtuels et les disques ont des baux sur ces disques durs virtuels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Suppression d'un compte de stockage](storage-create-storage-account.md#delete-a-storage-account)

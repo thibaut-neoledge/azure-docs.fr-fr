@@ -14,19 +14,19 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
-ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Liaisons Service Bus Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des liaisons Azure Service Bus dans Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour les files d’attente et les rubriques Notification Hubs.
+Cet article explique comment configurer et utiliser des liaisons Azure Service Bus dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente et les rubriques Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -35,7 +35,7 @@ Cet article explique comment configurer et coder des liaisons Azure Service Bus 
 ## <a name="service-bus-trigger"></a>Déclencheur Service Bus
 Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une file d’attente ou d'une rubrique Service Bus. 
 
-Les déclencheurs de file d’attente et de rubrique Notification Hubs utilisent les objets JSON suivants dans le tableau `bindings` de function.json :
+Les déclencheurs de file d’attente et de rubrique Service Bus sont définis par les objets JSON suivants dans le tableau `bindings` de function.json :
 
 * Déclencheur de *file d’attente* :
 
@@ -66,10 +66,10 @@ Les déclencheurs de file d’attente et de rubrique Notification Hubs utilisent
 
 Notez les points suivants :
 
-* Pour `connection`, [créez un paramètre d’application dans votre application de fonction]() qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre déclencheur. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre déclencheur. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.
   Si vous laissez `connection` vide, le déclencheur suppose qu’une chaîne de connexion Service Bus par défaut est spécifiée dans le paramètre d’application nommé `AzureWebJobsServiceBus`.
-* Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
+* Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.
 
 ## <a name="trigger-behavior"></a>Comportement du déclencheur
 * **Thread unique** - Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `serviceBus.maxConcurrentCalls` sur 1 dans *host.json*. 
@@ -88,10 +88,10 @@ Dans C# and F#, le message du déclencheur Service Bus peut être désérialisé
 * `string` - utile pour les messages de type chaîne
 * `byte[]` - utile pour les données binaires
 * N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) : utile pour les données JSON sérialisées.
-  Si vous déclarez un type d’entrée personnalisé (par exemple, `FooType`), Azure Functions tente de désérialiser les données JSON dans le type spécifié.
+  Si vous déclarez un type d’entrée personnalisé, comme `CustomType`, Azure Functions essaye de désérialiser les données JSON dans le type spécifié.
 * `BrokeredMessage` - vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
 
-Dans Node.js, le message du déclencheur Service Bus est transmis à la fonction en tant que chaîne ou, dans le cas d'un message JSON, en tant qu'objet JavaScript.
+Dans Node.js, le message du déclencheur Service Bus est passé à la fonction en tant que chaîne ou en tant qu’objet JSON.
 
 <a name="triggersample"></a>
 
@@ -153,7 +153,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="service-bus-output-binding"></a>Liaison de sortie Service Bus
-La sortie de file d’attente et de rubrique Notification Hubs utilise les objets JSON suivants dans le tableau `bindings` de function.json :
+La sortie de file d’attente et de rubrique Service Bus utilise les objets JSON suivants dans le tableau `bindings` de function.json :
 
 * Sortie de *file d’attente* :
 
@@ -162,7 +162,7 @@ La sortie de file d’attente et de rubrique Notification Hubs utilise les objet
         "name" : "<Name of output parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -183,10 +183,10 @@ La sortie de file d’attente et de rubrique Notification Hubs utilise les objet
 
 Notez les points suivants :
 
-* Pour `connection`, [créez un paramètre d’application dans votre application de fonction]() qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison de sortie. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison de sortie. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.
   Si vous laissez `connection` vide, la liaison de sortie suppose qu’une chaîne de connexion Service Bus par défaut est spécifiée dans le paramètre d’application nommé `AzureWebJobsServiceBus`.
-* Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
+* Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.
 
 <a name="outputusage"></a>
 

@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ Nous devons journaliser la source (requête) du dossier du patient à partir du 
 
 1. Nous devons d’abord obtenir un nouvel enregistrement de rendez-vous de Dynamics CRM Online.
 
-    Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM** **Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour.
-    Nous allons obtenir l’enregistrement CRM à l’aide du **PatientID** et du **type d’enregistrement**.
+   Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM****Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour.
+   Nous allons obtenir l’enregistrement CRM à l’aide du **PatientID** et du **type d’enregistrement**.
 
-2. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API DocumentDB, comme indiqué ici.
+2. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API DocumentDB, comme montré ici dans le concepteur d’application logique.
 
-### <a name="insert-log-entry-designer-view"></a>Vue du concepteur Insérer une entrée de journal
+   **Insérer une entrée de journal**
 
-![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Vue du concepteur Insérer une entrée d’erreur
+   **Insérer une entrée d’erreur**
 
-![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Recherche d’échec de création d’enregistrement
+   **Rechercher un échec de création d’enregistrement**
 
-![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Code source d’application logique
 

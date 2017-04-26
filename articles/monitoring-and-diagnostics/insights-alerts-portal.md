@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -28,22 +29,22 @@ ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 >
 >
 
-## <a name="overview"></a>Vue d'ensemble
-Cet article vous montre comment définir des alertes Azure avec le Portail Azure.   
+## <a name="overview"></a>Vue d’ensemble
+Cet article vous montre comment configurer des alertes de métrique Azure avec le portail Azure.   
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
-* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou uniquement lorsqu’un certain nombre d’événements se produisent.
+* **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un certain événement se produit. Pour plus d’informations sur les alertes du journal d’activité, [cliquez ici](monitoring-activity-log-alerts.md)
 
-Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
 * appeler un webhook
 * démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure)
 
-Vous pouvez configurer et obtenir des informations sur les règles d’alerte avec
+Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique via
 
 * [Portail Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -52,18 +53,27 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
 1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la.
+
 2. Sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
 
     ![Analyse](./media/insights-alerts-portal/AlertRulesButton.png)
+
 3. Sélectionnez la commande **Ajouter une alerte** et renseignez les champs.
 
     ![Ajouter une alerte](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
+
 5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « PT5M » et que vous alerte recherche l’UC au-dessus de 80 %, elle se déclenche quand l’UC a été constamment au-dessus de 80 % pendant cinq minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de l’UC se produit toutes les minutes.   
+
 6. Cochez **Propriétaires de messagerie...** si vous souhaitez que les administrateurs et les coadministrateurs reçoivent un courrier électronique lorsque l’alerte se déclenche.
-7. Si vous souhaitez que d’autres adresses électroniques reçoivent une notification lorsque l’alerte se déclenche, ajoutez-les dans le champ **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** . Séparez les adresses électroniques par des points-virgules : *email@contoso.com;email2@contoso.com*
+
+7. Si vous souhaitez que d’autres adresses électroniques reçoivent une notification lorsque l’alerte se déclenche, ajoutez-les dans le champ **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** . Séparez les adresses e-mails par des points-virgules : *email@contoso.com;email2@contoso.com*
+
 8. Insérez un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
+
 9. Si vous utilisez Azure Automation, vous pouvez sélectionner un Runbook à exécuter lorsque l’alerte se déclenche.
+
 10. Quand vous avez terminé, sélectionnez **OK** pour créer l’alerte.   
 
 Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
@@ -77,13 +87,9 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
-* Découvrez plus en détails la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
+* Découvrez plus en détail la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
+* Découvrez plus d’informations sur la [configuration des alertes sur les événements de journal d’activité](monitoring-activity-log-alerts.md).
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

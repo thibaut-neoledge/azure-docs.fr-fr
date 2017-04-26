@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 04/03/2017
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -114,6 +115,10 @@ Si vous êtes un développeur tentant d’analyser les données d’annotation J
     ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.    Le champ de texte en bas est mis à jour avec les ID de face. Créez un fichier appelé « idlist.txt » avec ces ID sous forme de liste délimitée par un saut de ligne. 
+
+    >[!NOTE]
+    > Le fichier idlist.txt doit être enregistré au format ANSI. Vous pouvez utiliser le Bloc-notes pour enregistrer au format ANSI.
+    
 6.    Chargez ce fichier dans la ressource de sortie de l’étape 1. Chargez la vidéo d’origine également dans cette ressource et définissez-la en tant que ressource principale. 
 7.    Lancez le travail de rédaction sur cette ressource avec le mode « Rédaction » pour obtenir la vidéo rédigée finale. 
 
@@ -129,9 +134,5 @@ Si vous êtes un développeur tentant d’analyser les données d’annotation J
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[Annonce de Face Redaction pour Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)
 

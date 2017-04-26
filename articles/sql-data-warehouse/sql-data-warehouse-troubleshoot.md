@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
+ms.custom: manage
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,12 +32,13 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Le serveur principal « MyUserName » n’est pas en mesure d’accéder à la base de données « master » dans le contexte de sécurité actuel. La base de données utilisateur par défaut ne peut pas être ouverte. La connexion a échoué. Échec de la connexion pour l'utilisateur 'MyUserName'. (Microsoft SQL Server, erreur : 916) |Cette erreur se produit lorsqu’un utilisateur AAD tente de se connecter à la base de données master alors qu’elle ne contient pas d’utilisateur.  Pour corriger ce problème, spécifiez le SQL Data Warehouse auquel vous souhaitez vous connecter ou ajoutez l’utilisateur à la base de données master.  Consultez l’article [Présentation de la sécurité][Security overview] pour plus de détails. |
 | Erreur CTAIP |Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données principale du serveur SQL, mais pas sur la base de données SQL Data Warehouse.  Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité][Security overview].  Cet article explique comment créer un identifiant et un utilisateur sur la base de données master, puis comment créer un utilisateur dans la base de données SQL Data Warehouse. |
 | Bloqué par le pare-feu |Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter.  Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section de [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client][Configure server firewall access for your client IP]des [instructions d’approvisionnement][Provisioning instructions]. |
-| Connexion impossible avec l’outil ou le pilote |SQL Data Warehouse recommande l’utilisation de [SSMS][SSMS], [SSDT for Visual Studio 2015][SSDT for Visual Studio 2015] or [sqlcmd][sqlcmd] pour interroger vos données. Pour plus d’informations sur les pilotes et la connexion à SQL Data Warehouse, consultez les articles [Pilotes pour Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] et [Connexion à Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
+| Connexion impossible avec l’outil ou le pilote |Avec SQL Data Warehouse, il est recommandé d’utiliser [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio] ou [sqlcmd][sqlcmd] pour interroger vos données. Pour plus d’informations sur les pilotes et la connexion à SQL Data Warehouse, consultez les articles [Pilotes pour Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] et [Connexion à Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Outils
 | Problème | Résolution : |
 |:--- |:--- |
 | Des utilisateurs Azure Active Directory sont manquants dans l’explorateur d’objets Visual Studio |Il s'agit d'un problème connu.  Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals][sys.database_principals].  Consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] pour en savoir plus sur l’utilisation d’Azure Active Directory avec SQL Data Warehouse. |
+|Les scripts manuels, l’utilisation de l’Assistant Création de scripts ou la connexion via SSMS sont lents, bloqués ou produisent des erreurs| Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure SQL Data Warehouse » et que le type de moteur est « Microsoft Azure SQL Database ».|
 
 ## <a name="performance"></a>Performances
 | Problème | Résolution : |
@@ -52,8 +54,9 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Problème | Résolution : |
 |:--- |:--- |
 | Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de transaction de base de données autorisé de 45 000. |Réduisez la [DWU][DWU] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][request a quota increase]. |
-| Examen de l’utilisation de l’espace |Consultez la section relative aux [tailles des tables][Table sizes] pour comprendre l’utilisation de l’espace de votre système. |
-| Aide concernant la gestion des tables |Consultez l’article [Table overview][Overview] (Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary]. |
+| Examen de l’utilisation de l’espace |Consultez [Tailles des tables][Table sizes] pour comprendre l’utilisation de l’espace de votre système. |
+| Aide concernant la gestion des tables |Consultez l’article [Vue d’ensemble des tables][Overview] pour obtenir de l’aide pour la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary]. |
+|La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Azure|Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
 
 ## <a name="polybase"></a>Polybase
 | Problème | Résolution : |
@@ -88,7 +91,7 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Création d’un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md

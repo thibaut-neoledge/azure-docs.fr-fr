@@ -1,6 +1,6 @@
 ---
 title: "FAQ sur les rôles Services cloud Azure | Microsoft Docs"
-description: "Forum aux questions sur les Services cloud Azure. Répond à certaines questions courantes sur les certificats, les rôles web et les rôles de travail."
+description: "Forum aux questions sur les Services cloud Azure. Répond à certaines questions courantes sur les certificats, les rôles web et les rôles Worker."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a0fd75e0797319aecac29b48df75e7a268063e04
+ms.lasthandoff: 04/11/2017
 
 
 ---
-# <a name="cloud-services-faq"></a>Forum aux questions sur Cloud Services
-Cet article répond à certaines questions fréquemment posées sur Microsoft Azure Cloud Services. Vous pouvez également visiter le [FAQ du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de support et de tarification générale Azure. Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
+# <a name="cloud-services-faq"></a>Forum aux questions sur les services cloud
+Cet article répond à certaines questions fréquemment posées sur les services cloud Microsoft Azure. Vous pouvez également visiter le [FAQ du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de support et de tarification générale Azure. Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
 ## <a name="certificates"></a>Certificats
 ### <a name="where-should-i-install-my-certificate"></a>Où dois-je installer mon certificat ?
@@ -95,5 +95,5 @@ Tout d’abord, vérifiez que l’instance de machine virtuelle pour laquelle vo
 
 ## <a name="remote-desktop"></a>Bureau à distance
 ### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>Comment établir un Bureau à distance lorsque je possède un groupe de sécurité réseau ?
-Ajoutez une règle au groupe de sécurité réseau qui transfère le port **20000**.
+Ajoutez des règles à un groupe de sécurité réseau qui autorisent le trafic sur les ports **3389** et **20000**.  Bureau à distance utilise le port **3389**.  Les instances de service cloud sont soumis à l’équilibrage de charge, donc vous ne pouvez pas contrôler directement à quelle instance vous vous connectez.  Les agents *RemoteForwarder* et *RemoteAccess* gèrent le trafic RDP, et permettent au client d’envoyer un cookie RDP et de spécifier une instance individuelle à laquelle se connecter.  Les agents *RemoteForwarder* et *RemoteAccess* nécessitent que ce port **20000*** soit ouvert : il peut être bloqué si vous avez un groupe de sécurité réseau.
 

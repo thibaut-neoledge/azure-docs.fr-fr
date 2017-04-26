@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: b3c8a2d54ea05462db8a873c852a70e64111bc2f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -72,7 +72,7 @@ Commencez par créer rapidement une application Sails.js par défaut dans votre 
         logDirectory: iisnode
 
     La journalisation est maintenant activée pour le serveur [iisnode](https://github.com/tjanczuk/iisnode) qu’Azure App Service utilise pour exécuter des applications Node.js. 
-    Pour connaître son fonctionnement, consultez  [Obtenir des journaux stdout et stderr à partir d’iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
+    Pour plus d’informations sur la façon dont ceci fonctionne, consultez  [Guide pratique pour déboguer une application web Node.js dans Azure App Service](web-sites-nodejs-debug.md).
 
 2. Ensuite, configurez l’application Sails.js pour utiliser des variables d’environnement Azure. Ouvrez config/env/production.js pour configurer votre environnement de production et définir `port` et `hookTimeout` :
 
@@ -161,7 +161,7 @@ Ensuite, créez la ressource App Service dans Azure et déployez votre applicati
 
 ## <a name="troubleshoot-your-deployment"></a>Résoudre les problèmes de votre déploiement
 Si votre application Sails.js échoue pour une raison quelconque dans App Service, référez-vous aux journaux stderr pour résoudre le problème.
-Pour plus d’informations, consultez [Obtenir des journaux stdout et stderr à partir d’iisnode](app-service-web-nodejs-get-started.md#get-stdout-and-stderr-logs-from-iisnode).
+Pour plus d’informations, consultez [Guide pratique pour déboguer une application web Node.js dans Azure App Service](web-sites-nodejs-debug.md).
 Si l’application a correctement démarré, le journal stdout doit afficher le message familier suivant :
 
                    .-..-.
@@ -273,6 +273,6 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
      Si l’API renvoie une autre nouvelle entrée, votre application web Azure parle à votre base de données DocumentDB (MongoDB).
 
 ## <a name="more-resources"></a>Autres ressources
-* [Prise en main des applications web Node.js dans Azure App Service](app-service-web-nodejs-get-started.md)
+* [Prise en main des applications web Node.js dans Azure App Service](app-service-web-get-started-nodejs.md)
 * [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
 

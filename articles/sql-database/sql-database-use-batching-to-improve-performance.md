@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -34,7 +35,7 @@ L’envoi d’appels de traitement par lots sur un service distant constitue une
 Dans ce document, nous allons examiner divers scénarios et stratégies de traitement par lots associés à la base de données SQL. Bien que ces stratégies soient également importantes pour les applications locales qui utilisent SQL Server, il convient d’insister sur le caractère essentiel de l’utilisation du traitement par lots pour la base de données SQL, et ce pour plusieurs raisons :
 
 * L’accès à la base de données SQL présente un plus grand risque de latence du réseau, en particulier si vous accédez à la base de données SQL depuis l’extérieur du centre de données Microsoft Azure.
-* Les caractéristiques mutualisées de la base de données SQL signifient que l’efficacité de la couche données est corrélée à l’évolutivité globale de la base de données. La base de données SQL doit empêcher tout locataire/utilisateur de monopoliser les ressources de la base de données au détriment des autres clients. En réponse à une utilisation dépassant les quotas prédéfinis, la base de données SQL peut réduire le débit ou répondre par des exceptions de limitation. Certaines fonctionnalités efficaces, telles que le traitement par lots, permettent d’effectuer plus de tâches sur la base de données SQL avant que ces limites ne soient atteintes. 
+* Les caractéristiques multilocataires de la base de données SQL signifient que l’efficacité de la couche données est corrélée à l’évolutivité globale de la base de données. La base de données SQL doit empêcher tout locataire/utilisateur de monopoliser les ressources de la base de données au détriment des autres clients. En réponse à une utilisation dépassant les quotas prédéfinis, la base de données SQL peut réduire le débit ou répondre par des exceptions de limitation. Certaines fonctionnalités efficaces, telles que le traitement par lots, permettent d’effectuer plus de tâches sur la base de données SQL avant que ces limites ne soient atteintes. 
 * Le traitement par lots est également efficace pour les architectures qui utilisent plusieurs bases de données (partitionnement). L’efficacité de votre interaction avec chaque unité de base de données demeure un facteur clé pour votre évolutivité globale. 
 
 L’un des avantages associés à l’utilisation de la base de données SQL est que vous n’avez pas à gérer les serveurs qui hébergent la base de données. Toutefois, cette infrastructure gérée signifie également que vous devez adopter une approche différente pour l’optimisation de la base de données. Vous ne pouvez plus chercher à améliorer l’infrastructure matérielle ou réseau de la base de données. Ces environnements sont directement contrôlés par Microsoft Azure. Votre rayon de contrôle couvre essentiellement la manière dont votre application interagit avec la base de données SQL. Le traitement par lots constitue l’une de ces optimisations. 
@@ -44,7 +45,7 @@ La première partie de ce document examine différentes techniques de traitement
 ## <a name="batching-strategies"></a>Stratégies de traitement par lots
 ### <a name="note-about-timing-results-in-this-topic"></a>Remarque relative aux résultats de minutage fournis dans cette rubrique
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
+> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés il y a quelque temps et ils ne correspondent pas nécessairement au débit que vous pourriez obtenir aujourd’hui. L’avantage relatif de la technique de traitement par lots doit être similaire.
 > 
 > 
 
@@ -585,7 +586,7 @@ Dans cet exemple, vous pouvez utiliser le fait que les valeurs SocialSecurityNum
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Ensuite, créez une procédure stockée ou écrivez du code qui utilise l’instruction MERGE pour effectuer la mise à jour et l’insertion. L’exemple suivant utilise l’instruction MERGE sur un paramètre table, @employees,, de type EmployeeTableType. Le contenu de la table @employees n’est pas indiqué ici.
+Ensuite, créez une procédure stockée ou écrivez du code qui utilise l’instruction MERGE pour effectuer la mise à jour et l’insertion. L’exemple suivant utilise l’instruction MERGE sur un paramètre table, @employees, de type EmployeeTableType. Le contenu de la table @employees n’est pas indiqué ici.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -623,10 +624,5 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

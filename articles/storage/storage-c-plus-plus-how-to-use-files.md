@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: af3ba5a4d1bd457f19038b9917ce55920e5e882b
-ms.openlocfilehash: 7d97e0f8be183c8858520d795ac28b7ad63a6dae
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f8ecb68fddf4293592e546c0c10d0c86664bd090
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce didacticiel explique comment effectuer des opérations de base sur le service de stockage de fichiers Microsoft Azure. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à télécharger, répertorier et supprimer des fichiers. Si vous ne connaissez pas le service de Stockage Fichier Microsoft Azure, l’étude des concepts abordés dans les sections suivantes vous sera utile pour comprendre les exemples.
+Ce didacticiel explique comment effectuer des opérations de base sur le service Stockage Fichier Microsoft Azure. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à charger, lister et supprimer des fichiers. Si vous ne connaissez pas le service Stockage Fichier Microsoft Azure, l’étude des concepts abordés dans les sections suivantes vous sera utile pour comprendre les exemples.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 

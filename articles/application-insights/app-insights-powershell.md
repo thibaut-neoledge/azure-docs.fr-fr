@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e1ceaf7baef021f97f70a6b1a5203e178db613db
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -173,6 +173,16 @@ Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce c
 
 Vous pouvez ajouter d’autres paramètres. Vous trouverez leurs descriptions dans la section Paramètres du modèle.
 
+## <a name="to-get-the-instrumentation-key"></a>Pour récupérer la clé d’instrumentation
+Après avoir créé une ressource d’application, vous voulez obtenir la clé d’instrumentation : 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>Définition d’un plan tarifaire
 
@@ -193,17 +203,11 @@ Pour créer une ressource d’application avec le plan de tarification Entrepris
 |2|Entreprise|
 
 * Si vous souhaitez simplement utiliser le plan tarifaire de base par défaut, vous pouvez omettre la ressource CurrentBillingFeatures du modèle.
+* Si vous voulez changer de forfait après avoir créé la ressource de composant, vous pouvez utiliser un modèle qui omet la ressource « microsoft.insights/components. ». Omettez aussi le nœud `dependsOn` dans la ressource de facturation. 
+
+Pour vérifier le forfait mis à jour, examinez le panneau « Fonctionnalités + tarification » dans le navigateur. **Actualisez l’affichage du navigateur** pour voir l’état le plus récent.
 
 
-## <a name="to-get-the-instrumentation-key"></a>Pour récupérer la clé d’instrumentation
-Après avoir créé une ressource d’application, vous aurez besoin de l’iKey : 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>Ajouter une alerte métrique
 

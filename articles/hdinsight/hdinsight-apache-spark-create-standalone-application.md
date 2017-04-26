@@ -1,6 +1,6 @@
 ---
-title: "Créer des applications Scala autonomes à exécuter sur des clusters Azure Spark | Microsoft Docs"
-description: "Apprenez à créer une application Spark autonome à exécuter sur un cluster HDInsight Spark."
+title: "Créer des applications Scala Maven à exécuter sur des clusters Azure Spark | Microsoft Docs"
+description: "Découvrez comment créer une application Spark autonome à exécuter sur des clusters HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Créer une application Scala autonome à exécuter sur un cluster Apache Spark sur HDInsight
+# <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Créer une application Scala Maven à exécuter sur un cluster Apache Spark sur HDInsight
 
-Cet article fournit des instructions détaillées pour le développement d'applications Spark autonomes écrites en Scala à l'aide de Maven avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA.  La création d'une application Scala avec IntelliJ IDEA implique généralement les étapes suivantes :
+Découvrez comment créer une application Spark écrite en Scala à l’aide de Maven avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA.  La création d’une application Scala avec IntelliJ IDEA implique les étapes suivantes :
 
 * Utiliser Maven en tant que le système de génération.
 * Mettre à jour le fichier de modèle objet du projet (POM) pour résoudre les dépendances de module Spark.
@@ -38,7 +38,7 @@ Cet article fournit des instructions détaillées pour le développement d'appli
 > 
 > 
 
-**Configuration requise**
+## <a name="prerequisites"></a>Composants requis
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).

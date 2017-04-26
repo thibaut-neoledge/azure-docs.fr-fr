@@ -1,6 +1,6 @@
 ---
-title: "Créer des environnements de plusieurs machines virtuelles avec les modèles Azure Resource Manager | Microsoft Docs"
-description: "Apprenez à créer des environnements de plusieurs machines virtuelles dans Azure DevTest Labs à partir d’un modèle Azure Resource Manager"
+title: "Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager | Microsoft Docs"
+description: "Découvrez comment créer des environnements de plusieurs machines virtuelles et des ressources PaaS dans Azure DevTest Labs à partir d’un modèle Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
+ms.lasthandoff: 04/07/2017
 
 
 ---
 
-# <a name="create-multi-vm-environments-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles avec les modèles Azure Resource Manager
+# <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
 Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet de [créer et d’ajouter facilement une machine virtuelle à un laboratoire](./devtest-lab-add-vm-with-artifacts.md). Cela fonctionne bien pour la création d’une machine virtuelle à la fois. Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
 

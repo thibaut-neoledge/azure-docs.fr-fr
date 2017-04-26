@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
-ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
@@ -95,7 +95,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 * **Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?**
 
-  Oui, toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées vers le nouveau propriétaire. Toutefois, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés. 
+  Oui, toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées vers le nouveau propriétaire. Cependant, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés dans les différents annuaires.
 
 * <a id="no-button"></a>**Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?**
 

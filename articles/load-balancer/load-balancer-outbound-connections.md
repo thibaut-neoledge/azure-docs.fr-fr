@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -70,4 +70,6 @@ Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’
 ## <a name="limitations"></a>Limitations
 
 Le nombre maximal de ports SNAT disponible actuellement est de 64 511 (65 535 - 1 024 ports privilégiés). Toutefois, ce nombre n’est pas garanti.  Cela ne se traduit pas directement par un nombre de connexions disponibles. Pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable, voir ci-dessus.
+
+Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge](load-balancer-multivip-overview.md), toutes ces adresses IP publiques sont candidates pour des flux sortants.
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
@@ -284,7 +284,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string"></a>Exemple d’accès au corps sous forme de chaîne  
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Exemple d’accès au corps sous forme de chaîne. Notez que nous conservons le corps de la demande d’origine et que nous pouvons ainsi y accéder plus tard dans le pipeline.
   
 ```xml  
 <set-body>  
@@ -298,7 +298,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject"></a>Exemple d’accès au corps sous forme de JObject  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemple d’accès au corps sous forme de JObject. Notez que puisque nous ne conservons pas le corps de la demande d’origine, une tentative pour y accéder ultérieurement dans le pipeline entraîne une exception.  
   
 ```xml  
 <set-body>   
@@ -379,24 +379,46 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 |template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non|liquid|  
 
 Pour accéder aux informations sur la requête et la réponse, le modèle Liquid peut lier à un objet de contexte aux propriétés suivantes : <br />
-<pre>contexte.
-Demande.
-Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+<pre>context.
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
 
     Response.
         StatusCode
         Method
         Headers
 Url.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 
 OriginalUrl.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 </pre>
 
 
 
-### <a name="usage"></a>Utilisation  
+### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend  

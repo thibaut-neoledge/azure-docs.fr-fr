@@ -1,6 +1,6 @@
 ---
 title: "Ports au-delà de 1433 pour SQL Database | Microsoft Docs"
-description: "Parfois, les connexions clientes entre ADO.NET et Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
+description: "Parfois, les connexions clientes entre ADO.NET et Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
-ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e47d8f71fbfe95027e1fbfebb0b7e91ffe653c62
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ La séquence est la suivante :
 2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
-Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions client ADO.NET 4.5 avec SQL Database V12.
+Vérifiez que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
 
 * En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 * Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1f274fdbcdb64425a296ac7388938c423745f477
-ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -36,7 +37,7 @@ Avant d’aborder l’utilisation du stockage RA-GRS, nous allons parler de ses 
 
 * La copie en lecture seule est [cohérente](https://en.wikipedia.org/wiki/Eventual_consistency) avec les données de la région primaire.
 
-* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour les fichiers Azure, qui ne peuvent pas bénéficier de la redondance RA-GRS pour l’instant.)
+* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour Azure Files, qui n’a pas la redondance RA-GRS pour l’instant.)
 
 * Vous pouvez utiliser la bibliothèque cliente de stockage pour interagir avec les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
 
@@ -80,11 +81,11 @@ Par exemple, vous pouvez définir un indicateur qui sera vérifié avant l’env
 
 Si vous décidez de gérer les erreurs pour chaque service séparément, vous devez également gérer la possibilité d’exécuter votre application en mode lecture seule par service. Vous pouvez avoir des indicateurs en lecture seule pour chaque service, qui peuvent être activés et désactivés, et gérer l’indicateur approprié aux emplacements adaptés, dans votre code.
 
-La possibilité d’exécuter votre application en mode lecture seule offre un autre avantage : vous avez la possibilité d’assurer des fonctionnalités limitées pendant une mise à niveau majeure de l’application. Vous pouvez déclencher l’exécution de votre application en mode lecture seule et la faire pointer vers le centre de données secondaire. Vous avez ainsi la certitude que personne n’accède aux données dans la région primaire lorsque vous effectuez des mises à niveau.
+La possibilité d’exécuter votre application en mode lecture seule offre un autre avantage : vous avez la possibilité d’assurer des fonctionnalités limitées pendant une mise à niveau majeure de l’application. Vous pouvez déclencher l’exécution de votre application en mode lecture seule et la faire pointer vers le centre de données secondaire. Vous avez ainsi la certitude que personne n’accède aux données dans la région primaire pendant vous effectuez des mises à niveau.
 
 ## <a name="handling-updates-when-running-in-read-only-mode"></a>Gestion des mises à jour lors d’une exécution en mode lecture seule
 
-Il existe de nombreuses façons de gérer les demandes de mise à jour lors d’une exécution en mode lecture seule. Nous n’aborderons pas ce point de façon complète, mais vous pouvez généralement prendre quelques modèles en considération.
+Il existe de nombreuses façons de gérer les demandes de mise à jour lors d’une exécution en mode lecture seule. Nous n’abordons pas ce point de façon complète, mais vous pouvez généralement prendre quelques modèles en considération.
 
 1.  Vous pouvez répondre à votre utilisateur et lui indiquer que les mises à jour ne sont actuellement pas autorisées. Par exemple, un système de gestion des contacts pourrait permettre aux clients d’accéder aux informations de contact sans toutefois autoriser les mises à jour.
 
@@ -134,7 +135,7 @@ L’utilisation du modèle Disjoncteur dans votre application peut l’empêcher
 
 Pour savoir si un problème affecte actuellement un point de terminaison principal, vous pouvez contrôler la fréquence à laquelle le client rencontre des erreurs renouvelables. Chaque cas étant différent, vous devez décider du seuil à utiliser pour déterminer quand basculer vers le point de terminaison secondaire et exécuter l’application en mode lecture seule. Par exemple, vous pouvez décider d’effectuer le basculement au bout de 10 échecs consécutifs. Vous pouvez également effectuer le basculement si 90 % des demandes échouent sur une période de 2 minutes.
 
-Dans le cadre du premier scénario, vous pouvez simplement tenir le compte des échecs et, en cas de réussite avant que la valeur maximale soit atteinte, remettre le compte à zéro. Dans le cadre du deuxième scénario, vous pouvez, par exemple, utiliser l’objet MemoryCache (dans .NET). Pour chaque demande, ajoutez un CacheItem au cache, définissez la valeur sur 1 (réussite) ou 0 (échec) et définissez le délai d’expiration à 2 minutes à partir de maintenant (ou sur une autre valeur selon vos contraintes de temps). Lorsque le délai d’expiration d’une entrée est écoulé, l’entrée est automatiquement supprimée. Cela vous donne une fenêtre cumulative de 2 minutes. À chaque demande effectuée au service de stockage, vous utilisez d’abord une requête LINQ sur l’objet MemoryCache pour calculer le pourcentage de réussite en additionnant les valeurs et en divisant le résultat par la valeur du compte. Lorsque le pourcentage de réussite est inférieur à un certain seuil (par exemple, 10 %), affectez à la propriété **LocationMode** la valeur **SecondaryOnly** pour les demandes de lecture et faites basculer l’application en mode lecture seule avant de continuer.
+Dans le cadre du premier scénario, vous pouvez simplement tenir le compte des échecs et, en cas de réussite avant que la valeur maximale soit atteinte, remettre le compte à zéro. Dans le cadre du deuxième scénario, vous pouvez, par exemple, utiliser l’objet MemoryCache (dans .NET). Pour chaque demande, ajoutez un CacheItem au cache, définissez la valeur sur 1 (réussite) ou 0 (échec) et définissez le délai d’expiration à 2 minutes à partir de maintenant (ou sur une autre valeur selon vos contraintes de temps). Quand le délai d’expiration d’une entrée est atteint, l’entrée est automatiquement supprimée. Cela vous donne une fenêtre cumulative de 2 minutes. À chaque demande effectuée au service de stockage, vous utilisez d’abord une requête LINQ sur l’objet MemoryCache pour calculer le pourcentage de réussite en additionnant les valeurs et en divisant le résultat par la valeur du compte. Lorsque le pourcentage de réussite est inférieur à un certain seuil (par exemple, 10 %), affectez à la propriété **LocationMode** la valeur **SecondaryOnly** pour les demandes de lecture et faites basculer l’application en mode lecture seule avant de continuer.
 
 Le seuil d’erreurs, qui permet de déterminer le moment auquel effectuer le basculement, peut varier d’un service à l’autre dans votre application. Vous devez donc envisager de rendre ces paramètres configurables. C’est également le moment où vous décidez de gérer les erreurs renouvelables pour chaque service séparément ou comme un ensemble, comme indiqué précédemment.
 
@@ -234,9 +235,4 @@ Si vous avez rendu configurables les seuils de basculement de votre application 
 * Pour plus d’informations sur la géoredondance avec accès en lecture et pour voir un autre exemple de définition du paramètre LastSyncTime, consultez [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Options de redondance de stockage Windows Azure et stockage géoredondant avec accès en lecture).
 
 * Pour obtenir un exemple complet montrant comment effectuer les basculements entre les points de terminaison principaux et secondaires, consultez [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs) (Exemples Azure – Utilisation du modèle Disjoncteur avec le stockage RA-GRS).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

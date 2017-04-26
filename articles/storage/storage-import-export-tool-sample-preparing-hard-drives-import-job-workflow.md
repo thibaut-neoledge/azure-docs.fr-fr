@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/07/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e522fabf9be5af7477e556ee0c2bf66f41c28fe
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 78d7ce3bbd3205fd995ba331af08d830097c8156
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -32,10 +32,10 @@ Cet exemple importe les données suivantes dans un compte de stockage Azure nomm
 
 |Lieu|Description|Taille des données|
 |--------------|-----------------|-----|
-|H:\Video|Collection de vidéos|12 To|
-|H:\Photo|Collection de photos|30 Go|
+|H:\Video\ |Collection de vidéos|12 To|
+|H:\Photo\ |Collection de photos|30 Go|
 |K:\Temp\FavoriteMovie.ISO|Image de disque Blu-ray™|25 Go|
-|\\\bigshare\john\music|Collection de fichiers de musique sur un partage réseau|10 Go|
+|\\\bigshare\john\music\|Collection de fichiers de musique sur un partage réseau|10 Go|
 
 ## <a name="storage-account-destinations"></a>Destinations dans le compte de stockage
 
@@ -43,10 +43,10 @@ Le travail d’importation importe les données dans les destinations suivantes 
 
 |Source|Répertoire virtuel ou objet blob de destination|
 |------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
+|K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
+|\\\bigshare\john\music\ |music|
 
 Avec ce mappage, le fichier `H:\Video\Drama\GreatMovie.mov` sera importé dans l’objet blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -56,27 +56,24 @@ Ensuite, pour déterminer le nombre de disques durs nécessaires, calculez la ta
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Pour cet exemple, deux disques durs de 8 To devraient suffire. Toutefois, puisque le répertoire source `H:\Video` contient 12 To de données et que la capacité de votre disque dur unique est de 8 To seulement, vous serez en mesure de le spécifier de la manière suivante dans le fichier **dataset.csv** :
-
-```
-BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-```
-
-## <a name="attach-drives-and-configure-the-job"></a>Attacher des disques et configurer le travail
-
-Vous allez attacher les deux disques à l’ordinateur et créer des volumes. Puis vous allez créer le fichier **driveset.csv** :
+Pour cet exemple, deux disques durs de 8 To devraient suffire. Cependant, puisque le répertoire source `H:\Video` contient 12 To de données et que la capacité de votre seul disque dur est de 8 To seulement, vous pouvez le spécifier comme suit dans le fichier **driveset.csv** :
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-
 L’outil distribue les données sur deux disques durs de manière optimisée.
+
+## <a name="attach-drives-and-configure-the-job"></a>Attacher des disques et configurer le travail
+Vous allez attacher les deux disques à l’ordinateur et créer des volumes. Créez ensuite le fichier **dataset.csv** :
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 En outre, vous pouvez définir les métadonnées suivantes pour tous les fichiers :
 

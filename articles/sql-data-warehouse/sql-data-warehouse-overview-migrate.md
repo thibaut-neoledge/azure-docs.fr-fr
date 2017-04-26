@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e5937f8472492cd1dd77c82ed518a665718623a1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,19 +30,19 @@ Il est également important de se rappeler de la nature de SQL Data Warehouse,
 ## <a name="migration-guidance"></a>Recommandations en matière de migration
 Avant d’amorcer votre migration, prenez le temps de lire ces articles afin de mieux comprendre certains concepts fondamentaux et différences en relation avec les produits.
 
-* [Migration de votre schéma][Migration de votre schéma]
-* [Migration de vos données][Migration de vos données]
-* [Migration de votre code][Migration de votre code]
+* [Migration de votre schéma][Migrate your schema]
+* [Migration de vos données][Migrate your data]
+* [Migration de votre code][Migrate your code]
 
 ## <a name="next-steps"></a>Étapes suivantes
-L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog.  Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] (Migration des données vers Azure SQL Data Warehouse dans la pratique) pour obtenir des conseils supplémentaires sur la migration.
+L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog.  Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] pour obtenir des conseils supplémentaires sur la migration.
 
 <!--Image references-->
 
 <!--Article references-->
-[Migration de votre schéma]: sql-data-warehouse-migrate-schema.md
-[Migration de vos données]: sql-data-warehouse-migrate-data.md
-[Migration de votre code]: sql-data-warehouse-migrate-code.md
+[Migrate your schema]: sql-data-warehouse-migrate-schema.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[Migrate your code]: sql-data-warehouse-migrate-code.md
 
 
 <!--MSDN references-->
@@ -48,9 +50,4 @@ L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut éga
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

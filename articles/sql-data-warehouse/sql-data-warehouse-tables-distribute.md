@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 4becdace365fce1fb70e9e870dd4c8b81d1c7496
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fe47cc1e5489d094f08b771cc8ec89de84509972
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribution de tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Vue d'ensemble][Vue d'ensemble]
-> * [Types de données][Types de données]
-> * [Distribuer][Distribuer]
+> * [Vue d’ensemble][Overview]
+> * [Types de données][Data Types]
+> * [Distribuer][Distribute]
 > * [Index][Index]
 > * [Partition][Partition]
-> * [Statistiques][Statistiques]
-> * [Temporaire][Temporaire]
+> * [Statistiques][Statistics]
+> * [Temporaire][Temporary]
 >
 >
 
@@ -180,7 +182,7 @@ Un moyen simple d’identifier une table ayant subi un décalage consiste à uti
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée.  Pour commencer, créez la vue [dbo.vTableSizes][dbo.vTableSizes] à l’aide de SQL à partir de l’article [Vue d’ensemble des tables][Vue d'ensemble].  Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
+Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée.  Pour commencer, créez la vue [dbo.vTableSizes][dbo.vTableSizes] en utilisant le SQL de l’article [Vue d’ensemble des tables][Overview].  Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
 
 ```sql
 select *
@@ -198,7 +200,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Résolution du décalage des données
-Tous les décalages ne sont pas suffisants pour garantir un correctif.  Dans certains cas, les performances d’une table dans certaines requêtes peuvent annuler les dommages liés au décalage des données.  Pour déterminer si vous devez résoudre un décalage des données dans une table, vous devez comprendre au mieux les volumes de données et les requêtes dans votre charge de travail.   Vous pouvez suivre les étapes de l’article relatif à la [surveillance des requêtes][surveillance des requêtes] pour analyser l’impact du décalage sur les performances des requêtes, en particulier sur leur durée d’exécution sur chaque distribution.
+Tous les décalages ne sont pas suffisants pour garantir un correctif.  Dans certains cas, les performances d’une table dans certaines requêtes peuvent annuler les dommages liés au décalage des données.  Pour déterminer si vous devez résoudre un décalage des données dans une table, vous devez comprendre au mieux les volumes de données et les requêtes dans votre charge de travail.   Vous pouvez suivre les étapes de l’article relatif à la [surveillance des requêtes][Query Monitoring] pour analyser l’impact du décalage sur les performances des requêtes, en particulier sur leur durée d’exécution sur chaque distribution.
 
 La distribution de données consiste à trouver le juste équilibre entre la réduction du décalage des données et la réduction du déplacement des données. Ces buts peuvent s’opposer, et parfois, vous pouvez conserver le décalage des données afin de réduire le déplacement des données. Par exemple, quand la colonne de distribution est souvent la colonne partagée dans les jointures et les agrégations, vous devez minimiser le déplacement des données. L’avantage d’un déplacement minimal des données peut compenser l’impact d’un décalage des données.
 
@@ -283,31 +285,26 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la conception de tables, consultez les articles [Distribuer][Distribuer], [Index][Index], [Partition][Partition], [Types de données][Types de données], [Statistiques][Statistiques] et [Tables temporaires][Temporaire].
+Pour en savoir plus sur la conception des tables, consultez les articles [Distribuer][Distribute], [Index][Index], [Partition][Partition], [Types de données][Data Types], [Statistiques][Statistics] et [Tables temporaires][Temporary].
 
-Pour connaître les autres bonnes pratiques, consultez [Meilleures pratiques pour Azure SQL Data Warehouse][Meilleures pratiques pour Azure SQL Data Warehouse].
+Pour obtenir une vue d’ensemble des bonnes pratiques, consultez [Bonnes pratiques pour Azure SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d'ensemble]: ./sql-data-warehouse-tables-overview.md
-[Types de données]: ./sql-data-warehouse-tables-data-types.md
-[Distribuer]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiques]: ./sql-data-warehouse-tables-statistics.md
-[Temporaire]: ./sql-data-warehouse-tables-temporary.md
-[Meilleures pratiques pour Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[surveillance des requêtes]: ./sql-data-warehouse-manage-monitor.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

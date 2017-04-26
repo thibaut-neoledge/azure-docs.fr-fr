@@ -1,10 +1,10 @@
 ---
-title: "Modèle de données Application Insights"
+title: "Modèle de données d’Azure Application Insights | Microsoft Docs"
 description: "Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,6 @@ Points à noter :
 * Les durées sont énoncées en dixièmes de microsecondes, donc 10000000 = 1 seconde.
 * Les dates et les heures sont indiquées au format UTC, et respectent la norme ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent comment les utiliser.
 
 ## <a name="example"></a>Exemple
     // A server report about an HTTP request
@@ -285,7 +284,7 @@ Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availabi
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
-| availability [0] durationMetric.value |number |Durée du test. 1e7 =&1;s |
+| availability [0] durationMetric.value |number |Durée du test. 1e7 = 1s |
 | availability [0] message |string |Diagnostic de défaillance |
 | availability [0] result |string |Réussite/Échec |
 | availability [0] runLocation |string |Source géographique de la requête HTTP |

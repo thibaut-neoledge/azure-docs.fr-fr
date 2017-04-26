@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 Les données de communication sont des données de réseau et de performance centralisées issues d’ordinateurs sur lesquels des agents OMS sont installés, notamment Operations Manager et les agents connectés à Windows. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation. Les agents OMS installés sur les ordinateurs de votre infrastructure informatique surveillent les données réseau envoyées vers et à partir de ces ordinateurs pour les niveaux de réseau 2 et 3 du [modèle OSI](https://en.wikipedia.org/wiki/OSI_model) , notamment les différents protocoles et ports utilisés.
 
 > [!NOTE]
-> La solution de données de communication ne peut pas être ajoutée aux espaces de travail actuellement. Les clients qui ont déjà activé la solution de communication peuvent continuer à l’utiliser.
+> La solution Wire Data 1.0 ne peut actuellement pas être ajoutée aux espaces de travail. Les clients qui ont déjà activé la solution Wire Data 1.0 peuvent continuer à l’utiliser. Les nouveaux clients doivent cependant utiliser à la place la solution [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
 >
 >
 
@@ -106,9 +107,4 @@ Configuration requise : Pour utiliser l’exemple suivant, vous devez avoir inst
 ## <a name="next-steps"></a>Étapes suivantes
 * [Lancez une recherche dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.
 * Consultez le billet de blog de Daniel intitulé [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Utilisation des données de communication dans la recherche de journal Operations Management Suite) pour en savoir plus sur la fréquence de collecte des données et sur la façon de modifier les propriétés de collecte pour les agents Operations Manager.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

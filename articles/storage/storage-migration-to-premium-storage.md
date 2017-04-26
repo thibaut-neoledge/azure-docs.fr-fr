@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2703a7ae9274e6bef38e530839c1a7c5ad69fb88
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: cbf4f1a3bce53844e032c49637d4cfd9dd722679
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -47,15 +47,15 @@ L’exécution du processus de migration dans son intégralité peut nécessiter
 Cette section vous permet de vous assurer que vous êtes prêt à suivre les étapes de migration de cet article et vous permet de prendre la bonne décision sur les types de machines virtuelles et de disques.
 
 ### <a name="prerequisites"></a>Composants requis
-* Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter la page [Tarification Azure](https://azure.microsoft.com/pricing/) pour davantage d’options.
+* Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter [Tarification Azure](https://azure.microsoft.com/pricing/) pour plus d’options.
 * Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des instructions sur l’installation et le point d’installation.
-* Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles compatibles Premium Storage. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles compatibles avec Premium Storage. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
+* Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles compatibles Premium Storage. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles compatibles avec Premium Storage. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considérations
 Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture. Vous disposez de diverses options de machines virtuelles et disques. Cette section est là pour vous aider à trouver l’option qui correspond le mieux à votre charge de travail.
 
 #### <a name="vm-sizes"></a>Tailles de machine virtuelle
-Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Passez en revue les caractéristiques de performances des machines virtuelles fonctionnant avec Premium Storage et choisissez la taille de machine virtuelle la mieux adaptée à votre charge de travail. Assurez-vous que la bande passante disponible est suffisante sur votre machine virtuelle pour gérer le trafic du disque.
+Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Passez en revue les caractéristiques de performances des machines virtuelles fonctionnant avec Premium Storage et choisissez la taille de machine virtuelle la mieux adaptée à votre charge de travail. Assurez-vous que la bande passante disponible est suffisante sur votre machine virtuelle pour gérer le trafic du disque.
 
 #### <a name="disk-sizes"></a>Tailles du disque
 Il existe trois types de disque qui peuvent être utilisés avec votre machine virtuelle et chacun possède des E/S par seconde spécifiques avec des limites. Prenez en compte ces limites lors de la sélection du type de disque pour votre machine virtuelle en fonction des besoins de votre application en termes de capacité, de performances, d’extensibilité et de charges maximales.
@@ -66,7 +66,7 @@ Il existe trois types de disque qui peuvent être utilisés avec votre machine v
 | IOPS par disque |500 |2 300 |5 000 |
 | Débit par disque |100 Mo par seconde |150 Mo par seconde |200 Mo par seconde |
 
-En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. (Découvrez ce qu’est l’entrelacement de disques [ici](storage-premium-storage-performance.md#disk-striping).) Si vous équilibrez les disques de données Stockage Premium à l’aide des [espaces de stockage][4], vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
+En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. (Découvrez ce qu’est l’entrelacement de disques [ici](storage-premium-storage-performance.md#disk-striping).) Si vous équilibrez les disques de données Stockage Premium à l’aide des [espaces de stockage][4], vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
 
 #### <a name="storage-account-scalability-targets"></a>Objectifs d’évolutivité de compte de stockage
 Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en plus des [Objectifs d’évolutivité et de performances de stockage Azure](storage-scalability-targets.md). Si les besoins de votre application dépassent les objectifs d’évolutivité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes.
@@ -75,7 +75,7 @@ Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en 
 |:--- |:--- |
 | Capacité du disque : 35 To<br />Capacité d’instantané : 10 To |Jusqu'à 50 Go par seconde pour les données entrantes/sortantes |
 
-Pour plus d’informations sur les spécifications de Premium Storage, consultez la page [Objectifs d’évolutivité et de performances lors de l’utilisation de Premium Storage](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Pour plus d’informations sur les spécifications de Premium Storage, consultez la page [Objectifs d’évolutivité et de performances lors de l’utilisation de Premium Storage](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque
 Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application. Les paramètres du cache pour les disques de données existants peuvent être mis à jour à l’aide du [portail Azure Portal](https://portal.azure.com) ou du paramètre *-HostCaching* de l’applet de commande *Set-AzureDataDisk*.
@@ -185,11 +185,11 @@ Vous devez rechercher le chemin d’accès de votre conteneur et la clé du comp
 
     Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
-   * **/Source:*&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
-   * **/SourceKey:*&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Dest:*&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
-   * **/DestKey:*&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Pattern:*&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
+   * **/Source: *&lt;&gt;source :*** emplacement du dossier ou URL du conteneur de stockage qui contient le disque dur virtuel.
+   * **/SourceKey : *&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage source.
+   * **/Dest : *&lt;destination&gt; :*** URL du conteneur de stockage où copier le disque dur virtuel.
+   * **/DestKey : *&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Pattern : *&lt;file-name&gt; :*** spécifie le nom du fichier du disque dur virtuel à copier.
 
 Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -238,7 +238,7 @@ Si vous migrez un disque dur virtuel d’un stockage cloud non Azure vers Azure,
 Si vous migrez un disque dur virtuel d’un stockage cloud non Azure vers Azure, vous devez d’abord exporter le disque dur virtuel vers un répertoire local. Copiez le chemin source complet du répertoire local où le disque dur virtuel est stocké.
 
 ##### <a name="copy-a-vhd-from-on-premise"></a>Copie d’un disque dur virtuel en local
-Si vous migrez un disque dur virtuel à partir d’un environnement local, vous avez besoin du chemin d’accès source complet où le disque dur virtuel est stocké. Le chemin d’accès source peut être un partage de fichiers ou un emplacement de serveur.
+Si vous migrez un disque dur virtuel à partir d’un environnement local, vous avez besoin du chemin source complet où le disque dur virtuel est stocké. Le chemin d’accès source peut être un partage de fichiers ou un emplacement de serveur.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Étape 2. Création de la destination de votre disque dur virtuel
 Créez un compte de stockage pour gérer vos disques durs virtuels. Prenez en compte les points suivants lors de la planification de l’emplacement où stocker vos disques durs virtuels :
@@ -270,7 +270,7 @@ Un exemple <Uri>peut être ***« https://storagesample.blob.core.windows.net/myc
     ```azcopy
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
-    
+
     Exemple :
 
     ```azcopy
@@ -279,12 +279,12 @@ Un exemple <Uri>peut être ***« https://storagesample.blob.core.windows.net/myc
 
     Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
-   * **/Source:*&lt;source&gt; :*** emplacement du dossier ou URL de conteneur de stockage qui contient le disque dur virtuel.
-   * **/SourceKey:*&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
-   * **/Dest:*&lt;destination&gt; :*** URL de conteneur de stockage où copier le disque dur virtuel.
-   * **/DestKey:*&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
+   * **/Source: *&lt;&gt;source :*** emplacement du dossier ou URL du conteneur de stockage qui contient le disque dur virtuel.
+   * **/SourceKey : *&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage source.
+   * **/Dest : *&lt;destination&gt; :*** URL du conteneur de stockage où copier le disque dur virtuel.
+   * **/DestKey : *&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
    * **/BlobType: page :** spécifie si la destination est un objet blob de pages.
-   * **/Pattern:*&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
+   * **/Pattern : *&lt;file-name&gt; :*** spécifie le nom du fichier du disque dur virtuel à copier.
 
 Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -459,14 +459,14 @@ Le script d’automatisation est fourni ci-dessous. Remplacez le texte par vos i
     .Terms of Use
     Copyright © 2015 Microsoft Corporation.  All rights reserved.
 
-    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND,
+    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
     EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
     AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
     RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
     .Example (Save this script as Migrate-AzureVM.ps1)
 
-    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “Southeast Asia”
+    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location "Southeast Asia"
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
@@ -581,7 +581,7 @@ Le script d’automatisation est fourni ci-dessous. Remplacez le texte par vos i
     # check if VM is shut down
     if ( $sourceVM.Status -notmatch "Stopped" )
     {
-        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you’d like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
+        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
         $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
         $sourceVM | Stop-AzureVM

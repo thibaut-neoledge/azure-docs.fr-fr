@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
-ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 
 >
 >
 
-Si vous avez besoin de plus d’espace de stockage, vous pouvez créer des disques supplémentaires et les joindre à votre machine virtuelle. Ces disques utilisent le stockage Azure persistant ; ainsi, leurs données sont conservées même lorsque le serveur est réapprovisionné en raison d’un redimensionnement ou d’un arrêt. Pour ajouter un disque et l’attacher à votre machine virtuelle, suivez les instructions [Ajouter un disque à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette procédure utilise l’interface de ligne de commande Azure (Azure CLI), qui est déjà installée sur la machine virtuelle de science des données. Par conséquent, ces procédures peuvent être entièrement effectuées à partir de la machine virtuelle elle-même. Une autre option pour augmenter le stockage consiste à utiliser les [fichiers Azure](../storage/storage-how-to-use-files-linux.md).
+Si vous avez besoin de plus d’espace de stockage, vous pouvez créer des disques supplémentaires et les joindre à votre machine virtuelle. Ces disques utilisent le stockage Azure persistant ; ainsi, leurs données sont conservées même lorsque le serveur est réapprovisionné en raison d’un redimensionnement ou d’un arrêt. Pour ajouter un disque et l’attacher à votre machine virtuelle, suivez les instructions [Ajouter un disque à une machine virtuelle Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette procédure utilise l’interface de ligne de commande Azure (Azure CLI), qui est déjà installée sur la machine virtuelle de science des données. Par conséquent, ces procédures peuvent être entièrement effectuées à partir de la machine virtuelle elle-même. Une autre option pour augmenter le stockage consiste à utiliser les [fichiers Azure](../storage/storage-how-to-use-files-linux.md).
 
 Pour télécharger les données, ouvrez une fenêtre de terminal et exécutez cette commande :
 
@@ -407,7 +407,7 @@ L’une des fonctionnalités intéressantes de Rattle est sa capacité à exécu
 Une fois que vous avez terminé la création de modèles, sélectionnez l’onglet **Journal** pour afficher le code R exécuté par Rattle pendant votre session. Vous pouvez sélectionner le bouton **Exporter** pour l’enregistrer.
 
 > [!NOTE]
-> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser pour répéter les étapes ultérieurement, vous devez insérer un symbole dièse (#) devant l’option *Exporter ce journal… * dans le texte du journal.
+> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser pour répéter les étapes ultérieurement, vous devez insérer un symbole dièse (#) devant *Exporter ce journal… * dans le texte du journal.
 >
 >
 

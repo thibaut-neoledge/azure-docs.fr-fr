@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 6104bd7e22d855c4c8737ef1080bfd445b29eafb
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1477ba08b35a853ef7c26f74a4d9e86b3bf6d850
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Didacticiel : Intégration d’Azure AD à ShiftPlanning
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ShiftPlanning.  
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et ShiftPlanning.
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
@@ -31,16 +33,17 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour ShiftPlanning
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-shiftplanning"></a>Activation de l’intégration d’applications pour ShiftPlanning
+## <a name="enable-the-application-integration-for-shiftplanning"></a>Activer l’intégration d’applications pour ShiftPlanning
 Cette section décrit l’activation de l’intégration d’applications pour ShiftPlanning.
 
-### <a name="to-enable-the-application-integration-for-shiftplanning-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour ShiftPlanning, procédez comme suit :
+**Pour activer l’intégration d’applications pour ShiftPlanning, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
@@ -67,13 +70,16 @@ Cette section décrit l’activation de l’intégration d’applications pour S
    
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur ShiftPlanning avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur ShiftPlanning avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+
 Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique, procédez comme suit :**
+
 1. Sur la page d’intégration d’applications **ShiftPlanning** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configurer l’authentification unique")
@@ -103,66 +109,59 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
    
     ![Authentification unique](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Authentification unique")
    
-    1. Sélectionnez **SAML Enabled**.
-
-    2. Sélectionnez **Allow Password Login**
-
-    3. Dans la page **Configurer l’authentification unique sur ShiftPlanning** du portail Azure Classic, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de l’émetteur SAML**.
-
-    4. Dans la page **Configurer l’authentification unique sur ShiftPlanning** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Remote Logout URL**.
-
-    5. Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+   1. Sélectionnez **SAML Enabled**.
+   2. Sélectionnez **Allow Password Login**.
+   3. Dans la page **Configurer l’authentification unique sur ShiftPlanning** du portail Azure Classic, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de l’émetteur SAML**.
+   4. Dans la page **Configurer l’authentification unique sur ShiftPlanning** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Remote Logout URL**.
+   5. Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
        
-    > [!TIP]
-    > Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
+     >[!TIP]
+     >Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o)
+     > 
+     > 
 
-    6. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate** .
-
-    7. Cliquez sur **Save Settings**.
+   6. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate** .
+   7. Cliquez sur **Save Settings**.
 
 9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour se connecter à ShiftPlanning, les utilisateurs d’Azure AD doivent être approvisionnés dans ShiftPlanning.  
+
 Dans le cas de ShiftPlanning, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
-1. Connectez-vous au site d’entreprise **ShiftPlanning** en tant qu’administrateur.
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
+1. Connectez-vous au site d’entreprise **ShiftPlanning** en tant qu’administrateur.
 2. Cliquez sur **Admin**.
    
     ![Administrateur](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Administrateur")
-
 3. Cliquez sur **Staff**.
    
     ![Staff](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Staff")
-
 4. Sous **Actions**, cliquez sur **Add employee**.
    
     ![Add Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Add Employees")
-
 5. Dans la section **Add employees** , procédez comme suit :
    
     ![Save Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Save Employees")
    
-    1. Indiquez le prénom, le nom et l’adresse de messagerie du compte AAD valide que vous souhaitez approvisionner dans les zones de texte **First Name**, **Last Name** et **Email**.
+   1. Indiquez le prénom, le nom et l’adresse de messagerie du compte AAD valide que vous souhaitez approvisionner dans les zones de texte **First Name**, **Last Name** et **Email**.
+   2. Cliquez sur **Save Employees**.
 
-    2. Cliquez sur **Save Employees**.
-
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte utilisateur, fourni par ScreenSteps, pour approvisionner des comptes d’utilisateur AAD.
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte utilisateur, fourni par ScreenSteps, pour approvisionner des comptes d’utilisateur AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-shiftplanning-perform-the-following-steps"></a>Pour affecter des utilisateurs à ShiftPlanning, procédez comme suit :
+**Pour affecter des utilisateurs à ShiftPlanning, procédez comme suit :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
 
 2. Sur la page d’intégration d’applications **ShiftPlanning**, cliquez sur **Affecter des utilisateurs**.
@@ -174,10 +173,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
     ![Oui](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Oui")
  
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

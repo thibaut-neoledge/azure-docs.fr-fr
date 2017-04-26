@@ -1,11 +1,11 @@
 ---
-title: "Ajout de l’action HTTP dans des applications logiques | Microsoft Docs"
-description: "Vue d’ensemble de l’action HTTP et de ses propriétés"
-services: 
-documentationcenter: 
+title: Communiquer avec un point de terminaison via HTTP - Azure Logic Apps | Microsoft Docs
+description: "Créer des applications logiques qui peuvent communiquer avec n’importe quel point de terminaison via HTTP"
+services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: 
+documentationcenter: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -14,14 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
-ms.author: jehollan
+ms.author: jehollan; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
+ms.lasthandoff: 04/11/2017
 
 
 ---
 # <a name="get-started-with-the-http-action"></a>Prise en main de l’action HTTP
+
 Avec l’action HTTP, vous pouvez étendre les workflows pour votre organisation et communiquer avec n’importe quel point de terminaison par le biais de HTTP.
 
 Vous pouvez :
@@ -39,12 +41,14 @@ Voici un exemple de séquence de configuration du déclencheur HTTP dans le conc
 1. Ajoutez le déclencheur HTTP dans votre application logique.
 2. Renseignez les paramètres du point de terminaison HTTP que vous souhaitez interroger.
 3. Modifiez l’intervalle de périodicité sur la fréquence d’interrogation souhaitée.
-4. L’application logique se déclenche maintenant avec n’importe quel contenu retourné lors de chaque vérification.
 
-![Déclencheur HTTP](./media/connectors-native-http/using-trigger.png)
+   L’application logique se déclenche maintenant avec n’importe quel contenu retourné lors de chaque vérification.
+
+   ![Déclencheur HTTP](./media/connectors-native-http/using-trigger.png)
 
 ### <a name="how-the-http-trigger-works"></a>Fonctionnement du déclencheur HTTP
-Le déclencheur HTTP effectue un appel sur un point de terminaison HTTP selon un intervalle récurrent. Par défaut, tout code de réponse HTTP inférieur à 300 entraîne l’exécution d’une application logique. Vous pouvez ajouter une condition en mode Code qui évalue l’appel HTTP afin de déterminer si l’application logique doit se déclencher. Voici un exemple de déclencheur HTTP qui se déclenche chaque fois que le code d’état renvoyé est supérieur ou égal à `400`.
+
+Le déclencheur HTTP effectue un appel sur un point de terminaison HTTP selon un intervalle récurrent. Par défaut, tout code de réponse HTTP inférieur à 300 entraîne l’exécution d’une application logique. Pour spécifier si l’application logique doit se déclencher, vous pouvez modifier l’application logique en mode code et ajouter une condition qui prend une valeur donnée après l’appel HTTP. Voici un exemple de déclencheur HTTP qui se déclenche chaque fois que le code d’état renvoyé est supérieur ou égal à `400`.
 
 ```javascript
 "Http":
@@ -72,17 +76,20 @@ Le déclencheur HTTP effectue un appel sur un point de terminaison HTTP selon un
 Consultez [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger)pour obtenir des informations complètes sur les paramètres du déclencheur HTTP.
 
 ## <a name="use-the-http-action"></a>Utilisation de l’action HTTP
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](connectors-overview.md).
 
-1. Sélectionnez le bouton **Nouvelle étape** .
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de recherche Action , **http** pour répertorier l’action HTTP.
+Une action est une opération effectuée par le flux de travail défini dans une application logique. 
+[Apprenez-en davantage sur les actions](connectors-overview.md).
+
+1. Choisissez **Nouvelle étape** > **Ajouter une action**.
+3. Dans la zone de recherche Action , **http** pour répertorier les actions HTTP.
    
     ![Sélection de l’action HTTP](./media/connectors-native-http/using-action-1.png)
+
 4. Ajoutez tout paramètre nécessaire à l’appel HTTP.
    
     ![Exécution de l’action HTTP](./media/connectors-native-http/using-action-2.png)
-5. Cliquez en haut à gauche de la barre d’outils pour enregistrer. Votre application logique est maintenant en mode d’enregistrement et de publication (activation).
+
+5. Dans la barre d’outils du concepteur, cliquez sur **Enregistrer**. Votre application logique est enregistrée et publiée (activée) en même temps.
 
 ## <a name="http-trigger"></a>Déclencheur HTTP
 Voici les détails du déclencheur que ce connecteur prend en charge. Le connecteur HTTP possède un déclencheur.
@@ -132,6 +139,7 @@ La fonctionnalité Logic Apps vous permet d’utiliser différents types d’aut
 * [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
 #### <a name="basic-authentication"></a>Authentification de base
+
 L’objet d’authentification suivant est obligatoire pour l’authentification de base.
 Le symbole * désigne est un champ obligatoire.
 
@@ -142,11 +150,10 @@ Le symbole * désigne est un champ obligatoire.
 | Mot de passe* |password |Mot de passe à authentifier |
 
 > [!TIP]
-> Si vous souhaitez utiliser un mot de passe qui ne peut pas être récupéré à partir de la définition, utilisez un paramètre `securestring` et la [fonction de définition de flux de travail](http://aka.ms/logicappdocs) `@parameters()`.
-> 
-> 
+> Si vous souhaitez utiliser un mot de passe qui ne peut pas être récupéré à partir de la définition, utilisez un paramètre `securestring` et la `@parameters()` 
+> [fonction de définition de flux de travail](http://aka.ms/logicappdocs).
 
-Vous créez donc un objet comme celui-ci dans le champ d’authentification :
+Par exemple :
 
 ```javascript
 {
@@ -157,6 +164,7 @@ Vous créez donc un objet comme celui-ci dans le champ d’authentification :
 ```
 
 #### <a name="client-certificate-authentication"></a>Authentification par certificat client
+
 L’objet d’authentification suivant est requis pour l’authentification du certificat client. Le symbole * désigne est un champ obligatoire.
 
 | Nom de la propriété | Type de données | Description |
@@ -166,9 +174,8 @@ L’objet d’authentification suivant est requis pour l’authentification du c
 | Mot de passe* |password |Mot de passe d’accès au fichier PFX |
 
 > [!TIP]
-> Vous pouvez utiliser un paramètre `securestring` et la [fonction de définition de flux de travail](http://aka.ms/logicappdocs) `@parameters()` pour utiliser un paramètre qui ne sera pas lisible dans la définition après l’enregistrement de votre application logique.
-> 
-> 
+> Pour utiliser un paramètre qui ne sera pas lisible dans la définition après l’enregistrement de votre application logique, vous pouvez utiliser un paramètre `securestring` et la `@parameters()` 
+> [fonction de définition de flux de travail](http://aka.ms/logicappdocs).
 
 Par exemple :
 
@@ -187,7 +194,7 @@ L’objet d’authentification suivant est obligatoire pour l’authentification
 | --- | --- | --- |
 | Entrez* |type |Type d’authentification (doit être `ActiveDirectoryOAuth` dans le cas d’une authentification OAuth Azure AD) |
 | Locataire* |locataire |L’identifiant de locataire pour le locataire Azure AD |
-| Public ciblé* |audience |Paramètre à définir sur `https://management.core.windows.net/` |
+| Public ciblé* |audience |Ressource pour laquelle vous demandez une autorisation d’utilisation. Par exemple : `https://management.core.windows.net/` |
 | ID de client* |clientId |Identifiant client de l’application Azure AD |
 | Secret* |secret |Phrase secrète du client qui demande le jeton |
 
@@ -210,10 +217,5 @@ Par exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

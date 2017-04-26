@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les e
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>Erreurs temporaires
-Une erreur temporaire s’explique par une cause sous-jacente qui se résout d’elle-même en peu de temps. Les erreurs temporaires surviennent de temps en temps lorsque le système Azure réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. La plupart de ces événements de reconfiguration se terminent souvent en moins de 60 secondes. Durant cette reconfiguration, vous pouvez connaître des problèmes de connectivité avec Base de données SQL Azure. Les applications se connectant à la base de données SQL Azure doivent pouvoir tenir compte de ces erreurs temporaires, et les gérer en implémentant une logique de nouvelle tentative dans leur code au lieu de les exposer aux utilisateurs en cas d'erreurs d'application.
+Une erreur temporaire s’explique par une cause sous-jacente qui se résout d’elle-même en peu de temps. Les erreurs temporaires surviennent de temps en temps lorsque le système Azure réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. La plupart de ces événements de reconfiguration se terminent souvent en moins de 60 secondes. Durant cette reconfiguration, vous pouvez connaître des problèmes de connectivité avec Azure SQL Database. Les applications se connectant à Azure SQL Database doivent pouvoir tenir compte de ces erreurs temporaires, et les gérer en implémentant une logique de nouvelle tentative dans leur code au lieu de les exposer aux utilisateurs en cas d'erreurs d'application.
 
 Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException**. La propriété **Number** peut être comparée à la liste des erreurs temporaires au début de la rubrique : [Codes d’erreur SQL pour les applications clientes SQL Database](sql-database-develop-error-messages.md).
 
@@ -46,7 +46,7 @@ Vous allez réessayer la connexion SQL ou la rétablir, en fonction de ce qui su
 ### <a name="retry-logic-for-transient-errors"></a>Logique de nouvelle tentative pour les erreurs temporaires
 Les programmes clients qui rencontrent occasionnellement une erreur temporaire sont plus solides lorsqu’ils contiennent une logique de nouvelle tentative.
 
-Si votre programme communique avec Base de données SQL Azure via un intergiciel (middleware) tiers, renseignez-vous auprès du fournisseur pour savoir s’il contient une logique de nouvelle tentative pour les erreurs temporaires.
+Si votre programme communique avec Azure SQL Database via un intergiciel (middleware) tiers, renseignez-vous auprès du fournisseur pour savoir s’il contient une logique de nouvelle tentative pour les erreurs temporaires.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
@@ -152,11 +152,11 @@ Supposons que votre application possède une logique de nouvelle tentative perso
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-azure-sql-database"></a>Connexion à la base de données SQL Azure
+## <a name="connections-to-azure-sql-database"></a>Connexion à Azure SQL Database
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Connexion : chaîne de connexion
-La chaîne de connexion nécessaire à la connexion à la base de données SQL Azure est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure](https://portal.azure.com/).
+La chaîne de connexion nécessaire à la connexion à Azure SQL Database est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -167,7 +167,7 @@ Vous devez configurer le serveur de base de données SQL pour accepter les commu
 
 Si vous oubliez de configurer l’adresse IP, votre programme échouera en envoyant un message d’erreur pratique indiquant l’adresse IP nécessaire.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 Pour plus d’informations, consultez [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
@@ -186,18 +186,18 @@ Par exemple, lorsque votre programme client est hébergé sur un ordinateur Wind
 6. &gt; Actions
 7. &gt; Nouvelle règle
 
-Si votre programme client est hébergé sur une machine virtuelle Azure, consultez <br/>[Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Si votre programme client est hébergé sur une machine virtuelle Azure, consultez <br/>[Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 Pour obtenir des informations générales sur la configuration des ports et l’adresse IP, voir [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### <a name="connection-adonet-461"></a>Connexion : ADO.NET 4.6.1
-Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à la base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
+Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à Azure SQL Database, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
 
 ADO.NET 4.6.1 :
 
-* Pour la base de données SQL Azure, l’ouverture d’une connexion à l’aide de la méthode **SqlConnection.Open** garantit une meilleure fiabilité. La méthode **Open** intègre désormais de meilleurs mécanismes de nouvelle tentative en réponse à des défaillances temporaires, pour certaines erreurs se produisant avant le délai d’expiration de la connexion.
+* Pour Azure SQL Database, l’ouverture d’une connexion à l’aide de la méthode **SqlConnection.Open** garantit une meilleure fiabilité. La méthode **Open** intègre désormais de meilleurs mécanismes de nouvelle tentative en réponse à des défaillances temporaires, pour certaines erreurs se produisant avant le délai d’expiration de la connexion.
 * Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
 
 Lorsque vous utilisez un objet de connexion à partir d’un pool de connexions, nous conseillons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. La réouverture d’une connexion n’est pas aussi coûteuse que la création d’une nouvelle connexion.
@@ -212,7 +212,7 @@ Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostic : vérifier si les utilitaires peuvent se connecter
-Si votre programme ne peut pas se connecter à la base de données SQL Azure, une option de diagnostic consiste à essayer de se connecter à un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
+Si votre programme ne peut pas se connecter à Azure SQL Database, une option de diagnostic consiste à essayer de se connecter à un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
 
 Sur un ordinateur Windows, vous pouvez essayer ces utilitaires :
 
@@ -257,7 +257,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 ### <a name="diagnostics-log-your-errors"></a>Diagnostic : consignation des erreurs dans un journal
 Un problème intermittent est parfois mieux diagnostiqué par la détection d’une tendance générale observée sur plusieurs jours ou semaines.
 
-Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pourrez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par la base de données SQL Azure elle-même.
+Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pourrez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par Azure SQL Database elle-même.
 
 Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de faciliter la journalisation :
 
@@ -335,7 +335,7 @@ La logique de nouvelle tentative pour la gestion des erreurs temporaires est un 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Classes EntLib60 pour les erreurs temporaires et les nouvelles tentatives
 Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
 
-*Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
+*Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :*
 
 * **RetryPolicy** 
   

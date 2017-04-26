@@ -11,14 +11,14 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/04/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 150e8f3e186683bce735d0952adb57544505d1e9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -33,7 +33,7 @@ Le guide suivant décrit les commandes dédiées à l’automatisation de la ges
 
 ## <a name="getting-started"></a>Prise en main
 
-Suivez les instructions de la section [Install Azure CLI 2.0 (Installer Azure CLI 2.0)][install-az-cli2] afin de configurer votre environnement de développement avec Azure CLI 2.0.
+Suivez les instructions dans [Installer Azure CLI 2.0][install-az-cli2] afin de configurer votre environnement de développement avec Azure CLI 2.0.
 
 Connectez-vous à votre compte Azure en exécutant la commande suivant et en suivant la procédure s’affichant à l’écran.
 
@@ -65,7 +65,6 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,6 +92,7 @@ Exemples :
 
 ### <a name="notes"></a>Remarques
 * Les emplacements doivent correspondre à des régions dans lesquelles DocumentDB est généralement disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
+* Pour activer l’accès au portail, incluez l’adresse IP du portail Azure pour votre région dans le filtre de plages d’adresses IP (ip-range-filter), comme spécifié dans [Configuration de la stratégie de contrôle d’accès IP](documentdb-firewall-support.md#configure-ip-policy).
 
 ## <a id="update-documentdb-account-cli"></a> Mettre à jour un compte de base de données DocumentDB
 
@@ -180,6 +180,20 @@ Arguments
 Exemple :
 
     az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> Lister les chaînes de connexion
+
+Pour les comptes MongoDB, vous pouvez récupérer la chaîne de connexion pour connecter votre application MongoDB au compte de base de données à l’aide de la commande suivante.
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+Exemple :
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> Régénérer la clé de compte
 
