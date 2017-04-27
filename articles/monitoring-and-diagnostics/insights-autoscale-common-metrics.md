@@ -171,7 +171,7 @@ Par exemple, avec un compte de stockage classique, le paramètre de mise à l’
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
- "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+ "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Pour un compte de stockage (non classique), le paramètre metricTrigger peut inclure :
@@ -179,7 +179,7 @@ Pour un compte de stockage (non classique), le paramètre metricTrigger peut inc
 ```
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métriques Service Bus généralement utilisées
@@ -190,7 +190,7 @@ Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre �
 ```
 "metricName": "MessageCount",
  "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```
 
 > [!NOTE]

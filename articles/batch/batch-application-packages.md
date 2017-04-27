@@ -202,7 +202,7 @@ Dans Batch .NET, spécifiez une ou plusieurs propriétés [CloudPool][net_cloudp
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
-        targetDedicated: "1",
+        targetDedicated: 1,
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
