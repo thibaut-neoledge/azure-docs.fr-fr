@@ -24,6 +24,7 @@ ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
+
 Vous pouvez parfois être amené à vouloir configurer des fichiers de configuration, notamment :
 
 * clusterIdentity.xml
@@ -139,7 +140,7 @@ Vous pouvez utiliser bootstrap dans le modèle Resource Manager :
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 

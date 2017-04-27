@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
 ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -236,7 +237,7 @@ Une fois le déploiement de votre application Web terminé, fermez les sessions
 
 Lorsque vous avez terminé d’utiliser votre application ACS Hello World, n’oubliez pas de supprimer le déploiement (procédure décrite dans la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) ).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>Étapes suivantes
+## <a name="next_steps"></a>Étapes suivantes
 Pour étudier les données SAML (Security Assertion Markup Language) renvoyées par ACS vers votre application, consultez la rubrique [Affichage des données SAML renvoyées par ACS][How to view SAML returned by the Azure Access Control Service]. Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
 Cet exemple utilisait l'option **Embed the certificate in the WAR file**. qui simplifie le déploiement du certificat. Si vous préférez maintenir le certificat de signature séparé du fichier WAR, vous pouvez utiliser la technique suivante :
@@ -296,10 +297,5 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

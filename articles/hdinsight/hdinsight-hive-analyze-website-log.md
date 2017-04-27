@@ -56,7 +56,7 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive avec HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -102,10 +103,5 @@ Si vous avez acheté le domaine personnalisé à partir du panneau **Domaines pe
 * Le panneau **Domaines personnalisés et SSL** que vous consultez appartient peut-être à une application créée dans un autre abonnement Azure. Basculez vers une autre application dans un autre abonnement et vérifiez le panneau **Domaines personnalisés et SSL**.  
     Dans le portail, vous ne pourrez pas voir ni gérer les domaines personnalisés créés dans un abonnement Azure différent de celui lié à l’application. Toutefois, si vous cliquez sur **Gestion avancée** dans le panneau **Gérer le domaine** du domaine, vous êtes redirigé vers le site web du fournisseur de domaine, où vous pouvez   [configurer manuellement votre domaine personnalisé comme n’importe quel domaine personnalisé externe](web-sites-custom-domain-name.md) 
    pour les applications créées dans un autre abonnement Azure. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
