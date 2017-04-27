@@ -1,6 +1,8 @@
 # Vue d'ensemble
 ## [Présentation d’Azure DNS](dns-overview.md)
 ## [Enregistrements et zones DNS](dns-zones-records.md)
+## [Délégation DNS avec Azure DNS](dns-domain-delegation.md)
+## [FAQ DNS](dns-faq.md)
 
 # Prise en main
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Déléguer votre domaine à Azure DNS](dns-domain-delegation.md)
+## [Déléguer votre domaine à Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Créer des enregistrements DNS personnalisés pour une application web](dns-web-sites-custom-domain.md)
 
 # Procédures

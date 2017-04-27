@@ -8,17 +8,18 @@
 ## [Voir une présentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Prise en main
-## [Répliquer des machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
-## [Répliquer des machines virtuelles VMware dans Azure dans le cadre d’un déploiement mutualisé (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Réplication de machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
+## [Répliquer des serveurs physiques dans Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Répliquer des machines virtuelles Hyper-V dans Azure (avec VMM)](site-recovery-vmm-to-azure.md)
 ## [Réplication de machines virtuelles Hyper-V dans Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
 ## [Répliquer des machines virtuelles Hyper-V vers un site secondaire (avec VMM)](site-recovery-vmm-to-vmm.md)
+## [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
+## [Répliquer des machines virtuelles VMware dans Azure dans le cadre d’un déploiement mutualisé (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Procédure
 ## Planification
 ### [Conditions préalables au déploiement](site-recovery-prereq.md)
-### [Considérations sur l’infrastructure réseau](site-recovery-network-design.md)
+### [Planifier l’infrastructure réseau](site-recovery-network-design.md)
 ### [Planifier la capacité et mettre à l’échelle la réplication VMware dans Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner pour la réplication de VMware vers Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pour la réplication Hyper-V](site-recovery-capacity-planner.md)

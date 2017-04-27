@@ -1,6 +1,6 @@
 ---
-title: "Documentation sur la Place de marché Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux. Didacticiels, références d’API et autres documents."
+title: "Documentation sur la Place de marché Azure | Microsoft Docs"
+description: "En savoir plus sur la Place de marché Azure."
 services: marketplace
 author: carolz
 manager: carolz
@@ -13,14 +13,14 @@ ms.topic: landing-page
 ms.date: 04/14/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: fc1bb285fbec529724345d3974e42837a3d79114
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 6dca59ddd5fe524b7778abe770b6387f8bb24f01
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="azure-marketplace-documentation"></a>Documentation sur la Place de marché Azure
 
-Découvrez la Place de marché Azure, un marché en ligne d’applications et de services qui permet aux éditeurs de logiciels indépendants appartenant à des startups ou à des entreprises de proposer leurs solutions aux clients Azure partout dans le monde.
+Découvrez la Place de marché Azure, un marché en ligne d’applications et de services qui permet aux éditeurs de logiciels indépendants appartenant à des startups ou à des entreprises de proposer leurs solutions aux clients partout dans le monde.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Découvrez la Place de marché Azure, un marché en ligne d’applications et de
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/seller-guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +48,7 @@ Découvrez la Place de marché Azure, un marché en ligne d’applications et de
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

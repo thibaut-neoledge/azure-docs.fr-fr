@@ -105,6 +105,7 @@
 ### [Configurer des stratégies Hive](hdinsight-domain-joined-run-hive.md)
 ## Utiliser Kafka (version préliminaire)
 ### [Répliquer les données Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Utiliser avec les réseaux virtuels](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Utiliser avec Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Utiliser avec Storm](hdinsight-apache-storm-with-kafka.md)
 ## Développement

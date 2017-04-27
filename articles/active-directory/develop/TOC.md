@@ -1,10 +1,11 @@
 # Vue d'ensemble
+## [Intégrer à Azure AD](active-directory-how-to-integrate.md)
 ## [Guide du développeur](active-directory-developers-guide.md)
 ## [Applications et Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Glossaire à l’intention des développeurs](active-directory-dev-glossary.md)
-## [API Graph AAD](active-directory-graph-api.md)
+## [API Graph Azure AD](active-directory-graph-api.md)
 # Démarrages rapides
-## [Obtenir un locataire AAD](active-directory-howto-tenant.md)
+## [Obtention d’un client Azure AD](active-directory-howto-tenant.md)
 ## [Intégration d’applications avec AAD](active-directory-integrating-applications.md)
 ## Applications mobiles et PC
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## API Web
 ### [API web et .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [API Graph AAD](active-directory-graph-api-quickstart.md)
+## [API Graph Azure AD](active-directory-graph-api-quickstart.md)
 # Guides
-## [Modèles d’authentification](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Modèles d’authentification](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Application natives](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Applications Web](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [API Web](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocole SAML de déconnexion unique](active-directory-single-sign-out-protocol-reference.md)
 ## Utilisation de Visual Studio
-### [Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC.md)](vs-active-directory-dotnet-getting-started.md)
+### [Prise en main des services connectés Visual Studio (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Erreur lors de la détection de l'authentification](vs-active-directory-error.md)
 ### [Prise en main de WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Qu’est-il arrivé à mon projet d’API web ?](vs-active-directory-webapi-what-happened.md)

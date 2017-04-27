@@ -1,10 +1,9 @@
 # Vue d'ensemble
 ## [Présentation du service Azure Data Factory](data-factory-introduction.md)
 ## Concepts
-### [Groupes de données](data-factory-create-datasets.md)
 ### [Pipelines et activités](data-factory-create-pipelines.md)
+### [Groupes de données](data-factory-create-datasets.md)
 ### [Planification et exécution](data-factory-scheduling-and-execution.md)
-### [Services liés de calcul](data-factory-compute-linked-services.md)
 
 # Prise en main
 ## [Didacticiel : Créer un pipeline pour copier des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,7 +20,8 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 ### [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
-## [FAQ](data-factory-faq.md)
+## [Didacticiel : Déplacer des données entre un emplacement local et le cloud](data-factory-move-data-between-onprem-and-cloud.md)
+## [FORUM AUX QUESTIONS](data-factory-faq.md)
 
 # Procédure
 ## Déplacer des données
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Table web](data-factory-web-table-connector.md)
 ### [Passerelle de gestion de données](data-factory-data-management-gateway.md)
-### [Déplacer des données entre un emplacement local et le cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Transformer les données](data-factory-data-transformation-activities.md)
 ### [Activité Hive HDInsight](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 ### [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Retraiter les modèles dans Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Services liés de calcul](data-factory-compute-linked-services.md)
 
 ## Développement
 ### [Modèle Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

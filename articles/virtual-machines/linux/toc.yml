@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Créer une machine virtuelle - PowerShell"
     href: quick-create-powershell.md
+- name: "Didacticiels"
+  items:
+  - name: "1 - Créer/gérer des machines virtuelles"
+    href: tutorial-manage-vm.md
+  - name: "2 - Créer/gérer des disques"
+    href: tutorial-manage-disks.md
+  - name: "3 - Automatiser la configuration"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Créer des images de machine virtuelle"
+    href: tutorial-custom-images.md
+  - name: "5 - Machines virtuelles hautement disponibles"
+    href: tutorial-availability-sets.md
+  - name: "6 - Créer un groupe de machines virtuelles identiques"
+    href: tutorial-create-vmss.md
+  - name: "7 - Équilibrer la charge des machines virtuelles"
+    href: tutorial-load-balancer.md
+  - name: "8 - Gérer la mise en réseau"
+    href: tutorial-virtual-network.md
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Didacticiels"
-  items:
-  - name: "Créer et gérer une machine virtuelle"
-    href: tutorial-manage-vm.md
-  - name: "Équilibrer la charge des machines virtuelles hautement disponibles"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Créer un groupe de machines virtuelles identiques"
-    href: tutorial-create-vmss.md
 - name: "Concepts"
   items:
   - name: "Distributions prises en charge par Azure"

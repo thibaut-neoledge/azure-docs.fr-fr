@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: "Ruby"
       href: sql-database-connect-query-ruby.md
+- name: "Didacticiels"
+  items:
+  - name: "1 - Créer/concevoir une base de données SQL"
+    href: sql-database-design-first-database.md
+  - name: "2 - Migrer un serveur SQL existant"
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"
     href: sql-database-cli-samples.md
   - name: "PowerShell"
     href: sql-database-powershell-samples.md
-- name: "Didacticiels"
-  items:
-  - name: "Concevoir une base de données"
-    href: sql-database-design-first-database.md
-  - name: "Migrer une base de données"
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: "Concepts"
   items:
   - name: "Bases de données et serveurs"
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: "Pools élastiques"
       href: sql-database-elastic-pool.md
-    - name: "Utiliser le pool élastique ?"
-      href: sql-database-elastic-pool-guidance.md
   - name: "les ressources"
     items:
     - name: "Niveaux de service"

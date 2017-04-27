@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Créer un site HTML statique"
     href: app-service-web-get-started-html.md
+- name: "Didacticiels"
+  items:
+  - name: "1 - .NET avec SQL DB"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1 - Node.js avec MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2 - Mapper un domaine personnalisé"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3 - Lier un certificat SSL"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Didacticiels"
-  items:
-  - name: ".NET avec SQL Database"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "Node.js avec MongoDB"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Concepts"
   items:
   - name: "Fonctionnement d’App Service"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Attribuer un certificat SSL personnalisé"
       items:
-      - name: "Acheter un certificat SSL"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Configurer un certificat SSL tiers"
         href: web-sites-configure-ssl-certificate.md
     - name: "Appliquer le protocole HTTPS"

@@ -79,7 +79,8 @@
 #### [Domaines personnalisés avec Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Cloner une application existante](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Connexions locales](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Connexions hybrides](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Connexions hybrides v2](app-service-hybrid-connections.md)
 ### [Réseau virtuel Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Configuration avancée](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Groupes de ressources](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)

@@ -10,6 +10,12 @@
 ## [Créer votre premier modèle](resource-manager-create-first-template.md)
 ## [Visual Studio avec Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Exemples
+## PowerShell
+### [Déployer un modèle](resource-manager-samples-powershell-deploy.md)
+## Interface de ligne de commande Azure
+### [Déployer un modèle](resource-manager-samples-cli-deploy.md)
+
 # Procédures
 ## Créer des modèles
 ### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Partager l’état entre les modèles liés](best-practices-resource-manager-state.md)
 ### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
 ## Déployer
-### [PowerShell](resource-group-template-deploy.md)
-### [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Déployer un modèle](resource-group-template-deploy.md)
+#### [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md)
+### Interface de ligne de commande Azure
+#### [Déployer un modèle](resource-group-template-deploy-cli.md)
+#### [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md)
 ### [Portail](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
