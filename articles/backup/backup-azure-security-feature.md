@@ -1,5 +1,5 @@
 ---
-title: "Fonctionnalités de sécurité pour la protection des sauvegardes hybrides à l’aide de la Sauvegarde Azure | Documents Docs"
+title: "Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure | Microsoft Docs"
 description: "Découvrez comment utiliser les fonctionnalités de sécurité dans la Sauvegarde Azure pour renforcer la sécurité des sauvegardes"
 services: backup
 documentationcenter: 
@@ -15,105 +15,101 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 5c49de40401235d38142efd60d22b0591752fe75
-ms.openlocfilehash: f17802bf455b82f0b5239356c35024ecde7f1f35
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 41a7024b51bc7a3c9cf34dba97255ea61fd27924
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="security-features-for-protecting-hybrid-backups-using-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides à l’aide de la Sauvegarde Azure
-De plus en plus de clients sont confrontés à des problèmes de sécurité tels que les programmes malveillants, le ransomware, l’intrusion, etc. Ces problèmes de sécurité entraînent une perte de données et le coût des failles de sécurité ne cesse d’augmenter. Pour vous protéger contre ces attaques, la Sauvegarde Azure fournit désormais des fonctionnalités de sécurité pour protéger les sauvegardes hybrides. Cet article explique comment activer et tirer parti de ces fonctionnalités à l’aide de l’Agent Microsoft Azure Recovery Services et du serveur de sauvegarde Microsoft Azure. Ces fonctionnalités sont basées sur trois piliers de la sécurité :
+# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
+Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, la Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les sauvegardes hybrides. Cet article explique comment activer et utiliser ces fonctionnalités par le biais d’un agent Azure Recovery Services et du serveur de sauvegarde Azure. Voici quelques fonctionnalités :
 
-1. **Prévention** : une couche supplémentaire d’authentification est ajoutée à chaque fois qu’une opération critique (par ex. Modifier la phrase secrète) est effectuée. Cette validation permet de garantir que ces opérations ne peuvent être effectuées que par les utilisateurs ayant des informations d’identification Azure valides.
-2. **Alertes** : un e-mail de notification est envoyé à l’administrateur de l’abonnement à chaque fois qu’une opération critique (par ex. Supprimer les données de sauvegarde) est effectuée. Cet e-mail garantit que l’utilisateur est averti de ces actions en temps voulu.
-3. **Récupération** : les données de sauvegarde supprimées sont conservées pendant 14 jours supplémentaires à compter de la date de suppression. Ceci garantit que les données peuvent être récupérées dans un délai donné, afin d’éviter toute perte de données, même en cas d’attaque. En outre, les points de récupération minimum sont conservés en plus grand nombre pour offrir une protection contre les données corrompues.
+- **Prévention**. Une couche supplémentaire d’authentification est ajoutée à chaque fois qu’une opération critique (par exemple, Modifier la phrase secrète) est effectuée. Cette validation permet de garantir que ces opérations ne peuvent être effectuées que par les utilisateurs ayant des informations d’identification Azure valides.
+- **Alertes**. Un e-mail de notification est envoyé à l’administrateur de l’abonnement à chaque fois qu’une opération critique (par exemple, Supprimer les données de sauvegarde) est effectuée. Ce courrier électronique garantit que l’utilisateur est rapidement averti de ces actions.
+- **Récupération**. Les données de sauvegarde supprimées sont conservées pendant 14 jours supplémentaires à compter de la date de suppression. Cela garantit que les données peuvent être récupérées dans un délai donné afin d’éviter toute perte de données, même en cas d’attaque. En outre, les points de récupération minimum sont conservés en plus grand nombre pour offrir une protection contre les données corrompues.
 
 > [!NOTE]
-> Vous ne devez activer les fonctionnalités de sécurité que si vous utilisez : <br/>
-> * **Agent MAB** : version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez mettre à niveau vers cette version de l’agent pour effectuer des opérations critiques comme Modifier la phrase secrète, Arrêter la sauvegarde avec suppression des données. <br/>
-> * **Serveur de sauvegarde Azure** : version minimale de l’agent MAB 2.0.9052 avec le serveur de sauvegarde Azure Mise à jour 1. <br/>
-> * **DPM** : version minimale de l’agent MAB 2.0.9052 avec DPM 2012 R2 UR12 ou DPM 2016 UR2. <br/>
-> * **Sauvegarde de machine virtuelle IaaS** : n’activez pas ces fonctionnalités pour la sauvegarde de machine virtuelle IaaS. Ces fonctionnalités ne sont pas encore disponibles pour la sauvegarde de machine virtuelle IaaS, donc leur activation n’aura aucun impact sur la sauvegarde de machine virtuelle IaaS.
-> * Ces fonctionnalités ne sont disponibles que pour le coffre Recovery Services.
-> * Tous les coffres Recovery Services nouvellement créés ont ces fonctionnalités activées par défaut. Pour les coffres Recovery Services existants, les utilisateurs doivent activer ces fonctionnalités à l’aide des étapes mentionnées dans la section ci-dessous.
-> * Une fois activées, les fonctionnalités de sécurité sont disponibles pour toutes les machines de l’Agent Azure Recovery Services (MARS), les serveurs de sauvegarde Azure et les serveurs DPM inscrits auprès du coffre. <br/>
-> * L’activation de ce paramètre ne s’effectue qu’une seule fois et vous ne pouvez pas désactiver ces fonctionnalités après leur activation. <br/>
->
+> Les fonctionnalités de sécurité ne doivent pas être activées si vous utilisez une sauvegarde de machine virtuelle IaaS (Infrastructure en tant que service). Ces fonctionnalités ne sont pas encore disponibles pour la sauvegarde de machine virtuelle IaaS, donc leur activation n’aura aucun impact. Vous ne devez activer les fonctionnalités de sécurité que si vous utilisez : <br/>
+>  * **Agent Azure Backup**. Version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez effectuer une mise à niveau vers cette version de l’agent pour effectuer des opérations critiques. <br/>
+>  * **Serveur de sauvegarde Azure**. Version minimale de l’agent Azure Backup 2.0.9052 avec la mise à jour 1 du serveur de sauvegarde Azure. <br/>
+>  * **System Center Data Protection Manager**. Version minimale de l’agent Azure Backup version 2.0.9052 avec Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/> 
+
+
+> [!NOTE]
+> Ces fonctionnalités ne sont disponibles que pour le coffre Recovery Services. Tous les coffres Recovery Services nouvellement créés ont ces fonctionnalités activées par défaut. Pour les coffres Recovery Services existants, les utilisateurs activent ces fonctionnalités en suivant les étapes mentionnées dans la section ci-dessous. Une fois les fonctionnalités activées, elles s’appliquent à l’ensemble des ordinateurs agents Recovery Services, instances de serveur de sauvegarde Azure, et serveurs Data Protection Manager inscrits avec le coffre. L’activation de ce paramètre ne s’effectue qu’une seule fois et il est impossible de désactiver ces fonctionnalités après leur activation.
 >
 
-## <a name="enabling-security-features"></a>Activation des fonctionnalités de sécurité
-Les utilisateurs qui créent un coffre Recovery Services peuvent profiter de toutes les fonctionnalités de sécurité. Pour les coffres Recovery Services existants, utilisez la procédure suivante pour activer ces fonctionnalités :
+## <a name="enable-security-features"></a>Activer les fonctionnalités de sécurité
+Si vous créez un coffre Recovery Services, vous pouvez utiliser toutes les fonctionnalités de sécurité. Si vous utilisez un coffre existant, activez les fonctionnalités de sécurité en procédant comme suit :
 
-1. Connectez-vous au portail Azure à l’aide des informations d’identification Azure
-2. Tapez Recovery Services dans le menu Hub pour accéder à la liste des services de récupération.
+1. Connectez-vous au portail Azure à l’aide de vos informations d’identification Azure.
+2. Sélectionnez **Parcourir**, puis entrez **Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Capture d’écran de l’option Parcourir du portail Azure](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    La liste des coffres Recovery Services s’affiche. Dans cette liste, sélectionnez un coffre.
+    La liste des coffres Recovery Services s’affiche. Dans cette liste, sélectionnez un coffre. Le tableau de bord de l’archivage sélectionné s'ouvre.
+3. Dans la liste d’éléments qui s’affiche sous le coffre, sous **Paramètres**, cliquez sur **Propriétés**.
 
-    Le tableau de bord de l’archivage sélectionné s'ouvre.
-3. Dans la liste d’éléments qui s’affiche sous le coffre, cliquez sur **Propriétés** sous **Paramètres**.
+    ![Capture d’écran des options de coffre Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
+4. Sous **Paramètres de sécurité**, cliquez sur **Mettre à jour**.
 
-    ![Ouverture des propriétés du coffre](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Cliquez sur **Mettre à jour** sous **Paramètres de sécurité**.
+    ![Capture d’écran des propriétés de coffre Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
-    ![Ouverture des paramètres de sécurité](./media/backup-azure-security-feature/security-settings-update.png)
+    Le lien de mise à jour ouvre le panneau **Paramètres de sécurité**, ce qui vous permet de découvrir une courte présentation de ces fonctionnalités et d’activer ces dernières.
+5. Dans la liste déroulante **Avez-vous configuré Azure Multi-Factor Authentication ?**, sélectionnez une valeur pour confirmer si vous avez activé [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si tel est le cas, vous êtes invité à vous authentifier à partir d’un autre appareil (par exemple, un téléphone mobile) lors de votre connexion au portail Azure.
 
-    Le lien Mettre à jour ouvre le panneau Paramètres de sécurité, ce qui vous permet d’activer ces fonctionnalités et d’en obtenir une courte présentation.
-5. Sélectionnez une valeur dans la liste déroulante **Avez-vous configuré Azure Multi-Factor Authentication ?** pour confirmer si vous avez activé [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si tel est le cas, vous êtes invité à vous authentifier à partir d’un autre appareil (par exemple, un téléphone mobile) lors de votre connexion au portail Azure.
+   Lorsque vous effectuez des opérations critiques dans la sauvegarde, vous devez entrer un code PIN de sécurité, disponible sur le portail Azure. L’activation de la fonctionnalité Azure Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
+6. Pour enregistrer les paramètres de sécurité, sélectionnez **Activer**, puis cliquez sur **Enregistrer**. Vous pouvez sélectionner **Activer** uniquement après avoir sélectionné une valeur dans la liste **Avez-vous configuré Azure Multi-Factor Authentication ?** à l’étape précédente.
 
-   Dans le cadre des fonctionnalités de sécurité, lorsque des opérations critiques sont exécutées dans la Sauvegarde Azure, vous devez entrer un code PIN de sécurité disponible sur le portail Azure. L’activation d’Azure Multi-Factor Authentication ajoute une couche de sécurité supplémentaire, garantissant ainsi que seuls les utilisateurs autorisés avec des informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure et exécuter des opérations critiques.
-6. Utilisez le bouton bascule **Activer** et cliquez sur **Enregistrer** en haut de la page pour enregistrer les paramètres de sécurité, comme illustré dans la figure. Vous ne pouvez sélectionner **Activer** que si vous avez sélectionné une valeur dans la liste « Avez-vous configuré Azure Multi-Factor Authentication ? » .
+    ![Capture d’écran des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
-    ![Activation des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+## <a name="recover-deleted-backup-data"></a>Récupérer les données de sauvegarde supprimées
+La sauvegarde conserve les données de sauvegarde supprimées pendant 14 jours supplémentaires et ne les supprime pas immédiatement si l’opération **Arrêter la sauvegarde avec suppression des données de sauvegarde** est effectuée. Pour restaurer ces données dans la période de 14 jours autorisée, procédez comme suit, selon ce que vous utilisez :
 
-## <a name="recovering-deleted-backup-data"></a>Récupération de données de sauvegarde supprimées
-Par mesure de sécurité, la Sauvegarde Azure conserve les données de sauvegarde supprimées pendant 14 jours supplémentaires et ne les supprime pas immédiatement si l’opération Arrêter la sauvegarde avec suppression des données de sauvegarde est effectuée. Pour restaurer ces données dans le délai de 14 jours, procédez comme suit :
+Pour les utilisateurs de l’**agent Azure Recovery Services** :
 
-Pour les utilisateurs **Agent Microsoft Recovery Services (MARS)** :
-
-1. Si l’ordinateur sur lequel les sauvegardes étaient effectuées est toujours disponible, utilisez [Récupération des données sur le même ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) dans l’Agent Microsoft Recovery Services (MARS) pour effectuer la récupération à partir de tous les anciens points de récupération.
-2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Récupération sur un autre ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) pour utiliser un autre ordinateur Agent Microsoft Recovery Services (MARS) afin d’obtenir ces données.
+1. Si l’ordinateur sur lequel les sauvegardes étaient effectuées est toujours disponible, utilisez [Récupération des données sur le même ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) dans Azure Recovery Services pour effectuer la récupération à partir de tous les anciens points de récupération.
+2. Si l’ordinateur n’est pas disponible, utilisez [Récupération sur un autre ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) pour utiliser un autre ordinateur Azure Recovery Services afin d’obtenir ces données.
 
 Pour les utilisateurs **Serveur de sauvegarde Azure** :
 
-1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité Récupérer les données pour effectuer la récupération à partir de tous les anciens points de récupération.
-2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Récupérer les données à partir d’un autre serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser un autre serveur de sauvegarde Azure afin d’obtenir ces données.
+1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité **Récupérer les données** pour effectuer la récupération à partir de tous les anciens points de récupération.
+2. Si le serveur n’est pas disponible, utilisez [Récupérer les données à partir d’un autre serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser une autre instance de serveur de sauvegarde Azure afin d’obtenir ces données.
 
-Pour les utilisateurs de **Data Protection Manager (DPM)** :
+Pour les utilisateurs de **Data Protection Manager** :
 
-1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité Récupérer les données pour effectuer la récupération à partir de tous les anciens points de récupération.
-2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Ajouter un serveur DPM externe](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser un autre serveur DPM afin d’obtenir ces données.
+1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité **Récupérer les données** pour effectuer la récupération à partir de tous les anciens points de récupération.
+2. Si le serveur n’est pas disponible, utilisez [Ajouter un serveur DPM externe](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser un autre serveur Data Protection Manager afin d’obtenir ces données.
 
-## <a name="preventing-attacks"></a>Prévention des attaques
-Dans le cadre de cette fonctionnalité, des vérifications ont été ajoutées pour s’assurer que seuls les utilisateurs valides peuvent effectuer diverses opérations.
+## <a name="prevent-attacks"></a>Empêcher les attaques
+Des vérifications ont été ajoutées pour que seuls les utilisateurs valides puissent effectuer diverses opérations. Ces vérifications incluent l’ajout d’une couche d’authentification et la conservation d’une durée de rétention minimale pour la récupération.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Authentification pour exécuter des opérations critiques
-Dans le cadre de l’ajout d’une couche supplémentaire d’authentification pour les opérations critiques, vous êtes invité à entrer le code PIN de sécurité lors de l’exécution de l’action Arrêter la protection avec les opérations Supprimer les données et Modifier la phrase secrète.
+Dans le cadre de l’ajout d’une couche d’authentification pour les opérations critiques, vous êtes invité à entrer un code PIN de sécurité lors de l’exécution des actions **Arrêter la protection avec les opérations Supprimer les données** et **Modifier la phrase secrète**.
 
-Pour recevoir le code PIN de sécurité, procédez comme suit :
+Pour recevoir ce code PIN :
 
 1. Connectez-vous au portail Azure.
-2. Accédez à Coffre Recovery Services > Paramètres > Propriétés.
-3. Cliquez sur **Générer** sous Code PIN de sécurité. Le lien Générer ouvre un panneau qui contient le code PIN de sécurité à saisir dans l’interface utilisateur de l’Agent Azure Recovery Services.
-    Ce code PIN n’est valide que pendant 5 minutes, après quoi il est généré automatiquement.
+2. Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
+3. Sous **Code PIN de sécurité**, cliquez sur **Générer**. Un panneau contenant le code PIN à entrer dans l’interface utilisateur de l’agent Azure Recovery Services s’ouvre.
+    Ce code PIN n’est valide que pendant cinq minutes, après quoi il est généré automatiquement.
 
-### <a name="maintaining-minimum-retention-range"></a>Maintien de la plage de rétention minimale
-Les vérifications suivantes ont été ajoutées pour s’assurer qu’il existe toujours un nombre valide de points de récupération disponibles :
+### <a name="maintain-a-minimum-retention-range"></a>Maintenir la durée de rétention minimale
+Les vérifications suivantes ont été ajoutées pour garantir qu’il existe toujours un nombre valide de points de récupération disponibles :
 
-1. Pour une rétention quotidienne, une rétention de **sept** jours minimum doit être appliquée
-2. Pour une rétention hebdomadaire, une rétention de **quatre** semaines minimum doit être appliquée
-3. Pour une rétention mensuelle, une rétention de **trois** mois minimum doit être appliquée
-4. Pour une rétention annuelle, une rétention d’**un** an minimum doit être appliquée
+- Pour une rétention quotidienne, une rétention de **sept** jours minimum doit être appliquée.
+- Pour une rétention hebdomadaire, une rétention de **quatre** semaines minimum doit être appliquée.
+- Pour une rétention mensuelle, une rétention de **trois** mois minimum doit être appliquée.
+- Pour une rétention annuelle, une rétention d’**un** an minimum doit être appliquée.
 
 ## <a name="notifications-for-critical-operations"></a>Notifications pour les opérations critiques
-Lorsque certaines opérations critiques sont effectuées, l’administrateur de l’abonnement reçoit un e-mail de notification contenant les détails de l’opération. Si vous souhaitez configurer des adresses de messagerie supplémentaires pour la réception des notifications, vous pouvez utiliser le portail Azure.
+Généralement, lorsqu’une opération critique est effectuée, l’administrateur de l’abonnement reçoit une notification électronique contenant les détails de l’opération. Vous pouvez configurer les autres destinataires de ces notifications électroniques sur le portail Azure.
 
-Les fonctionnalités de sécurité mentionnées dans cet article fournissent des mécanismes de défense contre les attaques ciblées empêchant ainsi les pirates d’atteindre les sauvegardes. Plus important encore, ces fonctionnalités permettent de récupérer les données si une attaque se produit malgré tout.
+Les fonctionnalités de sécurité mentionnées dans cet article fournissent des mécanismes de défense contre les attaques ciblées. Et surtout, en cas d’attaque, ces fonctionnalités vous permettent de récupérer vos données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Bien démarrer avec le coffre Azure Recovery Services](backup-azure-vms-first-look-arm.md) pour activer ces fonctionnalités
-* [Télécharger le dernier Agent Azure Recovery Services](http://aka.ms/azurebackup_agent) pour protéger les ordinateurs Windows et protéger vos données de sauvegarde contre les attaques
-* [Télécharger le dernier serveur de sauvegarde Azure](https://aka.ms/latest_azurebackupserver) pour protéger les charges de travail et protéger vos données de sauvegarde contre les attaques
-* [Téléchargez UR12 pour System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [téléchargez UR2 pour System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) pour protéger les charges de travail et vos données de sauvegarde contre les attaques
+* [Bien démarrer avec le coffre Azure Recovery Services](backup-azure-vms-first-look-arm.md) pour activer ces fonctionnalités.
+* [Téléchargez le dernier Agent Azure Recovery Services](http://aka.ms/azurebackup_agent) pour protéger les ordinateurs Windows, ainsi que vos données de sauvegarde contre les attaques.
+* [Téléchargez le dernier serveur de sauvegarde Azure](https://aka.ms/latest_azurebackupserver) pour protéger les charges de travail, ainsi que vos données de sauvegarde contre les attaques.
+* [Téléchargez UR12 pour System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [téléchargez UR2 pour System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) pour protéger les charges de travail et vos données de sauvegarde contre les attaques.
 

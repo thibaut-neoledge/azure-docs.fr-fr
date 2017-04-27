@@ -4,7 +4,7 @@ description: "Activez la recherche de l’analyse du trafic pour Azure Search, u
 services: search
 documentationcenter: 
 author: bernitorres
-manager: pablocas
+manager: jlembicz
 editor: 
 ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
@@ -12,235 +12,188 @@ ms.devlang: multiple
 ms.workload: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/22/2017
+ms.date: 04/05/2017
 ms.author: betorres
 translationtype: Human Translation
-ms.sourcegitcommit: cdcf121e52eaf6a1fc45194b7a4f5a02e9e5c001
-ms.openlocfilehash: f6b354caf37f94906865b5a2f334e2b7a02f9d5b
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
+ms.lasthandoff: 04/07/2017
 
 ---
 
-# <a name="enabling-and-using-search-traffic-analytics"></a>Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic
-La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. Lorsque vous activez cette fonctionnalité, vos données de service de recherche sont copiées vers le compte de stockage de votre choix. Ces données incluent vos journaux du service de recherche et les mesures opérationnelles agrégées que vous pouvez traiter et manipuler pour une analyse plus poussée.
+# <a name="what-is-search-traffic-analytics"></a>Présentation de la recherche de l’analyse du trafic
+La recherche de l’analyse du trafic est un modèle qui implémente une boucle de rétroaction pour votre service de recherche. Ce modèle décrit les données nécessaires et la manière de les collecter à l’aide d’Application Insights, l’un des leaders du secteur dans le domaine de la surveillance de services multi-plateforme.
 
-## <a name="how-to-enable-search-traffic-analytics"></a>Activation de la fonctionnalité Rechercher l’analyse du trafic
-Vous aurez besoin d’un compte de stockage situé dans la même région et le même abonnement que votre service de recherche.
+La recherche de l’analyse du trafic vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. En recueillant des données sur les choix de vos utilisateurs, vous êtes en mesure de prendre des décisions qui améliorent votre expérience de recherche et de vous interrompre lorsque les résultats ne répondent pas à vos attentes.
 
-> [!IMPORTANT]
-> Des frais standard s’appliquent à ce compte de stockage.
+La Recherche Azure offre une solution de télémétrie qui intègre Azure Application Insights et Power BI pour assurer une surveillance et un suivi approfondis. Étant donné que l’interaction avec Azure Search passe uniquement par les API, la télémétrie doit être implémentée par les développeurs à l’aide de la recherche, en suivant les instructions contenues sur cette page.
+
+## <a name="identify-the-relevant-search-data"></a>Identifier les données de recherche pertinentes
+
+Pour disposer de mesures de recherche utiles, il est nécessaire de consigner quelques signaux provenant des utilisateurs de l’application de recherche. Ces signaux indiquent le contenu qui intéresse les utilisateurs et qu’ils estiment répondre à leurs besoins.
+
+La fonctionnalité Rechercher l’analyse du trafic repose sur deux signaux :
+
+1. Événements de recherche générés par l’utilisateur : ce signal se concentre uniquement sur les requêtes de recherche lancées par un utilisateur. Les requêtes de recherche utilisées pour remplir des facettes, du contenu supplémentaire ou des informations internes ne sont pas importantes ; elles ont également tendance à biaiser vos résultats.
+
+2. Événements de clic générés par l’utilisateur : dans ce document, le terme « clic»  fait référence à un utilisateur qui sélectionne un résultat de recherche spécifique renvoyé à partir d’une requête de recherche. Un clic signifie généralement qu’un document est un résultat pertinent pour une requête de recherche spécifique.
+
+En liant la recherche et les événements de clic par un ID de corrélation, il est possible d’analyser les comportements des utilisateurs de votre application. Il est impossible d’obtenir ces informations de recherche en se basant uniquement sur les journaux de trafic de recherche.
+
+## <a name="how-to-implement-search-traffic-analytics"></a>Comment implémenter la recherche de l’analyse du trafic
+
+Les signaux mentionnés dans la section précédente doivent être collectés à partir de l’application de recherche lorsque l’utilisateur interagit avec cette application. Application Insights est une solution d’analyse extensible, disponible pour plusieurs plateformes et qui intègre des options d’instrumentation flexibles. L’utilisation d’Application Insights vous permet de tirer parti des rapports de recherche Power BI créés par Azure Search afin de faciliter l’analyse des données.
+
+Sur la page du [portail](https://portal.azure.com) de votre service Recherche Azure, le panneau Rechercher l’analyse du trafic contient un aide-mémoire pour suivre ce modèle de télémétrie. Vous pouvez également sélectionner ou créer une ressource Application Insights et consulter toutes les données nécessaires au même endroit.
+
+![Instructions relatives à la recherche de l’analyse du trafic][1]
+
+### <a name="1-select-an-application-insights-resource"></a>1. Sélectionner une ressource Application Insights
+
+Vous devez sélectionner une ressource Application Insights ou en créer une si vous n’en n’avez pas. Vous pouvez utiliser une ressource qui est déjà en cours d’utilisation pour consigner les événements personnalisés requis.
+
+Lorsque vous créez une nouvelle ressource Application Insights, tous les types d’application sont valides pour ce scénario. Sélectionnez celle qui convient le mieux à la plate-forme que vous utilisez.
+
+Vous avez besoin de la clé d’instrumentation pour créer le client de télémétrie pour votre application. Vous pouvez l’obtenir à partir du tableau de bord du portail Application Insights, ou encore de la page Rechercher l’analyse du trafic, en sélectionnant l’instance que vous souhaitez utiliser.
+
+### <a name="2-instrument-your-application"></a>2. Instrumenter votre application
+
+Cette phase consiste à instrumenter votre propre application de recherche, à l’aide de la ressource Application Insights que vous avez créée à l’étape précédente. Ce processus se décompose en quatre étapes :
+
+**I. Créer un client de télémétrie** Il s’agit de l’objet qui envoie les événements à la ressource Application Insights.
+
+*C#*
+
+    private TelemetryClient telemetryClient = new TelemetryClient();
+    telemetryClient.InstrumentationKey = "<YOUR INSTRUMENTATION KEY>";
+
+*JavaScript*
+
+    <script type="text/javascript">var appInsights=window.appInsights||function(config){function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t}
+    ({
+    instrumentationKey: "<YOUR INSTRUMENTATION KEY>"
+    });
+    window.appInsights=appInsights;
+    </script>
+
+Pour d’autres langages et plates-formes, consultez la [liste](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) complète.
+
+**II. Demander un ID de recherche pour la corrélation** Pour mettre en corrélation les requêtes de recherche avec les clics, il est nécessaire de disposer d’un ID de corrélation qui lie ces deux événements distincts. La Recherche Azure vous fournit un ID de recherche avec un en-tête :
+
+*C#*
+
+    // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
+
+    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+    var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
+    IEnumerable<string> headerValues;
+    string searchId = string.Empty;
+    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
+     searchId = headerValues.FirstOrDefault();
+    }
+
+*JavaScript*
+
+    request.setRequestHeader("x-ms-azs-return-searchid", "true");
+    request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
+    var searchId = request.getResponseHeader('x-ms-azs-searchid');
+
+**III. Consigner les événements de recherche**
+
+Chaque fois qu’une requête de recherche est émise par un utilisateur, vous devez la consigner en tant qu’événement de recherche en respectant le schéma suivant sur un événement personnalisé Application Insights :
+
+**ServiceName** : (chaîne) nom du service de recherche **SearchId** : (GUID) identificateur unique de la requête de recherche (qui est fourni dans la réponse de recherche) **IndexName** : (chaîne) index du service de recherche à interroger **QueryTerms** : (chaîne) termes de recherche entrés par l’utilisateur **ResultCount** : (entier) nombre de documents qui ont été renvoyés (fourni dans la réponse de recherche) **ScoringProfile** : (chaîne) nom du profil de score utilisé, le cas échéant
+
+> [!NOTE]
+> Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Plus d’informations, cliquez [ici](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
 >
+
+> [!NOTE]
+> N’oubliez pas d’enregistrer uniquement les requêtes de recherche qui sont générées par les utilisateurs.
 >
 
-Vous pouvez activer la recherche de l’analyse du trafic sur le portail ou via PowerShell. Une fois activé, les données commencent à circuler vers votre compte de stockage en 5 à 10 minutes dans ces deux conteneurs d’objets blob :
+*C#*
 
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
+    var properties = new Dictionary <string, string> {
+    {"SearchServiceName", <service name>},
+    {"SearchId", <search Id>},
+    {"IndexName", <index name>},
+    {"QueryTerms", <search terms>},
+    {"ResultCount", <results count>},
+    {"ScoringProfile", <scoring profile used>}
+    };
+    telemetryClient.TrackEvent("Search", properties);
 
+*JavaScript*
 
-### <a name="a-using-the-portal"></a>A. Utiliser le portail
-Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
+    appInsights.trackEvent("Search", {
+    SearchServiceName: <service name>,
+    SearchId: <search id>,
+    IndexName: <index name>,
+    QueryTerms: <search terms>,
+    ResultCount: <results count>,
+    ScoringProfile: <scoring profile used>
+    });
 
-![][1]
+**IV. Consigner les événements de clic**
 
-Définissez l’état sur **Activé**, sélectionnez le compte de Stockage Azure à utiliser et choisissez les données à copier : journaux et/ou mesures. Nous vous recommandons de copier les journaux et les mesures.
-Vous pouvez définir la stratégie de rétention de vos données entre 1 et 365 jours. Pour conserver les données indéfiniment, définissez la durée de rétention (jours) sur 0.
+Chaque fois qu’un utilisateur clique sur un document, vous obtenez un signal qui doit être consigné afin d’analyser la recherche. Utilisez les événements personnalisés d’Application Insights pour consigner ces événements avec le schéma suivant :
 
-![][2]
+**ServiceName** : (chaîne) nom du service de recherche **SearchId** : (GUID) identificateur unique de la requête de recherche associée **DocId** : (chaîne) identificateur du document **Position** : (entier) classement du document dans la page des résultats de recherche
 
-### <a name="b-using-powershell"></a>B. Utiliser PowerShell
-Tout d’abord, assurez-vous que les derniers [applets de commande Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sont installés.
-
-Puis, munissez-vous des ID de ressource de votre service de recherche et de votre compte de stockage. Vous pouvez les trouver dans le portail en accédant à Paramètres -> Propriétés -> ResourceId.
-
-![][3]
-
-```PowerShell
-Login-AzureRmAccount
-$SearchServiceResourceId = "Your Search service resource id"
-$StorageAccountResourceId = "Your Storage account resource id"
-Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
-```
-
-## <a name="understanding-the-data"></a>Vue d’ensemble des données
-Les données sont stockées dans des objets blob Azure Storage au format JSON.
-
-Il y a un seul objet blob par heure et par conteneur.
-
-Exemple de chemin d’accès : `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
-
-### <a name="logs"></a>Journaux
-Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche.
-Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
-Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’opération qui s’est déroulée au cours de la même heure.
-
-#### <a name="log-schema"></a>Schéma du journal
-| Nom | Type | Exemple | Remarques |
-| --- | --- | --- | --- |
-| time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |"2016-09-01" |Version d’API utilisée |
-| category |string |« OperationLogs » |constant |
-| resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
-| resultSignature |int |200 |Code de résultat HTTP |
-| durationMS |int |50 |Durée de l’opération en millisecondes |
-| properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération |
-
-#### <a name="properties-schema"></a>Schéma de propriétés
-| Nom | Type | Exemple | Remarques |
-| --- | --- | --- | --- |
-| Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |string |"?search=AzureSearch&$count=true&api-version=2016-09-01" |Paramètres de requête |
-| Documents |int |42 |Nombre de documents traités |
-| IndexName |string |« testindex » |Nom de l’index associé à l’opération |
-
-### <a name="metrics"></a>Mesures
-Les objets blob de mesures contiennent des valeurs agrégées pour votre service de recherche.
-Chaque fichier a un seul objet racine appelé **records** qui contient un tableau d’objets de mesure. Cet objet racine contient les mesures de chaque minute pendant laquelle les données étaient disponibles.
-
-Mesures disponibles :
-
-* SearchLatency : délai nécessaire au service de recherche pour traiter les requêtes de recherche, agrégé par minute.
-* SearchQueriesPerSecond : nombre de requêtes de recherche reçues par seconde, agrégé par minute.
-* ThrottledSearchQueriesPercentage : pourcentage de requêtes de recherche qui ont été limitées, agrégé par minute.
-
-> [!IMPORTANT]
-> La limitation se produit lorsque trop de requêtes sont envoyées, épuisant ainsi la capacité de ressource configurée du service. Vous pouvez ajouter d’autres réplicas à votre service.
->
+> [!NOTE]
+> La position fait référence à la commande cardinale dans votre application. Vous êtes libre de définir ce nombre, tant qu’il reste toujours le même, pour faciliter la comparaison.
 >
 
-#### <a name="metrics-schema"></a>Schéma de mesures
-| Nom | Type | Exemple | Remarques |
-| --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| metricName |string |« Latency » |Nom de la mesure |
-| time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
-| average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
-| minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
-| maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
-| total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
-| count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-| timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
+*C#*
 
-Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
+    var properties = new Dictionary <string, string> {
+    {"SearchServiceName", <service name>},
+    {"SearchId", <search id>},
+    {"ClickedDocId", <clicked document id>},
+    {"Rank", <clicked document position>}
+    };
+    telemetryClient.TrackEvent("Click", properties);
 
-Dans le cas de la mesure SearchQueriesPerSecond, la valeur minimale correspondra à la valeur la plus faible des requêtes de recherche par seconde qui a été enregistrée pendant cette minute. Il en va de même pour la valeur maximale. La moyenne représentera l’agrégat de ces valeurs pour toute la minute.
-Imaginez ce scénario : pendant une minute, vous pouvez avoir 58 secondes de charge très élevée, qui représentera votre valeur SearchQueriesPerSecond maximale, puis 58 secondes de charge moyenne, et enfin une seconde avec une seule requête, qui représentera la valeur minimale.
+*JavaScript*
 
-Pour ThrottledSearchQueriesPercentage, les valeurs minimales, maximales, moyennes et totales seront identiques : il s’agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
+    appInsights.TrackEvent("Click", {
+        SearchServiceName: <service name>,
+        SearchId: <search id>,
+        ClickedDocId: <clicked document id>,
+        Rank: <clicked document position>
+    });
 
-## <a name="analyzing-your-data"></a>Analyse de vos données
-Les données sont situées dans votre propre compte de stockage et nous vous encourageons à les explorer de la manière qui vous convient le mieux.
+### <a name="3-analyze-with-power-bi-desktop"></a>3. Analyser avec Power BI Desktop
 
-Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://powerbi.microsoft.com) pour explorer et visualiser vos données. Vous pouvez facilement vous connecter à votre compte de Stockage Azure et rapidement commencer à analyser vos données.
+Après avoir instrumenté votre application et vérifié que votre application est correctement connectée à Application Insights, vous pouvez utiliser un modèle prédéfini créé par la Recherche Azure pour Power BI Desktop.
+Ce modèle contient des graphiques et tableaux qui vous aident à prendre des décisions éclairées pour améliorer les performances et la pertinence de vos recherches.
 
-#### <a name="power-bi-online"></a>Power BI en ligne
-[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search): créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
+Pour instancier le modèle Power BI Desktop, vous avez besoin de trois informations concernant Application Insights. Ces données figurent dans la page Rechercher l’analyse du trafic, lorsque vous sélectionnez la ressource à utiliser
 
-![][4]
+![Données d’Application Insights dans le panneau Rechercher l’analyse du trafic][2]
 
-#### <a name="power-bi-desktop"></a>Power BI Desktop
-[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Consultez la requête de démarrage dans la section suivante :
+Mesures incluses dans le modèle Power BI Desktop :
 
-1. Ouvrez un nouveau rapport Power BI Desktop.
+*    Taux de clic (CTR) : rapport entre les utilisateurs qui cliquent sur un document spécifique et le nombre total de recherches.
+*    Recherches sans clic : termes renvoyant aux principales requêtes qui n’enregistrent aucun clic
+*    Documents ayant reçu le plus de clics : documents les plus consultés, classés par ID, au cours des 24 dernières heures, des 7 derniers jours et des 30 derniers jours.
+*    Paires terme-document populaires : termes qui amènent l’utilisateur à cliquer sur le même document, classés par clics.
+*    Temps de clic : clics compartimentés en fonction du délai écoulé depuis la requête de recherche
 
-2. Sélectionnez Obtention des données -> Plus...
+![Modèle Power BI pour lire à partir d’Application Insights][3]
 
-    ![][5]
-
-3. Sélectionnez Stockage d’objets blob Microsoft Azure et Se connecter.
-
-    ![][6]
-
-4. Entrez le nom et la clé de votre compte de stockage.
-
-5. Sélectionnez « insight-journaux-operationlogs » et « insights-metrics-pt1m », puis cliquez sur Modifier.
-
-6. L’éditeur de requête s’ouvre, vérifiez que « insight-logs-operationlogs » est sélectionnée sur la gauche. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé.
-
-    ![][7]
-    
-7. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
-
-   ~~~~
-   > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
-   > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
-   > # "Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
-   > # "Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
-   > # "Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
-   > # "Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
-   > # "Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
-   > # "Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
-   > # "Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
-   > # "Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
-   > # "Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
-   > # "Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
-   > # "Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
-   > # "Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
-   > # "Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
-   > # "Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
-   > # "Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
-   > # "Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
-   > in
-   >
-   > # "Changed Type2"
-   >
-   ~~~~
-
-8. Cliquez sur Done.
-
-9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
-
-   ~~~~
-   > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
-   > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
-   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
-   > # "Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
-   > # "Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
-   > # "Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
-   > # "Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
-   > Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
-   >
-   > # "Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
-   > # "Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
-   > in
-   >
-   > # "Inserted Date"
-   >
-   ~~~~
-
-10. Cliquez sur Terminé, puis sélectionnez Fermer et appliquer dans l’onglet Accueil.
-
-11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Pour plus d’informations, consultez la rubrique [Recherche de documents (API REST Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx) .
+Instrumentez votre application de recherche pour obtenir des données puissantes et détaillées sur votre service de recherche.
+
+Pour plus d’informations sur Application Insights, cliquez [ici](https://go.microsoft.com/fwlink/?linkid=842905). Visitez la [page de tarification](https://azure.microsoft.com/pricing/details/application-insights/) d’Application Insights pour en savoir plus sur les différents niveaux de service.
 
 En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/).
 
 <!--Image references-->
-
-[1]: ./media/search-traffic-analytics/SettingsBlade.png
-[2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/ResourceId.png
-[4]: ./media/search-traffic-analytics/Dashboard.png
-[5]: ./media/search-traffic-analytics/GetData.png
-[6]: ./media/search-traffic-analytics/BlobStorage.png
-[7]: ./media/search-traffic-analytics/QueryEditor.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
+[2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
+[3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
 

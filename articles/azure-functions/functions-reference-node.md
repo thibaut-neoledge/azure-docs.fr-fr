@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 02/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 060e1145246952c18f89e1088ed28ffb0036e6c5
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -52,7 +52,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Les liaisons de `direction === "in"` sont transmises en tant qu’arguments de fonction, ce qui signifie que vous pouvez utiliser [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) pour gérer de manière dynamique les nouvelles entrées (par exemple, en utilisant `arguments.length` pour effectuer une itération sur toutes vos entrées). Cette fonctionnalité est très pratique si vous ne disposez que d’un déclencheur sans entrée supplémentaire, dans la mesure où vous pouvez accéder de manière prévisible aux données de votre déclencheur sans faire référence à votre objet `context` .
+Les liaisons de `direction === "in"` sont transmises en tant qu’arguments de fonction, ce qui signifie que vous pouvez utiliser [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) pour gérer de manière dynamique les nouvelles entrées (par exemple, en utilisant `arguments.length` pour effectuer une itération sur toutes vos entrées). Cette fonctionnalité est pratique si vous ne disposez que d’un déclencheur sans entrée supplémentaire, dans la mesure où vous pouvez accéder de manière prévisible aux données de votre déclencheur sans faire référence à votre objet `context`.
 
 Les arguments sont toujours transmis à la fonction dans leur ordre d’apparition dans *function.json*, même si vous ne les spécifiez pas dans votre instruction d’exportation. Par exemple, si vous avez `function(context, a, b)` et le remplacez par `function(context, a)`, vous pouvez toujours obtenir la valeur `b` dans le code de fonction en faisant référence à `arguments[3]`.
 
@@ -70,8 +70,12 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="contextbindings"></a>context.bindings
-L’objet `context.bindings` collecte toutes les données entrantes et sortantes. Les données sont ajoutées à l’objet `context.bindings` par le biais de la propriété `name` de la liaison. Par exemple, étant donné la définition de la liaison suivante dans *function.json*, vous pouvez accéder au contenu de la file d’attente par le biais de `context.bindings.myInput`. 
+### <a name="contextbindings-property"></a>Propriété context.bindings
+
+```
+context.bindings
+```
+Retourne un objet nommé qui contient toutes vos données d’entrée et de sortie. Par exemple, la définition de liaison suivante dans votre *function.json* vous permet d’accéder au contenu de la file d’attente à partir de l’objet `context.bindings.myInput`. 
 
 ```json
 {
@@ -91,10 +95,14 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])`
-La fonction `context.done` indique au runtime que vous avez terminé l’exécution. Il est important d’appeler lorsque vous avez terminé l’exécution de la fonction. Si vous ne le faites pas, le runtime ne saura jamais que votre fonction est terminée. 
+### <a name="contextdone-method"></a>Méthode context.done
+```
+context.done([err],[propertyBag])
+```
 
-La fonction `context.done` permet de transmettre une erreur définie par l’utilisateur au runtime, ainsi qu’un conteneur de propriétés qui remplaceront les propriétés de l’objet `context.bindings`.
+Informe le runtime que votre code est terminé. Vous devez appeler `context.done` pour que le runtime sache que votre fonction est terminée et que l’exécution va expirer. 
+
+La méthode `context.done` permet de transmettre une erreur définie par l’utilisateur au runtime ainsi qu’un conteneur de propriétés, qui remplaceront les propriétés de l’objet `context.bindings`.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -106,52 +114,163 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## <a name="contextlogmessage"></a>context.log(message)
-La méthode `context.log` permet de sortir les instructions du journal corrélées à des fins de journalisation. Si vous utilisez `console.log`, vos messages ne s’affichent que pour la journalisation au niveau du processus, ce qui n’est pas aussi utile.
+### <a name="contextlog-method"></a>Méthode context.log  
+
+```
+context.log(message)
+```
+Vous permet d’écrire dans les journaux de console de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire dans le journal de console à d’autres niveaux de trace :
+
+
+| Méthode                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| **error(_message_)**   | Écrit dans la journalisation du niveau d’erreur, ou à un niveau inférieur.   |
+| **warn(_message_)**    | Écrit dans la journalisation du niveau d’avertissement, ou à un niveau inférieur. |
+| **info(_message_)**    | Écrit dans la journalisation du niveau d’information, ou à un niveau inférieur.    |
+| **verbose(_message_)** | Écrit dans la journalisation du niveau détaillé.           |
+
+L’exemple suivant écrit dans la console au niveau de trace d’avertissement :
 
 ```javascript
-/* You can use context.log to log output specific to this 
-function. You can access your bindings via context.bindings */
-context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
+context.log.warn("Something has happened."); 
+```
+Vous pouvez définir le seuil du niveau de trace pour la journalisation dans le fichier host.json, ou le désactiver.  Pour plus d’informations sur l’écriture dans les journaux, consultez la section suivante.
+
+## <a name="writing-trace-output-to-the-console"></a>Écrire la sortie de trace dans la console 
+
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. À ce stade, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
+
+Lorsque vous appelez `context.log()`, votre message est écrit dans la console au niveau de trace par défaut, qui est le niveau de trace d’_informations_. Le code suivant écrit dans la console au niveau de trace d’informations :
+
+```javascript
+context.log({hello: 'world'});  
 ```
 
-La méthode `context.log` prend en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node. Ainsi, par exemple, le code suivant :
+Il équivaut à ce qui suit :
+
+```javascript
+context.log.info({hello: 'world'});  
+```
+
+Le code suivant écrit dans la console au niveau de trace d’erreur :
+
+```javascript
+context.log.error("An error has occurred.");  
+```
+
+Étant donné que le niveau d’_erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.  
+
+
+Toutes les méthodes `context.log` prennent en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node.js. Prenons le code suivant qui écrit dans la console en utilisant le niveau de trace par défaut :
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-peut être écrit comme suit :
+Ce même code peut être écrit au format suivant :
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## <a name="http-triggers-contextreq-and-contextres"></a>Déclencheurs HTTP : context.req and context.res
-Dans le cas de déclencheurs HTTP, dans la mesure où il est courant d’utiliser `req` et `res` pour les objets de requête et de réponse HTTP, nous avons décidé de faciliter l’accès à ceux-ci sur l’objet de contexte, au lieu de vous contraindre à utiliser le modèle `context.bindings.name` complet.
+### <a name="configure-the-trace-level-for-console-logging"></a>Configurer le niveau de trace pour la journalisation de la console
 
-```javascript
-// You can access your http request off of the context ...
-if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-// and also set your http response
-context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
+Functions vous permet de définir le seuil de niveau de trace pour l’écriture dans la console. Cela facilite le contrôle de l’écriture des traces dans la console à partir de vos fonctions. Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour définir le seuil de toutes les traces écrites dans la console. Ce paramètre s’applique à toutes les fonctions dans votre Function App. L’exemple suivant définit le seuil de trace permettant d’activer la journalisation détaillée :
+
+```json
+{ 
+    "tracing": {      
+        "consoleLevel": "verbose"      
+    }
+}  
 ```
+
+Les valeurs de **consoleLevel** correspondent aux noms des méthodes `context.log`. Pour désactiver toutes les journalisations de trace dans la console, définissez **consoleLevel** sur _désactivé_. Pour plus d’informations sur le fichier host.json, consultez la [rubrique de référence host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+
+## <a name="http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP
+
+Les déclencheurs HTTP et webhook ainsi que les liaisons de sortie HTTP utilisent les objets de requête et de réponse pour représenter la messagerie HTTP.  
+
+### <a name="request-object"></a>Objet Requête
+
+L’objet `request` dispose des propriétés suivantes :
+
+| Propriété      | Description                                                    |
+| ------------- | -------------------------------------------------------------- |
+| _body_        | Objet qui contient le corps de la demande.               |
+| _headers_     | Objet qui contient les en-têtes de la demande.                   |
+| _method_      | Méthode HTTP de la demande.                                |
+| _originalUrl_ | URL de la demande.                                        |
+| _params_      | Objet qui contient les paramètres de routage de la demande. |
+| _query_       | Objet qui contient les paramètres de la requête.                  |
+| _rawBody_     | Corps du message en tant que chaîne.                           |
+
+
+### <a name="response-object"></a>Objet Réponse
+
+L’objet `response` dispose des propriétés suivantes :
+
+| Propriété  | Description                                               |
+| --------- | --------------------------------------------------------- |
+| _body_    | Objet qui contient le corps de la réponse.         |
+| _headers_ | Objet qui contient les en-têtes de la réponse.             |
+| _isRaw_   | Indique que la mise en forme est ignorée pour la réponse.    |
+| _statut_  | Code d’état HTTP de la réponse.                     |
+
+### <a name="accessing-the-request-and-response"></a>Accès à la demande et à la réponse 
+
+Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permettent d’accéder à des objets de demande et de réponse HTTP :
+
++ À partir de des liaisons dites d’entrée et de sortie. Avec cette méthode, le déclencheur HTTP et les liaisons fonctionnent de la même manière que toute autre liaison. L’exemple suivant définit l’objet de réponse en utilisant une liaison nommée `response`. 
+
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ À partir des propriétés `req` et `res` sur l’objet `context`. Avec cette méthode, vous pouvez utiliser le modèle classique pour accéder aux données HTTP à partir de l’objet de contexte, au lieu d’utiliser le modèle `context.bindings.name` complet. L’exemple suivant montre comment accéder aux objets `req` et `res` sur `context` :
+
+    ```javascript
+    // You can access your http request off of the context ...
+    if(context.req.body.emoji === ':pizza:') context.log('Yay!');
+    // and also set your http response
+    context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
+    ```
+
++ Appel de `context.done()`. Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
+
+    ```json
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+    ``` 
+    Cette liaison de sortie suppose que vous fournissiez la réponse lorsque vous appelez `done()` comme suit :
+
+    ```javascript
+     // Define a valid response object.
+    res = { status: 201, body: "Insert succeeded." };
+    context.done(null, res);   
+    ```  
 
 ## <a name="node-version--package-management"></a>Version du nœud et gestion des packages
 La version de Node est actuellement verrouillée sur `6.5.0`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
 
-Vous pouvez inclure des packages dans votre fonction en chargeant un fichier *package.json* dans le dossier de votre fonction dans le système de fichiers du conteneur de fonctions. Pour savoir comment charger un fichier, consultez la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate). 
-
-Vous pouvez également utiliser `npm install` dans l’interface de ligne de commande SCM (Kudu) du conteneur de fonctions :
+Les étapes suivantes vous permettent d’inclure des packages dans votre Function App : 
 
 1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`.
-2. Cliquez sur **Console de débogage > CMD**.
-3. Accédez à `D:\home\site\wwwroot\<function_name>`.
-4. Exécutez `npm install`.
 
-Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction de la façon habituelle (c’est-à-dire par le biais de `require('packagename')`).
+2. Cliquez sur **Console de débogage > CMD**.
+
+3. Accédez à `D:\home\site\wwwroot`, puis faites glisser le fichier package.json vers le dossier **wwwroot** dans la partie supérieure de la page.  
+
+    Il existe plusieurs manières de télécharger des fichiers dans votre Function App. Pour plus d’informations, consultez [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+
+4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**. Les packages indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
+
+Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction en appelant `require('packagename')`, comme dans l’exemple suivant.
 
 ```javascript
 // Import the underscore.js library
@@ -164,10 +283,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Le nœud doit disposer d’un `package.json` à la racine de Function App de façon à ce que les fonctions puissent partager des packages mis en cache. S’il y a des conflits de version, vous pouvez ajouter un `package.json` à un niveau de la fonction. Toutefois, il est préférable de ne pas le faire pour des raisons de performances. 
+Vous devez définir un fichier `package.json` à la racine de votre Function App. Cela permet à toutes les fonctions de l’application de partager les mêmes packages mis en cache, pour des performances optimales. En cas de conflit de version, vous pouvez ajouter un fichier `package.json` dans le dossier d’une fonction spécifique.  
 
 ## <a name="environment-variables"></a>Variables d’environnement
-Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme l’illustre l’exemple de code suivant :
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme illustré dans l’exemple de code suivant :
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -185,8 +304,15 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+## <a name="considerations-for-javascript-functions"></a>Considérations relatives aux fonctions JavaScript
 
-## <a name="typescriptcoffeescript-support"></a>Prise en charge de TypeScript/CoffeeScript
+Vous devez être conscient des éléments suivants lorsque vous travaillez avec des fonctions JavaScript.
+
+### <a name="choose-single-core-app-service-plans"></a>Choisir des plans App Service à cœur unique
+
+Lorsque vous créez une Function App qui utilise le plan App Service, nous vous recommandons de sélectionner un plan à cœur unique plutôt qu’un plan à plusieurs cœurs. À l’heure actuelle, Functions exécute les fonctions JavaScript plus efficacement sur des machines virtuelles à cœur unique. Le recours à de plus grandes machines virtuelles ne produit pas les améliorations de performances attendues. Le cas échéant, vous pouvez faire une mise à l’échelle horizontale manuellement en ajoutant des instances de machine virtuelle à cœur unique, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+
+### <a name="typescriptcoffeescript-support"></a>Prise en charge de TypeScript/CoffeeScript
 Il n’existe encore aucune prise en charge directe pour l’auto-compilation de TypeScript/CoffeeScript via le runtime, ce qui nécessite une gestion externe au runtime, au moment du déploiement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
