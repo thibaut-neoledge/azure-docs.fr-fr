@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ Il existe deux façons de créer des disques Standard pour les machines virtuell
 
 **Disques non gérés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 64 To de stockage par machine virtuelle.
 
-[**Disques gérés Azure**](storage-managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (Premium ou Standard) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à positionner les disques sur plusieurs comptes de stockage afin de garantir le respect des limites d’extensibilité des comptes de stockage : Azure le fait pour vous.
+[**Disques gérés Azure**](storage-managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (Premium ou Standard) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
 Même si les deux types de disques sont disponibles, nous vous recommandons d’utiliser des disques gérés pour tirer parti de leurs nombreuses fonctionnalités.
 
@@ -42,7 +42,7 @@ Pour une prise en main du stockage Standard Azure, consultez [Évaluation d’un
 Pour plus d’informations sur la création d’une machine virtuelle avec disques gérés, consultez l’un des articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Fonctionnalités du stockage Standard 
 
@@ -52,7 +52,7 @@ Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’inf
 
 **Disques de stockage Standard :** les disques de stockage Standard peuvent être associés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le stockage Premium, comme les séries DSv2 et GS. Un disque de stockage Standard ne peut être associé qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail. 
 
-**Objet blob de pages Standard** : les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
+**Objet blob de pages Standard** : les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
 
 **Réplication du stockage :** dans la plupart des régions, les données d’un compte de stockage Standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](storage-redundancy.md).
 
@@ -99,11 +99,11 @@ Pour le service de stockage, le fichier VHD est un objet blob de pages. Vous pou
 
 Vous pouvez créer des [captures instantanées incrémentielles](storage-incremental-snapshots.md) pour les disques Standard non gérés, de la même manière que vous utilisez des captures instantanées avec le stockage Standard. Si votre disque source se trouve dans un compte de stockage localement redondant, nous vous recommandons de créer des captures instantanées et de les copier sur un compte de stockage Standard géoredondant. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage-redundancy.md).
 
-Si un disque est associé à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas effectuer une opération [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) sur cet objet blob, tant que le disque est attaché à une machine virtuelle. À la place, commencez par créer une capture instantanée de cet objet blob à l’aide de la méthode [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) de l’API REST, puis exécutez l’opération [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) de la capture instantanée pour copier le disque attaché. Vous pouvez également dissocier le disque et effectuer les opérations nécessaires.
+Si un disque est associé à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas effectuer une opération [Copy Blob](/rest/api/storageservices/Copy-Blob) sur cet objet blob, tant que le disque est attaché à une machine virtuelle. À la place, commencez par créer une capture instantanée de cet objet blob à l’aide de la méthode [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) de l’API REST, puis exécutez l’opération [Copy Blob](/rest/api/storageservices/Copy-Blob) de la capture instantanée pour copier le disque attaché. Vous pouvez également dissocier le disque et effectuer les opérations nécessaires.
 
-Pour conserver des copies géoredondantes de vos captures instantanées, vous pouvez copier des captures instantanées d’un compte de stockage localement redondant vers un compte de stockage Standard géoredondant à l’aide des opérations AzCopy ou Copy Blob. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copie d’un objet blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Pour conserver des copies géoredondantes de vos captures instantanées, vous pouvez copier des captures instantanées d’un compte de stockage localement redondant vers un compte de stockage Standard géoredondant à l’aide des opérations AzCopy ou Copy Blob. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copie d’un objet blob](/rest/api/storageservices/Copy-Blob).
 
-Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Standard, consultez [API REST des services d’Azure Storage](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference).
+Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Standard, consultez [API REST des services d’Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### <a name="managed-disks"></a>Disques gérés
 
@@ -125,7 +125,7 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 
 **Disques gérés :** les disques gérés sont facturés selon la taille configurée. Si votre disque est configuré comme un disque de 10 Go et que vous utilisez uniquement 5 Go, vous êtes tout de même facturé pour la taille configurée de 10 Go.
 
-**Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob).
+**Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Transferts de données sortantes**: les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
@@ -153,4 +153,4 @@ Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/linux/quick-create-cli.md)

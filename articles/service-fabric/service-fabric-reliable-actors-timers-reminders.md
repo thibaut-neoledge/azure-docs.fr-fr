@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9d22438c6ca14ddb8843f4b72cae40e3b622e849
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.
 
 ## <a name="actor-timers"></a>Minuteries des acteurs
-Les minuteries des acteurs fournissent un wrapper simple autour de minuteries .NET pour veiller à ce que les méthodes de rappel respectent les garanties d’un accès concurrentiel en alternance fournies par le runtime Actors.
+Les minuteries des acteurs fournissent un wrapper simple autour de minuteries .NET ou Java pour veiller à ce que les méthodes de rappel respectent les garanties d’un accès concurrentiel en alternance fournies par le runtime Actors.
 
-Les acteurs peuvent utiliser les méthodes `RegisterTimer` et `UnregisterTimer` sur leur classe de base pour inscrire et désinscrire leurs minuteries. L'exemple ci-dessous montre l'utilisation des API de minuterie. Les API sont très similaires à la minuterie .NET. Dans cet exemple, quand la minuterie arrive à son terme, le runtime Actors appelle la méthode `MoveObject` . Le respect par la méthode de l’accès concurrentiel en alternance est garanti. Aucune autre méthode d’acteur ou aucun autre rappel de minuterie n’est donc en cours d’exécution avant la fin de ce rappel.
+Les acteurs peuvent utiliser les méthodes `RegisterTimer` (C#) ou `registerTimer` (Java) et `UnregisterTimer` (C#) ou `unregisterTimer` (Java) sur leur classe de base pour inscrire et désinscrire leurs minuteries. L'exemple ci-dessous montre l'utilisation des API de minuterie. Les API sont très similaires à la minuterie .NET ou Java. Dans cet exemple, quand la minuterie arrive à son terme, le runtime Actors appelle la méthode `MoveObject` (C#) ou `moveObject` (Java). Le respect par la méthode de l’accès concurrentiel en alternance est garanti. Aucune autre méthode d’acteur ou aucun autre rappel de minuterie n’est donc en cours d’exécution avant la fin de ce rappel.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -68,10 +69,67 @@ class VisualObjectActor : Actor, IVisualObject
     }
 }
 ```
+```Java
+public class VisualObjectActorImpl extends FabricActor implements VisualObjectActor
+{
+    private ActorTimer updateTimer;
+
+    public VisualObjectActorImpl(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    @Override
+    protected CompletableFuture onActivateAsync()
+    {
+        ...
+
+        return this.stateManager()
+                .getOrAddStateAsync(
+                        stateName,
+                        VisualObject.createRandom(
+                                this.getId().toString(),
+                                new Random(this.getId().toString().hashCode())))
+                .thenApply((r) -> {
+                    this.registerTimer(
+                            (o) -> this.moveObject(o),                        // Callback method
+                            "moveObject",
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
+                    return null;
+                });
+    }
+
+    @Override
+    protected CompletableFuture onDeactivateAsync()
+    {
+        if (updateTimer != null)
+        {
+            unregisterTimer(updateTimer);
+        }
+
+        return super.onDeactivateAsync();
+    }
+
+    private CompletableFuture moveObject(Object state)
+    {
+        ...
+        return this.stateManager().getStateAsync(this.stateName).thenCompose(v -> {
+            VisualObject v1 = (VisualObject)v;
+            v1.move();
+            return (CompletableFuture<?>)this.stateManager().setStateAsync(stateName, v1).
+                    thenApply(r -> {
+                      ...
+                      return null;});
+        });
+    }
+}
+```
 
 La période suivante de la minuterie démarre après la fin du rappel. Cela implique que la minuterie s’arrête pendant l’exécution du rappel, puis démarre quand le rappel se termine.
 
-Le runtime Actors enregistre les modifications apportées au Gestionnaire d’état de l’acteur à la fin du rappel. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée. 
+Le runtime Actors enregistre les modifications apportées au Gestionnaire d’état de l’acteur à la fin du rappel. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée.
 
 Toutes les minuteries sont arrêtées quand l’acteur est désactivé dans le cadre du nettoyage de la mémoire. Aucun rappel de minuterie n’est appelé après cela. En outre, le runtime Actors ne conserve aucune information concernant les minuteries qui étaient exécutées avant la désactivation. C'est à l'acteur d'inscrire toutes les minuteries dont il a besoin lors d'une réactivation ultérieure. Pour plus d’informations, consultez la section sur le [nettoyage de la mémoire d’acteur](service-fabric-reliable-actors-lifecycle.md).
 
@@ -94,7 +152,22 @@ protected override async Task OnActivateAsync()
 }
 ```
 
-Dans cet exemple, `"Pay cell phone bill"` est le nom du rappel. Il s’agit d’une chaîne que l’acteur utilise pour identifier de façon unique un rappel. `BitConverter.GetBytes(amountInDollars)` est le contexte associé au rappel. Il sera renvoyé à l'acteur en tant qu'argument vers le rappel, soit `IRemindable.ReceiveReminderAsync`.
+```Java
+@Override
+protected CompletableFuture onActivateAsync()
+{
+    String reminderName = "Pay cell phone bill";
+    int amountInDollars = 100;
+
+    ActorReminder reminderRegistration = this.registerReminderAsync(
+            reminderName,
+            state,
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
+}
+```
+
+Dans cet exemple, `"Pay cell phone bill"` est le nom du rappel. Il s’agit d’une chaîne que l’acteur utilise pour identifier de façon unique un rappel. `BitConverter.GetBytes(amountInDollars)` (C#) est le contexte associé au rappel. Il est renvoyé à l’acteur en tant qu’argument vers le rappel, soit `IRemindable.ReceiveReminderAsync` (C#) ou `Remindable.receiveReminderAsync` (Java).
 
 Les acteurs qui utilisent des rappels doivent implémenter l’interface `IRemindable` , comme illustré dans l’exemple ci-dessous.
 
@@ -117,30 +190,48 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
     }
 }
 ```
+```Java
+public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Remindable
+{
+    public ToDoListActor(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Quand un rappel est déclenché, le runtime Reliable Actors appelle la méthode `ReceiveReminderAsync` sur l’acteur. Un acteur peut inscrire plusieurs rappels, et la méthode `ReceiveReminderAsync` est appelée chaque fois qu’un de ces rappels est déclenché. L'acteur peut ensuite utiliser le nom du rappel qui est envoyé à la méthode `ReceiveReminderAsync` pour identifier le rappel qui a été déclenché.
+    public CompletableFuture receiveReminderAsync(String reminderName, byte[] context, Duration dueTime, Duration period)
+    {
+        if (reminderName.equals("Pay cell phone bill"))
+        {
+            int amountToPay = ByteBuffer.wrap(context).getInt();
+            System.out.println("Please pay your cell phone bill of " + amountToPay);
+        }
+        return CompletableFuture.completedFuture(true);
+    }
 
-Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync` . Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée. 
+```
 
-Pour désinscrire un rappel, un acteur appelle la méthode `UnregisterReminderAsync`, comme l’illustre l’exemple ci-dessous.
+Quand un rappel est déclenché, le runtime Reliable Actors appelle la méthode `ReceiveReminderAsync` (C#) ou `receiveReminderAsync` (Java) sur l’acteur. Un acteur peut inscrire plusieurs rappels, et la méthode `ReceiveReminderAsync` (C#) ou `receiveReminderAsync` (Java) est appelée chaque fois qu’un de ces rappels est déclenché. L’acteur peut ensuite utiliser le nom du rappel qui est envoyé à la méthode `ReceiveReminderAsync` (C#) ou `receiveReminderAsync` (Java) pour identifier le rappel qui a été déclenché.
+
+Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync` (C#) ou `receiveReminderAsync` (Java). Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée.
+
+Pour désinscrire un rappel, un acteur appelle la méthode `UnregisterReminderAsync` (C#) ou `unregisterReminderAsync` (Java), comme l’illustre l’exemple ci-dessous.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
+```Java
+ActorReminder reminder = getReminder("Pay cell phone bill");
+CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
+```
 
-Comme indiqué ci-dessus, la méthode `UnregisterReminderAsync` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
+Comme indiqué ci-dessus, la méthode `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) accepte une interface `IActorReminder` (C#) ou `ActorReminder` (Java). La classe de base de l’acteur prend en charge une méthode `GetReminder` (C#) ou `getReminder` (Java) qui peut être utilisée pour récupérer l’interface `IActorReminder` (C#) ou `ActorReminder` (Java) en passant le nom du rappel. C’est pratique, car l’acteur n’a pas besoin de conserver l’interface `IActorReminder` (C#) ou `ActorReminder` (Java) renvoyée par l’appel de la méthode `RegisterReminder` (C#) ou `registerReminder` (Java).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Événements d’acteurs](service-fabric-reliable-actors-events.md)
 * [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
 * [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemple de code](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Exemple de code C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemple de code Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

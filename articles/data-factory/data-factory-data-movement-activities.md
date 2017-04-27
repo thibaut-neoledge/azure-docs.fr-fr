@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: e9215bdd02c9d1b595f65997840926080d6d7d01
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
-## <a name="overview"></a>Vue d'ensemble
-Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier les données de différentes formes de diverses sources de données locales et cloud vers Azure. Une fois les données copiées, elles peuvent être davantage transformées et analysées. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
+## <a name="overview"></a>Vue d’ensemble
+Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des magasins de données locaux et cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
 ![Rôle d’activité de copie](media/data-factory-data-movement-activities/copy-activity.png)
 
@@ -60,19 +60,27 @@ Consultez la page [Déplacement de données entre des sources locales et le clou
 Vous pouvez également déplacer des données depuis/vers des magasins de données pris en charge hébergés sur des machines virtuelles IaaS Azure avec la passerelle de gestion des données. Dans ce cas, vous pouvez installer la passerelle de gestion des données sur la même machine virtuelle Azure que le magasin de données lui-même ou sur une machine virtuelle distincte ayant accès au magasin de données.
 
 ## <a name="supported-data-stores-and-formats"></a>Banques de données et formats pris en charge
+L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Data Factory prend en charge les magasins de données suivants. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
+
+> [!NOTE] 
+> Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
+> [!NOTE]
+> Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
 
 ### <a name="supported-file-formats"></a>Formats de fichiers pris en charge
-Vous pouvez utiliser l’activité de copie pour copier des **fichiers tels quels** entre deux banques de données basées sur des fichiers comme le Stockage Blob Azure, Azure Data Lake Store, Amazon S3, FTP, un système de fichiers et HDFS. Pour ce faire, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans les définitions des jeux de données d’entrée et de sortie. Les données sont copiées efficacement, sans sérialisation/désérialisation.
+Si vous voulez utiliser une activité de copie pour **copier des fichiers en l’état** entre deux magasins de données basés sur des fichiers, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans l’entrée et dans la sortie des définitions de dataset. Les données sont copiées efficacement, sans sérialisation/désérialisation.
 
-L’activité de copie peut également lire dans et écrire dans des fichiers de formats spécifiés : **texte, Avro, ORC, Parquet et JSON**, et les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Vous pouvez effectuer les activités de copie suivantes, par exemple :
+L’activité de copie peut également lire et écrire dans des fichiers de formats spécifiés : **Texte, Avro, ORC et Parquet**, et les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md).
 
-* Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
-* Copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
+Par exemple, vous pouvez effectuer les activités de copie suivantes :
+
 * Copier les données dans le SQL Server local et les écrire dans Azure Data Lake Store au format ORC.
+* Copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
 * Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Store.
+* Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
 
 ## <a name="global"></a>Déplacement des données disponible globalement
 Azure Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
@@ -80,7 +88,7 @@ Azure Data Factory est disponible uniquement dans les régions Europe du Nord, �
 ### <a name="copy-data-between-cloud-data-stores"></a>Copier des données entre des banques de données cloud
 Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Data Factory utilise un déploiement de service dans la région la plus proche du récepteur dans la même zone géographique afin de déplacer des données. Pour connaître le mappage, reportez-vous au tableau suivant :
 
-| Géographie de la banque de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
+| Géographie des magasins de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
 |:--- |:--- |:--- |
 | États-Unis | Est des États-Unis | Est des États-Unis |
 | &nbsp; | Est des États-Unis 2 | Est des États-Unis 2 |
@@ -107,7 +115,7 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | &nbsp; | Inde occidentale | Inde centrale |
 | &nbsp; | Inde du Sud | Inde centrale |
 
-Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données parcourront cette région sur le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
+Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données passent à travers cette région sur le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
 
 > [!NOTE]
 > Si la région de la banque de données de destination ne figure pas dans la liste précédente ou n’est pas détectable, par défaut, l’activité de copie échoue au lieu de passer par une autre région, sauf si `executionLocation` est spécifié. La liste des régions prises en charge sera développée au fil du temps.

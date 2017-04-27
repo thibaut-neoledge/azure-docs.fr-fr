@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
-ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
-ms.lasthandoff: 02/01/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -28,7 +28,7 @@ Data Factory est un service d’intégration de données dans le cloud qui **aut
 
 Data Factory vous permet de créer des flux de travail pilotés par les données pour déplacer des données entre des magasins de données locaux et cloud et traiter/transformer des données avec des services de calcul comme Azure HDInsight et Azure Data Lake Analytics. Après avoir créé un pipeline qui exécute l’action dont vous avez besoin, vous pouvez planifier son exécution périodique (toutes les heures, tous les jours, toutes les semaines, etc.).   
 
-Consultez [Vue d’ensemble et principaux concepts](data-factory-introduction.md) pour plus de détails.
+Pour plus d’informations, consultez [Vue d’ensemble et concepts clés](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>où puis-je trouver des informations de tarification pour Azure Data Factory ?
 Consultez la [page de tarification de Data Factory][adf-pricing-details] pour plus d’informations sur la tarification d’Azure Data Factory.  
@@ -45,7 +45,7 @@ Data Factory est disponible dans les régions **Ouest des États-Unis** et **Eur
 Consultez la section **Limites d’Azure Data Factory** de l’article [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#data-factory-limits) .
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Qu’est-il possible de faire avec le service Azure Data Factory en termes de création/développement ?
-Vous pouvez créer des fabriques de données à l'aide de l'une des solutions suivantes :
+Vous pouvez créer des fabriques de données en utilisant un des outils/SDK suivants :
 
 * **Portail Azure**
    : les panneaux du service Data Factory dans le portail Azure fournissent une interface utilisateur complète qui vous permet de créer des fabriques de données et des services liés. **Data Factory Editor**, qui fait également partie du portail, vous permet de créer facilement des services liés, des tables, des jeux de données et des pipelines en spécifiant des définitions JSON pour ces artefacts. Consultez [Créer votre premier pipeline de données en utilisant le portail Azure](data-factory-build-your-first-pipeline-using-editor.md) pour obtenir un exemple d’utilisation du portail et de l’éditeur pour créer et déployer une fabrique de données.
@@ -64,7 +64,7 @@ Vous pouvez créer des fabriques de données à l'aide de l'une des solutions su
 Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données Azure ne peut pas être modifié.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Puis-je déplacer une fabrique de données d’un abonnement Azure à un autre ?
-Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiqué dans le graphique ci-dessous.
+Oui. Utilisez le bouton **Déplacer** sur le panneau de votre fabrique de données comme indiqué dans le graphique ci-dessous :
 
 ![Déplacer la fabrique de données](media/data-factory-faq/move-data-factory.png)
 
@@ -79,6 +79,9 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 | [Service Analytique Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procédure stockée](data-factory-stored-proc-activity.md) |
 
+### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Comparaison d’Azure Data Factory avec SQL Server Integration Services (SSIS) 
+Consultez la présentation [Azure Data Factory et SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) faite par un de nos MVP (Most Valued Professional), Reza Rad. Certains des changements récents Data Factory peuvent ne pas figurer dans le jeu de diapositives. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous intégrerons ces mises à jour dans la comparaison des technologies d’intégration de données de Microsoft un peu plus tard cette année.   
+
 ## <a name="activities---faq"></a>Activités - Forum Aux Questions
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quels sont les différents types d’activités que vous pouvez utiliser dans un pipeline Data Factory ?
 * [Activités de déplacement des données](data-factory-data-movement-activities.md) pour déplacer les données.
@@ -92,7 +95,12 @@ Les paramètres de configuration de la **disponibilité** présents dans la tabl
 Les pipelines sont censés regrouper des activités connexes. Vous pouvez conserver les activités dans un seul pipeline si les tables qui les relient ne sont pas utilisées par d’autres activités extérieures au pipeline. De cette façon, vous n'aurez pas besoin de relier les périodes actives du pipeline pour qu'elles s'accordent les unes avec les autres. En outre, l’intégrité des données dans les tables internes au pipeline est mieux préservée lors de la mise à jour du pipeline. La mise à jour d'un pipeline arrête toutes les activités du pipeline, les supprime et les crée de nouveau. En termes de création, il peut être plus facile de voir le flux de données au sein des activités connexes dans un seul fichier JSON pour le pipeline.
 
 ### <a name="what-are-the-supported-data-stores"></a>Quelles sont les banques de données prises en charge ?
+L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Data Factory prend en charge les magasins de données suivants. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
 
 ### <a name="what-are-the-supported-file-formats"></a>Quels sont les formats de fichier pris en charge ?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 04/19/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 961a3867362d14ab7b6ff99ce4002380d763082f
-
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c0a988a11722cfefb242f573c5a3affe21e6b6b4
+ms.lasthandoff: 04/20/2017
 
 ---
+
 # <a name="connect-operations-manager-to-log-analytics"></a>Connexion d’Operations Manager à Log Analytics
 Pour conserver vos investissements existants dans System Center Operations Manager et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail OMS.  Cela vous permet de tirer parti des possibilités qu’offre OMS, tout en continuant à utiliser Operations Manager pour :
 
@@ -35,10 +36,12 @@ Le diagramme suivant représente la connexion entre les serveurs et agents d’a
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
+Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle OMS afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction de la solution que vous avez activée.  Pour plus d’informations et pour savoir comment configurer votre groupe d’administration Operations Manager pour communiquer via une passerelle OMS avec le service OMS, consultez [Connecter des ordinateurs à OMS en utilisant la passerelle OMS](log-analytics-oms-gateway.md).  
+
 ## <a name="system-requirements"></a>Conditions requises pour le système
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les conditions préalables sont remplies.
 
-* OMS prend uniquement en charge Operations Manager 2012 SP1 UR6 et versions supérieures et Operations Manager 2012 R2 UR2 et versions supérieures.  La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
+* OMS prend uniquement en charge Operations Manager 2016, Operations Manager 2012 SP1 UR6 et versions supérieures et Operations Manager 2012 R2 UR2 et versions supérieures.  La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
 * Tous les agents Operations Manager doivent répondre aux exigences en matière de prise en charge. Vérifiez que chaque agent est au niveau minimum de mise à jour ; sinon, le trafic de l’agent Windows échouera, entraînant de nombreuses erreurs qui risquent de saturer le journal des événements Operations Manager.
 * Un abonnement OMS.  Pour plus d’informations, consultez [Prise en main de Log Analytics](log-analytics-get-started.md).
 
@@ -137,28 +140,36 @@ Vous pouvez vérifier que votre intégration entre OMS et Operations Manager a r
 ## <a name="remove-integration-with-oms"></a>Supprimer l’intégration à OMS
 Si l’intégration entre votre groupe d’administration Operations Manager et votre espace de travail OMS est désormais inutile, vous devez effectuer plusieurs étapes pour supprimer correctement la connexion et la configuration dans le groupe d’administration. Dans la procédure suivante, vous allez mettre à jour votre espace de travail OMS en supprimant la référence de votre groupe d’administration, supprimer les connecteurs OMS, puis supprimer les packs d’administration prenant en charge OMS.   
 
+Les packs d’administration pour les solutions que vous avez activées qui s’intègrent avec Operations Manager, ainsi que les packs d’administration requis pour prendre en charge l’intégration avec le service OMS ne peuvent pas être facilement supprimés du groupe d’administration.  Ce comportement est dû au fait que certains des packs d’administration OMS ont des dépendances avec d’autres packs d’administration associés.  Pour supprimer les packs d’administration qui ont une dépendance vis-à-vis d’autres packs d’administration, téléchargez le script [Supprimer un pack d’administration avec des dépendances](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) à partir du centre de scripts TechNet.  
+
 1. Ouvrez l’interface de commande de Microsoft Operations Manager à l’aide d’un compte qui est membre du rôle Administrateurs Operations Manager.
    
-   > [!WARNING]
-   > Avant de continuer, vérifiez que les noms des packs d’administration personnalisés ne contiennent pas « Advisor » ou « IntelligencePack » ; sinon, les étapes suivantes les supprimeront du groupe d’administration.
-   > 
-   > 
-2. À l’invite de l’interpréteur de commandes, tapez `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
-3. Ensuite, tapez `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
-4. Ouvrez la console Opérateur Operations Manager à l’aide d’un compte qui est membre du rôle Administrateurs Operations Manager.
-5. Sous **Administration**, sélectionnez le nœud **Packs d’administration**. Ensuite, dans la zone **Rechercher**, tapez **Advisor** et vérifiez que les packs d’administration suivants sont toujours importés dans votre groupe d’administration :
+    > [!WARNING]
+    > Avant de continuer, vérifiez que les noms des packs d’administration personnalisés ne contiennent pas « Advisor » ou « IntelligencePack » ; sinon, les étapes suivantes les supprimeront du groupe d’administration.
+    > 
+
+2. À l’invite de l’interpréteur de commandes, tapez `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Ensuite, tapez `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+4. Pour supprimer les packs d’administration restants qui ont une dépendance sur les autres packs d’administration System Center Advisor, utilisez le script *RecursiveRemove.ps1* que vous avez téléchargé à partir du centre de scripts TechNet.  
+ 
+    > [!NOTE]
+    > Ne supprimez pas les packs d’administration Microsoft System Center Advisor ou Microsoft System Center Advisor Internal.  
+    >  
+
+5. Ouvrez la console Opérateur Operations Manager à l’aide d’un compte qui est membre du rôle Administrateurs Operations Manager.
+6. Sous **Administration**, sélectionnez le nœud **Packs d’administration**. Ensuite, dans la zone **Rechercher**, tapez **Advisor** et vérifiez que les packs d’administration suivants sont toujours importés dans votre groupe d’administration :
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-6. Dans le portail OMS, cliquez sur la vignette **Paramètres** .
-7. Sélectionnez **Sources connectées**.
-8. Dans le tableau sous la section System Center Operations Manager, le nom du groupe d’administration à supprimer de l’espace de travail doit s’afficher.  Sous la colonne **Dernières données**, cliquez sur **Supprimer**.  
+7. Dans le portail OMS, cliquez sur la vignette **Paramètres** .
+8. Sélectionnez **Sources connectées**.
+9. Dans le tableau sous la section System Center Operations Manager, le nom du groupe d’administration à supprimer de l’espace de travail doit s’afficher.  Sous la colonne **Dernières données**, cliquez sur **Supprimer**.  
    
-   > [!NOTE]
-   > Le lien **Supprimer** ne sera pas disponible avant 14 jours si aucune activité n’est détectée à partir du groupe d’administration connecté.  
-   > 
-   > 
-9. Une fenêtre s’affiche pour vous demander de confirmer la suppression.  Cliquez sur **Oui** pour continuer. 
+    > [!NOTE]
+    > Le lien **Supprimer** ne sera pas disponible avant 14 jours si aucune activité n’est détectée à partir du groupe d’administration connecté.  
+    > 
+
+10. Une fenêtre s’affiche pour vous demander de confirmer la suppression.  Cliquez sur **Oui** pour continuer. 
 
 Pour supprimer les deux connecteurs (Microsoft.SystemCenter.Advisor.DataConnector et Advisor Connector), enregistrez le script PowerShell ci-dessous sur votre ordinateur et exécutez-le en suivant les exemples suivants.
 
@@ -168,7 +179,7 @@ Pour supprimer les deux connecteurs (Microsoft.SystemCenter.Advisor.DataConnecto
 ```
 
 > [!NOTE]
-> Si l’ordinateur à partir duquel vous exécutez ce script n’est pas un serveur d’administration, vous devez installer l’interface de commande Operations Manager 2012 SP1 ou R2 selon la version de votre groupe d’administration.
+> Si l’ordinateur à partir duquel vous exécutez ce script n’est pas un serveur d’administration, vous devez installer l’interpréteur de commandes Operations Manager selon la version de votre groupe d’administration.
 > 
 > 
 
@@ -263,10 +274,5 @@ Si, par la suite, vous souhaitez reconnecter votre groupe d’administration à 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 * [Configurez les paramètres de proxy et de pare-feu dans Log Analytics](log-analytics-proxy-firewall.md) si votre organisation utilise un serveur proxy ou un pare-feu pour que les agents puissent communiquer avec le service Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
