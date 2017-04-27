@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: b83d44399960137c07494e8fe97ec96fa74df3fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
-
 Le service Azure Import/Export vous permet de transférer en toute sécurité des volumes importants de données vers Azure Blob Storage en expédiant des disques durs vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis Azure Blob Storage vers les disques durs et les expédier vers votre site local. Ce service est utile lorsque vous souhaitez transférer plusieurs téraoctets (To) de données vers ou depuis Azure, mais le transfert ou le téléchargement via le réseau est impossible à cause d’une bande passante limitée et de coûts de réseau élevés.
 
 Ce service nécessite que les disques durs soient chiffrés par BitLocker pour garantir la sécurité des données. Ce service prend en charge les comptes de stockage classiques et Azure Resource Manager (niveau standard et froid) présents dans toutes les régions de la version publique d’Azure. Vous devez expédier les disques durs à l’un des emplacements pris en charge spécifiés plus loin dans cet article.
@@ -73,6 +72,7 @@ Téléchargez la dernière version de l’[outil WAImportExport](http://download
 
 >[!NOTE]
 >**Version précédente :** vous pouvez [télécharger la version v1 de l’outil WAImportExpot](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) et consulter le [guide d’utilisation de WAImportExport v1](storage-import-export-tool-how-to-v1.md). La version v1 de l’outil WAImportExpot ne prend pas en charge **la préparation des disques lorsque des données sont préalablement écrites sur ces derniers**. Vous devez également utiliser l’outil WAImportExpot v1 si la seule clé disponible est une clé SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Disques durs
@@ -104,9 +104,11 @@ Emplacements d’expédition pris en charge :
 * Est des États-Unis
 * Ouest des États-Unis
 * Est des États-Unis 2
+* Ouest des États-Unis 2
 * Centre des États-Unis
 * États-Unis - partie centrale septentrionale
-* États-Unis - partie centrale méridionale
+* Centre-Sud des États-Unis
+* Centre-Ouest des États-Unis
 * Europe du Nord
 * Europe de l'Ouest
 * Est de l'Asie
@@ -116,9 +118,18 @@ Emplacements d’expédition pris en charge :
 * Ouest du Japon
 * Est du Japon
 * Inde centrale
-* Canada
-* Gouvernement des États-Unis
-* Chine
+* Inde du Sud
+* Centre du Canada
+* Est du Canada
+* Sud du Brésil
+* Centre de la Corée
+* Gouvernement américain - Virginie
+* US Gov Iowa
+* Est des États-Unis – US DoD
+* Centre des États-Unis – US DoD
+* Chine orientale
+* Chine du Nord
+* Sud du Royaume-Uni
 
 ### <a name="shipping"></a>Expédition
 **Expédition de disques au centre de données :**
@@ -263,7 +274,7 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
    
-    Dans le cadre de l’exemple ci-dessus, le fichier 100M_1.csv.txt sera copié à la racine du conteneur nommé « containername ». Si le nom de conteneur « containername » n’existe pas, un conteneur de ce nom sera créé. Tous les fichiers et dossiers présents sous 50M_original seront copiés de manière récursive dans containername. La structure des dossiers sera conservée.
+    Dans le cadre de l’exemple ci-dessus, le fichier 100M_1.csv.txt sera copié à la racine du conteneur nommé « containername ». Si le nom de conteneur « containername » n’existe pas, un conteneur de ce nom sera créé. Tous les fichiers et dossiers présents sous 50M_original seront copiés de manière récursive dans containername. La structure des dossiers sera conservée.
 
     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de données ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -408,7 +419,7 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
    > Si l’objet blob à exporter est en cours d’utilisation au moment de la copie sur le disque dur, le service d’importation/exportation Azure prend un instantané de l’objet blob et copie la capture instantanée.
    > 
    > 
-7. Vous pouvez suivre l’état d’avancement de votre tâche dans le tableau de bord du portail Azure. Pour connaître la signification de chaque état de travail dans la section précédente, consultez Affichage de l’état de votre travail.
+7. Vous pouvez suivre l’état d’avancement de votre tâche dans le tableau de bord du portail Azure. Pour connaître la signification de chaque état de travail dans la section précédente, consultez « Affichage de l’état de votre travail ».
 8. Après avoir réceptionné les disques avec vos données exportées, vous pouvez afficher et copier les clés BitLocker générées par le service pour votre disque. Accédez à votre compte de stockage dans le portail Azure, puis cliquez sur l’onglet Import/Export. Sélectionnez votre tâche d’exportation dans la liste, puis cliquez sur le bouton Afficher les clés. Les clés BitLocker s’affichent comme ci-dessous :
    
    ![Afficher les clés BitLocker pour une tâche d'exportation](./media/storage-import-export-service/export-job-bitlocker-keys.png)
