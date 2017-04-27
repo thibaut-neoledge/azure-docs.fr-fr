@@ -177,3 +177,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [En savoir plus sur les disques et disques durs virtuels](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
