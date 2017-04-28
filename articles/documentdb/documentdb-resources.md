@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: ec64215bfa3b812cddbed290d343c2d99fb70257
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -408,7 +408,7 @@ Pour annuler l’enregistrement d’une fonction définie par l’utilisateur, i
 Bien que les extraits de code précédents aient montré l’enregistrement (POST), l’annulation de l’enregistrement (PUT), la lecture ou le tri (GET) et l’exécution (POST) via le [Kit de développement logiciel (SDK) JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou d’autres [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documents
-Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. DocumentDB n'impose aucun schéma et ne requiert pas d'index secondaire pour prendre en charge l'interrogation des documents dans une collection. Par défaut, la taille maximale d’un document est de 2 Mo.   
+Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. DocumentDB n'impose aucun schéma et ne requiert pas d'index secondaire pour prendre en charge l'interrogation des documents dans une collection. La taille maximale d’un document est de 2 Mo.   
 
 En étant un service de base de données véritablement ouvert, DocumentDB n'invente pas de types de données spécialisés (par exemple, les valeurs de date et heure) ou d'encodage spécifique pour les documents JSON. Notez que DocumentDB ne requiert aucune convention JSON spéciale pour codifier les relations entre les différents documents. La syntaxe SQL de DocumentDB fournit des opérateurs de requête hiérarchiques et relationnels très puissants qui permettent d'interroger et de projeter des documents sans annotation spécifique ou obligation de codifier des relations entre les documents à l'aide de propriétés distinctes.  
 
