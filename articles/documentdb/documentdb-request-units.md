@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -132,37 +132,37 @@ Par exemple, voici un tableau qui indique le nombre d’unités de demande à fo
             <td valign="top"><p>1 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1) + (100* 5) = 1 000 UR/s</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1 000 UR/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *5) + (100* 5) = 3 000 UR/s</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3 000 UR/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1,3) + (100* 7) = 1 350 UR/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1 350 UR/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *1,3) + (500* 7) = 4 150 UR/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4 150 UR/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *10) + (100* 48) = 9 800 UR/s</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9 800 UR/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 Ko</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *10) + (500* 48) = 29 000 UR/s</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29 000 UR/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -249,7 +249,7 @@ La méthode la plus simple pour obtenir une estimation correcte des frais d’un
 ![Mesures du portail de l’API pour MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Exemple d’estimation d’unités de requête
-Considérez le document suivant d’environ&1; Ko :
+Considérez le document suivant d’environ 1 Ko :
 
 ```json
 {

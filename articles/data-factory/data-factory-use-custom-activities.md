@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b4b0a8139b69a31e4af40e1f8231d4d7772fee0b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 780c7b90fc97a38b69b9a30abe920e083562e238
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -51,7 +51,7 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 > Il n’est pas possible d’utiliser une passerelle de gestion des données à partir d’une activité personnalisée pour accéder à des sources de données locales. Actuellement, la [passerelle de gestion des données](data-factory-data-management-gateway.md) prend en charge uniquement l’activité de copie et l’activité de procédure stockée dans Data Factory.   
 
 ## <a name="walkthrough"></a>Procédure pas à pas
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 * Visual Studio 2012/2013/2015
 * Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET][azure-developer-center]
 
@@ -62,7 +62,7 @@ Pour ce didacticiel, créez un compte Azure Batch avec un pool de machines virtu
 
 1. Créez un compte **Azure Batch** via le [portail Azure](http://portal.azure.com). Consultez l’article [Créer et gérer un compte Azure Batch][batch-create-account] pour obtenir des instructions.
 2. Notez le nom du pool, l’URI, la clé et le nom du compte Azure Batch. Vous en avez besoin pour créer un service lié Azure Batch.
-    1. Sur la page d’accueil du compte Azure Batch, vous voyez une **URL** au format suivant : **https://myaccount.westus.batch.azure.com**. Dans cet exemple, **myaccount** est le nom du compte Azure Batch. L’URI que vous utilisez dans la définition de service lié est l’URL sans le nom du compte. Par exemple : **https://westus.batch.azure.com**.
+    1. Sur la page d’accueil du compte Azure Batch, vous voyez une **URL** au format suivant : `https://myaccount.westus.batch.azure.com`. Dans cet exemple, **myaccount** est le nom du compte Azure Batch. L’URI que vous utilisez dans la définition de service lié est l’URL sans le nom du compte. Par exemple : `https://westus.batch.azure.com`.
     2. Cliquez sur **Clés** dans le menu de gauche et copiez la **CLÉ D’ACCÈS PRIMAIRE**.
     3. Pour utiliser un pool existant, cliquez sur **Pools** dans le menu, puis notez **l’ID** du pool. Si vous n’avez pas de pool existant, passez à l’étape suivante.     
 2. Créez un **pool Azure Batch**.
@@ -71,7 +71,7 @@ Pour ce didacticiel, créez un compte Azure Batch avec un pool de machines virtu
    2. Sélectionnez votre compte Azure Batch pour ouvrir le panneau **Compte Batch** .
    3. Cliquez sur la vignette **Pools** .
    4. Dans le panneau **Pools** , cliquez sur le bouton Ajouter de la barre d’outils pour ajouter un pool.
-      1. Entrez un ID pour le pool (**ID du pool**). Notez **l’ID du pool**, car vous en aurez besoin lors de la création de la solution Data Factory.
+      1. Entrez un ID pour le pool (ID du pool). Notez **l’ID du pool**, car vous en aurez besoin lors de la création de la solution Data Factory.
       2. Spécifiez **Windows Server 2012 R2** pour le paramètre de famille du système d’exploitation.
       3. Sélectionnez le **niveau tarifaire du nœud**.
       4. Entrez **2** comme valeur du paramètre **Quantité dédiée cible**.
@@ -419,12 +419,18 @@ Voici les étapes que vous effectuez dans cette section :
    1. Cliquez sur **NOUVEAU** dans le menu de gauche.
    2. Dans le panneau **Nouveau**, cliquez sur **Données et analyses**.
    3. Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
+   
+    ![Nouveau menu Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Data factory name “CustomActivityFactory” is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible) s’affiche, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
+
+    ![Nouveau panneau Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Cliquez sur **NOM DU GROUPE DE RESSOURCES**pour sélectionner un groupe de ressources existant, ou créez un groupe de ressources.
 4. Veillez à utiliser **l’abonnement** et la **région** correspondant à ceux dans lesquels vous voulez créer la fabrique de données.
 5. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 6. La fabrique de données apparaît comme étant en cours de création dans le **Tableau de bord** du portail Azure.
 7. Une fois la fabrique de données créée, son contenu apparaîtra dans le panneau correspondant indiquant.
+    
+    ![Panneau Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Étape 2 : Créer des services liés
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Azure Storage et Azure Batch à votre fabrique de données.
@@ -432,22 +438,26 @@ Les services liés se chargent de lier des magasins de données ou des services 
 #### <a name="create-azure-storage-linked-service"></a>Créer le service lié Azure Storage
 1. Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Data Factory Editor s’affiche.
 2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
+    
+    ![Nouveau magasin de données - Stockage Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
+3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
-3. Remplacez **nom du compte** par le nom de votre compte de stockage Azure et **clé du compte** par sa clé d’accès. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account).
-
+    ![Service lié Azure Storage](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 #### <a name="create-azure-batch-linked-service"></a>Créer un service lié Azure Batch
-1. Dans Data Factory Editor, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez **Azure Batch** dans le menu.
+1. Dans Data Factory Editor, dans la barre d’outils, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau calcul**, puis sélectionnez **Azure Batch** dans le menu.
+
+    ![Nouveau calcul - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Apportez les modifications suivantes au script JSON :
 
-   1. Spécifiez le nom du compte Azure Batch pour la propriété **accountName** . **L’URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : http://**nomducompte**.région.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** dans l’URL et utiliser **nomducompte** pour la propriété JSON **accountName**.
+   1. Spécifiez le nom du compte Azure Batch pour la propriété **accountName** . L’**URL** dans le **panneau du compte Azure Batch** est au format suivant : `http://accountname.region.batch.azure.com`. Pour la propriété **batchUri** dans le JSON, vous devez supprimer `accountname.` de l’URL et utiliser `accountname` pour la propriété JSON `accountName`.
    2. Spécifiez la clé du compte Azure Batch pour la propriété **accessKey** .
    3. Spécifiez le nom du pool que vous avez créé dans le cadre de la configuration requise pour la propriété **poolName** . Vous pouvez aussi spécifier l’ID du pool au lieu du nom du pool.
-   4. Spécifiez l’URI Azure Batch pour la propriété **batchUri** . Exemple : https://westus.batch.azure.com.  
+   4. Spécifiez l’URI Azure Batch pour la propriété **batchUri** . Exemple : `https://westus.batch.azure.com`.  
    5. Spécifiez **AzureStorageLinkedService** for the **linkedServiceName** .
 
-        ```JSON
+        ```json
         {
          "name": "AzureBatchLinkedService",
          "properties": {
@@ -473,10 +483,10 @@ Les services liés se chargent de lier des magasins de données ou des services 
 Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie.
 
 #### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
-1. Dans **l’éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** de la barre d’outils et sélectionnez **Stockage Blob Azure** dans le menu déroulant.
+1. Dans **l’éditeur** de la fabrique de données, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau jeu de données**, puis sélectionnez **Stockage Blob Azure** dans le menu déroulant.
 2. Remplacez le script JSON affiché dans le volet droit par l’extrait de code JSON suivant :
 
-    ```JSON
+    ```json
     {
      "name": "InputDataset",
      "properties": {
@@ -506,7 +516,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 3. Cliquez sur **Déployer** sur la barre d’outils pour créer et déployer le **jeu de données d’entrée**. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche dans la barre de titre de l’éditeur.
 
 #### <a name="create-an-output-dataset"></a>Créer un jeu de données de sortie
-1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données**, puis sur **Stockage Blob Azure** dans la barre de commandes.
+1. Dans **Data Factory Editor**, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau jeu de données**, puis sélectionnez **Stockage Blob Azure**.
 2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant :
 
     ```JSON
@@ -553,7 +563,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le **jeu de données de sortie**.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Créer et exécuter un pipeline qui utilise l’activité personnalisée
-1. Dans Data Factory Editor, cliquez sur **Nouveau pipeline** dans la barre de commandes. Si vous ne voyez pas apparaître la commande, cliquez sur **... (points de suspension)** pour l’afficher.
+1. Dans Data Factory Editor, dans la barre d’outils, cliquez sur **... Plus**, puis sélectionnez **Nouveau pipeline** dans la barre de commandes. 
 2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant :
 
     ```JSON
@@ -740,20 +750,18 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ```
 
 ## <a name="auto-scaling-of-azure-batch"></a>Mise à l’échelle automatique d’Azure Batch
-Vous pouvez aussi créer un pool Azure Batch avec la fonctionnalité **autoscale** . Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente :
+Vous pouvez aussi créer un pool Azure Batch avec la fonctionnalité **autoscale** . Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente. 
 
-Une machine virtuelle à la fois par tâche en attente (par exemple : cinq tâches en attente -> cinq machines virtuelles) :
+Cet exemple de formule permet d’obtenir le comportement suivant : quand le pool est créé, il commence avec 1 machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. Vous pouvez ajuster startingNumberOfVMs et maxNumberofVMs selon vos besoins.
 
-```
-pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-$TargetDedicated = max(pendingTaskSampleVector);
-```
+Formule de mise à l’échelle automatique :
 
-Une machine virtuelle à la fois, quel que soit le nombre de tâches en attente :
-
-```
-pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+``` 
+startingNumberOfVMs = 1;
+maxNumberofVMs = 25;
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
 Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md) .
@@ -869,6 +877,7 @@ Dans le code **JSON du pipeline**, utilisez le service lié HDInsight (celui cr�
 | [Exemple d’analyse d’opinions Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Appelle un modèle Azure ML et effectue l’analyse, la notation, la prédiction, etc. des opinions. |
 | [Exécuter un script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Appelle un script R en exécutant RScript.exe sur votre cluster HDInsight, sur lequel R est installé. |
 | [Activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Utilise des versions d’assembly différentes de celles utilisées par le lanceur de Data Factory |
+| [Retraiter un modèle dans Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Retraite un modèle dans Azure Analysis Services. |
 
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md

@@ -16,9 +16,9 @@ ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 799bacdac6ff49cb6fa38cd208318673629d4035
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -99,6 +99,9 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 4. Sélectionnez **Enregistrer**.
 
     Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Démarrage automatique** . 
+
+## <a name="set-expiration-date"></a>Définir une date d’expiration
+Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez définir une date d’expiration. Dans **Paramètres avancés**, choisissez l’icône de calendrier pour spécifier la date à laquelle la machine virtuelle doit être automatiquement supprimée.  Par défaut, la machine virtuelle n’expire jamais.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 2f034718730f112ba85865ae032fb7bd07045b16
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ Dans un environnement de base de données partitionnée, il existe un seul clien
 
 Le GSM et le LSM peuvent devenir désynchronisés pour les raisons suivantes :
 
-1. La suppression d'un partitionnement dont on pense que la plage n'est plus utilisée ou l'attribution d'un nouveau nom au partitionnement. La suppression d’une partition  se traduit par un **mappage de partition orphelin**. De même, une base de données renommée peut causer un mappage de partition orphelin. En fonction de l'objectif de la modification, il peut être nécessaire de supprimer la partition ou de mettre à jour l'emplacement de partition. Pour récupérer une base de données supprimée, consultez [Restauration d’une base de données supprimée.](sql-database-restore-deleted-database-portal.md).
+1. La suppression d'un partitionnement dont on pense que la plage n'est plus utilisée ou l'attribution d'un nouveau nom au partitionnement. La suppression d’une partition  se traduit par un **mappage de partition orphelin**. De même, une base de données renommée peut causer un mappage de partition orphelin. En fonction de l'objectif de la modification, il peut être nécessaire de supprimer la partition ou de mettre à jour l'emplacement de partition. Pour récupérer une base de données supprimée, consultez [Restauration d’une base de données supprimée](sql-database-recovery-using-backups.md).
 2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur et le nom de la base de données du gestionnaire de partitions dans l'application, puis mettre à jour les détails de mappage de partition pour toutes les partitions d'un mappage de partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Pour en savoir plus sur les options de récupération d’une base de données en cas de panne du centre de données, consultez les rubriques sur la [continuité des activités](sql-database-business-continuity.md) et la [récupération d’urgence](sql-database-disaster-recovery.md).
 3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure. Pour en savoir plus sur la récupération jusqu`à une date et heure avec les sauvegardes, consultez [Récupération avec des sauvegardes](sql-database-recovery-using-backups.md).
 
@@ -77,7 +77,7 @@ Cet exemple supprime les partitions du mappage de partition.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-Le mappage indique l'emplacement de la partition dans GSM avant la suppression de la partition. Étant donné que la partition a été supprimée, on suppose que c’est intentionnel et la plage de clés de partitionnement n’est plus en cours d’utilisation. Sinon, vous pouvez exécuter une restauration à un moment donné. pour récupérer la partition à partir d’un point dans le temps ultérieur. (Dans ce cas, consultez la section suivante pour détecter les incohérences de partition.) Pour effectuer une récupération, consultez la rubrique sur la [récupération jusqu`à une date et heure](sql-database-point-in-time-restore-portal.md).
+La carte de partitions reflète l’emplacement de la partition dans GSM avant sa suppression. Étant donné que la partition a été supprimée, on suppose que c’est intentionnel et la plage de clés de partitionnement n’est plus en cours d’utilisation. Sinon, vous pouvez exécuter une restauration à un moment donné. pour récupérer la partition à partir d’un point dans le temps ultérieur. (Dans ce cas, consultez la section suivante pour détecter les incohérences de partition.) Pour effectuer une récupération, consultez la rubrique sur la [récupération jusqu`à une date et heure](sql-database-recovery-using-backups.md).
 
 Si la suppression de base de données est intentionnelle, l’opération de nettoyage administratif final consiste à supprimer l’entrée de la partition dans le gestionnaire de table de partition. L’application évite ainsi d’écrire par inadvertance des informations pour une plage non prévue.
 

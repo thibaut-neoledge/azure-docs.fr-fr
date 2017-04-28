@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a10ab3cf10826c63785d6427c27712573e82457a
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -24,7 +25,7 @@ ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
 
 ## <a name="runtime-apis"></a>API de runtime
 
-Vous trouverez ci-dessous une liste de tous les clients de runtime Event Hubs actuellement disponibles. Bien que certaines de ces bibliothèques incluent aussi des fonctionnalités de gestion limitées, il existe [des bibliothèques](#management-apis) dédiées aux opérations de gestion. Ces bibliothèques sont principalement destinées à envoyer et recevoir des messages d’un Event Hub.
+Vous trouverez ci-dessous une liste de tous les clients de runtime Azure Event Hubs actuellement disponibles. Bien que certaines de ces bibliothèques incluent aussi des fonctionnalités de gestion limitées, il existe [des bibliothèques](#management-apis) dédiées aux opérations de gestion. Ces bibliothèques sont principalement destinées à envoyer et recevoir des messages d’un hub d’événements.
 
 Consultez la section [Informations supplémentaires](#additional-information) pour plus de détails sur l’état actuel de chaque bibliothèque de runtime.
 
@@ -57,10 +58,5 @@ Vous trouverez ci-dessous une liste de toutes les bibliothèques dédiées à la
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Créer un hub d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

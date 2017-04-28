@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a68cdf246559fa5261aa4744a3f3839c4d8052d8
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a85999b7963e9a07d3f91ec47f298f91439c0808
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utiliser Azure DevTest Labs à des fins de formation
-Azure DevTest Labs peut être utilisé pour implémenter de nombreux scénarios clés en plus du développement et du test. Un de ces scénarios consiste à mettre en place un laboratoire à des fins de formation. Azure DevTest Labs vous permet de créer un laboratoire où vous pouvez fournir des modèles personnalisés utilisables par chaque participant pour créer des environnements de formation identiques et isolés. Vous pouvez vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. Enfin, vous pouvez facilement partager le laboratoire avec les participants, qui peuvent y accéder en un seul clic.   
+Azure DevTest Labs peut être utilisé pour implémenter de nombreux scénarios clés en plus du développement et du test. Un de ces scénarios consiste à mettre en place un laboratoire à des fins de formation. Azure DevTest Labs vous permet de créer un laboratoire où vous pouvez fournir des modèles personnalisés utilisables par chaque participant pour créer des environnements de formation identiques et isolés. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. Enfin, vous pouvez facilement partager le laboratoire avec les participants, qui peuvent y accéder en un seul clic.
 
 ![Utiliser DevTest Labs à des fins de formation](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
@@ -101,10 +102,5 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

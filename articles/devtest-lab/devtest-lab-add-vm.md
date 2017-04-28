@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 052785aa225086e55a40c061765770b9eebaa154
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 9ac43f4ac0a58ae3326c63ab53259d7621577d34
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -48,7 +48,9 @@ Vous ajoutez une machine virtuelle à un laboratoire à partir d’une *base* qu
 1. Sélectionnez **Taille de machine virtuelle** , puis l’un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
 1. Sélectionnez **Artefacts** et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l’image de base.
     **Remarque :** si vous n’êtes pas familier avec DevTest Labs ou avec la configuration d’artefacts, reportez-vous à la section [Ajout d’un artefact existant à une machine virtuelle](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm), puis reprenez la procédure à ce stade.
-1. Sélectionnez **Paramètres avancés** pour configurer les options réseau et les options d’expiration de la machine virtuelle.
+1. Sélectionnez **Paramètres avancés** pour configurer les options réseau et les options d’expiration de la machine virtuelle. 
+
+   Pour définir une option d’expiration, choisissez l’icône de calendrier pour spécifier la date à laquelle la machine virtuelle doit être automatiquement supprimée.  Par défaut, la machine virtuelle n’expire jamais. 
 1. Si vous voulez visualiser ou copier le modèle Azure Resource Manager, reportez-vous à la section [Enregistrer un modèle Azure Resource Manager](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template), puis reprenez la procédure à ce stade.
 1. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 1. Le panneau du laboratoire affiche l’état de la création de la machine virtuelle, tout d’abord sous la forme **Création en cours**, puis sous la forme **En cours d’exécution** après le démarrage de la machine virtuelle.

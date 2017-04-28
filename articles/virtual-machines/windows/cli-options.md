@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5554097904598a7bdb7bb0148f3a00923da2cfa7
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: be02ad0d7752cb08f092deeb5a86dcd126403237
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="using-the-azure-cli-on-windows"></a>Utilisation de l’interface de ligne de commande Azure sur Windows
 
-L’interface de ligne de commande Azure (CLI) fournit un environnement de script et de ligne de commande pour la création et la gestion des ressources Azure. L’interface de ligne de commande Azure est disponible pour les systèmes d’exploitation Windows, Linux et Mac OS X. Dans ces systèmes d’exploitation, les commandes CLI sont identiques, mais la syntaxe de script peut varier.
+L’interface de ligne de commande Azure (CLI) fournit un environnement de script et de ligne de commande pour la création et la gestion des ressources Azure. Azure CLI est disponible pour les systèmes d’exploitation Windows, Linux et Mac OS. Dans ces systèmes d’exploitation, les commandes CLI sont identiques, mais la syntaxe de script peut varier.
 
-Ce document détaille la façon dont l’interface de ligne de commande Azure peut être installée et exécutée sur Windows, ainsi que sa syntaxe. Pour en savoir plus sur l’interface de ligne de commande Azure, consultez la [documentation Azure CLI]( https://docs.microsoft.com/en-us/cli/azure/overview).
+Ce document détaille la façon dont l’interface de ligne de commande Azure peut être installée et exécutée sur Windows, ainsi que sa syntaxe. Pour en savoir plus sur Azure CLI, voir la [documentation Azure CLI]( https://docs.microsoft.com/en-us/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Sous-système Windows pour Linux
 
-Le sous-système Windows pour Linux fournit un environnement Ubuntu Linux sur Windows 10 Édition anniversaire. Une fois activé, le sous-système Windows pour Linux offre une expérience Bash native qui permet de créer et d’exécuter des scripts Azure CLI. Étant donné que le sous-système Windows pour Linux offre une expérience Bash native, les scripts Azure CLI peuvent être partagés par Mac OS X, Linux et Windows sans nécessiter de modifications.
+Le sous-système Windows pour Linux fournit un environnement Linux Ubuntu sur la Mise à jour anniversaire Microsoft Windows 10 et les éditions ultérieures. Une fois activé, le sous-système Windows pour Linux offre une expérience Bash native qui permet de créer et d’exécuter des scripts Azure CLI. Étant donné que le sous-système Windows pour Linux offre une expérience Bash native, les scripts Azure CLI peuvent être partagés par Mac OS, Linux et Windows sans nécessiter de modification.
 
 Pour utiliser l’interface de ligne de commande Azure dans le sous-système Windows pour Linux, procédez comme suit.
 
@@ -41,13 +41,13 @@ Pour utiliser l’interface de ligne de commande Azure dans le sous-système Win
 
 ## <a name="powershell"></a>PowerShell
 
-L’interface de ligne de commande Azure peut être exécutée en mode natif dans Windows. Dans cette configuration, le package Azure CLI est installé sur le système d’exploitation Windows, et les commandes peuvent être exécutées à partir de PowerShell. Dans cette configuration, les scripts et les commandes CLI Azure peuvent être exécutés sur n’importe quelle version prise en charge de Windows. Cependant, une syntaxe de script spécifique à la plateforme est nécessaire. C’est pourquoi les scripts ne peuvent pas toujours être partagés par Mac OS X, Linux et Windows sans nécessiter de modifications.
+L’interface de ligne de commande Azure peut être exécutée en mode natif dans Windows. Dans cette configuration, le package Azure CLI est installé sur le système d’exploitation Windows, et les commandes peuvent être exécutées à partir de PowerShell. Dans cette configuration, les scripts et les commandes CLI Azure peuvent être exécutés sur n’importe quelle version prise en charge de Windows. Cependant, une syntaxe de script spécifique à la plateforme est nécessaire. C’est pourquoi les scripts ne peuvent pas toujours être partagés par Mac OS, Linux et Windows sans nécessiter de modification.
 
 Pour utiliser l’interface de ligne de commande Azure sur Windows, installez le package en suivant les instructions d’[installation de l’interface de ligne de commande sur Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows).
 
 ## <a name="docker-image"></a>Image Docker
 
-Lorsque vous utilisez Docker pour Windows, vous pouvez démarrer une image Docker incluant l’interface de ligne de commande Azure. Cette image est basée sur Linux et inclut une expérience Bash native.  Lorsque vous utilisez Docker pour Windows et l’image de l’interface de ligne de commande Azure, les scripts peuvent être partagés par Windows, Linux et Mac OS X. 
+Lorsque vous utilisez Docker pour Windows, vous pouvez démarrer une image Docker incluant l’interface de ligne de commande Azure. Cette image est basée sur Linux et inclut une expérience Bash native.  Lorsque vous utilisez Docker pour Windows et l’image de l’interface de ligne de commande Azure, les scripts peuvent être partagés par Windows, Linux et Mac OS. 
 
 Pour utiliser l’interface de ligne de commande Azure sur Docker pour Windows, assurez-vous que Docker pour Windows est en cours d’exécution, puis exécutez la commande suivante.
 

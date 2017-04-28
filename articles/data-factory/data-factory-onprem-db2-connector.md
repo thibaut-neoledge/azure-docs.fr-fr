@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 59a83a62ddee89c44533060b811bc8fc2f144bee
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,10 +26,10 @@ Cet article décrit la façon dont vous pouvez utiliser l’activité de copie d
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données DB2 vers les [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données depuis d’autres magasins de données vers une base de données DB2.
 
-## <a name="prerequisites"></a>Composants requis
-Pour que le service Azure Data Factory puisse se connecter à la base de données DB2 locale, vous devez installer une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur, afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un composant qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle, un pipeline de données, pour déplacer des données.
+## <a name="prerequisites"></a>Conditions préalables
+Data Factory prend en charge la connexion à une base de données DB2 locale à l’aide de la passerelle de gestion des données. Consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus sur la passerelle de gestion des données et l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle pour un pipeline de données afin de déplacer des données.
 
-Vous devez utiliser la passerelle pour vous connecter à une base de données DB2, même si elle est hébergée dans le cloud, par exemple sur une machine virtuelle IaaS Azure. Vous pouvez installer la passerelle sur la même machine virtuelle que le magasin de données ou sur une autre machine virtuelle, tant que la passerelle peut se connecter à la base de données.  
+Une passerelle est requise même si la base de données DB2 est hébergée sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle IaaS que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
 
 La passerelle de gestion des données fournit un pilote DB2 intégré. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie de données à partir de DB2.
 
@@ -47,6 +47,9 @@ Ce connecteur DB2 prend en charge les plateformes et versions IBM DB2 suivantes 
 * IBM DB2 pour LUW 10.5
 * IBM DB2 pour LUW 10.1
 
+> [!TIP]
+> Si vous rencontrez l’erreur « Le package correspondant à une requête d’exécution d’instruction SQL est introuvable. SQLSTATE=51002 SQLCODE=-805 », cela signifie que l’utilisateur dispose d’un compte doté de privilèges élevés (d’utilisateur avancé ou d’administrateur) pour exécuter l’activité de copie une fois, puis que le package nécessaire sera automatiquement créé pendant la copie. Ensuite, vous pouvez revenir au mode utilisateur normal pour vos séries de copie suivantes.
+
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données DB2 local à l’aide de différents outils/API. 
 
@@ -57,7 +60,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 
 1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
 Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données DB2 local, consultez la section [Exemple JSON : copier des données depuis DB2 vers Azure Blob](#json-example-copy-data-from-db2-to-azure-blob) de cet article. 
 
