@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
 ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -101,9 +102,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Utilisation de Service Bus à partir de PHP avec AMQP]: service-bus-amqp-php.md
 [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]: service-bus-amqp-apache.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
