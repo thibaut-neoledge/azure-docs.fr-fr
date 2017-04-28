@@ -20,6 +20,7 @@ ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
 ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,7 +31,7 @@ Pour une procédure pas à pas qui montre comment gérer un jeu de données plus
 
 Il est également possible d'avoir recours à un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas au moyen du jeu de données de 1 To. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l’aide d’une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Description du jeu de données NYC Taxi Trips
+## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
 Pesant environ 20 Go au format compressé (ou 48 Go au format non compressé), le jeu de données NYC Taxi Trip contient des fichiers CSV (valeurs séparées par des virgules) concernant plus de 173 millions de trajets et le prix réglé pour chacun d’entre eux. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
 1. Les fichiers CSV trip_data contiennent les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
@@ -56,11 +57,11 @@ Pour obtenir tous les détails pertinents pour un voyage en particulier, il suff
 
 Nous fournissons rapidement des informations supplémentaires relatives aux données lorsque nous les stockons dans les tables Hive.
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemples de tâches de prédiction
+## <a name="mltasks"></a>Exemples de tâches de prédiction
 Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus.
 Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à&0; $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de&0; $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de 0 $ est un exemple négatif.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0
@@ -73,7 +74,7 @@ Voici trois exemples de problèmes de prévisions que nous allons traiter dans 
         Class 4 : tip_amount > $20
 3. **Tâche de régression**: prédire le montant du pourboire versé pour une course.  
 
-## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
+## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -88,7 +89,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
    * Une fois le cluster créé, activez l'accès à distance au nœud principal du cluster. Accédez à l’onglet **Configuration**, puis cliquez sur **Activation à distance**. Cette étape fournit les informations d'identification d'utilisateur utilisées pour la connexion à distance.
 3. [Création d’un espace de travail Azure Machine Learning](machine-learning-create-workspace.md): cet espace de travail Azure Machine Learning est utilisé pour construire des modèles d'apprentissage automatique. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l'aide du cluster HDInsight.
 
-## <a name="a-namegetdataaget-the-data-from-a-public-source"></a><a name="getdata"></a>Obtenir les données auprès d’une source publique
+## <a name="getdata"></a>Obtenir les données auprès d’une source publique
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -104,7 +105,7 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 1. Une fois la copie terminée, un total de 24 fichiers compressés se trouvent dans le dossier de données choisi. Décompressez les fichiers téléchargés dans le même répertoire sur votre ordinateur local. Prenez note du dossier où résident les fichiers décompressés. Ce dossier sera désigné comme *<path\_to\_unzipped_data\_files\>* chemin d’accès.
 
-## <a name="a-nameuploadaupload-the-data-to-the-default-container-of-azure-hdinsight-hadoop-cluster"></a><a name="upload"></a>Charger les données dans le conteneur par défaut du cluster Hadoop Azure HDInsight
+## <a name="upload"></a>Charger les données dans le conteneur par défaut du cluster Hadoop Azure HDInsight
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -129,7 +130,7 @@ Cette commande télécharge les données de prix sur le répertoire ***nyctaxifa
 
 Les données doivent être désormais dans le stockage Blob Azure et prêtes à être utilisées au sein du cluster HDInsight.
 
-## <a name="a-namedownload-hql-filesalog-into-the-head-node-of-hadoop-cluster-and-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Connectez-vous au nœud principal du cluster Hadoop et préparez une analyse exploratoire de données
+## <a name="#download-hql-files"></a>Connectez-vous au nœud principal du cluster Hadoop et préparez une analyse exploratoire de données
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -147,7 +148,7 @@ Pour préparer le cluster d’analyse exploratoire des données, nous téléchar
 
 Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\temp&#92;*** dans le nœud principal.
 
-## <a name="a-namehive-db-tablesacreate-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
+## <a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -215,7 +216,7 @@ Ce script Hive crée deux tables :
 
 Si vous avez besoin d’aide sur ces procédures souhaitez examiner d’autres solutions, voir la section [Envoyer des requêtes Hive directement depuis la ligne de commande Hadoop](machine-learning-data-science-move-hive-tables.md#submit).
 
-## <a name="a-nameload-dataaload-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Charger les données dans les tables Hive par partitions
+## <a name="#load-data"></a>Charger les données dans les tables Hive par partitions
 > [!NOTE]
 > Il s'agit généralement d’une tâche d’ **administration** .
 > 
@@ -232,12 +233,12 @@ Le fichier *sample\_hive\_load\_data\_by\_partitions.hql* contient les commandes
 
 Notez que plusieurs des requêtes Hive que nous utilisons ici dans le processus d'exploration impliquent la recherche d'une seule partition ou seulement de quelques partitions. Mais ces requêtes peuvent être exécutées pour l'ensemble des données.
 
-### <a name="a-nameshow-dbashow-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Afficher les bases de données dans le cluster Hadoop HDInsight
+### <a name="#show-db"></a>Afficher les bases de données dans le cluster Hadoop HDInsight
 Pour afficher les bases de données créées dans le cluster Hadoop HDInsight à l’intérieur de fenêtre de commande Hadoop, exécutez la commande suivante dans la ligne de commande Hadoop :
 
     hive -e "show databases;"
 
-### <a name="a-nameshow-tablesashow-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Afficher les tables Hive de la base de données nyctaxidb
+### <a name="#show-tables"></a>Afficher les tables Hive de la base de données nyctaxidb
 Pour afficher les tables dans la base de données nyctaxidb, exécutez la commande suivante dans la ligne de commande Hadoop :
 
     hive -e "show tables in nyctaxidb;"
@@ -282,7 +283,7 @@ Le résultat prévu est affiché ci-dessous :
     month=9
     Time taken: 1.887 seconds, Fetched: 12 row(s)
 
-## <a name="a-nameexplore-hiveadata-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Exploration des données et ingénierie des fonctionnalités dans Hive
+## <a name="#explore-hive"></a>Exploration des données et ingénierie des fonctionnalités dans Hive
 > [!NOTE]
 > Il s'agit généralement d’une tâche de **données scientifiques** .
 > 
@@ -575,7 +576,7 @@ Pour afficher le contenu d’un fichier donné, par exemple, 000000\_0, nous uti
 
 Le principal avantage lié au fait que ces données résident dans un objet blob Azure est que nous pouvons explorer les données au sein de Azure Machine Learning à l’aide du module [Importer des données][import-data].
 
-## <a name="a-namedownsampleadown-sample-data-and-build-models-in-azure-machine-learning"></a><a name="#downsample"></a>Réduire l’échantillon des données et créer des modèles dans Azure Machine Learning
+## <a name="#downsample"></a>Réduire l’échantillon des données et créer des modèles dans Azure Machine Learning
 > [!NOTE]
 > Il s'agit généralement d’une tâche de **données scientifiques** .
 > 
@@ -757,7 +758,7 @@ Notez que, puisque nos données à l’échantillon réduit résident dans le co
 
 Le jeu de données peut maintenant être utilisé comme point de départ pour générer des modèles d'apprentissage automatique.
 
-### <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Créer des modèles dans Azure Machine Learning
+### <a name="mlmodel"></a>Créer des modèles dans Azure Machine Learning
 Nous sommes désormais capables de passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont exploitables pour répondre aux problèmes de prévision identifiés précédemment :
 
 **1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
@@ -839,9 +840,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
