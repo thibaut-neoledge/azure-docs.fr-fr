@@ -132,7 +132,7 @@ Cliquez sur **Itinéraires** pour gérer la façon dont IoT Hub distribue vos me
 
 ![][14]
 
-Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires***, saisissez les informations requises, puis cliquez sur **OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus sur la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver** sur **Désactiver**. Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
+Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires***, saisissez les informations requises, puis cliquez sur**OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus sur la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver**sur**Désactiver**. Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
 
 ![][15]
 
