@@ -7,8 +7,3 @@ Cet article suppose que vous possédez :
 
 > [!TIP]
 > Vérifiez que vous êtes en mesure de connecter le port 443 du serveur de configuration (qui s’exécute en local) à partir du réseau virtuel Azure dans lequel les machines virtuelles ont été basculées.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -8,8 +8,3 @@
 
     > [!Note]
   > L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, cliquez sur **Serveurs de configuration** > ***nom du serveur*** > **Actualiser le serveur**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

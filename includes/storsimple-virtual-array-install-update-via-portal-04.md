@@ -53,7 +53,3 @@
 9. Une fois les mises à jour correctement installées, vous recevez un message vous l’indiquant dans le panneau **Mises à jour de l’appareil**. La version du logiciel est désormais **10.0.10289.0**.
 
     ![mettre à jour l'appareil](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -20,8 +20,3 @@ Les étapes d’annulation de l’inscription d’un serveur de traitement diff�
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. Cette opération vide les informations du serveur de traitement du système.
-
-
-<!--HONumber=Feb17_HO1-->
-
-
