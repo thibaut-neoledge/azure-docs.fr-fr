@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: e6efa8c05c51b0438912738c3c5fcad4bc12b8f4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -56,8 +56,16 @@ Lorsque vous examinez un panneau ou un ensemble de graphiques qui est particuli�
 
 Notez que les graphiques sont regroupés en vignettes : une vignette peut contenir plusieurs graphiques. Vous épinglez la vignette entière au tableau de bord.
 
+Le graphique est automatiquement actualisé à une fréquence qui varie selon l’intervalle de temps du graphique :
+
+* Intervalle de temps de 1 heure maximum : actualisation toutes les 5 minutes
+* Intervalle de temps entre 1 et 24 heures : actualisation toutes les 15 minutes
+* Intervalle de temps supérieur à 24 heures : (intervalle de temps)/60.
+
 ### <a name="pin-any-query-in-analytics"></a>Épinglez n’importe quelle requête dans Analytics
 Vous pouvez également [épingler des graphiques Analytics](app-insights-analytics-using.md#pin-to-dashboard) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards. Cette fonctionnalité vous est facturée.
+
+Les résultats sont recalculés automatiquement toutes les heures. Cliquez sur l’icône Actualiser du graphique pour recalculer immédiatement. (L’actualisation du navigateur ne permet pas de lancer un nouveau calcul.)
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Ajustement d’une vignette sur le tableau de bord
 Lorsqu’une vignette se trouve sur le tableau de bord, vous pouvez l’ajuster.

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
-ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
+ms.lasthandoff: 04/13/2017
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
@@ -54,7 +54,7 @@ Pour permettre le basculement d’un appareil, assurez-vous que les conditions p
   > N’essayez pas de configurer l’appareil virtuel inscrit via le service. Aucune configuration d'appareil ne doit être effectuée via le service.
   > 
   > 
-* L’appareil cible ne peut pas porter le même nom que l’appareil source. Vous avez toujours la possibilité de renommer l’appareil cible une fois le basculement terminé.
+* L’appareil cible ne peut pas porter le même nom que l’appareil source.
 * Les appareils source et cible doivent être du même type. Vous pouvez uniquement basculer un Virtual Array configuré comme un serveur de fichiers vers un autre serveur de fichiers. Il en est de même pour un serveur iSCSI.
 * Pour la récupération d’urgence d’un serveur de fichiers, nous vous recommandons de joindre l’appareil cible au même domaine que la source. Cette configuration permet de garantir la résolution automatique des autorisations de partage. Seul le basculement vers un appareil cible se trouvant dans le même domaine est pris en charge.
 * Les appareils cibles disponibles pour la récupération d'urgence sont des appareils ayant une capacité égale ou supérieure par rapport à l'appareil source. Les appareils connectés à votre service qui ne présentent pas un espace suffisant ne sont pas disponibles en tant qu’appareils cibles.
@@ -78,7 +78,7 @@ Avant le début de la récupération d’urgence, l’appareil effectue des vér
   
   * d’un serveur iSCSI
   * Validité du nom IQN (moins de 220 caractères)
-  * Validité des mots de passe CHAP (12 à&16; caractères)
+  * Validité des mots de passe CHAP (12 à 16 caractères)
 
 Si l’une des vérifications préalables ci-dessus échoue, vous ne pouvez pas procéder à la récupération d’urgence. Vous devez résoudre ces problèmes, puis réessayer d’exécuter la récupération d’urgence.
 
@@ -155,7 +155,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
     1. Sélectionnez l’appareil StorSimple qui a été utilisé en tant qu’appareil cible pour le processus de basculement et cliquez dessus.
     2. Accédez à **Paramètres > Administration > Partages** (ou **Volumes** dans le cas d’un serveur iSCSI). Dans le panneau **Partages**, vous pouvez afficher tous les partages (volumes) de l’ancien appareil.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Vous pouvez maintenant renommer l’appareil (identique à l’ancien appareil source) afin de permettre aux serveurs d’applications de se connecter directement à cet appareil. Si vous ne souhaitez pas renommer l’appareil, vous devez [créer un alias DNS](https://support.microsoft.com/kb/168322) afin que toutes les applications qui essaient de se connecter puissent être redirigées vers le nouvel appareil.
+14. Vous devez [créer un alias DNS](https://support.microsoft.com/kb/168322) afin que toutes les applications qui essaient de se connecter puissent être redirigées vers le nouvel appareil.
 
 ## <a name="errors-during-dr"></a>Erreurs lors de la récupération d'urgence
 

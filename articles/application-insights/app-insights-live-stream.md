@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
-ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11b9f52801e9a62b9c52f0f622fdcae761cc122a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ Le flux de métriques temps réel vous montre vos mesures [Application Insights]
 
 Contrairement à [Metrics Explorer](app-insights-metrics-explorer.md), le flux de métriques temps réel affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
 
-Le flux de métriques temps réel est gratuit : il ne s’ajoute pas à votre facture.
+Le flux de métriques temps réel est gratuit : il ne s’ajoute pas à votre facture. Il est disponible pour les applications ASP.NET et Java.
 
 ![Vidéo sur le flux de métriques temps réel](./media/app-insights-live-stream/youtube.png) [Vidéo sur le flux de métriques temps réel](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -57,7 +57,7 @@ Pas de données ? Le flux de métriques temps réel utilise un port différent 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveillance de l’utilisation avec Application Insights](app-insights-overview-usage.md)
+* [Surveillance de l’utilisation avec Application Insights](app-insights-web-track-usage.md)
 * [Utilisation de Diagnostic Search](app-insights-diagnostic-search.md)
 
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d55892027a01bc9a1be2455d5d9bfee05b6fb982
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,6 +28,7 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
   * Installez le [SDK Application Insights](app-insights-asp-net.md) dans votre code d’application, ou
   * Serveurs web IIS : exécutez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) ; ou
   * Applications web Azure : ajoutez l’[extension Application Insights](app-insights-azure-web-apps.md)
+  * Applications web Java : installez l’[agent Java](app-insights-java-agent.md)
 * Installez l’[extrait de code JavaScript](app-insights-javascript.md) dans vos pages web pour intercepter les exceptions du navigateur.
 * Dans certains frameworks d’application ou avec certains paramètres, vous devez prendre des mesures supplémentaires pour intercepter davantage d’exceptions :
   * [Web forms](#web-forms)
@@ -47,7 +48,7 @@ Ouvrez la fenêtre de recherche d’Application Insights dans Visual Studio et c
 
 Notez que vous pouvez filtrer le rapport pour qu’il affiche uniquement les exceptions.
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)* 
 
 Cliquez sur un rapport d’exception pour afficher sa trace de pile.
 Cliquez sur une référence de ligne dans l’arborescence des appels de procédure pour ouvrir le fichier de code approprié.  
@@ -67,7 +68,7 @@ Cliquez sur l’un des types d’exception ayant échoué dans la liste pour obt
 
 **Vous pouvez également** commencer à partir de la liste des requêtes et rechercher les exceptions qui lui sont associées.
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)* 
 
 
 ## <a name="custom-tracing-and-log-data"></a>Suivi personnalisé et données du journal

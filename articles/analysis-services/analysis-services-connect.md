@@ -1,5 +1,5 @@
 ---
-title: "Obtenir les données d’Azure Analysis Services | Microsoft Docs"
+title: "Connexion à Azure Analysis Services | Microsoft Docs"
 description: "Découvrez comment vous connecter à un serveur Analysis Services dans Azure et en obtenir les données."
 services: analysis-services
 documentationcenter: 
@@ -13,22 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/13/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: eccc181e2203a97de58005f9597613775338ebcc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2e1b9495cecac0095a9364752967f868f8e92530
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="get-data-from-azure-analysis-services"></a>Obtenir les données d’Azure Analysis Services
+# <a name="connect-to-an-azure-analysis-services-server"></a>Se connecter à un serveur Azure Analysis Services
 
-Une fois que vous avez créé un serveur dans Azure avant d’y déployer un modèle tabulaire, les utilisateurs de votre entreprise sont prêts à s’y connecter et à explorer les données.
+Cet article décrit la connexion à un serveur à l’aide de la modélisation des données et des applications de gestion telles que SQL Server Management Studio (SSMS) ou SQL Server Data Tools (SSDT). La connexion est également possible avec des applications de création de rapports client telles que Microsoft Excel, Power BI Desktop ou des applications personnalisées. Les connexions à Azure Analysis Services utilisent HTTPS.
 
-## <a name="data-providers-aka-client-libraries"></a>Fournisseurs de données (également appelés bibliothèques clientes)
+## <a name="client-libraries"></a>Bibliothèques clientes
+[Obtention des bibliothèques clientes les plus récentes](analysis-services-data-providers.md)
 
-Les applications clientes comme Power BI Desktop et Microsoft Excel recourent à des fournisseurs mis à jour AMO, ADOMD.NET et OLEDB pour se connecter à Analysis Services et interagir avec. Avec certaines versions plus anciennes d’Excel ou d’applications personnalisées, vous devrez éventuellement installer les fournisseurs de données les plus récents pour vous connecter à Azure Analysis Services. Pour plus d’informations, consultez [Fournisseurs de données](analysis-services-data-providers.md).
+Toutes les connexions à un serveur, quel que soit le type, nécessitent des bibliothèques clientes AMO, ADOMD.NET et OLEDB mises à jour pour interagir avec un serveur Analysis Services. Pour SSMS, SSDT, Excel 2016 et Power BI, les bibliothèques clientes les plus récentes sont installées ou mises à jour avec les versions mensuelles. Toutefois, dans certains cas, il est possible qu’une application ne dispose pas de la version la plus récente. Par exemple, lorsque les stratégies retardent les mises à jour, ou lorsque les mises à jour Office 365 se trouvent sur le canal différé.
 
 ## <a name="server-name"></a>Nom du serveur
 
@@ -37,61 +38,25 @@ Lorsque vous créez un serveur Analysis Services dans Azure, vous spécifiez un 
 ```
 <protocol>://<region>/<servername>
 ```
- Où protocole est la chaîne **asazure**, la région est l’URI de la région dans laquelle le serveur a été créé (par exemple, pour États-Unis de l'Ouest, westus.asazure.windows.net) et nomserveur est le nom de votre serveur unique au sein de la région.
+ Où protocol est la chaîne **asazure**, region est l’URI où le serveur a été créé (par exemple, westus.asazure.windows.net) et servername est le nom de votre serveur unique au sein de la région.
 
-## <a name="get-the-server-name"></a>Obtenir le nom du serveur
-
-Avant de vous connecter, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur entier. Si d’autres utilisateurs de votre entreprise se connectent également à ce serveur, vous pouvez partager ce nom de serveur avec eux. Lorsque vous spécifiez un nom de serveur, le chemin d’accès complet doit être utilisé.
+### <a name="get-the-server-name"></a>Obtenir le nom du serveur
+Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur entier. Si d’autres utilisateurs de votre entreprise se connectent également à ce serveur, vous pouvez partager ce nom de serveur avec eux. Lorsque vous spécifiez un nom de serveur, le chemin d’accès complet doit être utilisé.
 
 ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
-## <a name="connect-in-power-bi-desktop"></a>Se connecter à Power BI Desktop
-
-> [!NOTE]
-> Cette fonctionnalité est une version préliminaire.
-> 
-> 
-
-1. Dans [Power BI Desktop](https://powerbi.microsoft.com/desktop/), cliquez sur **Obtenir les données** > **Azure** > **Base de données Microsoft Azure Analysis Services**.
-2. Dans **Serveur**, collez le nom du serveur à partir du Presse-papiers.
-3. Dans **Base de données**, si vous connaissez le nom de la base de données de modèle tabulaire ou de la perspective à laquelle vous souhaitez vous connecter, collez-le ici. Sinon, vous pouvez laisser ce champ vide. Vous pouvez sélectionner une base de données ou une perspective dans l’écran suivant.
-4. Laissez l’option par défaut **Connexion active** sélectionnée, puis appuyez sur **Se connecter**. Si vous êtes invité à entrer un compte, entrez votre compte professionnel.
-5. Dans le **Navigateur**, développez le serveur, puis sélectionnez le modèle ou la perspective auquel vous souhaitez vous connecter, puis cliquez sur **Se connecter**. Un clic sur un modèle ou une perspective montre tous les objets de cette vue.
-
-## <a name="connect-in-power-bi"></a>Se connecter à Power BI
-
-1. Créez un fichier Power BI Desktop qui inclut une connexion active à votre modèle sur votre serveur.
-2. Dans [Power BI](https://powerbi.microsoft.com), cliquez sur **Obtenir les données** > **Fichiers**. Recherchez et sélectionnez votre fichier.
-
-## <a name="connect-in-excel"></a>Se connecter dans Excel
-
-La connexion au serveur Azure Analysis Services dans Excel est prise en charge grâce à la fonction Obtenir les données dans Excel 2016 ou Power Query dans les versions antérieures. Le [fournisseur MSOLAP.7](analysis-services-data-providers.md) est obligatoire. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge.
-
-> [!NOTE]
-> Certaines organisations déploient les mises à jour Office 365 sur le canal différé, ce qui signifie que des mises à jour de version sont retardées jusqu'à quatre mois après la version actuelle. Pour la version 1609.7369.2115 d’Excel 2016 et versions antérieures, ou Excel 2013, vous pouvez créer un fichier .odc et mettre à jour manuellement le fournisseur MSOLAP.7 pour se connecter à un serveur. Pour en savoir plus, consultez [Créer un fichier .odc](analysis-services-odc.md).
-> 
-> 
-
-**Connexion à partir d'Excel 2016**
-
-1. Dans Excel 2016, sur le ruban **Données**, cliquez sur **Obtenir les données externes** > **À partir d’autres sources** > **À partir d’Analysis Services**.
-2. Dans l’Assistant de connexion de données, dans **Nom du serveur**, collez le nom du serveur à partir du Presse-papiers. Ensuite, dans **Informations d’identification d’ouverture de session**, sélectionnez **Utiliser le nom d’utilisateur et le mot de passe suivants**, puis tapez le nom d’utilisateur professionnel, par exemple nancy@adventureworks.com, et le mot de passe.
-
-    ![Se connecter dans l’ouverture de session Excel](./media/analysis-services-connect/aas-connect-excel-logon.png)
-3. Dans **Sélectionner une base de données et une table**, sélectionnez la base de données et un modèle ou une perspective, puis cliquez sur **Terminer**.
-   
-    ![Se connecter dans le modèle de sélection Excel](./media/analysis-services-connect/aas-connect-excel-select.png)
 
 ## <a name="connection-string"></a>Chaîne de connexion
 
 Lorsque vous vous connectez à Azure Analysis Services à l’aide du modèle d’objet tabulaire, utilisez les formats de chaîne de connexion suivants :
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>Authentification Azure Active Directory intégrée
+L’authentification intégrée utilise le cache d’informations d’identification Azure Active Directory s’il est disponible. Si ce n’est pas le cas, la fenêtre de connexion Azure s’affiche.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
-L’authentification intégrée utilise le cache d’informations d’identification Azure Active Directory s’il est disponible. Si ce n’est pas le cas, la fenêtre de connexion Azure s’affiche.
+
 
 ###### <a name="azure-active-directory-authentication-with-username-and-password"></a>Authentification Active Directory Azure avec le nom d’utilisateur et le mot de passe
 
@@ -99,8 +64,22 @@ L’authentification intégrée utilise le cache d’informations d’identifica
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+###### <a name="windows-authentication-integrated-security"></a>Authentification Windows (sécurité intégrée)
+Utilisez le compte Windows qui exécute le processus en cours.
 
-[Gérer votre serveur](analysis-services-manage.md)
+```
+"Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
+```
+
+
+
+## <a name="connect-using-an-odc-file"></a>Connexion à l’aide d’un fichier .odc
+Avec les versions antérieures d’Excel, les utilisateurs peuvent se connecter à un serveur Azure Analysis Services à l’aide d’un fichier Office Data Connection (.odc). Pour en savoir plus, consultez [Créer un fichier Office Data Connection (.odc)](analysis-services-odc.md).
+
+
+## <a name="next-steps"></a>Étapes suivantes
+[Connexion avec Excel](analysis-services-connect-excel.md)    
+[Connexion avec Power BI](analysis-services-connect-pbi.md)   
+[Gérer votre serveur](analysis-services-manage.md)   
 
 

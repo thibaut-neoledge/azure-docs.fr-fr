@@ -1,10 +1,10 @@
 ---
-title: "Azure B2C Active Directory : clients de mise à l’échelle pour production/clients B2C de la version préliminaire | Microsoft Docs"
+title: "Azure Active Directory B2C : Disponibilité régionale et résidence des données | Microsoft Docs"
 description: Une rubrique sur les types de clients Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
+author: gsacavdm
+manager: krassk
 editor: bryanla
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
 ms.service: active-directory-b2c
@@ -12,62 +12,55 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
-ms.author: swkrish
+ms.date: 04/10/2017
+ms.author: gsacavdm
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: a37992cd2bfe346fd171bde15b6180c56527289b
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: facd66f0324e382ea7609a035de8129ba433846f
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="azure-active-directory-b2c-production-scale-vs-preview-b2c-tenants"></a>Azure B2C Active Directory : clients de mise à l’échelle pour production/clients B2C de la version préliminaire
-Si vous envisagez d’écrire une application de production sur Azure Active Directory (Azure AD) B2C, vous devez être certain d’avoir le type de client approprié sur lequel travailler. Pour savoir ce que vous avez, suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure et regardez dans **Type de client**.
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité régionale et résidence des données
+La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
 
 ## <a name="summary"></a>Résumé
-Azure AD B2C prend en charge les applications de production UNIQUEMENT sur les clients B2C **de mise à l’échelle pour production** en Amérique du Nord.
+Azure Active Directory B2C est **généralement disponible dans le monde entier** avec l’option de **résidence des données aux États-Unis ou en Europe**.
 
-| Type de client | Pays/régions | Disponible ? |
-| --- | --- | --- |
-| **Client de mise à l’échelle pour production** |Pays/régions d’Amérique du Nord |Oui |
-| **Client de mise à l’échelle pour production** |Tous les pays/régions, à l’exception de l’Amérique du Nord |Non |
-| **Client de la version préliminaire** |Tous les pays/régions |Non |
+## <a name="concepts"></a>Concepts
+* La **disponibilité régionale** fait référence à l’endroit où se trouve le service pour utilisation.
+* La **résidence des données** fait référence à l’endroit où sont stockées les données des utilisateurs.
 
-> [!NOTE]
-> Les clients Azure AD B2C (pour les consommateurs) sont actuellement indisponibles dans certains pays ou régions où les clients Azure AD (pour les employés) sont disponibles. Lisez les sections suivantes pour plus de détails.
-> 
-> 
+## <a name="region-availability"></a>Disponibilité des régions
+Azure Active Directory B2C est disponible dans le monde entier via le cloud public Azure. 
 
-## <a name="production-scale-b2c-tenant-in-north-america"></a>Client B2C de mise à l’échelle pour production en Amérique du Nord
-Si vous [avez créé votre client B2C](active-directory-b2c-get-started.md) en Amérique du Nord, c’est-à-dire dans l’un des pays ou l’une des régions ci-après : États-Unis, Canada, Costa Rica, République dominicaine, El Salvador, Guatemala, Mexique, Panama, Porto Rico et Trinité-et-Tobago ET que le **type de client** sur votre interface utilisateur d’administrateur B2C indique **Mise à l’échelle pour production**, votre client peut être utilisé pour les applications de production.
+Cela diffère du modèle suivi par la plupart des autres services Azure qui associent la disponibilité à la résidence des données. C’est le cas par exemple dans la page [Produits disponibles par région](https://azure.microsoft.com/regions/services/) et la [calculatrice de tarification Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-> [!NOTE]
-> Les clients de mise à l’échelle pour production sont capables de mettre à l’échelle des centaines de millions d’identités de consommateurs par client.
-> 
-> 
+## <a name="data-residency"></a>Résidence des données
+Azure Active Directory B2C conserve les données des utilisateurs aux États-Unis ou en Europe.
 
-![Capture d’écran d’un client de mise à l’échelle pour production](./media/active-directory-b2c-reference-tenant-type/production-scale-b2c-tenant.png)
+La résidence des données est déterminée selon le pays/la région sélectionné lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started.md).
 
-## <a name="preview-b2c-tenant-in-any-countryregion"></a>Client B2C de la version préliminaire dans un pays/région
+![Capture d’écran d’un client de la version préliminaire](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+
+Les données des pays/régions suivants sont conservées aux États-Unis :
+
+> États-Unis, Canada, Costa Rica, République dominicaine, Salvador, Guatemala, Mexique, Panama, Porto Rico et Trinité-et-Tobago
+
+Les données des pays/régions suivants sont conservées en Europe :
+
+> Algérie, Autriche, Azerbaïdjan, Bahreïn, Biélorussie, Belgique, Bulgarie, Croatie, Chypre, République tchèque, Danemark, Égypte, Estonie, Finlande, France, Allemagne, Grèce, Hongrie, Islande, Irlande, Israël, Italie, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liban, Liechtenstein, Lituanie, Luxembourg, Macédoine, Malte, Monténégro, Maroc, Pays-Bas, Nigeria, Norvège , Oman, Pakistan, Pologne, Portugal, Qatar, Roumanie, Russie, Arabie saoudite, Serbie, Slovaquie, Slovénie, Afrique du Sud, Espagne, Suède, Suisse, Tunisie, Turquie, Ukraine, Émirats Arabes Unis et Royaume-Uni.
+
+Les autres pays/régions sont en cours d’ajout à cette liste.  Pour le moment, vous pouvez toujours utiliser Azure Active Directory B2C en choisissant l’un des pays ci-dessus.
+
+> Afghanistan, Argentine, Australie, Brésil, Chili, Colombie, Équateur, RAS de Hong Kong, Inde, Indonésie, Irak, Japon, Corée, Malaisie, Nouvelle-Zélande, Paraguay, Pérou, Philippines, Singapour, Sri Lanka, Taïwan, Thaïlande, Uruguay et Venezuela.
+
+## <a name="preview-tenant"></a>Client de la version préliminaire
 Si vous avez créé un client B2C pendant la période d’évaluation d’Azure AD B2C, il est probable que votre **type de client** indique **Client de la version préliminaire**. Si c’est le cas, vous DEVEZ utiliser votre client uniquement à des fins de développement et de test, mais PAS pour les applications de production.
 
 > [!IMPORTANT]
 > Il n’existe aucun chemin de migration à partir d’un client B2C de la version préliminaire vers un client B2C de mise à l’échelle pour production. Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C en version préliminaire et à la recréation d’un client B2C de mise à l’échelle pour production portant le même nom de domaine. Vous devez créer un client B2C de mise à l’échelle pour production portant un nom de domaine différent.
-> 
-> 
+
 
 ![Capture d’écran d’un client de la version préliminaire](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
-
-## <a name="production-scale-b2c-tenant-outside-of-north-america"></a>Client B2C de mise à l’échelle pour production en dehors de l’Amérique du Nord
-Azure AD B2C n’est généralement PAS disponible en dehors de l’Amérique du Nord. Toutefois vous pouvez créer et utiliser des clients de mise à l’échelle pour production, à des fins de développement et de test dans l’un des pays ou régions suivants : Algérie, Autriche, Azerbaïdjan, Bahreïn, Biélorussie, Belgique, Bulgarie, Croatie, Chypre, République tchèque, Danemark, Égypte, Estonie, Finlande, France, Allemagne, Grèce, Hongrie, Islande, Irlande, Israël, Italie, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liban, Liechtenstein, Lituanie, Luxembourg, Macédoine, Malte, Monténégro, Maroc, Pays-Bas, Nigeria, Norvège , Oman, Pakistan, Pologne, Portugal, Qatar, Roumanie, Russie, Arabie saoudite, Serbie, Slovaquie, Slovénie, Afrique du Sud, Espagne, Suède, Suisse, Tunisie, Turquie, Ukraine, Émirats Arabes Unis et Royaume-Uni.
-
-Dès l’annonce de la disponibilité mondiale d’Azure AD B2C dans les pays ou régions ci-dessus, vous pouvez continuer à utiliser ces clients de mise à l’échelle pour production et à mettre en service vos applications de production sans perte de données.
-
-## <a name="availability-of-b2c-tenants"></a>Disponibilité des clients B2C
-Les clients B2C sont actuellement indisponibles dans les pays ou régions suivants : Afghanistan, Argentine, Australie, Brésil, Chili, Colombie, Équateur, RAS de Hong Kong, Inde, Indonésie, Irak, Japon, Corée, Malaisie, Nouvelle-Zélande, Paraguay, Pérou, Philippines, Singapour, Sri Lanka, Taïwan, Thaïlande, Uruguay et Venezuela. Nous prévoyons de les inclure dans le futur.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
