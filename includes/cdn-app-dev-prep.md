@@ -51,8 +51,3 @@ Si, au lieu d’un principal de service, vous préférez que l’authentificatio
 4. Au lieu d’affecter le rôle **Contributeur du profil CDN** à un principal de service, nous allons l’attribuer à des utilisateurs ou des groupes.  Dans cet exemple, vous pouvez voir que j’ai attribué le rôle **Contributeur du profil CDN** à l’utilisateur *CDN Demo User*.  
 
     ![Accès d’utilisateurs individuels](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

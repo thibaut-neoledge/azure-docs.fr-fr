@@ -42,8 +42,3 @@ Vous avez maintenant créé l’application Azure AD qui vous permettra de vous 
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-
-
-<!--HONumber=Feb17_HO3-->
-
-

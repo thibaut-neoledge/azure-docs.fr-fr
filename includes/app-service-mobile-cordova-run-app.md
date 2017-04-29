@@ -15,8 +15,3 @@ Le serveur principal insère les données de la requête dans la table SQL TodoI
 Vous pouvez répéter les étapes 3 à 5 pour les autres plateformes.
 
 [portail Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

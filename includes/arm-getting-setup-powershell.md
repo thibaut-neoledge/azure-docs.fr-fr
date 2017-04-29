@@ -52,8 +52,3 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
 
 Pour plus d’informations sur les comptes et les abonnements Azure, consultez la [procédure de connexion à votre abonnement](/powershell/azureps-cmdlets-docs#step-3-connect).
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

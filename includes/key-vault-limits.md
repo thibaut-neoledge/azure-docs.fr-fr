@@ -9,8 +9,3 @@
 
 <sup>1</sup> La limite d’abonnement pour tous les types de transaction est fixée à 5x par limite de coffre de clés. Par exemple, HSM - autres transactions par abonnement sont limitées à 5000 transactions en 10 secondes par abonnement.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
