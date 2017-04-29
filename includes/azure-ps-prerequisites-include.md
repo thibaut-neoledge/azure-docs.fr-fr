@@ -4,8 +4,3 @@ Pour effectuer les étapes indiquées dans cet article, vous devez [Installer et
 
 > [!NOTE]
 > Si vous n’avez pas de compte Azure, vous devez vous en procurer un. Inscrivez-vous à un [essai gratuit ici](../articles/active-directory/sign-up-organization.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -6,8 +6,3 @@ Les passerelles de réseau virtuel ExpressRoute peuvent utiliser les référence
 * HighPerformance
 * UltraPerformance
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
