@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -225,7 +225,7 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
 #### <a name="track-usage"></a>Suivi de l'utilisation
 * [Ajoutez la télémétrie de client web][usage] pour surveiller les affichages de page et autres mesures des utilisateurs de la version Basic.
-* [Suivez des événements et des mesures personnalisés][track] pour en savoir plus sur la façon dont votre application est utilisée, à la fois sur le client et sur le serveur.
+* [Suivez des événements et des mesures personnalisés](app-insights-web-track-usage.md) pour en savoir plus sur la façon dont votre application est utilisée, à la fois sur le client et sur le serveur.
 
 <!--Link references-->
 
@@ -235,5 +235,5 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

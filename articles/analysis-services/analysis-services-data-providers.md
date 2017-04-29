@@ -1,6 +1,6 @@
 ---
-title: "Fournisseurs de données requis pour les connexions clientes à Azure Analysis Services | Microsoft Docs"
-description: "Décrit les fournisseurs de données requis pour les clients qui se connectent à Azure Analysis Services"
+title: "Bibliothèques clientes requises pour la connexion à Azure Analysis Services | Microsoft Docs"
+description: "Décrit les bibliothèques clientes requises pour que les applications clientes et les outils se connectent à Azure Analysis Services"
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,36 +13,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2016
+ms.date: 04/14/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 197e32058908533bc46b2ea2e38ff521a4a1fa3f
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 71f85c483f6b87ac34c003ac3695a85396ca945b
+ms.lasthandoff: 04/17/2017
 
 
 ---
 
-# <a name="data-providers-for-connecting-to-azure-analysis-services"></a>Fournisseurs de données pour la connexion à Azure Analysis Services
+# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliothèques clientes pour la connexion à Azure Analysis Services
 
-Les fournisseurs de données, ou bibliothèques clientes, sont nécessaires pour que les applications clientes se connectent aux serveurs Analysis Services. 
+Les bibliothèques clientes sont nécessaires pour que les applications clientes et les outils se connectent aux serveurs Analysis Services. 
 
-Analysis Services utilise trois fournisseurs de données. ADOMD.NET et Analysis Services Management Objects (AMO) sont des fournisseurs de données managés. Le fournisseur OLE DB Analysis Services (MSOLAP DLL) est un fournisseur de données en mode natif. En général, les trois fournisseurs sont installés en même temps. Azure Analysis Services nécessite les dernières versions des fournisseurs de données. 
+Analysis Services utilise trois bibliothèques clientes. ADOMD.NET et Analysis Services Management Objects (AMO) sont des bibliothèques clientes managées. Le fournisseur OLE DB Analysis Services (MSOLAP DLL) est une bibliothèque cliente native. En général, les trois bibliothèques sont installées en même temps. Azure Analysis Services nécessite les dernières versions. 
 
-Les applications clientes Microsoft telles que Power BI Desktop et Excel installent les trois fournisseurs de données. Toutefois, selon la version d’Excel, ou selon que des versions plus récentes d’Excel et de Power BI Desktop soient ou non mises à jour tous les mois, il se peut que les fournisseurs installés ne puissent pas être mis à jour vers les dernières versions requises par Azure Analysis Service. Il en va de même pour les applications personnalisées ou d’autres interfaces telles que AsCmd, TOM, ADOMD.NET. Ces applications nécessitent l’installation manuelle des fournisseurs. Les fournisseurs de données pour l’installation manuelle sont inclus dans les packs de fonctionnalités SQL Server sous forme de packages distribuables. Toutefois, comme ils sont liés à la version de SQL Server, il se peut qu’ils ne soient pas à jour.  
+Les applications clientes Microsoft telles que Power BI Desktop et Excel installent les trois bibliothèques clientes. Toutefois, selon la version d’Excel, ou selon que des versions plus récentes d’Excel et de Power BI Desktop soient ou non mises à jour tous les mois, il se peut que les bibliothèques clientes installées ne puissent pas être mises à jour vers les dernières versions requises par Azure Analysis Service. Il en va de même pour les applications personnalisées ou d’autres interfaces telles que AsCmd, TOM, ADOMD.NET. Ces applications nécessitent l’installation manuelle des bibliothèques. Les bibliothèques clientes pour l’installation manuelle sont incluses dans les packs de fonctionnalités SQL Server sous forme de packages distribuables. Toutefois, comme elles sont liées à la version de SQL Server, il se peut qu’elles ne soient pas à jour.  
 
-Les fournisseurs de données pour les connexions clientes sont différents des fournisseurs de données requis pour connecter un serveur Azure Analysis Services à une source de données. Pour plus d’informations sur les connexions aux sources de données, consultez [Connexions de source de données](analysis-services-datasource.md).
+Les bibliothèques clientes pour les connexions clientes sont différentes des fournisseurs de données requis pour connecter un serveur Azure Analysis Services à une source de données. Pour plus d’informations sur les connexions aux sources de données, consultez [Connexions de source de données](analysis-services-datasource.md).
 
-## <a name="download-the-latest-preview-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **préliminaires**  
-Utilisez les fournisseurs de données suivants pour obtenir les derniers correctifs de bogues et mises à jour. Ces fournisseurs de données sont recommandés lors de la connexion à la version préliminaire d’Azure Analysis Services ou de SQL Server vNext Analysis Services.
+## <a name="download-the-latest-preview-client-libraries"></a>Télécharger les dernières versions des bibliothèques clientes **préliminaires**  
+Utilisez les bibliothèques clientes suivantes pour obtenir les derniers correctifs de bogues et mises à jour. Ces bibliothèques clientes sont recommandées lors de la connexion à la version préliminaire d’Azure Analysis Services ou de SQL Server vNext Analysis Services.
 
 [MSOLAP (amd64) en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [Version préliminaire de MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
 [AMO en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_AMO.msi)</br>
 [Version préliminaire de ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_ADOMD.msi)</br>
 
-## <a name="download-the-latest-rtm-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **RTM**  
-Utilisez les fournisseurs de données suivants si vous êtes dans un environnement de production et avez besoin de versions entièrement publiées et prises en charge.
+## <a name="download-the-latest-rtm-client-libraries"></a>Télécharger les dernières bibliothèques clientes **RTM**  
+Utilisez les bibliothèques clientes suivantes si vous êtes dans un environnement de production et avez besoin de versions entièrement publiées et prises en charge.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
@@ -50,5 +50,5 @@ Utilisez les fournisseurs de données suivants si vous êtes dans un environneme
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Avec les données les plus récentes installées, votre application cliente est prête à se connecter à un serveur. Pour en savoir plus sur la connexion à partir d’un client, consultez [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md).
+[Connectez-vous à un serveur Azure Analysis Services](analysis-services-connect.md).
 

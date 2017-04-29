@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -129,6 +129,25 @@ En coulisses, la passerelle de données locale utilisée pour connecter Azure An
 Si vous rencontrez des difficultés lors de l’installation et la configuration d’une passerelle, veillez à consulter [Dépannage de la passerelle Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Si vous pensez que vous rencontrez un problème avec votre pare-feu, consultez les sections de pare-feu ou du proxy.
 
 Si vous pensez que vous rencontrez des problèmes de proxy avec la passerelle, consultez [Configuration des paramètres de proxy pour les passerelles Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+
+### <a name="telemetry"></a>Télémétrie
+La télémétrie peut être utilisée pour la surveillance et la résolution des problèmes. 
+
+**Pour activer la télémétrie**
+
+1.    Vérifiez le répertoire client de la passerelle de données sur site sur l’ordinateur. En règle générale, il s’agit de la passerelle de données %systemdrive%\Program Files\On-premises. Vous pouvez également ouvrir une console de services et vérifiez le chemin d’accès au fichier exécutable : une propriété du service de passerelle de données sur site.
+2.    Dans le fichier Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config du répertoire client. Modifiez le paramètre SendTelemetry sur true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Enregistrez vos modifications et redémarrez le service Windows : service de passerelle de données sur site.
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)
