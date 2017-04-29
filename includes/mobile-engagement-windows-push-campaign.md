@@ -23,8 +23,3 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

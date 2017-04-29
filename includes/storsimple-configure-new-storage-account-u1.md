@@ -44,8 +44,3 @@
 6. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.
 7. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

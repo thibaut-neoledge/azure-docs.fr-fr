@@ -56,8 +56,3 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
         }
 11. Enregistrez le fichier.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

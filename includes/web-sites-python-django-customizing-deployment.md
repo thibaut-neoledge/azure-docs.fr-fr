@@ -25,15 +25,10 @@ Pour mieux contrôler le déploiement, vous pouvez remplacer le script de déplo
     \.deployment
     \deploy.cmd
 
-Vous pouvez utiliser [l’interface de ligne de commande Azure][Interface de ligne de commande Azure] pour créer les fichiers.  Utilisez cette commande à partir de votre dossier de projet :
+Vous pouvez utiliser [l’interface de ligne de commande Azure][interface de ligne de commande Azure] pour créer les fichiers.  Utilisez cette commande à partir de votre dossier de projet :
 
     azure site deploymentscript --python
 
 Lorsque ces fichiers n’existent pas, Azure crée un script de déploiement temporaire et l’exécute.  Il est identique à celui que vous créez à l’aide de la commande ci-dessus.
 
 [interface de ligne de commande Azure]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,8 +14,3 @@
 6. Sélectionnez l’ **abonnement** pour ce profil CDN.
 7. Cliquez sur le bouton **Créer** pour créer le profil. 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

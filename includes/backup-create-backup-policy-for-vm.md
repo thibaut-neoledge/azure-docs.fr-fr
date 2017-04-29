@@ -26,8 +26,3 @@ Pour créer une stratégie :
    
     La nouvelle stratégie est appliquée immédiatement au coffre.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

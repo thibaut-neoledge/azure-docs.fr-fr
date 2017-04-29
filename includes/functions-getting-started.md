@@ -2,8 +2,3 @@ Azure Functions est une expérience de calcul à la demande pilotée par les év
 
 Cette vidéo de prise en main explique comment créer une application de fonction, modifier du code, ainsi que comment interagir avec les déclencheurs et les liaisons.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

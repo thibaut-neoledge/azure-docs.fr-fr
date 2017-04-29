@@ -15,8 +15,3 @@ Un conteneur doit posséder un nom DNS valide, conforme aux règles de nommage s
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

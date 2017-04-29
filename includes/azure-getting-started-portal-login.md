@@ -26,8 +26,3 @@ Si vous n’avez pas de compte Azure existant, choisissez l’une des options su
    
    ![de connexion](./media/azure-getting-started-portal-login/login.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

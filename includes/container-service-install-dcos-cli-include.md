@@ -51,8 +51,3 @@ Cette étape n’est pas nécessaire lorsque vous lancez de nouveaux interpréte
 ```bash
 dcos --help
 ```
-
-
-<!--HONumber=Nov16_HO2-->
-
-
