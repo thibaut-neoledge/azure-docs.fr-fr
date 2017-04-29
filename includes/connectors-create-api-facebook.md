@@ -14,8 +14,3 @@ Pour autoriser votre application logique à se connecter à votre compte Faceboo
 4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![Facebook étape 4](./media/connectors-create-api-facebook/facebook-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

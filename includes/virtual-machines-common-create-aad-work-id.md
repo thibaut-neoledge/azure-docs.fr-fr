@@ -115,8 +115,3 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:    Tags:
     data:
     info:    group create command OK
-
-
-<!--HONumber=Nov16_HO3-->
-
-

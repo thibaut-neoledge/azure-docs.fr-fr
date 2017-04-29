@@ -49,8 +49,3 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 
 Pour Datetime et Datetimeoffset, vous pouvez également spécifier une chaîne « culture » et « format » pour faciliter l’analyse de votre chaîne Datetime personnalisée. Consultez l’exemple de conversion de type ci-dessous.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

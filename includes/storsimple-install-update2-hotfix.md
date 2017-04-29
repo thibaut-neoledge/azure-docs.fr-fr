@@ -210,8 +210,3 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
    `Exit-HcsMaintenanceMode`
 5. Les contrôleurs redémarrent quand vous quittez le mode Maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode Maintenance pendant 24 heures.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

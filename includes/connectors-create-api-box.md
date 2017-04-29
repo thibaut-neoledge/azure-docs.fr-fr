@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Box, pr
 5. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![étape de création de la connexion Box](./media/connectors-create-api-box/box-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

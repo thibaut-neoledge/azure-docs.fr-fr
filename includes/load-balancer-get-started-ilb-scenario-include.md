@@ -9,8 +9,3 @@ Un équilibrage de charge interne est configuré dans un réseau virtuel
 * 2 machines virtuelles appelées DB1 et DB2
 * Points de terminaison
 * Équilibreur de charge interne
-
-
-<!--HONumber=Nov16_HO2-->
-
-

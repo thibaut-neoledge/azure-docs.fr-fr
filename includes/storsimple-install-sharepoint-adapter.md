@@ -18,8 +18,3 @@
 7. Ouvrez la page de l’Administration centrale de SharePoint. Vous devriez voir un groupe Configuration StorSimple qui contient les liens de l’adaptateur StorSimple pour SharePoint.
 8. Accédez à l’étape suivante : [Configuration de RBS](#configure-rbs).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

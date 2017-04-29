@@ -75,8 +75,3 @@ Les règles de sécurité par défaut ont les mêmes propriétés que les règle
 * Obtenez davantage d'informations sur les [groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 * Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) pour les groupes de sécurité réseau.
 * Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) pour les règles de sécurité.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

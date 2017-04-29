@@ -1,7 +1,2 @@
 Cet article fait partie d’une série plus vaste vous proposons des instructions et des points de conception à prendre en compte lorsque que vous créez une infrastructure d’application dans Azure. Vous pouvez [voir les rubriques supplémentaires dans la série](#next-steps). Même si vous pouvez créer rapidement un environnement de développement et de test dans Azure, il existe des points supplémentaires à considérer lors de l’implémentation d’un environnement sécurisé, hautement disponible et prêt pour la production.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

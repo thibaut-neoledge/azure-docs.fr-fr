@@ -14,8 +14,3 @@ Vous pouvez augmenter ou diminuer le calcul en ajustant les unités DWU (Data Wa
 
 Pour obtenir la liste des paramètres DWU actuels, consultez l’objectif de niveau de service dans [Limites de capacité du service](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -25,8 +25,3 @@ Pour connecter des machines virtuelles dans un service cloud autonome :
    
    ![Ajouter un ordinateur virtuel à un service cloud existant](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

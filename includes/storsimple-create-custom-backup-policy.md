@@ -19,14 +19,9 @@
    4. Sélectionnez une durée de rétention. La durée de conservation dépend de la fréquence de sauvegarde.
    5. Sélectionnez la date et l’heure de début de la stratégie.
    6. Cochez la case pour activer la stratégie.
-6. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)  pour terminer.
+6. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) pour terminer.
 7. Vous revenez aux détails de la stratégie. Cliquez sur **Enregistrer** pour enregistrer les modifications apportées à cette stratégie. Un message indique que la stratégie a été enregistrée.
 8. Revenez à la page **Stratégies de sauvegarde** . Le tableau qui répertorie les stratégies de sauvegarde affiche la stratégie modifiée.
    
     ![Stratégie de sauvegarde personnalisée](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

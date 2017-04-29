@@ -483,8 +483,3 @@ SetAzureVMLogCollector.ps1
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant examiner ou copier vos journaux depuis un emplacement très simple.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

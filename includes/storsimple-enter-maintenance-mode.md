@@ -10,8 +10,3 @@
    
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message s’affiche pour indiquer que l’appareil est en mode Maintenance.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,8 +14,3 @@
         ![Ajout d’un compte de stockage](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 4. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

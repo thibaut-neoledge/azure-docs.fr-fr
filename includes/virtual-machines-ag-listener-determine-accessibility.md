@@ -12,8 +12,3 @@ Il est important de savoir qu'il existe deux manières de configurer un écouteu
 
 L'équilibrage de charge peut être configuré uniquement dans des réseaux virtuels à portée régionale. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB. Pour plus d'informations, consultez la rubrique [Équilibreur de charge interne](../articles/load-balancer/load-balancer-internal-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

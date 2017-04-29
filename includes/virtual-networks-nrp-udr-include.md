@@ -55,8 +55,3 @@ Exemple de table de routage au format JSON :
 * Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) pour les tables de routage.
 * Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) pour les itinéraires définis par l’utilisateur (UDR).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

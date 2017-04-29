@@ -70,8 +70,3 @@ Avec les groupes de sécurité réseau, cette fonction de réacheminement de por
 
 > [!NOTE]
 > Lorsque vous implémentez un équilibreur de charge, vous n’affectez généralement pas d’adresse IP publique à la machine virtuelle elle-même. Au lieu de cela, une adresse IP publique est affectée à l’équilibreur de charge. Vous devez toujours créer un groupe de sécurité réseau et des règles ACL pour définir le flux du trafic entrant et sortant de la machine virtuelle. Les règles NAT d’équilibrage de charge consistent simplement à définir quels ports sont autorisés via l’équilibrage de charge et comment ils sont distribués sur les machines virtuelles principales. Par conséquent, vous devez créer une règle NAT pour que le trafic passe par l’équilibrage de charge. Pour permettre au trafic d’atteindre la machine virtuelle, créez une règle ACL de groupe de sécurité réseau.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

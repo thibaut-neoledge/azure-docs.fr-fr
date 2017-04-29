@@ -7,8 +7,8 @@
 | Nombre maximal de volumes |255 | |
 | Nombre maximal de planifications par modèle de bande passante |168 |Une planification par heure, tous les jours de la semaine (24*7). |
 | Taille maximale d'un volume à plusieurs niveaux sur les appareils physiques |64 To pour 8100 et 8600 |8100 et 8600 sont des appareils physiques. |
-| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010  <br></br>  64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
-| Taille maximale d'un volume épinglé localement sur les appareils physiques |9 To pour 8100  <br></br>  24 To pour 8600 |8100 et 8600 sont des appareils physiques. |
+| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010  <br></br> 64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
+| Taille maximale d'un volume épinglé localement sur les appareils physiques |9 To pour 8100  <br></br> 24 To pour 8600 |8100 et 8600 sont des appareils physiques. |
 | Nombre maximal de connexions iSCSI |512 | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs |512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil |64 | |
@@ -26,9 +26,4 @@
 | Débit maximal de lecture/d’écriture du client (si traité à partir du niveau cloud)* |11/41 Mo/s |Le débit de lecture dépend de si les clients génèrent et conservent une profondeur de file d’attente d’E/S suffisante. |
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

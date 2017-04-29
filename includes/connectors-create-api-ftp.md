@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte FTP, pr
 3. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique :  
    ![étape de création de la connexion à FTP](./media/connectors-create-api-ftp/ftp-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

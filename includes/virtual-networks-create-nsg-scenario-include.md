@@ -14,8 +14,3 @@ Dans ce scénario, vous allez créer un NSG pour chaque sous-réseau du réseau 
 
 La combinaison de ces règles crée un scénario de type DMZ, où le sous-réseau principal peut recevoir uniquement du trafic entrant pour SQL en provenance du sous-réseau frontal, et n’a pas accès à Internet, tandis que le sous-réseau frontal peut communiquer avec Internet et recevoir uniquement des requêtes HTTP entrantes.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -9,8 +9,3 @@ Maintenant que vous connaissez les bases du stockage des files d’attente Azure
   * Pour utiliser les objets blob Azure Storage, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
   * Pour stocker des données relationnelles, consultez [Connexion à SQL Database à l’aide de .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -5,8 +5,3 @@
 5. Sous **Modèles ASP.NET Core**, sélectionnez **Application web** puis **OK**.
 6. Désélectionnez **Héberger dans le cloud**. Vous allez utiliser Docker comme solution de déploiement.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

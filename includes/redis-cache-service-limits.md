@@ -12,8 +12,3 @@ Pour plus d’informations sur les limites de configuration du cache Redis Azu
 
 Étant donné que la configuration et la gestion des instances de cache Redis Azure sont gérées par Microsoft, toutes les commandes Redis ne sont pas prises en charge dans le cache. Pour plus d’informations, consultez [commandes Redis non prises en charge dans le cache Redis Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

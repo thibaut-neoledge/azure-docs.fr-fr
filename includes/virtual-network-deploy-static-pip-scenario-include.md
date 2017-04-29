@@ -7,8 +7,3 @@ Il peut être nécessaire de disposer d’une adresse IP statique pour les serv
 
 Pour déployer l’environnement représenté dans la figure ci-dessus, effectuez les étapes ci-dessous.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

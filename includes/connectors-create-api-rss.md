@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte RSS, pr
 3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![étape de création de la connexion à RSS](./media/connectors-create-api-rss/rss-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

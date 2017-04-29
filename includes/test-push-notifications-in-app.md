@@ -3,8 +3,3 @@
 * Dans l’application, ajoutez un nouvel élément et cliquez sur **+**.
 * Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci. Ce didacticiel est maintenant terminé.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

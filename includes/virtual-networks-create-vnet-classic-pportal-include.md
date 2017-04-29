@@ -26,8 +26,3 @@ Pour créer un réseau virtuel classique selon le scénario ci-dessus, suivez le
     
     ![Créer un réseau virtuel dans le portail Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

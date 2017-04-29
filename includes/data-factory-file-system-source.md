@@ -4,8 +4,3 @@ Dans une activité de copie, quand la source est de type **FileSystemSource**, l
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

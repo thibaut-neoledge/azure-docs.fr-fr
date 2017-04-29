@@ -6,8 +6,3 @@
 > * Si vous êtes sous Mac ou sous Linux, installez Node.js à partir de [http://nodejs.org](http://nodejs.org). Le programme d’installation Windows contient déjà Node.js.
 > 
 > 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

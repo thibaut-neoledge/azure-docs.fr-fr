@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte GitHub,
 5. Notez que la connexion a été créée dans le portail. Vous pouvez maintenant poursuivre la création de votre application logique et utiliser GitHub dans celle-ci :   
    ![](./media/connectors-create-api-github/github-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

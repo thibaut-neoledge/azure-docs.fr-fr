@@ -11,8 +11,3 @@ Nous allons utiliser un exemple courant de trafic web sur le port 80. Une fois q
 
 Vous pouvez créer des configurations réseau complexes pour sécuriser votre environnement à l’aide des règles et groupes de sécurité réseau. Notre exemple utilise seulement une ou deux règles qui autorisent le trafic HTTP ou la gestion à distance. Pour plus d’informations, reportez-vous à la section suivante [Informations complémentaires](#more-information-on-network-security-groups) ou à l’article [Présentation du groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

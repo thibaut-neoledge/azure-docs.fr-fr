@@ -8,8 +8,3 @@
    
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message indique que le périphérique est en mode normal.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

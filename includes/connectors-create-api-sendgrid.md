@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte SendGri
 3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![SendGrid étape 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

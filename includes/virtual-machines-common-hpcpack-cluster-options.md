@@ -2,8 +2,3 @@ Créez et gérez un cluster de calcul haute performance (HPC) basé sur le cloud
 
 Pour plus d’options d’exécution de charges de travail HPC, Batch et en parallèle de grande échelle dans Azure, consultez [Ressources techniques pour Batch et le calcul haute performance](../articles/batch/big-compute-resources.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

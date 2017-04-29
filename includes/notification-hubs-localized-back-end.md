@@ -71,8 +71,3 @@ Dans votre scheduler Mobile Service, vous pouvez utiliser le script suivant :
     });
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

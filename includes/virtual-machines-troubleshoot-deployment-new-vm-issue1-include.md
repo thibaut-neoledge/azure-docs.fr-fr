@@ -3,8 +3,3 @@ Les erreurs de configuration se produisent lorsque vous téléchargez ou capture
 
 Le tableau suivant répertorie les combinaisons possibles d’images généralisées et spécialisés, le type d’erreur que vous pouvez rencontrer et ce qu’il faut faire pour corriger ces erreurs.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
