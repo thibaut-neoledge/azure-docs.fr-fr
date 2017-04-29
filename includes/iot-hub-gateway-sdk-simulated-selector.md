@@ -67,7 +67,3 @@ Au lieu d'ouvrir une connexion vers IoT Hub pour chaque application de périphé
 [l’exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
-
-<!--HONumber=Feb17_HO1-->
-
-
