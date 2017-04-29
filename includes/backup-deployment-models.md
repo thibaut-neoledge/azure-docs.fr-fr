@@ -10,8 +10,3 @@ Le service Sauvegarde Azure comporte deux types de coffres : le coffre de sauveg
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

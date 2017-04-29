@@ -16,7 +16,7 @@
    3. Sélectionnez une durée de conservation. La durée de conservation dépend de la fréquence de sauvegarde. Par exemple, si vous sélectionnez une stratégie quotidienne, vous pouvez spécifier une durée de conservation en semaines, alors que pour une stratégie mensuelle, la durée de conservation est en mois.
    4. Sélectionnez l’heure et la date de début de la stratégie de sauvegarde.
    5. Cochez la case **Activer** pour activer la stratégie de sauvegarde. 
-   6. Cliquez sur l’icône en forme de coche  ![icône-coche](./media/storsimple-take-backup/HCS_CheckIcon-include.png)  pour enregistrer la stratégie.
+   6. Cliquez sur l’icône en forme de coche  ![icône-coche](./media/storsimple-take-backup/HCS_CheckIcon-include.png) pour enregistrer la stratégie.
       
       ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
       
@@ -27,9 +27,4 @@ Vous avez terminé la configuration de l’appareil.
 ![Vidéo disponible](./media/storsimple-take-backup/Video_icon.png) **Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment exécuter une sauvegarde StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

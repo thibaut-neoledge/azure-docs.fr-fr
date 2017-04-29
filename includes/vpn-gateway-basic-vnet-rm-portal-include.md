@@ -27,8 +27,3 @@ Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager 
     
     ![Mosaïque de création du réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

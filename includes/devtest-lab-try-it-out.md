@@ -5,8 +5,3 @@ Vous avez déjà un compte Azure ? Cliquez sur le bouton ci-dessous pour créer 
 
 [![Prenez en main Azure DevTest Labs en quelques minutes.](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-
-<!---HONumber=Nov16_HO2-->
-
-

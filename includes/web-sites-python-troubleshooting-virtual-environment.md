@@ -18,8 +18,3 @@ Cette alternative tire parti du fait que le script de déploiement supprime le d
 ### <a name="option-3-customize-deployment-script"></a>Option 3 : Personnaliser le script de déploiement
 Si vous avez personnalisé le script de déploiement, vous pouvez modifier le code dans le fichier deploy.cmd afin de forcer la suppression du dossier env.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -7,8 +7,3 @@
     ![Propriétés de l’initiateur iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Enregistrez cette chaîne.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

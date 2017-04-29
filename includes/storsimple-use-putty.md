@@ -26,8 +26,3 @@
      > 
 7. Cliquez sur **Ouvrir** pour démarrer une session série.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
