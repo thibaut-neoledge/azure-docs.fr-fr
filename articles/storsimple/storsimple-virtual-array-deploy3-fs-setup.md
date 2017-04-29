@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
@@ -134,7 +134,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
     3. Une clé AES de 256 bits est utilisée avec la clé définie par l’utilisateur pour le chiffrement. Spécifiez une clé de 32 caractères, puis entrez de nouveau la clé pour la confirmer. Enregistrez la clé dans une application de gestion de clés à des fins de référence ultérieure.
     
-    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**.
+    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Dans le panneau **Ajouter les informations d’identification d’un compte de stockage**, procédez comme suit : 

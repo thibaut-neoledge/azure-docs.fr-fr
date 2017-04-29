@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
-ms.openlocfilehash: fdc4e495fb3fb99022b0f7c487001b2fba42cccc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9a298a5869d449c974267483eb779f45bc6b7abc
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -31,61 +31,39 @@ Le [portail Azure](http://portal.azure.com/) est l’endroit où vous pouvez cr�
 ![Obtenir le nom du serveur dans Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-La connexion à votre serveur dans Azure revient à vous connecter à une instance de serveur dans votre entreprise. À partir de SSMS, vous pouvez effectuer la plupart des tâches identiques comme traiter des données ou créer un script de traitement, gérer des rôles et utiliser PowerShell. [Téléchargement et installation de SSMS](#download-and-install-ssms).
+La connexion à votre serveur dans Azure revient à vous connecter à une instance de serveur dans votre entreprise. À partir de SSMS, vous pouvez effectuer la plupart des tâches identiques comme traiter des données ou créer un script de traitement, gérer des rôles et utiliser PowerShell.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
- La principale différence réside dans l’authentification que vous utilisez pour vous connecter à votre serveur. Pour vous connecter à votre serveur Azure Analysis Services, vous devez sélectionner **Authentification par mot de passe Active Directory**.
+### <a name="download-and-install-ssms"></a>Téléchargement et installation de SSMS
+Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une expérience parfaitement fluide lors de la connexion à votre serveur Azure Analysis Services, veillez à utiliser la version la plus récente de SSMS. 
 
- Quand vous utilisez SSMS, avant de vous connecter à votre serveur pour la première fois, vérifiez que votre nom d’utilisateur figure dans le groupe Administrateurs Analysis Services. Pour plus d’informations, consultez [Administrateurs de serveur](#server-administrators) plus loin dans cet article.
+[Téléchargez SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+
 
 ### <a name="to-connect-with-ssms"></a>Pour se connecter avec SSMS
+ Quand vous utilisez SSMS, avant de vous connecter à votre serveur pour la première fois, vérifiez que votre nom d’utilisateur figure dans le groupe Administrateurs Analysis Services. Pour plus d’informations, consultez [Administrateurs de serveur](#server-administrators) plus loin dans cet article.
+
 1. Avant de vous connecter, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur.
    
     ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
-3. Dans la boîte de dialogue **Se connecter au serveur**, copiez le nom du serveur puis, dans **Authentification**, choisissez l’une des options suivantes :
+3. Dans la boîte de dialogue **Se connecter au serveur**, collez le nom du serveur puis, dans **Authentification**, choisissez l’une des options suivantes :
    
-    **Authentification intégrée Active Directory** pour utiliser l’authentification unique avec Active Directory sur la fédération Azure Active Directory.
-   
+    **Authentification Windows** pour utiliser vos informations de domaine, nom d’utilisateur et mot de passe Windows.
+
     **Authentification par mot de passe Active Directory** pour utiliser un compte professionnel. Par exemple, lors d’une connexion à partir d’un ordinateur non joint à un domaine.
-   
-    Remarque : si vous l’authentification Active Directory ne s’affiche pas, vous devrez peut-être mettre à jour vers la [version la plus récente de SSMS](#download-and-install-ssms).
+
+    **Authentification universelle Active Directory** pour utiliser une [authentification non interactive ou de type Multi-Factor Authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Se connecter dans SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
-Étant donné que la gestion de votre serveur dans Azure à l’aide de SSMS est similaire à la gestion d’un serveur local, nous n’irons pas dans les détails ici. Toute l’aide dont vous avez besoin se trouve dans [Gestion d’instance Analysis Services](https://msdn.microsoft.com/library/hh230806.aspx) sur MSDN.
-
 ## <a name="server-administrators-and-database-users"></a>Administrateurs de serveur et utilisateurs de base de données
-Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Cela diffère des bases de données tabulaire locales qui prennent en charge les administrateurs de serveur et les utilisateurs de base de données par des noms d’utilisateur de domaine Windows. Pour en savoir plus, consultez [Manage users in Azure Analysis Services (Gérer des utilisateurs dans Azure Analysis Services)](analysis-services-manage-users.md).
+Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Cela diffère des bases de données tabulaires locales qui prennent en charge les administrateurs de serveur et les utilisateurs de base de données par des noms d’utilisateur de domaine Windows. Pour en savoir plus, consultez [Manage users in Azure Analysis Services (Gérer des utilisateurs dans Azure Analysis Services)](analysis-services-manage-users.md).
 
-## <a name="download-and-install-ssms"></a>Téléchargement et installation de SSMS
-[Téléchargez SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-
-Sur la page de téléchargement, vous avez le choix entre :
- 
-* Version finale (RC) : recommandée lors de la connexion à la version préliminaire d’Azure Analysis Services uniquement. Cette version obtient les mises à jour les plus récentes et fonctionne mieux avec une version préliminaire d’Azure Analysis Services.
-* Version de production actuelle : recommandée lorsque vous vous connectez aux deux serveurs de production ainsi qu’à la version préliminaire d’Azure Analysis Services. Lorsque vous utilisez cette version, vous pouvez modifier le Registre pour activer l’authentification Azure Active Directory.
-
-## <a name="enable-azure-active-directory-authentication"></a>Activer l’authentification Azure Active Directory
-
-Pour activer la fonctionnalité d’authentification Azure Active Directory pour SSMS dans le Registre, créez un fichier texte nommé EnableAAD.reg, puis copiez et collez le texte suivant :
-
-```
-Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
-"AS AAD Enabled"="True"
-```
-
-Enregistrez le fichier, puis exécutez-le.
 
 ## <a name="troubleshooting-connection-problems"></a>Résolution des problèmes de connexion
-Quand vous vous connectez à votre serveur à l’aide de SSMS, si (à l’étape 3) vous essayez de vous connecter à l’aide d’un compte non fédéré ou d’un compte qui ne figure pas dans votre annuaire Azure Active Directory, et que vous ne parvenez pas à vous connecter, vous devrez peut-être effacer le cache de connexion. Fermez SSMS avant d’effectuer ces étapes.
-
-1. Dans l’Explorateur de fichiers, accédez à `C:\Users\<user_name>\AppData\Local\`.
-2. Supprimez le dossier **AADCacheOM**.
-3. Recherchez dans le dossier **Local** des fichiers .dat commençant par le nom **omlibs-tokens-cache**. Si vous en trouvez, supprimez-les.
-4. Ouvrez SSMS et répétez les étapes de la section [Pour se connecter avec SSMS](#to-connect-with-ssms) ci-dessus.
+Si vous rencontrez des problèmes lors d’une connexion à l’aide de SSMS, vous devrez peut-être effacer le cache de connexion. Rien n’est mis en cache sur le disque. Pour effacer le cache, fermez et redémarrez le processus de connexion. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous n’avez pas déjà déployé un modèle tabulaire sur votre nouveau serveur, c’est le moment de le faire. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](analysis-services-deploy.md).

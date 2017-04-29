@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
@@ -81,7 +81,9 @@ La configuration logicielle requise suivante concerne les clients SMB qui accèd
 > [!IMPORTANT]
 > Ne copiez pas et ne stockez pas de fichiers protégés par le système de fichiers EFS Windows pour le serveur de fichiers du groupe virtuel StorSimple. Cela donne lieu à une configuration non prise en charge. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>Format de stockage pris en charge
+Seul le stockage d’objets blob de blocs Azure est pris en charge. Les objets blob de pages ne sont pas pris en charge. En savoir plus [sur les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
