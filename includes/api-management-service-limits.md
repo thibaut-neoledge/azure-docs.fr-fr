@@ -8,8 +8,3 @@
 
 <sup>1</sup>Les limites d'API Management sont différentes pour chaque niveau de tarification. Pour consulter les niveaux de tarification et leurs limites et options de mise à l'échelle associées, consultez [Tarification API Management](https://azure.microsoft.com/pricing/details/api-management/).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

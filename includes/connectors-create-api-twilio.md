@@ -24,8 +24,3 @@ Pour autoriser votre application logique à se connecter à votre compte Twilio,
 6. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

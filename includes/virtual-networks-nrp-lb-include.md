@@ -189,8 +189,3 @@ Exemple de modèle d'équilibrage de charge au format Json :
 ### <a name="additional-resources"></a>Ressources supplémentaires
 Pour plus d’informations, consultez la page [API REST d’équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

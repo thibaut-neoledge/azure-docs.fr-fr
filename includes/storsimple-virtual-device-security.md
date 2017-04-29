@@ -6,8 +6,3 @@ Gardez à l’esprit les considérations de sécurité suivantes lorsque vous ut
 * La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le Portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
 * L’appareil virtuel est hébergé dans le centre de données Microsoft Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -19,15 +19,10 @@
        ![modifier les planifications 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
    4. Indiquez la fréquence de sauvegarde, la rétention et l’heure de début de la planification.
    5. Cochez la case pour activer ou désactiver la stratégie.
-   6. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png)  pour enregistrer la planification.
+   6. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) pour enregistrer la planification.
 6. Dans la section **Volumes** , choisissez les volumes auxquels appliquer cette stratégie.
 7. Pour enregistrer les modifications de cette stratégie, cliquez sur **Enregistrer** en bas de la page.
 8. Vous êtes invité à confirmer l’opération. Cliquez sur **Oui** pour enregistrer la stratégie.
 
 La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -18,8 +18,3 @@ Pour autoriser votre application logique à se connecter à votre compte GoogleD
 6. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![étape de création de la connexion à GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

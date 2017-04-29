@@ -64,8 +64,3 @@ Pour découvrir comment créer un jeu d’équilibrage de charge, consultez la p
 
 Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](../articles/load-balancer/load-balancer-internal-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

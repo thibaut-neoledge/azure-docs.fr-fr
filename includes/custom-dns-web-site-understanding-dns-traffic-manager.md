@@ -23,8 +23,3 @@ Lorsque le trafic parvient à Traffic Manager, il est acheminé vers votre site
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

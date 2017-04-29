@@ -17,8 +17,3 @@ Lorsque vous reprenez une base de données :
 * Vos données seront disponibles.
 * Vous devrez redémarrer vos requêtes de charge de travail.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

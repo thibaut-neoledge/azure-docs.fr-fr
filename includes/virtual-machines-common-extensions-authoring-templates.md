@@ -32,8 +32,3 @@ Comme vous pouvez le voir ci-dessus, le modèle d’extension contient deux part
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Identification de l’éditeur, du type et de typeHandlerVersion pour les extensions.
 Les extensions de machine virtuelle Azure sont publiées par Microsoft et approuvées par des éditeurs tiers, et chaque extension est identifiée de façon univoque par son éditeur, son type et la typeHandlerVersion. Ils peuvent être déterminés comme suit :  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

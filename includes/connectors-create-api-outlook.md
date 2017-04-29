@@ -15,8 +15,3 @@ Pour autoriser votre application logique à se connecter à votre compte Outlook
 4. Indiquez vos informations d’identification pour Outlook et connectez-vous : ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
    Vous avez terminé. Vous venez de créer une connexion à Outlook. Cette connexion sera disponible dans toutes les applications logiques que vous créerez.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

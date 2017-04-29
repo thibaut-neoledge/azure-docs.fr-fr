@@ -17,8 +17,3 @@
        ![Modifier le conteneur de volumes avec le modèle de bande passante 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) pour enregistrer les paramètres mis à jour. La page **Conteneurs de volumes** affiche les modifications.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -5,8 +5,3 @@ Les tâches suivantes seront effectuées dans ce scénario :
 * Créer des sondes d’intégrité
 
 ![Scénario d’équilibreur de charge](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

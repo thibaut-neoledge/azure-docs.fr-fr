@@ -219,8 +219,3 @@ Exemple d'un modèle de passerelle Application Gateway Json :
 ### <a name="additional-resources"></a>Ressources supplémentaires
 Lisez [ API REST Application Gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) pour plus d'informations.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

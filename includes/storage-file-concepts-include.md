@@ -30,8 +30,3 @@ Le stockage de fichiers est composé des éléments suivants :
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -80,8 +80,3 @@ Exemple Traffic Manager au format Json :
 ## <a name="additional-resources"></a>Ressources supplémentaires
 Lisez la [documentation sur l’API REST pour Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) pour plus d’informations.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

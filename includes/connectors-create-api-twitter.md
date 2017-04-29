@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Twitter
 5. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique :  
    ![Image de connexion Twitter 4](./media/connectors-create-api-twitter/twitter-4.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,12 +12,7 @@
    
     ![Création d’une sauvegarde manuelle2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 5. Une fois le travail de sauvegarde terminé, accédez à l’onglet **Catalogue de sauvegarde** .
-6. Définissez les sélections de filtre pour l’appareil approprié, la stratégie de sauvegarde et la plage horaire. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png)  après avoir défini les filtres.
+6. Définissez les sélections de filtre pour l’appareil approprié, la stratégie de sauvegarde et la plage horaire. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) après avoir défini les filtres.
    
    La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -53,8 +53,3 @@ Quand vous créez un **URI SAP**, prenez en compte les points suivants :
 * **heure d’expiration** doit être définie de manière appropriée. Assurez-vous que l’accès aux objets Azure Storage n’expire pas pendant la période active du pipeline.
 * L’URI doit être créé au niveau table ou objet blob/conteneur approprié en fonction des besoins. Un URI SAP vers un objet blob Azure rend ce dernier accessible au service Data Factory. Un URI SAP vers un conteneur d’objets blob Azure permet au service Data Factory de parcourir les objets blob dans ce conteneur. Si vous êtes amené à accorder l’accès à plus ou moins d’objets ou à mettre à jour l’URI SAP, mettez à jour le service lié avec le nouvel URI.   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

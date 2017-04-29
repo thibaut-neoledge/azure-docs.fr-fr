@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte SMTP, p
 3. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique :  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

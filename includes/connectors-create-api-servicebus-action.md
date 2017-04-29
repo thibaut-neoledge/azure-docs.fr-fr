@@ -15,8 +15,3 @@ Procédez comme suit pour créer l’action d’envoi de message :
 8. Enregistrez les modifications à votre flux de travail.   
    ![Image d’action Service Bus 4](./media/connectors-create-api-servicebus/action-4.png)     
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

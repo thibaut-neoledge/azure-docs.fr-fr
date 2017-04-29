@@ -19,8 +19,3 @@ Pour autoriser votre application logique à se connecter à votre compte OneDriv
 5. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique :  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Trello,
 5. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![](./media/connectors-create-api-trello/trello-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

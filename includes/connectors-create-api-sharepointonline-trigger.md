@@ -16,8 +16,3 @@ Dans cet exemple, nous allons utiliser le déclencheur **SharePoint Online - Cr�
 
 À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le flux de travail. Cela aura lieu chaque fois qu’un nouvel élément est créé dans la liste SharePoint Online que vous avez sélectionnée.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

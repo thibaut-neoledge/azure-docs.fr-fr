@@ -11,7 +11,7 @@ Cet article décrit l’ensemble de ces trois options.
 * [Utilisation d’Azure Active Directory](#ad)
 * [Utilisation du contrôle d’accès Azure Active Directory](#ac)
 
-## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>Exécution de Windows Server Active Directory sur les machines virtuelles
+## <a name="adinvm"></a>Exécution de Windows Server Active Directory sur les machines virtuelles
 L’exécution de Windows Server AD dans les machines virtuelles Azure est fort similaire à une exécution locale. [figure 1](#fig1) illustre un exemple type.
 
 ![Azure Active Directory sur la machine virtuelle](./media/identity/identity_01_ADinVM.png)
@@ -36,7 +36,7 @@ L’exécution de Windows Server AD sur les machines virtuelles Azure peut être
 
 D’autres possibilités existent également. Par exemple, vous n’êtes pas obligé de connecter Windows Server AD dans le cloud à un centre de données local. Si vous voulez exécuter une batterie de serveurs SharePoint desservant un ensemble particulier d’utilisateurs, par exemple, qui se connectent tous uniquement à l’aide d’identités basées sur le cloud, vous pouvez créer une forêt autonome sous Azure. La façon dont vous utilisez cette technologie dépend de vos objectifs. (Pour plus d’informations sur l’utilisation de Windows Server AD avec Azure, [cliquez ici](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
-## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Utilisation d’Azure Active Directory
+## <a name="ad"></a>Utilisation d’Azure Active Directory
 Alors que les applications SaaS deviennent de plus en plus courantes, elles soulèvent une question évidente : quel type de service d’annuaire ces applications basées sur le cloud utilisent-elles ? La réponse de Microsoft à cette question est Azure Active Directory.
 
 Ce service d’annuaire peut être utilisé de deux façons principales dans le cloud :
@@ -73,7 +73,7 @@ Pour utiliser Azure AD, l’utilisateur se connecte d’abord à son domaine Act
 
 Aujourd’hui, Azure AD n’a pas vocation à remplacer entièrement Windows Server AD en local. Comme mentionné plus haut, l’annuaire sur le cloud présente un schéma bien plus simple, et il lui manque des éléments tels que la stratégie de groupe, la possibilité de stocker des informations sur les machines et la prise en charge du protocole LDAP. (En fait, une machine Windows ne peut pas être configurée pour permettre aux utilisateurs de s’y connecter en utilisant uniquement Azure AD : ce scénario n’est pas pris en charge.) À la place, les objectifs initiaux d’Azure AD sont, entre autres, de permettre aux utilisateurs d’entreprise d’accéder aux applications dans le cloud sans avoir à conserver une connexion distincte et d’éviter aux administrateurs d’annuaire locaux d’avoir à synchroniser manuellement leur annuaire local avec chaque application SaaS utilisée par leur organisation. Toutefois, attendez-vous à ce que, à terme, ce service d’annuaire dans le cloud prenne en charge une gamme plus étendue de scénarios.
 
-## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Utilisation du contrôle d’accès Azure Active Directory
+## <a name="ac"></a>Utilisation du contrôle d’accès Azure Active Directory
 Les technologies d’identité basées sur le cloud permettent de résoudre un certain nombre de problèmes. Azure Active Directory peut fournir aux utilisateurs d’une organisation une authentification unique pour plusieurs applications SaaS, par exemple. Mais, les technologies d’identité dans le cloud peuvent également être utilisées d’autres façons.
 
 Supposons, par exemple, qu’une application souhaite permettre à ses utilisateurs de se connecter au moyen de jetons émis par plusieurs *fournisseurs d’identité (IdP)*. Actuellement, il existe de nombreux fournisseurs d’identité, y compris Facebook, Google et Microsoft, et les applications permettent souvent aux utilisateurs de se connecter au moyen de l’une de ces identités. Pourquoi une application devrait-elle se préoccuper de conserver sa propre liste d’utilisateurs et de mots de passe alors qu’elle peut s’appuyer sur des identités existant déjà ? L’acceptation des identités existantes facilite à la fois la vie des utilisateurs, qui ont un nom d’utilisateur et un mot de passe en moins à retenir, et celle des créateurs de l’application, qui ne doivent plus conserver leurs propres listes de noms d’utilisateur et de mots de passe.
@@ -101,9 +101,4 @@ L’utilisation des identités est importante dans pratiquement chaque applicati
 
 ## <a name="about-the-author"></a>À propos de l’auteur
 David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) à San Francisco, en Californie.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

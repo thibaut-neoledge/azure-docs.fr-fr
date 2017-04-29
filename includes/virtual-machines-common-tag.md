@@ -42,8 +42,3 @@ Votre nouvelle balise doit maintenant apparaître dans la liste des balises pour
 
 ![Nouvelle balise enregistrée dans le portail Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
