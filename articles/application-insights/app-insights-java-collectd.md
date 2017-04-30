@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -124,6 +125,14 @@ Séparez les directives par un saut de ligne.
 * Ouvrez un terminal et démarrez collectd en mode détaillé pour vérifier si des problèmes ont été signalés :
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Problème connu
+
+Le plug-in d’écriture Application Insights n’est pas compatible avec certains plug-ins de lecture. Certains plug-ins envoient parfois « NaN » alors que le plug-in Application Insights s’attend à recevoir un nombre à virgule flottante.
+
+Symptôme : le journal collectd affiche des erreurs incluant « AI: ... SyntaxError: Unexpected token N ».
+
+Solution de contournement : exclure les données collectées par les plug-ins d’écriture à l’origine du problème. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -134,12 +143,6 @@ Séparez les directives par un saut de ligne.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
