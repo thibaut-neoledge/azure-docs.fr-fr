@@ -64,7 +64,7 @@ Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée
 
 Le tableau de bord affiche les informations suivantes :
 
-* Une carte qui affiche l’emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, 25 appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte. Consultez le [FAQ] [ lnk-faq] pour savoir comment rendre le mappage dynamique.
+* Une carte qui affiche l’emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, 25 appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte. Consultez le [FAQ][lnk-faq] pour savoir comment rendre le mappage dynamique.
 * Un panneau **Historique de télémétrie** qui trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
 * Un panneau **Historique des alertes** qui affiche les alarmes récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
 * Un panneau **Tâches** qui affiche des informations sur les travaux planifiés. Vous pouvez planifier vos propres tâches sur la page **Gestion des tâches**.
