@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: a07051ea0be58cafcf1a7d7ae800b44e7abd05cd
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>En savoir plus sur la gestion des mots de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -105,7 +105,7 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 6. Une fois que le message a atteint Service Bus, le point de terminaison de réinitialisation de mot de passe sort de veille automatiquement et découvre qu’une demande de réinitialisation est en attente.
 7. Le service recherche alors l’utilisateur en question à l’aide de l’attribut d’ancrage de cloud.  Pour que cette recherche réussisse, l’objet utilisateur doit exister dans l’espace de connecteur Active Directory et il doit être lié à l’objet MV correspondant et à l’objet de connecteur AAD correspondant. Pour finir, pour que la synchronisation trouve ce compte d’utilisateur, le lien de l’objet de connecteur Active Directory à MV doit avoir la règle de synchronisation `Microsoft.InfromADUserAccountEnabled.xxx` .  Celle-ci est nécessaire, car lorsque l’appel provient du cloud, le moteur de synchronisation utilise l’attribut cloudAnchor pour rechercher l’objet d’espace de connecteur AAD, puis il suit le lien vers l’objet MV, puis le lien vers l’objet Active Directory. Comme il peut y avoir plusieurs objets Active Directory (plusieurs forêts) pour le même utilisateur, le moteur de synchronisation s’appuie sur le lien `Microsoft.InfromADUserAccountEnabled.xxx` pour choisir celui qui convient. Remarque : en raison de cette logique, vous devez connecter Azure AD Connect au contrôleur de domaine principal pour que l’écriture différée de mot de passe fonctionne.  Si vous avez besoin de le faire, vous pouvez configurer Azure AD Connect pour utiliser un émulateur de contrôleur de domaine principal en cliquant avec le bouton droit sur les **propriétés** du connecteur de synchronisation Active Directory, puis en sélectionnant **configurer des partitions d’annuaire**. À partir de là, recherchez la section **domain controller connection settings** (paramètres de connexion de contrôleur de domaine) et cochez la case intitulée **only use preferred domain controllers** (utiliser uniquement les contrôleurs de domaine préférés). Remarque : si le contrôleur de domaine préféré n’est pas un émulateur de contrôleur de domaine principal, Azure AD Connect cherche toujours à atteindre le contrôleur de domaine principal pour l’écriture différée du mot de passe.
 8. Une fois le compte d’utilisateur trouvé, nous tentons de réinitialiser le mot de passe directement dans la forêt Active Directory appropriée.
-9. Si l’opération de définition du mot de passe réussit, nous signalons à l’utilisateur que son mot de passe a été modifié et qu’il peut continuer.
+9. Si l’opération de définition du mot de passe réussit, nous signalons à l’utilisateur que son mot de passe a été modifié et qu’il peut continuer. Lorsque le mot de passe de l’utilisateur est synchronisé sur Azure AD à l’aide de la synchronisation de mot de passe, il se peut que la stratégie de mot de passe locale soit plus faible que la stratégie de mot de passe cloud. Dans ce cas, nous appliquons toujours la stratégie locale, quelle qu’elle soit, et nous autorisons la synchronisation du hachage de mot de passe à synchroniser le hachage de ce mot de passe. Cela garantit que votre stratégie locale est appliquée dans le cloud, que vous utilisiez ou non la synchronisation ou la fédération de mot de passe pour fournir une authentification unique.
 10. Si l’opération de définition du mot de passe échoue, nous renvoyons l’erreur à l’utilisateur et le laissons réessayer.  L’opération peut échouer parce que le service est arrêté, parce que le mot de passe qu’il a sélectionné ne remplit pas les critères des stratégies de l’organisation, parce que nous n’avons pas trouvé l’utilisateur dans l’annuaire Active Directory local ou pour différentes autres raisons.  Nous avons un message spécifique pour la plupart de ces cas de figure et nous indiquons à l’utilisateur ce qu’il peut faire pour résoudre le problème.
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Scénarios pris en charge par l’écriture différée de mot de passe
@@ -629,7 +629,7 @@ Pour tester ces méthodes avec l’un des utilisateurs partenaires, consultez la
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
