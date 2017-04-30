@@ -9,8 +9,3 @@ Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir l
 7. Sur la page **Nom**, spécifiez un nom pour la règle, comme **Port de la sonde d’écouteur toujours actif** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
 8. Répétez les étapes ci-dessus pour le port de l'écouteur du groupe de disponibilité (comme spécifié précédemment à l'aide du paramètre $EndpointPort du script), puis spécifiez un nom de règle approprié, tel que **Port de l'écouteur toujours actif**.
 
-
-
-<!--HONumber=Nov16_HO5-->
-
-
