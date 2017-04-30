@@ -38,8 +38,3 @@ L’exemple suivant montre comment utiliser l’Explorateur de stockage Microsof
 
 Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas votre clé de compte dans votre application. Vous pouvez en savoir plus sur les SAP et les meilleures pratiques en matière d’utilisation de SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-

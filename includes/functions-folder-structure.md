@@ -19,8 +19,3 @@ Le fichier *host.json* contient une configuration spécifique de l’exécution 
 
 Chaque fonction a un dossier contenant un ou plusieurs fichiers de code, la configuration de function.json et d’autres dépendances.
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
