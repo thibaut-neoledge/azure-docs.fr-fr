@@ -1,6 +1,6 @@
 Utilisez la procédure ci-dessous correspondant à votre type de projet de serveur principal &mdash; [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
+### <a name="dotnet"></a>Projet de serveur principal .NET
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
 2. Dans le dossier Contrôleurs, ouvrez TodoItemController.cs et ajoutez les instructions `using` suivantes :
 
@@ -48,7 +48,7 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
 
 4. Publier à nouveau le projet de serveur
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Projet de serveur principal Node.js
+### <a name="nodejs"></a>Projet de serveur principal Node.js
 1. Si vous ne l’avez pas encore fait, [téléchargez le projet de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du Portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
 
@@ -97,8 +97,3 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
 
     Ce code envoie une notification GCM contenant item.text quand un nouvel élément todo est inséré.
 3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

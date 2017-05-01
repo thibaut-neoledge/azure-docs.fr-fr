@@ -10,8 +10,3 @@ Le serveur principal Mobile Apps est désormais configuré pour utiliser Firebas
 
 
 <!-- images -->
-
-
-<!--HONumber=Feb17_HO1-->
-
-

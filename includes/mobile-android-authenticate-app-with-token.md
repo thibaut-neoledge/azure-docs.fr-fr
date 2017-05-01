@@ -82,8 +82,3 @@ L’exemple précédent présentait une connexion standard, qui nécessite que l
             }
         }
 6. Générez l'application et testez l'authentification à l'aide d'un compte valide. Exécutez ceci au moins deux fois. À la première exécution, vous devez recevoir une invite vous indiquant de vous connecter et de créer le cache de jetons. Après cela, chaque exécution tente de charger le cache de jetons pour l’authentification. Vous ne devriez plus être invité à vous connecter.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

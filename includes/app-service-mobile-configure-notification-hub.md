@@ -9,8 +9,3 @@ Vous avez désormais connecté un hub de notification à votre projet de serveur
 
 [Portail Azure]: https://portal.azure.com/
 [Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Feb17_HO1-->
-
-
