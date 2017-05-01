@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -123,9 +123,16 @@ Voici quelques opérations possibles pour réduire le volume de données :
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Diviser vos données de télémétrie pour séparer les clés d’instrumentation. 
 * Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Pour finir, vous pouvez réduire la limite du volume quotidien qui restreint les données collectées, mais cela entraînera une perte de données pour le reste de la journée. Pour modifier cette valeur, ouvrez **Fonctionnalités + tarifs**, **Gestion des données**.
 
-    ![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Gestion du volume maximal quotidien de données
+
+Vous pouvez utiliser un plafond de volume quotidien pour limiter les données collectées, mais si cette limite est atteinte, vous perdrez toute la télémétrie envoyée par votre application pour le reste de la journée. Il est **déconseillé** de laisser votre application atteindre le plafond quotidien, car vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois que ce plafond est atteint. 
+
+Utilisez plutôt l’[échantillonnage](app-insights-sampling.md) pour ajuster le volume de données souhaité et utilisez le plafond quotidien uniquement en dernier recours, dans le cas où votre application commence à envoyer de beaucoup plus grands volumes de télémétrie de façon inattendue. 
+
+Pour modifier le plafond quotidien, ouvrez **Fonctionnalités + tarifs**, **Gestion des données**.
+
+![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>échantillonnage
 [Sampling](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. 
