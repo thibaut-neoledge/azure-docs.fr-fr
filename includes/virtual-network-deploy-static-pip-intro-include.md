@@ -2,8 +2,3 @@ Vous pouvez créer des machines virtuelles dans Azure et les exposer sur l’Int
 
 Avant de pouvoir implémenter des adresses IP publiques statiques dans des machines virtuelles, vous devez comprendre à quel moment vous pouvez les utiliser et de quelle façon. Pour en savoir plus sur l’adressage IP dans Azure, consultez [Vue d’ensemble de l’adressage IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

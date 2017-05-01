@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Salesfo
 5. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique :  
    ![Image de connexion Salesforce 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

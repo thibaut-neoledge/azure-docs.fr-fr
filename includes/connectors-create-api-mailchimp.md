@@ -14,8 +14,3 @@ Pour autoriser votre application logique à se connecter à votre compte MailChi
 4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![MailChimp étape 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

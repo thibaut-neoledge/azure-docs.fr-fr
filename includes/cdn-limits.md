@@ -7,8 +7,3 @@
 
 Demandez une mise à jour des limites logicielles de votre abonnement en ouvrant un ticket de support.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

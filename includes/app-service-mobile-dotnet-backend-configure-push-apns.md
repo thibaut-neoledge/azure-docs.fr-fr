@@ -92,8 +92,3 @@
             module.exports = table;
 
     2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

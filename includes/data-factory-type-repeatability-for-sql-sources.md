@@ -83,8 +83,3 @@ Azure Data Factory renseigne cette colonne conformément à ses besoins pour s
 
 Comme pour le mécanisme 1, l’activité de copie nettoie tout d’abord automatiquement les données de la tranche donnée dans la table SQL de destination, puis exécute l’activité de copie normalement pour insérer les données de la source dans la destination correspondant à cette tranche. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

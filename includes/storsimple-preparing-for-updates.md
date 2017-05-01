@@ -30,8 +30,3 @@ Vous devez effectuer les étapes suivantes avant d’analyser et d’appliquer l
 
 Une fois que vous avez terminé ces vérifications préalables manuelles, vous pouvez passer à l’analyse et à l’installation des mises à jour.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

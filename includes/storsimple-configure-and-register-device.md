@@ -11,7 +11,7 @@
    
     ![Inscription de l’appareil StorSimple 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
-     Suivez les étapes 5 à 12 pour configurer les paramètres réseau minimum requis pour votre appareil. **Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.**  Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
+     Suivez les étapes 5 à 12 pour configurer les paramètres réseau minimum requis pour votre appareil. **Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.** Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
 5. À l’invite de commandes, tapez votre mot de passe. Le mot de passe par défaut de l’appareil est **Password1**.
 6. Tapez la commande suivante : 
    
@@ -73,9 +73,4 @@ Une fois que l’appareil est inscrit correctement et n’est pas en ligne, vous
 ![Vidéo disponible](./media/storsimple-configure-and-register-device/Video_icon.png) **Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

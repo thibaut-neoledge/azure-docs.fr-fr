@@ -3,8 +3,3 @@ Ce document vous explique un déploiement qui utilise plusieurs cartes d’inter
 
 ![Scénario à cartes d’interface réseau multiples](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

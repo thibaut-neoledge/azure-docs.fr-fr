@@ -158,8 +158,3 @@ Dans ce cas, les résultats de la requête sont d’abord mappés vers les colon
 
 ![Flux du mappage de colonnes 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

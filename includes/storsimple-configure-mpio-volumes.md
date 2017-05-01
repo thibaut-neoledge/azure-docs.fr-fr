@@ -6,8 +6,3 @@
     ![Chemins d’accès multiples de détection de propriétés MPIO](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. Redémarrez le serveur lorsque vous y êtes invité.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

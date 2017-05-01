@@ -8,8 +8,3 @@
 
 La page **Stratégies de sauvegarde** affiche la nouvelle liste des stratégies.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
