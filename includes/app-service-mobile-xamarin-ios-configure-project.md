@@ -25,8 +25,3 @@
 4. Double-cliquez sur Info.plist pour l’ouvrir, puis activez **RemoteNotifications (Notifications distantes)** sous **Modes d’arrière-plan**.
 
 [Approvisionnement des appareils Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

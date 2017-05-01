@@ -2,7 +2,7 @@ Dans cette section, vous mettez à jour le code dans votre projet de serveur pri
 
 Choisissez l’une des procédures ci-après correspondant au type de votre projet de serveur principal &mdash; [projet de serveur principal .NET](#dotnet) ou [projet de serveur principal Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
+### <a name="dotnet"></a>Projet de serveur principal .NET
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
 2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
 
@@ -48,7 +48,7 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
     Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
 4. Publier à nouveau le projet de serveur
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Projet de serveur principal Node.js
+### <a name="nodejs"></a>Projet de serveur principal Node.js
 1. Si vous ne l’avez pas encore fait, [téléchargez le projet de serveur principal de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du Portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Remplacez le code présent dans todoitem.js par le code suivant :
 
@@ -93,8 +93,3 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
 
     Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
 3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

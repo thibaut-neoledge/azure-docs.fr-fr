@@ -94,8 +94,3 @@
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     L'application est mise à jour et prend en charge les notifications Push.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

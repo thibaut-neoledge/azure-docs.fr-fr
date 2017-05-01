@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Cliquez sur l’onglet **Messagerie cloud (Cloud Messaging)** dans les paramètres de votre projet, puis copiez la valeur des champs **Server key (Clé serveur)** et **Sender ID (ID de l’expéditeur)**. Ces valeurs seront utilisées ultérieurement pour configurer la stratégie d’accès du hub de notification, ainsi que votre gestionnaire de notification dans l’application.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
