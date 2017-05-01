@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3f473836959fbc5d336038a62a95df8db6b7eb7d
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -91,7 +91,7 @@ SAP ne privilégie pas la sauvegarde HANA par rapport à la capture instantanée
 
 Sur Azure, tenez compte du fait que la fonctionnalité de capture instantanée d’objets blob Azure ne garantit pas la cohérence du système de fichiers (voir la page [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) (Utilisation des captures instantanées d’objets blob avec PowerShell) pour plus d’informations). La section suivante, _Cohérence des données SAP HANA lors de la création de captures instantanées de stockage_, aborde certaines considérations relatives à cette fonctionnalité.
 
-Il faut également comprendre les implications liées à la facturation en cas d’utilisation fréquente de captures instantanées d’objets blob, comme décrit dans l’article : [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/fileservices/understanding-how-snapshots-accrue-charges) (Comment les captures instantanées augmentent les frais). Cet aspect n’est pas aussi évident que lors de l’utilisation des disques virtuels Azure.
+Il faut également comprendre les implications liées à la facturation en cas d’utilisation fréquente de captures instantanées d’objets blob, comme décrit dans l’article : [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) (Comment les captures instantanées augmentent les frais). Cet aspect n’est pas aussi évident que lors de l’utilisation des disques virtuels Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Cohérence des données SAP HANA lors de la création de captures instantanées de stockage
 
