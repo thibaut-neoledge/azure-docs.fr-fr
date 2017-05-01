@@ -15,23 +15,24 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d3952e65aaf3ca89f83e99409e196840dd692a01
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
 Aujourd’hui, Azure Active Directory prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure AD, notamment plus de 150 applications qui gèrent l’authentification unique à l’aide du protocole SAML 2.0. Lorsqu’un utilisateur s’authentifie auprès d’une application via Azure AD à l’aide de SAML, Azure AD envoie un jeton à l’application (via une redirection HTTP 302) que l’application valide et utilise pour connecter l’utilisateur au lieu de demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
 
-En jargon d’identité, une « revendication » concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](http://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML et l’ID unique de l’utilisateur unique est généralement représenté dans l’objet SAML.
+Dans le jargon relatif aux identités, une « revendication » fait référence à ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](http://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML et l’ID unique de l’utilisateur est généralement représenté dans l’objet SAML.
 
-Par défaut, Azure AD émet un jeton SAML à votre application qui contient une revendication NameIdentifier, avec une valeur du nom de l’utilisateur dans Azure AD (cette valeur identifie l’utilisateur de façon unique). Le jeton SAML contient également des revendications supplémentaires contenant l’adresse de messagerie de l’utilisateur, son prénom et son nom.
+Par défaut, Azure AD émet un jeton SAML à votre application qui contient une revendication NameIdentifier, avec une valeur du nom de l’utilisateur dans Azure AD (cette valeur identifie l’utilisateur de façon unique). Le jeton SAML contient également des revendications supplémentaires contenant l’adresse e-mail de l’utilisateur, son prénom et son nom.
 
 Pour afficher ou modifier les revendications émises dans le jeton SAML vers l’application, ouvrez l’enregistrement de l’application dans le portail de gestion Azure et sélectionnez l’onglet **Attributs** sous l’application.
 
 ![][1]
 
-Il existe deux raisons possibles pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d’une manière qui nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur (c’est-à-dire le nom d’utilisateur principal) stocké dans Azure Active Directory. 
+Il existe deux raisons pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d’une manière qui nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur (c’est-à-dire le nom d’utilisateur principal) stocké dans Azure Active Directory. 
 
 Vous pouvez modifier les valeurs de revendication par défaut en sélectionnant l’icône en forme de crayon qui apparaît à droite chaque fois que vous déplacez la souris sur l’une des lignes du tableau d’attributs de jeton SAML. Vous pouvez également supprimer les revendications (autres que NameIdentifier) à l’aide de l’icône **X** et ajouter de nouvelles revendications à l’aide du bouton **Ajouter un attribut utilisateur**.
 
@@ -40,9 +41,9 @@ Pour résoudre le problème dans lequel l’application a été déployée à l�
 
 ![][2]
 
-Dans le menu **Valeur d’attribut**, sélectionnez **user.mail** pour définir la revendication NameIdentifier sur l’adresse de messagerie de l’utilisateur dans l’annuaire ou sélectionnez **user.onpremisessamaccountname** pour définir le nom de compte SAM de l’utilisateur qui a été synchronisé à partir d’Azure AD en local. 
+Dans le menu **Valeur d’attribut**, sélectionnez **user.mail** pour définir la revendication NameIdentifier sur l’adresse e-mail de l’utilisateur dans l’annuaire ou sélectionnez **user.onpremisessamaccountname** pour définir le nom de compte SAM de l’utilisateur qui a été synchronisé à partir d’Azure AD en local. 
 
-Vous pouvez également utiliser la fonction ExtractMailPrefix() spéciale pour supprimer le suffixe de domaine de l’adresse de messagerie ou le nom d’utilisateur principal résultant de la première partie du nom de l’utilisateur transmis (par exemple, « joesmith » au lieu de joesmith@contoso.com).
+Vous pouvez également utiliser la fonction spéciale ExtractMailPrefix() pour supprimer le suffixe de domaine de l’adresse e-mail ou le nom d’utilisateur principal, pour obtenir la première partie du nom de l’utilisateur transmis (par exemple, « joesmith » au lieu de joesmith@contoso.com).
 
 ![][3]
 
@@ -63,13 +64,7 @@ Si pour un utilisateur donné, il n’y a pas de valeur stockée pour un attribu
 * [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
-[2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
-[3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
-[4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-claims-customization/claimscustomization1.png
+[2]: ../media/active-directory-saml-claims-customization/claimscustomization2.png
+[3]: ../media/active-directory-saml-claims-customization/claimscustomization3.png
+[4]: ../media/active-directory-saml-claims-customization/claimscustomization4.png

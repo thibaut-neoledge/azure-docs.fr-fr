@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ Le diagramme suivant récapitule les alertes et ce que vous pouvez en faire dans
 Vous pouvez recevoir des alertes sur la base de :
 
 * **Valeurs de mesure** : l’alerte se déclenche quand la valeur d’une mesure spécifiée dépasse un seuil que vous attribuez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois quand la condition est remplie et par la suite une fois que la condition n’est plus remplie. Pour obtenir la liste croissante des mesures disponibles prises en charge par Azure Monitor, voir [Liste des mesures prises en charge sur Azure Monitor](monitoring-supported-metrics.md).
-* **Événements de journal d’activité** : cette alerte peut se déclencher sur chaque événement ou uniquement quand un nombre spécifique d’événements se produisent.
+* **Événements de journal d’activité** : cette alerte peut se déclencher lorsqu’un événement particulier se produit sur une ressource ou lorsqu’une notification de service est publiée sur votre abonnement.
 
-## <a name="what-can-alerts-do"></a>À quoi servent les alertes ?
+## <a name="what-can-metric-alerts-do"></a>À quoi servent les alertes métriques ?
 Vous pouvez configurer une alerte pour effectuer les actions suivantes :
 
 * envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
@@ -56,12 +56,27 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes :
     - Application logique Azure
     - un service tiers
 
+## <a name="what-can-activity-log-alerts-do"></a>À quoi servent les alertes de journal d’activité ?
+Vous pouvez configurer une alerte pour effectuer les actions suivantes :
+* déclencher l’alerte lorsqu’un événement spécifique se produit sur une des ressources sous votre abonnement ;
+* déclencher l’alerte chaque fois qu’une notification de service est publiée dans votre abonnement ;
+* alerter les membres d’un groupe d’actions via
+    * sms
+    * Email
+    * webhook
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
-* [Portail Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [Interface de ligne de commande (CLI)](insights-alerts-command-line-interface.md)
-* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* En savoir plus sur les [métriques](monitoring-overview-metrics.md)
+* Configurer les [alertes métriques par le biais du portail Azure](insights-alerts-portal.md)
+* Configurer les [alertes métriques dans PowerShell](insights-alerts-powershell.md)
+* Configurer l’[interface de ligne de commande des alertes métriques](insights-alerts-command-line-interface.md)
+* Configurer les [alertes métriques au moyen de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* En savoir plus sur les [journaux d’activité](monitoring-overview-activity-logs.md)
+* Configurer les [alertes de journal d’activité par le biais du portail Azure](monitoring-activity-log-alerts.md)
+* Configurer les [alertes de journal d’activité au moyen de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Consulter le [schéma de webhook d’alerte de journal d’activité](monitoring-activity-log-alerts-webhook.md)
+* Apprenez-en plus sur les [notifications de service](monitoring-service-notifications.md)
+* En savoir plus sur les [groupes d’actions](monitoring-action-groups.md)
 

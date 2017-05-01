@@ -12,11 +12,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 03/29/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 07797b9159c9b926e9eb47d8864c63048951931a
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 ou Visual Studio 2017.
 * Node.js version 0.10.x ou ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
@@ -44,23 +45,23 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
-Dans cette section, vous créez une application console Node.js qui ajoute des métadonnées d’emplacement à la représentation d’appareil associée à **myDeviceId**. Elle interroge ensuite les représentations d’appareils stockées dans l’IoT hub en sélectionnant les appareils situés aux États-Unis, puis ceux qui signalent une connexion cellulaire.
+Dans cette section, vous créez une application console (utilisant C#) qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à **myDeviceId**. L’application console interroge ensuite les jumeaux d’appareil stockés dans l’IoT hub en sélectionnant les appareils situés aux États-Unis, puis ceux qui signalent une connexion cellulaire.
 
 1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Nommez le projet **AddTagsAndQuery**.
    
     ![Nouveau projet Visual C# Bureau classique Windows][img-createapp]
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AddTagsAndQuery**, puis cliquez sur **Gérer les packages NuGet**.
-3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AddTagsAndQuery**, puis cliquez sur **Gérer les packages NuGet...**.
+1. Dans la fenêtre **Gestionnaire de Package NuGet**, sélectionnez **Parcourir**, puis recherchez **microsoft.azure.devices**. Sélectionnez **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
    
     ![Fenêtre du gestionnaire de package NuGet][img-servicenuget]
-4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+1. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub pour le hub créé dans la section précédente.
+1. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub pour le hub créé dans la section précédente.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Ajoutez la méthode suivante à la classe **Program** :
+1. Ajoutez la méthode suivante à la classe **Program** :
    
         public static async Task AddTagsAndQuery()
         {
@@ -87,36 +88,38 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
    
     La classe **RegistryManager** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir du service. Le code précédent initialise l’objet **registryManager**, récupère la représentation d’appareils de **myDeviceId**, puis met à jour ses balises avec les informations d’emplacement souhaitées.
    
-    Après la mise à jour, il exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
+    Après la mise à jour, il exécute deux requêtes : la première sélectionne uniquement les jumeaux d’appareils situés dans l’usine **Redmond43** et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
    
-    Notez que le code précédent, quand il crée l’objet **query**, spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **HasMoreResults** permettant d’appeler les méthodes **GetNextAsTwinAsync** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **GetNextAsJson** est disponible pour les résultats qui ne sont pas des représentations d’appareil, par exemple, les résultats de requêtes d’agrégation.
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+    Notez que le code précédent, quand il crée l’objet **query**, spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **HasMoreResults** permettant d’appeler les méthodes **GetNextAsTwinAsync** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **GetNextAsJson** est disponible pour les résultats qui ne sont pas des jumeaux d’appareil, par exemple, les résultats de requêtes d’agrégation.
+1. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddTagsAndQuery().Wait();
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
-8. Exécutez cette application, et vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
+
+1. Dans l’Explorateur de solutions, sélectionnez **Définir les projets de démarrage...** et vérifiez que l’**Action** définie pour le projet **AddTagsAndQuery** est **Démarrer**. Générez la solution.
+1. Exécutez cette application en cliquant avec le bouton droit sur le projet **AddTagsAndQuery** et en sélectionnant **Déboguer**, puis **Démarrer une nouvelle instance**. Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
    
     ![Résultats de requête dans la fenêtre][img-addtagapp]
 
-Dans la section suivante, vous allez créer une application d’appareil qui signale les informations de connectivité et modifie le résultat de la requête de la section précédente.
+Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
 ## <a name="create-the-device-app"></a>Créer l’application d’appareil
 Dans cette section, vous créez une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, puis met à jour ses propriétés signalées afin qu’elles contiennent les informations indiquant qu’elle est connectée par le biais d’un réseau cellulaire.
 
-1. Créez un dossier vide nommé **reportconnectivity**. Dans le dossier **reportconnectivity**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
+1. Créez un dossier vide nommé **reportconnectivity**. Dans le dossier **reportconnectivity**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut.
    
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **reportconnectivity**, exécutez la commande suivante pour installer les packages **azure-iot-device** et **azure-iot-device-mqtt** :
+1. À l’invite de commandes, dans le dossier **reportconnectivity**, exécutez la commande suivante pour installer les packages **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.js** dans le dossier **reportconnectivity**.
-4. Ajoutez le code suivant au fichier **ReportConnectivity.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion à l’appareil que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
+1. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.js** dans le dossier **reportconnectivity**.
+1. Ajoutez le code suivant au fichier **ReportConnectivity.js**, puis remplacez l’espace réservé pour la chaîne de connexion d’appareil par la chaîne de connexion que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -155,12 +158,12 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
         });
    
     L’objet **Client** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère la représentation d’appareil de **myDeviceId**, puis met à jour sa propriété signalée avec les informations de connectivité.
-5. Exécuter l’application d’appareil
+1. Exécuter l’application d’appareil
    
         node ReportConnectivity.js
    
     Vous devriez voir le message `twin state reported`.
-6. À présent que l’appareil a signalé ses informations de connectivité, il doit apparaître dans les deux requêtes. Exécutez l’application .NET **AddTagsAndQuery** pour exécuter des requêtes à nouveau. Cette fois, **myDeviceId** doit apparaître dans les résultats des deux requêtes.
+1. À présent que l’appareil a signalé ses informations de connectivité, il doit apparaître dans les deux requêtes. Exécutez l’application .NET **AddTagsAndQuery** pour exécuter des requêtes à nouveau. Cette fois, **myDeviceId** doit apparaître dans les résultats des deux requêtes.
    
     ![][img-addtagapp2]
 
@@ -195,10 +198,5 @@ Utilisez les ressources suivantes :
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

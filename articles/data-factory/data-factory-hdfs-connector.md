@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6ad9eaf381b93547a3d5f54698f8f6023a5644f2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -25,6 +25,9 @@ ms.lasthandoff: 03/27/2017
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’un HDFS local. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 Vous pouvez copier les données depuis HDFS vers tout magasin de données récepteur pris en charge. Consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, Data Factory prend uniquement en charge le déplacement de données de HDFS en local vers d’autres magasins de données, mais pas l’inverse.
+
+> [!NOTE]
+> L’activité de copie ne supprime pas le fichier source une fois qu’il est copié sur la destination. Si vous devez supprimer le fichier source une fois qu’il est copié, créez une activité personnalisée pour supprimer le fichier et utilisez l’activité dans le pipeline. 
 
 ## <a name="enabling-connectivity"></a>Activation de la connectivité
 Le service Data Factory prend en charge la connexion à des sources HDFS locales à l’aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle. Utilisez la passerelle pour vous connecter à HDFS même si elle est hébergée sur des machines virtuelles IaaS Azure.
@@ -39,15 +42,15 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
 
-Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
+Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
 1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
-2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie.
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données HDFS local, consultez la section [Exemple JSON : copier des données depuis un HDFS local vers Azure Blob](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données HDFS local, consultez la section [Exemple JSON : copier des données depuis un HDFS local vers Azure Blob](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) de cet article.
 
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques à HDFS :
 
@@ -160,12 +163,15 @@ Pour une activité de copie, quand la source est de type **FileSystemSource** , 
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non | 
+| recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non |
+
+## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
+Pour plus d’informations, consultez l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Exemple JSON : copie de données entre un système HDFS local et un objet blob Azure
 Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.  
 
-Cet exemple fournit des définitions JSON pour les entités Data Factory suivantes. Vous pouvez utiliser ces définitions pour créer un pipeline afin de copier des données depuis HDFS vers un Stockage Blob Azure à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). 
+Cet exemple fournit des définitions JSON pour les entités Data Factory suivantes. Vous pouvez utiliser ces définitions pour créer un pipeline afin de copier des données depuis HDFS vers un Stockage Blob Azure à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. Un service lié de type [OnPremisesHdfs](#linked-service-properties).
 2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -293,7 +299,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 }
 ```
 
-**Activité de copie dans un pipeline avec une source Système de fichiers et un récepteur blob :** 
+**Activité de copie dans un pipeline avec une source Système de fichiers et un récepteur blob :**
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser ces jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **FileSystemSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les données de la dernière heure à copier.
 
@@ -434,7 +440,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.    Établir l’approbation entre le domaine Windows et le domaine Kerberos. [password] correspond au mot de passe pour le principal **krbtgt/REALM.COM@AD.COM**.
+2.    Établir l’approbation entre le domaine Windows et le domaine Kerberos. [password] correspond au mot de passe pour le principal  **krbtgt/REALM.COM@AD.COM** .
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

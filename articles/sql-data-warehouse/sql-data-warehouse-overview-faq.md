@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7a752bfb349d2730537538f6856fe431204d3329
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 49cbfca4f733356548b6c8f491fead9e2d7fdf5c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +34,7 @@ R. SQL DW propose plusieurs solutions de protection des données, comme le chiff
 Q : Où puis-je trouver les normes juridiques et commerciales auxquelles SQL DW est conforme ?
 
 R. Consultez la page [Conformité Microsoft] pour connaître les différentes offres de conformité par produit, notamment SOC et ISO. Tout d’abord, sélectionnez le titre de conformité de votre choix, puis développez Azure dans la section des services cloud qui figurent dans le champ d’application de Microsoft, sur le côté droit de la page, pour voir quels sont les services Azure conformes.
- 
+
 Q : Puis-je connecter Power BI ?
 
 R. Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, il n’est pas destiné à traiter un grand nombre d’utilisateurs ou de données en temps réel. Pour une utilisation en production de Power BI, nous recommandons d’utiliser Power BI en complément d’Azure Analysis Services ou d’Analysis Service IaaS. 
@@ -41,6 +42,10 @@ R. Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, i
 Q : Quelles sont les limites de capacité de SQL Data Warehouse ?
 
 R. Consultez notre page [Limites de capacité] actuelle. 
+
+Q : Pourquoi ma Mise à l’échelle/Pause/Reprise est-elle si longue ?
+
+R : Un certain nombre de facteurs peuvent influencer la durée des opérations de gestion du calcul. Une cause fréquente des opérations avec une durée d’exécution longue est l’annulation de transactions. Quand une opération de mise à l’échelle ou de pause est lancée, toutes les sessions entrantes sont bloquées et les requêtes sont vidées. Afin de laisser le système dans un état stable, les transactions doivent être annulées avant qu’une opération puisse commencer. Plus le nombre et la taille du journal des transactions sont importants, plus longtemps l’opération sera bloquée en attente de la restauration du système à un état stable.
 
 ## <a name="user-support"></a>Service client
 
@@ -113,7 +118,7 @@ Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez n
 [Limites de capacité]: ./sql-data-warehouse-service-capacity-limits.md
 [Types de données]: ./sql-data-warehouse-tables-data-types.md
 [Fonctionnalités de table non prises en charge]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Demande de fonctionnalités pour les projets de base de données]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx

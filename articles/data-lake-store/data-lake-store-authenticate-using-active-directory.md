@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 03/30/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ae2280f7bd7945f723d88dc6ce3f9a117074e93f
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 7c1532db4d58673add9b8076154c471554810614
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,22 @@ Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre a
     Pour plus d’informations sur les autorisations dans Data Lake Store et sur les ACL par défaut ou d’accès, consultez [Contrôle d’accès dans Azure Data Lake Store](data-lake-store-access-control.md).
 7. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, sera désormais répertorié dans le panneau **Accès** .
    
-    ![Affecter des autorisations à un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Affecter des autorisations à un groupe")    
+    ![Affecter des autorisations à un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Affecter des autorisations à un groupe")
+
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Étape 4 : Obtenir le point de terminaison de jeton OAuth 2.0 (uniquement pour les applications Java)
+
+1. Connectez-vous au nouveau [portail Azure](https://portal.azure.com) et cliquez sur Active Directory dans le volet gauche.
+
+2. Dans le volet gauche, cliquez sur **Inscriptions d’applications**.
+
+3. En haut du panneau Inscriptions des applications, cliquez sur **Points de terminaison**.
+
+    ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Point de terminaison de jeton OAuth")
+
+4. Dans la liste des points de terminaison, copiez le point de terminaison de jeton OAuth 2.0.
+
+
+     ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison de jeton OAuth")   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article vous a créé une application web Azure AD et regroupé les informations nécessaires dans les applications clientes que vous créez à l’aide du Kit de développement logiciel (SDK) .NET, du Kit de développement Logiciel Java, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.

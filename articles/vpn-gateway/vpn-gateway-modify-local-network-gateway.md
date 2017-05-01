@@ -1,10 +1,10 @@
 ---
-title: "Modifier des préfixes d’adresses IP de passerelle de réseau local et des adresses IP de passerelle | Microsoft Docs"
+title: "Modifier les préfixes des adresses IP de la passerelle IP locale et l’adresse IP de la passerelle VPN | Azure | PowerShell | Microsoft Docs"
 description: "Cet article vous guide dans la modification des préfixes d’adresses IP de la passerelle de réseau local"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2016
+ms.date: 04/05/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 2459f106e90616b05062224be82a06ef20fbc7b4
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a26cbe2172dc27c152246d70b7f6b504ec4a08a5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -35,10 +36,5 @@ Vous aurez besoin d’installer la dernière version des applets de commande Pow
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez vérifier votre connexion à la passerelle. Consultez [Vérifier la connexion à une passerelle](vpn-gateway-verify-connection-resource-manager.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

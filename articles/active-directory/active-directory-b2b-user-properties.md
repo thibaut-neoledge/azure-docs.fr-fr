@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
-ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 
 - État 1 : hébergé dans une instance externe d’Azure AD et représenté sous la forme d’un utilisateur invité de l’organisation hôte. Dans ce cas, l’utilisateur B2B se connecte avec un compte Azure AD qui appartient à sa location d’origine. Si l’organisation externe de l’utilisateur n’utilise pas Azure AD au moment de l’invitation, l’utilisateur invité d’Azure AD est créé lorsque l’utilisateur utilise son invitation et qu’Azure AD a vérifié son adresse e-mail. Dans ce cas, on parle également de location juste-à-temps (JIT) ou de location virale.
 
-- État 2 : hébergé dans un compte Microsoft et représenté en tant qu’utilisateur invité dans l’organisation hôte. Dans ce cas, l’utilisateur invité se connecte avec un compte Microsoft. Dans l’actualisation de la préversion publique d’Azure AD, l’identité sociale de l’utilisateur invité (google.com ou similaire), qui n’est pas un compte Microsoft, est créée en tant que compte Microsoft au cours de l’utilisation de l’offre.
+- État 2 : hébergé dans un compte Microsoft et représenté en tant qu’utilisateur invité dans l’organisation hôte. Dans ce cas, l’utilisateur invité se connecte avec un compte Microsoft. L’identité sociale de l’utilisateur invité (google.com ou similaire), qui n’est pas un compte Microsoft, est créée en tant que compte Microsoft au cours de l’échange d’offre.
 
 - État 3 : hébergé dans l’instance Active Directory locale de l’organisation hôte et synchronisé avec l’instance Azure AD de l’organisation hôte. Dans cette version, vous devez utiliser PowerShell pour modifier manuellement la valeur UserType de ces utilisateurs dans le cloud.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
+ms.date: 3/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,7 +33,7 @@ Les accès affectés avec le RBAC sont précis car il existe deux façons de res
 * **Étendue :** les affectations de rôles RBAC sont limitées à un abonnement, à un groupe de ressources ou à une ressource donnés. Un utilisateur ayant accès à une ressource en particulier ne peut pas accéder aux autres ressources du même abonnement.
 * **Rôle :** au sein de l’affectation d’étendue, l’accès est encore restreint par l’affectation d’un rôle. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
 
-Les rôles peuvent être affectés au sein de l’abonnement, du groupe de ressources ou de la ressource qui constitue l’étendue de l’affectation. Mais vous pouvez afficher toutes les affectations d’accès d’un groupe ou d’un utilisateur donné en un seul et même endroit.
+Les rôles peuvent être affectés au sein de l’abonnement, du groupe de ressources ou de la ressource qui constitue l’étendue de l’affectation. Mais vous pouvez afficher toutes les affectations d’accès d’un groupe ou d’un utilisateur donné en un seul et même endroit. Vous pouvez avoir jusqu’à 2000 attributions de rôles dans chaque abonnement. 
 
 Pour en savoir plus, consultez [Utiliser les affectations de rôle pour gérer l’accès à vos ressources d’abonnement Azure](role-based-access-control-configure.md).
 

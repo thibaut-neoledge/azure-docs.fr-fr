@@ -15,9 +15,9 @@ ms.date: 02/27/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d6330397b6e74b62836a2e864b1c37ab172d0028
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c5a0f3f958d42d514a95477c1e39f02c78307d4d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -60,7 +60,7 @@ Après l’authentification, les utilisateurs peuvent interagir avec les applica
 ## <a name="web-browser-requirements"></a>Configuration requise du navigateur web
 Au minimum, le volet d’accès nécessite un navigateur prenant en charge JavaScript et dans lequel CSS est activée. Pour que l’utilisateur soit connecté aux applications via l’authentification unique (SSO) avec mot de passe, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
-L’extension du volet d’accès est actuellement disponible pour les navigateurs Internet Explorer 8 et versions ultérieures, Chrome et Firefox.
+L’extension du volet d’accès est actuellement disponible pour les navigateurs Internet Explorer 8 et ultérieur, Edge, Chrome et Firefox.
 
 ## <a name="mobile-app-support"></a>Prise en charge des applications mobiles
 L’équipe Azure Active Directory publie l’application mobile My Apps. Lorsque les utilisateurs installent cette application, ils peuvent se connecter aux applications SSO avec mot de passe sur des appareils iOS et Android.

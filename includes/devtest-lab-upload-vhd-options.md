@@ -4,8 +4,3 @@ Pour suivre ce didacticiel, vous devez avoir chargé un fichier de disque dur vi
 - [Upload using the AzCopy command-line utility (Chargement à l’aide de l’utilitaire en ligne de commande AzCopy)](../articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md)
 - [Upload using the Microsoft Azure Storage Explorer (Chargement à l’aide de l’Explorateur Stockage Microsoft Azure)](../articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md)
 - [Upload using the PowerShell console (Chargement à l’aide de la console PowerShell)](../articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,6 +29,11 @@ ms.lasthandoff: 03/21/2017
 >
 
 L'interface de ligne de commande Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme. Cet article montre comment créer et gérer vos instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure.
+
+> [!NOTE]
+> Cet article s’applique à une version précédente d’Azure CLI. Pour les exemples de scripts Azure CLI 2.0 les plus récents, consultez [Exemples de cache Redis Azure CLI](cli-samples.md).
+> 
+> 
 
 ## <a name="prerequisites"></a>Composants requis
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.

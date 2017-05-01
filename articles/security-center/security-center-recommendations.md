@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 04/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 51a882d82793e5e284cfaeec9271ff3719385fcc
-ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b16d8607ca0dbb08421b332df11e462267eb80f5
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -84,8 +85,8 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Recommande la résolution des défaillances de protection de point de terminaison. |
 | [Activer des groupes de sécurité réseau sur les sous-réseaux et ou les machines virtuelles](security-center-enable-network-security-groups.md) |Recommande l’activation des groupes de sécurité réseau sur les sous-réseaux ou les machines virtuelles. |
 | [Restreindre l’accès via un point de terminaison accessible sur Internet](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau. |
-| [Activer l’audit des serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Vous recommande d’activer l’audit pour les serveurs SQL Azure. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
-| [Activer l’audit des bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Vous recommande d’activer l’audit pour les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
+| [Activer l’audit et la détection des menaces dans les serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Recommande l’activation de l’audit et de la détection des menaces pour les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
+| [Activer l’audit et la détection des menaces dans les bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Recommande l’activation de l’audit et de la détection des menaces pour les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
 | [Activer le chiffrement transparent des données des bases de données SQL](security-center-enable-transparent-data-encryption.md) |Recommande l’activation du chiffrement pour les bases de données SQL. (Service Azure SQL uniquement.) |
 | [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
 | [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
@@ -123,9 +124,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 03/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure
 Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés sur un locataire Azure AD et peuvent être partagés entre tous les abonnements qui utilisent ce locataire comme répertoire Azure AD pour l’abonnement.
+
+Chaque locataire peut créer jusqu’à 2 000 rôles personnalisés. 
 
 Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machines virtuelles :
 

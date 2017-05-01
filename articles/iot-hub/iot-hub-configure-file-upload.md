@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 04/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b1e32eef393aa213cac6af68821ad0572e4a3c92
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,13 +26,14 @@ ms.lasthandoff: 12/06/2016
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>Chargement de fichiers
+
 Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-upload], vous devez d’abord associer un compte de stockage Azure à votre concentrateur. Sélectionnez les paramètres de **chargement de fichiers** pour afficher une liste de propriétés de fichier pour l’IoT Hub en cours de modification.
 
-![][13]
+![Afficher les paramètres de chargement de fichier IoT Hub dans le portail][13]
 
 **Conteneur de stockage**: utilisez le portail Azure pour sélectionner un conteneur d’objets blob dans un compte Azure Storage de votre abonnement Azure actuel à associer à votre IoT Hub. Si nécessaire, vous pouvez créer un compte Azure Storage dans le panneau **Comptes de stockage** et un conteneur d’objets blob dans le panneau **Conteneurs**. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers.
 
-![][14]
+![Afficher les conteneurs de stockage pour le chargement de fichiers dans le portail][14]
 
 **Recevoir des notifications pour les fichiers chargés**: activez ou désactivez les notifications de chargement de fichiers.
 
@@ -42,9 +43,10 @@ Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-up
 
 **Nombre maximal de remises de notifications de fichier**: le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Il est défini par défaut sur 10, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
 
-![][15]
+![Configurer le chargement de fichier IoT Hub dans le portail][15]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les fonctionnalités de téléchargement de fichiers d’IoT Hub, consultez [Télécharger des fichiers à partir d’un appareil][lnk-upload] dans le guide du développeur IoT Hub.
 
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :

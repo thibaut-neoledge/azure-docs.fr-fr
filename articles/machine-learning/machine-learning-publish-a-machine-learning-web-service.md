@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,7 +51,7 @@ Pour convertir votre expérience de formation en expérience prédictive, clique
 
 ![Convertir une expérience de notation](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Pour plus d’informations sur la façon d’effectuer cette conversion, voir [Conversion d’une expérience de formation Machine Learning en expérience prédictive](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+Pour plus d’informations sur la façon d’effectuer cette conversion, consultez [Guide pratique pour préparer votre modèle pour le déploiement dans Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Les étapes suivantes décrivent le déploiement d’une expérience prédictive comme nouveau service web. Vous pouvez également déployer l’expérience comme service web classique.
 

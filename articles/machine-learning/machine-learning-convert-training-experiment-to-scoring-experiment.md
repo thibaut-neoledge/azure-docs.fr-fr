@@ -1,6 +1,6 @@
 ---
-title: "Convertir une expérience en expérience de prédiction dans Azure Machine Learning | Microsoft Docs"
-description: "Découvrez comment convertir une expérience d’apprentissage Machine Learning, utilisée pour l’apprentissage du modèle d’analyse prédictive, en expérience de notation pouvant être publiée en tant que service web."
+title: "Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio | Microsoft Docs"
+description: "Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio en une expérience prédictive."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,36 +12,46 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/28/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: db91a464843a7c2dc5460f12f7f306972d3a7da8
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 716a9a9b723df7ff6eb111fa40f2b5941d57d67a
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="convert-a-machine-learning-training-experiment-to-a-predictive-experiment"></a>Conversion d’une expérience d’apprentissage Machine Learning en expérience prédictive
-Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
+# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio
 
-Une fois que vous avez créé une *expérience de formation* , effectué l’itération sur celle-ci pour former le modèle d’analyse prédictive et que vous êtes prêt à l’utiliser pour noter les nouvelles données, vous devez préparer et rationaliser votre expérience à des fins de notation. Vous pouvez ensuite faire fonctionner cette *expérience prédictive* en tant que service web Microsoft Azure afin que les utilisateurs puissent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
+Azure Machine Learning Studio vous donne les outils nécessaires pour développer un modèle d’analyse prédictive, puis le faire fonctionner en le déployant sous forme de service web Azure.
 
-En la convertissant en expérience prédictive, vous préparez votre modèle formé à être déployé en tant que service web. Les utilisateurs du service web envoient des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Par conséquent, lorsque vous convertissez l’expérience en expérience prédictive, vous devez tenir compte du mode d’utilisation de votre modèle par les autres utilisateurs.
+Pour cela, vous utiliserez Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
+
+Vous trouverez un exemple de ce processus à la page [Procédure pas à pas : développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+
+Cet article étudie en détail la façon dont une expérience de formation est convertie en une expérience prédictive et dont cette expérimentation prédictive est déployée. Ces informations vous permettront d’apprendre à configurer votre modèle déployé de façon à le rendre plus efficace.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## <a name="overview"></a>Vue d'ensemble 
+
 Le processus de conversion d’une expérience d’apprentissage en expérience prédictive comprend trois étapes :
 
-1. Enregistrez le modèle d’apprentissage automatique que vous avez formé, puis remplacez l’algorithme d’apprentissage automatique et les modules [Train Model][train-model] par le modèle formé enregistré.
-2. Découpez l’expérience pour ne garder que les modules nécessaires au calcul des notations. Une expérience d’apprentissage inclut un certain nombre de modules nécessaires pour l’apprentissage, mais qui ne sont plus requis une fois le modèle formé et prêt à servir lors du calcul des notations.
-3. Définissez à quel niveau de votre expérience vous voulez accepter les données de l’utilisateur du service web et choisissez le type des données qui seront renvoyées.
+1. Remplacez les modules d’algorithmes de Machine Learning par votre modèle entraîné.
+2. Découpez l’expérience pour ne garder que les modules nécessaires au calcul des notations. Une expérience de formation inclut un certain nombre de modules nécessaires pour la formation, mais qui ne sont plus requis une fois le modèle entraîné.
+3. Définissez dans quelle mesure votre modèle acceptera les données de l’utilisateur du service web et choisissez le type des données qui seront renvoyées.
+
+> [!TIP]
+> Dans votre expérience de formation, vous vous êtes concentré sur la formation et la notation de votre modèle avec vos propres données. Mais, une fois qu’il sera déployé, les utilisateurs enverront de nouvelles données à votre modèle, et il renverra des résultats de prédiction. Par conséquent, lorsque vous convertirez l’expérience de formation en une expérience prédictive pour la préparer au déploiement, n’oubliez pas la façon dont le modèle sera utilisé par d’autres personnes.
+> 
+> 
 
 ## <a name="set-up-web-service-button"></a>Définir le bouton de service web
-Après avoir mené votre expérience (bouton **EXÉCUTER** au bas de la zone de dessin d’expérimentation), le bouton **Configurer le Service web** (sélectionnez l’option **Service web prédictif**) effectue pour vous les trois étapes de conversion de votre expérience de formation en prévision d’une expérience pour vous :
+Après avoir exécuté votre expérience (cliquez sur **EXÉCUTER** en bas du canevas de l’expérience), cliquez sur **Configurer le service web** (sélectionnez l’option **Service web prédictif**). **Configurer le service web** effectue les trois étapes de conversion de votre expérience de formation en une expérience prédictive :
 
-1. Il enregistre votre modèle en tant que module dans la section **Modèles formés** de la palette du module (située à gauche de la zone de dessin de l’expérimentation), puis remplace l’algorithme d’apprentissage automatique et les modules [Train Model][train-model] par le module formé enregistré.
-2. Il supprime les modules qui ne sont pas nécessaires. Dans notre exemple, cela inclut le module [Split Data][split], le <sup></sup>deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model].
-3. Il crée les modèles d’entrée et de sortie du service web et les ajoute aux emplacements par défaut prévus dans votre expérience.
+1. Il enregistre votre modèle entraîné dans la section **Modèles entraînés** de la palette du module (à gauche du canevas de l’expérience). Il remplace ensuite l’algorithme de Machine Learning et les modules [Train Model][train-model] par le modèle entraîné enregistré.
+2. Il analyse votre expérience et supprime les modules qui ont clairement été utilisés exclusivement pour la formation et ne sont plus nécessaires.
+3. Il insère les modules _Web service input_ et de _Web service output_ aux emplacements par défaut de votre expérience (ces modules acceptent et renvoient des données utilisateur).
 
 Par exemple, l’expérience suivante effectue l’apprentissage d’un modèle d’arborescence de décision augmenté incluant deux classes, au moyen des données de recensement :
 
@@ -51,33 +61,37 @@ Les modules de cette expérience effectuent quatre fonctions de base :
 
 ![Fonctions du module][figure2]
 
-Lorsque vous convertissez cette expérience d’apprentissage en expérience prédictive, certains de ces modules ne sont plus nécessaires ou présentent un objectif différent :
+Lorsque vous convertissez cette expérience de formation en une expérience prédictive, certains de ces modules ne sont plus nécessaires ou sont à présent utilisés à une autre fin :
 
 * **Data** : les données de cet exemple de jeu de données ne sont pas utilisées pour le calcul de la notation ; l’utilisateur du service web fournit les données à noter. Toutefois, les métadonnées de ce jeu de données, comme les types de données, sont utilisées par le modèle formé. Vous devez donc conserver le jeu de données dans l’expérience prédictive, afin qu’il puisse fournir ces métadonnées.
-* **Prep** : selon les données qui seront soumises pour le calcul de la notation, il se peut que ces modules soient requis ou non pour le traitement des données entrantes.
+
+* **Prep** : selon les données utilisateur qui seront soumises pour la notation, ces modules ne seront pas forcément nécessaires pour le traitement des données entrantes. Le bouton **Configurer le service web** ne les affecte pas : il vous faut décider comment vous souhaitez les gérer.
   
-    Par exemple, l’exemple de jeu de données indiqué ici peut présenter des valeurs manquantes ; il inclut des colonnes qui ne sont pas nécessaires pour former le modèle. Par conséquent, un module [Clean Missing Data][clean-missing-data] a été inclus pour gérer les valeurs manquantes et un module [Select Columns in Dataset][select-columns] a été ajouté pour exclure ces colonnes supplémentaires du flux de données. Si vous savez qu’aucune donnée ne manque parmi les données qui seront soumises à des fins de calcul de la notation via le service web, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu’il permet de définir l’ensemble de fonctionnalités qui sont notées, le module [Select Columns in Dataset][select-columns] doit être conservé.
-* **Train** : ces modules sont utilisés pour former le modèle. Lorsque vous cliquez sur **Configurer le service web**, ces modules sont remplacés par un module de modèle formé unique. Ce nouveau module est enregistré dans la section **Modèles formés** de la palette des modules.
-* **Score** : dans cet exemple, le module [Split Data][split] est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience prédictive, ce module n’est pas nécessaire et peut être supprimé. De même, le <sup></sup>deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
+    Notamment, cet exemple de jeu de données peut avoir des valeurs manquantes : un module [Clean Missing Data][clean-missing-data] a donc été inclus pour les gérer. En outre, l’exemple de jeu de données comprend des colonnes qui ne sont pas nécessaires pour effectuer l’apprentissage du modèle. Par conséquent, un module [Select Columns in Dataset][select-columns] a été inclus afin d’exclure ces colonnes supplémentaires du flux de données. Si vous savez qu’aucune donnée ne manque parmi les données qui seront soumises à des fins de calcul de la notation via le service web, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu’il permet de définir les colonnes de données attendues par le modèle entraîné, le module [Select Columns in Dataset][select-columns] doit être conservé.
+
+* **Train** : ces modules sont utilisés pour former le modèle. Lorsque vous cliquez sur **Configurer le service web**, ces modules sont remplacés par un module unique qui contient le modèle entraîné. Ce nouveau module est enregistré dans la section **Modèles formés** de la palette des modules.
+
+* **Score** : dans cet exemple, le module [Split Data][split] est utilisé pour diviser le flux de données en données de test, d’une part, et données d’apprentissage, d’autre part. Dans l’expérience prédictive, nous n’effectuons plus l’apprentissage ; nous pouvons donc supprimer [Split Data][split]. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
 
 Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web**:
 
 ![Expérience prédictive convertie][figure3]
 
-Cela peut être suffisant pour préparer votre expérience à être déployée en tant que service web. Toutefois, certaines tâches supplémentaires, spécifiques à votre expérience, seront peut-être à prévoir.
+Le travail effectué par **Configurer le service web** peut être suffisant pour préparer votre expérience à être déployée en tant que service web. Toutefois, certaines tâches supplémentaires, spécifiques à votre expérience, seront peut-être à prévoir.
 
 ### <a name="adjust-input-and-output-modules"></a>Ajuster des modules d’entrée et de sortie
-Dans votre expérience d’apprentissage, vous avez utilisé un ensemble de données d’apprentissage, puis effectué un certain traitement pour obtenir les données au format requis par l’algorithme ML. Si les données que vous vous attendez à recevoir via le service web n’ont pas besoin d’être soumises à ce traitement, vous pouvez déplacer le module **Web service input** vers un autre nœud dans votre expérience (cliquez sur la sortie du module **Web service input** et faites-le glisser vers le port d'entrée du module correspondant).
+Dans votre expérience d’apprentissage, vous avez utilisé un ensemble de données d’apprentissage, puis effectué un certain traitement pour obtenir les données au format requis par l’algorithme ML. S’il n’est pas nécessaire de soumettre à ce traitement les données que vous vous attendez à recevoir via le service web, vous pouvez le contourner : connectez la sortie du **module Web service input** à un autre module de votre expérience. Les données de l’utilisateur arrivent à présent à cet emplacement du modèle.
 
-Par exemple, le bouton **Définir un service Web** place par défaut le module **Web service input** en haut de votre flux de données, comme indiqué dans la figure ci-dessus. Toutefois, si les données d’entrée n’ont pas besoin d’être soumises à ce traitement, vous pouvez placer manuellement le module **Web service input** après les modules de traitement des données :
+Par exemple, le bouton **Définir un service web** place par défaut le module **Web service input** en haut de votre flux de données, comme l’indique la figure ci-dessus. Mais nous pouvons positionner manuellement le module **Web service input** au-delà des modules de traitement des données :
 
 ![Déplacement de l’entrée du service web][figure4]
 
 Les données d’entrée fournies via le service web accéderont directement au module Score Model, sans être soumises à un traitement préalable.
 
-De même, par défaut, **Définir un service Web** place le module Web service output en bas de votre flux de données. Dans cet exemple, le service web renvoie à l’utilisateur la sortie du module [Score Model][score-model], qui inclut le vecteur de données d’entrée complet, ainsi que les résultats de la notation.
+De même, par défaut, **Définir un service Web** place le module Web service output en bas de votre flux de données. Dans cet exemple, le service web renvoie à l’utilisateur la sortie du module [Score Model][score-model], qui inclut la totalité du vecteur de données d’entrée, ainsi que les résultats de la notation.
+Toutefois, si vous préférez renvoyer quelque chose de différent, vous pouvez ajouter des modules supplémentaires avant le modules **Web service output**. 
 
-Toutefois, si vous préférez renvoyer quelque chose de différent, vous pouvez ajouter des modules supplémentaires avant le modules **Web service output**. Par exemple, si vous souhaitez renvoyer uniquement les résultats de la notation sans le vecteur de données d’entrée complet), vous pouvez ajouter un module [Select Columns in Dataset][select-columns] pour exclure toutes les colonnes, sauf celle des résultats de la notation. Ensuite, déplacez le module **Web service output** vers la sortie du module [Select Columns in Dataset][select-columns]. L’expérience ressemblerait à ceci :
+Par exemple, pour renvoyer uniquement les résultats de la notation et non la totalité du vecteur de données d’entrée, ajoutez un module [Select Columns in Dataset][select-columns] pour exclure toutes les colonnes, sauf les résultats de la notation. Ensuite, déplacez le module **Web service output** vers la sortie du module [Select Columns in Dataset][select-columns]. L’expérience se présente ainsi :
 
 ![Déplacement de la sortie du service web][figure5]
 
@@ -88,17 +102,15 @@ Notre expérience de notation ressemble à présent à ce qui suit :
 
 ![Suppression du module supplémentaire][figure6]
 
-> [!TIP]
-> Notez que nous n’avez pas supprimé le jeu de données ni le module [Select Columns in Dataset][select-columns]. Le modèle dans le service web n'utilisera pas les données du jeu de données d’origine, mais les métadonnées définies dans le jeu de données, notamment le type de données de chaque colonne. De même, le module [Select Columns in Dataset][select-columns] identifie les colonnes de données qui seront utilisées par le modèle. Par conséquent, ces deux modules doivent rester dans l’expérimentation prédictive.
 
 ### <a name="add-optional-web-service-parameters"></a>Ajouter des paramètres de service web facultatifs
 Dans certains cas, vous voudrez permettre à l’utilisateur de votre service web de modifier le comportement des modules en cas d’accès au service. *paramètres de service Web* .
 
 Un exemple courant consiste à configurer un module [Import Data][import-data], afin que l’utilisateur du service web publié puisse spécifier une autre source de données lors de l’accès au service web. Il est également possible de configurer un module [Exporter les données][export-data] de façon à spécifier une destination différente.
 
-Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres lors de l’accès au service ; les actions de module seront modifiées en conséquence.
+Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web fournit ensuite des valeurs pour ces paramètres lors de l’accès au service ; les actions de module sont modifiées en conséquence.
 
-Pour en savoir plus sur les paramètres de service web, consultez la page [Utilisation des paramètres de service web de Microsoft Azure Machine Learning][webserviceparameters].
+Pour en savoir plus sur les paramètres de service web et leur utilisation, consultez la page [Utilisation des paramètres de service web Azure Machine Learning][webserviceparameters].
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 

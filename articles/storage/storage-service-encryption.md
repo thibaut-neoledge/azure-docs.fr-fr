@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: aaada39283b19015e460768b072d0164b0d22bae
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Pour participer à Files Preview SSE, contactez ssediscussions@microsoft.com.
 Pour plus d’informations, consultez la FAQ.
 
 ### <a name="availability-for-file-storage"></a>Disponibilité pour Stockage Fichier
-Le chiffrement du service de stockage pour le stockage de fichiers est actuellement disponible dans les régions États-Unis de l’Est, États-Unis de l’Est2, États-Unis du Centre, Nord du centre des États-Unis, Sud du centre des États-Unis, États-Unis de l’Ouest et du Centre, États-Unis de l’Ouest, États-Unis de l’Ouest2, Asie de l’Est, Europe du Nord, Europe de l’Ouest, Est de l’Australie et Sud-Est de l’Australie.
+Le chiffrement du service de stockage pour Stockage Fichier est actuellement disponible dans toutes les régions Azure.
 
 
 Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://azure.portal.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.
@@ -143,7 +143,7 @@ R : Oui, mais seuls les objets blob nouvellement écrits seront chiffrés. Il ne
 
 R : Vous pouvez activer SSE à tout moment dans un compte de stockage Resource Manager. Toutefois, les objets blob qui étaient déjà présents ne seront pas chiffrés. Pour chiffrer ces objets blob, vous pouvez les copier sur un autre nom ou un autre conteneur, puis supprimer les versions non chiffrées. Cela n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
 
-**Q : J’utilise Premium Storage. Puis-je utiliser SSE ?**
+**Q : J’utilise Stockage Premium. Puis-je utiliser SSE ?**
 
 R : Oui. SSE est pris en charge par le Stockage Standard et Premium. Il n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
 
@@ -187,7 +187,7 @@ R: Cela fonctionne de façon transparente. Vos données sont chiffrées par les 
 
 R : Oui. Toutes les copies du compte de stockage sont chiffrées et l’ensemble des options de redondance sont prises en charge : stockage localement redondant (LRS), stockage redondant dans une zone (ZRS), stockage géo-redondant (GRS) et stockage géo-redondant avec accès en lecture (RA-GRS).
 
-**Q : Je ne parviens pas à activer le chiffrement sur mon compte de stockage.**
+**Q : Je ne peux pas activer le chiffrement sur mon compte de stockage.**
 
 R : S’agit-il d’un compte de stockage Resource Manager ? Les comptes de stockage classiques ne sont pas pris en charge. 
 

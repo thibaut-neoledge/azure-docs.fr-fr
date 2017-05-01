@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 07b9df5ab5c7df0089f001a26200bb9c3fb1c508
-ms.openlocfilehash: 7f4f1c22e0b3382a9de770800ccb733c61d4f5b0
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e7b71bec34aa9507d312eead52060d2c4b774432
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -39,7 +39,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 ![Scénario](./media/active-directory-saas-lynda-tutorial/IC781046.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-lyndacom"></a>Activation de l’intégration d’applications pour Lynda.com
+## <a name="enable-the-application-integration-for-lyndacom"></a>Activer l’intégration d’applications pour Lynda.com
 Cette section décrit l'activation de l'intégration de l'application pour Lynda.com.
 
 **Pour activer l'intégration d’applications pour Lynda.com, procédez comme suit :**
@@ -64,7 +64,7 @@ Cette section décrit l'activation de l'intégration de l'application pour Lynda
    
    ![Lynda.com](./media/active-directory-saas-lynda-tutorial/IC777525.png "Lynda.com")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s'authentifier sur Lynda.com avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
@@ -91,7 +91,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
    
    ![Configurer l’authentification unique](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Aucun élément d'action ne vous permet de configurer l’approvisionnement des utilisateurs dans Lynda.com.  
 Lorsqu'un utilisateur tente de se connecter à Lynda.com à l'aide du panneau d'accès, Lynda.com vérifie si cet utilisateur existe.  
@@ -102,7 +102,7 @@ Si aucun compte d'utilisateur n’est disponible, Lynda.com le crée automatique
 >Vous pouvez utiliser n'importe quel outil ou API de création de compte utilisateur, fourni par Lynda.com, pour approvisionner des comptes utilisateur AAD. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à Lynda.com, procédez comme suit :**

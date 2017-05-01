@@ -35,7 +35,7 @@ Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. 
 3. Dans le volet de la console, cliquez sur **Protocoles pour MSSQLSERVER** (le nom d’instance par défaut). Dans le volet Détails, faites un clic droit sur **TCP** et cliquez sur **Activer** s’il n’est pas déjà activé.
    
     ![Activer TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d’informations, cliquez avec le bouton droit sur **SQL Server (*nom de l’instance*)** (l’instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
+4. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d’informations, cliquez avec le bouton droit sur **SQL Server (*nom de l’instance*) **(l’instance par défaut est** SQL Server (MSSQLSERVER)**), puis cliquez sur** Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
    
     ![Redémarrer le moteur de base de données](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Fermez le Gestionnaire de configuration de SQL Server.
@@ -93,9 +93,4 @@ Pour vous connecter au moteur de base de données à partir d'un autre ordinateu
 9. Cliquez sur OK.
 
 Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

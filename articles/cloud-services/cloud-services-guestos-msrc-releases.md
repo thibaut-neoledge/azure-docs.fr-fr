@@ -1,6 +1,6 @@
 ---
-title: "Liste des mises à jour appliquées au SE invité d’Azure | Microsoft Docs"
-description: "Publications de la liste des mises à jour appliquées au SE invité"
+title: "Liste des mises à jour appliquées au système d’exploitation invité d’Azure | Microsoft Docs"
+description: "Publications de la liste des mises à jour appliquées au système d’exploitation invité"
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,16 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/10/2017
+ms.date: 4/11/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
-ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="azure-guest-os"></a>SE invité d'Azure
-Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+# <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
+Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="march-guest-os"></a>Système d’exploitation invité de mars
+| ID de bulletin | Article de la Base de connaissances parent | Description de la vulnérabilité | Système d’exploitation invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Éd. 17/03 |  [4013429] |Améliorations et correctifs | 5.5 | 14 mars 2017 |
+| Éd. 17/03 |  [4012212] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
+| Éd. 17/03 |  [4012213] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
+| Éd. 17/03 |  [4012214] |Mise à jour qualité de la sécurité seule de mars 2017 Windows Server 2012|3.47 |14 mars 2017 |
+| Éd. 17/03 |  [4012204] |Mise à jour de sécurité pour Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 mars 2017 |
+| N/A |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre du Nord, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
+| N/A |  [3212646] |Correctif cumulatif qualitatif mensuel de sécurité de janvier 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
+| N/A |  [3205409] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows Server 2012 |3.47 |14 mars 2017 |
+| N/A |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
+| N/A |  [3211320] |Mise à jour de la pile de maintenance pour Windows 10 version 1607 et Windows Server 2016 : 24 janvier 2017 |5.5 |14 mars 2017 |
+
+
 
 ## <a name="january-guest-os"></a>SE invité janvier
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -29,18 +46,18 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS17-004 | [3216771] |Mise à jour de sécurité pour le service de sous-système d’autorité de sécurité locale |2.59 |10 janvier 2017 |
 
 ## <a name="december-guest-os"></a>SE invité décembre
-| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ID de bulletin | Article de la Base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Mise à jour de sécurité cumulative pour Internet Explorer |2.58, 3.46, 4.39 |13 décembre 2016 |
 | MS16-145 |[3204062] |Mise à jour de sécurité cumulative pour Microsoft Edge |5.4 |13 décembre 2016 |
-| MS16-146 |[3204066]   |Mise à jour de sécurité pour le composant graphique Microsoft|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
-| MS16-147 |[3204063]   |Mise à jour de sécurité pour Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
-| MS16-149 |[3205655]   |Mise à jour de sécurité pour Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
-| MS16-150 |[3205642]   |Mise à jour de sécurité pour le mode noyau sécurisé |5.4 |13 décembre 2016 |
-| MS16-151 |[3205651]   |Mise à jour de sécurité pour les pilotes en mode noyau|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
-| MS16-152 |[3199709]   |Mise à jour de sécurité pour le noyau Windows |5.4 |13 décembre 2016 |
+| MS16-146 |[3204066]    |Mise à jour de sécurité pour le composant graphique Microsoft|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-147 |[3204063]    |Mise à jour de sécurité pour Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-149 |[3205655]    |Mise à jour de sécurité pour Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-150 |[3205642]    |Mise à jour de sécurité pour le mode noyau sécurisé |5.4 |13 décembre 2016 |
+| MS16-151 |[3205651]    |Mise à jour de sécurité pour les pilotes en mode noyau|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-152 |[3199709]    |Mise à jour de sécurité pour le noyau Windows |5.4 |13 décembre 2016 |
 | MS16-153 |[3207328] |Mise à jour de sécurité pour le pilote de système de fichiers journaux commun|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
-| MS16-155 |[3205640]   |Mise à jour de sécurité pour .NET Framework |5.4 |13 décembre 2016 |
+| MS16-155 |[3205640]    |Mise à jour de sécurité pour .NET Framework |5.4 |13 décembre 2016 |
 | N/A |[3197868] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.58 |13 décembre 2016 |
 | N/A |[3197877] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows Server 2012 |3.46 |13 décembre 2016 |
 | N/A |[3197874] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.39 |13 décembre 2016 |
@@ -50,11 +67,11 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Mise à jour de sécurité cumulative pour Microsoft Edge |5.3 |8 novembre 2016 |
 | MS16-130 |[3199172] |Mise à jour de sécurité pour Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
-| MS16-131 |[3199151]   |Mise à jour de sécurité pour Microsoft Vidéo Control |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-131 |[3199151]    |Mise à jour de sécurité pour Microsoft Vidéo Control |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-132 |[3199120] |Mise à jour de sécurité pour Microsoft Component |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-134 |[3193706] |Mise à jour de sécurité pour le pilote de système de fichiers journaux commun |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-135 |[3199135] |Mise à jour de sécurité pour les pilotes en mode noyau |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
-| MS16-137 |[3199173]   |Mise à jour de sécurité pour les méthodes d’authentification Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-137 |[3199173]    |Mise à jour de sécurité pour les méthodes d’authentification Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-138 |[3199647] |Mise à jour de sécurité pour disque dur virtuel Microsoft |5.3, 4.38, 3.45 |8 novembre 2016 |
 | MS16-139 |[3199720] |Mise à jour de sécurité pour le noyau Windows |2.57 |8 novembre 2016 |
 | MS16-140 |[3193479] |Mise à jour de sécurité pour Boot Manager |5.3, 4.38, 3.45 |8 novembre 2016 |
@@ -149,7 +166,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS16-080 |[3164302] |Mise à jour de sécurité pour Microsoft Windows PDF |4.33, 3.40 |14 juin 2016 |
 | MS16-081 |[3160352] |Mise à jour de sécurité pour Active Directory |4.33, 3.40, 2.52 |14 juin 2016 |
 | N/A |[2922223] |Vous ne pouvez pas modifier le temps système si l’entrée de Registre RealTimeIsUniversal est activée dans Windows |2.52 |14 juin 2016 |
-| N/A |[3121255] |Erreur d’arrêt «&0; x&00000;024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows |2.52 |14 juin 2016 |
+| N/A |[3121255] |Erreur d’arrêt « 0 x 00000024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows |2.52 |14 juin 2016 |
 | N/A |[3125424] |Windows Server 2012 R2 ou Windows Server 2012 ne répondent pas en raison de blocages LSASS |4.33, 3.40 |14 juin 2016 |
 | N/A |[3125574] |Correctif cumulatif pratique pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.52 |14 juin 2016 |
 | N/A |[3140245] |Mise à jour pour activer TLS 1.1 et TLS 1.2 en tant que protocoles sécurisés par défaut dans WinHTTP dans Windows |3.40, 2.52 |14 juin 2016 |
@@ -403,6 +420,18 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A |[3007054] |Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
+
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
+
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 
@@ -718,9 +747,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

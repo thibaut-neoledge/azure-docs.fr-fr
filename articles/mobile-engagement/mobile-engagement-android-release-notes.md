@@ -12,16 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 03/30/2017
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Résolution du problème des couleurs du texte de notification dans l’application sur Android 7, qui deviennent identiques à celles des versions antérieures d’Android.
+
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * Plus aucun verrou Wi-Fi.
 * Résolution d'un blocage lors de l’appel de getDeviceId avant init (bogue introduit dans 4.2.0).

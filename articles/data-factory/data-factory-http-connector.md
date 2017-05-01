@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2016
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d01dd1fdeed4aa809ba5118f79968f7719b11865
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 4870d2a0bbe35f3980864d8b4f3d011a189b650e
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser l’**Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour accéder à des exemples JSON sur la copie de données d’une source HTTP vers le service Stockage Blob Azure, consultez la section [Exemples JSON](#json-examples) de cet article.
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour accéder à des exemples JSON sur la copie de données d’une source HTTP vers le service Stockage Blob Azure, consultez la section [Exemples JSON](#json-examples) de cet article.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit une description des éléments JSON spécifiques du service lié HTTP.
@@ -145,13 +145,12 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | Spécifie le type du jeu de données. Cette propriété doit être définie sur `Http`. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. | Non |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser [les variables système et les fonctions de Data Factory](data-factory-functions-variables.md), par exemple "relativeUrl": "$$Text.Format(’/my/report?month={0:yyyy}-{0:MM}&fmt=csv’, SliceStart)". | Non |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** ou **POST**. | Non. La valeur par défaut est `GET`. |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | RequestBody | Corps de la requête HTTP. | Non |
-| partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non |
-| format | Si vous souhaitez simplement **récupérer les données du point de terminaison HTTP en l’état**, sans les analyser, ignorez ces paramètres de format. <br><br> Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat).  |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
+| format | Si vous souhaitez simplement **récupérer les données du point de terminaison HTTP en l’état**, sans les analyser, ignorez ces paramètres de format. <br><br> Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 ### <a name="example-using-the-get-default-method"></a>Exemple : utilisation de la méthode GET (par défaut)
 
@@ -196,22 +195,21 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 }
 ```
 
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Actuellement, lorsque la source de l’activité de copie est de type **Http**, les propriétés suivantes sont prises en charge.
+Actuellement, quand la source de l’activité de copie est de type **HttpSource**, les propriétés suivantes sont prises en charge.
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non. Valeur par défaut : 00:01:40 |
 
-## <a name="json-examples"></a>Exemples JSON
+## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
+Pour plus d’informations, consultez l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+
+## <a name="json-examples"></a>Exemples JSON
 Les exemples suivants offrent des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils montrent comment copier des données d’une source HTTP vers le service Stockage Blob Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
 
 ### <a name="example-copy-data-from-http-source-to-azure-blob-storage"></a>Exemple : copier des données d’une source SFTP vers le service Stockage Blob Azure
@@ -267,7 +265,7 @@ La définition de **external** sur **true** informe le service Data Factory qu�
         "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
+            "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
             "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
         },
         "external": true,

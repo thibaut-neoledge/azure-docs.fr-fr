@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,25 +238,15 @@ Imaginez un scénario où vous souhaitez simplement qu’un script active une ad
 Vous pouvez utiliser le même script avec des plans de récupération différents et fournir des paramètres différents en stockant la valeur correspondant aux différents plans de récupération dans une variable distincte.
 
 ## <a name="sample-scripts"></a>Exemples de scripts
-Pour accéder à un référentiel de scripts que vous pouvez importer directement dans votre compte Automation, consultez le [référentiel OMS de scripts de Kristian Nese](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation).
+Déployez les exemples de scripts dans votre compte Automation à l’aide du bouton Déployer sur Azure ci-dessous.
 
-Le script présenté ici est un modèle Azure Resource Manager qui déploie tous les scripts suivants :
+[![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* Groupe de sécurité réseau
+Regardez aussi une courte vidéo sur la récupération d’une application WordPress à deux niveaux sur Azure.
 
-Le runbook du groupe de sécurité réseau attribue des adresses IP publiques à chaque machine virtuelle au sein du plan de récupération et joint les cartes réseau virtuelles associées à un groupe de sécurité réseau, ce qui autorise la communication par défaut.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-Le runbook PublicIP attribue des adresses IP publiques à chaque machine virtuelle au sein du plan de récupération. L’accès aux machines et applications varie selon les paramètres de pare-feu de chaque invité.
-
-* CustomScript
-
-Le runbook CustomScript attribue des adresses IP publiques à chaque machine virtuelle au sein du plan de récupération et installe une extension de script personnalisé qui extrait le script auquel vous avez fait référence lors du déploiement du modèle de script.
-
-* NSGwithCustomScript
-
-Le runbook NSGwithCustomScript attribue des adresses IP publiques à chaque machine virtuelle au sein du plan de récupération, installe un script personnalisé à l’aide d’une extension et connecte les cartes réseau virtuelles à un groupe de sécurité réseau, ce qui autorise par défaut des communications entrantes et sortantes pour l’accès à distance.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Compte d’identification du service Azure Automation](../automation/automation-sec-configure-azure-runas-account.md)

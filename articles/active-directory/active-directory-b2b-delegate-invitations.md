@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: f06af80b14b439a223607e91c031a887c200d88d
-ms.openlocfilehash: 11da3f4ff55e8d52a1d0cecb0e275a8af80727ea
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 469bd1d023ad51fc957aecca480eb192afc544a4
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Déléguer des invitations pour Azure Active Directory B2B Collaboration
 
-Avec l’actualisation de la version préliminaire publique d’Azure Active Directory (Azure AD) B2B Collaboration, il n’est pas nécessaire d’être un administrateur général pour inviter des utilisateurs. Vous pouvez utiliser des stratégies et déléguer des invitations aux utilisateurs dont les rôles les autorisent à envoyer des invitations. Le rôle Inviteur d’invités est une nouvelle façon importante de déléguer les invitations d’utilisateurs invités.
+Avec Azure Active Directory (Azure AD) B2B Collaboration, il n’est pas nécessaire d’être un administrateur global pour envoyer des invitations. Vous pouvez utiliser des stratégies et déléguer des invitations aux utilisateurs dont les rôles les autorisent à envoyer des invitations. Le rôle Inviteur d’invités est une nouvelle façon importante de déléguer les invitations d’utilisateurs invités.
 
 ## <a name="guest-inviter-role"></a>Rôle Inviteur d’invités
 Il est possible d’affecter l’utilisateur au rôle Inviteur d’invités pour envoyer des invitations. Vous n’êtes pas tenu d’être membre du rôle Administrateur général pour envoyer des invitations. Par défaut, les utilisateurs standard peuvent également appeler l’API d’invitation, sauf si un administrateur général a désactivé les invitations à leur intention. Vous pouvez effectuer cette opération dans le portail Azure ou à l’aide de PowerShell.
@@ -53,7 +53,7 @@ Par défaut, les clients sont définis sur 4. Tous les utilisateurs, notamment l
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)

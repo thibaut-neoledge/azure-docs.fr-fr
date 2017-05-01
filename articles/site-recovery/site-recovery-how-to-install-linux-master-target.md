@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,6 +37,13 @@ Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum
 * Le serveur maître cible doit appartenir à un réseau capable de communiquer avec le serveur de processus et le serveur de configuration.
 * La version du serveur cible maître doit être inférieure ou égale à celle du serveur de processus et du serveur de configuration. Par exemple, si la version du serveur de configuration est 9.4, celle du serveur cible maître peut être 9.4 ou 9.3 mais pas 9.5.
 * Le serveur cible maître ne peut être qu’une machine virtuelle VMware, et pas un serveur physique.
+* Le serveur cible maître doit suivre les contraintes de dimensionnement suivantes :
+    * RAM - 6 Go ou plus
+    * Taille du disque de système d’exploitation - 50 Go ou plus (pour installer CentOS6.6)
+    * Taille du disque supplémentaire pour le lecteur de conservation - 1 To
+    * Cœurs d’UC - 4 cœurs ou plus
+
+
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Procédure de déploiement du serveur maître cible
@@ -401,5 +408,6 @@ Vous pouvez maintenant procéder à la [reprotection](site-recovery-how-to-repro
 
 * Veillez à ne pas activer Storage vMotion sur des composants de gestion tels qu’un serveur cible maître. Si le serveur cible maître est déplacé après une reprotection, les disques de machine virtuelle (VMDK) ne peuvent pas être détachés et la restauration échouera.
 * Le serveur cible maître ne doit pas présenter d’instantanés sur la machine virtuelle. Si des instantanés sont présents, la restauration automatique échouera.
-* En raison de configurations de carte réseau personnalisées chez certains clients, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/sysconfig/network-scripts/ifcfg-eth* de la carte Ethernet.       * BOOTPROTO=dhcp * ONBOOT=yes
+* En raison de configurations de carte réseau personnalisées chez certains clients, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/sysconfig/network-scripts/ifcfg-eth de la carte Ethernet.
+        * BOOTPROTO=dhcp * ONBOOT=yes
 

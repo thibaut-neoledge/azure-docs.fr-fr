@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -30,7 +30,7 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 * Ouvrez la console Services Windows et vérifiez que le service **Connecteur de proxy d’application Microsoft AAD** est activé et en cours d’exécution. Vous pouvez également consulter la page de propriétés du service Proxy d’application, comme le montre l’image suivante :   
   ![Capture d’écran de la fenêtre Propriétés du connecteur de proxy d’application Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Ouvrez l’Observateur d’événements et recherchez les événements du proxy d’application sous **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** > **Admin**.
-* Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application.
+* Si nécessaire, des journaux plus détaillés sont disponibles [en activant les journaux de session du connecteur de proxy d’application](application-proxy-understand-connectors.md#under-the-hood).
 
 Pour plus d’informations sur l’outil de dépannage d’Azure AD, consultez [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Outil de dépannage pour valider la configuration requise pour la mise en réseau d’un connecteur).
 

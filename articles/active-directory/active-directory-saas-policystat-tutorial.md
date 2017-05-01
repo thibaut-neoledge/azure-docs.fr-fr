@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour PolicyStat
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-policystat-tutorial/IC808662.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>Activation de l’intégration d’application pour PolicyStat
+## <a name="enable-the-application-integration-for-policystat"></a>Activer l’intégration d’applications pour PolicyStat
 Cette section décrit l’activation de l’intégration d’application pour PolicyStat.
 
 **Pour activer l’intégration d’application pour PolicyStat, procédez comme suit :**
@@ -63,7 +64,7 @@ Cette section décrit l’activation de l’intégration d’application pour Po
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur PolicyStat avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 
@@ -126,19 +127,18 @@ La capture d’écran suivante présente un exemple de cette opération.
    4. Dans la liste **Mail**, sélectionnez **User.mail**.
    5. Cliquez sur **Terminé**.
 
-##<a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+##<a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour permettre aux utilisateurs Azure AD de se connecter à PolicyStat, vous devez les approvisionner dans PolicyStat.  
 
-PolicyStat prend en charge l’approvisionnement juste-à-temps des utilisateurs. Il est donc inutile d’ajouter les utilisateurs manuellement à PolicyStat.  
-Les utilisateurs seront ajoutés automatiquement à leur première connexion à l’aide de l’authentification unique.
+PolicyStat prend en charge l’approvisionnement juste-à-temps des utilisateurs. Il est donc inutile d’ajouter les utilisateurs manuellement à PolicyStat. Les utilisateurs seront ajoutés automatiquement à leur première connexion à l’aide de l’authentification unique.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par PolicyStat, pour approvisionner des comptes utilisateur AAD.
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par PolicyStat, pour approvisionner des comptes utilisateur AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à PolicyStat, procédez comme suit :**
@@ -152,10 +152,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
    ![Oui](./media/active-directory-saas-policystat-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

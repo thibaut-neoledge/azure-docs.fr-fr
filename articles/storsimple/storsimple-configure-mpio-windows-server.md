@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -132,7 +132,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Étape 4 : configurer MPIO pour la haute disponibilité et l’équilibrage de charge
 Pour les chemins d’accès multiples basés sur la haute disponibilité et l’équilibrage de charge, vous devez ajouter plusieurs sessions manuellement pour déclarer les différents chemins d’accès disponibles. Par exemple, si l’hôte possède deux interfaces connectées au réseau SAN et si l’appareil possède deux interfaces connectées au réseau SAN, vous avez besoin de quatre sessions configurées avec les permutations de chemin d’accès appropriées (seules deux sessions seront requises si chaque interface DATA et interface d’hôte se trouve sur un sous-réseau d’adresse IP différent et n’est pas routable).
 
-**Nous vous recommandons de disposer d’au moins 4 sessions parallèles actives entre l’appareil et votre application hôte.** Cela est possible en activant 4 interfaces réseau sur votre système Windows Server. Utilisez des interfaces réseau physiques ou des technologies de virtualisation de réseau au niveau du matériel ou du système d’exploitation sur votre hôte Windows Server. Avec deux interfaces réseau sur l’appareil, cette configuration peut conduire à 8 sessions dont 4 seront actives (celles connectées au contrôleur actif) et 4 seront passives (celles connectées au contrôleur passif). Cette configuration permet d’optimiser le débit de l’appareil et du cloud.
+**Nous vous recommandons d’avoir au moins 8 sessions parallèles actives entre l’appareil et votre hôte d’application.** Cela est possible en activant 4 interfaces réseau sur votre système Windows Server. Utilisez des interfaces réseau physiques ou des interfaces virtuelles via des technologies de virtualisation de réseau au niveau du matériel ou du système d’exploitation sur votre hôte Windows Server. Avec deux interfaces réseau sur l’appareil, cette configuration permet 8 sessions actives. Cette configuration permet d’optimiser le débit de l’appareil et du cloud.
 
 > [!IMPORTANT]
 > **Nous vous recommandons de ne pas mélanger les interfaces réseau 1 Gigabit Ethernet et 10 Gigabit Ethernet. Si vous utilisez deux interfaces réseau, elles doivent être du même type.**

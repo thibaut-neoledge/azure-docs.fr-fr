@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 04/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,9 +26,8 @@ ms.lasthandoff: 03/06/2017
 > [!div class="op_single_selector"]
 > * [Portail](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](search-get-started-management-api.md)
-> 
-> 
+> * [Kit SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search est un service de recherche entièrement géré, basé sur le cloud, utilisé pour la création d’une expérience de recherche riche dans des applications personnalisées. Cet article aborde les tâches d’ *administration des services* que vous pouvez effectuer dans le [portail Azure](https://portal.azure.com) pour un service de recherche que vous avez déjà approvisionné. *Service administration* est légère de par sa conception et se limite à ce qui suit :
 
@@ -74,7 +73,7 @@ Azure Search n’expose pas les fichiers journaux d’un service via le portail 
 En termes d’informations générales relatives à votre service, vous pouvez obtenir des informations de plusieurs façons :
 
 * Sur le portail, le tableau de bord du service, via les notifications, les propriétés et les messages d’état.
-* À l’aide de [PowerShell](search-manage-powershell.md) ou de [l’API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) pour [obtenir les propriétés du service](https://msdn.microsoft.com/library/azure/dn832694.aspx), ou de l’état sur l’utilisation des ressources d’index.
+* À l’aide de [PowerShell](search-manage-powershell.md) ou de [l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) pour [obtenir les propriétés du service](https://docs.microsoft.com/rest/api/searchmanagement/services), ou de l’état sur l’utilisation des ressources d’index.
 * Via la [recherche du trafic d’analyse](search-traffic-analytics.md), comme indiqué précédemment.
 
 <a id="manage-keys"></a>
@@ -116,8 +115,8 @@ Sur le tableau de bord, l’analyse des ressources se limite aux informations af
 
 L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d’informations, voir [Limites de service de recherche](search-limits-quotas-capacity.md). 
 
-* [Obtention de statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)
-* [Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
+* [Obtention de statistiques d'index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Nombre de documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 > [!NOTE]
 > Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites. 
@@ -163,14 +162,14 @@ Au niveau Standard, les partitions sont ajoutées par multiples de 12 (notamment
 ### <a name="remove-replicas"></a>Suppression de réplicas
 Après une période de volume de requêtes intense, il est probable que vous supprimiez des réplicas lorsque la charge des requêtes de recherche est revenue à la normale (à la fin d’une période de vente, par exemple).
 
-Pour ce faire, il vous suffit de faire coulisser le curseur des réplicas sur une valeur plus faible. Rien de plus ! La réduction du nombre de réplicas entraîne l'abandon des machines virtuelles dans le centre de données. Désormais, vos opérations de requête et d'ingestion de données s'exécuteront sur un nombre moins élevé de machines virtuelles. La limite minimale est de&1; réplica.
+Pour ce faire, il vous suffit de faire coulisser le curseur des réplicas sur une valeur plus faible. Rien de plus ! La réduction du nombre de réplicas entraîne l'abandon des machines virtuelles dans le centre de données. Désormais, vos opérations de requête et d'ingestion de données s'exécuteront sur un nombre moins élevé de machines virtuelles. La limite minimale est de 1 réplica.
 
 ### <a name="remove-partitions"></a>Suppression de partitions
 Contrairement à la suppression de réplicas, qui n'exige aucune opération supplémentaire de votre part, utiliser plus de volume de stockage que la capacité disponible après réduction peut entraîner une surcharge de travail. Par exemple, si votre solution utilise trois partitions, le fait de passer à une ou deux partitions générera une erreur si le nouvel espace de stockage est inférieur à celui requis. Comme vous pouvez vous y attendre, deux solutions s’offrent alors à vous : soit supprimer des index ou documents au sein d’un index associé afin de libérer de l’espace, soit conserver la configuration actuelle.
 
 Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
 
-Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé. 
+Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) afin de connaître l'espace réellement utilisé. 
 
 <a id="advanced-deployment"></a>
 
@@ -187,7 +186,6 @@ Cette vidéo de 30 minutes passe en revue les meilleures pratiques pour les scé
 Une fois que vous avez compris les types d’opérations relatives à l’administration du service, prenez en compte les différentes approches de gestion des services :
 
 * [PowerShell](search-manage-powershell.md)
-* [l’API REST de gestion ;](search-get-started-management-api.md)
 
 En outre, si ce n’est pas déjà fait, examinez l’ [article sur les performances et l’optimisation](search-performance-optimization.md), et regardez la vidéo indiquée dans la section précédente pour voir plus de démonstrations des techniques recommandées et les découvrir de manière plus approfondie.
 

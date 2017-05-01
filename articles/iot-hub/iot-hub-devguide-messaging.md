@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -191,7 +191,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | --- | --- |
 | EnqueuedTimeUtc |Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId |**MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
-| StatusCode |Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = réussite <br/> 1 = message arrivé à expiration <br/> 2 = nombre maximal de remises dépassé <br/> 3 = message rejeté |
+| StatusCode |Chaîne obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> « Succès » <br/> « Expiré » <br/> « DeliveryCountExceeded »  <br/> « Rejeté » <br/> « Vidé » |
 | Description |Valeurs de chaîne pour **StatusCode**. |
 | deviceId |**DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 | DeviceGenerationId |**DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |

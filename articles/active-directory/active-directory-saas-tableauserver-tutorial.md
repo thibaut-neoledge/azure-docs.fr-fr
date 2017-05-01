@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 0849c77c66ac8617e217a69696b5c404be3b5eb4
-ms.openlocfilehash: 3aefb8188880fac5c1fcbe237a1e133584089e6a
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d8845ecb86acef651fdc8d6a64ebcae82b54dcd8
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -36,26 +36,27 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à Tableau Server, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
-* Un abonnement Tableau Server pour lequel l’authentification unique (SSO) est activée
+* Un abonnement Tableau Server pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>
+>
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Tableau Server à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Ajout de Tableau Server à partir de la galerie
+## <a name="add-tableau-server-from-the-gallery"></a>Ajouter Tableau Server à partir de la galerie
 Pour configurer l’intégration de Tableau Server à Azure AD, vous devez ajouter Tableau Server, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Tableau Server à partir de la galerie, procédez comme suit :**
@@ -80,7 +81,7 @@ Pour configurer l’intégration de Tableau Server à Azure AD, vous devez ajout
    
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Tableau Server avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Tableau Server équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Tableau Server associé doit être établie.
@@ -92,17 +93,17 @@ Pour configurer et tester l’authentification unique Azure AD avec Tableau Serv
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Tableau Server](#creating-a-tableauserver-test-user)** pour avoir un équivalent de Britta Simon dans Tableau Server lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Tableau Server.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application Tableau Server.
 
 L’application Tableau Server attend les assertions SAML dans un format spécifique. La capture d’écran suivante montre un exemple : 
 
 ![Configurer l’authentification unique](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_51.png) 
 
-**Pour configurer l’authentification unique Azure AD avec Tableau Server, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Tableau Server, procédez comme suit :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **Tableau Server**, dans le menu situé en haut, cliquez sur **Attributs**.
    
@@ -131,8 +132,8 @@ L’application Tableau Server attend les assertions SAML dans un format spécif
 
    1. Dans la zone de texte **URL de connexion** , tapez l’URL de votre locataire Tableau Server. 
    2. Dans la **zone Identificateur**, copiez l’URL.
-   3. Cliquez sur **Next**.
-h
+   3. Cliquez sur **Suivant**.
+
 7. Dans la page **Configurer l’authentification unique sur Tableau Server**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
@@ -163,7 +164,7 @@ h
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
 
 * Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
@@ -208,16 +209,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    1. Notez la valeur du **Nouveau mot de passe**.
    2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-tableau-server-test-user"></a>Création d’un utilisateur de test Tableau Server
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Tableau Server. Vous devez approvisionner tous les utilisateurs dans Tableau Server. Notez également que le nom de l’utilisateur doit correspondre à la valeur que vous avez configurée dans l’attribut personnalisé Azure AD **username**. Avec le mappage correct, l’intégration doit fonctionner. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+### <a name="create-a-tableau-server-test-user"></a>Créer un utilisateur de test Tableau Server
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Tableau Server. Vous devez approvisionner tous les utilisateurs dans Tableau Server. 
 
-> [!NOTE]
-> Si vous avez besoin de créer un utilisateur manuellement, vous devez contacter l’administrateur Tableau Server de votre organisation.
+Le nom de l’utilisateur doit correspondre à la valeur que vous avez configurée dans l’attribut personnalisé Azure AD **username**. Avec le mappage correct, l’intégration doit fonctionner. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+
+>[!NOTE]
+>Si vous avez besoin de créer un utilisateur manuellement, vous devez contacter l’administrateur Tableau Server de votre organisation.
 > 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Tableau Server.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique (SSO) Azure en lui accordant l’accès à Tableau Server.
 
 ![Affecter des utilisateurs][200] 
 
@@ -237,8 +240,8 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Tableau Server dans le volet d’accès, vous devez être connecté automatiquement à votre application Tableau Server.
 

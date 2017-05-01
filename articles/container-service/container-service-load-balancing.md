@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -93,19 +94,19 @@ Maintenant que nous avons le package marathon-lb, nous pouvons déployer le cont
 
 ```
 
-* Définissez la valeur `HAProxy_0_VHOST` sur le nom de domaine complet de l’équilibreur de charge de vos agents. Il respecte la forme `<acsName>agents.<region>.cloudapp.azure.com`. Par exemple, si vous créez un cluster Container Service avec le nom `myacs` dans la région `West US`, le nom de domaine complet sera `myacsagents.westus.cloudapp.azure.com`. Vous pouvez également le trouver en recherchant l’équilibreur de charge dont le nom contient le terme « agent » lorsque vous parcourez les ressources du groupe de ressources que vous avez créé pour votre service Container Service dans le [portail Azure](https://portal.azure.com).
-* Définissez servicePort sur un port supérieur ou égal à 10 000. Cela identifie le service en cours d’exécution dans ce conteneur ; marathon-lb s’en sert pour identifier les services sur lesquels il doit équilibrer les charges.
+* Définissez la valeur `HAPROXY_0_VHOST` sur le nom de domaine complet de l’équilibreur de charge de vos agents. Il respecte la forme `<acsName>agents.<region>.cloudapp.azure.com`. Par exemple, si vous créez un cluster Container Service avec le nom `myacs` dans la région `West US`, le nom de domaine complet sera `myacsagents.westus.cloudapp.azure.com`. Vous pouvez également le trouver en recherchant l’équilibreur de charge dont le nom contient le terme « agent » lorsque vous parcourez les ressources du groupe de ressources que vous avez créé pour votre service Container Service dans le [portail Azure](https://portal.azure.com).
+* Définissez le `servicePort` sur un port >= 10 000. Cela identifie le service en cours d’exécution dans ce conteneur ; marathon-lb s’en sert pour identifier les services sur lesquels il doit équilibrer les charges.
 * Définissez l’étiquette `HAPROXY_GROUP` sur external (externe).
 * Définissez `hostPort` sur 0. Cela signifie que Marathon allouera un port disponible de manière aléatoire.
 * Définissez `instances` sur le nombre d’instances à créer. Vous pourrez toujours augmenter ou réduire ce nombre ultérieurement.
 
-Il est intéressant de noter que, par défaut, Marathon se déploiera sur le cluster privé. Cela signifie que le déploiement ci-dessus sera accessible uniquement via votre équilibreur de charge, ce qui est généralement le comportement souhaité.
+Il est intéressant de noter que par défaut, Marathon se déploie sur le cluster privé. Cela signifie que le déploiement ci-dessus sera accessible uniquement via votre équilibreur de charge, ce qui est généralement le comportement souhaité.
 
 ### <a name="deploy-using-the-dcos-web-ui"></a>Déployer à l’aide de l’IU du site web DC/OS
-1. Visitez la page Marathon à l’adresse http://localhost/marathon (après avoir configuré votre [tunnel SSH](container-service-connect.md) et cliquez sur `Create Appliction`
+1. Visitez la page de Marathon à l’adresse http://localhost/marathon (après avoir configuré votre [tunnel SSH](container-service-connect.md)) et cliquez sur `Create Application`
 2. Dans la boîte de dialogue `New Application`, cliquez sur `JSON Mode` dans le coin supérieur droit
 3. Collez le code JSON ci-dessus dans l’éditeur.
-4. Cliquez sur `Create Appliction`
+4. Cliquez sur `Create Application`
 
 ### <a name="deploy-using-the-dcos-cli"></a>Déployer à l’aide de l’interface CLI DC/OS
 Pour déployer cette application avec l’interface CLI DC/OS, il vous suffit de copier le code JSON ci-dessus dans un fichier appelé `hello-web.json`, puis exécutez :
@@ -132,10 +133,5 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), consultez la documentation DC/OS.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

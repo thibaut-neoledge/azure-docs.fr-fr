@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 04/02/2017
 ms.author: liamca
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9024c47e7d483129d66105012e0d67cfa9700cb9
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,7 +30,7 @@ Nous sommes tous habitués aux moteurs de recherche comme Bing et Google et aux 
 1. Choisissez une latence cible (ou durée maximale) nécessaire à l’exécution d’une recherche standard .
 2. Créez et testez une charge de travail réelle avec votre service de recherche en utilisant un jeu de données réaliste pour mesurer les taux de latence.
 3. Commencez par un petit nombre de requêtes par seconde (RPS) puis augmentez le nombre d’exécutions dans le test jusqu'à ce que la latence des requêtes soit inférieure à la latence cible définie.  Il s’agit d’un test d’évaluation important qui vous aidera à planifier la mise à l’échelle à mesure que l’utilisation de votre application s’intensifie.
-4. Dans la mesure du possible, réutilisez les connexions HTTP.  Si vous utilisez le Kit de développement logiciel (SDK) .NET Azure Search, cela signifie que vous devez réutiliser une instance ou [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx) , et si vous utilisez l’API REST, vous devez réutiliser une instance HttpClient unique.
+4. Dans la mesure du possible, réutilisez les connexions HTTP.  Si vous utilisez le Kit de développement logiciel (SDK) .NET Azure Search, cela signifie que vous devez réutiliser une instance ou [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) , et si vous utilisez l’API REST, vous devez réutiliser une instance HttpClient unique.
 
 Lors de la création de ces charges de travail de test, certaines caractéristiques d’Azure Search doivent être prises en compte :
 
@@ -46,15 +47,15 @@ Lors de la création de ces charges de travail de test, certaines caractéristiq
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Mise à l’échelle d’Azure Search pour obtenir des taux de requêtes élevés et des requêtes limitées
 Lorsque vous recevez un trop grand nombre de requêtes limitées ou dépassez votre taux de latence cible suite à une charge de requête accrue, vous pouvez essayer de diminuer les taux de latence de deux manières :
 
-1. **Augmenter les réplicas :** un réplica s’apparente à une copie de vos données et permet à la Recherche Azure d’équilibrer la charge des requêtes sur plusieurs copies.  L’intégralité de l’équilibrage de la charge et de la réplication des données entre les réplicas est gérée par Azure Search et vous pouvez à tout moment modifier le nombre de réplicas alloués à votre service.  Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base.  Les réplicas peuvent être ajustés sur le [Portail Azure](search-create-service-portal.md) ou à l’aide de [l’API de gestion de la Recherche Azure](search-get-started-management-api.md).
+1. **Augmenter les réplicas :** un réplica s’apparente à une copie de vos données et permet à la Recherche Azure d’équilibrer la charge des requêtes sur plusieurs copies.  L’intégralité de l’équilibrage de la charge et de la réplication des données entre les réplicas est gérée par Azure Search et vous pouvez à tout moment modifier le nombre de réplicas alloués à votre service.  Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base. Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
 2. **Augmenter le niveau de recherche :** la Recherche Azure est fournie avec un certain [nombre de niveaux](https://azure.microsoft.com/pricing/details/search/) et chacun de ces niveaux offre différents niveaux de performances.  Dans certains cas, vous aurez tant de requêtes que le niveau sélectionné est incapable de fournir des taux de latence suffisamment faibles, même lorsque les réplicas sont optimisés.  Dans ce cas, vous pouvez passer à l’un des niveaux de recherche supérieurs tel que le niveau Azure Search S3, parfaitement adapté aux scénarios comportant un grand nombre de documents et des charges de travail de requêtes extrêmement élevées.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Mise à l’échelle d’Azure Search pour des requêtes individuelles lentes
 Une requête unique qui prend trop de temps peut également entraîner de faibles taux de latence.  Dans ce cas, l’ajout de réplicas n’améliorera pas les taux de latence.  Il existe alors deux options possibles :
 
-1. **Augmenter les partitions** Une partition est un mécanisme permettant de répartir vos données sur des ressources supplémentaires.  Pour cette raison, lorsque vous ajoutez une deuxième partition, vos données sont divisées en deux.  Une troisième partition divise votre index en trois, etc..  Cette opération a également pour effet que, dans certains cas, les requêtes lentes s’exécuteront plus rapidement en raison de la parallélisation du calcul.  Il existe quelques exemples dans lesquels cette parallélisation fonctionne très bien avec des requêtes affichant une faible sélectivité.  Il s’agit de requêtes correspondant à de nombreux documents ou lorsque l’utilisation de facettes doit compter un grand nombre de documents.  Dans la mesure où de nombreux calculs sont nécessaires pour évaluer la pertinence des documents ou pour compter le nombre de documents, l’ajout de partitions supplémentaires peut contribuer à fournir des calculs supplémentaires.  
+1. **Augmenter les partitions** Une partition est un mécanisme permettant de répartir vos données sur des ressources supplémentaires.  Pour cette raison, lorsque vous ajoutez une deuxième partition, vos données sont divisées en deux.  Une troisième partition divise votre index en trois, etc.  Cette opération a également pour effet que, dans certains cas, les requêtes lentes s’exécuteront plus rapidement en raison de la parallélisation du calcul.  Il existe quelques exemples dans lesquels cette parallélisation fonctionne très bien avec des requêtes affichant une faible sélectivité.  Il s’agit de requêtes correspondant à de nombreux documents ou lorsque l’utilisation de facettes doit compter un grand nombre de documents.  Dans la mesure où de nombreux calculs sont nécessaires pour évaluer la pertinence des documents ou pour compter le nombre de documents, l’ajout de partitions supplémentaires peut contribuer à fournir des calculs supplémentaires.  
    
-   Il peut y avoir un maximum de 12 partitions dans le service de recherche standard, et 1 partition dans le service de recherche de base.  Les partitions peuvent être ajustées sur le [Portail Azure](search-create-service-portal.md) ou à l’aide de [l’API de gestion de la Recherche Azure](search-get-started-management-api.md).
+   Il peut y avoir un maximum de 12 partitions dans le service de recherche standard, et 1 partition dans le service de recherche de base.  Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
 2. **Limiter les champs à cardinalité élevée :** Un champ à cardinalité élevée est un champ pouvant être utilisé comme facette ou comme filtre et qui comporte un nombre important de valeurs uniques et, par conséquent, consomme beaucoup de ressources pour calculer les résultats.   Par exemple, la définition d’un champ ID produit ou Description comme un champ pouvant être utilisé comme facette ou comme filtre peut offrir une cardinalité élevée car la plupart des valeurs sont uniques pour chaque document. Dans la mesure du possible, limitez le nombre de champs à cardinalité élevée.
 3. **Augmenter le niveau de recherche :** Choisir un niveau de Recherche Azure supérieur est une autre façon d’améliorer les performances des requêtes lentes.  Chaque niveau supérieur propose également un processeur plus rapide et plus de mémoire, ce qui peut avoir un impact positif sur les performances des requêtes.
 
@@ -76,7 +77,7 @@ L’objectif d’un jeu géo-distribué de services de recherche est d’avoir p
    ![Tableau croisé des services par région][1]
 
 ### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Synchronisation des données entre plusieurs services Azure Search
-Il existe deux options pour synchroniser vos services de recherche distribués : à l’aide de [l’indexeur de Recherche Azure](search-indexer-overview.md) ou de l’API Push (également appelée [API REST de Recherche Azure](https://msdn.microsoft.com/library/dn798935.aspx)).  
+Il existe deux options pour synchroniser vos services de recherche distribués : à l’aide de [l’indexeur de Recherche Azure](search-indexer-overview.md) ou de l’API Push (également appelée [API REST de Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Indexeurs Azure Search
 Si vous utilisez l’indexeur Azure Search, vous importez déjà les modifications des données à partir d’un magasin de données central comme la base de données SQL Azure ou DocumentDB. Lorsque vous créez un service de recherche, vous créez tout simplement un indexeur Azure Search pour ce service qui pointe vers ce même magasin de données. De cette façon, chaque fois que de nouvelles modifications sont envoyées au magasin de données, ces informations seront indexées par plusieurs indexeurs.  
@@ -86,7 +87,7 @@ Voici à quoi ressemblerait une telle architecture.
    ![Source de données unique avec indexeur distribué et combinaisons de service][2]
 
 ### <a name="push-api"></a>API push
-Si vous utilisez l’API Push Azure Search pour [mettre à jour le contenu de l’index Azure Search](https://msdn.microsoft.com/library/dn798930.aspx), vous pouvez synchroniser vos différents services de recherche en envoyant les modifications vers tous les services de recherche chaque fois qu’une mise à jour est nécessaire.  Ce faisant, il est important de veiller à gérer les cas où une mise à jour d’un service de recherche échoue et où une ou plusieurs mises à jour réussissent.
+Si vous utilisez l’API Push Azure Search pour [mettre à jour le contenu de l’index Azure Search](https://docs.microsoft.com/rest/api/searchservice/update-index), vous pouvez synchroniser vos différents services de recherche en envoyant les modifications vers tous les services de recherche chaque fois qu’une mise à jour est nécessaire.  Ce faisant, il est important de veiller à gérer les cas où une mise à jour d’un service de recherche échoue et où une ou plusieurs mises à jour réussissent.
 
 ## <a name="leveraging-azure-traffic-manager"></a>Utilisation d’Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) vous permet d’acheminer les requêtes vers plusieurs sites géo-localisés et pris en charge par plusieurs services Azure Search.  Traffic Manager offre l’avantage de pouvoir tester Azure Search pour vous assurer qu’il est disponible et de rediriger les utilisateurs vers d’autres services de recherche en cas d’interruption du service.  En outre, si vous acheminez des requêtes de recherche via des sites Web Azure, Azure Traffic Manager permet d’équilibrer les charges lorsque le site web est opérationnel mais pas Azure Search.  Voici un exemple d’architecture tirant parti de Traffic Manager.
@@ -113,9 +114,4 @@ Pour plus d’informations sur les performances et obtenir des démonstrations s
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

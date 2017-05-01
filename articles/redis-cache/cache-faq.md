@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/12/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 831ce961992747de87706c3dde24b812a281c23a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ Les Forums aux questions suivants couvrent les concepts de base, et les question
 * [Performance du Cache Redis Azure](#azure-redis-cache-performance)
 * [Dans quelle région dois-je placer mon cache ?](#in-what-region-should-i-locate-my-cache)
 * [Combien me coûte le Cache Redis Azure ?](#how-am-i-billed-for-azure-redis-cache)
-* [Puis-je utiliser le Cache Redis Azure avec le cloud Azure Government ou le cloud Azure de Chine ?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [Puis-je utiliser le Cache Redis Azure avec le cloud Azure Government, le cloud Azure China ou Microsoft Azure Germany ?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Forum aux questions sur le développement
 * [En quoi consistent les options de configuration StackExchange.Redis ?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -162,15 +162,28 @@ Pour optimiser les performances et la latence, placez votre Cache Redis Azure d
 ### <a name="how-am-i-billed-for-azure-redis-cache"></a>Combien me coûte le Cache Redis Azure ?
 La tarification du cache Redis Azure est disponible [ici](https://azure.microsoft.com/pricing/details/cache/). La page Tarifs appliqués répertorie les tarifs appliqués à un taux horaire. Les caches sont facturés à la minute, de la création du cache jusqu’à sa suppression. Aucune option ne vous permet d’arrêter ou de suspendre la facturation d'un cache.
 
-## <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud"></a>Puis-je utiliser le Cache Redis Azure avec le cloud Azure Government ou le cloud Azure de Chine ?
-Oui, le Cache Redis Azure est disponible tant dans le cloud Azure Government que dans le cloud Azure de Chine. Les URL d’accès et de gestion du cache Redis Azure dans le cloud Azure Government et le cloud Azure de Chine diffèrent de celles du cloud public Azure. Pour plus d’informations sur les points à prendre en considération lors de l’utilisation du Cache Redis Azure avec le cloud Azure Government et le cloud Azure de Chine, voir [Bases de données Azure Government - Cache Redis Azure](../azure-government/documentation-government-services-database.md#azure-redis-cache) (en anglais) et [Cloud Azure de Chine - Cache Redis Azure](https://www.azure.cn/documentation/services/redis-cache/) (en chinois).
+### <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Puis-je utiliser le Cache Redis Azure avec le cloud Azure Government, le cloud Azure China ou Microsoft Azure Germany ?
+Oui, le Cache Redis Azure est disponible dans le cloud Azure Government, le cloud Azure China et Microsoft Azure Germany. Les URL d’accès et de gestion du cache Redis Azure diffèrent de celles du cloud public Azure. 
 
-Pour plus d’informations sur l’utilisation du Cache Redis Azure avec PowerShell dans le cloud Azure Government et le cloud Azure de Chine, voir [Comment se connecter au cloud Azure Government ou au cloud Azure de Chine](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+| Cloud   | Suffixe DNS pour Redis            |
+|---------|---------------------------------|
+| Public  | *.redis.cache.windows.net       |
+| Gouvernement des États-Unis  | *.redis.cache.usgovcloudapi.net |
+| Allemagne | *.redis.cache.cloudapi.de       |
+| Chine   | *.redis.cache.chinacloudapi.cn  |
+
+Pour plus d’informations sur les éléments à prendre en compte lors de l’utilisation du Cache Redis Azure avec d’autres clouds, consultez les liens suivants.
+
+- [Bases de données Azure Government - Cache Redis Azure](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Cloud Azure China - Cache Redis Azure](https://www.azure.cn/documentation/services/redis-cache/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+
+Pour plus d’informations sur l’utilisation du Cache Redis Azure avec PowerShell dans le cloud Azure Government, le cloud Azure China et Microsoft Azure Germany, consultez [Comment se connecter aux autres clouds - Cache Redis Azure PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>En quoi consistent les options de configuration StackExchange.Redis ?
-StackExchange.Redis présente de nombreuses options. Cette section présente certains des paramètres les plus courants. Pour plus d’informations sur les options de StackExchange.Redis, consultez la page [Configuration StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
+StackExchange.Redis présente de nombreuses options. Cette section présente certains des paramètres les plus courants. Pour plus d’informations sur les options de StackExchange.Redis, consultez la page [Configuration StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | ConfigurationOptions | Description | Recommandation |
 | --- | --- | --- |

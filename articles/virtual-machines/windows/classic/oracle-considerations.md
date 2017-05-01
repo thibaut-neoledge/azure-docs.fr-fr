@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f6f8dd109a1f0d395782ba73fd425c7a6ccf0eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1a808a83a8ed1162d57f7c5a49e34b2e3be50833
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,18 +29,13 @@ Cet article aborde différentes considérations relatives aux machines virtuelle
 * Images de machine virtuelle JDK Oracle
 
 ## <a name="oracle-database-virtual-machine-images"></a>Images de machines virtuelles Oracle Database
-### <a name="clustering-rac-is-not-supported"></a>La gestion de clusters (RAC) n’est pas prise en charge.
-Actuellement, Microsoft Azure ne prend pas en charge Oracle Real Application Clusters (Oracle RAC) dans les produits Oracle Database. Seules les instances autonomes de Oracle Database sont gérées. En effet, Microsoft Azure ne prend actuellement pas en charge le partage de disques virtuels en lecture/écriture entre plusieurs instances de machines virtuelles. Par ailleurs, la multidiffusion UDP n’est pas gérée.
 
 ### <a name="no-static-internal-ip"></a>Aucune adresse IP interne statique
 Microsoft Azure attribue une adresse IP interne à chaque machine virtuelle. Sauf si elle fait partie d’un réseau virtuel, l’adresse IP de la machine virtuelle est de type dynamique et peut changer lorsqu’elle redémarre. Cela peut entraîner des problèmes, car la base de données Oracle s’attend à une adresse IP statique. Pour éviter ce problème, pensez à ajouter la machine virtuelle à Microsoft Azure Virtual Network. Pour plus d’informations, voir les sections relatives aux [réseaux virtuels](https://azure.microsoft.com/documentation/services/virtual-network/) et à la [création d’un réseau virtuel cloud uniquement dans Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ### <a name="attached-disk-configuration-options"></a>Options de configuration des disques connectés
-Vous pouvez placer les fichiers de données sur le disque hébergeant le système d’exploitation de la machine virtuelle ou sur des disques attachés, également appelés « disques de données ». Ces derniers peuvent offrir une meilleure flexibilité que le disque de système d’exploitation, en termes de performances comme de taille. En effet, il peut être préférable d’opter pour un disque de système d’exploitation lorsque la base de données présente une taille inférieure à 10 Go.
 
-Les disques attachés s’appuient sur le service de stockage d’objets blob Microsoft Azure. En théorie, chaque disque peut proposer un maximum de 500 entrées/sorties par seconde (IOPS). Il se peut que les performances des disques attachés ne soient pas optimales au départ, et que celles des IOPS s’améliorent nettement après une période d’« échauffement » en continu, de 60 à 90 minutes. Si, par la suite, un disque reste inactif, les performances des IOPS correspondantes risquent de diminuer, jusqu’à la prochaine période de fonctionnement en continu. En un mot comme en cent, plus un disque est actif, plus il a de chances de proposer des performances optimales en termes d’IOPS.
-
-L’approche la plus simple consiste à attacher un seul disque à la machine virtuelle et à placer les fichiers de base de données sur ce disque. C’est également la méthode qui propose les performances les plus restreintes. Il s’avère que vous pouvez souvent améliorer les performances d’IOPS effectives si vous utilisez plusieurs disques attachés, répartissez les données de la base de données sur ces disques, puis lancez ASM (Oracle Automatic Storage Management). Pour plus d’informations, voir [Oracle Automatic Storage Overview](http://www.oracle.com/technetwork/database/index-100339.html). Il est possible d’utiliser l’agrégation par bandes de plusieurs disques au niveau du système d’exploitation, mais cette approche est déconseillée, car elle n’est pas connue pour améliorer les performances des IOPS.
+Les disques attachés s’appuient sur le service de stockage d’objets blob Microsoft Azure. En théorie, chaque disque standard peut proposer un maximum de 500 entrées/sorties par seconde (IOPS). Notre offre de disque Premium est conseillée pour les charges de travail de base de données hautes performances et peut atteindre jusqu’à 5 000 IOPS par disque. Même si vous pouvez utiliser un seul disque si cela correspond à vos besoins en termes de performances, vous pouvez souvent améliorer les performances d’IOPS effectives si vous utilisez plusieurs disques attachés, répartissez les données de la base de données sur ces disques, puis lancez ASM (Oracle Automatic Storage Management). Pour plus d’informations, voir [Oracle Automatic Storage Overview](http://www.oracle.com/technetwork/database/index-100339.html). Bien qu’il soit possible d’utiliser la distribution sur plusieurs disques au niveau du système d’exploitation, des compromis sont nécessaires pour chacun de ces choix. 
 
 Tenez compte des deux approches permettant d’attacher plusieurs disques, selon que vous souhaitez prioriser les performances des opérations de lecture ou d’écriture dans votre base de données :
 
@@ -48,14 +43,16 @@ Tenez compte des deux approches permettant d’attacher plusieurs disques, selon
     ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
-> Établissez un compromis entre les performances en écriture et les performances en lecture en procédant au cas par cas. Les résultats réels peuvent alors varier.
+> Établissez un compromis entre les performances en écriture et les performances en lecture en procédant au cas par cas. Les résultats réels peuvent varier. Vous devez réaliser vos propres tests. ASM privilégie les opérations d’écriture, la distribution par le système d’exploitation privilégie les opérations de lecture.
 > 
-> 
+
+### <a name="clustering-rac-is-not-supported"></a>La gestion de clusters (RAC) n’est pas prise en charge.
+RAC (Oracle Real Application Clusters) est conçu pour atténuer les conséquences de la défaillance d’un nœud dans une configuration locale de cluster à plusieurs nœuds.  Il s’appuie sur deux technologies locales qui ne fonctionnent pas dans les environnements de cloud public hyperscale comme Microsoft Azure : réseau multidiffusion et disque partagé. Si vous souhaitez créer une configuration à plusieurs nœuds géo-redondants pour une base de données Oracle, vous devez implémenter la réplication des données avec Oracle DataGuard.
 
 ### <a name="high-availability-and-disaster-recovery-considerations"></a>Remarques relatives à la haute disponibilité et à la récupération d’urgence
 Lors de l’utilisation de Oracle Database dans les machines virtuelles Azure, vous êtes responsable de l’implémentation d’une solution de récupération d’urgence et de haute disponibilité pour éviter tout temps d’arrêt. Vous êtes également chargé de sauvegarder votre application et vos données.
 
-Pour assurer la haute disponibilité et la récupération d’urgence pour Oracle Database Enterprise Edition (sans RAC) sur Microsoft Azure, vous pouvez utiliser [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), en plaçant deux bases de données sur deux machines virtuelles distinctes. Ces deux machines doivent figurer dans le même [service cloud](../../linux/classic/connect-vms.md), au sein du même [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/), afin de pouvoir être accessibles l’une à l’autre via l’adresse IP privée persistante.  En outre, nous vous recommandons de placer les machines virtuelles au sein du même [groupe à haute disponibilité](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), afin de permettre à Azure de les placer dans des domaines d’erreur et de mise à niveau distincts. Seules les machines virtuelles figurant dans le même service cloud peuvent faire partie du même groupe à haute disponibilité. Chaque machine virtuelle doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque.
+Pour assurer la haute disponibilité et la récupération d’urgence pour Oracle Database Enterprise Edition (sans RAC) sur Microsoft Azure, vous pouvez utiliser [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), en plaçant deux bases de données sur deux machines virtuelles distinctes. Ces deux machines doivent se trouver dans le même [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/), afin de pouvoir être accessibles l’une à l’autre via l’adresse IP privée persistante.  En outre, nous vous recommandons de placer les machines virtuelles au sein du même [groupe à haute disponibilité](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), afin de permettre à Azure de les placer dans des domaines d’erreur et de mise à niveau distincts. Chaque machine virtuelle doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque.
 
 Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du système en plaçant la base de données primaire sur une machine virtuelle et une base de données secondaire (de veille) sur une autre, et en configurant une réplication monodirectionnelle entre ces bases de données. Vous bénéficiez ainsi d’un accès en lecture à la copie de la base de données. Oracle GoldenGate vous permet de configurer une réplication bidirectionnelle entre les deux bases de données. Pour savoir comment configurer une solution de haute disponibilité pour vos bases de données en utilisant ces outils, voir la documentation relative à [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) et [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) sur le site web d’Oracle. Si vous avez besoin d’un accès en lecture et en écriture à la copie de la base de données, vous pouvez utiliser [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 

@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -30,11 +31,11 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez Azure Site R
 
 ## <a name="deployment-options"></a>Options de déploiement
 
-**Déploiement** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
+**Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec ou sans SCVMM)
 --- | --- | --- | ---
-**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Non pris en charge | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
-**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Non pris en charge | Mode Maintenance uniquement
-**PowerShell** | Non pris en charge | Non pris en charge | Pris en charge
+**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans SCVMM  <br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
+**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement<br></br> Non pris en charge sans SCVMM
+**PowerShell** | Non pris en charge | Pris en charge<br></br> Non pris en charge sans SCVMM
 
 ## <a name="on-premises-servers"></a>Serveurs locaux
 
@@ -119,7 +120,7 @@ Disque > 1 To | Non | Oui
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui | Oui
 Espaces de stockage | Non | Oui
 Ajout/suppression de disque à chaud | Non | Non
-Exclure le disque | Non | Non
+Exclure le disque | Non | Oui
 Chemins d’accès multiples (MPIO) | N/A | Oui
 
 ## <a name="vaults"></a>Coffres
@@ -140,9 +141,4 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les [Conditions préalables au déploiement](site-recovery-prereq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

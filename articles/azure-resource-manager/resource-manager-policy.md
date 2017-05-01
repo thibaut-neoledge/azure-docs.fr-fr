@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
-ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Il y a deux concepts importants à comprendre concernant les stratégies :
 * Définition de stratégie : vous spécifiez à quel moment la stratégie est appliquée et l’action à exécuter.
 * Affectation de stratégie : vous appliquez la définition de stratégie à une étendue (abonnement ou groupe de ressources).
 
-Cette rubrique porte sur la définition de stratégie. Pour plus d’informations sur l’affectation de stratégie, consultez [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md).
+Cette rubrique porte sur la définition de stratégie. Pour plus d’informations sur l’affectation des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](resource-manager-policy-portal.md) ou [Attribuer et gérer les stratégies de ressources via un script](resource-manager-policy-create-assign.md).
 
 Azure fournit certaines définitions de stratégie intégrées qui peuvent réduire le nombre de stratégies à définir. Si une définition de stratégie intégrée fonctionne pour votre scénario, utilisez cette définition lors de l’affectation à une étendue.
 
@@ -239,7 +239,7 @@ Les rubriques suivantes contiennent des exemples de stratégies :
 
 * Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies for tags](resource-manager-policy-tags.md) (Appliquer des stratégies de ressources pour les balises).
 * Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies to storage accounts](resource-manager-policy-storage.md) (Appliquer des stratégies de ressources aux comptes de stockage).
-* Pour obtenir des exemples de stratégies de machine virtuelle, consultez [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Linux) et [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Windows).
+* Pour obtenir des exemples de stratégies de machine virtuelle, consultez [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Linux) et [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Windows).
 
 ### <a name="allowed-resource-locations"></a>Emplacements de ressources autorisés
 Pour spécifier les emplacements autorisés, consultez l’exemple présenté dans la section [Structure de la définition de stratégie](#policy-definition-structure). Pour affecter cette définition de stratégie, utilisez la stratégie intégrée avec l’ID de ressource `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -326,7 +326,7 @@ L’exemple suivant illustre l’utilisation de caractères génériques, grâce
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Après avoir défini une règle de stratégie, affectez-la à une étendue. Pour plus d’informations sur l’affectation de stratégie, consultez [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md).
+* Après avoir défini une règle de stratégie, affectez-la à une étendue. Pour affecter des stratégies via le portail, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Pour affecter des stratégies via l’API REST, PowerShell ou Azure CLI, consultez [Affecter et gérer des stratégies via un script](resource-manager-policy-create-assign.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 * Le schéma de stratégie est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

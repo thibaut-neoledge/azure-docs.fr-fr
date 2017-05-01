@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -105,7 +105,9 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les conditions préalables de sécurité requises sont en place et correctement configurées en fonction de la configuration.
 5. Si les ordinateurs du cluster ne sont pas accessibles via Internet, définissez les éléments suivants dans la configuration du cluster :
 * Désactiver la télémétrie : sous *Propriétés*, définissez   *« enableTelemetry » : false*
-* Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez   *« fabricClusterAutoupgradeEnabled » : true*
+* Désactivez le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez   *"fabricClusterAutoupgradeEnabled": false*
+* Si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com   download.microsoft.com
+
 6. Définissez les exclusions antivirus Service Fabric appropriées :
 
 | **Répertoires exclus de l’antivirus** |

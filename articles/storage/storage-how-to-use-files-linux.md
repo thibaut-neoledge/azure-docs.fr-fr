@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: e296e468309b53338231e283ac62e4d917e0834b
-ms.openlocfilehash: 8cb98eb721d5769125926a6c75f776a9d510376e
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 201ceaec874c2367c232076faba25bdae128e7e1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -32,7 +32,7 @@ File Storage repose sur la même technologie que Blob Storage, Table Storage et 
 Le stockage de fichiers est maintenant mis à la disposition générale et prend en charge SMB 2.1 et SMB 3.0. Pour plus d’informations sur File Storage, consultez l’ [API REST du service de fichiers](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 > [!NOTE]
-> Dans la mesure où le client SMB Linux ne prend pas encore en charge le chiffrement, le montage d’un partage de fichiers à partir de Linux requiert toujours que le client soit situé dans la même région Azure que le partage de fichiers. Toutefois, la prise en charge du chiffrement pour Linux est prévu par les développeurs Linux responsables de la fonctionnalité SMB. Les distributions Linux qui prendront en charge le chiffrement à l’avenir seront en mesure de monter un partage de fichiers Azure à partir de n’importe quel endroit.
+> Dans la mesure où le client SMB Linux ne prend pas encore en charge le chiffrement, le montage d’un partage de fichiers à partir de Linux nécessite toujours que le client se trouve dans la même région Azure que le partage de fichiers. Toutefois, la prise en charge du chiffrement pour Linux est prévu par les développeurs Linux responsables de la fonctionnalité SMB. Les distributions Linux qui prendront en charge le chiffrement à l’avenir seront en mesure de monter un partage de fichiers Azure à partir de n’importe quel endroit.
 > 
 > 
 

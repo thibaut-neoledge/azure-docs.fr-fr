@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f8e624b54578009e55921606a9e37f884faf50c7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -32,7 +32,8 @@ Tapez votre question pour obtenir une réponse !
 
 ![Boîte de dialogue de discussion Azure ML](./media/machine-learning-live-chat/AzureMLChat.png)
 
-## <a name="dont-see-the-live-chat-icon"></a>Vous ne voyez pas l’icône de conversation en direct ?
+**Vous ne voyez pas l’icône Conversation en direct ?**
+
 La conversation en direct est un service assuré par les membres de l’équipe Machine Learning. Si l’icône de conversation en direct ne s’affiche pas, cela signifie que l’équipe n’est pas disponible actuellement. Cela peut être le cas, par exemple, en dehors des heures de travail. 
 
 Vous pouvez toujours publier vos questions sur le [Forum Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), où elles peuvent être consultées par les membres de l’équipe Machine Learning et d’autres développeurs et scientifiques compétents.

@@ -1,6 +1,6 @@
 ---
-title: "Prendre en main le Stockage File d’attente et les services connectés de Visual Studio (ASP.NET 5) | Microsoft Docs"
-description: "Prise en main du stockage de files d&quot;attente Azure dans un projet ASP.NET 5 dans Visual Studio"
+title: "Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs"
+description: "Guide pratique pour bien démarrer avec Azure Stockage File d’attente dans un projet ASP.NET Core dans Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b166ced70b845dd297a1eb87aaec5456ec3e0b31
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4622496544ce6e1057ac68a2e9946917573e997e
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-5"></a>Prendre en main le stockage de files d’attente et les services connectés de Visual Studio (ASP.NET 5)
+# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment prendre en main Azure Queue Storage dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET 5 au moyen de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. L’opération **Ajouter des services connectés** installe les packages NuGet appropriés pour accéder au stockage Azure de votre projet et ajoute la chaîne de connexion pour le compte de stockage aux fichiers de configuration de votre projet.
+Cet article explique comment bien démarrer avec Azure Stockage File d’attente dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET Core au moyen de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. L’opération **Ajouter des services connectés** installe les packages NuGet appropriés pour accéder au stockage Azure de votre projet et ajoute la chaîne de connexion pour le compte de stockage aux fichiers de configuration de votre projet.
 
 Le service de stockage de files d'attente Azure permet de stocker un grand nombre de messages accessibles partout dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un message de file d’attente peut avoir une taille maximale de 64 Ko et une file d’attente peut contenir plusieurs millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
 
 Pour commencer, vous devez créer une file d’attente Azure dans votre compte de stockage. Nous allons vous montrer comment créer une file d’attente dans le code. Et aussi comment effectuer des opérations de base sur les files d’attente, comme l’ajout, la modification, la lecture et la suppression de messages de files d’attente. Les exemples ont été écrits en code C\# et utilisent la bibliothèque du client de stockage Azure pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net)(en anglais).
 
-**REMARQUE :** parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**REMARQUE** : parmi les API qui effectuent des appels à Stockage Azure dans ASP.NET Core, certaines sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
 
 * Pour plus d’informations sur la manipulation des files d’attente par programme, consultez la page [Prise en main du stockage de files d’attente Azure à l’aide de .NET](storage-dotnet-how-to-use-queues.md) .
 * Pour des informations générales sur Azure Storage, consultez la [documentation relative au stockage](https://azure.microsoft.com/documentation/services/storage/) .
@@ -38,7 +39,7 @@ Pour commencer, vous devez créer une file d’attente Azure dans votre compte d
 * Pour plus d’informations sur la programmation des applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net) .
 
 ## <a name="access-queues-in-code"></a>Accéder à des files d’attente dans le code
-Pour accéder à des files d’attente dans des projets ASP.NET 5, vous devez inclure les éléments suivants dans tout fichier source C# qui accède au stockage de files d’attente Azure.
+Pour accéder à des files d’attente dans des projets ASP.NET Core, vous devez inclure les éléments suivants dans tout fichier source C# qui accède à Azure Stockage File d’attente.
 
 1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **using** .
    
@@ -153,10 +154,5 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

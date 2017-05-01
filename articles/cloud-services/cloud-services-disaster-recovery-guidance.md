@@ -3,7 +3,7 @@ title: Que faire si une interruption de service Azure affecte Azure Cloud Servic
 description: "Découvrez que faire si une interruption de service Azure affecte Azure Cloud Services."
 services: cloud-services
 documentationcenter: 
-author: kmouss
+author: mmccrory
 manager: drewm
 editor: 
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
@@ -12,11 +12,12 @@ ms.workload: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2016
-ms.author: kmouss;aglick
+ms.date: 04/04/2017
+ms.author: mmccrory
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 5db1864f5fb04b30a7b8ce59932e826fcef792f0
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b20f846caa12866ce8815c7931a2c66346cd4085
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -34,25 +35,16 @@ Cet article aborde un scénario réel de récupération d’urgence, dans lequel
 >
 >
 
-Pour vous aider à gérer ces rares occurrences, nous vous fournissons les conseils suivants pour les machines virtuelles Azure dans le cas d’une interruption de service de l’ensemble de la région où votre application Azure Virtual Machine est déployée.
 
-## <a name="option-1-wait-for-recovery"></a>Option 1: attente de récupération
-Dans ce cas, aucune action n’est requise de votre part. Sachez que les équipes Azure travaillent assidûment à la restauration de la disponibilité des services. Vous pouvez consulter l’état actuel du service dans notre [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Option 1 : utilisation d’un déploiement de sauvegarde par le biais d’Azure Traffic Manager
+La solution de récupération d’urgence la plus robuste consiste à assurer la maintenance de plusieurs déploiements de votre application dans différentes régions, puis à utiliser [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) pour diriger le trafic entre eux. Azure Traffic Manager fournit plusieurs [méthodes de routage](../traffic-manager/traffic-manager-routing-methods.md), de sorte que vous pouvez choisir de gérer vos déploiements à l’aide d’un modèle principal/de sauvegarde ou de fractionner le trafic entre eux.
 
-> [!NOTE]
-> Ceci est la meilleure option si un client n’a pas configuré Azure Site Recovery ou dispose d’un déploiement secondaire dans une autre région.
->
->
+![Équilibrage d’Azure Cloud Services entre différentes régions avec Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-Pour les clients souhaitant un accès immédiat à leurs services cloud déployés, les options suivantes sont disponibles.
+Pour obtenir la réponse la plus rapide suite à la perte d’une région, nous vous recommandons fortement de configurer la [surveillance des points de terminaison](../traffic-manager/traffic-manager-monitoring.md) Traffic Manager.
 
-> [!NOTE]
-> Gardez à l’esprit que ces options peuvent entraîner une perte partielle des données.     
->
->
-
-## <a name="option-2-re-deploy-your-cloud-service-configuration-to-a-new-region"></a>Option 2 : redéploiement de la configuration de votre service cloud sur une nouvelle région
-Si vous disposez de votre code d’origine, vous pouvez tout simplement redéployer l’application, ainsi que la configuration et les ressources associées, sur un nouveau service cloud dans une nouvelle région.  
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Option 2 : déploiement de votre application dans une nouvelle région
+Maintenir plusieurs déploiements actifs comme décrit dans l’option précédente entraîne des coûts supplémentaires. Si votre objectif de temps de récupération est suffisamment flexible et que vous disposez du code d’origine ou du package Services cloud compilé, vous pouvez créer une instance de votre application dans une autre région et mettre à jour vos enregistrements DNS de façon à ce qu’ils pointent vers le nouveau déploiement.
 
 Pour plus d’informations sur la façon de créer et de déployer une application de service cloud, consultez [Création et déploiement d’un service cloud](cloud-services-how-to-create-deploy-portal.md).
 
@@ -61,20 +53,11 @@ Suivant vos sources de données d’application, vous pouvez être amené à vé
 * Pour les sources de données Azure Storage, consultez [Réplication Azure Storage](../storage/storage-redundancy.md#read-access-geo-redundant-storage) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
 * Pour les sources SQL Database, consultez [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
 
-## <a name="option-3-use-a-backup-deployment-through-azure-traffic-manager"></a>Option 3 : utilisation d’un déploiement de sauvegarde par le biais du gestionnaire de trafic Azure
-Cette option suppose que vous avez déjà conçu votre solution d’application avec une récupération d’urgence régionale à l’esprit. Vous pouvez utiliser cette option si vous disposez déjà d’un déploiement d’application Cloud Services secondaire en cours d’exécution dans une autre région et connecté par le biais d’un canal de gestionnaire de trafic. Dans ce cas, vérifiez l’intégrité du déploiement secondaire. S’il est sain, vous pouvez rediriger le trafic vers celui-ci via Azure Traffic Manager. Avec cette stratégie, vous pouvez bénéficier de la méthode de routage du trafic et des configurations d’ordre de basculement d’Azure Traffic Manager. Pour plus d’informations, consultez la rubrique [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md).
 
-![Équilibrage d’Azure Cloud Services entre différentes régions avec Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+## <a name="option-3-wait-for-recovery"></a>Option 3 : attente de récupération
+Dans ce cas, aucune action de votre part n’est requise, mais votre service est indisponible jusqu’à ce que la région soit restaurée. Vous pouvez consulter l’état actuel du service dans le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la façon d’implémenter une stratégie de récupération d’urgence et de haute disponibilité, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Pour une compréhension technique détaillée des fonctionnalités de la plateforme cloud, consultez le [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md).
-
-Si les instructions ne sont pas claires ou que vous souhaitez que Microsoft effectue les opérations en votre nom, contactez le [service clientèle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

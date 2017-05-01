@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 ## <a name="prerequisites"></a>Configuration requise
 * Visual Studio 2012, 2013 ou 2015
 * Téléchargez et installez le [Kit SDK Azure .NET](http://azure.microsoft.com/downloads/).
-* Ajoutez une application client native à Azure Active Directory. Pour connaître les étapes permettant d’ajouter l’application, consultez [Intégration d’applications dans Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Notez les valeurs **CLIENT ID** et **REDIRECT URI** dans la page **CONFIGURE**.
+* Ajoutez une application client native à Azure Active Directory. Pour connaître les étapes permettant d’ajouter l’application, consultez [Intégration d’applications dans Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Notez les valeurs **CLIENT ID** et **REDIRECT URI** dans la page **CONFIGURE**. Pour des instructions détaillées, consultez [Didacticiel sur l’activité de copie avec l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 * Obtenez votre **ID d’abonnement** et votre **ID de locataire** Azure. Consultez [Obtenir les ID d’abonnement et client Azure](#get-azure-subscription-and-tenant-ids) pour obtenir des instructions.
 * Téléchargez et installez les packages NuGet pour Azure Data Factory. Les instructions sont fournies dans la procédure pas à pas.
 
@@ -364,7 +364,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. Dans l’Explorateur de solutions, développez le projet (**DataFactoryAPITestApp**), cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case pour l’assembly `System.Configuration` et cliquez sur **OK**.
+14. Dans l’Explorateur de solutions, développez le projet **DataFactoryAPITestApp**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case pour l’assembly `System.Configuration` et cliquez sur **OK**.
 15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**.
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 

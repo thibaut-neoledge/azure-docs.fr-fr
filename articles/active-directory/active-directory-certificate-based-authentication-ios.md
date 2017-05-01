@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/30/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 28c2ef4878305d5cdb37ab8c0802644b1f236337
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 754fad938fef321c07b95ddb5727ffdb2b0eaa2c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,7 +29,7 @@ L’authentification par certificat (CBA) vous permet d’être authentifié par
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
-Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil Android pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business, Education et US Government. 
+Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS pour les utilisateurs de locataires dans les plans Office 365 Entreprise, Business, Éducation et US Government. 
 
 Cette fonctionnalité est disponible en version préliminaire dans les plans Office 365 US Government Defense et US Government Federal.
 

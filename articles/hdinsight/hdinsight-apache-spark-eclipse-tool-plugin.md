@@ -1,6 +1,6 @@
 ---
 title: "Utiliser le kit de ressources Azure pour Eclipse pour créer des applications Scala pour Spark | Microsoft Docs"
-description: "Apprenez à créer une application Spark autonome à exécuter sur un cluster HDInsight Spark."
+description: "Utilisez les outils HDInsight dans le kit de ressources Azure pour Eclipse pour développer des applications Spark écrites en Scala et envoyez-les à un cluster HDInsight Spark, directement à partir de l’IDE Eclipse."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse afin de créer des applications Spark pour un cluster Linux HDInsight Spark
-Cet article fournit des instructions pas à pas sur le développement d’applications Spark écrites en Scala et leur envoi à un cluster HDInsight Spark à l’aide d’HDInsight Tools dans le kit de ressources Azure pour Eclipse. Vous pouvez utiliser ces outils de différentes manières :
+# <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-cluster"></a>Utiliser le kit de ressources Azure pour Eclipse pour créer des applications Spark pour le cluster HDInsight
+
+Utilisez les outils HDInsight dans le kit de ressources Azure pour Eclipse pour développer des applications Spark écrites en Scala et envoyez-les à un cluster HDInsight Spark, directement à partir de l’IDE Eclipse. Vous pouvez utiliser le plug-in des outils HDInsight de différentes manières :
 
 * Pour développer une application Spark Scala et l’envoyer à un cluster HDInsight Spark
 * Pour accéder à vos ressources de cluster Azure HDInsight Spark

@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 04/12/2017
 ms.author: clemensv;jotaub;hillaryc;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
-ms.openlocfilehash: 72bfbc4c3cc4a3941d842f4fc688df5d6fb46ba8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9197e429f25f5431d7ea36170c3339cd4d4bc32d
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
+
 Advanced Message Queueing Protocol 1.0 est un protocole de transfert et de tramage normalisé permettant de transférer de manière asynchrone, sécurisée et fiable des messages entre deux parties. Il est le principal protocole de messagerie Azure Service Bus et Azure Event Hubs. Les deux services prennent également en charge le protocole HTTPS. Le protocole SBMP propriétaire qui est également pris en charge est progressivement supprimé en faveur du protocole AMQP.
 
 AMQP 1.0 est le résultat d’une vaste collaboration au sein du secteur entre des fournisseurs de middleware, tels que Microsoft et Red Hat et de nombreux utilisateurs de middleware de messagerie, tels que JP Morgan Chase représentant le secteur des services financiers. OASIS est le forum de normalisation technique destiné au protocole AMQP et aux spécifications d’extension ayant été approuvé officiellement comme norme internationale nommée ISO/IEC 19494.
 
 ## <a name="goals"></a>Objectifs
+
 Cet article résume brièvement les concepts fondamentaux de la spécification relative à la messagerie AMQP 1.0 et un petit ensemble de spécifications d’extension à l’état de projet, en cours de finalisation par le comité technique AMQP d’OASIS, et explique comment Azure Service Bus implémente et s’appuie sur ces spécifications.
 
 L’objectif est de permettre à tout développeur utilisant une pile de client AMQP 1.0 existante sur n’importe quelle plateforme d’interagir avec Azure Service Bus via AMQP 1.0.
@@ -37,7 +40,8 @@ Dans la discussion suivante, nous supposerons que la gestion des connexions, des
 Lorsque nous aborderons les fonctionnalités avancées d’Azure Service Bus, telles que la recherche de messages ou la gestion des sessions, celles-ci seront expliquées en termes AMQP, mais également sous la forme d’une pseudo-implémentation en couche au-dessus de cette abstraction d’API supposée.
 
 ## <a name="what-is-amqp"></a>Qu’est-ce que le protocole AMQP ?
-AMQP est un protocole de tramage et de transfert. Le tramage signifie qu’il fournit la structure des flux de données binaires qui circulent dans les deux directions d’une connexion réseau. La structure délimite les blocs de données distincts (trames) à échanger entre les parties connectées. Les fonctionnalités de transfert s’assurent que les deux parties qui communiquent peuvent établir une compréhension partagée pour savoir quand les trames doivent être transférées et à quel moment les transferts doivent être considérés comme terminés.
+
+AMQP est un protocole de tramage et de transfert. Le tramage signifie qu’il fournit la structure des flux de données binaires qui circulent dans les deux directions d’une connexion réseau. La structure délimite les blocs de données distincts (*trames*) à échanger entre les parties connectées. Les fonctionnalités de transfert s’assurent que les deux parties qui communiquent peuvent établir une compréhension partagée pour savoir quand les trames doivent être transférées et à quel moment les transferts doivent être considérés comme terminés.
 
 Contrairement aux précédents projets de version expirés élaborés par le groupe de travail AMQP, qui sont encore en cours d’utilisation par quelques courtiers de messages, le protocole AMQP 1.0 normalisé et finalisé du groupe de travail ne recommande pas la présence d’un courtier de messages ou d’une topologie spécifique pour les entités situées dans un courtier de messages.
 
@@ -46,14 +50,16 @@ Le protocole peut être utilisé pour la communication pair à pair symétrique,
 Le protocole AMQP 1.0 est conçu pour être extensible et autoriser d’autres spécifications pour améliorer ses fonctionnalités. Les trois spécifications d’extension que nous abordons dans ce document illustrent ce principe. Pour les communications via l’infrastructure HTTPS/WebSockets où la configuration des ports AMQP TCP natifs peut être difficile, une spécification de liaison définit comment disposer AMQP sur WebSocket. Pour l’interaction avec l’infrastructure de messagerie sous forme de demande/réponse à des fins de gestion ou pour fournir des fonctionnalités avancées, la spécification de gestion AMQP définit les primitives d’interaction de base requises. Pour l’intégration du modèle d’autorisation fédérée, la spécification de la sécurité basée sur des revendications AMQP définit comment associer et renouveler des jetons d’autorisation associés aux liens.
 
 ## <a name="basic-amqp-scenarios"></a>Scénarios AMQP de base
+
 Cette section explique l’utilisation de base d’AMQP 1.0 avec Azure Service Bus, qui inclut la création de connexions, de sessions et de liens et le transfert de messages vers et depuis des entités Service Bus, telles que des files d’attente, des rubriques et des abonnements.
 
 La source faisant le plus autorité pour découvrir comment fonctionne AMQP est la spécification AMQP 1.0. La spécification a été élaborée pour guider de manière précise l’implémentation et non pour être formé au protocole. Cette section se concentre sur la présentation de toute la terminologie nécessaire à la description de l’utilisation d’AMQP 1.0 par Service Bus. Pour une présentation plus complète d’AMQP, et pour aborder plus largement AMQP 1.0, vous pouvez consulter [ce cours vidéo][this video course].
 
 ### <a name="connections-and-sessions"></a>Connexions et sessions
-![][1]
 
 AMQP appelle les *conteneurs* de programmes de communication ; ceux-ci contiennent les *nœuds*, qui sont les entités communiquant à l’intérieur de ces conteneurs. Une file d’attente peut être un nœud. AMQP permet le multiplexage, de sorte qu’une seule connexion peut être utilisée pour nombreux chemins de communication entre les nœuds ; par exemple, un client d’application peut recevoir simultanément à partir d’une file d’attente et envoyer vers une autre file d’attente via la même connexion réseau.
+
+![][1]
 
 La connexion réseau est par conséquent ancrée sur le conteneur. Elle est lancée par le conteneur dans le rôle client établissant une connexion de socket TCP sortante vers un conteneur dans le rôle de récepteur qui écoute et accepte les connexions TCP entrantes. L’établissement d’une liaison de connexion inclut la négociation de la version du protocole, la déclaration ou la négociation de l’utilisation du protocole Transport Level Security (TLS/SSL) et l’établissement d’une liaison d’authentification/autorisation au niveau de la portée de la connexion basée sur SASL.
 
@@ -61,7 +67,7 @@ Azure Service Bus requiert l’utilisation de TLS à tout moment. Il prend en ch
 
 Après avoir configuré la connexion et le protocole TLS, Service Bus propose deux options de mécanisme SASL :
 
-* SASL PLAIN est couramment utilisé pour transmettre des informations d’identification de nom d’utilisateur et de mot de passe à un serveur. Service Bus n’a pas de compte, mais des [règles de sécurité d’accès partagé](service-bus-shared-access-signature-authentication.md) nommées, qui confèrent des droits et sont associées à une clé. Le nom d’une règle est utilisé comme nom d’utilisateur et la clé (comme texte codé en base64) est utilisé comme mot de passe. Les droits associés à la règle choisie régissent les opérations autorisées sur la connexion.
+* SASL PLAIN est couramment utilisé pour transmettre des informations d’identification de nom d’utilisateur et de mot de passe à un serveur. Service Bus n’a pas de compte, mais des [règles de sécurité d’accès partagé](service-bus-sas.md) nommées, qui confèrent des droits et sont associées à une clé. Le nom d’une règle est utilisé comme nom d’utilisateur et la clé (comme texte codé en base64) est utilisé comme mot de passe. Les droits associés à la règle choisie régissent les opérations autorisées sur la connexion.
 * SASL ANONYMOUS est utilisé pour ignorer l’autorisation SASL lorsque le client souhaite utiliser le modèle (CBS) de sécurité basé sur des revendications, qui fera l’objet d’une description ultérieurement. Avec cette option, une connexion cliente peut être établie de manière anonyme pour une courte période pendant laquelle le client peut uniquement interagir avec le point de terminaison CBS, et la négociation CBS doit s’effectuer.
 
 Une fois la connexion de transport établie, chaque conteneur déclare la taille de trame maximale qu’il souhaite traiter, et le délai d’inactivité au terme duquel ils se déconnectent de manière unilatérale en l’absence d’activité sur la connexion.
@@ -77,9 +83,10 @@ Azure Service Bus utilise actuellement une session pour chaque connexion. La tai
 Les connexions, les canaux et les sessions sont éphémères. En cas de coupure de la connexion sous-jacente, les connexions, le tunnel TLS, le contexte d’autorisation SASL et les sessions doivent être rétablis.
 
 ### <a name="links"></a>Liens
-![][2]
 
 AMQP transfère les messages via des liens. Un lien est un chemin de communication créé sur une session qui permet le transfert de messages dans une seule direction ; la négociation du statut de transfert s’effectue sur le lien et est bidirectionnelle entre les parties connectées.
+
+![][2]
 
 Des liens peuvent être créés par un conteneur à tout moment et sur une session existante, ce qui rend AMQP différent de nombreux protocoles, y compris HTTP et MQTT, où le lancement de transferts et le chemin d’accès de transfert sont un privilège exclusif de la partie créant la connexion de socket.
 
@@ -87,35 +94,37 @@ Le conteneur à l’origine du lien demande au conteneur opposé d’accepter un
 
 Des liens sont nommés et associés à des nœuds. Comme indiqué au début, les nœuds sont les entités qui communiquent à l’intérieur d’un conteneur.
 
-Dans Azure Service Bus, un nœud est l’équivalent direct d’une file d’attente, d’une rubrique, d’un abonnement ou d’une sous-file d’attente de rebut d’une file d’attente ou d’un abonnement. Le nom de nœud utilisé dans AMQP est donc le nom relatif de l’entité au sein de l’espace de noms Service Bus. Si une file d’attente est nommée **myqueue**, ce dernier est également son nom de nœud AMQP. Un abonnement de rubrique suit la convention de l’API HTTP dans la mesure où il est trié dans la collection de ressources « subscriptions ». Par conséquent, un abonnement **sub** ou une rubrique **mytopic** porte le nom de nœud AMQP **mytopic/subscriptions/sub**.
+Dans Service Bus, un nœud est l’équivalent direct d’une file d’attente, d’une rubrique, d’un abonnement ou d’une sous-file d’attente de rebut d’une file d’attente ou d’un abonnement. Le nom de nœud utilisé dans AMQP est donc le nom relatif de l’entité au sein de l’espace de noms Service Bus. Si une file d’attente est nommée **myqueue**, ce dernier est également son nom de nœud AMQP. Un abonnement de rubrique suit la convention de l’API HTTP dans la mesure où il est trié dans la collection de ressources « subscriptions ». Par conséquent, un abonnement **sub** ou une rubrique **mytopic** porte le nom de nœud AMQP **mytopic/subscriptions/sub**.
 
 Le client qui se connecte doit également utiliser un nom de nœud local pour la création de liens ; Service Bus n’est pas normatif concernant ces noms de nœud et ne les interprète pas. Les piles de client AMQP 1.0 utilisent en général un schéma pour s’assurer que ces noms de nœud éphémères sont uniques dans le cadre du client.
 
 ### <a name="transfers"></a>Transferts
-![][3]
 
 Une fois qu’un lien a été établi, les messages peuvent être transférés via celui-ci. Dans AMQP, un transfert est exécuté avec un mouvement de protocole explicite (le performatif de *transfert*) qui déplace un message de l’expéditeur vers le destinataire via un lien. Un transfert est terminé lorsqu’il « réglé », ce qui signifie que les deux parties ont établi une compréhension commune du résultat de ce transfert.
 
-Dans le cas le plus simple, l’expéditeur peut choisir d’envoyer des messages « préalablement réglés », ce qui signifie que le client n’est pas intéressé par le résultat et que le destinataire ne fournira pas de commentaires sur le résultat de l’opération. Ce mode est pris en charge par Azure Service Bus au niveau protocole AMQP, mais n’est pas exposé dans les API du client.
+![][3]
 
-En temps normal les messages sont envoyés non réglés et le destinataire indique l’acceptation ou le rejet à l’aide du performatif de *traitement*. Le rejet se produit lorsque le destinataire ne peut pas accepter le message pour une raison quelconque. Le message de refus contient des informations sur la raison, qui est une structure d’erreur définie par AMQP. Si les messages sont rejetés en raison d’erreurs internes dans Azure Service Bus, le service renvoie des informations supplémentaires à l’intérieur de cette structure utilisables pour fournir des indications de diagnostic au personnel chargé du support technique si vous déposez des demandes de support. Nous aborderons les erreurs plus en détail ultérieurement.
+Dans le cas le plus simple, l’expéditeur peut choisir d’envoyer des messages « préalablement réglés », ce qui signifie que le client n’est pas intéressé par le résultat et que le destinataire ne fournira pas de commentaires sur le résultat de l’opération. Ce mode est pris en charge par Service Bus au niveau protocole AMQP, mais n’est pas exposé dans les API du client.
+
+En temps normal les messages sont envoyés non réglés et le destinataire indique l’acceptation ou le rejet à l’aide du performatif de *traitement*. Le rejet se produit lorsque le destinataire ne peut pas accepter le message pour une raison quelconque. Le message de refus contient des informations sur la raison, qui est une structure d’erreur définie par AMQP. Si les messages sont rejetés en raison d’erreurs internes dans Service Bus, le service renvoie des informations supplémentaires à l’intérieur de cette structure utilisables pour fournir des indications de diagnostic au personnel chargé du support technique si vous déposez des demandes de support. Nous aborderons les erreurs plus en détail ultérieurement.
 
 Une forme spéciale de rejet est l’état *released*, qui indique que le destinataire n’oppose pas d’objection technique au transfert, et qu’il n’est pas intéressé par le fait de régler ce dernier. Ce cas survient, par exemple, lorsqu’un message est envoyé à un client de Service Bus et que le client choisit d’« abandonner » le message, car il ne peut pas effectuer le travail issu du traitement du message, alors que la remise du message proprement dite n’est pas en cause. L’état *modified* est une variante de cet état. Il permet de modifier le message au moment de sa publication. Cet état n’est pas utilisé par Service Bus à l’heure actuelle.
 
-La spécification AMQP 1.0 définit un autre état de traitement *received* qui permet de traiter spécifiquement la récupération de liens. La récupération de liens permet de reconstituer l’état d’un lien et toutes les remises en attente sur une nouvelle connexion et session, lorsque la session et la connexion précédentes ont été perdues.
+La spécification AMQP 1.0 définit un autre état de traitement, *received*, qui permet de traiter spécifiquement la récupération de liens. La récupération de liens permet de reconstituer l’état d’un lien et toutes les remises en attente sur une nouvelle connexion et session, lorsque la session et la connexion précédentes ont été perdues.
 
-Azure Service Bus ne prend pas en charge la récupération de liens ; si le client perd la connexion à Service Bus avec un transfert de message non réglé en attente, ce transfert de message est perdu et le client doit se reconnecter, rétablir le lien et relancer le transfert.
+Service Bus ne prend pas en charge la récupération de liens ; si le client perd la connexion à Service Bus avec un transfert de message non réglé en attente, ce transfert de message est perdu et le client doit se reconnecter, rétablir le lien et relancer le transfert.
 
-Ainsi, Azure Service Bus et Event Hubs prennent en charge les transferts « au moins une fois » où l’expéditeur peut être assuré du stockage et de l’acceptation de son message. Toutefois, les transferts « une fois au maximum » au niveau AMQP, au cours desquels le système tenterait de récupérer le lien et continuerait de négocier l’état de remise pour éviter la duplication du transfert du message, ne sont pas pris en charge.
+Ainsi, Service Bus et Event Hubs prennent en charge les transferts « au moins une fois » où l’expéditeur peut être assuré du stockage et de l’acceptation de son message. Toutefois, les transferts « une fois au maximum » au niveau AMQP, au cours desquels le système tenterait de récupérer le lien et continuerait de négocier l’état de remise pour éviter la duplication du transfert du message, ne sont pas pris en charge.
 
-Pour compenser les potentiels envois en double, Azure Service Bus prend en charge la détection des doublons comme fonctionnalité facultative sur les files d’attente et les rubriques. La détection des doublons enregistre les ID de message de tous les messages entrants pendant un laps de temps défini par l’utilisateur et annule de manière silencieuse tous les messages envoyés avec le même ID de message au cours de cette même période.
+Pour compenser les potentiels envois en double, Service Bus prend en charge la détection des doublons comme fonctionnalité facultative sur les files d’attente et les rubriques. La détection des doublons enregistre les ID de message de tous les messages entrants pendant un laps de temps défini par l’utilisateur et annule de manière silencieuse tous les messages envoyés avec le même ID de message au cours de cette même période.
 
 ### <a name="flow-control"></a>Contrôle de flux
-![][4]
 
 Outre le modèle de contrôle de flux au niveau de la session indiqué précédemment, chaque lien a son propre modèle de contrôle de flux. Le contrôle de flux au niveau de la session évite au conteneur de devoir gérer un trop grand nombre de trames en une seule fois. Le contrôle de flux au niveau du lien charge l’application de décider du nombre de messages qu’elle souhaite gérer à partir d’un lien et à quel moment.
 
-Les transferts ne peuvent se produire sur un lien que lorsque l’expéditeur dispose d’un « crédit de lien » suffisant. Le crédit de lien est un compteur défini par le récepteur à l’aide du performatif de *flux*, qui est limité à un lien. Dès que l’expéditeur se voit attribuer un crédit de lien, il tente de l’utiliser en envoyant des messages. Chaque remise de message décrémente d’autant le crédit de lien restant. Lorsque le crédit de lien est épuisé, les remises s’interrompent.
+![][4]
+
+Les transferts ne peuvent se produire sur un lien que lorsque l’expéditeur dispose d’un « *crédit de lien* » suffisant. Le crédit de lien est un compteur défini par le récepteur à l’aide du performatif de *flux*, qui est limité à un lien. Dès que l’expéditeur se voit attribuer un crédit de lien, il tente de l’utiliser en envoyant des messages. Chaque remise de message décrémente d’autant (1) le crédit de lien restant. Lorsque le crédit de lien est épuisé, les remises s’interrompent.
 
 Lorsque Service Bus se trouve dans le rôle du destinataire, il offre instantanément à l’expéditeur un crédit de lien important permettant d’envoyer immédiatement des messages. À mesure que le crédit de lien est utilisé, Service Bus envoie parfois un performatif de *flux* à l’expéditeur pour mettre à jour le solde du crédit de lien.
 
@@ -125,51 +134,58 @@ Un appel de « réception » au niveau de l’API se traduit par un performatif 
 
 Le verrouillage d’un message est levé dès que l’état terminal d’un transfert est *accepted*, *rejected*, ou *released*. Le message est supprimé de Service Bus lorsque l’état terminal est *accepted*. Il reste dans Service Bus et est remis au destinataire suivant dès que le transfert se voit attribuer un des autres états. Service Bus déplace automatiquement le message vers la file d’attente de rebut de l’entité lorsque le nombre maximal de remises autorisé pour l’entité est atteint en raison des rejets répétés ou des versions.
 
-Bien qu’aujourd’hui les API Service Bus officielles n’exposent pas directement une telle option, un client de protocole AMQP de niveau inférieur peut utiliser le modèle de crédit de lien pour transformer l’interaction de style « pull», qui consiste à émettre une unité de crédit pour chaque demande de réception en un modèle de style « push » qui consiste à émettre un très grand nombre de crédits de lien et à recevoir les messages dès qu’ils sont disponibles sans intervention supplémentaire. Le modèle Push est pris en charge par le biais des paramètres de propriétés [MessagingFactory.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) ou [MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Lorsqu’ils sont différents de zéro, le client AMQP l’utilise comme crédit de lien.
+Bien qu’aujourd’hui les API Service Bus n’exposent pas directement une telle option, un client de protocole AMQP de niveau inférieur peut utiliser le modèle de crédit de lien pour transformer l’interaction de style « pull», qui consiste à émettre une unité de crédit pour chaque demande de réception en un modèle de style « push » qui consiste à émettre un très grand nombre de crédits de lien et à recevoir les messages dès qu’ils sont disponibles sans intervention supplémentaire. Le modèle Push est pris en charge par le biais des paramètres de propriétés [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Lorsqu’ils sont différents de zéro, le client AMQP l’utilise comme crédit de lien.
 
 Dans ce contexte, il est important de comprendre que l’horloge d’expiration du verrou sur le message situé à l’intérieur de l’entité démarre lorsque le message est extrait de l’entité, et non lorsqu’il est envoyé. Chaque fois que le client indique qu’il est prêt à recevoir des messages en émettant un crédit de lien, on s’attend à ce qu’il extrait de manière active des messages sur le réseau et qu’il soit prêt à les gérer. Sinon, le verrouillage du message peut expirer avant même la remise du message. L’utilisation du contrôle de flux de crédit de lien doit refléter directement la disponibilité de traitement immédiate des messages disponibles distribués auprès du destinataire.
 
 En résumé, les sections suivantes fournissent une vue d’ensemble schématique du flux performatif lors des différentes interactions de l’API. Chaque section décrit une opération logique différente. Certaines de ces interactions peuvent être « différées », ce qui signifie qu’elles peuvent être effectuées uniquement en cas de besoin. La création d’un expéditeur de message peut ne pas provoquer d’interaction réseau tant que le premier message n’est pas envoyé ou demandé.
 
-Les flèches indiquent le sens du flux performatif.
+Les flèches dans le tableau suivant indiquent le sens du flux performatif.
 
-#### <a name="create-message-receiver"></a>Créer le destinataire du message
+#### <a name="create-message-receiver"></a>Création du destinataire du message
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**receiver**,<br/>source={nom de l’entité},<br/>target={id du lien client}<br/>) |Le client se joint à l’entité en tant que destinataire |
 | Service Bus répond en attachant son extrémité du lien |<-- attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**sender**,<br/>source={nom de l’entité},<br/>target={id du lien client}<br/>) |
 
 #### <a name="create-message-sender"></a>Création de l’expéditeur du message
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**sender**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |Aucune action |
 | Aucune action |<-- attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**receiver**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Création de l’expéditeur du message (erreur)
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**sender**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |Aucune action |
 | Aucune action |<-- attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={gestion numérique},<br/>closed=**true**,<br/>error={infos sur l’erreur}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Fermeture de l’expéditeur/du destinataire du message
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> detach(<br/>handle={gestion numérique},<br/>closed=**true**<br/>) |Aucune action |
 | Aucune action |<-- detach(<br/>handle={gestion numérique},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Envoi (réussite)
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={gestion numérique},<br/>delivery-tag={gestion binaire},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Aucune action |
 | Aucune action |<-- disposition(<br/>role=receiver,<br/>first={id d’envoi},<br/>last={id d’envoi},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Envoi (erreur)
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={gestion numérique},<br/>delivery-tag={gestion binaire},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Aucune action |
 | Aucune action |<-- disposition(<br/>role=receiver,<br/>first={id d’envoi},<br/>last={id d’envoi},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={infos sur l’erreur}<br/>)<br/>) |
 
 #### <a name="receive"></a>Réception
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Aucune action |
@@ -177,6 +193,7 @@ Les flèches indiquent le sens du flux performatif.
 | --> disposition(<br/>role=**receiver**,<br/>first={id d’envoi},<br/>last={id d’envoi},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Aucune action |
 
 #### <a name="multi-message-receive"></a>Réception de plusieurs messages
+
 | Client | SERVICE BUS |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |Aucune action |
@@ -186,36 +203,40 @@ Les flèches indiquent le sens du flux performatif.
 | --> disposition(<br/>role=receiver,<br/>first={id d’envoi},<br/>last={id d’envoi+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Aucune action |
 
 ### <a name="messages"></a>Messages
-Les sections suivantes expliquent quelles propriétés des sections de message AMQP standard sont utilisées par Service Bus et comment elles correspondent aux API Service Bus officielles.
+
+Les sections suivantes expliquent quelles propriétés des sections de message AMQP standard sont utilisées par Service Bus et comment elles correspondent aux API Service Bus.
 
 #### <a name="header"></a>en-tête
-| Nom du champ | Utilisation | Nom de l’API |
+
+| Nom du champ | Usage | Nom de l’API |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Durée de vie de ce message |[TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |Durée de vie de ce message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
 #### <a name="properties"></a>properties
-| Nom du champ | Utilisation | Nom de l’API |
+
+| Nom du champ | Usage | Nom de l’API |
 | --- | --- | --- |
-| message-id |Identifiant défini par l’application, au format libre pour ce message. Utilisation pour la détection des doublons. |[MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |Identifiant défini par l’application, au format libre pour ce message. Utilisation pour la détection des doublons. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Identifiant d’utilisateur défini par l’application, non interprété par Service Bus. |Pas accessible via l’API Service Bus. |
-| to |Identifiant de destination défini par l’application, non interprété par Service Bus. |[To](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| subject |Identifiant d’objet de message défini par l’application, non interprété par Service Bus. |[Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Indicateur reply-path défini par l’application, non interprété par Service Bus. |[ReplyTo](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Identifiant de corrélation défini par l’application, non interprété par Service Bus. |[CorrelationId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Indicateur de type de contenu défini par l’application pour le corps, non interprété par Service Bus. |[ContentType](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| to |Identifiant de destination défini par l’application, non interprété par Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| subject |Identifiant d’objet de message défini par l’application, non interprété par Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |Indicateur reply-path défini par l’application, non interprété par Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |Identifiant de corrélation défini par l’application, non interprété par Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| content-type |Indicateur de type de contenu défini par l’application pour le corps, non interprété par Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |Indicateur d’encodage de contenu défini par l’application pour le corps, non interprété par Service Bus. |Pas accessible via l’API Service Bus. |
-| absolute-expiry-time |Déclare à quel instant absolu le message expire. Ignoré en entrée (la durée de vie de l’en-tête est observée), fait autorité en sortie. |[ExpiresAtUtc](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Déclare à quel instant absolu le message expire. Ignoré en entrée (la durée de vie de l’en-tête est observée), fait autorité en sortie. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Déclare à quelle heure le message a été créé. Pas utilisé par Service Bus |Pas accessible via l’API Service Bus. |
-| group-id |Identifiant défini par l’application pour un ensemble de messages connexes. Utilisé pour les sessions Service Bus. |[SessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |Identifiant défini par l’application pour un ensemble de messages connexes. Utilisé pour les sessions Service Bus. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Compteur identifiant le nombre de séquences relatives du message se trouvant dans la session. Ignoré par Service Bus. |Pas accessible via l’API Service Bus. |
-| reply-to-group-id |- |[ReplyToSessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
 ## <a name="advanced-service-bus-capabilities"></a>Fonctionnalités avancées de Service Bus
-Cette section traite des fonctionnalités avancées d’Azure Service Bus qui reposent sur des projets d’extension d’AMQP en cours de développement au sein du comité technique OASIS pour AMQP. Azure Service Bus implémente le dernier état de ces projets et adoptera les modifications introduites dès que ces projets auront été normalisés.
+
+Cette section traite des fonctionnalités avancées d’Azure Service Bus qui reposent sur des projets d’extension d’AMQP en cours de développement au sein du comité technique OASIS pour AMQP. Service Bus implémente la dernière version de ces projets et adoptera les modifications introduites dès que ces projets auront été normalisés.
 
 > [!NOTE]
 > Les opérations avancées de messagerie Service Bus sont prises en charge via un modèle de demande/réponse. Les détails de ces opérations sont décrits dans le document [AMQP 1.0 in Service Bus: request/response-based operations](service-bus-amqp-request-response.md) (AMQP 1.0 dans Service Bus : opérations basées sur le modèle de demande-réponse).
@@ -223,6 +244,7 @@ Cette section traite des fonctionnalités avancées d’Azure Service Bus qui re
 > 
 
 ### <a name="amqp-management"></a>Gestion du protocole AMQP
+
 La spécification de gestion du protocole AMQP est le premier projet d’extension dont nous parlerons ici. Cette spécification définit un ensemble de mouvements de protocole disposés en couche au-dessus du protocole AMQP, qui permettent des interactions de gestion avec l’infrastructure de messagerie via AMQP. La spécification définit des opérations génériques, telles que la *création*, la *lecture*, la *mise à jour* et la *suppression*, pour la gestion des entités au sein d’une infrastructure de messagerie et un ensemble d’opérations de requête.
 
 Tous ces mouvements nécessitent une interaction demande/réponse entre le client et l’infrastructure de messagerie. Par conséquent, la spécification définit comment modéliser ce modèle d’interaction au-dessus d’AMQP : le client se connecte à l’infrastructure de messagerie, lance une session, puis crée une paire de liens. Sur un lien, le client joue le rôle d’expéditeur et sur l’autre, il agit en tant que destinataire, créant ainsi une paire de liens pouvant agir sous forme de canal bidirectionnel.
@@ -240,9 +262,10 @@ Ce modèle nécessite évidemment que le conteneur du client et l’identifiant 
 
 Les échanges de messages utilisés pour le protocole de gestion et pour tous les autres protocoles utilisant le même modèle se produisent au niveau de l’application ; ils ne définissent pas de nouveaux mouvements au niveau du protocole AMQP. Cela est intentionnel afin que les applications puissent tirer immédiatement parti de ces extensions avec les piles compatibles AMQP 1.0.
 
-Azure Service Bus n’implémente actuellement aucune des principales fonctionnalités de la spécification de gestion. Toutefois, le modèle demande/réponse défini par cette dernière est indispensable pour la fonctionnalité de sécurité basée sur des revendications et pour presque toutes les fonctionnalités avancées que nous aborderons dans les sections suivantes.
+Service Bus n’implémente actuellement aucune des principales fonctionnalités de la spécification de gestion. Toutefois, le modèle demande/réponse défini par cette dernière est indispensable pour la fonctionnalité de sécurité basée sur des revendications et pour presque toutes les fonctionnalités avancées que nous aborderons dans les sections suivantes.
 
 ### <a name="claims-based-authorization"></a>Autorisation basée sur des revendications
+
 Le projet de spécification d’autorisation basée sur des revendications AMQP (CBS) s’appuie sur le modèle demande/réponse de la spécification de gestion et décrit un modèle généralisé pour l’utilisation des jetons de sécurité fédérés avec AMQP.
 
 Le modèle de sécurité par défaut du protocole AMQP abordé dans l’introduction repose sur SASL et s’intègre à la négociation de connexion AMQP. L’utilisation de SASL a l’avantage de fournir un modèle extensible pour lequel un ensemble de mécanismes a été défini desquels tout protocole reposant officiellement sur SASL peut bénéficier. Parmi ces mécanismes figurent « PLAIN » pour le transfert des noms d’utilisateurs et des mots de passe, « EXTERNAL » pour la liaison avec la sécurité au niveau TLS, « ANONYMOUS » pour exprimer l’absence d’authentification/autorisation explicite et une grande variété de mécanismes supplémentaires qui permettent de transmettre des jetons ou des informations d’identification d’authentification et/ou d’autorisation.
@@ -252,7 +275,7 @@ L’intégration de SASL au protocole AMQP présente deux inconvénients :
 * L’ensemble des informations d’identification et des jetons se limite à la connexion. Une infrastructure de messagerie peut vouloir fournir un contrôle d’accès différencié par entité. Par exemple, en autorisant le porteur d’un jeton à effectuer un envoi vers la file d’attente A, mais pas la file d’attente B. Dans la mesure où le contexte d’autorisation est ancré à la connexion, il est impossible d’utiliser une connexion unique et des jetons d’accès différents pour les files d’attente A et B.
 * Les jetons d’accès sont généralement valides uniquement pour une durée limitée. Cela oblige l’utilisateur à réacquérir régulièrement des jetons et offre la possibilité à l’émetteur du jeton de refuser d’en émettre un nouveau si les autorisations d’accès de l’utilisateur ont été modifiées. Les connexions AMQP peuvent durer très longtemps. Le modèle SASL permet uniquement de définir un jeton au moment de la connexion, ce qui signifie que l’infrastructure de messagerie doit déconnecter le client lorsque le jeton a expiré ou accepter le risque lié au fait d’autoriser des communications continues avec un client dont les droits d’accès peuvent avoir été révoqués entre-temps.
 
-La spécification AMQP CBS, implémentée par Azure Service Bus, offre une solution de contournement élégante pour ces deux problèmes : elle permet à un client d’associer des jetons d’accès à chaque nœud et de mettre à jour ces jetons avant leur expiration, sans interrompre le flux de messages.
+La spécification AMQP CBS, implémentée par Service Bus, offre une solution de contournement élégante pour ces deux problèmes : elle permet à un client d’associer des jetons d’accès à chaque nœud et de mettre à jour ces jetons avant leur expiration, sans interrompre le flux de messages.
 
 CBS définit un nœud de gestion virtuel nommé *$cbs*, qui doit être fourni par l’infrastructure de messagerie. Le nœud de gestion accepte les jetons pour le compte de tous les autres nœuds dans l’infrastructure de messagerie.
 
@@ -275,7 +298,7 @@ La propriété *name* identifie l’entité avec laquelle le jeton doit être as
 | amqp:swt |Clé d’authentification Web simple (SWT) |Valeur AMQP (chaîne) |Pris en charge uniquement pour les clés d’authentification web simples SWT émises par AAD/ACS |
 | servicebus.windows.net:sastoken |Jeton SAS Service Bus |Valeur AMQP (chaîne) |- |
 
-Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle d’*expéditeur* exige le droit « Envoyer ». Le rôle de *destinataire* exige le droit « Écouter ».
+Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle *d’expéditeur* exige le droit « Envoyer ». Le rôle de *destinataire* exige le droit « Écouter ».
 
 Le message de réponse a les valeurs *application-properties* suivantes :
 
@@ -295,6 +318,7 @@ Une fois la session et la connexion établies, l’association des liens avec le
 Le client est ensuite chargé de vérifier l’expiration du jeton. Lorsqu’un jeton arrive à expiration, Service Bus annule rapidement tous les liens sur la connexion à l’entité respective. Pour éviter cela, le client peut remplacer le jeton du nœud par un nouveau jeton à tout moment via le nœud de gestion *$cbs* virtuel avec le même mouvement *put-token* et sans gêner le trafic de la charge utile qui transite sur différents liens.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur AMQP, consultez les liens suivants :
 
 * [Vue d’ensemble d’AMQP de Service Bus]
@@ -302,17 +326,12 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 * [AMQP dans Service Bus pour Windows Server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
-[1]: ./media/service-bus-amqp/amqp1.png
-[2]: ./media/service-bus-amqp/amqp2.png
-[3]: ./media/service-bus-amqp/amqp3.png
-[4]: ./media/service-bus-amqp/amqp4.png
+[1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
+[2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
+[3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
+[4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
