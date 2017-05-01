@@ -8,8 +8,3 @@
    
     Un message s’affiche lorsque la mise à jour est correctement installée.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

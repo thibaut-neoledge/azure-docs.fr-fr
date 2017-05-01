@@ -8,8 +8,3 @@ Cet article concerne Azure App Service (Web Apps, API Apps, Mobile Apps, Logic A
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

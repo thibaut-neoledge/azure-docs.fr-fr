@@ -16,8 +16,3 @@ Cette condition évaluera le champ d’adresse de messagerie de chaque nouveau p
    ![Image de condition Salesforce 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Enregistrez vos applications logiques.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

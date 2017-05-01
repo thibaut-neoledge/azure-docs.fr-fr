@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Dropbox
 5. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![Dropbox étape 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,8 +12,3 @@ Dans ce scénario, vous allez créer un itinéraire défini par l’utilisateur 
 
 La combinaison de ces itinéraires garantit que tout le trafic qui transite d’un sous-réseau à un autre est routé vers la machine virtuelle **FW1** , qui fait office d’équipement virtuel. Vous devez également activer le transfert IP pour cette machine virtuelle, afin qu’elle puisse recevoir le trafic destiné aux autres machines virtuelles.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

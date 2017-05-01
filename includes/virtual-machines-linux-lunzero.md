@@ -19,8 +19,3 @@ Ce comportement de disque n’est pas dû à un problème d’Azure, mais dépen
 * Examinez la sortie de `lsscsi` après l’ajout d’un disque de données pour vérifier que vous disposez d’un disque sur le LUN 0.
 * Si le disque ne s’affiche pas correctement dans votre machine virtuelle, vérifiez qu'un disque existe sur le LUN 0.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

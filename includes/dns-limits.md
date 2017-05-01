@@ -6,8 +6,3 @@
 | Enregistrements par jeu d’enregistrements |20 |
 
 <sup>1</sup> Pour relever ces limites, contactez le support technique Azure.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

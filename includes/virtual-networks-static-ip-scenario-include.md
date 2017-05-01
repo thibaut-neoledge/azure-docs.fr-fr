@@ -5,8 +5,3 @@ Pour mieux illustrer la configuration d’une adresse IP statique pour une mach
 
 Dans ce scénario, vous allez créer une machine virtuelle nommée **DNS01** dans le sous-réseau **FrontEnd** et la configurer pour utiliser l’adresse IP statique **192.168.1.101**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

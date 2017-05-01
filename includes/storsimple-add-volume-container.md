@@ -18,8 +18,3 @@
 
 Le conteneur de volumes est enregistré et le nouveau conteneur de volumes apparaît sur la page **Conteneur de volumes** .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

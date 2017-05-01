@@ -7,8 +7,3 @@ Voici certaines situations dans lesquelles des équipements virtuels peuvent êt
 
 Pour plus d’informations sur les itinéraires définis par l’utilisateur et sur le transfert IP, consultez [Itinéraires définis par l’utilisateur et transfert IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -5,8 +5,3 @@
   * Vous pouvez uniquement utiliser les VPN basés sur les stratégies pour les connexions S2S et uniquement pour certaines configurations. La plupart des configurations de passerelle VPN requièrent un VPN basé sur les itinéraires.
 * **RouteBased**: les VPN basés sur un itinéraire étaient auparavant connus sous le nom de passerelles de routage dynamique dans le modèle de déploiement Classic. Les VPN basés sur un itinéraire utilisent des « itinéraires » dans l’adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie (ou le sélecteur de trafic) des VPN basés sur un itinéraire est configurée comme universelle (ou en caractères génériques). Le VPN de type basé sur un itinéraire a pour valeur *RouteBased*.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

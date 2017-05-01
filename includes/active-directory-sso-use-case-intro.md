@@ -16,8 +16,3 @@ Si les utilisateurs ont créé leurs propres comptes pour les applications SaaS 
 
 Lorsque vous intégrez une application dans Azure AD, vous pouvez mapper les identités d'application établies des utilisateurs à leurs identités Azure AD respectives.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

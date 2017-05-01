@@ -26,8 +26,3 @@ Connectez-vous à votre compte de stockage d’objets blob Azure en suivant ces 
    
     ![Étape de création de la connexion au stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

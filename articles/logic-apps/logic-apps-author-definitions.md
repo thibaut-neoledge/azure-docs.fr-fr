@@ -295,7 +295,7 @@ Nous voulons également disposer d’une sous-chaîne du nom de la commande, car
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

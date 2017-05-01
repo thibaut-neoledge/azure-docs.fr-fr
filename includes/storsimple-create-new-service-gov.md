@@ -18,8 +18,3 @@
       
        ![création du service](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -56,8 +56,3 @@ Pour connaître l’adresse IP ainsi que les noms **.azurewebsites.net** de vot
    > 
    > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
