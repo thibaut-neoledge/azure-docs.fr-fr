@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0b7010b75c612cb1112d7414bab1617844dfa65
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer People à A
 L’intégration de People à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à People
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à People (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à People via l’authentification unique avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central avec le portail Azure Classic
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -38,23 +38,25 @@ Pour configurer l’intégration d’Azure AD à People, vous avez besoin des é
 * Un abonnement Azure
 * Un abonnement People pour lequel l’authentification unique (SSO) est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de People à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-people-from-the-gallery"></a>Ajout de People à partir de la galerie
+## <a name="add-people-from-the-gallery"></a>Ajouter People à partir de la galerie
 Pour configurer l’intégration de People à Azure AD, vous devez ajouter People, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter People à partir de la galerie, procédez comme suit :**
@@ -79,8 +81,8 @@ Pour configurer l’intégration de People à Azure AD, vous devez ajouter Peopl
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/tutorial_people_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec People avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec People, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour configurer et tester l’authentification unique Azure AD avec People, vous devez suivre les indications des sections suivantes :
 
@@ -90,8 +92,8 @@ Pour configurer et tester l’authentification unique Azure AD avec People, vous
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application People.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application People.
 
 **Pour configurer l’authentification unique Azure AD avec People, procédez comme suit :**
 
@@ -132,9 +134,10 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+ * Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -154,9 +157,9 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-    2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-    3. Cliquez sur **Next**.
+   1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+   2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+   3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
@@ -176,11 +179,11 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    1. Notez la valeur du **Nouveau mot de passe**.
    2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-people-test-user"></a>Création d’un utilisateur de test People
+### <a name="create-a-people-test-user"></a>Créer un utilisateur de test People
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans People. People ne prenant pas en charge l’approvisionnement juste-à-temps, vous devez contacter l’équipe de support People pour créer un utilisateur manuellement.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à People.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à People.
 
 ![Affecter des utilisateurs][200] 
 
@@ -200,8 +203,9 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
 Quand vous cliquez sur la vignette People dans le volet d’accès, vous devez être connecté automatiquement à votre application People.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

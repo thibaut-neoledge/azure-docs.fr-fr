@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -52,18 +53,12 @@ Vous pouvez ajouter les fonctionnalités suivantes :
 [comment utiliser l'API de balisage avancée de Mobile Engagement dans votre application Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notes de publication
-### <a name="423-08102016"></a>4.2.3 (08/10/2016)
-* Plus aucun verrou Wi-Fi.
-* Résolution d'un blocage lors de l’appel de getDeviceId avant init (bogue introduit dans 4.2.0).
+### <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Résolution du problème des couleurs du texte de notification dans l’application sur Android 7, qui deviennent identiques à celles des versions antérieures d’Android.
 
 Pour toutes les versions, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procédures de mise à niveau
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

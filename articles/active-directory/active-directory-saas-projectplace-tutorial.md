@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fcf3332a6674524ea5354b96826586c79a4ba3e1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et Project
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour Projectplace
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
@@ -60,7 +61,7 @@ Cette section décrit l’activation de l’intégration d’application pour Pr
    
    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Projectplace avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
@@ -80,15 +81,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
    ![Configurer l’authentification unique](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configurer l’authentification unique")
 5. Envoyez le fichier de métadonnées à l’équipe du support technique Projectplace.
    
-   > [!NOTE]
-   > La configuration de l’authentification unique doit être effectuée par l’équipe du support technique Projectplace. Vous recevez une notification dès qu’elle est terminée.
+   >[!NOTE]
+   >La configuration de l’authentification unique doit être effectuée par l’équipe du support technique Projectplace. Vous recevez une notification dès qu’elle est terminée.
    > 
    > 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Projectplace, vous devez les approvisionner dans Projectplace. Dans le cas de Projectplace, l’approvisionnement est une tâche manuelle.
 
@@ -108,15 +109,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Projectplace, vous d
    1. Dans la zone de texte **New Members** , entrez l’adresse de messagerie d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
    2. Cliquez sur **Envoyer**.
 
- Un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé est envoyé au titulaire du compte Azure Active Directory.
+Un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé est envoyé au titulaire du compte Azure Active Directory.
 
 
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Projectplace pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[!NOTE]
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Projectplace pour approvisionner des comptes d’utilisateur Azure Active Directory.
 > 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à Projectplace, procédez comme suit :**
@@ -130,10 +131,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
    ![Oui](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

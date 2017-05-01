@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -171,6 +171,11 @@ Notez comment l’objet **query** est instancié avec une taille de page (jusqu�
 Notez que l’objet query expose plusieurs **next\***, selon l’option de désérialisation requise par la requête, par exemple des objets représentation d’appareil ou travail, ou un JSON simple à utiliser en cas d’utilisation de projections.
 
 ### <a name="limitations"></a>Limitations
+> [!IMPORTANT]
+> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Lors d’une recherche de jumeaux d’appareil par ID, il est toujours préférable d’utiliser l’API de récupération des jumeaux d’appareil, qui contient toujours les valeurs les plus récentes et qui a un seuil de limitation plus élevé.
+>
+>
+
 Actuellement, les comparaisons ne sont prises en charge qu’entre types primitifs (aucun objet), par exemple `... WHERE properties.desired.config = properties.reported.config` est pris en charge uniquement si ces propriétés ont des valeurs primitives.
 
 ## <a name="get-started-with-jobs-queries"></a>Prise en main des requêtes de travaux

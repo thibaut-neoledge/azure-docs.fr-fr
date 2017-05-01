@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -193,7 +193,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 >
 >
 
-1. Dans l’onglet **Machines** du groupe de protection, cliquez sur **Ajouter des machines virtuelles à des groupes de protection pour les protéger**.
+1. Dans l’onglet **Machines** du groupe de protection, cliquez sur **Ajouter des machines virtuelles à des groupes de protection pour activer la protection**.
 2. Dans la page **Activer la protection pour les machines virtuelles** , sélectionnez les machines virtuelles à protéger.
 
     ![Activer la protection pour les machines virtuelles](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -208,9 +208,9 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
      * **Taille**: taille cible de la machine virtuelle ayant basculé.
 
        ![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom_groupeprotection* > **Machines virtuelles***nom_machine_virtuelle* > **Configurer**. Cela inclut notamment les éléments suivants :
+   * Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom_groupeprotection* > **Machines virtuelles** *nom_machine_virtuelle* > **Configurer**, notamment :
 
-     * **Cartes réseau**: le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-linux-sizes.md) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
+     * **Cartes réseau**: le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/linux/sizes.md) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
 
        Lorsque vous modifiez la taille d’une machine virtuelle et enregistrez les paramètres, le nombre de cartes réseau changera lors de la prochaine ouverture de la page **Configurer** . Le nombre de cartes réseau des machines virtuelles cible est au minimum le nombre de cartes réseau sur la machine virtuelle source et au maximum le nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille. Vous trouverez l'explication ci-dessous :
 

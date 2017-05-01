@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 163bf5b8d2884f678f7fea2207055eeb78b4e8ba
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9662ff49e38d65fcba307bc3fc7a8ec699b13202
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,7 +36,7 @@ Mahout est une bibliothèque [Machine Learning][ml] pour Apache Hadoop. Mahout c
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création de ce dernier, consultez [Prise en main de Hadoop sous Linux dans HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Dépréciation d’HDInsight 3.2 et 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="mahout-versioning"></a>Contrôle de version Mahout
 
@@ -82,34 +82,34 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 ## <a name="view-the-output"></a>Affichage du résultat
 
 1. Une fois la tâche terminée, utilisez la commande suivante pour afficher le résultat généré :
-    
+
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
     La sortie se présente comme suit :
-   
+
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
-   
+
     La première colonne est `userID`. Les valeurs contenues entre  « [ » et « ] » sont `movieId`:`recommendationScore`.
 
 2. Vous pouvez utiliser la sortie ainsi que le fichier moviedb.txt pour fournir plus d’informations sur les recommandations. Nous devons tout d'abord copier les fichiers localement en utilisant les commandes suivantes :
 
-   ```bash
-   hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
-   hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
-   ```
+    ```bash
+    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
+    ```
 
     Cette commande copie les données de sortie dans un fichier nommé **recommendations.txt** dans le répertoire actif, avec les fichiers de données de film.
 
 3. Utilisez la commande suivante pour créer un script Python afin de rechercher les noms de film présents dans les données de sortie des recommandations :
 
-   ```bash
-   nano show_recommendations.py
-   ```
+    ```bash
+    nano show_recommendations.py
+    ```
 
     Lorsque l’éditeur s’ouvre, utilisez le texte suivant comme contenu du fichier :
 
@@ -164,75 +164,32 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
        print "%s, score=%s" % (movieById[movieId][0], score)
    print "------------------------"
    ```
-   
+
     Appuyez sur **Ctrl-X**, **O**, et enfin **Entrée** pour enregistrer les données.
 
 4. Pour rendre le fichier exécutable, utilisez la commande suivante :
-   
-   ```bash
-   chmod +x show_recommendations.py
-   ```
+
+    ```bash
+    chmod +x show_recommendations.py
+    ```
 
 5. Exécutez le script Python. La commande suivante suppose que vous avez ouvert le répertoire dans lequel tous les fichiers ont été téléchargés :
-   
-   ```bash
-   ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
-   ```
-    
+
+    ```bash
+    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    ```
+
     La commande examinera les recommandations générées pour l’utilisateur ID 4.
-   
-   * Le fichier **user-ratings.txt** est utilisé pour récupérer les films évalués.
 
-   * Le fichier **moviedb.txt** est utilisé pour récupérer les noms des films.
+    * Le fichier **user-ratings.txt** est utilisé pour récupérer les films évalués.
 
-   * Le fichier **recommendations.txt** est utilisé pour récupérer les recommandations de films pour cet utilisateur.
-     
+    * Le fichier **moviedb.txt** est utilisé pour récupérer les noms des films.
+
+    * Le fichier **recommendations.txt** est utilisé pour récupérer les recommandations de films pour cet utilisateur.
+
      Le résultat de cette commande doit ressembler au texte suivant :
-     
-     ```
-       Reading Movies Descriptions
-       Reading Rated Movies
-       Reading Recommendations
-     
-     ##   Rated Movies
-       Mimic (1997), rating=3
-       Ulee's Gold (1997), rating=5
-       Incognito (1997), rating=5
-       One Flew Over the Cuckoo's Nest (1975), rating=4
-       Event Horizon (1997), rating=4
-       Client, The (1994), rating=3
-       Liar Liar (1997), rating=5
-       Scream (1996), rating=4
-       Star Wars (1977), rating=5
-       Wedding Singer, The (1998), rating=5
-       Starship Troopers (1997), rating=4
-       Air Force One (1997), rating=5
-       Conspiracy Theory (1997), rating=3
-       Contact (1997), rating=5
-       Indiana Jones and the Last Crusade (1989), rating=3
-       Desperate Measures (1998), rating=5
-       Seven (Se7en) (1995), rating=4
-       Cop Land (1997), rating=5
-       Lost Highway (1997), rating=5
-       Assignment, The (1997), rating=5
-       Blues Brothers 2000 (1998), rating=5
-       Spawn (1997), rating=2
-       Wonderland (1997), rating=5
-     
-     ##   In & Out (1997), rating=5
-     ##   Recommended Movies
-       Seven Years in Tibet (1997), score=5.0
-       Indiana Jones and the Last Crusade (1989), score=5.0
-       Jaws (1975), score=5.0
-       Sense and Sensibility (1995), score=5.0
-       Independence Day (ID4) (1996), score=5.0
-       My Best Friend's Wedding (1997), score=5.0
-       Jerry Maguire (1996), score=5.0
-       Scream 2 (1997), score=5.0
-       Time to Kill, A (1996), score=5.0
-     
-     ##   Rock, The (1996), score=5.0
-     ```
+
+        Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend’s Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
 
 ## <a name="delete-temporary-data"></a>Suppression des données temporaires
 
@@ -244,8 +201,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > Si vous souhaitez réexécuter la commande, vous devez également supprimer le répertoire de sortie. Utilisez la commande suivante pour supprimer ce répertoire :
-> 
-> ```hdfs dfs -rm -f -r /example/data/mahoutout```
+>
+> `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -268,5 +225,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
 

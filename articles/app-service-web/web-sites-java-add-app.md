@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 627930ca68a94ecc56e7ef9ac9435f4b5f3f41c7
-ms.openlocfilehash: 61466be17a52f1f230207b71bb94e10f88ee075c
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: bc23bf745f0e212de8ea652c8e57e4797013e3cc
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -37,20 +38,11 @@ Remarque pour les applications web Tomcat : une fois que vous avez télécharg�
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
-[!INCLUDE [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)]
-
-[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)
 
 <!-- URL List -->
 
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Déploiement de votre application dans Azure App Service]: ./web-sites-deploy.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

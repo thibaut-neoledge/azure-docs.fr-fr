@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/14/2017
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6d08aacf43126011ed8ad3ce708485a188b67c3b
-ms.openlocfilehash: 4576340ef268a10014124d0d76c70eca941a90c8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 2b118f285f822d6cba3a2db4130539e62aabd342
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -68,6 +68,7 @@ Les messages seront envoyés à la file d’attente de lettres mortes de transfe
 
 - Un message passe par plus de 3 files d’attente ou rubriques [enchaînées](service-bus-auto-forwarding.md).
 - La file d’attente de destination ou la rubrique est désactivée ou supprimée.
+- La file d’attente ou la rubrique de destination dépasse la taille d’entité maximale.
 
 Pour récupérer ces messages de lettres mortes, vous pouvez créer un récepteur à l’aide de la méthode utilitaire [FormatTransferDeadletterPath](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_).
 

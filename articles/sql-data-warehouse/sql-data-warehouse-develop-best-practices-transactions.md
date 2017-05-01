@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -118,7 +120,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimisation des mises à jour
-`UPDATE` est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une journalisation minimale, comme [CTAS][CTAS].
+`UPDATE` est une opération entièrement journalisée.  SI vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS][CTAS].
 
 Dans l’exemple suivant, une mise à jour complète de table a été convertie en `CTAS` , ce qui rend possible la mise en place d’une journalisation minimale.
 
@@ -179,12 +181,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Les fonctions de gestion des charges de travail SQL Data Warehouse peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez la section relative à la gestion des charges de travail, dans l’article sur [l’accès concurrentiel][accès concurrentiel].
+> Les fonctions de gestion des charges de travail SQL Data Warehouse peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez la section relative à la gestion des charges de travail, dans l’article sur [l’accès concurrentiel][concurrency].
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Optimisation avec basculement de partitions
-Lorsque vous devez procéder à des modifications à grande échelle au sein d’une [partition de table][partition de table], il est bien plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
+Quand vous devez procéder à des modifications à grande échelle au sein d’une [partition de table][table partition], il est bien plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
 
 Les étapes constitutives d’un basculement de partitions sont les suivantes :
 
@@ -420,26 +422,21 @@ La configuration idéale consiste à laisser les modifications en cours de donn�
 * Décomposer l’opération en segments, en traitant un sous-ensemble des lignes
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les niveaux d’isolement et les limites transactionnelles, consultez [Transactions dans SQL Data Warehouse][Transactions dans SQL Data Warehouse].  Pour connaître les autres bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].
+Consultez [Transactions dans SQL Data Warehouse][Transactions in SQL Data Warehouse] pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles.  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Transactions dans SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[partition de table]: ./sql-data-warehouse-tables-partition.md
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

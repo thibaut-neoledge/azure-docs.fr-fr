@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Intégration des alertes de l’Azure Security Center avec les journaux Azure
-De nombreuses équipes de sécurité et d’intervention utilisent une solution SIEM (Security Information and Event Management) comme point de départ pour le triage et l’examen des alertes de sécurité. Grâce à l’intégration des journaux Azure, les clients peuvent synchroniser quasiment en temps réel les alertes de l’Azure Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par les journaux de diagnostics et d’audit Azure, avec leur solution SIEM ou Log Analytics.
+De nombreuses équipes de sécurité et d’intervention utilisent une solution SIEM (Security Information and Event Management) comme point de départ pour le triage et l’examen des alertes de sécurité. Avec l’intégration des journaux Azure, vous pouvez intégrer les alertes d’Azure Security Center à votre solution SIEM.
 
-L’intégration des journaux Azure fonctionne avec HP ArcSight, Splunk, IBM QRadar, entre autres.
+L’intégration des journaux Azure prend actuellement en charge HP ArcSight, Splunk et IBM QRadar.
 
 ## <a name="what-logs-can-i-integrate"></a>Quels journaux puis-je intégrer ?
 Azure génère une journalisation complète pour chaque service. Ces journaux sont classés de la façon suivante :
 
-* **Journaux de contrôle/gestion**, qui vous offrent une visibilité sur les opérations CREATE, UPDATE et DELETE d’Azure Resource Manager.
-* **Journaux des plans de données**, qui vous offrent une visibilité sur les événements déclenchés lors de l’utilisation d’une ressource Azure. Il s’agit par exemple du journal des événements Windows : les journaux de sécurité et des applications dans une machine virtuelle.
+* **Journaux de contrôle/gestion**, qui vous offrent une visibilité sur les opérations CREATE, UPDATE et DELETE d’Azure Resource Manager. Ces événements de plan de contrôle sont signalés dans les journaux d’activité Azure
+* **Journaux des plans de données**, qui vous offrent une visibilité sur les événements déclenchés lors de l’utilisation d’une ressource Azure. Le journal des événements Windows, où vous pouvez obtenir des informations sur les événements de sécurité du canal de sécurité de l’observateur d’événements est un exemple. Les événements de plan de données (qui sont générés par une machine virtuelle ou un service Azure) sont signalés par les journaux de diagnostic Azure.
 
 L’intégration des journaux Azure prend actuellement en charge l’intégration de :
 
@@ -78,15 +78,12 @@ Le service d’intégration des journaux Azure collecte les données de télém�
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. Pointez le connecteur de transfert de fichier SIEM standard vers le dossier approprié pour diriger les données vers l’instance SIEM. Reportez-vous aux [Configurations SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) correspondant à votre configuration SIEM.
-
-Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e-mail à [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+6. Configurez le connecteur du redirecteur de fichiers SIEM sur le dossier approprié. La procédure varie en fonction du SIEM que vous utilisez.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les journaux d’audit Azure et les définitions de propriétés, consultez :
+Pour plus d’informations sur les journaux d’activité Azure et les définitions de propriétés, consultez :
 
 * [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md)
-* [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx) : pour récupérer les événements du journal d’audit.
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 

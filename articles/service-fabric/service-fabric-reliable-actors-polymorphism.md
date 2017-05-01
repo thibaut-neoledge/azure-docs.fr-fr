@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2fbce8754a5e3162e3f8c999b34ff25284911021
-ms.openlocfilehash: 731c6542ba6d1385eeffa89a6f62e5bcf57a5c1e
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 87f99a9e6df2103f70968c10556242ddb268e9e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorphisme dans l’infrastructure Reliable Actors
-L’infrastructure Reliable Actors vous permet de générer des acteurs en utilisant bon nombre des mêmes techniques que celles employées dans la conception orientée objet. L’une de ces techniques est le polymorphisme, qui permet à des types et à des interfaces d’hériter de parents plus généralisés. L’héritage dans l’infrastructure Reliable Actors suit généralement le modèle .NET avec quelques contraintes supplémentaires.
+L’infrastructure Reliable Actors vous permet de générer des acteurs en utilisant bon nombre des mêmes techniques que celles employées dans la conception orientée objet. L’une de ces techniques est le polymorphisme, qui permet à des types et à des interfaces d’hériter de parents plus généralisés. L’héritage dans l’infrastructure Reliable Actors suit généralement le modèle .NET avec quelques contraintes supplémentaires. Dans le cas de Java/Linux, il suit le modèle Java.
 
 ## <a name="interfaces"></a>Interfaces
-L’infrastructure Reliable Actors exige que vous définissiez au moins une interface que votre type d’acteur doit implémenter. Cette interface est utilisée pour générer une classe proxy, utilisable par des clients pour communiquer avec vos acteurs. Les interfaces peuvent hériter d’autres interfaces tant que toutes les interfaces implémentées par un type d’acteur et tous ses parents dérivent finalement d’IActor. IActor est l’interface de base définie par la plateforme pour les acteurs. Par conséquent, voici à quoi peut ressembler un exemple de polymorphisme classique qui utilise des formes :
+L’infrastructure Reliable Actors exige que vous définissiez au moins une interface que votre type d’acteur doit implémenter. Cette interface est utilisée pour générer une classe proxy, utilisable par des clients pour communiquer avec vos acteurs. Les interfaces peuvent hériter d’autres interfaces dès lors que toutes les interfaces implémentées par un type d’acteur et tous ses parents dérivent au final d’IActor (C#) ou d’Actor (Java). IActor(C#) et Actor(Java) sont les interfaces de base définies par la plateforme pour les acteurs dans les infrastructures .NET et Java, respectivement. Par conséquent, voici à quoi peut ressembler un exemple de polymorphisme classique qui utilise des formes :
 
 ![Hiérarchie d'interfaces pour les acteurs de forme][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Types
-Vous pouvez également créer une hiérarchie des types d’acteur, qui sont dérivés de la classe de base Actor fournie par la plateforme. Dans le cas de formes, vous pouvez avoir un type `Shape` de base :
+Vous pouvez également créer une hiérarchie des types d’acteur, qui sont dérivés de la classe de base Actor fournie par la plateforme. Dans le cas de formes, vous pouvez avoir un type `Shape` (C#) ou `ShapeImpl` (Java) de base :
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -40,8 +40,16 @@ public abstract class Shape : Actor, IShape
     public abstract Task<double> GetAreaAsync();
 }
 ```
+```Java
+public abstract class ShapeImpl extends FabricActor implements Shape
+{
+    public abstract CompletableFuture<int> getVerticeCount();
 
-Les sous-types de `Shape` peuvent remplacer des méthodes à partir de la base.
+    public abstract CompletableFuture<double> getAreaAsync();
+}
+```
+
+Les sous-types de `Shape` (C#) ou `ShapeImpl` (Java) peuvent remplacer des méthodes de la base.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -60,6 +68,26 @@ public class Circle : Shape, ICircle
         return Math.PI *
             state.Radius *
             state.Radius;
+    }
+}
+```
+```Java
+@ActorServiceAttribute(name = "Circle")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class Circle extends ShapeImpl implements Circle
+{
+    @Override
+    public CompletableFuture<Integer> getVerticeCount()
+    {
+        return CompletableFuture.completedFuture(0);
+    }
+
+    @Override
+    public CompletableFuture<Double> getAreaAsync()
+    {
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: fb764e3d228aa852a4d4e6b0f314daa60d099093
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Voici les sujets qui sont abordés dans cet article :
   Cette section explique comment rechercher des informations dans les journaux d’analyse du stockage pour une demande donnée. Nous examinerons des données de journal d’analyse de stockage réelles et verrons comment déterminer si une demande est formulée avec la clé de compte de stockage, une signature d’accès partagé ou de façon anonyme, et si elle a abouti ou échoué.
 * [Activation de clients basés sur le navigateur à l’aide de CORS](#Cross-Origin-Resource-Sharing-CORS)
   
-  Cette section explique comment autoriser le partage des ressources cross-origin (CORS). Nous évoquerons l’accès intra-domaines, ainsi que sa gestion à l’aide des fonctionnalités CORS intégrées à Azure Storage.
+  Cette section explique comment autoriser le partage des ressources cross-origin (CORS). Nous évoquerons l’accès intra-domaines, ainsi que sa gestion à l’aide des fonctionnalités CORS intégrées au stockage Azure.
 
 ## <a name="management-plane-security"></a>Sécurité du plan de gestion
 Le plan de gestion se compose des opérations qui affectent le compte de stockage proprement dit. Par exemple, vous pouvez créer ou supprimer un compte de stockage, obtenir la liste des comptes de stockage d’un abonnement, récupérer les clés de compte de stockage ou régénérer les clés de compte de stockage.
@@ -109,7 +109,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 ### <a name="managing-your-storage-account-keys"></a>Gestion des clés de compte de stockage
 Les clés de compte de stockage sont des chaînes de 512 bits créés par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage, notamment les objets blob, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage Azure Files. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
 
-Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [Portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
+Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
 
 La décision de régénérer les clés de compte de stockage peut être motivée par différents facteurs.
 
@@ -216,7 +216,7 @@ Par exemple, avec notre URL ci-dessus, si l’URL pointe vers un fichier au lieu
    Cette opération est vraiment flexible mais, si vous avez un ensemble logique de paramètres qui sont chaque fois similaires, il est plus judicieux d’utiliser une stratégie d’accès stockée.
 2. Vous pouvez créer une stratégie d’accès stockée pour un conteneur entier, un partage de fichiers, une table ou une file d’attente. Vous pouvez ensuite l’utiliser comme base pour les URI SAP que vous créez. Les autorisations basées sur les stratégies d’accès stockées peuvent être facilement révoquées. Jusqu’à 5 stratégies peuvent être définies sur chaque conteneur, file d’attente, table ou partage de fichiers.
    
-   Par exemple, si un grand nombre de personnes doivent lire les objets blob dans un conteneur spécifique, vous pouvez créer une stratégie d’accès stockée qui indique d’accorder l’accès en lecture et tous les autres paramètres qui seront chaque fois les mêmes. Vous pouvez ensuite créer un URI SAP en utilisant les paramètres de la stratégie d’accès stockée et en spécifiant la date/l’heure d’expiration. L’avantage de cette opération est que vous n’avez pas à spécifier chaque fois tous les paramètres de requête.
+   Par exemple, si un grand nombre de personnes doivent lire les objets blob dans un conteneur spécifique, vous pouvez créer une stratégie d’accès stockée qui indique « d’accorder l’accès en lecture » et tous les autres paramètres qui seront chaque fois les mêmes. Vous pouvez ensuite créer un URI SAP en utilisant les paramètres de la stratégie d’accès stockée et en spécifiant la date/l’heure d’expiration. L’avantage de cette opération est que vous n’avez pas à spécifier chaque fois tous les paramètres de requête.
 
 #### <a name="revocation"></a>Révocation
 Supposons que votre signature d’accès partagé a été compromise ou que vous voulez la modifier en raison des exigences de sécurité de l’entreprise ou de conformité aux réglementations. Comment révoquer l’accès à une ressource à l’aide de cette signature ? Cela dépend de la façon dont vous avez créé l’URI SAP.
@@ -320,7 +320,7 @@ Le chiffrement côté client est intégré aux bibliothèques clientes de stocka
 
 Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres clés de chiffrement. Vous pouvez également utiliser les clés générées par la bibliothèque cliente Azure Storage, ou demander à Azure Key Vault de générer les clés. Vous pouvez stocker vos clés de chiffrement dans votre stockage de clés local, ou les stocker dans un coffre Azure Key Vault. Azure Key Vault vous permet d’accorder l’accès à des clés secrètes dans Azure Key Vault à des utilisateurs spécifiques à l’aide d’Azure Active Directory. De cette manière, vous limitez les personnes autorisées à accéder au coffre de clés Azure Key Vault et à récupérer les clés que vous utilisez pour le chiffrement côté client.
 
-#### <a name="resources"></a>Ressources
+#### <a name="resources"></a>les ressources
 * [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
   
   Cet article montre comment utiliser le chiffrement côté client avec Azure Key Vault, notamment comment créer le certificat KEK et le stocker dans le coffre à l’aide de PowerShell.
@@ -368,7 +368,7 @@ Cette fonctionnalité garantit que toutes les données sur les disques de vos ma
 #### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
 Pour les disques utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Vous pouvez activer SSE pour chiffrer les fichiers VHD qui sont utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite SSE sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
 
-Si vous créez une machine virtuelle à partir d’une image issue d’Azure Marketplace, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image dans votre compte de stockage dans Azure Storage, mais elle ne chiffre pas les données, même si SSE est activé. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est préférable d’utiliser Azure Disk Encryption sur des machines virtuelles créées à partir d’images dans Azure Marketplace pour garantir le chiffrement de toutes les données.
+Si vous créez une machine virtuelle à partir d’une image issue d’Azure Marketplace, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image dans votre compte de stockage dans Azure Storage, mais elle ne chiffre pas les données, même si SSE est activé. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est préférable d’utiliser Azure Disk Encryption sur des machines virtuelles créées à partir d’images dans Place de marché Azure pour garantir le chiffrement de toutes les données.
 
 Si vous ajoutez une machine virtuelle déjà chiffrée dans Azure à partir d’un emplacement local, vous pouvez charger les clés de chiffrement dans Azure Key Vault et continuer à utiliser le chiffrement qui était utilisé localement pour cette machine virtuelle. Dans ce scénario, le chiffrement Azure Disk Encryption est activé.
 
@@ -462,7 +462,7 @@ Vous pouvez utiliser Microsoft Message Analyzer pour afficher et analyser ces jo
 ### <a name="cross-domain-access-of-resources"></a>Accès interdomaines des ressources
 Quand un navigateur web s’exécutant dans un domaine effectue une requête HTTP pour une ressource à partir d’un autre domaine, on parle de requête HTTP cross-origin. Par exemple, une page HTML traitée à partir de contoso.com effectue une requête pour une image jpeg hébergée sur fabrikam.blob.core.windows.net. Pour des raisons de sécurité, les navigateurs limitent les requêtes HTTP cross-origin lancées à partir de scripts, comme JavaScript. Ainsi, quand du code JavaScript sur une page web contoso.com demande cet élément jpeg sur fabrikam.blob.core.windows.net, le navigateur n’autorise pas la requête.
 
-Quel est le rapport avec Azure Storage ? En fait, si vous stockez des ressources statiques telles que les fichiers de données JSON ou XML dans Blob Storage à l’aide d’un compte de stockage nommé Fabrikam, le domaine des ressources est fabrikam.blob.core.windows.net et l’application web contoso.com ne peut pas y accéder à l’aide de JavaScript, car les domaines sont différents. Il est en de même si vous essayez d’appeler l’un des services Azure Storage, tels que Table Storage, qui retournent les données JSON qui doivent être traitées par le client JavaScript.
+Quel est le rapport avec Azure Storage ? En fait, si vous stockez des ressources statiques telles que les fichiers de données JSON ou XML dans Blob Storage à l’aide d’un compte de stockage nommé Fabrikam, le domaine des ressources est fabrikam.blob.core.windows.net et l’application web contoso.com ne peut pas y accéder à l’aide de JavaScript, car les domaines sont différents. Il est en de même si vous essayez d’appeler l’un des services de stockage Azure, tels que Stockage Table, qui retournent les données JSON qui doivent être traitées par le client JavaScript.
 
 #### <a name="possible-solutions"></a>Solutions possibles
 Une façon de résoudre ce problème consiste à attribuer un domaine personnalisé comme « storage.contoso.com » à fabrikam.blob.core.windows.net. Le souci est que vous pouvez attribuer ce domaine personnalisé uniquement à un compte de stockage. Que se passe-t-il si les ressources sont stockées dans plusieurs comptes de stockage ?
@@ -510,7 +510,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
   Il s’agit d’un lien vers l’article de blog initial qui présente CORS et montre comment l’utiliser.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Questions fréquemment posées (FAQ) sur la sécurité Azure Storage
-1. **Comment puis-je vérifier l’intégrité des objets blob que je transfère vers ou à partir d’Azure Storage si je ne peux pas utiliser le protocole HTTPS ?**
+1. **Comment puis-je vérifier l’intégrité des objets blob que je transfère vers ou à partir du stockage Azure si je ne peux pas utiliser le protocole HTTPS ?**
    
    Si, pour une raison quelconque, vous devez utiliser le protocole HTTP au lieu de HTTPS et que vous travaillez avec des objets blob de blocs, vous pouvez utiliser la vérification MD5 pour vérifier l’intégrité des objets blob transférés. Ceci contribuera à la protection contre les erreurs au niveau du réseau/transport, mais pas nécessairement contre les attaques intermédiaires.
    

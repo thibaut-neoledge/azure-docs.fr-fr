@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Docs"
+title: 'Didacticiel : Configurer Workday pour la synchronisation entrante | Microsoft Docs'
 description: "Apprenez à utiliser la synchronisation entrante avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
 services: active-directory
 author: jeevansd
@@ -11,23 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 50f75a05cd7e22316be5434c0b37f0f0a2ee8509
-ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 85375fc872794e50d40190e7be9013bccd3062a2
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Didacticiel : Configuration de Workday pour la synchronisation entrante
-> [!NOTE]
-> Les clients vivant en Chine peuvent accéder à Azure Active Directory Premium à l’aide de l’instance mondiale d’Azure AD.    
-> Actuellement, Azure AD Premium n’est pas pris en charge dans le service Microsoft Azure fonctionnant avec 21Vianet en Chine.    
+# <a name="tutorial-configure-workday-for-inbound-synchronization"></a>Didacticiel : Configurer Workday pour la synchronisation entrante
+
+L’objectif de ce didacticiel consiste à vous présenter les opérations à effectuer dans Workday et Microsoft Azure AD pour importer des utilisateurs de Workday à Microsoft Azure AD.    
+
+>[!NOTE]
+>Les clients vivant en Chine peuvent accéder à Azure Active Directory Premium à l’aide de l’instance mondiale d’Azure AD. Actuellement, Azure AD Premium n’est pas pris en charge dans le service Microsoft Azure fonctionnant avec 21Vianet en Chine.    
 > 
 > 
 
-L’objectif de ce didacticiel consiste à vous présenter les opérations à effectuer dans Workday et Microsoft Azure AD pour importer des utilisateurs de Workday à Microsoft Azure AD.    
- Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :  
 
 * Un abonnement Azure valide  
 * Un locataire dans Workday  
@@ -42,10 +44,11 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 6. Activation des modifications de stratégie de sécurité  
 7. Configuration de l’importation d’utilisateurs dans Microsoft Azure AD  
 
-## <a name="enabling-the-application-integration-for-workday"></a>Activation de l’intégration d’application pour Workday
+## <a name="enable-the-application-integration-for-workday"></a>Activer l’intégration d’applications pour Workday
 Cette section décrit l’activation de l’intégration d’application pour Workday.    
 
-### <a name="to-enable-the-application-integration-for-workday-perform-the-following-steps"></a>Pour activer l’intégration d’application pour Workday, procédez comme suit :
+**Pour activer l’intégration d’applications pour Workday, procédez comme suit :**
+
 1. Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -63,17 +66,17 @@ Cette section décrit l’activation de l’intégration d’application pour Wo
    
    ![Workday](./media/active-directory-saas-inbound-synchronization-tutorial/IC701022.png "Workday")  
 
-## <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration 
+## <a name="create-an-integration-system-user"></a>Créer un utilisateur de système d’intégration
 1. Dans **Workday Workbench**, entrez **create user** dans la zone de recherche, puis cliquez sur le lien **Create Integration System User**.     
    
    ![Créer utilisateur](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "Create User")  
-2. Exécutez la tâche Create Integration System User en fournissant un nom d’utilisateur et un mot de passe pour un nouvel utilisateur système d’intégration.  Laissez l’option Require New Password at Next Sign In désactivée, étant donné que cet utilisateur se connectera par programmation.    
-
- Laissez la valeur par défaut de 0 pour l’option Session Timeout Minutes afin d’éviter que les sessions de l’utilisateur n’expirent prématurément.    
+2. Exécutez la tâche Create Integration System User en fournissant un nom d’utilisateur et un mot de passe pour un nouvel utilisateur système d’intégration.  
+ * Laissez l’option **Require New Password at Next Sign In** désactivée, car cet utilisateur se connectera par programmation.    
+ * Laissez la valeur par défaut de 0 pour l’option **Session Timeout Minutes** afin d’éviter que les sessions de l’utilisateur n’expirent prématurément.    
    
    ![Créer un utilisateur de système d’intégration](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Créer un utilisateur de système d’intégration")  
 
-## <a name="creating-a-security-group"></a>Création d’un groupe de sécurité
+## <a name="create-a-security-group"></a>Créer un groupe de sécurité
 Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité système d’intégration sans contrainte et lui affecter l’utilisateur.    
 
 1. Entrez create security group dans la zone de recherche, puis cliquez sur le lien, Create Security Group.     
@@ -83,7 +86,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
    
    ![Créer un groupe de sécurité](./media/active-directory-saas-inbound-synchronization-tutorial/IC750982.png "Créer un groupe de sécurité")  
 
-## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Affectation de l’utilisateur système d’intégration au groupe de sécurité
+## <a name="assign-the-integration-system-user-to-the-security-group"></a>Affecter l’utilisateur de système d’intégration au groupe de sécurité
 1. Entrez edit security group dans la zone de recherche, puis cliquez sur le lien **Edit Security Group**.     
    
    ![Modifier un groupe de sécurité](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Modifier un groupe de sécurité")  
@@ -94,7 +97,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
    
    ![Groupe de sécurité système](./media/active-directory-saas-inbound-synchronization-tutorial/IC750985.png "Groupe de sécurité système")  
 
-## <a name="configuring-security-group-options"></a>Configuration des options du groupe de sécurité
+## <a name="configure-security-group-options"></a>Configurer les options du groupe de sécurité
 À cette étape, vous accordez au nouveau groupe de sécurité des autorisations pour les opérations Get et Put sur les objets sécurisés par les stratégies de sécurité de domaine suivantes :  
 
 * External Account Provisioning  
@@ -102,8 +105,6 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 * Worker Data: All Positions  
 * Worker Data: Current Staffing Information  
 * Worker Data: Business Title on Worker Profile  
-
-&nbsp;  
 
 1. Entrez les stratégies de sécurité de domaine dans la zone de recherche, puis cliquez sur le lien, Domain Security Policies for Functional Area.     
    
@@ -129,7 +130,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
    
    ![Stratégies de sécurité de domaine](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Stratégies de sécurité de domaine")  
 
-## <a name="activating-security-policy-changes"></a>Activation des modifications de stratégie de sécurité
+## <a name="activate-security-policy-changes"></a>Activer les modifications de la stratégie de sécurité
 1. Entrez activate dans la zone de recherche, puis cliquez sur le lien Activate Pending Security Policy Changes.    
    
    ![Activer](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Activer")  
@@ -140,10 +141,11 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
    
    ![Activer la sécurité en attente](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Activer la sécurité en attente")  
 
-## <a name="configuring-user-import-in-microsoft-azure-ad"></a>Configuration de l’importation d’utilisateurs dans Microsoft Azure AD
+## <a name="configure-user-import-in-microsoft-azure-ad"></a>Configurer l’importation d’utilisateurs dans Microsoft Azure AD
 Cette section décrit la façon dont Microsoft Azure AD importe des utilisateurs à partir de Workday.    
 
-### <a name="to-configure-user-import-in-microsoft-azure-ad-perform-the-following-steps"></a>Pour configurer l’importation d’utilisateurs dans Microsoft Azure AD, procédez comme suit :
+**Pour configurer l’importation d’utilisateurs dans Microsoft Azure AD, procédez comme suit :**
+
 1. Sur la page d’intégration d’application **Workday**, cliquez sur **Configurer l’importation d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement**.    
 2. Sur la page **Paramètres et informations d’identification administrateur** , procédez comme suit, puis cliquez sur Suivant :    
    
@@ -163,10 +165,5 @@ Cette section décrit la façon dont Microsoft Azure AD importe des utilisateurs
    ![Démarrer l’approvisionnement](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "Démarrer l’approvisionnement")  
 
 Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si votre utilisateur Workday a été importé.    
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

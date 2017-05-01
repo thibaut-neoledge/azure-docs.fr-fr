@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: cc177695f73805940f6a0229c94e391bf3899f09
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,7 +36,8 @@ Utilisateur | Peut restaurer n’importe quel groupe Office 365 supprimé dont i
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Affichage des groupes Office 365 supprimés disponibles pour la restauration
-Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces applets de commande font partie du [module Préversion d’Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview) (lien de téléchargement). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/).
+Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces applets de commande font partie du [module Azure Active Directory PowerShell V2 Preview](https://www.powershellgallery.com/packages/AzureADPreview). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/).
+Notez que les applets de commande pour la gestion de la suppression réversible et de la récupération sont en préversion publique et que nous devons parfois apporter des modifications majeures aux applets de commande en préversion. Pour cette raison, l’utilisation de ces applets de commande dans un environnement de production est déconseillée.
 
 1.    Exécutez l’applet de commande suivante pour afficher tous les groupes Office 365 supprimés dans votre locataire et dont la restauration est toujours possible.
   ```
@@ -80,3 +81,4 @@ Ces articles fournissent des informations supplémentaires sur les groupes Azure
 * [Gérer les membres d’un groupe](active-directory-groups-members-azure-portal.md)
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
+

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -31,7 +31,7 @@ Pour implémenter une stratégie, vous devez suivre trois étapes :
 
 Azure fournit quelques stratégies prédéfinies qui peuvent réduire le nombre de stratégies à définir. Si une stratégie prédéfinie fonctionne pour votre scénario, ignorez les deux premières étapes et attribuez la stratégie prédéfinie à une étendue.
 
-Cette rubrique se concentre sur les étapes de création d’une définition de stratégie et d’attribution de cette définition à une étendue. Elle n’aborde pas la syntaxe de création de la définition de stratégie. Pour plus d’informations sur la syntaxe des stratégies, consultez la page [Vue d’ensemble des stratégies de ressources](resource-manager-policy.md).
+Cet article est centré sur les étapes de création d’une définition de stratégie et d’attribution de cette définition à une étendue via l’API REST, PowerShell ou Azure CLI. Si vous préférez utiliser le portail pour affecter des stratégies, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Il n’aborde pas la syntaxe de création de la définition de stratégie. Pour plus d’informations sur la syntaxe des stratégies, consultez la page [Vue d’ensemble des stratégies de ressources](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>API REST
 

@@ -12,17 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
-ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning
 ## <a name="overview"></a>Vue d'ensemble
-Net# est un langage développé par Microsoft qui définit les architectures de réseaux neuronaux. Vous pouvez utiliser Net# dans les modules de réseau neuronal dans Microsoft Azure Machine Learning ou dans la `rxNeuralNetwork()` fonction [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+Net# est un langage développé par Microsoft qui définit les architectures de réseaux neuronaux. Vous pouvez utiliser Net# dans des modules de réseau neuronal dans Microsoft Azure Machine Learning.
+
+<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+
+, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+
+-->
 
 Dans cet article, vous découvrirez les concepts de base nécessaires au développement d’un réseau neuronal personnalisé : 
 
@@ -151,7 +158,7 @@ Une spécification de faisceau de connexion filtré inclut un prédicat, dont la
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
     hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
-* Dans le prédicat de *ByRow*, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d’entrée, *Pixels*, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée, *ByRow*. Le type de **s** et de **d** est un tuple d’entiers de longueur&2;. D’un point de vue conceptuel, **s** couvre toutes les paires d’entiers avec *0 <= s[0] < 10* et *0 <= s[1] < 20*, tandis que **d** couvre toutes les paires d’entiers avec *0 <= d[0] < 10* et *0 <= d[1] < 12*. 
+* Dans le prédicat de *ByRow*, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d’entrée, *Pixels*, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée, *ByRow*. Le type de **s** et de **d** est un tuple d’entiers de longueur 2. D’un point de vue conceptuel, **s** couvre toutes les paires d’entiers avec *0 <= s[0] < 10* et *0 <= s[1] < 20*, tandis que **d** couvre toutes les paires d’entiers avec *0 <= d[0] < 10* et *0 <= d[1] < 12*. 
 * Sur la droite de l'expression de prédicat se trouve une condition. Dans cet exemple, pour chaque valeur de **s** et **d** permettant à la condition d’avoir la valeur True, il existe un bord à partir du nœud de couche source vers le nœud de couche de destination. Ainsi, cette expression de filtre indique que le faisceau inclut une connexion du nœud défini par **s** au nœud défini par **d**, dans tous les cas où s[0] est égal à d[0].  
 
 Vous pouvez également spécifier un ensemble de poids pour un faisceau filtré. La valeur de l’attribut **Weights** doit être un tuple de valeurs à virgule flottante dont la longueur est égale au nombre de connexions défini par le faisceau. Par défaut, les poids sont générés de façon aléatoire.  
@@ -177,7 +184,7 @@ Pour définir la forme et les emplacements des noyaux, utilisez les attributs **
 * **KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **InputShape**. 
 * **Stride** : (facultatif) définit les tailles d’incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un. 
 * **Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l'arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True. 
-* **MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est&1;. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination. 
+* **MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination. 
 * **Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.  
 
 Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'excluent mutuellement :
@@ -211,9 +218,9 @@ L'exemple suivant illustre un faisceau de regroupement :
       }  
 
 * L’arité du faisceau est de 3 (longueur des tuples **InputShape**, **KernelShape** et **Stride**). 
-* Le nombre de nœuds de la couche source est égal à *5 * 24 * 24 = 2880*. 
+* Le nombre de nœuds de la couche source est égal à *5 * 24 * 24 = 2 880*. 
 * Il s’agit d’une couche de regroupement locale traditionnelle, car les valeurs **KernelShape** et **Stride** sont égales. 
-* Le nombre de nœuds de la couche de destination est égal à *5 * 12 * 12 = 1440*.  
+* Le nombre de nœuds de la couche de destination est égal à *5 * 12 * 12 = 1 440*.  
 
 Pour plus d’informations sur les couches de regroupement, consultez les articles suivants :  
 
@@ -395,23 +402,18 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 * Le mot clé **convolve** indique que les couches nommées *Conv1* et *Conv2* sont des couches convolutionnelles. Chacune de ces déclarations de couche est suivie d'une liste des attributs de convolution.
 * Le réseau contient une troisième couche masquée, *Hid3*, entièrement connectée à la deuxième couche masquée, *Conv2*.
 * La couche de sortie, *Digit*, n’est connectée qu’à la troisième couche masquée, *Hid3*. Le mot clé **all** indique que la couche de sortie est entièrement connectée à *Hid3*.
-* L’arité de la convolution est de&3; (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
-* Le nombre de poids par noyau est de *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300*.
+* L’arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
+* Le nombre de poids par noyau est de *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1 300*.
 * Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
   * **NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
 * Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
-* Puisque **Sharing**[d] est faux uniquement pour *d == 0*, le nombre de noyaux est ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
+* Puisque **Sharing**[d] est faux uniquement pour *d == 0*, le nombre de noyaux est ***MapCount**  * **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Remerciements
 Le langage Net # pour la personnalisation de l'architecture des réseaux neuronaux a été développée chez Microsoft par Shon Katzenberger (architecte, Machine Learning) et Alexey Kamenev (ingénieur logiciel, Microsoft Research). Il est utilisé en interne pour l'apprentissage de projets et d'applications allant de la détection d'images à l'analyse de texte. Pour plus d’informations, consultez [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Réseaux neuronaux dans Azure ML - présentation de Net #).
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

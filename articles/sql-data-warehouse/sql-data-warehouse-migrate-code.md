@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,8 @@ La liste suivante répertorie les fonctionnalités les plus courantes qui ne son
 * [Instruction MERGE][merge statement]
 * Jonctions entre plusieurs bases de données
 * [Curseurs][cursors]
-* [INSERT..EXEC][INSERT..EXEC]
+* <seg>
+  [INSERT..EXEC][INSERT..EXEC]</seg>
 * Clause OUTPUT
 * Fonctions en ligne définies par l’utilisateur
 * Fonctions à instructions multiples
@@ -90,8 +93,8 @@ Certaines fonctions système ne sont pas prises en charge. Voici les principales
 
 Certains de ces problèmes peuvent être contournés.
 
-## <a name="rowcount-workaround"></a>Solution de contournement @@ROWCOUNT
-Pour contourner l’absence de prise en charge de @@ROWCOUNT,, créez une procédure stockée qui récupérera le dernier nombre de lignes de sys.dm_pdw_request_steps, puis exécutera `EXEC LastRowCount` après une instruction DML.
+## <a name="rowcount-workaround"></a>Solution de contournement pour @@ROWCOUNT
+Pour contourner l’absence de prise en charge de @@ROWCOUNT, créez une procédure stockée qui récupère le dernier nombre de lignes de sys.dm_pdw_request_steps puis exécute `EXEC LastRowCount` après une instruction DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +138,4 @@ Pour obtenir la liste complète de toutes les instructions T-SQL prises en charg
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

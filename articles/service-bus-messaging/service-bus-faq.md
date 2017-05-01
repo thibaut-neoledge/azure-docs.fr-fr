@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
-ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: cbbef00cb4c54f4df2634fbe7b3dacbd34a175bd
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,42 +68,17 @@ Les transferts de données au sein d’une région Azure donnée sont effectués
 Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota limitant la quantité maximale de données qui peuvent être conservées par la file d’attente/rubrique. Voir le Forum aux questions suivants.
 
 ## <a name="quotas"></a>Quotas
-Pour obtenir la liste des limites et quotas Service Bus, consultez [Vue d’ensemble des quotas][Quotas overview].
+
+Pour obtenir une liste des limites et des quotas Service Bus, consultez [Vue d’ensemble des quotas Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus fixe-t-il des quotas d’utilisation ?
-Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Nous savons que vous pouvez avoir des besoins dépassant ces limites, veuillez contacter le service clientèle à tout moment pour que nous puissions déterminer vos besoins et ajuster ces limites en conséquence. Pour Service Bus, les quotas d’utilisation agrégés s’élèvent à 5 milliards de messages par mois.
+Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Nous savons que vous pouvez avoir des besoins dépassant ces limites, veuillez contacter le service clientèle à tout moment pour que nous puissions déterminer vos besoins et ajuster ces limites en conséquence. Pour Service Bus, le quota d’utilisation agrégée est de 5 milliards de messages par mois.
 
 Nous nous réservons le droit de désactiver un compte client ayant dépassé son quota d’utilisation pour un mois donné. Nous enverrons une notification par messagerie électronique pour contacter le client avant d’exécuter une action quelconque. Les clients qui dépassent ces quotas sont responsables des frais qui dépassent ces quotas.
 
 À l’instar d’autres services sur Azure, Service Bus applique un ensemble de quotas spécifiques pour assurer une utilisation juste des ressources. Les quotas d’utilisation appliqués par le service sont les suivantes :
 
-#### <a name="queuetopic-size"></a>Taille de la file d’attente/rubrique
-Vous spécifiez la taille maximale de file d’attente ou de rubrique lors de la création de la file d’attente ou de la rubrique. Ce quota peut avoir une valeur de 1, 2, 3, 4 ou 5 Go. Si la taille de la file maximale est atteinte, les messages entrants supplémentaires sont rejetés et le code appelant reçoit une exception.
-
-#### <a name="naming-restrictions"></a>Restrictions concernant l’attribution de noms
-Un nom d’espace de noms Service Bus peut uniquement contenir entre 6 et 50 caractères. Le nombre limite de caractères pour chaque file d’attente, rubrique ou abonnement est compris entre 1 et 50 caractères.
-
-#### <a name="number-of-concurrent-connections"></a>Nombre de connexions simultanées
-File d’attente/Rubrique/Abonnement - le nombre de connexions TCP simultanées sur une file d’attente/rubrique/abonnement est limité à 100. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Pour chaque structure de messagerie, Service Bus entretient une connexion TCP si l’un des clients créés par cette structure de messagerie ont une opération active en attente ou une opération terminée depuis moins de 60 secondes. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées.
-
-#### <a name="number-of-topicsqueues-per-service-namespace"></a>Nombre de rubriques/files d’attente par espace de noms de service
-Le nombre maximal de rubriques/files d’attente (entités soutenues par un stockage durable) sur un espace de noms de service est limité à 10 000. Si ce quota est atteint, les demandes de création de nouvelle rubrique/file d’attente dans l’espace de noms suivantes sont rejetées. Dans ce cas, le portail Azure Classic affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
-
-### <a name="message-size-quotas"></a>Quotas de taille des messages
-#### <a name="queuetopicsubscription"></a>File d’attente/Rubrique/Abonnement
-**Taille de message** – chaque message est limité au total à 256 Ko, en-têtes de message compris.
-
-**Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
-
-Les messages qui dépassent ces quotas de taille sont rejetés et le code appelant reçoit une exception.
-
-**Nombre d’abonnements par rubrique** : le nombre maximal d’abonnements par rubrique est limité à 2 000. Si ce quota est atteint, les demandes de création d’abonnements supplémentaires à la rubrique seront rejetées. Dans ce cas, le portail Azure Classic affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
-
-**Nombre de filtres SQL par rubrique** : le nombre maximal de filtres SQL par rubrique est limité à 2 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
-
-**Nombre de filtres de corrélation par rubrique** : le nombre maximal de filtres de corrélation par rubrique est limité à 100 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
-
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quelles sont les exceptions générées par les API Azure Service Bus et les actions recommandées ?
 Pour obtenir la liste des exceptions Service Bus potentielles, consultez la page [Vue d’ensemble des exceptions][Exceptions overview].
 
@@ -140,10 +116,5 @@ Pour en savoir plus sur Service Bus, consultez les rubriques qui suivent.
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Shared Access Signatures]: service-bus-sas.md
 

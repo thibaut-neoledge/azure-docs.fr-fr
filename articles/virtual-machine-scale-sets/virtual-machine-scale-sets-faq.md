@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -538,7 +538,29 @@ Dans cet exemple, une alerte est envoyée à Pagerduty.com lorsqu’un seuil est
 
 
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="patching-and-operations"></a>Application de correctifs et opérations
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Comment créer un groupe identique dans un groupe de ressources existant ?
+
+La création de groupes identiques dans un groupe de ressources existant n’est pas encore possible à partir du portail Azure, mais vous pouvez spécifier un groupe de ressources existant lors du déploiement d’un groupe identique à partir d’un modèle Azure Resource Manager. Vous pouvez également spécifier un groupe de ressources existant lors de la création d’un groupe identique à l’aide d’Azure PowerShell ou de l’interface CLI.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Pouvons-nous déplacer un groupe identique vers un autre groupe de ressources ?
+
+Oui, vous pouvez déplacer des ressources d’un groupe identique vers un nouvel abonnement ou un nouveau groupe de ressources.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Comment mettre à jour mon groupe de machines virtuelles identiques sur une nouvelle image ? Comment gérer la mise à jour corrective ?
+
+Pour mettre à jour votre groupe de machines virtuelles identiques sur une nouvelle image et gérer la mise à jour corrective, consultez [Mettre à niveau un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Puis-je utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image ? (Autrement dit, je veux réinitialiser une machine virtuelle sur les paramètres d’usine plutôt qu’une nouvelle image.)
+
+Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image. Toutefois, si votre groupe de machines virtuelles identiques référence une image de plateforme avec `version = latest`, votre machine virtuelle peut se mettre à jour vers une image de système d’exploitation ultérieure lorsque vous appelez `reimage`.
+
+Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+
+
+
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Comment activer les diagnostics de démarrage ?
 
@@ -561,21 +583,6 @@ Lorsqu’une nouvelle machine virtuelle est créée, la propriété InstanceView
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>Mises à jour
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Comment mettre à jour mon groupe de machines virtuelles identiques sur une nouvelle image ? Comment gérer la mise à jour corrective ?
-
-Pour mettre à jour votre groupe de machines virtuelles identiques sur une nouvelle image et gérer la mise à jour corrective, consultez [Mettre à niveau un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Puis-je utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image ? (Autrement dit, je veux réinitialiser une machine virtuelle sur les paramètres d’usine plutôt qu’une nouvelle image.)
-
-Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image. Toutefois, si votre groupe de machines virtuelles identiques référence une image de plateforme avec `version = latest`, votre machine virtuelle peut se mettre à jour vers une image de système d’exploitation ultérieure lorsque vous appelez `reimage`.
-
-Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
-
 
 
 ## <a name="virtual-machine-properties"></a>Propriétés de machine virtuelle

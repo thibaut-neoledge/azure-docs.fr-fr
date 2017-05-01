@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 5ae6afea4d55eb03624602f483a2dc9620e33bb7
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 84f9c9745cc0c95fc5134dcc7e659e7ace11b188
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,10 +28,10 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 * Un abonnement Azure valide
 * Un abonnement New Relic pour lequel l’authentification unique est activée
 
-À l’issue de ce didacticiel, les utilisateurs Azure Active Directory que vous avez affectés à New Relic pourront s’authentifier de manière unique à l’aide du panneau d’accès AAD.
+À l’issue de ce didacticiel, les utilisateurs Azure Active Directory que vous avez affectés à New Relic pourront utiliser l’authentification unique via le panneau d’accès AAD.
 
 1. Activation de l’intégration d’application pour New Relic
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
@@ -61,13 +62,13 @@ Cette section décrit l’activation de l’intégration d’application pour Ne
    
    ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l’authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur New Relic avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+**Pour configurer l’authentification unique, suivez les étapes ci-dessous :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à New Relic ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
@@ -100,7 +101,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
    
    ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour se connecter à New Relic, les utilisateurs d’Azure AD doivent être approvisionnés dans New Relic. Dans le cas de New Relic, l’approvisionnement est une tâche manuelle.
 
@@ -121,12 +122,12 @@ Pour se connecter à New Relic, les utilisateurs d’Azure AD doivent être appr
    2. Pour **Role**, sélectionnez **User**.
    3. Cliquez sur **Add this user**.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par New Relic, pour approvisionner des comptes utilisateur AAD.
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par New Relic, pour approvisionner des comptes utilisateur AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à New Relic, procédez comme suit :**
@@ -141,9 +142,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Ressources supplémentaires
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)

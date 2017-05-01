@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: edef5fbc015f6b6ba01aa2bfc3d908e6f11159cc
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formats de fichiers et de compression pris en charge dans Azure Data Factory
+*Cette rubrique s’applique aux connecteurs suivants : [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Blob Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [Système de fichiers](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) et [SFTP](data-factory-sftp-connector.md).*
+
 Azure Data Factory prend en charge les types de format de fichier suivants :
 
 * [Format Texte](#text-format)
@@ -47,7 +49,7 @@ Si vous souhaitez lire ou écrire des données dans un fichier texte, définisse
 | treatEmptyAsNull |Spécifie si une chaîne null ou vide doit être traitée comme une valeur null lors de la lecture des données à partir d’un fichier d’entrée. |**True (valeur par défaut)**<br/>False |Non |
 
 ### <a name="textformat-example"></a>Exemple pour TextFormat
-Dans la définition JSON suivante d’un jeu de données, certaines propriétés facultatives sont spécifiées. 
+Dans la définition JSON suivante d’un jeu de données, certaines propriétés facultatives sont spécifiées.
 
 ```json
 "typeProperties":
@@ -80,7 +82,7 @@ Pour utiliser un caractère `escapeChar` au lieu de `quoteChar`, remplacez la li
 * Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début, qui ne contiennent ni données, ni informations d’en-tête. Spécifiez le paramètre `skipLineCount` pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier `firstRowAsHeader`. Si les paramètres `skipLineCount` et `firstRowAsHeader` sont tous deux spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée.
 
 ## <a name="json-format"></a>Format JSON
-Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir de DocumentDB**, consultez la section [Importation/exportation de documents JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) de l’article [Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory](data-factory-azure-documentdb-connector.md). 
+Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir de DocumentDB**, consultez la section [Importation/exportation de documents JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) de l’article [Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory](data-factory-azure-documentdb-connector.md).
 
 Si vous souhaitez analyser des fichiers JSON ou écrire des données au format JSON, définissez la propriété `type` de la section `format` sur **JsonFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre.
 
@@ -452,7 +454,7 @@ Notez les points suivants :
 * Les types de données complexes ne sont pas pris en charge (MAP, LIST)
 * Le fichier Parquet offre les options de compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
-## <a name="compression-support"></a>Prise en charge de la compression 
+## <a name="compression-support"></a>Prise en charge de la compression
 Le traitement de jeux de données de grande taille peut provoquer des goulots d’étranglement des E/S et du réseau. Par conséquent, les données compressées dans les magasins peuvent non seulement accélérer le transfert des données sur le réseau et économiser l’espace disque, mais également apporter des améliorations significatives des performances du traitement du Big Data. Actuellement, la compression est prise en charge pour les magasins de données de fichiers, comme les objets blob Azure ou un système de fichiers local.  
 
 Pour spécifier la compression pour un jeu de données, utilisez la propriété **compression** du jeu de données JSON, comme dans l'exemple suivant :   
@@ -511,3 +513,4 @@ Consultez les articles suivants pour connaître les magasins de données basés 
 - [HDFS](data-factory-hdfs-connector.md)
 - [Système de fichiers](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 04/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -51,7 +51,7 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Dans certains cas, des licences ne peuvent pas être affectées à un utilisateur. Par exemple, les licences disponibles dans le client peuvent ne pas être suffisantes, ou des services conflictuels peuvent avoir été affectés simultanément. Les administrateurs ont accès aux informations sur les utilisateurs pour lesquels Azure AD n’a pas pu traiter entièrement les licences de groupes. Ils peuvent prendre des mesures correctives en fonction de ces informations.
 
-- Dans la version préliminaire publique, un abonnement d’évaluation ou payant à Azure AD Standard ou une édition Premium est requis dans le client pour pouvoir utiliser la gestion des licences par groupe. En outre, tous les utilisateurs qui héritent de licences de groupes doivent disposer de l’édition payante de la licence Azure AD.
+- Dans la préversion publique, un abonnement d’évaluation ou payant pour les éditions Azure AD De base ou Premium est obligatoire dans le locataire pour utiliser la gestion des licences par groupe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

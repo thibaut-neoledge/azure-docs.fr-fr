@@ -1,6 +1,6 @@
 ---
-title: "Guide pratique pour prendre en main le Stockage Table et les services connectés de Visual Studio (ASP.NET 5) | Microsoft Docs"
-description: "Comment prendre en main le stockage de tables Azure dans un projet ASP.NET 5 dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
+title: "Guide pratique pour bien démarrer avec Stockage Table et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs"
+description: "Guide pratique pour bien démarrer avec Stockage Table d’Azure dans un projet ASP.NET Core dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b64d4f7e55977c7ce144987f7600e5ddcb25596c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment prendre en main Azure Table Storage dans Visual Studio après avoir créé ou référencé un compte Azure Storage dans un projet ASP.NET 5 via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
+Cet article explique comment bien démarrer avec Stockage Table d’Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET Core via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
@@ -34,12 +35,12 @@ Pour obtenir des informations plus générales sur l’utilisation d’Azure Tab
 
 Pour commencer, vous devez créer une table dans votre compte de stockage. Nous allons vous montrer comment créer une table Azure dans le code. Nous vous indiquerons aussi comment effectuer des opérations de base sur les tables et les entités, telles que l'ajout, la modification et la lecture d’entités de table. Les exemples ont été écrits en code C\# et utilisent la bibliothèque du client de stockage Azure pour .NET.
 
-**REMARQUE** : parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que des méthodes de programmation asynchrone sont utilisées.
+**REMARQUE** : parmi les API qui effectuent des appels à Stockage Azure dans ASP.NET Core, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que des méthodes de programmation asynchrone sont utilisées.
 
 ## <a name="access-tables-in-code"></a>Accès aux tables dans le code
-Pour accéder aux tables dans les projets ASP.NET 5, vous devez inclure les éléments suivants aux fichiers sources C# qui accèdent au stockage de tables Azure.
+Pour accéder aux tables dans les projets ASP.NET Core, vous devez inclure les éléments suivants aux fichiers sources C# qui accèdent à Stockage Table d’Azure.
 
-1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **Using** .
+1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **using** .
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
@@ -184,10 +185,5 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

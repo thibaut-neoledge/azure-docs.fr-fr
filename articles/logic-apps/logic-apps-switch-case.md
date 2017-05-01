@@ -1,79 +1,88 @@
 ---
-title: "Utiliser l’instruction switch dans Azure Logic Apps | Microsoft Docs"
-description: "L’instruction switch vous permet d’exécuter facilement des actions différentes selon la valeur d’une expression dans Logic Apps."
+title: "Instruction switch pour différentes actions dans Azure Logic Apps | Microsoft Docs"
+description: "Choisissez les différentes actions à effectuer dans les applications logiques en fonction des valeurs d’une expression avec une instruction switch."
 services: logic-apps
-documentationcenter: dev-center-name
-manager: erikre
+keywords: instruction switch
+author: derek1ee
+manager: anneta
+editor: 
+documentationcenter: 
+ms.assetid: 
 ms.service: logic-apps
-ms.devlang: wdl
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: deli
+ms.author: deli; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 3a028507f9bbf15c8fd52ccc7c22a5763a9b1b3e
-ms.openlocfilehash: 284cfca17b5abf785f7af9569c518c4400fe36fd
-
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 196f6d03567cbad8e061d45be546bc86015ede2e
+ms.lasthandoff: 04/04/2017
 
 ---
-# <a name="use-switch-statement-in-logic-apps"></a>Utiliser l’instruction switch dans Logic Apps
-Lorsque vous créez un flux de travail, vous devez souvent exécuter des actions différentes selon la valeur d’un objet ou d’une expression. Par exemple, vous pouvez avoir besoin que votre application logique se comporte différemment selon le code d’état d’une demande HTTP ou l’option sélectionnée pour un message électronique d’approbation.
 
-Ces scénarios peuvent être mis en œuvre à l’aide d’une instruction switch : Logic App évalue un jeton ou une expression et choisit le cas de figure présentant la même valeur pour déterminer les actions à exécuter. L’instruction switch ne doit correspondre qu’à un seul cas de figure.
+# <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Effectuer différentes actions dans les applications logiques avec une instruction switch
 
- > [!TIP]
- > Comme tous les langages de programmation, l’instruction switch prend uniquement en charge les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs relationnels (par exemple, supérieur à), utilisez une instruction de condition.
- >
- > Pour garantir un comportement d’exécution constant, les cas de figure doivent contenir une valeur statique unique et non des jetons ou une expression dynamiques.
+Lorsque vous créez un flux de travail, vous êtes souvent amené à exécuter des actions différentes selon la valeur d’un objet ou d’une expression. Par exemple, vous pouvez avoir besoin que votre application logique se comporte différemment selon le code d’état d’une demande HTTP ou l’option sélectionnée dans un e-mail.
+
+Vous pouvez utiliser une instruction switch pour mettre en place ces scénarios. Votre application logique peut évaluer un jeton ou une expression, et choisir le cas correspondant à la même valeur pour exécuter les actions spécifiées. L’instruction switch ne doit correspondre qu’à un seul cas de figure.
+
+> [!TIP]
+> Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs relationnels, par exemple « supérieur à », utilisez une instruction de condition.
+> Pour garantir un comportement d’exécution constant, les cas de figure doivent contenir une valeur statique unique et non des jetons ou une expression dynamiques.
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Abonnement Azure actif.
-    - Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free/) ou essayez [Logic Apps gratuitement](https://tryappservice.azure.com/).
-- [Connaissance de base de Logic Apps](logic-apps-what-are-logic-apps.md).
+- Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free/) ou essayez [Logic Apps gratuitement](https://tryappservice.azure.com/).
+- [Connaissance de base des applications logiques](logic-apps-what-are-logic-apps.md)
 
-## <a name="working-with-switch-statement-in-designer"></a>Utilisation de l’instruction switch dans le concepteur
-Pour illustrer l’utilisation de l’instruction switch, nous allons créer une application logique qui surveille les fichiers chargés sur la Dropbox. L’application logique envoie un courrier électronique d’approbation pour déterminer si un transfert vers SharePoint est requis. Nous utiliserons l’instruction switch pour exécuter des actions différentes en fonction de la valeur sélectionnée par l’approbateur.
+## <a name="add-a-switch-statement-to-your-workflow"></a>Ajouter une instruction switch à un flux de travail
 
-1. Commencez par créer une application logique, puis sélectionnez le déclencheur **Dropbox - When a file is created** (Dropbox - Lorsqu’un fichier est créé).
+Pour illustrer le fonctionnement d’une instruction switch, cet exemple crée une application logique qui surveille les fichiers chargés sur Dropbox. Lorsque les nouveaux fichiers sont chargés, l’application logique envoie un e-mail à un approbateur qui décide s’il faut transférer ces fichiers vers SharePoint. L’application utilise une instruction switch qui effectue des actions différentes selon la valeur sélectionnée de l’approbateur.
 
- ![Utiliser le déclencheur Dropbox - When a file is created (Dropbox - Lorsqu’un fichier est créé)](./media/logic-apps-switch-case/dropbox-trigger.jpg)
+1. Créez une application logique, puis sélectionnez ce déclencheur : **Dropbox - Lorsqu’un fichier est créé**.
 
-2. À la suite du déclencheur, définissez l’action **Outlook.com - Send approval email** (Outlook.com - Envoyer un message électronique d’approbation).
+   ![Utiliser le déclencheur Dropbox - When a file is created (Dropbox - Lorsqu’un fichier est créé)](./media/logic-apps-switch-case/dropbox-trigger.jpg)
 
- > [!TIP]
- > Logic Apps prend également en charge l’envoi d’un message électronique d’approbation à partir d’un compte Office 365 Outlook.
+2. Sous le déclencheur, ajoutez cette action : **Outlook.com - Envoyer un e-mail d’approbation**.
 
- - Si vous n’avez pas de connexion existante, vous serez invité à en créer une.
- - Remplissez les champs obligatoires. Pour notre exemple, nous enverrons le message électronique à l’adresse approvers@contoso.com.
- - Sous *Options utilisateur*, entrez `Approve, Reject`.
+   > [!TIP]
+   > Les applications logiques prennent également en charge les scénarios d’envoi d’un e-mail d’approbation à partir d’un compte Outlook Office 365.
 
- ![Configurer la connexion](./media/logic-apps-switch-case/send-approval-email-action.jpg)
+   - Si vous ne disposez pas d’une connexion, vous êtes invité à en créer une.
+   - Renseignez les champs obligatoires. Par exemple, sous **À**, spécifiez l’adresse e-mail à laquelle l’e-mail de l’approbateur sera envoyé.
+   - Sous **Options utilisateur**, entrez `Approve, Reject`.
+
+   ![Configurer la connexion](./media/logic-apps-switch-case/send-approval-email-action.jpg)
 
 3. Ajoutez une instruction switch.
- - Sélectionnez **+ Nouvelle étape**, **... Plus**, **Add a switch statement** (Ajouter une instruction switch).
- - Nous souhaitons sélectionner l’action à exécuter selon la sortie `SelectedOptions` de l’action *Envoyer un message électronique d’approbation*, ce que permet de faire le sélecteur **Ajouter du contenu dynamique**.
- - Utilisez *Case 1* (Cas de figure 1) pour gérer la sélection de `Approve` par l’utilisateur.
-    - En cas d’approbation, copiez le fichier d’origine dans SharePoint Online avec l’action **SharePoint Online - Create file** (SharePoint Online - Créer un fichier).
-    - Ajoutez une autre action au cas de figure pour notifier les utilisateurs qu’un nouveau fichier est disponible dans SharePoint.
- - Ajoutez un autre cas de figure pour gérer la sélection de `Reject` par l’utilisateur.
-    - En cas de refus, envoyez un message électronique de notification informant les autres approbateurs que le fichier a été rejeté et qu’aucune action supplémentaire n’est requise.
- - Nous savons que deux options seulement sont fournies pour `SelectedOptions`. *Par défaut* peut donc être laissé vide.
 
- ![Instruction switch](./media/logic-apps-switch-case/switch.jpg)
+   - Sélectionnez **+ Nouvelle étape** > **... Plus** > **Ajouter un cas switch**. 
+   - Nous allons à présent sélectionner l’action à effectuer en fonction de la sortie `SelectedOptions` de l’action *Envoyer un e-mail d’approbation*. 
+   Ce champ se trouve dans le sélecteur **Ajouter du contenu dynamique**.
+   - Utilisez *Cas 1* pour gérer la sélection de `Approve` par l’approbateur.
+     - En cas d’approbation, copiez le fichier d’origine dans SharePoint Online avec [l’action **SharePoint Online - Créer un fichier**](../connectors/connectors-create-api-sharepointonline.md).
+     - Ajoutez une autre action au cas de figure pour notifier les utilisateurs qu’un nouveau fichier est disponible dans SharePoint.
+   - Ajoutez un autre cas de figure pour gérer la sélection de `Reject` par l’utilisateur.
+     - En cas de refus, envoyez un message électronique de notification informant les autres approbateurs que le fichier a été rejeté et qu’aucune action supplémentaire n’est requise.
+   - `SelectedOptions` fournit uniquement deux options ; nous pouvons donc laisser vide le cas **Par défaut**.
 
- > [!NOTE]
- > L’instruction switch requiert au moins un cas de figure en plus de celui par défaut.
+   ![Instruction switch](./media/logic-apps-switch-case/switch.jpg)
 
-4. Après l’instruction switch, supprimez le fichier d’origine chargé sur la Dropbox avec l’action **Dropbox - Delete file** (Dropbox - Supprimer le fichier).
+   > [!NOTE]
+   > Une instruction switch requiert au moins un cas de figure en plus du cas par défaut.
 
-5. Enregistrez votre application logique et testez-le en chargeant un fichier sur la Dropbox. Vous devriez recevoir un message électronique d’approbation peu après. Sélectionnez une option et observez ce qui se passe.
- > [!TIP]
- > Découvrez comment [analyser vos Logic Apps](logic-apps-monitor-your-logic-apps.md).
+4. Après l’instruction switch, supprimez le fichier d’origine chargé sur la Dropbox en ajoutant cette action : **Dropbox - Supprimer le fichier**.
 
-## <a name="understanding-code-behind"></a>Présentation du code associé
-Maintenant que vous avez créé une application logique utilisant l’instruction switch, examinons le code associé ci-dessous.
+5. Enregistrez votre application logique. Testez votre application en chargeant un fichier sur Dropbox. Vous recevrez sous peu un e-mail d’approbation. Sélectionnez une option et observez le comportement.
+
+   > [!TIP]
+   > Découvrez comment [surveiller vos applications logiques](logic-apps-monitor-your-logic-apps.md).
+
+## <a name="understand-the-code-behind-switch-statements"></a>Comprendre le code derrière les instructions switch
+
+Maintenant que vous avez créé une application logique avec une instruction switch, examinons la définition de code derrière l’instruction switch.
 
 ```json
 "Switch": {
@@ -100,17 +109,20 @@ Maintenant que vous avez créé une application logique utilisant l’instructio
 }
 ```
 
-`"Switch"` est le nom de l’instruction switch. Il peut être modifié pour plus de lisibilité. `"type": "Switch"` indique que l’action est une instruction switch. `"expression"` : dans le cas présent, l’option sélectionnée par l’utilisateur est évaluée en fonction de chaque cas de figure déclaré plus loin dans la définition. `"cases"` peut contenir un nombre illimité de cas de figure. Si aucun de ces cas de figure ne correspond à l’expression de switch, les actions définies dans `"default"` sont exécutées.
+* `"Switch"` est le nom de l’instruction switch, que vous pouvez modifier pour plus de lisibilité. 
+* `"type": "Switch"` indique que l’action est une instruction switch. 
+* `"expression"` est l’option sélectionnée par l’approbateur dans cet exemple ; elle est confrontée à chacun des cas déclarés plus loin dans la définition. 
+* `"cases"` peut contenir une infinité de cas. Pour chaque cas, `"Case *"` est le nom par défaut du cas, que vous pouvez modifier pour plus de lisibilité. 
+`"case"` spécifie l’étiquette du cas, utilisée par l’expression switch à des fins de comparaison. Il doit s’agir d’une valeur unique et constante. Si aucun des cas ne correspond à l’expression switch, les actions sous `"default"` sont exécutées.
 
-`"cases"` peut contenir un nombre illimité de cas de figure. `"Case 1"` est le nom du cas de figure. Il peut être modifié pour plus de lisibilité. `"case"` spécifie l’étiquette du cas de figure, utilisée pour la comparaison de l’expression de switch. Il doit s’agir d’une valeur unique et constante.  
+## <a name="get-help"></a>Obtenir de l’aide
+
+Pour poser des questions, répondre aux questions et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Essayez les autres [fonctionnalités de Logic Apps](logic-apps-use-logic-app-features.md).
-- Consultez des informations sur la [gestion des erreurs et des exceptions](logic-apps-exception-handling.md).
-- Découvrez les autres [fonctionnalités en matière de langage de flux de travail](logic-apps-author-definitions.md).
-- Laissez un commentaire avec vos questions ou vos remarques, ou [dites-nous comment nous pouvons améliorer Logic Apps](https://feedback.azure.com/forums/287593-logic-apps).
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+- Apprendre à [ajouter des conditions](logic-apps-use-logic-app-features.md)
+- En savoir plus sur la [gestion des erreurs et des exceptions](logic-apps-exception-handling.md)
+- Découvrir d’autres [fonctionnalités en matière de langage de flux de travail](logic-apps-author-definitions.md)

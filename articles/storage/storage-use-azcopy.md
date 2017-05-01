@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
-ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -402,7 +402,7 @@ AzCopy crée un fichier de données JSON dans le conteneur d’objets blob en r
 
 Le fichier de données JSON créé respecte le format de charge utile pour les métadonnées minimales. Pour des informations sur le format de charge utile, consultez la page [Format de charge utile pour les opérations du service de Table](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Notez que lors de l’exportation des tables vers les objets blob, AzCopy télécharge les entités de Table vers les fichiers de données temporaires locaux et téléchargez ensuite ces entités dans l’objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin d’accès par défaut « <code>%LocalAppData%\Microsoft\Azure\AzCopy</code> », vous pouvez spécifier l’option /Z:[dossier de fichier journal] pour modifier l’emplacement de dossier du fichier et ainsi modifier l’emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l’option /SplitSize, bien que le fichier de données temporaire dans le disque local soit supprimé instantanément. Une fois qu’il a été téléchargé vers l’objet blob, assurez-vous que vous disposez de suffisamment d’espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés,
+Notez que lors de l’exportation des tables vers les objets blob, AzCopy télécharge les entités de Table vers les fichiers de données temporaires locaux et téléchargez ensuite ces entités dans l’objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin par défaut « <code>%LocalAppData%\Microsoft\Azure\AzCopy</code> ». Vous pouvez spécifier l’option /Z:[dossier du fichier journal] pour modifier l’emplacement du dossier du fichier et changer ainsi l’emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l’option /SplitSize, bien que le fichier de données temporaire dans le disque local soit supprimé instantanément une fois qu’il a été chargé vers l’objet blob. Vérifiez que vous disposez de suffisamment d’espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés.
 
 ## <a name="table-import"></a>Table : importation
 ### <a name="import-table"></a>Table d’importation
@@ -883,8 +883,8 @@ Vous pouvez créer un fichier app.config `AzCopy.exe.config` avec la propriété
       </appSettings>
     </configuration>
 
-Si la propriété AzureStorageUseV1MD5 a pour valeur true (valeur par défaut), AzCopy utilise l’implémentation MD5 .NET ;
-si elle a pour valeur false, AzCopy utilise l’algorithme MD5 compatible FIPS.
+Si la propriété « AzureStorageUseV1MD5 » a pour valeur true (la valeur par défaut), AzCopy utilise l’implémentation MD5 .NET.
+Si elle a pour valeur false, AzCopy utilise l’algorithme MD5 compatible FIPS.
 
 Notez que les algorithmes compatibles FIPS sont désactivés par défaut sur votre ordinateur Windows ; vous pouvez taper secpol.msc dans la fenêtre Exécuter et activer le commutateur « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » (Paramètres de sécurité -> Stratégies locales -> Options de sécurité).
 

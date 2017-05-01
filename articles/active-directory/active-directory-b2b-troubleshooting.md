@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ccd7bb3cab65f95c53489de07479c9750e860040
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,6 @@ ms.lasthandoff: 03/15/2017
 
 Voici des solutions pour les problèmes courants liés à Azure Active Directory (Azure AD) B2B Collaboration.
 
-## <a name="i-cant-create-an-external-user-due-to-an-existing-contact"></a>Impossible de créer un utilisateur externe en raison d’un contact existant
-
-Si l’utilisateur externe que vous invitez a déjà un objet de contact existant, vous ne pourrez pas inviter cet utilisateur tant que le conflit ne sera pas résolu, généralement en supprimant l’objet de contact. Le conflit doit être résolu manuellement jusqu'à la disponibilité générale de B2B Collaboration.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>J’ai ajouté un utilisateur externe, mais je ne le vois pas dans mon carnet d’adresses global ou dans le sélecteur de personnes
 
@@ -66,7 +63,7 @@ Pour résoudre ce problème, administrateur de l’utilisateur externe doit sync
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui n’est normalement pas un caractère valide, avec Azure AD ?
 
-« \# » est un caractère réservé dans les UPN pour Azure AD B2B Collaboration ou des utilisateurs externes (autrement dit, &lt;user@contoso.com&gt; devient &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt; une fois invité), donc \# dans des UPN locaux ne sont pas autorisés pour la connexion au portail Azure.
+« \# » est un caractère réservé dans les UPN pour Azure AD B2B Collaboration ou des utilisateurs externes (autrement dit, user@contoso.com devient user_contoso.com#EXT@fabrikam.onmicrosoft.com une fois invité), de sorte que les \# dans des UPN locaux ne sont pas autorisés pour la connexion au portail Azure.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Je reçois une erreur lors de l’ajout d'utilisateurs externes à un groupe synchronisé
 
@@ -74,17 +71,17 @@ Des utilisateurs externes peuvent être ajoutés uniquement à des groupes « af
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Mon utilisateur externe n’a pas reçu d'e-mail à utiliser
 
-L’invité doit contacter son fournisseur de services Internet ou contrôler son filtre de courriers indésirables pour s’assurer que l’adresse suivante est autorisée :&lt;Invites@microsoft.com&gt;
+L’invité doit contacter son fournisseur de services Internet ou contrôler son filtre de courriers indésirables pour s’assurer que l’adresse suivante est autorisée : Invites@microsoft.com
 
-## <a name="my-recipient-received-multiple-emails-from-me"></a>Mon destinataire a reçu plusieurs e-mails de ma part
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Je remarque que le message personnalisé n’est parfois pas inclus dans les messages d’invitation
 
-Dans certains cas, lorsque le destinataire de l’invitation a plusieurs alias pour son compte, il se peut qu'il reçoive deux invitations. Dans ces cas, le premier lien utilisé est le compte qui sera créé, et le second lien d'utilisation de l'invitation n'est alors plus valide.
+Pour respecter les lois relatives à la confidentialité, nos API n’incluent pas de messages personnalisés dans l’invitation électronique quand l’émetteur de l’invitation n’a pas d’adresse e-mail au sein de l’organisation de ressources (également appelée location invitante) ou quand un principal de service d’application envoie l’invitation. Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoie l’invitation électronique, et envoyer celle-ci via un mécanisme de messagerie de votre choix. N’oubliez pas de consulter un conseiller juridique de votre organisation pour vous assurer que tout courriel que vous envoyez est également conforme aux lois relatives à la vie privée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
 * [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 * [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)

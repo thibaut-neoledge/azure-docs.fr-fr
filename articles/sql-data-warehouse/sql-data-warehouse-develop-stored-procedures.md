@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 103b3ad93c6bb99f1781e9b3c485caa6042ae0a3
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -63,7 +65,7 @@ GO
 EXEC prc_nesting
 ```
 
-Remarque : pour le moment, SQL Data Warehouse ne prend pas en charge @@NESTLEVEL. Vous devez conserver vous-même une trace de votre niveau d’imbrication. Il est peu probable que vous atteigniez le niveau d’imbrication 8. Cependant, si tel est le cas, vous devez modifier votre code et l’« aplatir », afin qu’il respecte cette limite.
+Notez que SQL Data Warehouse ne prend pas en charge @@NESTLEVEL. Vous devez conserver vous-même une trace de votre niveau d’imbrication. Il est peu probable que vous atteigniez le niveau d’imbrication 8. Cependant, si tel est le cas, vous devez modifier votre code et l’« aplatir », afin qu’il respecte cette limite.
 
 ## <a name="insertexecute"></a>INSERT... EXECUTE
 SQL Data Warehouse ne vous permet pas d’utiliser le jeu de résultats d’une procédure stockée avec une instruction INSERT. Toutefois, vous pouvez utiliser une autre méthode.
@@ -88,21 +90,16 @@ Les voici :
 * Instruction RETURN
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble sur le développement][vue d’ensemble sur le développement].
+Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble du développement][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 [Tables temporaires dans SQL Data Warehouse]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[vue d’ensemble sur le développement]: ./sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[niveau d’imbrication]: https://msdn.microsoft.com/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

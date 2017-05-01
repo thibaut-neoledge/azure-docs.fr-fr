@@ -4,7 +4,7 @@ description: "Cet article vous indique comment configurer votre passerelle VPN d
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: fbe59ba8-b11f-4d21-9bb1-225ec6c6d351
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b6f001345daf411497295357ab43d01635ae743e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2ea4e6bb86b1ba6f7b501b193d0713d3901457af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,21 +62,25 @@ Lorsque l’état de la passerelle passe en *Connexion en cours*, vous pouvez co
 Si vous créez une connexion de site à site, une fois la passerelle créée, collectez les informations de configuration de votre périphérique VPN. Ces informations se trouvent sur la page **Tableau de bord** de votre réseau virtuel :
 
 1. **Adresse IP de la passerelle** : l’adresse IP se trouve dans la page **Tableau de bord**. Vous ne pourrez le découvrir qu’après avoir créé votre passerelle.
-2. **Clé partagée** : cliquez sur **Gérer la clé** au bas de l’écran. Cliquez sur l’icône située à côté de la clé pour la copier dans le Presse-papiers, puis collez et enregistrez la clé. Ce bouton ne fonctionne qu’avec un tunnel VPN S2S unique. Si vous disposez de plusieurs tunnels VPN S2S, utilisez l’API d’*obtention de la clé partagée de la passerelle de réseau virtuel* ou l’applet de commande PowerShell.
+2. **Clé partagée** : cliquez sur **Gérer la clé** au bas de l’écran. Cliquez sur l’icône située à côté de la clé pour la copier dans le Presse-papiers, puis collez et enregistrez la clé. Ce bouton ne fonctionne qu’avec un tunnel VPN S2S unique. Si vous avez de plusieurs tunnels VPN S2S, utilisez l’API *d’obtention de la clé partagée de la passerelle de réseau virtuel* ou l’applet de commande PowerShell.
 
 ![Gérer la clé](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 ### <a name="step-2--configure-your-vpn-device"></a>Étape 2.  Configuration de votre périphérique VPN
-Pour les connexions de site à Site, à l’issue des étapes précédentes, vous ou votre administrateur réseau devrez configurer le périphérique VPN pour créer la connexion. Pour plus d’informations sur les périphériques VPN, voir la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) .
+Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Nous ne fournissons pas les étapes de configuration de tous les appareils VPN, mais les informations des liens ci-dessous peuvent vous être utiles :
+
+- Pour plus d’informations sur les appareils VPN compatibles, consultez [Appareils VPN](vpn-gateway-about-vpn-devices.md). 
+- Pour des liens vers les paramètres de configuration des appareils, consultez [Appareils VPN validés](vpn-gateway-about-vpn-devices.md#devicetable). Ces liens sont fournis dans la mesure du possible. Il est toujours préférable de vérifier les dernières informations de configuration auprès du fabricant de l’appareil.
+- Pour plus d’informations sur la modification des exemples de configuration des appareils, consultez la page [Modifier les exemples](vpn-gateway-about-vpn-devices.md#editing).
+- En ce qui concerne les paramètres IPsec/IKE, consultez la page [Paramètres](vpn-gateway-about-vpn-devices.md#ipsec).
+- Avant de configurer votre périphérique VPN, identifiez également les éventuels [Problèmes de compatibilité connus avec le matériel](vpn-gateway-about-vpn-devices.md#known) pour le périphérique VPN que vous souhaitez utiliser.
+
+Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
+
+- L’adresse IP publique de votre passerelle de réseau virtuel. Vous la trouverez dans le panneau **Vue d’ensemble** de votre réseau virtuel.
+- Une clé partagée. Il s’agit de la clé partagée spécifiée lors de la création de la connexion VPN de site à site. Dans nos exemples, nous utilisons une clé partagée très basique. Vous devez générer une clé plus complexe à utiliser.
 
 Une fois le périphérique VPN configuré, vous pouvez afficher vos informations de connexion mises à jour sur la page Tableau de bord de votre réseau virtuel.
-
-Vous pouvez également tester votre connexion en exécutant l’une des commandes suivantes :
-
-|  | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
-| --- | --- | --- | --- | --- |
-| **Vérification de toutes les associations de sécurité en mode principal** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
-| **Vérification des associations de sécurité en mode rapide** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
 ### <a name="step-3-verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>Étape 3. Vérifier vos plages de réseau local et l’adresse IP de la passerelle VPN
 #### <a name="verify-your-vpn-gateway-ip-address"></a>Vérifier votre adresse IP de passerelle VPN

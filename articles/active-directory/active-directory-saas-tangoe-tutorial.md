@@ -12,22 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: bb140097831453d46f6bfef1c9fbe569eefb3020
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8ab2dd16940f36411cf9a9f244bd3ec6eaf9749b
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
+
 Dans ce didacticiel, vous allez apprendre à intégrer Tangoe Command Premium Mobile à Azure Active Directory (Azure AD).
 
 L’intégration de Tangoe Command Premium Mobile à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Tangoe Command Premium Mobile.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Tangoe Command Premium Mobile (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Tangoe Command Premium Mobile via l’authentification unique avec leur compte Azure AD
 * Vous pouvez gérer vos comptes à un emplacement central avec le portail Azure Classic
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -38,15 +39,15 @@ Pour configurer l’intégration d’Azure AD à Tangoe Command Premium Mobile,
 * Un abonnement Azure
 * Un abonnement Tangoe Command Premium Mobile avec l’authentification unique activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
@@ -81,8 +82,8 @@ Pour configurer l’intégration de Tangoe Command Premium Mobile à Azure AD, 
 
 ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Tangoe Command Premium Mobile pour un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous configurez et vous testez l’authentification unique Azure AD avec Tangoe Command Premium Mobile pour un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Tangoe Command Premium Mobile équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Tangoe Command Premium Mobile associé doit être établie.
 
@@ -93,15 +94,15 @@ Pour configurer et tester l’authentification unique Azure AD avec Tangoe Comm
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Tangoe Command Premium Mobile](#creating-an-tangoe-test-user)** pour avoir un équivalent de Britta Simon dans Tangoe Command Premium Mobile lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application Tangoe Command Premium Mobile.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Classic et vous configurez l’authentification unique dans votre application Tangoe Command Premium Mobile.
 
 **Pour configurer l’authentification unique Azure AD avec Tangoe Command Premium Mobile, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **Tangoe Command Premium Mobile**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Classic, dans la page d’intégration d’application **Tangoe Command Premium Mobile**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][6]
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Tangoe Command Premium Mobile**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
@@ -115,16 +116,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
    2. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **https://sso.tangoe.com/sp/ACS.saml2**.
 
-    > [!NOTE]  
-    > Si vous ne connaissez pas les valeurs correctes pour les URL, vous pouvez utiliser les valeurs ci-dessus comme espaces réservés et demander les valeurs correctes au service clientèle Tangoe.
-    >
+     >[!NOTE]  
+     >Si vous ne connaissez pas les valeurs correctes pour les URL, vous pouvez utiliser les valeurs ci-dessus comme espaces réservés et demander les valeurs correctes au service clientèle Tangoe.
+     >
 
 4. Dans la page **Configurer l’authentification unique sur Tangoe Command Premium Mobile** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png) 
-   
-   1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   2. Cliquez sur **Next**.
+  1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Next**.
 
 5. Pour configurer l’authentification unique pour votre application, contactez le service clientèle Tangoe en lui fournissant les éléments suivants :
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 * Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
@@ -162,12 +162,9 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation. 
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png) 
@@ -176,7 +173,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
   2. Dans la zone de texte **Last Name**, tapez **Simon**.
   3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-  5. Cliquez sur **Suivant**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png) 
@@ -187,14 +184,17 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
   1. Notez la valeur du **Nouveau mot de passe**.
   2. Cliquez sur **Terminé**.   
 
-### <a name="creating-an-tangoe-command-premium-mobile-test-user"></a>Création d’un utilisateur de test Tangoe Command Premium Mobile
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Tangoe Command Premium Mobile. Tous les utilisateurs de Tangoe Command Premium Mobile doivent être configurés dans cette application avant de procéder à l’authentification unique. Par conséquent, appuyez-vous sur le service clientèle Tangoe pour configurer tous ces utilisateurs dans l’application. 
+### <a name="create-an-tangoe-command-premium-mobile-test-user"></a>Créer un utilisateur de test Tangoe Command Premium Mobile
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Tangoe Command Premium Mobile. 
 
-> [!NOTE]
-> Si vous avez besoin de créer un utilisateur manuellement ou un groupe d’utilisateurs, vous devez contacter l’équipe de support Tangoe Command Premium Mobile.
-> 
+Tous les utilisateurs de Tangoe Command Premium Mobile doivent être configurés dans cette application avant de procéder à l’authentification unique. Par conséquent, appuyez-vous sur le service clientèle Tangoe pour configurer tous ces utilisateurs dans l’application. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+>[!NOTE]
+>Si vous avez besoin de créer un utilisateur manuellement ou un groupe d’utilisateurs, vous devez contacter l’équipe de support Tangoe Command Premium Mobile.
+>
+>
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Tangoe Command Premium Mobile.
 
 ![Affecter des utilisateurs][200] 
@@ -218,8 +218,8 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à partir du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Tangoe Command Premium Mobile dans le volet d’accès, la connexion à votre application Tangoe Command Premium Mobile doit s’établir automatiquement.
 

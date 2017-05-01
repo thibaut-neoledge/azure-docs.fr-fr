@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
-ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,7 +74,7 @@ Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom po
 1. Cliquez avec le bouton droit sur le pipeline de votre choix, puis cliquez sur **Ouvrir le pipeline** pour faire apparaître toutes les activités dans le pipeline, ainsi que les jeux de données d’entrée et de sortie des activités. Cette fonctionnalité est utile quand votre pipeline comprend plusieurs activités et que vous souhaitez comprendre le lignage opérationnel d’un seul pipeline.
 
     ![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. Dans l'exemple suivant, deux activités dans le pipeline s’affichent avec leurs entrées et leurs sorties. Les activités intitulées **JoinData** du type Activité Hive HDInsight, et **EgressDataAzure** du type Copier l’activité figurent dans cet exemple de pipeline.
+2. Dans l’exemple suivant, vous voyez une activité de copie dans le pipeline avec une entrée et une sortie. 
 
     ![Activités à l'intérieur d'un pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Vous pouvez revenir à la page d’accueil de la fabrique de données en cliquant sur le lien **Data Factory** dans l’arborescence de navigation située dans le coin supérieur gauche.
@@ -84,11 +84,9 @@ Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom po
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Afficher l’état de chaque activité à l’intérieur d’un pipeline
 Vous pouvez afficher l’état actuel d’une activité en consultant l’état de l’un des jeux de données générés par l’activité.
 
-Dans l’exemple suivant, l’activité **BlobPartitionHiveActivity** a été correctement exécutée et a produit un jeu de données nommé **PartitionedProductsUsageTable**, dont l’état est **Prêt**.
+En double-cliquant sur **OutputBlobTable** dans le **Diagramme**, vous pouvez voir toutes les tranches produites par les différentes exécutions de l’activité à l’intérieur d’un pipeline. Vous pouvez voir que l’activité de copie a été exécutée correctement au cours des huit dernières heures et qu’elle a produit les tranches dont l’état est **Prêt**.  
 
 ![État du pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-En double-cliquant sur **PartitionedProductsUsageTable** dans la **vue schématique**, vous pouvez afficher toutes les tranches produites par différentes exécutions d’activité à l’intérieur d’un pipeline. Comme vous pouvez le constater, l’activité **BlobPartitionHiveActivity** s’est déroulée correctement sur les huit derniers mois et a produit les tranches dont l’état est **Prêt**.
 
 Voici la liste des différents états possibles pour les tranches d’un jeu de données de la fabrique de données :
 

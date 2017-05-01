@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 94f9bbcfddf8ea3d5ae9bffcb3c196a30f4bb396
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e37a943c775261a6817169c95a931f1b268305d9
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/28/2017
 ## <a name="view-current-dwu-settings"></a>Afficher les paramètres d’unités DWU actuels
 Pour afficher les paramètres d’unités DWU actuels pour vos bases de données :
 
-1. Ouvrez l’Explorateur d’objets SQL Server dans Visual Studio 2015.
+1. Ouvrez l’Explorateur d’objets SQL Server dans Visual Studio.
 2. Connectez-vous à la base de données associée au serveur de base de données SQL logique.
 3. Sélectionnez dans la vue de gestion dynamique sys.database_service_objectives. Voici un exemple : 
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fd53e73d6a686581ea2b807ae66716fc36a99ad4
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 659a1df454f7085b1f6e2cea3ae1e18d386a09f7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,12 +31,12 @@ Azure IoT Hub est un service entièrement géré qui permet à une application p
 * Mettre à jour les balises
 * Appeler des méthodes directes
 
-Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de représentation d’appareil.  Par exemple, à l’aide d’un travail, une application principale peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de représentation d’appareil et planifiée dans l’avenir.  Cette application peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
+Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de représentation d’appareil.  Par exemple, à l’aide d’un travail, une application principale peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de représentation d’appareil et planifiée dans l’avenir.  Elle peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
 * Représentation d’appareil et propriétés : [Prise en main des représentations d’appareil][lnk-get-started-twin] et [Tutorial: How to use device twin properties][lnk-twin-props] (Didacticiel : Utilisation des propriétés de représentation d’appareil)
-* méthodes directes : [Guide du développeur - Méthodes directes][lnk-dev-methods] et [Tutorial: Use direct methods][lnk-c2d-methods] (Didacticiel : utilisation des méthodes directes)
+* Méthodes directes : [Guide du développeur IoT Hub - Méthodes directes][lnk-dev-methods] et [Tutorial: Use direct methods][lnk-c2d-methods] (Didacticiel : utilisation des méthodes directes)
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -51,9 +51,9 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Microsoft Visual Studio 2015.
-* Node.js version 0.12.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
+* Visual Studio 2015 ou Visual Studio 2017.
+* Node.js version 0.12.x ou version ultérieure. L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -66,21 +66,26 @@ Dans cette section, vous créez une application console Node.js (utilisant C#) q
 
     ![Nouveau projet Visual C# Bureau classique Windows][img-createapp]
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ScheduleJob**, puis cliquez sur **Gérer les packages NuGet**.
-3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ScheduleJob**, puis cliquez sur **Gérer les packages NuGet...**.
+1. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette étape lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
 
     ![Fenêtre du gestionnaire de package NuGet][img-servicenuget]
-4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+1. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Ajoutez l’instruction `using` suivante si elle ne figure pas déjà dans les instructions par défaut.
+
+        using System.Threading.Tasks;
         
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub pour le hub créé dans la section précédente.
+1. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub pour le hub créé dans la section précédente.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
         
-6. Ajoutez la méthode suivante à la classe **Program** :
+1. Ajoutez la méthode suivante à la classe **Program** :
    
         public static async Task MonitorJob(string jobId)
         {
@@ -93,7 +98,7 @@ Dans cette section, vous créez une application console Node.js (utilisant C#) q
             } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
         }
                 
-7. Ajoutez la méthode suivante à la classe **Program** :
+1. Ajoutez la méthode suivante à la classe **Program** :
 
         public static async Task StartMethodJob(string jobId)
         {
@@ -108,7 +113,7 @@ Dans cette section, vous créez une application console Node.js (utilisant C#) q
             Console.WriteLine("Started Method Job");
         }
 
-8. Ajoutez la méthode suivante à la classe **Program** :
+1. Ajoutez la méthode suivante à la classe **Program** :
 
         public static async Task StartTwinUpdateJob(string jobId)
         {
@@ -127,7 +132,7 @@ Dans cette section, vous créez une application console Node.js (utilisant C#) q
         }
  
 
-9. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+1. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
         jobClient = JobClient.CreateFromConnectionString(connString);
 
@@ -144,8 +149,8 @@ Dans cette section, vous créez une application console Node.js (utilisant C#) q
         MonitorJob(twinUpdateJobId).Wait();
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
-                   
-10. Générez la solution.
+
+1. Dans l’Explorateur de solutions, sélectionnez **Définir les projets de démarrage...** et vérifiez que l’**Action** définie pour le projet **ScheduleJob** est **Démarrer**. Générez la solution.
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 Dans cette section, vous créez une application console Node.js qui répond à une méthode directe appelée par le cloud, qui déclenche un redémarrage de l’appareil simulé et utilise les propriétés signalées pour permettre aux requêtes de la représentation d’appareil d’identifier des appareils et de déterminer le moment de leur dernier redémarrage.
@@ -155,13 +160,13 @@ Dans cette section, vous créez une application console Node.js qui répond à u
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **simDevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
+1. À l’invite de commandes, dans le dossier **simDevice**, exécutez la commande suivante pour installer les packages **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Dans un éditeur de texte, créez un fichier **simDevice.js** dans le dossier **simDevice**.
-4. Ajoutez les instructions ’require’ ci-dessous au début du fichier **simDevice.js** :
+1. Dans un éditeur de texte, créez un fichier **simDevice.js** dans le dossier **simDevice**.
+1. Ajoutez les instructions ’require’ ci-dessous au début du fichier **simDevice.js** :
    
     ```
     'use strict';
@@ -169,13 +174,13 @@ Dans cette section, vous créez une application console Node.js qui répond à u
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
+1. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**. Veillez à remplacer les espaces réservés par des valeurs appropriées à votre installation.
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Ajoutez la fonction suivante pour gérer la méthode **lockDoor**.
+1. Ajoutez la fonction suivante pour gérer la méthode **lockDoor**.
    
     ```
     var onLockDoor = function(request, response) {
@@ -192,7 +197,7 @@ Dans cette section, vous créez une application console Node.js qui répond à u
         console.log('Locking Door!');
     };
     ```
-7. Ajoutez le code suivant pour inscrire le gestionnaire de la méthode **lockDoor**.
+1. Ajoutez le code suivant pour inscrire le gestionnaire de la méthode **lockDoor**.
    
     ```
     client.open(function(err) {
@@ -204,7 +209,7 @@ Dans cette section, vous créez une application console Node.js qui répond à u
         }
     });
     ```
-8. Enregistrez et fermez le fichier **simDevice.js**.
+1. Enregistrez et fermez le fichier **simDevice.js**.
 
 > [!NOTE]
 > Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Gestion des erreurs temporaires][lnk-transient-faults].
@@ -219,22 +224,23 @@ Vous êtes maintenant prêt à exécuter les applications.
     ```
     node simDevice.js
     ```
-2. Exécutez l’application console C# **ScheduleJob**, cliquez avec le bouton droit sur le projet **ScheduleJob**, puis sélectionnez **Debug** et **Démarrer une nouvelle instance**.
+1. Exécutez l’application console C# **ScheduleJob** en cliquant avec le bouton droit sur le projet **ScheduleJob**, puis en sélectionnant **Débogage** et **Démarrer une nouvelle instance**.
 
-3. La sortie de l’appareil et des applications principales s’affiche.
+1. La sortie de l’appareil et des applications principales s’affiche.
+
+    ![Exécuter les applications pour planifier des tâches][img-schedulejobs]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez :
-
-[Didacticiel : Mettre à jour un microprogramme][lnk-fwupdate]
+Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez le [Didacticiel : Mettre à jour un microprogramme][lnk-fwupdate].
 
 Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en main du Kit de développement logiciel (SDK) IoT Gateway][lnk-gateway-SDK].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-schedule-jobs/createnetapp.png
+[img-schedulejobs]: media/iot-hub-csharp-node-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

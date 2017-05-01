@@ -3,7 +3,7 @@ title: "Référence d’API d’audit Azure Active Directory | Microsoft Do
 description: "Prise en main de l’API d’audit Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ Pour les données liées à l’API de connexion, les filtres suivants sont pris
 Pour indiquer le type d’enregistrements qui vous intéressent, vous pouvez créer une déclaration de filtre contenant l’un des champs de filtre suivants ou une combinaison de ceux-ci :
 
 * [activityDate](#activitydate) : définit une date ou une plage de dates
+* [category](#category) : définit la catégorie que vous voulez filtrer.
+* [activityStatus](#activitystatus) : définit l’état d’une activité
 * [activityType](#activitytype) : définit le type d’une activité
 * [activity](#activity) : définit l’activité en tant que chaîne  
 * [actor/name](#actorname) : définit l’acteur sous forme de nom de l’acteur
@@ -97,6 +100,45 @@ Pour indiquer le type d’enregistrements qui vous intéressent, vous pouvez cr�
 datetime doit être au format UTC
 
 - - -
+### <a name="category"></a>category
+
+**Valeurs prises en charge** :
+
+| Catégorie                         | Valeur     |
+| :--                              | ---       |
+| Annuaire principal                   | Répertoire |
+| Gestion des mots de passe en libre-service | SSPR      |
+| Gestion des groupes en libre-service    | SSGM      |
+| Approvisionnement des comptes             | Synchronisation      |
+| Substitution de mot de passe automatique      | Substitution de mot de passe automatique |
+| Identity Protection              | IdentityProtection |
+| Utilisateurs invités                    | Utilisateurs invités |
+| Service MIM                      | Service MIM |
+
+
+
+**Opérateurs pris en charge**: eq
+
+**Exemple**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Valeurs prises en charge** :
+
+| État de l’activité | Valeur |
+| :--             | ---   |
+| Succès         | 0     |
+| Échec         | - 1   |
+
+**Opérateurs pris en charge**: eq
+
+**Exemple**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Opérateurs pris en charge**: eq
 
@@ -139,6 +181,7 @@ ne respecte pas la casse
 **Exemple**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/name
@@ -190,10 +233,5 @@ ne respecte pas la casse
 ## <a name="next-steps"></a>Étapes suivantes
 * Voulez-vous voir des exemples d’activités système filtrées ? Consultez les [exemples d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Vous souhaitez en savoir plus sur l’API de création de rapports Azure AD ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

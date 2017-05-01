@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 04/05/2017
 ms.author: trinadhk;markgal;jpallavi;
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 61f62d606b44b3390e6500ea2b30b20d7d2929ff
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,8 +47,13 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 | Machine virtuelle Azure introuvable |Cela se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle pour effectuer la sauvegarde. Pour résoudre ce problème : <ol><li>Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources [nom du service cloud] <br>(OU) <li> Désactivez la protection de cette machine virtuelle afin que les travaux de sauvegarde ne soient pas créés. </ol> |
 | L’agent de machine virtuelle n’est pas présent sur la machine virtuelle. Veuillez installer les logiciels prérequis et l’agent de machine virtuelle, puis relancer l’opération. |[En savoir plus](#vm-agent) sur l’installation de l’agent de machine virtuelle et la validation de cette opération. |
 | Échec d’opération de capture d’instantané en raison de l’état incorrect d’enregistreurs VSS |Vous devez redémarrer les enregistreurs VSS (Volume Shadow copy Service) qui sont dans un état erroné. Pour ce faire, exécutez _enregistreurs de liste vssadmin_ à partir d’une invite de commandes avec élévation de privilèges. La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas « [1] Stable », redémarrez l’enregistreur VSS en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges<br> _net stop serviceName_ <br> _net start serviceName_|
-| L’opération de capture d’instantané a échoué en raison d’une erreur d’analyse de la configuration |Cela se produit en raison modifications des autorisations sur le répertoire MachineKeys : _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Exécutez la commande ci-dessous et vérifiez que les autorisations sur le répertoire MachineKeys sont celles par défaut :<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Les autorisations par défaut sont :<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Si vous voyez des autorisations sur le répertoire MachineKeys différente des autorisations par défaut, suivez étapes ci-dessous pour les corriger, supprimez le certificat et déclenchez la sauvegarde.<ol><li>Corrigez les autorisations sur le répertoire MachineKeys.<br>À l’aide des propriétés de sécurité de l’Explorateur et des paramètres de sécurité avancés dans le répertoire, réinitialisez les autorisations sur les valeurs par défaut, supprimez tout objet utilisateur supplémentaire (dont la valeur n’est pas une valeur par défaut) du répertoire et assurez-vous que les autorisations « Everyone » bénéficient d’un accès spécial pour :<br>- répertorier les fichiers d’un dossier <br>- lire les attributs <br>- lire des attributs étendus <br>- créer des fichiers / écrire des données <br>- créer des dossiers / ajouter des données<br>- écrire des attributs<br>- écrire des attributs étendus<br>- lire des autorisations<br><br><li>Supprimer des certificats dont le champ « Issued To = Windows Azure Service Management for Extensions »<ul><li>[Ouvrez la console de certificats](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Supprimer le certificat (sous Personal -> Certificates) dont le champ « Issued To = Windows Azure Service Management for Extensions »</ul><li>Déclenchez la sauvegarde de machine virtuelle. </ol>|
+| L’opération de capture d’instantané a échoué en raison d’une erreur d’analyse de la configuration |Cela se produit en raison modifications des autorisations sur le répertoire MachineKeys : _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Exécutez la commande ci-dessous et vérifiez que les autorisations sur le répertoire MachineKeys sont celles par défaut :<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Les autorisations par défaut sont :<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Si vous voyez des autorisations sur le répertoire MachineKeys différente des autorisations par défaut, suivez étapes ci-dessous pour les corriger, supprimez le certificat et déclenchez la sauvegarde.<ol><li>Corrigez les autorisations sur le répertoire MachineKeys.<br>À l’aide des propriétés de sécurité de l’Explorateur et des paramètres de sécurité avancés dans le répertoire, réinitialisez les autorisations sur les valeurs par défaut, supprimez tout objet utilisateur supplémentaire (dont la valeur n’est pas une valeur par défaut) du répertoire et assurez-vous que les autorisations « Everyone » bénéficient d’un accès spécial pour :<br>- répertorier les fichiers d’un dossier <br>- lire les attributs <br>- lire des attributs étendus <br>- créer des fichiers / écrire des données <br>- créer des dossiers / ajouter des données<br>- écrire des attributs<br>- écrire des attributs étendus<br>- lire des autorisations<br><br><li>Supprimez le certificat comportant le champ « Issued To » = « Windows Azure Service Management for Extensions » ou « Windows Azure CRP Certificate Generator ».<ul><li>[Ouvrez la console Certificats (ordinateur local)](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Supprimez le certificat (sous Personal -> Certificates) comportant le champ « Issued To » = « Windows Azure Service Management for Extensions » ou « Windows Azure CRP Certificate Generator ».</ul><li>Déclenchez la sauvegarde de machine virtuelle. </ol>|
 | La validation a échoué, car la machine virtuelle est chiffrée avec une clé BEK uniquement. Les sauvegardes peuvent être activées uniquement pour les machines virtuelles chiffrées aussi bien avec des clés BEK qu’avec des clés KEK. |La machine virtuelle doit être chiffrée à l’aide de la clé de chiffrement BitLocker et de la clé KEK (Key Encryption Key, clé de chiffrement de clé). Après l’application de ce chiffrement, la sauvegarde doit être activée. |
+|L’installation de l’extension de capture instantanée de a échoué en renvoyant une erreur : COM+ n’a pas pu communiquer avec le Microsoft Distributed Transaction Coordinator | Essayez de démarrer le service Windows « COM+ System Application » (dans une invite de commandes avec élévation de privilèges, _net start COMSysApp_). <br>En cas d’échec lors du démarrage, suivez les étapes ci-dessous :<ol><li> Vérifiez que le compte d’ouverture de session du service « Distributed Transaction Coordinator » est « Network Service ». Si ce n’est pas le cas, remplacez-le par « Network Service », redémarrez ce service et réessayez de démarrer le service « COM+ System Application ».<li>S’il ne démarre toujours pas, désinstallez/installez le service « Distributed Transaction Coordinator » en suivant les étapes ci-dessous :<br> - Arrêtez le service MSDTC<br> - Ouvrez une invite de commandes (cmd) <br> - Exécutez la commande « msdtc -uninstall » <br> - Exécutez la commande « msdtc -install » <br> - Lancez le service MSDTC<li>Démarrer le service Windows « COM+ System Application » et, après son démarrage, déclenchez la sauvegarde à partir du portail.</ol> |
+| Impossible de figer un ou plusieurs points de montage de la machine virtuelle pour prendre une capture instantanée cohérente au niveau système de fichiers | <ol><li>Vérifiez l’état du système de fichiers de tous les périphériques montés avec la commande _« tune2fs »_.<br> Par exemple : tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Démontez les périphériques pour lesquels l’état du système de fichiers n’est pas propre avec la commande _« unmount »_. <li> Exécutez une vérification FileSystemConsistency sur ces périphériques avec la commande _« fsck »_. <li> Remontez les périphériques et tentez une sauvegarde.</ol> |
+| Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé | <ol><Li> Ouvrez l’Éditeur du Registre en exécutant regedit.exe avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans le système. Elles se trouvent dans la hiérarchie de la clé de Registre « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft ». <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> "SchUseStrongCrypto"=dword:00000001 </ol>| 
+| Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012 | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2012_x64. Vérifiez que la valeur de la clé de Registre autorisant l’installation de ce service est correcte, c’est-à-dire que la clé de Registre _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ a pour valeur 3 et non 4. Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant _MSIEXEC /UNREGISTER_ suivi de _MSIEXEC /REGISTER_ dans une invite de commandes avec élévation de privilèges.  |
+
 
 ## <a name="jobs"></a>Travaux
 | Détails de l’erreur | Solution de contournement |
@@ -72,10 +78,8 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 | Le sous-réseau sélectionné n’existe pas. Veuillez sélectionner un sous-réseau qui existe |Aucun |
 | Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre ce problème, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Après cela, suivez les étapes de PowerShell mentionnées dans [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) (Créer une machine virtuelle à partir de disques restaurés) pour créer une machine virtuelle complète à partir de disques restaurés. |
 
-## <a name="policy"></a>Stratégie
-| Détails de l’erreur | Solution de contournement |
-| --- | --- |
-| Impossible de créer la stratégie. Veuillez réduire les choix en matière de rétention pour poursuivre la configuration de la stratégie. |Aucun |
+## <a name="backup-or-restore-taking-time"></a>Sauvegarde ou restauration qui prend du temps
+Si vous constatez que votre sauvegarde (> 12 heures) ou votre restauration (> 6 heures) prend du temps, assurez-vous de suivre les [Meilleures pratiques de sauvegarde](backup-azure-vms-introduction.md#best-practices). Vérifiez également que vos applications utilisent [le stockage Azure de manière optimale](backup-azure-vms-introduction.md#total-vm-backup-time) pour la sauvegarde. 
 
 ## <a name="vm-agent"></a>Agent VM
 ### <a name="setting-up-the-vm-agent"></a>Configuration de l’agent de machine virtuelle
@@ -98,7 +102,7 @@ Pour les machines virtuelles Windows :
 
 Pour les machines virtuelles Linux :
 
-* Suivez les instructions dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Suivez les instructions dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 Nous **recommandons vivement** la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de github directement et d’effectuer la mise à jour. Si le dernier agent n’est pas disponible pour la distribution, contactez le support de distribution pour obtenir des instructions sur l’installation de l’agent le plus récent. Vous pouvez vérifier les informations sur [l’agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) le plus récent dans le référentiel github.
 
 ### <a name="validating-vm-agent-installation"></a>Validation de l’installation de l’agent de machine virtuelle
@@ -123,7 +127,7 @@ La sauvegarde de machines virtuelles émet des commandes de capture instantanée
    Si vous avez arrêté la machine virtuelle dans RDP, retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle sur le portail à l’aide de l’option « Arrêter » dans son tableau de bord.
 4. Si plus de quatre machines virtuelles partagent le même service cloud, configurez plusieurs stratégies de sauvegarde pour répartir les heures de sauvegarde afin qu’il n’y ait pas plus de quatre sauvegardes de machines virtuelles démarrées en même temps. Essayez de répartir les heures de début de la sauvegarde d’une heure entre les stratégies.
 5. Forte sollicitation du processeur/de la mémoire sur la machine virtuelle.<br>
-   Si la machine virtuelle sollicite fortement le processeur (utilisation supérieure à&amp;90; %) ou la mémoire, la tâche de capture instantanée est mise en file d’attente, et le retard qui en résulte débouche sur une expiration de délai. En pareille situation, essayez de procéder à des sauvegardes à la demande.
+   Si la machine virtuelle sollicite fortement le processeur (utilisation supérieure à 90 %) ou la mémoire, la tâche de capture instantanée est mise en file d’attente, et le retard qui en résulte débouche sur une expiration de délai. En pareille situation, essayez de procéder à des sauvegardes à la demande.
 
 <br>
 
@@ -151,9 +155,4 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 > En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

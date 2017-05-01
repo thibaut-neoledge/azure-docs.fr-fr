@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c46ea77c591b9c5914f83b9d5c1498b4f397a617
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -82,11 +82,12 @@ Vous appliquez la structure au niveau de l’abonnement pour étendre les exigen
 Le premier pilier de la structure est constitué de normes d’attribution de noms. Des normes d’attribution de noms bien conçues vous permettent d’identifier des ressources dans le portail, sur une facture et dans des scripts. Vous disposez déjà probablement de conventions d’attribution de noms pour l’infrastructure locale. Lorsque vous ajoutez Azure à votre environnement, vous devez étendre ces normes d’attribution de noms à vos ressources Azure. Les normes d’attribution de noms facilitent la gestion de l’environnement à tous les niveaux.
 
 > [!TIP]
+> Pour les conventions de dénomination :
 > * Passez en revue et adoptez autant que possible les [modèles et pratiques recommandées](../guidance/guidance-naming-conventions.md). Ce guide vous permet de déterminer une norme d’attribution de noms explicite.
 > * Utilisez la casse mixte (camelCasing) pour les noms des ressources (par exemple, myResourceGroup et vnetNetworkName). Remarque : il existe certaines ressources, notamment des comptes de stockage, pour lesquelles la seule option est l’utilisation de minuscules (et aucun autre caractère spécial).
 > * Envisagez d’utiliser des stratégies Azure Resource Manager (décrites dans la section suivante) pour appliquer des normes d’attribution de noms.
 > 
-> 
+> Les conseils précédents vous aident à implémenter une convention de dénomination cohérente.
 
 ## <a name="policies-and-auditing"></a>Stratégies et audit
 Le deuxième pilier de la structure implique la création de [stratégies Azure Resource Manager](resource-manager-policy.md) et [l’audit du journal d’activité](resource-group-audit.md). Les stratégies Resource Manager vous donnent la possibilité de gérer les risques dans Azure. Vous pouvez définir des stratégies qui garantissent la souveraineté des données en limitant, en appliquant ou en auditant certaines actions. 
@@ -156,14 +157,14 @@ Les balises de ressources sont flexibles et doivent être attachées à la plupa
 Pour plus d’exemples de balises, consultez la rubrique [Conventions d’affectation de noms recommandées pour les ressources Azure](../guidance/guidance-naming-conventions.md).
 
 > [!TIP]
-> Créez une stratégie de balisage qui identifie les métadonnées nécessaires dans vos abonnements pour l’activité, la finance, la sécurité, la gestion des risques et la gestion globale de l’environnement. Envisagez une stratégie qui impose de balisage pour les éléments suivants :
+> Envisagez une stratégie qui impose de balisage pour les éléments suivants :
 > 
 > * Groupes de ressources
 > * Storage
 > * Machines virtuelles
 > * Environnements de service d’applications/serveurs web
 > 
-> 
+> Cette stratégie de balisage identifie les métadonnées nécessaires dans vos abonnements pour l’activité, la finance, la sécurité, la gestion des risques et la gestion globale de l’environnement. 
 
 ## <a name="resource-group"></a>Groupe de ressources
 Resource Manager vous permet de répartir des ressources dans des groupes explicites pour la gestion, la facturation ou l’affinité naturelle. Comme mentionné précédemment, Azure dispose de deux modèles de déploiement. Dans l’ancien modèle standard, l’unité de base de gestion était l’abonnement. Il était difficile de répartir des ressources au sein d’un abonnement, ce qui entraînait la création d’un grand nombre d’abonnements. Avec le modèle Resource Manager, des groupes de ressources ont été introduits. Les groupes de ressources sont des conteneurs de ressources qui ont un cycle de vie commun ou partagent un attribut tel que « tous les serveurs SQL » ou « Application A ».
@@ -171,12 +172,12 @@ Resource Manager vous permet de répartir des ressources dans des groupes explic
 Les groupes de ressources ne peuvent pas être contenus les uns dans les autres et les ressources ne peuvent appartenir qu’à un groupe de ressources. Vous pouvez appliquer certaines actions à toutes les ressources dans un groupe de ressources. Par exemple, la suppression d’un groupe de ressources supprime toutes les ressources du groupe de ressources. En règle générale, vous placez une application complète ou un système associé dans le même groupe de ressources. Par exemple, une application à trois niveaux appelée Contoso Web Application contient le serveur web, le serveur d’applications et le serveur SQL dans le même groupe de ressources.
 
 > [!TIP]
-> Vous pouvez organiser vos groupes de ressources de différentes manières, des charges de travail de type « informatique traditionnelle » aux charges de travail « agiles ».
+> La façon dont vous organisez vos groupes de ressources peut aller de charges de travail de type « informatique traditionnelle » à des charges de travail de type « informatique agile » :
 > 
 > * Les charges de travail de type « informatique traditionnelle » sont généralement regroupées par éléments au sein du même cycle de vie, par exemple en tant qu’application. Le regroupement par application permet de gestion des applications individuelles.
 > * Les charges de travail de type « agile » ont tendance à se concentrer sur les applications cloud pour les clients externes. Les groupes de ressources doivent refléter les couches de déploiement (par exemple en tant que couche Web ou couche Application) et de gestion.
 > 
-> 
+> Comprendre votre charge de travail vous aide à développer une stratégie de groupe de ressources.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 Vous vous demandez probablement « qui doit avoir accès aux ressources ? » et « comment contrôler cet accès ? ». Il est crucial d’autoriser ou non l’accès au portail Azure et de contrôler l’accès aux ressources dans le portail. 
@@ -186,14 +187,15 @@ Lorsqu’Azure a été initialement lancé, les contrôles d’accès à un abon
 Cette prolifération d’abonnements n’est plus nécessaire. Avec un contrôle d’accès en fonction du rôle, vous pouvez affecter des utilisateurs aux rôles standard (par exemple, les rôles « lecteur » et « rédacteur » courants). Vous pouvez également définir des rôles personnalisés.
 
 > [!TIP]
+> Pour implémenter un contrôle d’accès en fonction du rôle :
 > * Connectez votre magasin d’identités d’entreprise (généralement Active Directory) à Azure Active Directory à l’aide de l’outil AD Connect.
 > * Contrôlez les rôles Administrateur/Coadministrateur d’un abonnement à l’aide d’une identité gérée. **N’** affectez pas Admin/Co-admin à un nouveau propriétaire d’abonnement. Utilisez plutôt des rôles RBAC (contrôle d’accès en fonction du rôle) pour octroyer des droits de**propriétaire** à un groupe ou à une personne.
 > * Ajoutez des utilisateurs Azure à un groupe (par exemple, les propriétaires de l’application X) dans Active Directory. Utilisez le groupe synchronisé pour affecter aux membres de groupes les droits nécessaires pour gérer le groupe de ressources contenant l’application.
 > * Suivez le principe de l’octroi des **privilèges minimum** nécessaires pour exécuter le travail prévu. Par exemple :
-> * Groupe de déploiement : un groupe qui ne peut que déployer des ressources.
-> * Gestion des machines virtuelles : un groupe qui est capable de redémarrer les machines virtuelles (pour les opérations)
+>   * Groupe de déploiement : un groupe qui ne peut que déployer des ressources.
+>   * Gestion des machines virtuelles : un groupe qui est capable de redémarrer les machines virtuelles (pour les opérations)
 > 
-> 
+> Ces conseils vous aident à gérer l’accès utilisateur au sein de votre abonnement.
 
 ## <a name="azure-resource-locks"></a>Verrous de ressource Azure
 À mesure que votre organisation ajoute des services principaux à l’abonnement, il devient de plus en plus important de s’assurer que ces services sont disponibles afin d’éviter une interruption de service. Les [verrous de ressource](resource-group-lock-resources.md) vous permettent de limiter les opérations sur les ressources de grande valeur si leur suppression ou leur modification pourraient avoir un impact significatif sur vos applications ou votre infrastructure de cloud. Vous pouvez appliquer des verrous à un abonnement, un groupe de ressources ou une ressource. En règle générale, vous appliquez des verrous à des ressources fondamentales telles que les réseaux virtuels, les passerelles et les comptes de stockage. 
@@ -204,13 +206,13 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des 
 Parmi les rôles prédéfinis, seuls les rôles Propriétaire et Administrateur de l'accès utilisateur peuvent effectuer ces actions.
 
 > [!TIP]
-> Les options de réseau principal doivent être protégées par des verrous. Une suppression accidentelle d’une passerelle ou d’un réseau VPN de site à site serait désastreuse pour un abonnement Azure. Azure ne vous permet pas de supprimer un réseau virtuel en cours d’utilisation, mais la mise en œuvre de restrictions supplémentaires est une précaution utile. Les stratégies sont également essentielles à la maintenance de contrôles appropriés. Nous recommandons l’application d’un verrou **CanNotDelete** aux stratégies en cours d’utilisation.
+> Les options de réseau principal doivent être protégées par des verrous. Une suppression accidentelle d’une passerelle ou d’un réseau VPN de site à site serait désastreuse pour un abonnement Azure. Azure ne vous permet pas de supprimer un réseau virtuel en cours d’utilisation, mais la mise en œuvre de restrictions supplémentaires est une précaution utile. 
 > 
 > * Réseau virtuel : CanNotDelete
 > * Groupe de sécurité réseau : CanNotDelete
 > * Stratégies : CanNotDelete
 > 
-> 
+> Les stratégies sont également essentielles à la maintenance de contrôles appropriés. Nous recommandons l’application d’un verrou **CanNotDelete** aux stratégies en cours d’utilisation.
 
 ## <a name="core-networking-resources"></a>Ressources de réseau principal
 L’accès aux ressources peut être interne (dans le réseau de l’entreprise) ou externe (par le biais d’internet). Il est facile pour les utilisateurs de votre organisation de placer par inadvertance des ressources au mauvais endroit et de potentiellement les exposer à un accès malveillant. Comme pour les appareils locaux, les entreprises doivent ajouter des contrôles appropriés pour s’assurer que les utilisateurs d’Azure prennent les bonnes décisions. Pour la gouvernance de l’abonnement, nous identifions des ressources principales qui fournissent le contrôle d’accès de base. Les ressources principales sont constituées des éléments suivants :
@@ -221,15 +223,17 @@ L’accès aux ressources peut être interne (dans le réseau de l’entreprise)
 ![réseau principal](./media/resource-manager-subscription-governance/core-network.png)
 
 > [!TIP]
+> Pour la mise en réseau :
 > * Créez des réseaux virtuels dédiés aux charges de travail externes et aux charges de travail internes. Cette approche réduit le risque de placement par inadvertance de machines virtuelles destinées à des charges de travail internes dans un espace externe.
-> * Les groupes de sécurité réseau sont essentiels pour cette configuration. Au minimum, bloquez l’accès à internet depuis des réseaux virtuels internes et bloquez l’accès au réseau d’entreprise depuis des réseaux virtuels externes.
+> * Configurez des groupes de sécurité réseau pour limiter l’accès. Au minimum, bloquez l’accès à internet depuis des réseaux virtuels internes et bloquez l’accès au réseau d’entreprise depuis des réseaux virtuels externes.
 > 
-> 
+> Ces conseils vous aident à mettre en œuvre des ressources de mise en réseau sécurisées.
 
 ### <a name="automation"></a>Automatisation
 La gestion individuelle des ressources prend du temps et sujette aux erreurs dans certaines opérations. Azure fournit diverses fonctionnalités d’automatisation, notamment Azure Automation, Logic Apps et Azure Functions. [Azure Automation](../automation/automation-intro.md) permet aux administrateurs de créer et définir des runbooks afin de gérer les travaux courants de gestion des ressources. Vous créez des runbooks à l’aide d’un éditeur de code PowerShell ou d’un éditeur graphique. Vous pouvez générer des flux de travail complexes à plusieurs étapes. Azure Automation est souvent utilisé pour gérer les travaux courants telles que l’arrêt des ressources inutilisées ou la création de ressources en réponse à un déclencheur spécifique sans avoir besoin d’une intervention humaine.
 
 > [!TIP]
+> Pour l’automatisation :
 > * Créez un compte Azure Automation et passez en revue les runbooks disponibles (graphique et ligne de commande) disponibles dans la [Galerie de runbooks](../automation/automation-runbook-gallery.md).
 > * Importer et personnaliser des runbooks clés pour votre usage personnel.
 > 

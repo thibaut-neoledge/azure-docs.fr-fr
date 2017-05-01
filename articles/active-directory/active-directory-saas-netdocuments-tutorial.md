@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bd503bb141b5686f149c5fb46ba069db070d5fae
-ms.openlocfilehash: 99dbb3deefb066b619b839aa709fe5e9b804eb27
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6ca819329de130257ec67e63a53f87cbca9f39b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et NetDocu
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour NetDocuments
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
@@ -61,13 +62,13 @@ Cette section décrit l’activation de l’intégration d’application pour Ne
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur NetDocuments avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 
-La configuration de l’authentification unique pour NetDocuments oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+La configuration de l’authentification unique pour NetDocuments nécessite de récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+**Pour configurer l’authentification unique, suivez les étapes ci-dessous :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **NetDocuments**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
@@ -82,10 +83,11 @@ La configuration de l’authentification unique pour NetDocuments oblige à réc
    1. Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application NetDocuments (par exemple : « *https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1* »).
    2. Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.  
       
-      > [!NOTE]
-      > Vous trouverez la valeur correcte à la fin de la boîte de dialogue **Federated Identity** (voir la capture d’écran de l’étape 9).
-      > 
-      
+      >[!NOTE]
+      >Vous trouverez la valeur correcte à la fin de la boîte de dialogue **Federated Identity** (voir la capture d’écran de l’étape 9).
+      >
+      >
+     
    3. Cliquez sur **Next**.
 4. Dans la page **Configurer l’authentification unique sur NetDocuments**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat localement sur votre ordinateur.
    
@@ -109,7 +111,7 @@ La configuration de l’authentification unique pour NetDocuments oblige à réc
     
     ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurer l’authentification unique")
     
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous devez les approvisionner dans NetDocuments. Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
 
@@ -126,22 +128,23 @@ Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous d
    
    ![Adresse de messagerie](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "adresse de messagerie")
    
-   > [!NOTE]
-   > Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
+   >[!NOTE]
+   >Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
    > 
    > 
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par NetDocuments, pour approvisionner des comptes utilisateur AAD.
-> 
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par NetDocuments, pour approvisionner des comptes utilisateur AAD.
+>
+>
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à NetDocuments, procédez comme suit :**
 
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’application **NetDocuments**, cliquez sur **Affecter des utilisateurs**.
+2. Dans la page d’intégration d’applications **NetDocuments **, cliquez sur **Affecter des utilisateurs**.
    
    ![Affecter des utilisateurs](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
@@ -150,9 +153,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Ressources supplémentaires
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)

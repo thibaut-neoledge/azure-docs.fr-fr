@@ -12,36 +12,47 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/10/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 9b45ab6b86ab0a336b2a4b90e702fa4ff098d41c
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="indexing-azure-table-storage-with-azure-search"></a>Indexation du stockage de tables Azure avec Azure Search
-Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure. Le nouvel indexeur de table Azure Search rend ce processus rapide et transparent.
+Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.
 
 ## <a name="setting-up-azure-table-indexing"></a>Configuration de l’indexation de tables Azure
-Pour installer et configurer un indexeur de table Azure, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans la rubrique [Opérations d'indexeur](https://msdn.microsoft.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation de tables sera ajoutée au Portail Azure.
 
-Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données (tels que des lignes ajoutées, modifiées ou supprimées).
+Vous pouvez configurer un indexeur de table Azure avec les outils suivants :
 
-Un indexeur lit les données d'une source de données et les charge dans un index de recherche cible.
+* [Portail Azure](https://ms.portal.azure.com)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de la Recherche Azure
+* [Kit de développement logiciel .NET (SDK)](https://aka.ms/search-sdk) de la Recherche Azure
 
-Pour configurer l’indexation de tables :
+Ici, nous vous présentons le flux à l’aide de l’API REST. 
 
-1. Création d'une source de données
-   * Définissez le paramètre `type` sur `azuretable`.
-   * Transmettez la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`. Pour plus d’informations, consultez [Comment spécifier des informations d’identification](#Credentials) ci-dessous.
-   * Spécifiez le nom de la table à l’aide du paramètre `container.name` .
-   * Si vous le souhaitez, spécifiez une requête en utilisant le paramètre `container.query` . Si possible, utilisez un filtre sur PartitionKey pour optimiser les performances ; toute autre requête entraîne une analyse complète des tables, ce qui peut entraîner une baisse des performances pour les tables volumineuses.
-2. Créez un index de recherche avec le schéma correspondant aux colonnes de la table que vous souhaitez indexer.
-3. Créez l’indexeur en connectant votre source de données à l’index de recherche.
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
 
-### <a name="create-data-source"></a>Créer une source de données
+Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données.
+
+Pour l’indexation des tables, la source de données doit avoir les propriétés suivantes :
+
+- **name** est le nom unique de la source de données au sein de votre service de recherche.
+- **type** doit être `azuretable`.
+- Le paramètre **credentials** contient la chaîne de connexion du compte de stockage. Pour plus d’informations, consultez la section [Comment spécifier des informations d’identification](#Credentials).
+- **container** définit le nom de table et une requête facultative
+    - Spécifiez le nom de la table à l’aide du paramètre `name` .
+    - Si vous le souhaitez, spécifiez une requête en utilisant le paramètre `query` . 
+
+> [!IMPORTANT] 
+> Si possible, utilisez un filtre sur PartitionKey pour de meilleures performances. Toute autre requête effectue une analyse complète, ce qui entraîne une dégradation des performances pour les grandes tables. Consultez la section [Considérations relatives aux performances](#Performance).
+
+
+Pour créer une source de données :
+
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -53,7 +64,7 @@ Pour configurer l’indexation de tables :
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
-Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Comment spécifier des informations d’identification ####
@@ -69,7 +80,11 @@ Pour plus d’informations sur les signatures d’accès partagé au stockage, c
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une SAP, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification de la SAP expirent, l’indexeur se bloque et affiche un message d’erreur similaire à `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="create-index"></a>Création d’index
+### <a name="step-2-create-an-index"></a>Étape 2 : Création d’un index
+L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
+
+Voici comment créer un index :
+
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -82,10 +97,12 @@ Pour plus d’informations sur les signatures d’accès partagé au stockage, c
           ]
     }
 
-Pour plus d’informations sur l’API Créer un index, consultez [Créer un index](https://msdn.microsoft.com/library/dn798941.aspx)
+Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="create-indexer"></a>Créer un indexeur
-Enfin, créez l’indexeur qui référence la source de données et l’index cible. Par exemple :
+### <a name="step-3-create-an-indexer"></a>Étape 3 : Création d’un indexeur
+Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
+
+Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -98,17 +115,17 @@ Enfin, créez l’indexeur qui référence la source de données et l’index ci
       "schedule" : { "interval" : "PT2H" }
     }
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+Cet indexeur s’exécute toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
-C’est tout. Une indexation vraiment très simple !
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="dealing-with-different-field-names"></a>Gestion de différents noms de champs
-Les noms de champ figurant dans votre index existant diffèrent généralement des noms de propriétés dans votre table. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété de la table aux noms de champ de votre index de recherche. Pour en savoir plus sur les mappages de champs, consultez [Les mappages de champs de l’indexeur Azure Search comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
+Les noms de champ figurant dans votre index existant diffèrent parfois des noms de propriétés dans votre table. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété de la table aux noms de champ de votre index de recherche. Pour en savoir plus sur les mappages de champs, consultez [Les mappages de champs de l’indexeur Azure Search comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
 
 ## <a name="handling-document-keys"></a>Gestion des clés de document
 Dans Azure Search, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type `Edm.String`. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).
 
-Puisque les lignes d’une table ont une clé composée, Azure Search génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` sera `PK1RK1`.
+Puisque les lignes d’une table ont une clé composée, Azure Search génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` est `PK1RK1`.
 
 > [!NOTE]
 > La valeur `Key` peut contenir des caractères non valides dans les clés de document, par exemple des tirets. Vous pouvez traiter les caractères non valides à l’aide de la `base64Encode` [fonction de mappage de champ](search-indexer-field-mappings.md#base64EncodeFunction). Si vous procédez ainsi, n’oubliez pas d’utiliser également l’encodage Base64 sécurisé pour les URL lorsque vous transmettez des clés de document dans des appels d’API tels que Recherche.
@@ -118,7 +135,7 @@ Puisque les lignes d’une table ont une clé composée, Azure Search génère u
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexation incrémentielle et détection des suppressions
 Lorsque vous configurez un indexeur de table pour l’exécuter de manière planifiée, cet indexeur répertorie uniquement les lignes nouvelles ou mises à jour, comme le détermine la valeur `Timestamp` de la ligne. Vous n’êtes pas contraint de spécifier une stratégie de détection des modifications ; l’indexation incrémentielle est activée automatiquement à votre intention.
 
-Pour indiquer que certains documents doivent être supprimés de l’index, vous pouvez utiliser une stratégie de suppression réversible : plutôt que de supprimer une ligne, ajoutez une propriété pour signaler sa suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données. Par exemple, la stratégie ci-après considère qu’une ligne est supprimée si elle présente une propriété `IsDeleted` avec la valeur `"true"` :
+Pour indiquer que certains documents doivent être supprimés de l’index, vous pouvez utiliser une stratégie de suppression réversible. Plutôt que de supprimer une ligne, ajoutez une propriété pour signaler sa suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données. Par exemple, la stratégie suivante considère qu’une ligne est supprimée si elle a une propriété `IsDeleted` avec la valeur `"true"` :
 
     PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -128,11 +145,29 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
         "name" : "my-table-datasource",
         "type" : "azuretable",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "table name", "query" : "query" },
+        "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
 
+<a name="Performance"></a>
+## <a name="performance-considerations"></a>Considérations relatives aux performances
+
+Par défaut, la Azure Search utilise le filtre de requête suivant : `Timestamp >= HighWaterMarkValue`. Dans la mesure où les tables Azure n’ont pas d’index secondaire sur le champ `Timestamp`, ce type de requête nécessite une analyse de table complète et est donc lente pour les tables volumineuses.
+
+
+Voici deux approches possibles pour améliorer les performances d’indexation de table. Ces deux approches s’appuient sur l’utilisation de partitions de table : 
+
+- Si vos données peuvent être partitionnées naturellement en plusieurs plages de partition, créez une source de données et un indexeur correspondant pour chaque plage. Maintenant, chaque indexeur n’a à traiter qu’une plage de partition spécifique, ce qui conduit à de meilleures performances pour les requêtes. Si les données à indexer ont un petit nombre de partitions fixes, c’est encore mieux : chaque indexeur procède uniquement à une analyse de partition. Par exemple, pour créer une source de données pour le traitement d’une plage de partition avec des clés de `000` à `100`, utilisez une requête semblable à celle-ci : 
+    ```
+    "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
+    ```
+
+- Si vos données sont partitionnées par date (par exemple, si vous créez une nouvelle partition chaque jour ou chaque semaine), envisagez l’approche suivante : 
+    - Utilisez une requête sous la forme : `(PartitionKey ge <TimeStamp>) and (other filters)` 
+    - Surveillez la progression de l’indexeur avec [l’API Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) et mettez régulièrement à jour la condition `<TimeStamp>` de la requête sur la base de la dernière valeur de limite supérieure réussie. 
+    - Avec cette approche, si vous avez besoin de déclencher une réindexation complète, vous devez réinitialiser la requête de source de données en plus de la réinitialisation de l’indexeur. 
+
 
 ## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
-Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

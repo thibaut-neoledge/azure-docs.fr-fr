@@ -1,5 +1,5 @@
 ---
-title: "Bibliothèques de gestion des Azure Event Hubs | Documents Microsoft"
+title: "Bibliothèques de gestion Azure Event Hubs | Microsoft Docs"
 description: "Gérer les entités et espaces de noms des Event Hubs à partir de .NET"
 services: event-hubs
 cloud: na
@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/10/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 84075b60074b0607c14787db72c8dff8b701a8ea
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 # <a name="event-hubs-management-libraries"></a>Bibliothèque de gestion des Event Hubs
 
-Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Cela autorise des déploiements et des scénarios de messagerie complexes, ce qui vous permet de déterminer par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
+Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Ceci permet des déploiements et des scénarios de messagerie complexes, et de déterminer ainsi par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
 
 ## <a name="supported-functionality"></a>Fonctionnalités prises en charge
 
@@ -39,7 +40,7 @@ Pour commencer à utiliser les bibliothèques de gestion d’Event Hubs, vous de
 * [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Ces didacticiels vous fourniront un `AppId` (ID client), un `TenantId` et un `ClientSecret` (clé d’authentification), qui sont utilisés pour l’authentification par les bibliothèques de gestion. Vous devez disposer des autorisations « Propriétaire » pour le groupe de ressources sur lequel vous souhaitez lancer des exécutions.
+Ces didacticiels vous fourniront un `AppId` (ID client), un `TenantId` (ID de locataire) et un `ClientSecret` (clé d’authentification), qui sont utilisés pour l’authentification par les bibliothèques de gestion. Vous devez disposer des autorisations « Propriétaire » pour le groupe de ressources à utiliser pour l’exécution.
 
 ## <a name="programming-pattern"></a>Modèle de programmation
 
@@ -64,7 +65,7 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
     };
     ```
 
-1. Configurer les paramètres CreateOrUpdate avec vos propres valeurs.
+1. Définissez les paramètres `CreateOrUpdate` sur vos propres valeurs.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -80,9 +81,4 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Espace de noms Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

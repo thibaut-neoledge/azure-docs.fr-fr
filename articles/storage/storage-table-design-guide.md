@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: daff0744d20996014b065b9d4f5fd6b196af923c
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -188,7 +188,7 @@ Les solutions de service de Table peuvent lire ou écrire de façon intensive, o
 Un bon point de départ pour concevoir votre solution de service de Table afin de vous permettre de lire les données efficacement consiste à vous demander quelles requêtes votre application devra exécuter pour extraire du service de Table les données dont elle aura besoin.  
 
 > [!NOTE]
-> Avec le service de Table, il est important de mettre en place une conception efficace dès le début, car il est difficile et coûteux de la modifier ultérieurement. Par exemple, dans une base de données relationnelle, il est souvent possible de résoudre les problèmes de performances simplement en ajoutant des index à une base de données existante : cela n'est pas possible avec le service de Table.  
+> Avec le service de Table, il est important de mettre en place une conception efficace dès le début, car il est difficile et coûteux de la modifier ultérieurement. Par exemple, dans une base de données relationnelle, il est souvent possible de résoudre les problèmes de performances simplement en ajoutant des index à une base de données existante : cela n’est pas possible avec le service de Table.  
 > 
 > 
 
@@ -416,7 +416,7 @@ Dans les sections précédentes, vous avez consulté des explications détaillé
 Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien sûr bien d'autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios pour un service de Table consiste à utiliser des [modèles d’affichages matérialisés](https://msdn.microsoft.com/library/azure/dn589782.aspx) à partir du modèle [Répartition de la responsabilité de requête de commande](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Modèle d’index secondaire intra-partition
-Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l'aide d'une EGT.  
+Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’une EGT.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
 Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, en utilisant la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuel en utilisant le nom de son service et son ID d’employé (les valeurs de **PartitionKey** et de **RowKey**). Un client peut également récupérer des entités, triées par ID d'employé au sein de chaque service.
@@ -433,7 +433,7 @@ Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs
 Les deux critères de filtre suivants (l'un recherchant selon l'ID d'employé et l'autre selon l'adresse de messagerie) spécifient tous deux des requêtes de pointage :  
 
 * $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’empid_000223’)  
-* $filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
+* $filter=(PartitionKey eq 'Sales') and (RowKey eq email_jonesj@contoso.com  
 
 Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifier une plage triée dans l’ordre des ID d’employé, ou une plage triée dans l’ordre des adresses de messagerie en interrogeant des entités avec le préfixe approprié ajouté à la **RowKey**.  
 
@@ -487,7 +487,7 @@ Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs
 Les deux critères de filtre suivants (l'un recherchant selon l'ID d'employé et l'autre selon l'adresse de messagerie) spécifient tous deux des requêtes de pointage :  
 
 * $filter=(PartitionKey eq ’empid_Sales’) and (RowKey eq ’000223’)
-* $filter=(PartitionKey eq ’email_Sales’) and (RowKey eq 'jonesj@contoso.com')  
+* $filter=(PartitionKey eq ’email_Sales’) and (RowKey eq jonesj@contoso.com  
 
 Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifier une plage triée dans l’ordre des ID d’employé, ou une plage triée dans l’ordre des adresses de messagerie en interrogeant des entités avec le préfixe approprié ajouté à la **RowKey**.  
 
@@ -627,7 +627,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 
 * Cette solution nécessite au moins deux requêtes pour récupérer des entités correspondantes : une pour interroger les entités d’index afin d’obtenir la liste des valeurs **RowKey** , puis des requêtes pour récupérer chaque entité dans la liste.  
 * Étant donné qu'une entité a une taille maximale de 1 Mo, l'utilisation des méthodes #2 et #3 dans la solution supposent que la liste des ID d'employés pour n'importe quel nom donné n'est jamais supérieure à 1 Mo. Si la liste des ID d'employés est susceptible d'être supérieure à 1 Mo, utilisez la méthode #1 et stockez les données d'index dans le stockage d'objet blob.  
-* Si vous utilisez l'option #2 (à l'aide des EGT pour gérer l'ajout et la suppression des employés et la modification du nom d'un employé), vous devez évaluer si le volume des transactions atteint les limites de l'évolutivité dans une partition donnée. Si c'est le cas, vous devez envisager une solution cohérente (méthode 1# ou #3) qui utilisera des files d'attente pour gérer les demandes de mise à jour et vous permettra de stocker vos entités d'index dans une partition distincte à partir des entités d'employés.  
+* Si vous utilisez l’option #2 (à l’aide des EGT pour gérer l’ajout et la suppression des employés et la modification du nom d’un employé), vous devez évaluer si le volume des transactions atteint les limites de l’évolutivité dans une partition donnée. Si c'est le cas, vous devez envisager une solution cohérente (méthode 1# ou #3) qui utilisera des files d'attente pour gérer les demandes de mise à jour et vous permettra de stocker vos entités d'index dans une partition distincte à partir des entités d'employés.  
 * La méthode #2 de cette solution part du principe que vous souhaitez effectuer une recherche par nom de famille dans un service : par exemple, si vous souhaitez récupérer une liste des employés avec un nom de famille Jones dans le service des ventes. Si vous souhaitez être en mesure de rechercher dans toute l'organisation tous les employés portant le nom de famille Jones, suivez la méthode # 1 ou # 3.
 * Vous pouvez implémenter une solution basée sur la file d’attente qui assure la cohérence éventuelle (pour plus d’informations, voir le [modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) ).  
 
@@ -646,12 +646,12 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Combinez des données connexes dans une entité unique pour pouvoir récupérer toutes les données dont vous avez besoin avec une seule requête de pointage.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-Dans une base de données relationnelle, vous normalisez généralement des données pour supprimer des doublons résultant des requêtes qui extraient des données provenant de plusieurs tables. Si vous normalisez des données dans les tables Azure, vous devez effectuer plusieurs allers-retours à partir du client vers le serveur pour récupérer des données associées. Par exemple, avec la structure de table indiquée ci-dessous, vous devez effectuer deux opérations complètes pour récupérer les détails d'un service : une pour extraire l'entité de service qui inclut l'ID du responsable, puis une autre pour extraire les détails du responsable dans une entité d'employé.  
+Dans une base de données relationnelle, vous normalisez généralement des données pour supprimer des doublons résultant des requêtes qui extraient des données provenant de plusieurs tables. Si vous normalisez des données dans les tables Azure, vous devez effectuer plusieurs allers-retours à partir du client vers le serveur pour récupérer des données associées. Par exemple, avec la structure de table indiquée ci-dessous, vous devez effectuer deux opérations complètes pour récupérer les détails d’un service : une pour extraire l’entité de service qui inclut l’ID du responsable, puis une autre pour extraire les détails du responsable dans une entité d’employé.  
 
 ![][16]
 
 #### <a name="solution"></a>Solution
-Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l'entité du service. Par exemple :  
+Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :  
 
 ![][17]
 
@@ -877,7 +877,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Augmentez l'évolutivité lorsque vous avez un volume élevé d'insertions en répartissant les insertions sur plusieurs partitions.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'évolutivité pour la partition. Par exemple, si vous avez une application qui journalise l'accès au réseau et aux ressources des employés, une structure d'entité semblable à celle affichée ci-dessous peut transformer la partition de l'heure actuelle en zone sensible si le volume des transactions atteint l'objectif d'évolutivité pour une partition individuelle :  
+L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'évolutivité pour la partition. Par exemple, si vous avez une application qui journalise l’accès au réseau et aux ressources des employés, une structure d’entité semblable à celle affichée ci-dessous peut transformer la partition de l’heure actuelle en zone sensible si le volume des transactions atteint l’objectif d’évolutivité pour une partition individuelle :  
 
 ![][26]
 
@@ -927,7 +927,7 @@ Cette section décrit comment Storage Analytics stocke les données de journalis
 
 Storage Analytics stocke les messages de journalisation dans un format délimité dans plusieurs objets blob. Ce format facilite l'analyse des données du message de journalisation pour une application cliente.  
 
-Storage Analytics utilise une convention d'affectation des noms d'objets blob qui vous permet de localiser le ou les objets blob contenant les messages de journalisation que vous recherchez. Par exemple, un objet blob nommé « queue/2014/07/31/1800/000001.log » contient des messages de journalisation liés au service de File d'attente dont l'heure de début est à 18h00, le 31 juillet 2014. Le « 000001 » indique qu'il s'agit du premier fichier journal pour cette période. Storage Analytics enregistre également les horodatages du premier et du dernier messages stockés dans le fichier dans le cadre des métadonnées de l'objet blob. L'API pour le stockage d'objets blob vous permet de rechercher des objets blob dans un conteneur selon un préfixe de nom : pour rechercher tous les objets blob qui contiennent des données de journalisation des files d'attente correspondant à l'heure de début de 18h00, vous pouvez utiliser le préfixe « queue/2014/07/31/1800 ».  
+Storage Analytics utilise une convention d'affectation des noms d'objets blob qui vous permet de localiser le ou les objets blob contenant les messages de journalisation que vous recherchez. Par exemple, un objet blob nommé « queue/2014/07/31/1800/000001.log » contient des messages de journalisation liés au service de File d'attente dont l'heure de début est à 18h00, le 31 juillet 2014. Le « 000001 » indique qu'il s'agit du premier fichier journal pour cette période. Storage Analytics enregistre également les horodatages du premier et du dernier messages stockés dans le fichier dans le cadre des métadonnées de l’objet blob. L'API pour le stockage d'objets blob vous permet de rechercher des objets blob dans un conteneur selon un préfixe de nom : pour rechercher tous les objets blob qui contiennent des données de journalisation des files d'attente correspondant à l'heure de début de 18h00, vous pouvez utiliser le préfixe « queue/2014/07/31/1800 ».  
 
 Storage Analytics met en mémoire tampon les messages de journalisation en interne, puis met à jour de façon périodique l'objet blob adéquat ou en crée un autre avec le dernier lot d'entrées de journalisation. Cela réduit le nombre d'écritures qu'il doit exécuter vers le service BLOB.  
 
@@ -1415,7 +1415,7 @@ Pour plus d’informations sur l’utilisation de jetons SAP avec le service de 
 
 Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d'accéder aux entités du service de Table : vous devez le faire dans un environnement qui dispose d'un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
 
-Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemble d'entités dans une table. Par défaut, vous créez un jeton SAP pour une table entière, mais il est également possible d’indiquer que le jeton SAP accorde l’accès à une plage de valeurs de **PartitionKey**, ou de **PartitionKey** et de **RowKey**. Vous pouvez choisir de générer des jetons SAP pour des utilisateurs individuels de votre système, de sorte que chaque jeton SAP d'un utilisateur lui permette uniquement d'accéder à ses propres entités dans le service de Table.  
+Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemble d'entités dans une table. Par défaut, vous créez un jeton SAP pour une table entière, mais il est également possible d’indiquer que le jeton SAP accorde l’accès à une plage de valeurs de **PartitionKey**, ou de **PartitionKey** et de **RowKey**. Vous pouvez choisir de générer des jetons SAP pour des utilisateurs individuels de votre système, de sorte que chaque jeton SAP d’un utilisateur lui permet uniquement d’accéder à ses propres entités dans le service de Table.  
 
 ### <a name="asynchronous-and-parallel-operations"></a>Opérations asynchrones et parallèles
 Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Vous pouvez apporter des modifications supplémentaires pour accélérer le dép
 Dans ce processus de conversion, l’expérience de formation n’est pas supprimée. Une fois le processus terminé, deux onglets s’affichent dans Studio : le premier pour l’expérience de formation, le second pour l’expérience prédictive. Ainsi, avant de déployer votre service web, vous pouvez apporter des modifications à l’expérience de formation et reconstruire l’expérience prédictive. Vous pouvez également enregistrer une copie de l’expérience de formation pour démarrer une autre ligne de l’expérimentation.
 
 > [!NOTE]
-> Lorsque vous cliquez sur **Service web prédictif**, vous démarrez un processus automatique permettant de convertir votre expérience de formation en expérience prédictive. Ce processus fonctionne bien dans la plupart des cas. Si vous avez défini une expérience de formation complexe (par exemple, si vous avez plusieurs chemins d’accès pour des formations que vous souhaitez relier entre elles), vous préférerez peut-être effectuer cette conversion manuellement. Pour plus d’informations, voir [Conversion d’une expérience d’apprentissage Machine Learning en expérience prédictive](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Lorsque vous cliquez sur **Service web prédictif**, vous démarrez un processus automatique permettant de convertir votre expérience de formation en expérience prédictive. Ce processus fonctionne bien dans la plupart des cas. Si vous avez défini une expérience de formation complexe (par exemple, si vous avez plusieurs chemins d’accès pour des formations que vous souhaitez relier entre elles), vous préférerez peut-être effectuer cette conversion manuellement. Pour plus d’informations, consultez [Guide pratique pour préparer votre modèle pour le déploiement dans Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 > 
 > 
 
@@ -111,7 +111,7 @@ Si vous souhaitez apporter des modifications à votre expérience prédictive d�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le processus de développement et d’expérimentation, voir les articles suivants :
 
-* conversion de l’expérience : [Conversion d’une expérience de formation Machine Learning en expérience prédictive](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+* conversion de l’expérience : [Guide pratique pour préparer votre modèle pour le déploiement dans Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 * déploiement du service web : [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 * reformation du modèle : [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md)
 

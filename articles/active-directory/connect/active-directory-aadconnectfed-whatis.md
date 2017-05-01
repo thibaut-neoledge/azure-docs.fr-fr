@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/9/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 28df9bfec4db8e3f57db61eecc631545e389085a
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 589c37d4bb59ceeb37742163fad21d465b3d3827
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -34,19 +34,22 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | **Installation d’AD FS avec Azure AD Connect** | |
 | [Configuration requise](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Consultez les conditions préalables à l’installation d’AD FS via Azure AD Connect |
 | [Configurer une batterie de serveurs AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Installation d’une nouvelle batterie de serveurs AD FS avec Azure AD Connect |
+| [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](active-directory-aadconnect-federation-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | **Modifier la configuration AD FS** | |
 | [Réparation de l’approbation](active-directory-aadconnect-federation-management.md#repairthetrust) |Rétablissement de l’approbation actuelle entre AD FS et Office 365/Azure au niveau local. |
 | [Ajouter un nouveau serveur AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur AD FS après l’installation initiale |
 | [Ajouter un nouveau serveur de proxy d’application web AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur proxy d’application web après l’installation initiale. |
 | [Ajouter un nouveau domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain) |Ajoutez un domaine à fédérer avec Azure AD. |
 | [Mettre à jour le certificat SSL](active-directory-aadconnectfed-ssl-update.md)| Mettez à jour le certificat SSL d’une batterie de serveurs AD FS. |
-| **Tâches post-installation** | |
+| **Autre configuration de fédération** | |
+| [Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Fédérer plusieurs instances d’Azure AD avec une seule batterie de serveurs AD FS| 
 | [Ajouter un logo/une illustration personnalisée de la société](active-directory-aadconnect-federation-management.md#customlogo) |Modifiez l’expérience de connexion en spécifiant le logo personnalisé qui apparaît sur la page de connexion AD FS. |
 | [Ajout d’une description de connexion](active-directory-aadconnect-federation-management.md#addsignindescription) |Modifiez la description de la connexion sur la page de connexion AD FS. |
 | [Modification des règles de revendication AD FS](active-directory-aadconnect-federation-management.md#modclaims) |Modifiez ou ajoutez des règles de revendication dans AD FS pour configurer la synchronisation Azure AD Connect. |
 
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Fédérer deux Azure AD avec un seul AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 

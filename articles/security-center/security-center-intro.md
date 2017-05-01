@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 04/05/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caa4f001871beeb83cc0406bd2f89c5aa026cd97
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et so
 | Réponse | Suggère des manières d’empêcher l’attaque en cours et d’empêcher des attaques futures |
 
 ## <a name="introductory-walkthrough"></a>Introduction pas à pas
- Le Centre de sécurité est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). Pour y accéder, [connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir** et faites défiler la page jusqu’à l’option **Centre de sécurité**, ou sélectionnez la mosaïque **Centre de sécurité** préalablement épinglée au tableau de bord du portail.
+ Le Centre de sécurité est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). [Connectez-vous au portail](https://portal.azure.com). Sous le menu principal du portail, faites défiler la page jusqu’à l’option **Centre de sécurité** ou sélectionnez la vignette **Centre de sécurité** que vous avez préalablement épinglée au tableau de bord du portail.
 
 ![Mosaïque de sécurité dans le portail Azure][1]
 
@@ -83,7 +83,7 @@ Dans le panneau **Stratégie de sécurité**, sélectionnez un abonnement pour a
 >
 >
 
-Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous souhaitez surveiller et recommander selon les besoins en matière de sécurité des ressources au sein de l’abonnement.
+Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous voulez surveiller et les recommandations que vous voulez voir en fonction des besoins en matière de sécurité des ressources au sein de l’abonnement.
 
 Ensuite, sélectionnez un groupe de ressources pour afficher les détails de la stratégie.
 
@@ -115,7 +115,7 @@ Cliquez sur la mosaïque **Recommandations** pour obtenir une liste de recommand
 ### <a name="resource-health"></a>Intégrité des ressources
 La vignette **Intégrité des ressources** affiche la posture de sécurité globale de votre environnement par type de ressource (machines virtuelles, applications web et autres ressources).   
 
-Sélectionnez un type de ressource dans la vignette **Intégrité des ressources** pour afficher plus d’informations, notamment une liste des vulnérabilités de sécurité potentielles qui ont été identifiées. (Dans l’exemple ci-dessous, l’option**Machines virtuelles** est sélectionnée.)
+Sélectionnez un type de ressource dans la vignette **Intégrité des ressources** pour afficher plus d’informations, notamment une liste des vulnérabilités de sécurité potentielles qui ont été identifiées. (Dans l’exemple ci-dessous, **Calcul** est sélectionné.)
 
 ![Mosaïque d’intégrité des ressources][6]
 

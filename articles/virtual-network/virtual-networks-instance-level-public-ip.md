@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c233439b78fb01beaa3183b79ab633aeb9357ef0
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,8 +44,8 @@ Quand vous créez un service cloud dans Azure, les enregistrements DNS A corresp
 ## <a name="why-would-i-request-an-ilpip"></a>Pourquoi demander une adresse ILPIP ?
 Si vous souhaitez pouvoir vous connecter à votre machine virtuelle ou instance de rôle à l’aide d’une adresse IP qui vous est attribuée directement, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle, au lieu d’utiliser l’adresse VIP:&lt;numéro-port&gt; du service cloud.
 
-* **Mode FTP passif** : en affectant une adresse ILPIP à une machine virtuelle, cette dernière peut recevoir du trafic sur pratiquement n’importe quel port. Les points de terminaison ne sont pas requis pour que la machine virtuelle reçoive du trafic. Les adresses ILPIP autorisent notamment le mode FTP passif, où les ports sont sélectionnés de façon dynamique.
-* **Adresse IP sortante** : le trafic sortant de la machine virtuelle présente l’adresse ILPIP en guise de source, identifiant ainsi de manière univoque la machine virtuelle auprès des entités externes.
+* **Mode FTP actif** : en affectant une adresse ILPIP à une machine virtuelle, cette dernière peut recevoir du trafic sur n’importe quel port. Les points de terminaison ne sont pas requis pour que la machine virtuelle reçoive du trafic.  Pour plus d’informations sur le protocole FTP, consultez (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[Vue d’ensemble du protocole FTP].
+* **Adresse IP sortante** : le trafic sortant de la machine virtuelle est mappé à l’adresse ILPIP en tant que source, identifiant ainsi de manière univoque la machine virtuelle auprès des entités externes.
 
 > [!NOTE]
 > Auparavant, une adresse ILPIP était appelée adresse IP publique (PIP).
