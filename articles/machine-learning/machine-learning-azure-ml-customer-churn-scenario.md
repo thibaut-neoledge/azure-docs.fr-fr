@@ -94,7 +94,7 @@ Pour simplifier, les processus de nettoyage des données et ETL ne sont pas util
 
 La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans ML Studio, nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.    
 
-Nous avons également collecté des informations temporelles portant sur les&6; derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
+Nous avons également collecté des informations temporelles portant sur les 6 derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
 
 Ce qui importe le plus, c’est que le processus dans son ensemble (y compris ETL, la sélection de caractéristiques et la modélisation) a été implémenté dans ML Studio, en utilisant des sources de données dans Microsoft Azure.   
 
