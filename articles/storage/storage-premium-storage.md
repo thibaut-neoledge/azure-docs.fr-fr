@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 25dc9c5778c8259b8e59a9695239d167ccb9582a
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1040027de1df88544bd7a0c4ba6565d5599a54ab
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -69,7 +69,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 * **Compte de stockage Premium**
 
     Pour commencer à utiliser le stockage Premium, créez un compte de stockage Premium pour les disques non gérés. Dans le [portail Azure](https://portal.azure.com), pour créer un compte de stockage Premium, choisissez le niveau de performance **Premium**. Sélectionnez l’option de réplication **Stockage localement redondant (LRS)**. Vous pouvez également créer un compte de stockage Premium en définissant le type sur **Premium_LRS** dans un des emplacements suivants :
-    * [API REST de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 ou version ultérieure)
+    * [API REST de stockage](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 ou version ultérieure)
     * [API REST de Gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 ou version ultérieure ; pour les déploiements classiques d’Azure)
     * [API REST du fournisseur de ressources Stockage Azure](https://docs.microsoft.com/rest/api/storagerp) (pour les déploiements Azure Resource Manager)
     * [Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou version ultérieure)
@@ -223,7 +223,7 @@ Pour le service de stockage, le fichier VHD est un objet blob de pages. Vous pou
 
 Créez des [instantanés incrémentiels](storage-incremental-snapshots.md) pour les disques Premium non gérés, de la même manière que vous utilisez des captures instantanées avec le stockage Standard. Le stockage Premium prend uniquement en charge le stockage localement redondant comme option de réplication. Nous vous recommandons de créer des captures instantanées et de les copier sur un compte de stockage Standard géoredondant. Pour plus d’informations, consultez [Options de redondance du stockage Azure](storage-redundancy.md).
 
-Si un disque est attaché à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas effectuer une opération de [copie d’un objet blob](/rest/api/storageservices/fileservices/Copy-Blob) sur cet objet blob, tant que le disque est attaché à une machine virtuelle. Au lieu de cela, créez d’abord un instantané de cet objet blob à l’aide de l’API REST [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob). Exécutez ensuite l’opération de [copie de l’objet blob](/rest/api/storageservices/fileservices/Copy-Blob) de l’instantané pour copier le disque attaché. Vous pouvez également dissocier le disque et effectuer les opérations nécessaires.
+Si un disque est attaché à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas effectuer une opération de [copie d’un objet blob](/rest/api/storageservices/Copy-Blob) sur cet objet blob, tant que le disque est attaché à une machine virtuelle. Au lieu de cela, créez d’abord un instantané de cet objet blob à l’aide de l’API REST [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob). Exécutez ensuite l’opération de [copie de l’objet blob](/rest/api/storageservices/Copy-Blob) de l’instantané pour copier le disque attaché. Vous pouvez également dissocier le disque et effectuer les opérations nécessaires.
 
 Les limites suivantes s’appliquent aux captures instantanées d’objets blob de stockage Premium :
 
@@ -233,7 +233,7 @@ Les limites suivantes s’appliquent aux captures instantanées d’objets blob 
 | Capacité du compte de stockage pour les instantanés<br>(Inclut uniquement les données des instantanés. N’inclut pas celles d’un objet blob de base.) | 10 To |
 | Intervalle de temps minimal entre deux instantanés consécutifs | 10 minutes |
 
-Pour conserver des copies géo-redondantes de vos captures instantanées, vous pouvez copier des captures instantanées d'un compte de stockage Premium vers un compte de stockage Standard géo-redondant à l'aide des opérations AzCopy ou Copy Blob. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copie d’un objet blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Pour conserver des copies géo-redondantes de vos captures instantanées, vous pouvez copier des captures instantanées d'un compte de stockage Premium vers un compte de stockage Standard géo-redondant à l'aide des opérations AzCopy ou Copy Blob. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copie d’un objet blob](/rest/api/storageservices/Copy-Blob).
 
 Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Premium, consultez [Opérations de service blob avec le stockage Premium Azure ](http://go.microsoft.com/fwlink/?LinkId=521969).
 
@@ -294,7 +294,7 @@ Les considérations de facturation suivantes s’appliquent lorsque vous utilise
 
 * **Captures instantanées de disques non gérés Premium**
 
-    Les captures instantanées sur les disques non gérés Premium sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d’informations sur les captures instantanées, consultez [Créer un instantané d’objet blob](/rest/api/storageservices/fileservices/Snapshot-Blob).
+    Les captures instantanées sur les disques non gérés Premium sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d’informations sur les captures instantanées, consultez [Créer un instantané d’objet blob](/rest/api/storageservices/Snapshot-Blob).
 
 * **Captures instantanées de disques gérés Premium**
 
