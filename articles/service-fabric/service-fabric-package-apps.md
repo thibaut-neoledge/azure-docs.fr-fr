@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: bc87185c56b2dc45f041136474b9fb1bf6afebc3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -54,7 +54,7 @@ Les dossiers sont nommés d'après les attributs **Name** de chaque élément co
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
 
-Pour plus d’informations sur la façon de configurer **SetupEntryPoint** consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
+Pour plus d’informations sur la façon de configurer **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
 
 ## <a name="configure"></a>Configuration 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
@@ -64,7 +64,7 @@ Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Ex
 
 ![Empaquetage d'une application avec Visual Studio][vs-package-command]
 
-Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie** . Notez que l'étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
+Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie**. L’étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Développer un package par ligne de commande
 Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot : voici ce que Visual Studio exécute pour obtenir le même résultat.
@@ -169,8 +169,9 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 En interne, Service Fabric calcule les sommes de contrôle des packages d’application à des fins de validation. Lorsque la compression est utilisée, les sommes de contrôle sont calculées dans les versions compressées de chaque package.
-Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour le même package, vous devez modifier la version du manifeste de l’application pour éviter la non-concordance des sommes de contrôle.
-De même, si vous avez chargé une version compressée du package, vous devez mettre à jour la version du manifeste de l’application pour utiliser un package non compressé.
+Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour le même package, vous devez modifier les versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. Si les packages sont identiques, au lieu de changer de version, vous pouvez utiliser [l’approvisionnement différé](service-fabric-application-upgrade-advanced.md). Vous n’avez pas à inclure le package inchangé avec cette option, il suffit de le référencer dans le manifeste de service.
+
+De même, si vous avez chargé une version compressée du package et que vous souhaitez utiliser un package non compressé, vous devez mettre à jour les versions pour éviter la non-concordance des sommes de contrôle.
 
 Le package est maintenant empaqueté correctement, validé et compressé (si nécessaire). Il est donc prêt pour le [déploiement](service-fabric-deploy-remove-applications.md) dans un ou plusieurs clusters Service Fabric.
 

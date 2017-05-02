@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/14/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c753eac8caed139250a0db85b639fca57c1e9ea6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 990ac507c0d0f26483dc0db7ec4bce793100cb60
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -43,9 +43,9 @@ Azure HDInsight propose deux catégories d’offres de cloud Big Data : **Standa
 ### <a name="cluster-types-supported-for-hdinsight-premium"></a>Types de clusters pris en charge pour HDInsight Premium
 Le tableau suivant répertorie le type de cluster HDInsight et la matrice de support Premium.
 
-| Type de cluster | Standard | Premium |
+| Type de cluster | Standard | Premium (version préliminaire) |
 | --- | --- | --- |
-| Hadoop |Oui |Oui (HDInsight 3.5 uniquement) |
+| Hadoop |Oui |Oui (HDInsight 3.5 et 3.6 uniquement) |
 | Spark |Oui |Non |
 | HBase |OUI |Non |
 | Storm |OUI |Non |
@@ -73,23 +73,28 @@ Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent
 >
 
 
-| Composant | HDInsight Version 3.5 (par défaut) | HDInsight version 3.4 | HDInsight version 3.3 | HDInsight Version 3.2 | HDInsight version 3.1 | HDInsight Version 3,0 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
-| Apache Hadoop et YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
-| Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive et HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache HBase |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
-| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
-| Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |1.6.2 + 2.0 (Linux uniquement) |1.6.0 (Linux uniquement) |1.5.2 (Linux uniquement/version expérimentale) |1.3.1 (Windows uniquement) |-|-|
-| Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
-| Mono |4.2.1 |3.2.8 |-|-|-|-|
+| Composant | HDInsight version 3.6 | HDInsight Version 3.5 (par défaut) | HDInsight version 3.4 | HDInsight version 3.3 | HDInsight Version 3.2 | HDInsight version 3.1 | HDInsight Version 3,0 |
+| --- | --- | --- | --- | --- | --- | --- |--- |
+| Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Apache Hadoop et YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive et HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
+| Apache Tez-Hive2 | 0.8.4 |-|-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Apache Spark |2.1.0 (Linux uniquement) |1.6.2 + 2.0 (Linux uniquement) |1.6.0 (Linux uniquement) |1.5.2 (Linux uniquement/version expérimentale) |1.3.1 (Windows uniquement) |-|-|
+| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
+| Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
 **Obtention d’informations sur les versions actuelles des composants**
 
@@ -107,21 +112,18 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 
 | Version de HDInsight | Version de HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Haute disponibilité | Date de lancement | Disponible sur le portail Azure | Date d'expiration du support | Date d'obsolescence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDI 3.6 version préliminaire |HDP 2.6 |Ubuntu 16 |Oui |02/28/2017 |Oui | | |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Oui |9/30/2016 |Oui | | |
+| HDI 3.6 |HDP 2.6 |Ubuntu 16 |Oui |04/06/2017 |Oui | | |
+| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Oui |9/30/2016 |Oui |07/05/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Oui |29/03/2016 |Oui |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS ou Windows Server 2012R2 |Oui |02/12/2015 |Oui |27/06/2016 |31/07/2017 |
-| HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012R2 |Oui |2/18/2015 |Oui |03/01/2016 |04/01/2017 |
+| HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012R2 |Oui |2/18/2015 |Non |03/01/2016 |04/01/2017 |
 | HDI 3,1 |HDP 2,1 |Windows Server 2012 R2 |Oui |6/24/2014 |Non |18/05/2015 |30/06/2016 |
 | HDI 3,0 |HDP 2,0 |Windows Server 2012 R2 |Oui |02/11/2014 |Non |09/17/2014 |06/30/2015 |
 | HDI 2,1 |HDP 1,3 |Windows Server 2012 R2 |Oui |10/28/2013 |Non |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |Non |10/28/2013 |Non |04/26/2014 |05/31/2015 |
 
-##<a name="hdi-36-preview-with-apache-spark-21"></a>Version préliminaire de HDI 3.6 avec Apache Spark 2.1
-La version préliminaire de HDI 3.6 est publiée le 28/02/2017. Disponible dans la version préliminaire pour Apache Spark 2.1. Pour plus d’informations, consultez [HDI 3.6 version préliminaire avec Apache Spark 2.1](https://azure.microsoft.com/en-us/blog/announcing-preview-of-azure-hdinsight-3-6-with-apache-spark-2-1/)
-
-##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 3.2 et 3.3 approchent de leur date d’obsolescence
-La prise en charge du cluster HDI 3.2 a expiré le 01/03/2016 et il sera déconseillé le 01/04/2017. La prise en charge du cluster HDI 3.3 a expiré le 27/06/2016 et il sera déconseillé le 31/07/2017. Si vous avez un cluster HDI 3.2 ou 3.3, mettez-le rapidement à niveau en passant à HDI 3.5 (dernière version).
+##<a name="hdi-version-33-nearing-deprecation-date"></a>HDI 3.3 approche de sa date d’obsolescence
+La prise en charge du cluster HDI 3.3 a expiré le 27/06/2016 et il sera déconseillé le 31/07/2017. Si vous avez un cluster HDI 3.3, mettez-le rapidement à niveau en passant à HDI 3.5 ou 3.6. Le calendrier d’obsolescence pour HDI 3.3 Windows peut varier d’une région à une autre. Les clients recevront un message spécifique si la date d’obsolescence planifiée pour leur région est différente de celle identifiée dans cet avis.
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>Contrat de niveau de service pour les versions de cluster HDInsight
 Le contrat de niveau de service est défini en termes de « fenêtre de support ». Une fenêtre de support désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Un cluster HDInsight est en dehors de la fenêtre de support si la **Date d'expiration du support** correspondant à la version de ce cluster est postérieure à la date actuelle. Le tableau ci-dessus contient une liste des versions de cluster HDInsight prises en charge. La date d'expiration du support pour une version donnée de HDInsight (lorsqu'une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :  
@@ -129,7 +131,7 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 * Formule 1 : ajoutez 180 jours à la date de lancement du cluster HDInsight version X.
 * Formule 2 : ajoutez 90 jours à la date à laquelle le cluster HDInsight version X+1 (la version qui suit la version X) est mis à disposition dans le portail.
 
-La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight. À partir du 31 juillet 2017, vous ne pourrez plus redimensionner un cluster après sa date d’obsolescence.
+La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight. À partir du 31 juillet 2017, vous ne pourrez plus redimensionner un cluster après sa date d’obsolescence. 
 
 > [!NOTE]
 > Les clusters HDInsight sous Windows (y compris les versions 2.1, 3.0, 3.1, 3.2 et 3.3) s’exécutent sur la 4e famille de systèmes d’exploitation invités d’Azure, qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5, 4.5.1 et 4.5.2.

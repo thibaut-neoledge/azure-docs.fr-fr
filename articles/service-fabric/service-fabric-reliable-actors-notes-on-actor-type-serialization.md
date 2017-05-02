@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: c0eda3f6648c085a7328c6271ed36eafde5ff142
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/17/2016
 Les arguments de toutes les méthodes, les types de résultats des tâches retournées par chaque méthode dans une interface d’acteur et les objets stockés dans le Gestionnaire d’état d’un acteur doivent être [sérialisables en contrat de données](https://msdn.microsoft.com/library/ms731923.aspx). Cela s’applique également aux arguments des méthodes définies dans les [interfaces d’événement d’acteur](service-fabric-reliable-actors-events.md). (Les méthodes d’interface d’événement d’acteur retournent toujours la valeur nulle.)
 
 ## <a name="custom-data-types"></a>Types de données personnalisés
-Dans cet exemple, l’interface d’acteur suivante définit une méthode qui retourne un type de données personnalisé appelé `VoicemailBox`.
+Dans cet exemple, l’interface d’acteur suivante définit une méthode qui retourne un type de données personnalisé appelé `VoicemailBox` :
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -41,7 +41,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-L’interface est implémentée par un acteur, qui utilise le Gestionnaire d’état pour stocker un objet `VoicemailBox` :
+L’interface est implémentée par un acteur qui utilise le gestionnaire d’état pour stocker un objet `VoicemailBox` :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -80,9 +80,9 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 Dans cet exemple, l’objet `VoicemailBox` est sérialisé quand :
 
 * L’objet est transmis entre une instance d’acteur et un appelant.
-* L’objet est enregistré dans le Gestionnaire d’état quand il est enregistré sur disque et répliqué vers d’autres nœuds.
+* L’objet est enregistré dans le gestionnaire d’état quand il est enregistré sur disque et répliqué vers d’autres nœuds.
 
-L’infrastructure Reliable Actor utilise la sérialisation DataContract. Par conséquent, les objets de données personnalisés et leurs membres doivent être annotés avec les attributs **DataContract** et **DataMember**, respectivement
+L’infrastructure Reliable Actor utilise la sérialisation DataContract. Par conséquent, les objets de données personnalisés et leurs membres doivent être annotés avec les attributs **DataContract** et **DataMember**, respectivement.
 
 ```csharp
 [DataContract]

@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
-ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d8a767e9149c6c5eca5b22f094ae924135fa7a2d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -25,9 +25,9 @@ ms.lasthandoff: 02/24/2017
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide d’Azure Event Hubs et du kit de développement logiciel (SDK) .NET Azure. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Éditeurs d'événements
-Vous envoyez des événements vers Event Hub soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
+Vous envoyez des événements vers un concentrateur d’événements soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
-Les hubs d’événements sont créés et gérés à l’aide de la classe [NamespaceManager][] . L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés à Event Hub. La classe [EventData][] représente un événement et sert à publier des messages sur un hub d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un Event Hub.
+Les hubs d’événements sont créés et gérés à l’aide de la classe [NamespaceManager][] . L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
 
 ## <a name="get-started"></a>Prise en main
 Les classes .NET qui prennent en charge les concentrateurs d'événements font partie de l'assembly Microsoft.ServiceBus.dll. Le moyen le plus simple de référencer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus est de télécharger le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Vous pouvez également utiliser la [Console du gestionnaire de package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
@@ -36,7 +36,7 @@ Les classes .NET qui prennent en charge les concentrateurs d'événements font p
 Install-Package WindowsAzure.ServiceBus
 ```
 
-## <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements
+## <a name="create-an-event-hub"></a>Création d'un concentrateur d'événements
 Vous pouvez utiliser la classe [NamespaceManager][] pour créer des concentrateurs d'événements. Par exemple :
 
 ```csharp
@@ -107,7 +107,7 @@ Une autre considération peut être la gestion des retards dans le traitement de
 - [Lettre morte](../service-bus-messaging/service-bus-dead-letter-queues.md) (utiliser une file d’attente ou un autre concentrateur d’événements pour mettre en file d’attente de lettres mortes uniquement les messages que vous n’avez pas pu traiter)
 
 ## <a name="batch-event-send-operations"></a>Opérations d'envoi d’événements par lot
-L’envoi d'événements par lots peut augmenter considérablement le débit. L a méthode [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)méthode prend un paramètre **IEnumerable** de type [EventData][] et envoie l’ensemble du lot comme une opération atomique au concentrateur d’événements.
+L’envoi d'événements par lots peut augmenter considérablement le débit. La méthode [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) prend un paramètre **IEnumerable** de type [EventData][] et envoie l’ensemble du lot comme une opération atomique au concentrateur d’événements.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -174,7 +174,7 @@ Au fil du temps, un équilibre est établi. Cette fonctionnalité dynamique perm
 La classe [EventProcessorHost][] implémente également un mécanisme de point de contrôle basé sur le stockage Azure. Ce mécanisme stocke le décalage sur une base par partition, afin que chaque consommateur puisse déterminer quel était le dernier point de contrôle du consommateur précédent. Étant donné que la transition des partitions entre les nœuds se fait via les baux, il s’agit d’un mécanisme de synchronisation qui facilité le déplacement de la charge.
 
 ## <a name="publisher-revocation"></a>Révocation de l’éditeur
-Outre les fonctionnalités d’exécution avancées de [EventProcessorHost][], les hubs d’événements permettent la révocation de l’éditeur pour empêcher certains éditeurs d’envoyer des événements à un hub d’événements. Ces fonctionnalités sont particulièrement utiles si le jeton d'un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+Outre les fonctionnalités d’exécution avancées de [EventProcessorHost][], les hubs d’événements permettent la révocation de l’éditeur pour empêcher certains éditeurs d’envoyer des événements à un concentrateur d’événements. Ces fonctionnalités sont particulièrement utiles si le jeton d'un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
 
 Pour plus d’informations sur la révocation de l’éditeur et l’envoi vers des concentrateurs d’événements en tant qu’éditeur, consultez l’exemple [Publication sécurisée à grande échelle des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
