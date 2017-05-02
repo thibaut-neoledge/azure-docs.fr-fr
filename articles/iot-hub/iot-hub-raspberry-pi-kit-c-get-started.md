@@ -1,134 +1,206 @@
 ---
-title: "Connecter Raspberry Pi (C) à Azure IoT - Leçon 1 : Prise en main | Microsoft Docs"
-description: "Bien démarrer avec Raspberry Pi 3, création de votre Azure IoT Hub et connexion de Pi à IoT Hub."
+title: "Raspberry Pi vers cloud (C) - Connecter Raspberry Pi à Azure IoT Hub | Microsoft Docs"
+description: "Connectez Raspberry Pi à Azure IoT Hub pour que Raspberry Pi puisse envoyer des données vers le cloud Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "azure iot hub, bien démarrer avec l’internet des objets, kit d’outils iot"
+keywords: "azure iot raspberry pi, raspberry pi iot hub, raspberry pi envoie des données vers le cloud, raspberry pi vers cloud"
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 4/13/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 387dcace5be29de52b465bc53fa81a3dbf876390
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-c"></a>Connecter votre appareil Raspberry Pi 3 à votre IoT hub à l’aide de C
-> [!div class="op_single_selector"]
-> * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
-> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
-Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de Raspberry Pi 3 exécutant Raspbian. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Pour obtenir des exemples Windows 10 IoT Standard, accédez au [centre de développement Windows](http://www.windowsondevices.com/).
+# <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connecter Raspberry Pi à Azure IoT Hub (C)
 
-> [!NOTE]
-> Vous appréciez Docker ou vous préférez développer un code source sur votre ordinateur hôte ? Si oui, essayez la solution basée sur Docker disponible sur [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-## <a name="lesson-1-configure-your-device"></a>Leçon 1 : Configuration de votre appareil
-![Diagramme de bout en bout pour la leçon 1](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
+Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de Raspberry Pi exécutant Raspbian. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Pour obtenir des exemples Windows 10 IoT Standard, accédez au [centre de développement Windows](http://www.windowsondevices.com/).
 
-Dans cette leçon, vous configurez votre appareil Raspberry Pi 3 avec un système d’exploitation, vous configurez votre environnement de développement et déployez une application sur Pi.
+## <a name="what-you-do"></a>Procédure
 
-### <a name="configure-your-device"></a>Configurer votre appareil
-Configurez Raspberry Pi 3 pour une première utilisation et installez Raspbian. Raspbian est un système d’exploitation gratuit optimisé pour le matériel Raspberry Pi.
+* Configurez Raspberry Pi.
+* Créez un hub IoT.
+* Inscrivez un appareil pour Pi dans votre IoT Hub.
+* Exécutez un exemple d’application sur Pi pour envoyer des données de capteur à votre IoT Hub.
 
-*Durée estimée : 30 minutes*
+Connectez Raspberry Pi à un IoT Hub créé à cette fin. Exécutez ensuite un exemple d’application sur Pi pour collecter des données de température et d’humidité provenant d’un capteur BME280. Enfin, envoyez les données du capteur à votre IoT Hub.
 
-Accédez à [Configurer votre appareil](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md).
+## <a name="what-you-learn"></a>Contenu
 
-### <a name="get-the-tools"></a>Obtenir les outils
-Téléchargez les outils et les logiciels pour générer et déployer votre première application pour Raspberry Pi 3.
+* Création d’un Azure IoT Hub et obtention de la chaîne de connexion de votre nouvel appareil.
+* Connexion de Pi à un capteur BME280.
+* Collecte des données du capteur en exécutant un exemple d’application sur Pi.
+* Envoi des données du capteur à votre IoT Hub.
 
-*Durée estimée : 20 minutes*
+## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-Accédez à [Obtenir les outils](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md).
+![Ce dont vous avez besoin](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
-### <a name="create-and-deploy-the-blink-application"></a>Créer et déployer l’application blink
-Clonez l’exemple d’application de clignotement (blink) C à partir de GitHub et utilisez gulp pour déployer cette application sur votre carte Raspberry Pi 3. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes.
+* Une carte Raspberry Pi 2 ou Raspberry Pi 3.
+* Un abonnement Azure actif. Si vous ne possédez pas de compte Azure, vous pouvez [créer un compte d’évaluation Azure gratuit](https://azure.microsoft.com/free/) en quelques minutes.
+* Un moniteur, un clavier USB et une souris qui se connectent à Pi.
+* Un Mac ou un PC exécutant Windows ou Linux.
+* Une connexion Internet.
+* Une carte microSD d’au moins 16 Go.
+* Un adaptateur USB-SD ou une carte microSD pour graver l’image du système d’exploitation sur la carte microSD.
+* Une alimentation 5 V 2 A avec le câble micro USB de 6 pieds (env. 183 cm).
 
-*Durée estimée : 5 minutes*
+Les éléments suivants sont facultatifs :
 
-Accédez à [Créer et déployer l’application de clignotement (blink)](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md).
+* Un capteur de température, de pression et d’humidité Adafruit BME280 assemblé.
+* Une platine d’expérimentation.
+* 6 câbles de liaison F/M.
+* Une LED de 10 mm diffuse.
 
-## <a name="lesson-2-create-your-iot-hub"></a>Leçon 2 : Création de votre IoT Hub
-![Diagramme de bout en bout pour la leçon 2](media/iot-hub-raspberry-pi-lessons/e2e-lesson2.png)
 
-Dans cette leçon, vous créez votre compte Azure gratuit, vous approvisionnez votre Azure IoT Hub et vous créez votre premier appareil dans IoT Hub.
+> [!NOTE] 
+Ces éléments sont facultatifs, car l’exemple de code prend en charge les données de capteur simulées.
 
-Avant de commencer cette leçon, terminez la Leçon 1.
 
-### <a name="get-the-azure-tools"></a>Obtenir les outils Azure
-Installez l’interface de ligne de commande Azure.
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-*Durée estimée : 10 minutes*
+## <a name="setup-raspberry-pi"></a>Configuration de Raspberry Pi
 
-Accédez à [Obtenir les outils Azure](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md).
+### <a name="install-the-raspbian-operating-system-for-pi"></a>Installation du système d’exploitation Raspbian pour Pi
 
-### <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Création de votre IoT Hub et inscription de Raspberry Pi 3
-Créez votre groupe de ressources, approvisionnez votre premier Azure IoT Hub et ajoutez votre premier appareil à IoT Hub à l’aide de l’interface de ligne de commande Azure.
+Préparez la carte microSD pour l’installation de l’image Raspbian.
 
-*Durée estimée : 10 minutes*
+1. Téléchargez Raspbian.
+   1. [Téléchargez Raspbian Jessie avec Pixel](https://www.raspberrypi.org/downloads/raspbian/) (fichier .zip).
+   1. Extrayez l’image Raspbian dans un dossier sur votre ordinateur.
+1. Installez Raspbian sur la carte microSD.
+   1. [Téléchargez et installez l’utilitaire de graveur de carte SD Etcher](https://etcher.io/).
+   1. Exécutez Etcher et sélectionnez l’image Raspbian extraite à l’étape 1.
+   1. Sélectionnez le lecteur de carte microSD. Remarque : Etcher a peut-être déjà sélectionné le lecteur approprié.
+   1. Cliquez sur Flash pour installer Raspbian sur la carte microSD.
+   1. Retirez la carte microSD de votre ordinateur une fois l’installation terminée. Vous pouvez retirer directement la carte microSD en toute sécurité, car Etcher éjecte ou démonte automatiquement la carte microSD une fois le processus terminé.
+   1. Insérez la carte microSD dans Pi.
 
-Accédez à [Création de votre IoT Hub et inscription de Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
+### <a name="enable-ssh-and-spi"></a>Activer SSH et SPI
 
-## <a name="lesson-3-send-device-to-cloud-messages"></a>Leçon 3 : Envoyer des messages appareil-à-cloud
-![Diagramme de bout en bout pour la leçon 3](media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
+1. Connectez Pi au moniteur, au clavier et à la souris, démarrez Pi puis connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
+1. Cliquez sur l’icône Raspberry > **Préférences** > **Configuration de Raspberry Pi**.
 
-Dans cette leçon, vous envoyez des messages à partir de Pi à votre IoT Hub. Vous créez également une application de fonction Azure qui récupère les messages entrants à partir de votre IoT Hub et les écrit dans le Stockage Table Azure.
+   ![Le menu Préférences de Raspbian](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-Avant de commencer cette leçon, terminez les leçons 1 et 2.
+1. Sur l’onglet **Interfaces**, définissez **SPI** et **SSH** sur **Activer**, puis cliquez sur **OK**.
 
-### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Création d’une application de fonction Azure et d’un compte de stockage Azure
-Utilisez un modèle Azure Resource Manager pour créer une application de fonction Azure et un compte de stockage Azure.
+   ![Activer SPI et SSH sur Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-*Durée estimée : 10 minutes*
+> [!NOTE] 
+Pour activer SSH et SPI, vous trouverez d’autres documents de référence sur [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) et [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
 
-Accédez à [Création d’une application de fonction Azure et d’un compte de stockage Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md).
+### <a name="connect-the-sensor-to-pi"></a>Connecter le capteur à Pi
 
-### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud
-Déployez et exécutez un exemple d’application sur votre appareil Raspberry Pi 3 qui envoie des messages à IoT Hub.
+Utilisez la platine d’expérimentation et les câbles de liaison pour connecter une LED et un BME280 à Pi comme suit. Si vous ne disposez pas de ce capteur, ignorez cette section.
 
-*Durée estimée : 10 minutes*
+![La connexion entre Raspberry Pi et le capteur](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
-Accédez à [Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md).
+Pour les broches du capteur, utilisez le câblage suivant :
 
-### <a name="read-messages-persisted-in-azure-storage"></a>Lecture des messages conservés dans le stockage Azure
-Surveillez les messages appareil-à-cloud alors qu’ils sont écrits dans le stockage Azure.
+| Début (capteur et LED)     | Fin (carte)            | Couleur du câble   |
+| -----------------------  | ---------------------- | ------------: |
+| LED VDD (broche 5G)         | GPIO 4 (broche 7)         | Câble blanc   |
+| LED GND (broche 6G)         | GND (broche 6)            | Câble noir   |
+| VDD (broche 18F)            | ALIM 3,3V (broche 17)      | Câble blanc   |
+| GND (broche 20F)            | GND (broche 20)           | Câble noir   |
+| SCK (broche 21F)            | SPI0 SCLK (broche 23)     | Câble orange  |
+| SDO (broche 22F)            | SPI0 MISO (broche 21)     | Câble jaune  |
+| SDI (broche 23F)            | SPI0 MOSI (broche 19)     | Câble vert   |
+| CS (broche 24F)             | SPI0 CS (broche 24)       | Câble bleu    |
 
-*Durée estimée : 5 minutes*
+Cliquez pour afficher les [mappages de broches de Raspberry Pi 2 et 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) à titre de référence.
 
-Accédez à [Lecture des messages conservés dans le stockage Azure](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md).
+Une fois le BME280 connecté à votre Raspberry Pi, il doit se présenter comme sur l’image ci-dessous.
 
-## <a name="lesson-4-send-cloud-to-device-messages"></a>Leçon 4 : Envoi de messages cloud-à-appareil
-![Diagramme de bout en bout pour la leçon 4](media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
+![Pi et BME280 connectés](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
-Cette leçon vous montre comment envoyer des messages à partir de votre Azure IoT Hub vers Raspberry Pi 3. Les messages contrôlent le comportement activé/désactivé de la LED qui est connectée à Pi. Un exemple d’application est préparé pour vous aider à exécuter cette tâche.
+Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. Utilisez le câble Ethernet pour connecter Pi à votre réseau câblé ou suivez les [instructions fournies par la Fondation Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) pour connecter Pi à votre réseau sans fil.
 
-Avant de commencer cette leçon, terminez les leçons 1, 2 et 3.
+![Connecté au réseau câblé](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
-### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>Exécution de l’exemple d’application pour recevoir des messages cloud-à-appareil
-L’exemple d’application dans la leçon 4 s’exécute sur Pi et surveille les messages entrants à partir de votre IoT Hub. Une nouvelle tâche gulp envoie des messages à Pi à partir de votre IoT Hub pour faire clignoter la LED.
 
-*Durée estimée : 10 minutes*
+## <a name="run-a-sample-application-on-pi"></a>Exécuter un exemple d’application sur Pi
 
-Accédez à [Exécution de l’exemple d’application pour recevoir des messages cloud-à-appareil](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md).
+### <a name="install-the-prerequisite-packages"></a>Installer les packages requis
 
-### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>Section facultative : Modification du comportement activé/désactivé de la LED
-Personnalisez les messages pour modifier le comportement activé/désactivé de la LED.
+1. Utilisez l’un des clients SSH suivants à partir de votre ordinateur hôte pour vous connecter à votre Raspberry Pi.
+    - [PuTTY](http://www.putty.org/) pour Windows.
+    - Le client SSH intégré sur Ubuntu ou macOS.
 
-*Durée estimée : 10 minutes*
+1. Installez les packages requis pour le Microsoft Azure IoT Device SDK pour C et Cmake en exécutant les commandes suivantes :
 
-Accédez à [Section facultative : Modification du comportement activé/désactivé de la LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md).
+   ```bash
+   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
+   sudo apt-get update
+   sudo apt-get install -y azure-iot-sdk-c-dev cmake
+   ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
-Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions dans l’article [Résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+
+### <a name="configure-the-sample-application"></a>Configurer l’exemple d’application
+
+1. Clonez l’exemple d’application en exécutant la commande suivante :
+
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   ```
+1. Ouvrez le fichier de configuration en exécutant les commandes suivantes :
+
+   ```bash
+   cd iot-hub-c-raspberry-pi-clientapp
+   nano config.json
+   ```
+
+   ![Fichier de configuration](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
+
+   Deux éléments de type macros peuvent être configurés dans ce fichier. Le premier est `INTERVAL`, qui définit le délai entre deux messages envoyés au cloud. Le deuxième est `SIMULATED_DATA`, qui est une valeur booléenne pour l’utilisation ou non des données de capteur simulées.
+
+   Si vous **ne disposez pas du capteur**, définissez la valeur `SIMULATED_DATA` sur `1` pour que l’exemple d’application crée et utilise des données de capteur simulées.
+
+1. Enregistrez et quittez en appuyant sur Ctrl-O > Entrée > Ctrl-X.
+
+### <a name="build-and-run-the-sample-application"></a>Générer et exécuter l'exemple d’application
+
+1. Générez l’exemple d’application en exécutant la commande suivante :
+
+   ```bash
+   cmake . && make
+   ```
+   ![Sortie de la génération](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+
+1. Exécutez l’exemple d’application en exécutant la commande suivante :
+
+   ```bash
+   sudo ./app '<device connection string>'
+   ```
+
+   > [!NOTE] 
+   Assurez-vous de copier-coller la chaîne de connexion de l’appareil entre les guillemets simples.
+
+
+Vous devriez voir le résultat suivant, qui affiche les données de capteur et les messages envoyés à votre IoT Hub.
+
+![Sortie - données de capteur envoyées depuis Raspberry Pi vers votre IoT Hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous avez exécuté un exemple d’application pour collecter des données de capteur et les envoyer à votre IoT Hub.
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

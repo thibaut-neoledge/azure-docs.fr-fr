@@ -1,6 +1,6 @@
 ---
-title: "Création d’un hub d’événements Azure | Microsoft Docs"
-description: "Créer un espace de noms Azure Event Hubs et un hub d’événements avec le portail Azure"
+title: "Création d’un concentrateur d’événements Azure | Microsoft Docs"
+description: "Créer un espace de noms Azure Event Hubs et un concentrateur d’événements avec le portail Azure"
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -15,16 +15,17 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 23df3a3a11d8f065d6ce2a4f14ba175d6c781ee9
+ms.lasthandoff: 04/18/2017
 
 ---
 
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Créer un espace de noms Event Hubs et un hub d’événements avec le portail Azure
+# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure
 
 ## <a name="create-an-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
 1. Connectez-vous au [portail Azure][Azure portal], puis cliquez sur **Nouveau** en haut à gauche de l’écran.
-1. Cliquez sur **Internet des Objets**, puis sur **Hubs d’événements**.
+1. Cliquez sur **Internet des Objets**, puis sur **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
 1. Dans le panneau **Créer un espace de noms** , entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
@@ -39,23 +40,23 @@ ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
    
     ![](./media/event-hubs-create/create-event-hub3.png)
 
-## <a name="create-an-event-hub"></a>Création d’un hub d’événements
+## <a name="create-an-event-hub"></a>Création d'un concentrateur d'événements
 
 1. Cliquez sur **Ajouter un Event Hub**en haut du panneau.
    
     ![](./media/event-hubs-create/create-event-hub4.png)
-1. Saisissez un nom pour votre Event Hub, puis cliquez sur **Créer**.
+1. Saisissez un nom pour votre concentrateur d’événements, puis cliquez sur **Créer**.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. Dans la liste d’Event Hubs, cliquez sur le nom d’Event Hub nouvellement créé. 
+1. Dans la liste de concentrateurs d’événements, cliquez sur le nom du concentrateur d’événements nouvellement créé. 
     
-     ![](./media/event-hubs-create/create-event-hub6.png)
-1. Revenez au panneau de l’espace de noms (pas le panneau de l’Event Hub spécifique), cliquez sur **Stratégies d’accès partagé**, puis sur **RootManageSharedAccessKey**.
+    ![](./media/event-hubs-create/create-event-hub6.png)
+1. Revenez au panneau de l’espace de noms (pas le panneau du concentrateur d’événements spécifique), cliquez sur **Stratégies d’accès partagé**, puis sur **RootManageSharedAccessKey**.
     
-     ![](./media/event-hubs-create/create-event-hub7.png)
+    ![](./media/event-hubs-create/create-event-hub7.png)
 1. Cliquez sur le bouton Copier pour copier la chaîne de connexion **RootManageSharedAccessKey** dans le Presse-papiers. Enregistrez cette chaîne de connexion pour l’utiliser plus tard dans ce didacticiel.
     
-     ![](./media/event-hubs-create/create-event-hub8.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Votre concentrateur d’événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements.
 
@@ -66,8 +67,3 @@ Pour en savoir plus les hubs d’événements, consultez ces liens :
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

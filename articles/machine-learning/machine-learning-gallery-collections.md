@@ -15,91 +15,89 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 55f5eb09e13dd645369486affba338759ec6c1d5
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 03f423fff9f4105bdb3a53b245514bde506b9743
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-and-share-collections-in-the-cortana-intelligence-gallery"></a>Découvrez et partagez des collections dans la galerie Cortana Intelligence
+# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Découvrez et partagez des collections dans la galerie Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Collections
-Une **[collection](https://gallery.cortanaintelligence.com/collections)** vous permet de regrouper des expériences, des API et d’autres éléments de la galerie qui répondent à une solution ou à un concept spécifiques. Ils peuvent être regroupés pour référence, utilisation ou partage ultérieurs.
+Vous pouvez utiliser une [collection](https://gallery.cortanaintelligence.com/collections) pour regrouper des expériences, des API et d’autres éléments de la galerie que vous utilisez pour une solution ou un concept précis. Vous pouvez les regrouper en vue de les utiliser, de les conserver pour plus tard ou de les partager.
 
 ## <a name="discover"></a>Découvrez
-Pour rechercher des collections dans la Galerie, ouvrez la [Galerie](http://gallery.cortanaintelligence.com), pointez votre souris sur **Plus** en haut de la page d’accueil de la Galerie, puis sélectionnez **Collections**.
+Pour parcourir les collections [dans la galerie](http://gallery.cortanaintelligence.com), allez dans **Autres** et sélectionnez **Collections**.
 
-![Sélectionnez Collections sur la page d’accueil de la Galerie](media/machine-learning-gallery-collections/select-collections-in-gallery.png)
+![Sélectionnez Collections sur la page d’accueil de la galerie](media/machine-learning-gallery-collections/select-collections-in-gallery.png)
 
- La page **[Collections](https://gallery.cortanaintelligence.com/collections)**
- affiche une liste des collections les plus récentes et les plus populaires.
-Cliquez sur **Afficher tout** pour afficher toutes les collections.
-Sur cette page, vous pouvez parcourir toutes les collections de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
+La page **[Collections](https://gallery.cortanaintelligence.com/collections)** affiche la liste des collections récemment ajoutées et populaires. Pour voir toutes les collections, sélectionnez **Afficher tout**. Pour rechercher une collection spécifique, sélectionnez **Afficher tout** puis sélectionnez les critères de filtre. Vous pouvez également entrer des termes de recherche dans la zone **Recherche** située en haut de la page de la galerie.
 
- Cliquez sur n’importe quelle collection pour ouvrir la page Détails de la collection et lire des informations supplémentaires à son sujet.
-Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers l’expérience pour inviter d’autres utilisateurs à afficher la page.
+Vous pouvez obtenir plus d’informations sur une collection sur la page de détails de la collection. Pour ouvrir une page de détails de la collection, sélectionnez la collection. Dans la section **Commentaires** d’une page de détails de la collection, vous pouvez commenter, donner un avis ou poser des questions sur la collection. Vous pouvez même partager la collection avec vos amis ou collègues sur Twitter ou LinkedIn. Vous pouvez également envoyer un lien vers la page de détails de la collection afin d’inviter d’autres utilisateurs à consulter cette page.
 
 ![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Ajouter vos propres commentaires](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Participez
-Vous pouvez créer une collection qui contient des éléments que vous possédez ou qui ont été proposés par la communauté. Il peut s’agir de tout élément de la Galerie répondant à une solution ou à un concept spécifiques
+Vous pouvez créer une collection qui contient des éléments que vous possédez ou qui ont été proposés par la communauté. Un élément d’une collection peut être n’importe quel élément de la galerie qui répond à une solution ou concept spécifique.
 
-Par exemple, vous pouvez utiliser une collection pour regrouper des éléments sur un sujet spécifique ou encore une expérience en plusieurs étapes permettant de résoudre un problème complexe.
-Les collections initiales proposées par Microsoft se composent de modèles d’expérience de Machine Learning en plusieurs étapes permettant la résolution de problèmes concrets, tels que la détection des fraudes en ligne, la classification du texte, les prévisions de vente au détail et la maintenance prédictive.
+Par exemple, vous pouvez utiliser une collection pour regrouper des éléments sur un sujet spécifique ou pour regrouper une expérience en plusieurs étapes qui permet de résoudre un problème complexe. Les collections initiales fournies par Microsoft sont constituées de modèles d’expérience Machine Learning en plusieurs étapes. Vous pouvez utiliser ces modèles pour aider à résoudre des problèmes réels, tels que la détection des fraudes en ligne, la classification textuelle, la prévision des ventes au détail ou la maintenance prédictive.
 
 ### <a name="create-a-collection"></a>Création d'une collection
-Suivez les étapes suivantes pour créer et proposer une collection à la galerie Cortana Intelligence :
 
 1. Connectez-vous à la galerie à l’aide de votre compte Microsoft.
 
-2.  Cliquez sur votre image en haut de la fenêtre, puis cliquez sur votre nom.
+2.  Sélectionnez votre image en haut de la page, puis sélectionnez votre nom.
   
-    ![Cliquez sur le nom de votre compte.](media/machine-learning-gallery-collections/click-account-name.png)
+    ![Sélectionnez le nom de votre compte](media/machine-learning-gallery-collections/click-account-name.png)
 
-3. Cliquez sur **Nouvel élément**.
+3. Sélectionnez **Nouvel élément**.
    
-    ![Cliquez sur « Nouvel élément ».](media/machine-learning-gallery-collections/click-new-item.png)
-4. Sélectionnez **Collection** pour **Type d’élément**, nommez la collection, ajoutez un rapide résumé, une description ainsi que toutes les balises qui permettront aux utilisateurs de trouver la collection.
+    ![Sélectionnez « Nouvel élément »](media/machine-learning-gallery-collections/click-new-item.png)
+4. Sur la page **Description**, pour **TYPE D’ÉLÉMENT**, sélectionnez **Collection**. Entrez un nom pour votre collection, un bref résumé, une description détaillée et toutes les balises susceptibles d’aider les autres utilisateurs à trouver votre collection.
    
-    ![Entrer des informations pour la nouvelle collection](media/machine-learning-gallery-collections/create-collection-page-1.png)
-5. Cliquez sur **Suivant** : vous pouvez charger un fichier image ou sélectionner une image de stock qui sera affichée avec la collection. Choisissez quelque chose qui aidera les utilisateurs à identifier le contenu et l’objectif de la collection.
+    ![Entrer des informations pour une nouvelle collection](media/machine-learning-gallery-collections/create-collection-page-1.png)
+5. Sur la page **Sélection de l’image**, sélectionnez une image qui est affichée avec la collection. Vous pouvez charger votre propre fichier image ou sélectionner une image de banque d’images. Choisissez une image qui pourrait aider les utilisateurs à identifier le contenu et l’objectif de la collection.
    
-    ![Entrer des informations pour la nouvelle collection](media/machine-learning-gallery-collections/create-collection-page-2.png)
-6. Cliquez sur **Suivant** : vous pouvez décider si la collection est **Publique** (tout le monde peut la voir) ou **Non répertoriée** (seules les personnes disposant d’un lien direct peuvent voir la collection).
+    ![Entrer des informations pour une nouvelle collection](media/machine-learning-gallery-collections/create-collection-page-2.png)
+6. Sur la page **Paramètres**, pour le paramètre **Visibilité**, indiquez si la collection est **Visible au public** (tout le monde peut consulter la collection) ou **Non visible au public** (seules les personnes bénéficiant d’un lien direct vers la collection peuvent la consulter).
    
    > [!IMPORTANT]
-   > Une fois que vous définissez une collection comme **Publique**, vous ne pouvez plus la définir comme **Non répertoriée**.
+   > Une fois que vous avez défini une collection sur **Visible au public** et avez sélectionné **Créer**, vous ne pouvez plus régler la collection sur **Non visible au public**.
    > 
    > 
    
-    ![Sélectionner Publique ou Non répertoriée](media/machine-learning-gallery-collections/create-collection-page-3.png)
-7. Cliquez sur **Créer**
+    ![Sélectionnez « Visible au public » ou « Non visible au public »](media/machine-learning-gallery-collections/create-collection-page-3.png)
+7. Sélectionnez **Créer**.
 
-Votre collection figure désormais dans la galerie Cortana Intelligence. Elle sera répertoriée sur la page du compte sous l’onglet **Collection**.
+Votre collection figure désormais dans la galerie Cortana Intelligence. Vos collections sont répertoriées sur la page de votre compte, dans l’onglet **Collection**.
 
 ### <a name="add-items-to-a-collection"></a>Ajouter des éléments à une collection
-Pour ajouter des éléments à votre collection, ouvrez-la, cliquez sur **Modifier**, puis sur **Ajouter un élément**.
+Pour ajouter des éléments à votre collection, ouvrez la collection, sélectionnez **Modifier**, puis sélectionnez **Ajouter un élément**.
 
-![Ajouter des éléments à une Collection à partir de la page Détails](media/machine-learning-gallery-collections/add-to-collection-from-details-page.png)
+![Ajouter des éléments à une collection à partir de la page de détails](media/machine-learning-gallery-collections/add-to-collection-from-details-page.png)
 
-Vous verrez une liste d’éléments que vous avez ajoutés à la Galerie, ou vous pourrez rechercher dans la Galerie des éléments à ajouter. Cliquez sur un élément pour le sélectionner. Chaque élément que vous sélectionnez est inclus dans l’ensemble d’éléments à ajouter : le bouton **Ajouter** indique le nombre d’éléments sélectionnés.
+La liste des éléments que vous avez ajoutés à la galerie est indiquée sur la page de votre compte. Vous pouvez également rechercher dans la galerie les éléments à ajouter. Sélectionnez les éléments que vous souhaitez ajouter. Chaque élément que vous sélectionnez est inclus dans l’ensemble d’éléments à ajouter. Le bouton **Ajouter** indique le nombre d’éléments que vous avez sélectionné.
 
 ![Ajouter à la collection](media/machine-learning-gallery-collections/add-to-collection.png)
 
-Si en parcourant la galerie vous trouvez un élément que vous souhaitez inclure, il vous suffit de l’ouvrir, de cliquer sur **Ajouter à la collection**et d’indiquer la collection à laquelle vous souhaitez l’ajouter.
+Si vous trouvez un élément que vous souhaitez ajouter lorsque vous parcourez la galerie, sélectionnez **Ajouter à la collection** pour ouvrir l’élément. Sélectionnez la collection à laquelle vous souhaitez ajouter l’élément.
 
-![Ajouter des éléments à une Collection à partir de la page Détails](media/machine-learning-gallery-collections/add-to-collection-from-item-details.png)
+![Ajouter des éléments à une collection à partir de la page de détails](media/machine-learning-gallery-collections/add-to-collection-from-item-details.png)
 
-Vous pouvez modifier le résumé, la description ou les balises de votre collection en l’ouvrant et en cliquant sur **Modifier**.
-Lorsque vous modifiez votre collection, vous pouvez également modifier l’ordre des éléments dans la collection à l’aide des flèches situées en regard d’un élément pour le déplacer dans la liste. Pour ajouter des notes aux éléments de votre collection, cliquez dans le coin supérieur droit d’un élément et sélectionnez **Ajouter/modifier une note**. Pour supprimer un élément de votre collection, sélectionnez **Supprimer**.
+Pour modifier le résumé, la description ou les balises pour votre collection, ouvrez la collection, puis sélectionnez **Modifier**. 
+
+Lorsque vous modifiez votre collection, vous pouvez modifier l’ordre des éléments dans la collection. Utilisez les flèches à côté d’un élément pour le déplacer vers le haut ou le bas dans la liste d’ordre. 
+
+Pour ajouter des notes aux éléments de votre collection, sélectionnez le coin supérieur droit d’un élément, puis sélectionnez **Ajouter/modifier une note**. 
+
+Pour supprimer un élément de votre collection, sélectionnez **Supprimer**.
 
 ![Modifier les détails d’une collection](media/machine-learning-gallery-collections/change-collection-details.png)
 
-**[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[Accéder à la galerie](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 

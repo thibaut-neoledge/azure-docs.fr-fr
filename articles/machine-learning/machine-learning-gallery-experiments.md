@@ -12,192 +12,182 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/26/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 66b61e4619518619aac644f6833c597cb9a7408e
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a23c6419e7c4f478bfb1265a8e05c88c0b6af52b
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-experiments-in-the-cortana-intelligence-gallery"></a>Découvrir des expériences dans la galerie Cortana Intelligence
+# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Découvrir des expériences dans la galerie Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Expériences pour Machine Learning Studio
-La galerie contient une grande variété d’**[expériences](https://gallery.cortanaintelligence.com/experiments)** qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+La galerie contient une grande variété d’[expériences](https://gallery.cortanaintelligence.com/experiments) qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 
 > [!NOTE]
-> Une ***expérience*** est un canevas dans Azure Machine Learning Studio qui vous permet d’élaborer un modèle d’analyse prédictive en associant les données aux différents modules analytiques. Vous pouvez essayer différentes idées, effectuer des essais et finalement publier votre modèle sous la forme d’un service Web dans Azure. Pour obtenir un exemple de création d’une expérience simple, consultez la rubrique [Didacticiel de Machine Learning : Création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md). Pour une description plus complète de la création d’une solution d’analyse prédictive, consultez la rubrique [Procédure pas à pas : Développement d’une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
-> 
-> 
+> Une ***expérience*** est un canevas dans Machine Learning Studio que vous pouvez utiliser pour créer un modèle d’analyse prédictive. Vous créez le modèle en connectant des données avec divers modules d’analyse. Vous pouvez essayer différentes idées, effectuer des essais, puis publier votre modèle sous la forme d’un service Web dans Azure. Pour obtenir un exemple de création d’une expérience simple, consultez la rubrique [Didacticiel de Machine Learning : Création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md). Pour une description plus complète de la création d’une solution d’analyse prédictive, consultez la rubrique [Procédure pas à pas : Développement d’une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+>
+>
 
 ## <a name="discover"></a>Découvrez
-  Pour rechercher les expériences disponibles dans la galerie, ouvrez la [galerie](http://gallery.cortanaintelligence.com), puis cliquez sur **Expériences**
- en haut de la page d’accueil de la galerie.
+Pour parcourir les expériences [dans la galerie](http://gallery.cortanaintelligence.com), sélectionnez **Expériences** en haut de la page d’accueil de la galerie.
 
- La page **[Expériences](https://gallery.cortanaintelligence.com/experiments)**
- affiche une liste des expériences les plus récentes et les plus populaires.
-Cliquez sur **Afficher tout** pour afficher toutes les expériences.
-Sur cette page, vous pouvez parcourir toutes les expériences de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
+La page **[Expériences](https://gallery.cortanaintelligence.com/experiments)** affiche la liste des expériences récemment ajoutées et populaires. Pour voir toutes les expériences, sélectionnez le bouton **Afficher tout**. Pour rechercher une expérience spécifique, sélectionnez **Afficher tout**, puis sélectionnez les critères de filtre. Vous pouvez également entrer des termes de recherche dans la zone **Recherche** située en haut de la page de la galerie.
 
- Cliquez sur n’importe quelle expérience pour ouvrir la page des détails de l’expérience et lire des informations sur ce que fait l’expérience. Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers l’expérience pour inviter d’autres utilisateurs à afficher la page.
+Vous pouvez obtenir plus d’informations sur une expérience sur la page de détails de l’expérience. Pour ouvrir une page de détails de l’expérience, sélectionnez l’expérience. Dans la section **Commentaires** d’une page de détails de l’expérience, vous pouvez commenter, donner un avis ou poser des questions sur l’expérience. Vous pouvez même partager l’expérience avec vos amis ou collègues sur Twitter ou LinkedIn. Vous pouvez également envoyer un lien vers la page de détails de l’expérience afin d’inviter d’autres utilisateurs à consulter cette page.
 
 ![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Ajouter vos propres commentaires](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Télécharger
-Vous pouvez télécharger une copie de n’importe quelle expérience à partir de la galerie vers votre espace de travail Studio, puis modifier votre copie pour créer vos propres solutions.
-Il existe deux façons d’obtenir une copie de l’expérience :
+Vous pouvez télécharger une copie d’une expérience à partir de la galerie dans votre espace de travail Machine Learning Studio. Vous pouvez ensuite modifier votre copie pour créer vos propres solutions.
 
-* **À partir de la galerie** - Si vous trouvez une expérience qui vous plaît dans la galerie, vous pouvez facilement en télécharger une copie et l’ouvrir dans votre espace de travail Machine Learning Studio.
-* **À partir de Machine Learning Studio** - dans Studio, vous pouvez utiliser n’importe quelle expérience de la galerie comme modèle pour créer une nouvelle expérience.
+La galerie Cortana Intelligence propose deux méthodes pour importer une copie d’une expérience :
+
+* **À partir de la galerie**. Si vous trouvez une expérience qui vous plaît dans la galerie, vous pouvez facilement en télécharger une copie et l’ouvrir dans votre espace de travail Machine Learning Studio.
+* **À partir de Machine Learning Studio**. Dans Machine Learning Studio, vous pouvez utiliser n’importe quelle expérience de la galerie comme modèle pour créer une nouvelle expérience.
 
 ### <a name="from-the-gallery"></a>À partir de la galerie
-Pour télécharger une copie d’une expérience à partir de la galerie :
 
-1. Ouvrez la page de détails de l’expérience dans la galerie
-2. Cliquez sur **Ouvrir dans Studio**
-   
+1. Dans la galerie, ouvrez la page de détails de l’expérience.
+2. Sélectionnez **Ouvrir dans Studio**.
+
     ![Ouvrez l’expérience à partir de la galerie](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
-Lorsque vous cliquez sur **Ouvrir dans Studio**, l’expérience est chargée et ouverte dans votre espace de travail Machine Learning Studio (si vous n'êtes pas déjà connecté à Studio, vous serez invité(e) à vous connecter avec votre compte Microsoft préalablement à la copie de l’expérience sur votre espace de travail).
+Lorsque vous sélectionnez **Ouvrir dans Studio**, l’expérience s’ouvre dans votre espace de travail Machine Learning Studio. (Si vous n’êtes pas déjà connecté à Machine Learning Studio, vous êtes invité à vous connecter une première fois avec votre compte Microsoft.)
 
 ### <a name="from-within-machine-learning-studio"></a>À partir de Machine Learning Studio
-Vous pouvez également ouvrir les mêmes exemples d’expériences lorsque vous travaillez dans Machine Learning Studio :
 
-1. Dans Machine Learning Studio, cliquez sur **+NOUVEAU**
-2. Sélectionnez **Expérience** - vous pouvez choisir parmi une liste d’expériences de la galerie fournies par Microsoft, ou trouver une expérience spécifique à l’aide de la zone de recherche
-3. Placez votre curseur sur une expérience et sélectionnez **Ouvrir dans Studio** -l’expérience est alors copiée et ouverte dans votre espace de travail (pour en savoir plus sur l’expérience, sélectionnez **View in Gallery** (Afficher dans la galerie) afin d’accéder à la page de détails de l’expérience dans la galerie)
-   
+1. Dans Machine Learning Studio, sélectionnez **NOUVEAU**.
+2. Sélectionnez **Expérience**. Vous pouvez faire votre choix dans la liste des expériences de la galerie ou rechercher une expérience précise à l’aide de la zone **Recherche**.
+3. Pointez votre souris sur une expérience puis sélectionnez **Ouvrir dans Studio**. (Pour en savoir plus sur l’expérience, sélectionnez **Afficher dans la galerie**. Vous accéderez à la page de détails de l’expérience dans la galerie.)
+
     ![Ouvrez une expérience de galerie dans Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
-Vous pouvez désormais personnaliser, itérer et déployer cette expérience comme n’importe quelle autre expérience que vous créez dans Machine Learning Studio.
+Vous pouvez personnaliser, itérer et déployer une expérience téléchargée comme n’importe quelle autre expérience que vous créez dans Machine Learning Studio.
 
 ![Expérience ouverte dans Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>Participez
-Lorsque vous vous connectez à la galerie, vous devenez membre de la communauté de la galerie. Cela vous permet de partager vos propres expériences afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
+Lorsque vous vous connectez à la galerie, vous devenez membre de la communauté de la galerie. En tant que membre de la communauté, vous pouvez proposer vos propres expériences afin que d’autres utilisateurs puissent profiter des solutions que vous avez découvertes.
 
 ### <a name="publish-your-experiment-to-the-gallery"></a>Publiez votre expérience dans la galerie
-Suivez les étapes suivantes pour apporter votre contribution en partageant une expérience dans la galerie Cortana Intelligence :
 
 1. Connectez-vous à Machine Learning Studio à l’aide de votre compte Microsoft.
 2. Créez votre expérience et exécutez-la.
-3. Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur **Publier dans la galerie** sous le canevas de l’expérience.
-   
-    ![Cliquez sur « Publier dans la galerie »](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
-4. Remplissez les champs de titre et de balises. Faites en sorte qu’ils soient descriptifs et qu’ils mettent en avant les techniques utilisées ou le problème réel à résoudre, par exemple « Classification binaire : analyse des sentiments Twitter ».
-   
-    ![Remplir les champs de titre et de balises lors de la publication](media/machine-learning-gallery-experiments/experiment-description.png)
-5. Résumez ce qu’aborde votre contenu. Décrivez brièvement le problème à résoudre et l’approche adoptée.
-6. Utilisez la zone de description détaillée pour parcourir les différentes parties de votre expérience. Certaines rubriques utiles à inclure ici sont :
-   
+3. Lorsque vous êtes prêt à publier votre expérience dans la galerie, sélectionnez **Publier dans la galerie** dans la liste des actions sous le canevas de l’expérience.
+
+    ![Sélectionnez « Publier dans la galerie »](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
+4. Sur la page **Description de l’expérience**, entrez un titre et des balises. Faites en sorte que le titre et les balises soient descriptifs. Mettez en avant les techniques que vous avez employées ou le problème réel que vous résolvez. Voici un exemple de titre d’expérience descriptif : « Classification binaire : analyse des opinions sur Twitter ».
+
+    ![Entrez un titre et des balises pour la publication](media/machine-learning-gallery-experiments/experiment-description.png)
+5. Dans la zone **RÉSUMÉ** , entrez un résumé de votre expérience. Décrivez brièvement le problème que résout l’expérience et comment vous l’avez abordé.
+6. Dans la zone **DESCRIPTION DÉTAILLÉE**, décrivez les étapes que vous avez suivies dans chaque partie de votre expérience. Certaines rubriques utiles à inclure ici sont les suivantes :
    * Capture d’écran de graphique d’expérience
    * Sources de données et explication
    * Traitement des données
    * Ingénierie des caractéristiques
    * Description du modèle
    * Résultats et évaluation des performances du modèle
-     </br>
-     </br>
-     Vous pouvez utiliser Markdown pour formater des éléments si nécessaire. Cliquez sur l’icône d’**aperçu** pour avoir une idée du rendu final.
-     </br>
-     ![Cliquez sur « Aperçu » pour voir à quoi ressemblera votre texte](media/machine-learning-gallery-experiments/preview-markdown-text.png)
-     
-     <!-- -->
-     > [!TIP]
-     > La zone fournie pour l’édition avec Markdown et la zone d’aperçu sont relativement petites. Nous vous recommandons d’écrire votre documentation dans un éditeur Markdown et de coller le document terminé dans la zone de texte.  Après avoir publié votre expérience, vous pouvez utiliser des outils web standard dans Markdown pour l’édition et l’aperçu, afin d’apporter les corrections et les ajustements nécessaires.
-     > 
-     > 
-7. Téléchargez une miniature pour votre élément de la galerie. Elle apparaîtra en haut de la page de l’élément et dans la vignette de l’élément lorsque vous parcourrez la galerie. Vous pouvez choisir une image à partir de votre ordinateur ou sélectionner une des images du stock.
+
+   Vous pouvez utiliser Markdown pour mettre en forme votre description. Pour voir à quoi ressemblent vos entrées sur la page de description de l’expérience lors de la publication de l’expérience, sélectionnez **Aperçu**.
+
+   ![Sélectionnez « Aperçu » pour voir à quoi ressemblera votre texte](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+
+   > [!TIP]
+   > Les zones de texte fournies pour l’édition avec Markdown et l’aperçu sont petites. Nous vous recommandons d’écrire votre documentation d’expérience dans un éditeur Markdown, puis de la copier-coller dans la zone de texte dans la galerie. Après avoir publié votre expérience, vous pouvez apporter des corrections à l’aide d’outils web standards qui utilisent Markdown pour la modification et l’aperçu.
+
+7. Sur la page **Sélection de l’image**, choisissez une image miniature pour votre expérience. L’image miniature apparaît en haut de la page de détails de l’expérience et dans le titre de l’expérience. Les autres utilisateurs voient alors l’image miniature lorsqu’ils parcourent la galerie. Vous pouvez télécharger une image à partir de votre ordinateur ou sélectionner une image stockée dans la galerie.
     </br>
     ![Téléchargez ou sélectionnez une image pour la galerie](media/machine-learning-gallery-experiments/select-gallery-image.png)
-8. Choisissez de publier votre contenu publiquement ou uniquement pour certaines personnes avec le lien.
-   
-    ![Choisissez si vous souhaitez publier publiquement ou en tant que contenu non répertorié](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
-   
-    <!-- -->
-   
-   > [!TIP]
-   > Si vous souhaitez vous assurer que le rendu final de votre documentation est correct avant de la publier publiquement, vous pouvez commencer par la publier sans la répertorier, puis la rendre publique à partir de la page de l’élément.
-   > 
-   > 
-9. Cliquez sur la coche **OK** pour publier l’expérience dans la galerie.
-   
-    ![Cliquez sur la coche OK pour publier l’expérience](media/machine-learning-gallery-experiments/ok-checkmark.png)
+8. Sur la page **Paramètres**, sous **Visibilité**, choisissez si vous souhaitez publier votre contenu publiquement (**Visible au public**) ou si vous souhaitez qu’il ne soit accessible qu’aux personnes qui disposent d’un lien vers la page (**Non visible au public**).
 
-Consultez la section ci-dessous, **Suggestions relatives à la publication et à une documentation de qualité**, pour obtenir des conseils sur la publication d’une expérience dans la galerie.
+    ![Choisissez si vous souhaitez publier publiquement ou en tant que contenu non répertorié](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
+
+    <!-- -->
+
+   > [!TIP]
+   > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience.
+   >
+   >
+9. Cochez la case **OK** pour publier l’expérience dans la galerie.
+
+    ![Cochez la case OK pour publier l’expérience](media/machine-learning-gallery-experiments/ok-checkmark.png)
+
+Pour obtenir des conseils sur la publication d’une expérience de galerie de haute qualité, consultez [Conseils pour documenter et publier votre expérience](#tips-for-documenting-and-publishing-your-experiment).
 
 Et voilà, vous avez terminé.
 
-Vous pouvez désormais voir votre expérience dans la galerie et partager le lien avec les autres. Si vous l’avez publiée publiquement, votre expérience s’affichera dans les résultats de navigation et de recherche dans la galerie. Vous pouvez également modifier votre documentation sur la page d’élément chaque fois que vous êtes connecté.
+Vous pouvez désormais voir votre expérience dans la galerie et partager le lien avec les autres. Si vous avez publié votre expérience avec le réglage de visibilité **Visible au public**, l’expérience s’affiche dans les résultats de navigation et de recherche dans la galerie. Vous pouvez à tout moment modifier votre documentation expérience sur la page de détails de l’expérience lorsque vous êtes connecté à la galerie.
 
-Pour afficher la liste de vos contributions, cliquez sur votre image dans le coin supérieur droit de n’importe quelle page de la galerie, puis sur votre nom pour ouvrir la page de votre compte.
+Pour afficher la liste de vos contributions, sélectionnez votre image dans le coin supérieur droit de n’importe quelle page de la galerie. Sélectionnez ensuite votre nom pour ouvrir la page de votre compte.
 
-![Cliquez sur le nom de votre compte](media/machine-learning-gallery-experiments/click-account-name.png)
+![Sélectionnez le nom de votre compte](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>Mettre à jour votre expérience
-Si vous devez apporter des modifications au flux de travail (modules, paramètres, etc.) dans une expérience que vous avez publié dans la galerie, revenez à l’expérience dans Machine Learning Studio, apportez vos modifications publiez-la à nouveau. Votre expérience publiée existante sera mise à jour.
+Si besoin, vous pouvez apporter des modifications au workflow (modules, paramètres, etc.) dans une expérience que vous avez publiée dans la galerie. Dans Machine Learning Studio, apportez les modifications souhaitées sur l’expérience, puis publiez-la à nouveau. Votre expérience publiée sera mise à jour.
 
-Si vous souhaitez simplement modifier les informations suivantes ou supprimer l’expérience de la galerie, vous pouvez effectuer toutes ces modifications dans la galerie :
+Vous pouvez modifier les informations suivantes pour votre expérience directement dans la galerie :
 
 * Nom de l'expérience
-* Résumé ou texte de description
-* Balises spécifiées
-* Image utilisée
-* Paramètres de visibilité (publique ou non répertoriée)
-* Supprimer l’expérience de la galerie
+* Résumé ou description
+* Balises
+* Image
+* Réglage de visibilité (**Visible au public** ou **Non visible au public**)
 
-Ces modifications peuvent être effectuées à partir de la page de détails de l’expérience ou de votre page de profil dans la galerie.
+Vous pouvez également supprimer l’expérience de la galerie.
 
-#### <a name="from-your-experiments-details-page"></a>À partir de la page de détails de votre expérience
-À partir de la page de détails de l’expérience, cliquez sur « Modifier » pour modifier les détails de votre expérience.
+Vous pouvez apporter ces modifications, ou supprimer l’expérience, à partir de la page de détails de l’expérience ou à partir de votre page de profil dans la galerie.
 
-![Cliquez sur « Modifier » pour modifier votre expérience](media/machine-learning-gallery-experiments/edit-button.png)
 
-Les détails de page passe en mode édition, et vous pouvez cliquer sur « Modifier » située en regard du nom, du résumé, des balises et des autres caractéristiques de l’expérience pour y apporter des modifications. Lorsque vous avez terminé vos modifications, cliquez sur « Terminé ».
+#### <a name="from-the-experiment-details-page"></a>À partir de la page de détails de l’expérience
+Sur la page de détails de l’expérience, cliquez sur **Modifier** pour modifier les détails de votre expérience.
 
-![Cliquez sur « Modifier » pour modifier les détails, puis sur « Terminé » lorsque vous avez fini](media/machine-learning-gallery-experiments/edit-details-page.png)
+![Sélectionnez Modifier pour modifier votre expérience](media/machine-learning-gallery-experiments/edit-button.png)
 
-Vous pouvez également sélectionner l’icône des paramètres pour modifier la visibilité de l’expérience (publique ou non répertoriée), ou vous pouvez supprimer l’expérience de la galerie.
+La page Détails entre en mode édition. Pour apporter des modifications, sélectionnez l’option **Modifier** située à côté du nom, du résumé ou des balises de l’expérience. Lorsque vous avez terminé d’apporter des modifications, sélectionnez **Terminé**.
 
-![Cliquez sur paramètres pour modifier la visibilité ou supprimer l’expérience](media/machine-learning-gallery-experiments/settings-button.png)
+![Sélectionnez « Modifier » pour modifier les détails, puis sélectionnez « Terminé » une fois terminé](media/machine-learning-gallery-experiments/edit-details-page.png)
+
+Pour modifier le réglage de visibilité de l’expérience (**Visible au public** ou **Non visible au public**) ou supprimer l’expérience de la galerie, sélectionnez l’icône **Paramètres**.
+
+![Sélectionnez « Paramètres » pour modifier la visibilité ou supprimer l’expérience](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>À partir de votre page de profil
-À partir de votre page de profil, vous pouvez cliquez sur la flèche vers le bas sur l’expérience et sélectionner « Modifier ». Vous accéderez alors à la page de détails de votre expérience en mode édition. Lorsque vous avez terminé vos modifications, cliquez sur « Terminé ».
+Sur la page de votre profil, sélectionnez la flèche bas de l’expérience, puis sélectionnez **Modifier**. Vous accédez alors à la page de détails de votre expérience en mode édition. Une fois que vous avez terminé d’apporter des modifications, sélectionnez **Terminé**.
 
-Vous pouvez également cliquer sur « Supprimer » pour supprimer l’expérience de la galerie.
+Pour supprimer l’expérience de la galerie, sélectionnez **Supprimer**.
 
-![Cliquez sur « Modifier » ou « Supprimer »](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
+![Sélectionnez « Modifier » ou « Supprimer »](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
-### <a name="suggestions-for-publishing-and-for-quality-documentation"></a>Suggestions relatives à la publication et à une documentation de qualité
-* Même si vous supposez que le lecteur est déjà familier avec la science des données, il est toujours utile de simplifier votre langage et d’expliquer les choses en détail lorsque cela est possible.
-* Cortana Intelligence Suite étant un outil relativement nouveau, tous les lecteurs ne le maîtrisent pas encore bien.
-  Vous devez donc fournir suffisamment d’informations et d’explications détaillées pour aider les lecteurs à parcourir votre travail.
-* Des éléments visuels, tels que des graphiques d’expérience ou des captures d’écran de données peuvent être très utiles pour permettre aux lecteurs d’interpréter et d’utiliser votre contenu correctement. Consultez la collection [Publishing Guidelines and Examples](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) (Guide et exemples de publications) pour plus d’informations sur la façon d’inclure des images dans votre documentation.
-* Si vous incluez un jeu de données dans votre expérience (et qu’il n’est pas importé via le module d’importation de données), il fait partie de votre expérience et sera publié dans la galerie. Assurez-vous par conséquent que le jeu de données que vous publiez présente les termes du contrat de licence appropriés pour le partage et le téléchargement par toute personne. Les partages dans la galerie sont abordés dans les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/)d’Azure.
+### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Conseils pour la documentation et la publication de votre expérience
+* Vous pouvez partir du principe que le lecteur a de l’expérience en matière de science des données, mais il peut être utile d’utiliser un langage simple. Expliquez les choses en détail dès que possible.
+* La suite Cortana Intelligence Suite est relativement nouvelle. Tous les lecteurs ne savent pas comment l’utiliser. Vous devez donc fournir suffisamment d’informations et d’explications détaillées pour aider les lecteurs à parcourir votre expérience.
+* Des éléments visuels peuvent permettre aux lecteurs d’interpréter et d’utiliser correctement votre documentation d’expérience. Parmi les éléments visuels, il y a les graphiques d’expérience et les captures d’écran de données. Pour plus d’informations sur comment inclure des images dans votre documentation d’expérience, consultez la collection [Publishing Guidelines and Examples](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) (Guide et exemples de publications) .
+* Si vous incluez un jeu de données dans votre expérience (autrement dit, si vous n’importez pas le jeu de données via le module Importer des données), le jeu de données fait partie de votre expérience et est publié dans la galerie. Assurez-vous que le jeu de données que vous publiez dispose de conditions de licence qui autorisent le partage et le téléchargement par toute personne. Les partages dans la galerie sont abordés dans les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/)d’Azure.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
-**Quelle est la configuration requise de l'image lors de l'envoi ou de la modification d'une image de mon expérience ?**
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
+**Quelles sont les conditions requises pour envoyer ou modifier une image pour mon expérience ?**
 
-Les images que vous envoyez avec votre expérience seront utilisées pour créer une vignette d'expérience pour votre participation. Il est recommandé que les images soient d’une taille inférieure à 500 Ko, avec des proportions de 3:2. Une résolution de 960 x 640 est conseillée
+Les images que vous envoyez avec votre expérience seront utilisées pour créer une vignette d'expérience pour votre participation. Nous recommandons des images de moins de 500 Ko, avec des proportions 3:2 et une résolution de 960 x 640.
 
 **Qu'advient-il du jeu de données que j'ai utilisé dans l'expérience ? Le jeu de données est-il également publié dans la galerie ?**
 
-Si votre jeu de données fait partie de votre expérience et n’est pas importé via le module d’importation de données, il fait partie de votre expérience et est publié dans la galerie avec votre expérience. Pour cette raison, assurez-vous que le jeu de données que vous publiez avec l’expérience présente les termes du contrat de licence appropriés autorisant le partage et le téléchargement par toute personne.
+Si votre jeu de données fait partie de votre expérience et n’est pas importé via le module Importer des données, il est publié dans la galerie dans le cadre de votre expérience. Assurez-vous que le jeu de données que vous publiez avec votre expérience dispose des conditions de licence appropriées. Les conditions de licence doivent autoriser quiconque à partager et télécharger les données.
 
-**J’ai une expérience qui utilise un module Importer les données pour extraire les données à partir de HDInsight ou SQL. Elle utilise mes informations d'identification pour récupérer les données. Comment puis-je publier cette expérience et m'assurer que mes informations d'identification ne seront pas partagées ?**
+**J’ai une expérience qui utilise un module Importer des données pour extraire les données à partir d’Azure HDInsight ou de SQL Server. Elle utilise mes informations d'identification pour récupérer les données. Puis-je publier ce genre d’expérience ? Comment être sûr que mes informations d’identification ne seront pas partagées ?**
 
-Pour le moment, nous n'autorisons pas la publication d'expériences qui utilisent des informations d'identification.
+Pour l’instant, vous ne pouvez pas publier une expérience qui utilise des informations d’identification dans la galerie.
 
 **Comment entrer plusieurs balises ?**
 
 Après avoir entré une balise, appuyez sur la touche Tab pour entrer une autre balise.
 
-**[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[Accéder à la galerie](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 

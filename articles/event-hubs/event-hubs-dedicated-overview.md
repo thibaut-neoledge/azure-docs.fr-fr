@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
-ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -55,7 +55,7 @@ Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicat
 * Aucune maintenance : nous gérons l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
 * Tarification mensuelle fixe.
 
-Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit des niveaux De base et Standard autorisent 1000 événements par seconde ou 1 Mbit/s en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des Event Hubs achetés.
+Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit des niveaux De base et Standard autorisent 1000 événements par seconde ou 1 Mbit/s en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
 
 Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 

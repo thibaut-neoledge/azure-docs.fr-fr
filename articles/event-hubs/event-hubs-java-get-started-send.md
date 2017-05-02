@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: feb466064f2e26a329977240eeafb28148bdf212
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fe10aaca3232e5baa0b726b7262a6e9e8ce6b638
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ Les hubs d’événements représentent un système d’ingestion à l’extensi
 
 Pour plus d’informations, consultez la section [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
-Ce didacticiel explique comment envoyer des événements vers un hub d’événements à l’aide d’une application console en Java. Pour recevoir des événements avec le processeur d’événements Java, consultez [cet article](event-hubs-java-get-started-receive-eph.md) ou cliquez sur le langage de réception approprié dans le sommaire à gauche.
+Ce didacticiel explique comment envoyer des événements vers un concentrateur d’événements à l’aide d’une application console en Java. Pour recevoir des événements avec le processeur d’événements Java, consultez [cet article](event-hubs-java-get-started-receive-eph.md) ou cliquez sur le langage de réception approprié dans le sommaire à gauche.
 
 Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
@@ -100,10 +101,5 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Recevoir des événements avec EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Créer un hub d’événements](event-hubs-create.md)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
