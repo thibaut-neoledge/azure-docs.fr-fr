@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7490fe7261c760f2945d67a7f819091fd69b04f8
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -55,13 +55,13 @@ De plus, vous pouvez ajouter des bases de données au pool ou en retirer. Si une
 ## <a name="which-databases-go-in-a-pool"></a>Quelles bases de données mettre dans un pool ?
 ![Bases de données SQL partageant des eDTU dans un pool élastique.][1]
 
-Les bases de données qui constituent d’excellentes candidates pour des pools élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Dans l’exemple ci-dessus, vous affichez l’activité d’une base de données unique, de 4 bases de données et enfin d’un pool élastique comprenant 20 bases de données. Les bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Les bases de données qui ont une demande en ressources constante sont mieux adaptées aux niveaux de service De base, Standard et Premium dans lesquels les ressources sont affectées individuellement.
+Les bases de données qui constituent d’excellentes candidates pour des pools élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Dans l’exemple ci-dessus, vous affichez l’activité d’une base de données unique, de 4 bases de données et enfin d’un pool élastique comprenant 20 bases de données. Les bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Les bases de données qui ont une demande en ressources plus constante sont mieux adaptées aux niveaux de service De base, Standard, Premium et Premium RS dans lesquels les ressources sont affectées individuellement.
 
 [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>Limites relatives aux eDTU et au stockage pour les pools élastiques
 
-Le tableau ci-après décrit les caractéristiques des pools élastiques De base, Standard et Premium.
+Le tableau ci-après décrit les caractéristiques des pools élastiques De base, Standard, Premium et Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -74,7 +74,7 @@ Les tableaux suivants décrivent les limites pour les bases de données regroup�
 ### <a name="limits-for-elastic-pools"></a>Limites relatives aux pools élastiques
 | Propriété | Description |
 |:--- |:--- |
-| Niveau de service |De base, Standard ou Premium. Le niveau de service détermine les limites de stockage et de performances minimales et maximales qui peuvent être configurées, ainsi que les choix en matière de continuité d’activité. Chaque base de données au sein d’un pool a le même niveau de service que le pool. Le terme « édition » est synonyme de « niveau de service ». |
+| Niveau de service |De base, Standard, Premium ou Premium RS. Le niveau de service détermine les limites de stockage et de performances minimales et maximales qui peuvent être configurées, ainsi que les choix en matière de continuité d’activité. Chaque base de données au sein d’un pool a le même niveau de service que le pool. Le terme « édition » est synonyme de « niveau de service ». |
 | Nombre d’eDTU par pool |Nombre maximal d’eDTU pouvant être partagées par les bases de données du pool. Le nombre total d’eDTU utilisées par les bases de données du pool ne peut pas dépasser la limite de ce pool à un moment donné. |
 | Espace de stockage maximal par pool (Go) |Quantité maximale de stockage (en Go) pouvant être partagée par les bases de données du pool. Le stockage total utilisé par les bases de données du pool ne peut pas dépasser cette limite. Cette limite est déterminée par le nombre d’eDTU par pool. Si cette limite est dépassée, toutes les bases de données passent en lecture seule. Le stockage maximal par pool fait référence au stockage maximal des fichiers de données dans le pool et n’inclut pas l’espace utilisé par les fichiers journaux. |
 | Nombre maximal de bases de données par pool |Nombre maximal de bases de données autorisées par pool. |
@@ -105,8 +105,8 @@ La restauration dans le temps utilise les sauvegardes automatiques de base de do
 ### <a name="geo-restore"></a>Restauration géographique
 La restauration géographique constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Voir [Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire](sql-database-disaster-recovery.md)
 
-### <a name="active-geo-replication"></a>Géo-réplication active
-Pour les applications qui ont des exigences de récupération extrêmement strictes auxquelles la restauration géographique ne peut pas répondre, configurez la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](sql-database-geo-replication-powershell.md) ou de [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+### <a name="active-geo-replication"></a>Géoréplication active
+Pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géorestauration, configurez la [géoréplication active](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

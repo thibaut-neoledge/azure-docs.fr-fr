@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 53bd62688aa0d1a06d2d012c8da664d2de4b0b45
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/17/2017
 Azure Managed Disks simplifie la gestion des disques des machines virtuelles Azure IaaS, en gérant les [comptes de stockage](storage-introduction.md) associés aux disques de machines virtuelles. Vous spécifiez simplement le type ([Premium](storage-premium-storage.md) ou [Standard](storage-standard-storage.md)) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous.
 
 >[!NOTE]
->Les machines virtuelles avec Managed Disks exigent que le trafic sortant sur le port 8443 signale l’état des [extensions de machines virtuelles](../virtual-machines/virtual-machines-windows-extensions-features.md) installées à la plateforme Azure. L’approvisionnement d’une machine virtuelle avec extensions échouera à défaut de disponibilité de ce port. En outre, l’état de déploiement d’une extension sera inconnu si elle est installée sur une machine virtuelle en cours d’exécution. Si vous ne pouvez pas débloquer le port 8443, vous devez utiliser des disques non gérés. Nous travaillons à la résolution de ce problème. Consultez la [FAQ sur les disques de machines virtuelles IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) pour plus d’informations. 
+>Les machines virtuelles avec Managed Disks exigent que le trafic sortant sur le port 8443 signale l’état des [extensions de machines virtuelles](../virtual-machines/windows/extensions-features.md) installées à la plateforme Azure. L’approvisionnement d’une machine virtuelle avec extensions échouera à défaut de disponibilité de ce port. En outre, l’état de déploiement d’une extension sera inconnu si elle est installée sur une machine virtuelle en cours d’exécution. Si vous ne pouvez pas débloquer le port 8443, vous devez utiliser des disques non gérés. Nous travaillons à la résolution de ce problème. Consultez la [FAQ sur les disques de machines virtuelles IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) pour plus d’informations. 
 >
 >
 
@@ -43,7 +43,7 @@ Managed Disks vous permet de créer jusqu’à 10 000 **disques** de machines 
 
 ### <a name="better-reliability-for-availability-sets"></a>Fiabilité supérieure des groupes à haute disponibilité
 
-Managed Disks accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
+Managed Disks accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
@@ -95,8 +95,8 @@ Pour le moment, les [captures instantanées incrémentielles](storage-incrementa
 
 Pour en savoir plus sur la création de captures instantanées avec Managed Disks, consultez ces ressources :
 
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 Pour plus d’informations sur la tarification d’Azure Managed Disks, consultez la page [Managed Disks Tarification](https://azure.microsoft.com/pricing/details/managed-disks).
@@ -106,12 +106,12 @@ Pour plus d’informations sur la tarification d’Azure Managed Disks, consul
 Managed Disks prend également en charge la création d’une image personnalisée gérée. Vous pouvez créer une image à partir de votre disque dur virtuel (VHD) personnalisé dans un compte de stockage ou directement à partir d’une machine virtuelle généralisée (préparée à l’aide de Sysprep). L’ensemble des disques managés associés à une machine virtuelle sont capturés dans une seule image. Il s’agit notamment des disques de données et des disques de système d’exploitation. Dès lors, vous pouvez créer des centaines de machines virtuelles à l’aide de votre image personnalisée, sans qu’il ne soit nécessaire de copier ou de gérer aucun compte de stockage.
 
 Pour plus d’informations sur la création des images, consultez les articles suivants :
-* [Procédure de capture d’une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [Guide pratique de généralisation et de capture d’une machine virtuelle Linux avec Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Procédure de capture d’une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md)
+* [Guide pratique de généralisation et de capture d’une machine virtuelle Linux avec Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>Images et captures instantanées
 
-Souvent, le mot « image » est associé aux machines virtuelles. C’est désormais aussi le cas du terme « captures instantanées ». Il est important de bien saisir la différence entre les 2. Managed Disks vous permet de saisir une image d’une machine virtuelle généralisée qui a été libérée. Cette image comprend l’ensemble des disques attachés à la machine virtuelle. Vous pouvez l’utiliser pour créer une autre machine virtuelle, qui le cas échéant intégrera l’ensemble des disques.
+Souvent, le mot « image » est associé aux machines virtuelles. C’est désormais aussi le cas du terme « captures instantanées ». Il est important de bien saisir la différence entre les deux. Managed Disks vous permet de saisir une image d’une machine virtuelle généralisée qui a été libérée. Cette image comprend l’ensemble des disques attachés à la machine virtuelle. Vous pouvez l’utiliser pour créer une autre machine virtuelle, qui le cas échéant intégrera l’ensemble des disques.
 
 Une capture instantanée est une copie d’un disque à un instant t. Elle s’applique uniquement à un disque. Si vous possédez une machine virtuelle qui présente uniquement un disque (le système d’exploitation), vous pouvez en saisir une capture instantanée ou une image, à partir desquelles vous créez une machine virtuelle.
 
@@ -141,11 +141,11 @@ Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Création d’une machine virtuelle Linux avec Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Création d’une machine virtuelle Linux avec Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
 
-* [Attacher un disque de données géré à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [Attacher un disque de données géré à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Ajouter un disque managé à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Ajouter un disque managé à une machine virtuelle Linux](../virtual-machines/linux/add-disk.md)
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparer les options de stockage Managed Disks 
 
@@ -155,7 +155,7 @@ Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 
 ### <a name="operational-guidance"></a>Instructions d’utilisation
 
-* [Migrer de AWS et d’autres plates-formes vers Managed Disks dans Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migrer de AWS et d’autres plates-formes vers Managed Disks dans Azure](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [Migrer des machines virtuelles Azure vers Managed Disks dans Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+* [Migrer des machines virtuelles Azure vers Managed Disks dans Azure](../virtual-machines/windows/migrate-to-managed-disks.md)
 

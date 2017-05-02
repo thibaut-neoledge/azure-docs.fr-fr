@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7e6053c8a737674f0e8d9816d3ee228c118a722e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -60,9 +60,9 @@ Par défaut, Azure Diagnostics transmet toujours des journaux et des mesures à 
 </SinksConfig>
 ```
 
-Dans cet exemple, l’URL de l’Event Hub est définie sur l’espace de noms complet de l’Event Hub (espace de noms Event Hubs + « / » + nom de l’Event Hub).  
+Dans cet exemple, l’URL du hub d’événements est définie sur l’espace de noms complet du hub d’événements (espace de noms Event Hubs + « / » + nom du hub d’événements).  
 
-L’URL de l’Event Hub s’affiche dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.  
+L’URL du hub d’événements s’affiche dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.  
 
 Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant que cette même valeur est utilisée de manière cohérente dans le fichier de configuration.
 
@@ -83,12 +83,12 @@ Le récepteur Event Hubs doit également être déclaré et défini dans la sect
 La valeur `SharedAccessKeyName` doit correspondre à une clé de signature d’accès partagé (SAS) et à une stratégie définie dans l’espace de noms **Event Hubs** . Dans le [portail Azure](https://manage.windowsazure.com), accédez au tableau de bord Event Hubs, cliquez sur l’onglet **Configurer** et définissez une stratégie nommée (par exemple, « SendRule ») qui possède des autorisations *d’envoi* . L’élément **StorageAccount** est également déclaré dans le fichier **PrivateConfig**. Il est inutile de modifier les valeurs ici si elles fonctionnent correctement. Dans cet exemple, nous ne renseignons pas les valeurs afin d’indiquer que ces valeurs seront définies par une ressource en aval. Par exemple, le fichier de configuration d’environnement *ServiceConfiguration.Cloud.cscfg* définit les noms et les clés appropriés à l’environnement.  
 
 > [!WARNING]
-> La clé SAP Event Hubs est stockée en texte brut dans le fichier *.wadcfgx*. Cette clé est souvent intégrée au contrôle du code source ou est disponible en tant que ressource dans votre serveur de builds. Vous devez donc la protéger en conséquence. Nous vous recommandons d’utiliser ici une clé SAP avec les autorisations *Envoyer uniquement* afin qu’un utilisateur malveillant puisse écrire dans l’Event Hub, mais sans l’écouter ou le gérer.
+> La clé SAP Event Hubs est stockée en texte brut dans le fichier *.wadcfgx*. Cette clé est souvent intégrée au contrôle du code source ou est disponible en tant que ressource dans votre serveur de builds. Vous devez donc la protéger en conséquence. Nous vous recommandons d’utiliser ici une clé SAP avec les autorisations *Envoyer uniquement* afin qu’un utilisateur malveillant puisse écrire dans le hub d’événements, mais sans l’écouter ni le gérer.
 >
 >
 
 ## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Configurer Azure Diagnostics pour l’envoi de journaux et de mesures vers Event Hubs
-Comme indiqué précédemment, toutes les données de diagnostic par défaut et personnalisées (autrement dit, les mesures et journaux) sont automatiquement envoyées vers Stockage Azure à des intervalles configurés. Avec Event Hubs et tout récepteur supplémentaire, vous pouvez spécifier n’importe quel nœud racine ou terminal de la hiérarchie à envoyer à Event Hub. Cela inclut les événements ETW, les compteurs de performances, les journaux des événements Windows et les journaux d’application.   
+Comme indiqué précédemment, toutes les données de diagnostic par défaut et personnalisées (autrement dit, les mesures et journaux) sont automatiquement envoyées vers Stockage Azure à des intervalles configurés. Avec Event Hubs et tout récepteur supplémentaire, vous pouvez spécifier n’importe quel nœud racine ou terminal de la hiérarchie à envoyer au hub d’événements. Cela inclut les événements ETW, les compteurs de performances, les journaux des événements Windows et les journaux d’application.   
 
 Il est important de prendre en compte le nombre de points de données qui doit réellement être transféré vers Event Hubs. En règle générale, les développeurs transfèrent des données de chemin réactif à faible latence qui doivent être consommées et interprétées rapidement. Il s’agit, par exemple, des systèmes qui analysent les alertes ou les règles de mise à l’échelle automatique. Un développeur peut également configurer un autre magasin d’analyse ou de recherche, par exemple, Azure Stream Analytics, ElasticSearch, un système de surveillance personnalisé ou un système de surveillance tiers favori.
 
@@ -137,9 +137,9 @@ Visual Studio offre le moyen le plus facile de déployer l’application et de c
 
 À ce stade, toutes les opérations de déploiement et de mise à jour du déploiement effectuées dans Visual Studio et dans Visual Studio Team System, de même que l’ensemble des commandes ou scripts basés sur MSBuild et qui utilisent la cible **/t:publish** incluent le fichier *.wadcfgx* dans le processus d’empaquetage. En outre, les déploiements et les mises à jour déploient le fichier vers Azure à l’aide de l’extension de l’agent Azure Diagnostics appropriée sur vos machines virtuelles.
 
-Une fois l’application et la configuration d’Azure Diagnostics déployées, l’activité correspondante s’affiche dans le tableau de bord de l’Event Hub. Cela vous indique que vous pouvez maintenant afficher les données de chemin réactif dans le client d’écouteur ou l’outil d’analyse de votre choix.  
+Une fois l’application et la configuration d’Azure Diagnostics déployées, l’activité correspondante s’affiche dans le tableau de bord du hub d’événements. Cela vous indique que vous pouvez maintenant afficher les données de chemin réactif dans le client d’écouteur ou l’outil d’analyse de votre choix.  
 
-Dans l’illustration suivante, le tableau de bord Event Hubs indique un envoi intègre de données de diagnostic vers Event Hubs après 23 h 00. Cette heure correspond au moment où l’application a été déployée avec un fichier *.wadcfgx* mis à jour et où le récepteur a été correctement configuré.
+Dans l’illustration suivante, le tableau de bord Event Hubs indique un envoi intègre de données de diagnostic vers le hub d’événements après 23h00. Cette heure correspond au moment où l’application a été déployée avec un fichier *.wadcfgx* mis à jour et où le récepteur a été correctement configuré.
 
 ![][0]  
 
@@ -151,7 +151,7 @@ Dans l’illustration suivante, le tableau de bord Event Hubs indique un envoi i
 ## <a name="view-hot-path-data"></a>Affichage des données de chemin réactif
 Comme indiqué précédemment, il existe plusieurs scénarios d’utilisation pour écouter et traiter des données Event Hubs.
 
-Une approche simple consiste à créer une petite application console de test pour écouter l’Event Hub et imprimer le flux de sortie. Vous pouvez placer le code suivant (expliqué plus en détail dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)) dans une application console.  
+Une approche simple consiste à créer une petite application console de test pour écouter le hub d’événements et imprimer le flux de sortie. Vous pouvez placer le code suivant (expliqué plus en détail dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)) dans une application console.  
 
 Notez que l’application console doit inclure le [package Event Processor Host NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -218,7 +218,7 @@ namespace EventHubListener
         static void Main(string[] args)
         {
             string eventHubConnectionString = "Endpoint= <your connection string>”
-            string eventHubName = "<Event Hub name>";
+            string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -239,13 +239,13 @@ namespace EventHubListener
 ```
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Résolution des problèmes liés aux récepteurs Event Hubs
-* L’Event Hub n’affiche pas l’activité attendue relative à des événements entrants ou sortants.
+* Le hub d’événements n’affiche pas l’activité attendue relative à des événements entrants ou sortants.
 
-    Vérifiez que l’Event Hub a été correctement approvisionné. Toutes les informations de connexion de la section **PrivateConfig** du fichier *.wadcfgx* doivent correspondre aux valeurs de votre ressource, comme indiqué dans le portail. Assurez-vous qu’une stratégie SAS est définie (« SendRule » dans l’exemple) dans le portail et que l’autorisation *d’envoi* a été octroyée.  
-* Après une mise à jour, l’Event Hub n’affiche plus d’activité relative aux événements entrants ou sortants.
+    Vérifiez que le hub d’événements a été correctement approvisionné. Toutes les informations de connexion de la section **PrivateConfig** du fichier *.wadcfgx* doivent correspondre aux valeurs de votre ressource, comme indiqué dans le portail. Assurez-vous qu’une stratégie SAS est définie (« SendRule » dans l’exemple) dans le portail et que l’autorisation *d’envoi* a été octroyée.  
+* Après une mise à jour, le hub d’événements n’affiche plus d’activité relative aux événements entrants ou sortants.
 
-    Tout d’abord, assurez-vous que les informations de l’Event Hub et de la configuration sont correctes, comme nous l’avons expliqué précédemment. Le fichier **PrivateConfig** est parfois réinitialisé au cours d’une mise à jour du déploiement. La solution recommandée consiste à apporter toutes les modifications dans le projet *.wadcfgx* , puis à transmettre une mise à jour complète de l’application. Si ce n’est pas possible, assurez-vous que la mise à jour des diagnostics transmet un fichier **PrivateConfig** complet qui comprend la clé SAS.  
-* J’ai essayé ces suggestions, mais l’Event Hub ne fonctionne toujours pas.
+    Tout d’abord, assurez-vous que les informations du hub d’événements et de la configuration sont correctes, comme nous l’avons expliqué précédemment. Le fichier **PrivateConfig** est parfois réinitialisé au cours d’une mise à jour du déploiement. La solution recommandée consiste à apporter toutes les modifications dans le projet *.wadcfgx* , puis à transmettre une mise à jour complète de l’application. Si ce n’est pas possible, assurez-vous que la mise à jour des diagnostics transmet un fichier **PrivateConfig** complet qui comprend la clé SAS.  
+* J’ai essayé ces suggestions, mais le hub d’événements ne fonctionne toujours pas.
 
     Consultez la table Azure Storage **WADDiagnosticInfrastructureLogsTable**qui contient les journaux et les erreurs d’Azure Diagnostics. Une option consiste à utiliser un outil tel que l’ [explorateur de stockage Azure](http://www.storageexplorer.com) pour vous connecter à ce compte de stockage, consulter cette table et ajouter une requête pour l’horodatage (TimeStamp) des dernières 24 heures. Vous pouvez utiliser l’outil pour exporter un fichier .csv et l’ouvrir dans une application comme Microsoft Excel. Excel permet de rechercher facilement des chaînes de carte d’appel, telles **qu’EventHubs**afin d’identifier l’erreur signalée.  
 
@@ -323,7 +323,7 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](../event-hubs/event-hubs-create.md) (Créer un Event Hub)
+* [Créer un hub d’événements](../event-hubs/event-hubs-create.md)
 * [FAQ sur les hubs d'événements](../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->

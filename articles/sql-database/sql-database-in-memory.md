@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -27,7 +28,7 @@ ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
 
 Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis d’améliorer les performances :
 
-- Grâce à la technologie OLTP en mémoire, [Quorum Business Solutions a réussi à doubler sa charge de travail tout en améliorant les DTU (c’est-à-dire, la consommation de ressources) de 70 %](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Grâce à la technologie OLTP en mémoire, [Quorum Business Solutions a réussi à doubler sa charge de travail tout en améliorant les DTU (c’est-à-dire, la consommation de ressources) de 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [OLTP en mémoire dans Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
 
 Les technologies en mémoire sont disponibles dans toutes les bases de données du niveau Premium, notamment les bases de données dans des pools élastiques Premium.
@@ -139,7 +140,7 @@ Avant de rétrograder la base de données au niveau standard/de base, supprimez 
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installer l’exemple In-Memory OLTP
 
-Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en quelques clics sur le [portail Azure](https://portal.azure.com/). Les étapes de cette section expliquent comment enrichir votre base de données AdventureWorksLT d’objets OLTP en mémoire et démontrent les avantages au niveau des performances.
+Vous pouvez créer l’exemple de base de données AdventureWorksLT en quelques clics dans le [portail Azure](https://portal.azure.com/). Les étapes de cette section expliquent comment enrichir votre base de données AdventureWorksLT d’objets OLTP en mémoire et démontrent les avantages au niveau des performances.
 
 Pour une démonstration plus simple mais intéressante des performances de l’OLTP en mémoire, consultez :
 
@@ -148,7 +149,7 @@ Pour une démonstration plus simple mais intéressante des performances de l’O
 
 #### <a name="installation-steps"></a>Procédure d’installation :
 
-1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium sur un serveur V12. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT [V12]. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium sur un serveur. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-get-started-portal.md).
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -478,7 +479,7 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une multiplication par&9; des performances de cette requête avec l’index columnstore en cluster par rapport à l’index traditionnel. Avec P15, vous pouvez vous attendre à une multiplication des performances par 57 à l’aide de l’index columnstore.
+Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une multiplication par 9 des performances de cette requête avec l’index columnstore en cluster par rapport à l’index traditionnel. Avec P15, vous pouvez vous attendre à une multiplication des performances par 57 à l’aide de l’index columnstore.
 
 
 
@@ -495,7 +496,7 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 
 #### <a name="deeper-information"></a>Informations supplémentaires
 
-- [Découvrez comment le Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 %, grâce à l’OLTP en mémoire dans la SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Découvrez comment le Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 %, grâce à l’OLTP en mémoire dans la SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [En savoir plus sur In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 
@@ -518,9 +519,4 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [Outils SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

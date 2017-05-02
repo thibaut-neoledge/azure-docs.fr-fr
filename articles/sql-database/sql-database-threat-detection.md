@@ -8,7 +8,7 @@ manager: jhubbard
 editor: v-romcal
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 07/10/2016
 ms.author: ronmat; ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: eadaa3e7a279b6b92da1d0c026c3002297dfd298
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: c6f580a35115ed93e5575f51956e55dc7b5b8d0a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,61 @@ Threat Detection vous permet de réagir facilement aux menaces potentielles à l
 
 Par exemple, il détecte certaines activités de base de données anormales indiquant des tentatives d’injection SQL potentielles. L’injection SQL représente l’un des problèmes de sécurité auxquels sont le plus exposées les applications web, et est utilisée pour cibler les applications pilotées par des données. Les pirates exploitent les vulnérabilités des applications pour injecter des instructions SQL nuisibles dans les champs de saisie d’application afin de violer ou modifier les données contenues dans la base de données.
 
+## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
+1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
+2. Accédez au volet de configuration de la base de données SQL que voulez surveiller. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
+   
+    ![Volet de navigation][1]
+3. Dans le panneau de configuration **Audit et détection des menaces**, **activez** l’audit pour afficher les paramètres Détection des menaces.
+   
+    ![Volet de navigation][2]
+4. **Activez** la détection des menaces.
+5. Configurez la liste des adresses électroniques qui recevront les alertes de sécurité en cas de détection d’activités anormales sur la base de données.
+6. Cliquez sur **Enregistrer** dans le panneau **Audit et détection des menaces** pour enregistrer la stratégie d’audit et de détection des menaces que vous avez créée ou modifiée.
+   
+    ![Volet de navigation][3]
+
+## <a name="set-up-threat-detection-using-powershell"></a>Configurer la détection des menaces avec PowerShell
+
+Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Explorer les activités anormales sur la base de données en cas de détection d’un événement suspect
+1. Vous recevrez une notification par courrier électronique lorsque des activités anormales sont détectées au niveau de la base de données. <br/>
+   Le courrier électronique contiendra des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées afin d’examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
+   
+    ![Volet de navigation][4]
+2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
+   
+    ![Volet de navigation][5]
+3. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
+   
+    ![Volet de navigation][6]
+4. Dans le panneau des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/>
+   **Remarque :** dans Excel 2010 ou version ultérieure, les paramètres Power Query et **Combinaison rapide** sont requis.
+   
+    ![Volet de navigation][7]
+5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « gnore the Privacy Levels and potentially improve performance » :
+   
+    ![Volet de navigation][8]
+6. Pour charger les journaux d’audit SQL, vérifiez que les paramètres de l’onglet Paramètres sont correctement définis, puis sélectionnez le ruban « Données » et cliquez sur le bouton « Actualiser tout ».
+   
+    ![Volet de navigation][9]
+7. Les résultats s’affichent dans la feuille **SQL Audit Logs** , qui vous permet d’analyser de manière plus approfondie les activités anormales détectées et de limiter l’impact de l’événement de sécurité sur votre application.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour configurer et gérer la détection des menaces, consultez [Configuration et gestion de la détection de menaces dans le portail Azure](sql-database-threat-detection-portal.md).
+* Pour une présentation de l’audit de SQL Database, consultez [Audit de base de données](sql-database-auditing.md).
+* Pour obtenir un exemple de script PowerShell, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+<!--Image references-->
+[1]: ./media/sql-database-threat-detection-get-started/1_td_click_on_settings.png
+[2]: ./media/sql-database-threat-detection-get-started/2_td_turn_on_auditing.png
+[3]: ./media/sql-database-threat-detection-get-started/3_td_turn_on_threat_detection.png
+[4]: ./media/sql-database-threat-detection-get-started/4_td_email.png
+[5]: ./media/sql-database-threat-detection-get-started/5_td_audit_records.png
+[6]: ./media/sql-database-threat-detection-get-started/6_td_audit_record_details.png
+[7]: ./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png
+[8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
+[9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
+
 

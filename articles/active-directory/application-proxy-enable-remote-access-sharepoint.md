@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 12e8ff02c72d90513868d43bc34c564f1da1ae43
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -43,7 +43,7 @@ Cet article suppose que SharePoint 2013 ou une version plus récente est déjà 
 
 Nos clients veulent bénéficier de la meilleure expérience SSO pour leurs applications principales, un serveur SharePoint dans le cas présent. Dans ce scénario Azure AD courant, l’utilisateur est authentifié une seule fois, car il ne sera pas invité à le faire à nouveau.
 
-Pour les applications locales qui exigent ou utilisent l’authentification Windows, vous pouvez obtenir l’authentification unique (SSO) à l’aide du protocole d’authentification Kerberos et d’une fonctionnalité appelée « délégation Kerberos contrainte (KCD) ». Quand elle est configurée, la délégation KCD permet au connecteur de proxy d’application d’obtenir un ticket/jeton Windows pour un utilisateur, même si ce dernier ne s’est pas connecté directement à Windows. Pour en savoir plus sur la KCD, consultez [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/en-us/library/jj553400.aspx).
+Pour les applications locales qui exigent ou utilisent l’authentification Windows, vous pouvez obtenir l’authentification unique (SSO) à l’aide du protocole d’authentification Kerberos et d’une fonctionnalité appelée « délégation Kerberos contrainte (KCD) ». Quand elle est configurée, la délégation KCD permet au connecteur de proxy d’application d’obtenir un ticket/jeton Windows pour un utilisateur, même si ce dernier ne s’est pas connecté directement à Windows. Pour en savoir plus sur la KCD, consultez [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx).
 
 Pour configurer la délégation KCD pour un serveur SharePoint, utilisez les procédures décrites dans les sections séquentielles suivantes.
 
@@ -63,7 +63,7 @@ Pour vous assurer que vos sites sont en cours d’exécution sous un compte de s
 5. Choisissez **Enregistrer le nouveau compte géré**. Une fois votre compte créé, vous devez définir l’option **Pool d’applications web** pour pouvoir utiliser le compte.
 
 > [!NOTE]
-Vous devez disposer d’un compte Azure AD précédemment créé pour le service. Nous vous suggérons d’autoriser une modification de mot de passe automatique. Pour plus d’informations sur l’ensemble des étapes et la résolution des problèmes, consultez [Configurer la modification automatique de mot de passe dans SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
+Vous devez disposer d’un compte Azure AD précédemment créé pour le service. Nous vous suggérons d’autoriser une modification de mot de passe automatique. Pour plus d’informations sur l’ensemble des étapes et la résolution des problèmes, consultez [Configurer la modification automatique de mot de passe dans SharePoint 2013](https://technet.microsoft.com/library/ff724280.aspx).
 
 ### <a name="configure-sharepoint-for-kerberos"></a>Configurer SharePoint pour Kerberos
 
@@ -87,7 +87,7 @@ Pour configurer votre site SharePoint pour l’authentification Kerberos :
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>Définir un nom de principal de service pour le compte de service SharePoint
 
-Avant de configurer la délégation KCD, vous devez identifier le service SharePoint en cours d’exécution comme compte de service que vous avez configuré. Pour cela, définissez un nom de principal de service. Pour plus d'informations, consultez la page [Noms de principal de service](https://technet.microsoft.com/en-us/library/cc961723.aspx).
+Avant de configurer la délégation KCD, vous devez identifier le service SharePoint en cours d’exécution comme compte de service que vous avez configuré. Pour cela, définissez un nom de principal de service. Pour plus d'informations, consultez la page [Noms de principal de service](https://technet.microsoft.com/library/cc961723.aspx).
 
 Le format du nom de principal de service est :
 
@@ -115,7 +115,7 @@ Le nom de principal de service est alors :
 HTTP/ sharepoint.demo.o365identity.us demo
 ```
 
-Vous devrez peut-être également définir des noms de principal de service pour des sites spécifiques sur votre serveur. Pour plus d’informations, consultez [Configurer l’authentification Kerberos](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx). Prêtez une attention particulière à la section « Créer des noms de principal de service pour vos applications web à l’aide de l’authentification Kerberos ».
+Vous devrez peut-être également définir des noms de principal de service pour des sites spécifiques sur votre serveur. Pour plus d’informations, consultez [Configurer l’authentification Kerberos](https://technet.microsoft.com/library/cc263449(v=office.12).aspx). Prêtez une attention particulière à la section « Créer des noms de principal de service pour vos applications web à l’aide de l’authentification Kerberos ».
 
 Le moyen le plus simple pour définir des noms de principal de service (SPN) consiste à suivre les formats de SPN qui peuvent déjà être présents pour votre site. Copiez ces SPN pour les inscrire dans le compte de service. Pour ce faire :
 
@@ -140,7 +140,7 @@ Klist renvoie alors l’ensemble des SPN cibles. Dans cet exemple, la valeur en 
 
  Remplacez _http/sharepoint.demo.o365identity.us_ par le nom de principal de service pour votre serveur et _demo\sp_svc_ par le compte de service dans votre environnement. La commande Setspn recherche le SPN avant de l’ajouter. Dans le cas présent, l’erreur **Valeur de SPN dupliquée** peut s’afficher. Si vous voyez cette erreur, assurez-vous que la valeur est associée au compte de service.
 
-Vous pouvez vérifier que le SPN a été ajouté en exécutant la commande Setspn avec l’option -l. Pour en savoir plus sur cette commande, consultez [Setspn](https://technet.microsoft.com/en-us/library/cc731241.aspx).
+Vous pouvez vérifier que le SPN a été ajouté en exécutant la commande Setspn avec l’option -l. Pour en savoir plus sur cette commande, consultez [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>Vérifier que le connecteur est défini comme délégué approuvé sur SharePoint
 
@@ -209,7 +209,7 @@ La dernière étape à effectuer consiste à garantir que SharePoint peut trouve
 
   ![Sélection d’un site](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access2.png)
 
-5. Vous pouvez choisir d’ajouter l’URL publiée comme une URL interne ou une URL publique. Cet exemple utilise une URL publique comme extranet.
+5. Vous pouvez choisir d’ajouter l’URL publiée comme URL interne ou URL publique. Cet exemple utilise une URL publique comme extranet.
 6. Cliquez sur **Modifier les URL publiques** dans le chemin **Extranet**, puis entrez le chemin de l’application publiée, comme dans l’étape précédente. Par exemple, entrez **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Saisie du chemin](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access3.png)
@@ -220,7 +220,7 @@ La dernière étape à effectuer consiste à garantir que SharePoint peut trouve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md)<br>
-[Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)<br>
-[Publication de SharePoint 2016 et du serveur Office en ligne avec le proxy d’application Azure AD](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
+- [Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md)
+- [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
+- [Publication de SharePoint 2016 et d’Office Online Server avec le proxy d’application Azure AD](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
 

@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Si la panne est temporaire, il est possible que la région primaire soit restaur
 
 * Annulez toutes les requêtes de géo-restauration en attente.   
 * Basculez les bases de données de gestion vers la région primaire (5). Remarque : après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Les rôles seront à nouveau permutés. 
-* Modifiez la chaîne de connexion de l’application pour la diriger vers la région primaire. Désormais, tous les nouveaux comptes et bases de données client seront créés dans la région primaire. Les données de certains clients existants seront temporairement indisponibles.   
+* Changez la chaîne de connexion de l’application pour la rediriger vers la région primaire. Désormais, tous les nouveaux comptes et bases de données client seront créés dans la région primaire. Les données de certains clients existants seront temporairement indisponibles.   
 * Définissez toutes les bases de données du pool de récupération d’urgence en lecture seule pour vous assurer qu’elles ne pourront pas être modifiées dans la région de récupération d’urgence (6). 
 * Pour chaque base de données du pool de récupération d’urgence qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal (7). 
 * Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (8). 
@@ -172,10 +173,5 @@ Cet article aborde les différentes stratégies de récupération d’urgence po
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 * Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)  
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

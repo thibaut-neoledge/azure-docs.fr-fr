@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 64d06a67ee5480e6bdbac2f6745ea32faa2cf003
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ Nous allons commencer par examiner les scénarios de déploiement principaux sui
 * Configurer des connecteurs pour contourner vos proxys sortants locaux.
 * Configurer des connecteurs pour utiliser un proxy sortant afin d’accéder au proxy d’application Azure AD.
 
-Pour en savoir plus sur le fonctionnement des connecteurs, voir [Offrir un accès à distance sécurisé aux applications locales](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
+Pour en savoir plus sur le fonctionnement des connecteurs, voir [Offrir un accès à distance sécurisé aux applications locales](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ## <a name="configure-your-connectors"></a>Configurer vos connecteurs
 
@@ -73,7 +73,7 @@ Pour désactiver l’utilisation d’un proxy sortant pour le connecteur, modifi
   </appSettings>
 </configuration>
 ```
-Pour vous assurer que le connecteur du service de mise à jour contourne également le proxy, apportez une modification similaire au fichier ApplicationProxyConnectorUpdaterService.exe.config situé dans C:\Program Files\Microsoft AAD application Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Pour être sûr que le connecteur du service de mise à jour contourne également le proxy, apportez une modification similaire au fichier ApplicationProxyConnectorUpdaterService.exe.config situé dans C:\Program Files\Microsoft AAD application Proxy Connector Updater.
 
 Veillez à faire des copies des fichiers d’origine, au cas où vous devriez restaurer les fichiers par défaut.
 
@@ -172,7 +172,7 @@ Vous devriez maintenant voir tout le trafic transitant par le proxy. Si vous ren
 
 Le meilleur moyen d’identifier et de résoudre les problèmes de connectivité de connecteur consiste à prendre une capture réseau sur le service de connecteur au démarrage de ce dernier. Cela peut être une tâche ardue, aussi examinons quelques conseils rapides sur la capture et le filtrage des traces réseau.
 
-Vous pouvez utiliser l’outil de surveillance de votre choix. Dans le cadre de cet article, nous avons utilisé Microsoft Network Monitor 3.4. Vous pouvez [le télécharger à partir de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+Vous pouvez utiliser l’outil de surveillance de votre choix. Dans le cadre de cet article, nous avons utilisé Microsoft Network Monitor 3.4. Vous pouvez [le télécharger à partir de Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
 Les exemples et les filtres que nous utilisons dans les sections suivantes sont spécifiques à Network Monitor, mais les principes peuvent être appliqués à n’importe quel outil d’analyse.
 
@@ -240,7 +240,7 @@ L’analyse des traces réseau n’est pas faite pour tout le monde. Mais il peu
 
 Si vous continuez à rencontrer des problèmes de connectivité avec le connecteur, créez un ticket auprès de notre équipe de support technique. L’équipe peut vous aider dans la suite de la résolution des problèmes.
 
-Pour plus d’informations sur la résolution des erreurs avec le connecteur de proxy d’application, consultez [Résoudre les problèmes du proxy d’application](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+Pour plus d’informations sur la résolution des erreurs avec le connecteur de proxy d’application, consultez [Résoudre les problèmes du proxy d’application](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
