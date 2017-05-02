@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c974bd122fa2549f0d3e2d96fa70abfdd17ccc1d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ Pour suivre les instructions de cet article, il vous faudra :
 ### <a name="resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Un modèle Resource Manager permet de créer les éléments suivants pour votre application en une seule opération coordonnée :
 * des clusters HDInsight et les ressources dépendantes (par exemple, le compte de stockage par défaut) ;
-* d’autres ressources (par exemple, Azure SQL Database pour utiliser Apache Sqoop). 
+* d’autres ressources (par exemple, Azure SQL Database pour utiliser Apache Sqoop).
 
 Dans le modèle, vous définissez les ressources nécessaires à l’application. Vous spécifiez également les paramètres de déploiement permettant d’entrer des valeurs pour différents environnements. Le modèle se compose d’un JSON et d’expressions permettant de construire des valeurs pour le déploiement.
 
@@ -139,7 +139,7 @@ Cette procédure crée un cluster Hadoop dans HDInsight.
 
     Le script PowerShell configure uniquement le nom du cluster. Le nom du compte de stockage est codé en dur dans le modèle. Vous êtes invité à entrer le mot de passe de l’utilisateur du cluster. (Le nom d’utilisateur par défaut est **admin**.) Vous êtes également invité à entrer le mot de passe de l’utilisateur SSH. (Le nom d’utilisateur SSH par défaut est **sshuser**.)  
 
-Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
+Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).
 
 ## <a name="deploy-with-cli"></a>Déploiement avec la CLI
 L’exemple suivant utilise l’interface de ligne de commande (CLI) Azure. Il appelle un modèle Resource Manager pour créer un cluster, son compte de stockage dépendant et son conteneur :

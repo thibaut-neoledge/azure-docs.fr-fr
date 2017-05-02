@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ca5631755fd9c46c4ee7a0f837dcbf4d75a99c25
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d7897f1a7eee5fbb04cf43da0d0156a6b8fb11f6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -146,4 +146,5 @@ Vous obtenez un fichier `libmy_module.so` une fois la compilation terminée. Not
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez correctement utilisé la passerelle IoT pour convertir le message au format .json SensorTag.
-Si vous souhaitez en savoir plus sur les modules de passerelle Azure IoT, vous trouverez d’autres exemples de modules ici : https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules.
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
