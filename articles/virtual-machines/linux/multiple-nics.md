@@ -8,16 +8,16 @@ manager: timlt
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 48abd505b0c8c7b5ef6c6fbf58c45275a82b2da3
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 94bcd9543f231b11930962a0dc86a8ead13ad968
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,9 +25,6 @@ ms.lasthandoff: 04/03/2017
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consisterait à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts Bash, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , pensez à dimensionner la vôtre en conséquence.
 
 Cet article explique comment créer une machine virtuelle avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-> [!WARNING]
-> Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle ; vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
 
 
 ## <a name="create-supporting-resources"></a>Créer des ressources de support
@@ -113,8 +110,4 @@ Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à
 Vous pouvez consulter un exemple complet de la [création de plusieurs cartes réseau à l’aide de modèles Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Veillez à consulter les [tailles des machines virtuelles Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
-
-N’oubliez pas que vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous devez créer toutes les cartes réseau quand vous déployez la machine virtuelle. Quand vous planifiez vos déploiements, vérifiez que vous disposez de toute la connectivité réseau nécessaire dès le départ.
-
-
+Vérifiez les [tailles des machines virtuelles Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
