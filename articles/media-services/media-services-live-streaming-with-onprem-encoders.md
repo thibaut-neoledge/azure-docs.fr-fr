@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
-ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -35,11 +35,11 @@ Dans Azure Media Services, un *canal* représente un pipeline de traitement du c
 
 À partir de la version Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier de quelle manière votre canal reçoit le flux d’entrée. Vous pouvez également spécifier si le canal doit procéder à l’encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
-* **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur live local produisant des flux multidébits (un flux pass-through) en sortie. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Cette rubrique fournit des détails sur l’utilisation des canaux de ce type.
-* **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit unique en flux multidébit. N’oubliez pas que laisser un canal d’encodage en temps réel dans l’état **En cours d’exécution** occasionne des frais de facturation. Nous vous recommandons d’arrêter immédiatement vos canaux en cours d’exécution une fois votre événement de streaming en direct terminé pour éviter des frais horaires supplémentaires. Media Services fournit le flux aux clients qui le demandent.
+* **Transmettre directement** : indiquez cette valeur si vous envisagez d’utiliser un encodeur live local produisant des flux multidébits (un flux pass-through) en sortie. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Cette rubrique fournit des détails sur l’utilisation des canaux de ce type.
+* **Live Encoding** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit unique en flux multidébit. N’oubliez pas que laisser un canal d’encodage en temps réel dans l’état **En cours d’exécution** occasionne des frais de facturation. Nous vous recommandons d’arrêter immédiatement vos canaux en cours d’exécution une fois votre événement de streaming en direct terminé pour éviter des frais horaires supplémentaires. Media Services fournit le flux aux clients qui le demandent.
 
 > [!NOTE]
-> Cette rubrique décrit les attributs des canaux qui ne sont pas activés pour effectuer un encodage live (type d’encodage**Aucun** ). Pour obtenir des informations sur l’utilisation des canaux qui sont activés pour effectuer l’encodage live, consultez [Streaming en direct avec Azure Media Services pour créer des flux multidébits](media-services-manage-live-encoder-enabled-channels.md).
+> Cette rubrique décrit les attributs des canaux qui ne sont pas activés pour effectuer un encodage live. Pour obtenir des informations sur l’utilisation des canaux qui sont activés pour effectuer l’encodage live, consultez [Streaming en direct avec Azure Media Services pour créer des flux multidébits](media-services-manage-live-encoder-enabled-channels.md).
 >
 >
 
@@ -47,7 +47,7 @@ Le diagramme suivant décrit un workflow de streaming en direct utilisant un enc
 
 ![Workflow de streaming en direct][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scénario courant de streaming en direct
+## <a id="scenario"></a>Scénario courant de streaming en direct
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de streaming en direct.
 
 1. Connectez une caméra vidéo à un ordinateur. Démarrez et configurez un encodeur live local qui produit un flux multidébit au format MP4 fragmenté (Smooth Streaming) ou RTMP en sortie. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs live dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -79,9 +79,9 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 10. Supprimez le programme (et éventuellement l’élément multimédia).     
 
-## <a name="a-idchanneladescription-of-a-channel-and-its-related-components"></a><a id="channel"></a>Description d’un canal et de ses composants associés
-### <a name="a-idchannelinputachannel-input-ingest-configurations"></a><a id="channel_input"></a>Configurations de l’entrée (réception) des canaux
-#### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocole de streaming de réception
+## <a id="channel"></a>Description d’un canal et de ses composants associés
+### <a id="channel_input"></a>Configurations de l’entrée (réception) des canaux
+#### <a id="ingest_protocols"></a>Protocole de streaming de réception
 Media Services prend en charge la réception des flux live en utilisant des flux au format MP4 fragmenté ou RTMP multidébit comme protocoles de diffusion en continu. Lorsque le protocole de streaming de réception RTMP est sélectionné, deux points de terminaison de réception (entrée) sont créés pour le canal :
 
 * **URL principale**: spécifie l’URL complète du point de terminaison de réception RTMP principal du canal.
@@ -110,7 +110,7 @@ Vous pouvez obtenir les URL de réception lors de la création du canal. Pour le
 
 Vous avez la possibilité de recevoir un flux live au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS. Il n’est pas possible de recevoir un flux RTMP via SSL pour le moment.
 
-#### <a name="a-idkeyframeintervalakeyframe-interval"></a><a id="keyframe_interval"></a>Intervalle d’image clé
+#### <a id="keyframe_interval"></a>Intervalle d’image clé
 Lorsque vous utilisez un encodeur live local pour générer un flux multidébit, l’intervalle d’image clé spécifie la durée du groupe d’images (GOP) tel qu’il est utilisé par cet encodeur externe. Une fois que le canal reçoit ce flux entrant, vous pouvez distribuer votre flux live aux applications de lecture clientes dans un des formats suivants : Smooth Streaming, Dynamic Adaptive Streaming over HTTP (DASH) et HTTP Live Streaming (HLS). Lors du streaming en direct, HLS est toujours empaquetée de façon dynamique. Par défaut, Media Services calcule automatiquement le coefficient d’empaquetage de segment HLS (fragments par segment) en fonction de l’intervalle d’image clé reçu de l’encodeur live.
 
 Le tableau suivant montre le mode de calcul de la durée du segment :
@@ -169,7 +169,7 @@ Pour supprimer du contenu archivé, arrêtez et supprimez le programme, puis sup
 
 Même après l’arrêt et la suppression du programme, les utilisateurs peuvent lire votre contenu archivé en tant que vidéo à la demande, jusqu’à ce que vous ayez supprimé l’élément multimédia. Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pour le streaming, supprimez le localisateur de streaming.
 
-## <a name="a-idstatesachannel-states-and-billing"></a><a id="states"></a>États du canal et facturation
+## <a id="states"></a>États du canal et facturation
 Les valeurs possibles de l’état actuel d’un canal sont les suivantes :
 
 * **Arrêté** : c’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
@@ -187,7 +187,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | **En cours d’arrêt** |**En cours d’arrêt** |Aucun (état transitoire) |
 | **Arrêté** |**Arrêté** |Non |
 
-## <a name="a-idccandadsaclosed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités
+## <a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
 
 | Standard | Remarques |
@@ -196,7 +196,7 @@ Le tableau suivant présente les normes de sous-titrage et d’insertion de publ
 | TTML dans .ismt (pistes textuelles Smooth Streaming) |L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants : DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous pouvez distribuer le flux aux clients Smooth Streaming. |
 | SCTE-35 |SCTE-35 est un système de signalisation numérique utilisé pour signaler l’insertion de publicités. Les récepteurs en aval utilisent le signal pour ajouter les publicités au flux pendant le temps alloué. La signalisation SCTE-35 doit être envoyée sous forme de piste fragmentée dans le flux d’entrée.<p><p>Actuellement, le seul format de flux d’entrée pris en charge transmettant les signaux publicitaires est le format MP4 fragmenté (Smooth Streaming), qui est aussi le seul format de sortie compatible. |
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considérations
+## <a id="considerations"></a>Considérations
 Lorsque vous utilisez un encodeur live local pour envoyer un flux multidébit dans un canal, les contraintes suivantes s’appliquent :
 
 * Assurez-vous que vous disposez d’une connectivité Internet libre suffisante pour envoyer des données aux points de réception.

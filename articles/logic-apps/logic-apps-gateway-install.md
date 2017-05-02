@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Installation d’une passerelle de données locale pour Azure Logic Apps
 
-La passerelle de données locale prend en charge les connexions de source de données suivantes :
+La passerelle de données locale prend en charge les connexions suivantes :
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   Système de fichiers
 *   Informix
 *   MQ
-*    Oracle Database 
+*   MySQL
+*   Oracle Database 
 *   Serveur d’applications SAP 
 *   Serveur de messagerie SAP
-*    SQL Server
+*   SharePoint pour le protocole HTTP uniquement, pas le protocole HTTPS
+*   SQL Server
+*   Teradata
 
 Pour plus d’informations sur ces connexions, consultez la [liste des connecteurs Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -48,7 +51,7 @@ Minimum :
 
 Recommandé :
 
-* Processeur&8; cœurs
+* Processeur 8 cœurs
 * 8 Go de mémoire
 * Version 64 bits de Windows 2012 R2 (ou version ultérieure)
 
@@ -61,7 +64,7 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
 
 * Vous ne pouvez utiliser qu’une adresse de messagerie professionnelle ou scolaire dans Azure pour associer la passerelle de données locale à votre compte Azure Active Directory.
 
-    Si vous utilisez un compte Microsoft (par exemple, @outlook.com), vous pouvez utiliser votre compte Azure pour   [créer une adresse de messagerie professionnelle ou scolaire](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+    Si vous utilisez un compte Microsoft (par exemple, @outlook.com), vous pouvez utiliser votre compte Azure pour   [créer une adresse de messagerie professionnelle ou scolaire](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### <a name="install-the-gateway"></a>Installation de la passerelle
 

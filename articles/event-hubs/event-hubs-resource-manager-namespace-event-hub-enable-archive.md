@@ -1,6 +1,6 @@
 ---
-title: "Créer l’espace de noms Azure Event Hubs et activer Archive à l’aide d’un modèle | Microsoft Docs"
-description: "Créer un espace de noms Event Hubs avec Event Hub et activer Archive à l’aide d’un modèle Azure Resource Manager"
+title: "Créer un espace de noms Azure Event Hubs et activer Archive à l’aide d’un modèle | Microsoft Docs"
+description: "Créer un espace de noms Azure Event Hubs avec un concentrateur d’événements et activer Archive à l’aide d’un modèle Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 62094629d899f27f56b3afc87bc08c96371acea8
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec Event Hub et activer Archive à l’aide d’un modèle Azure Resource Manager
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms de type Event Hubs avec un Event Hub et active aussi la fonctionnalité Archive sur l’Event Hub. L’article décrit comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec un concentrateur d’événements et activer Archive à l’aide d’un modèle Azure Resource Manager
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms de type Event Hubs avec une instance de concentrateur d’événements et active aussi la fonctionnalité Archive sur le concentrateur d’événements. L’article décrit comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Pour plus d’informations sur les pratiques et les modèles des conventions d’affectation de noms des ressources Azure, consultez [Conventions d’affectation de noms des ressources Azure][Azure Resources Naming Conventions].
 
-Pour le modèle complet, consultez [Event Hub et activer le modèle Archive][Event Hub and enable Archive template] sur GitHub.
+Pour le modèle complet, consultez [Modèle d’Event Hub et activer Archive][Event Hub and enable Archive template] sur GitHub.
 
 > [!NOTE]
 > Pour rechercher les derniers modèles, recherchez Event Hubs dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
@@ -36,7 +36,7 @@ Pour le modèle complet, consultez [Event Hub et activer le modèle Archive][Eve
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
-Avec ce modèle, vous déployez un espace de noms Event Hubs avec un Event Hub, et activez Event Hubs Archive.
+Avec ce modèle, vous déployez un espace de noms Event Hubs avec un concentrateur d’événements, et activez Event Hubs Archive.
 
 [Event Hubs](event-hubs-what-is-event-hubs.md) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Event Hubs Archive vous permet de transmettre automatiquement les données en continu de vos Event Hubs au stockage d’objets blob Azure de votre choix dans un intervalle de temps ou de taille que vous spécifiez.
 
@@ -62,19 +62,19 @@ Nom de l’espace de noms Event Hubs à créer.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-Nom du Event Hub créé dans l’espace de noms Event Hubs.
+Nom du concentrateur d’événements créé dans l’espace de noms Event Hubs.
 
 ```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of the Event Hub"
+        "description":"Name of the event hub"
     }
 }
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-Nombre de jours pendant lesquels conserver les messages dans l’Event Hub. 
+Nombre de jours pendant lesquels conserver les messages dans le concentrateur d’événements. 
 
 ```json
 "messageRetentionInDays":{
@@ -83,13 +83,13 @@ Nombre de jours pendant lesquels conserver les messages dans l’Event Hub.
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long to retain the data in Event Hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-Nombre de partitions à créer dans l’Event Hub.
+Nombre de partitions à créer dans le concentrateur d’événements.
 
 ```json
 "partitionCount":{
@@ -104,7 +104,7 @@ Nombre de partitions à créer dans l’Event Hub.
 ```
 
 ### <a name="archiveenabled"></a>archiveEnabled
-Activer Archive sur l’Event Hub.
+Activer Archive sur le concentrateur d’événements.
 
 ```json
 "archiveEnabled":{
@@ -114,7 +114,7 @@ Activer Archive sur l’Event Hub.
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable the Archive for your Event Hub"
+        "description":"Enable or disable the Archive for your event hub"
     }
  }
 ```
@@ -202,7 +202,7 @@ Version d’API du modèle.
 ```
 
 ## <a name="resources-to-deploy"></a>Ressources à déployer
-Crée un espace de noms de type **Event Hubs**, avec un Event Hub, et active aussi Archive.
+Crée un espace de noms de type **Event Hubs**, avec un concentrateur d’événements, et active aussi Archive.
 
 ```json
 "resources":[  
@@ -267,14 +267,14 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
+[Event hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 

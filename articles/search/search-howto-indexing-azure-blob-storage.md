@@ -12,12 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
-ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
+ms.lasthandoff: 04/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 * CSV (voir la fonctionnalité de version préliminaire[Indexation d’objets blob CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> La prise en charge des fichiers CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2015-02-28-Preview** de l’API REST ou la version 2.x-preview du Kit de développement logiciel (SDK) .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> La prise en charge des tableaux CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2015-02-28-Preview** de l’API REST ou la version 2.x-preview du Kit de développement logiciel (SDK) .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 >
 >
 
@@ -139,11 +139,15 @@ Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un 
 En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets blob peut indexer uniquement les métadonnées de stockage (une fonctionnalité utile lorsque vous ne vous préoccupez que des métadonnées et n’avez pas besoin d’indexer le contenu des objets blob), le stockage et le contenu des métadonnées, ou les métadonnées et le contenu textuel. Par défaut, l’indexeur extrait les métadonnées et le contenu.
 
 > [!NOTE]
-> Par défaut, les objets blob avec contenu structuré tels que JSON, CSV ou XML sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets blob JSON et CSV de manière structurée, consultez les fonctionnalités en version préliminaire dans [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) et [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md). Nous ne prenons actuellement pas en charge l’analyse de contenu XM. Si vous pensez en avoir besoin, ajoutez une suggestion sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
->
+> Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets blob JSON et CSV de manière structurée, consultez les fonctionnalités en version préliminaire dans [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) et [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md).
+> 
 > Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant des pièces jointes) est également indexé en tant que document unique.
 
-* L’ensemble du contenu de texte du document est extrait dans un champ de chaîne nommé `content`.
+* Le contenu de texte du document est extrait dans un champ de chaîne nommé `content`.
+
+> [!NOTE]
+> La recherche Azure limite la quantité de texte extraite selon le niveau tarifaire : 32 000 caractères pour le niveau Gratuit, 64 000 pour le niveau De base et 4 millions pour les niveaux Standard, Standard S2 et Standard S3. Un avertissement est inclus dans la réponse d’état de l’indexeur pour les documents tronqués.  
+
 * Les propriétés de métadonnées spécifiées par l’utilisateur qui sont éventuellement présentes dans l’objet blob sont extraites textuellement.
 * Les propriétés de métadonnées d’objet blob standard sont extraites dans les champs suivants :
 
@@ -300,7 +304,7 @@ Pour prendre en charge la suppression de documents, utilisez une approche de typ
 
 Par exemple, la stratégie suivante considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 

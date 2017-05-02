@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ Actuellement, Azure HDInsight propose cinq types de clusters, chacun avec un ens
 | [Storm](hdinsight-storm-overview.md) |Traitement d’événements en temps réel |
 | [Spark](hdinsight-apache-spark-overview.md) |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
 | [Hive interactif (version préliminaire)](hdinsight-hadoop-use-interactive-hive.md) |Mise en cache pour les requêtes Hive interactives et plus rapides |
-| [R Server sur Spark (version préliminaire)](hdinsight-hadoop-r-server-overview.md) |Une large gamme de statistiques Big Data, la modélisation prédictive, ainsi que des fonctionnalités Machine Learning. |
+| [R Server sur Spark](hdinsight-hadoop-r-server-overview.md) |Une large gamme de statistiques Big Data, la modélisation prédictive, ainsi que des fonctionnalités Machine Learning. |
 | [Kafka (version préliminaire)](hdinsight-apache-kafka-introduction.md) | Plateforme de diffusion en continu distribuée qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel |
 
 Chaque type de cluster possède son propre nombre de nœuds dans le cluster, sa terminologie pour les nœuds du cluster et la taille de machine virtuelle par défaut pour chaque type de nœud. Dans le tableau suivant, les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
@@ -237,7 +237,7 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 | Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
 | Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
 
-Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
+Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > Si vous envisagez d’avoir plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
@@ -252,6 +252,9 @@ Dans certains cas, vous pouvez ajouter un stockage supplémentaire au cluster. P
 Vous pouvez ajouter des comptes de stockage lorsque vous créez un cluster HDInsight ou après la création d’un cluster.  Consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Pour plus d’informations sur le compte de stockage Azure secondaire, consultez [Utilisation du stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md). Pour plus d’informations sur l’utilisation d’un Data Lake Store secondaire, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+> [!WARNING]
+> L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
 ## <a name="use-hiveoozie-metastore"></a>Utiliser un metastore Hive/Oozie
 Nous vous recommandons d’utiliser un metastore personnalisé si vous souhaitez conserver vos tables Hive après la suppression de votre cluster HDInsight. Vous pourrez joindre ce metastore à un autre cluster HDInsight.

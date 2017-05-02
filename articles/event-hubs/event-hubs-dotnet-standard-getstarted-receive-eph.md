@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 9bd5c3030163202f3c8e4fff24e8ee932adff3b9
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/28/2017
 > [!NOTE]
 > Cet exemple est disponible sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
 
-Ce didacticiel explique comment écrire une application console .NET Core qui reçoit des messages d’un hub d’événements à l’aide d’**EventProcessorHost**. Vous pouvez exécuter la solution [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) telle quelle, en remplaçant les chaînes par vos valeurs de compte de stockage et Event Hub. Ou vous pouvez suivre les étapes de ce didacticiel pour créer les vôtres.
+Ce didacticiel explique comment écrire une application console .NET Core qui reçoit des messages d’un concentrateur d’événements à l’aide d’**EventProcessorHost**. Vous pouvez exécuter la solution [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) telle quelle, en remplaçant les chaînes par vos valeurs de compte de stockage et de concentrateur d’événements. Ou vous pouvez suivre les étapes de ce didacticiel pour créer les vôtres.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -36,9 +36,9 @@ Ce didacticiel explique comment écrire une application console .NET Core qui re
 * Un espace de noms Azure Event Hubs.
 * Un compte de stockage Azure.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Créer un espace de noms Event Hubs et un hub d’événements  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements  
 
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes.  
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un concentrateur d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes.  
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte de stockage Azure  
 
@@ -121,7 +121,7 @@ Ajoutez les packages NuGet suivants au projet :
     using System.Threading.Tasks;
     ```
 
-2. Ajoutez des constantes à la classe `Program` pour la chaîne de connexion Event Hubs, le nom du hub d’événements, le nom du conteneur de compte de stockage, le nom du compte de stockage et la clé du compte de stockage. Ajoutez le code suivant, en remplaçant les espaces réservés par les valeurs correspondantes.
+2. Ajoutez des constantes à la classe `Program` pour la chaîne de connexion du concentrateur d’événements, le nom du concentrateur d’événements, le nom du conteneur de compte de stockage, le nom du compte de stockage et la clé du compte de stockage. Ajoutez le code suivant, en remplaçant les espaces réservés par les valeurs correspondantes.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -211,13 +211,13 @@ Ajoutez les packages NuGet suivants au projet :
 
 4. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
 
-Félicitations ! Vous recevez maintenant les messages d’un hub d’événements à l’aide de l’hôte du processeur d’événements.
+Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png

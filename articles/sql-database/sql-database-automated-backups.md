@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -38,11 +38,6 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 * Restaurer une base de données dans une autre région géographique. Ceci vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier. 
 * Restaurer une base de données à partir d’une sauvegarde spécifique stockée dans le coffre Azure Recovery Services. Ceci vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Consultez [Rétention à long terme](sql-database-long-term-retention.md).
 * Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
-
-> [!TIP]
-> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery-portal.md)
->
-
 
 > [!NOTE]
 > Dans le stockage Azure, le terme *réplication* fait référence à la copie de fichier d’un emplacement à un autre. La *réplication de base de données* de SQL fait référence à la gestion de la synchronisation de plusieurs bases de données secondaires avec une base de données primaire. 
@@ -82,14 +77,14 @@ Si votre application nécessite que les sauvegardes soient disponibles pendant u
 Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide de l’API ou du portail Azure, les sauvegardes de base de données complètes hebdomadaires sont copiées automatiquement dans votre propre coffre de service Sauvegarde Azure. Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos.  Le coffre des services supprime automatiquement vos sauvegardes ayant expiré en fonction de leur horodatage et de la stratégie LTR.  Vous n’avez pas besoin de gérer la planification des sauvegardes ni de vous préoccuper du nettoyage des anciens fichiers. L’API de restauration prend en charge les sauvegardes stockées dans le coffre tant que celui-ci se trouve dans le même abonnement que votre base de données SQL. Vous pouvez utiliser le portail Azure ou PowerShell pour accéder à ces sauvegardes.
 
 > [!TIP]
-> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery-portal.md)
+> Pour obtenir une procédure, consultez [Configurer et restaurer à partir de la rétention des sauvegardes à long terme de base de données SQL Azure](sql-database-long-term-backup-retention-configure.md)
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Pour en savoir plus sur les autres solutions de continuité des activités Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](sql-database-point-in-time-restore-portal.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](sql-database-recovery-using-backups.md).
 - Pour effectuer une restauration à un point dans le temps à l’aide de PowerShell, consultez [Restauration d’une base de données à un point dans le temps à l’aide de PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-manage-long-term-backup-retention-portal.md).
-- Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+- Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-long-term-backup-retention-configure.md).
+- Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-long-term-backup-retention-configure.md).
 

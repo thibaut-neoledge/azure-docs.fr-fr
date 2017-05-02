@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
-ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -57,7 +57,7 @@ Le rapport spécifie le délai d’expiration du bail globale comme durée de vi
 * **Étapes suivantes**: recherchez ce qui a provoqué la perte de voisinage (par exemple, vérifiez la communication entre les nœuds du cluster).
 
 ## <a name="node-system-health-reports"></a>Rapports d’intégrité du système sur les nœuds
-**System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les nœuds de cluster. Un rapport System.FM indiquant son état doit être alloué à chaque nœud. Les entités de nœud sont supprimées lorsque l’état du nœud est supprimé (consultez [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les nœuds de cluster. Un rapport System.FM indiquant son état doit être alloué à chaque nœud. Les entités de nœud sont supprimées lorsque l’état du nœud est supprimé (consultez [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Nœud activé/désactivé
 System.FM consigne la valeur OK lorsque le nœud rejoint l’anneau (il est opérationnel). Il indique une erreur lorsque le nœud quitte l’anneau (il est inactif, en raison d’une mise à niveau ou simplement d’une défaillance). La hiérarchie d’intégrité développée par le magasin d’intégrité agit sur les entités déployées en corrélation avec les rapports sur les nœuds de System.FM. Elle traite le nœud comme un parent virtuel de toutes les entités déployées. Les entités déployées sur ce nœud sont exposées via des requêtes si le nœud est indiqué comme actif par System/FM, avec la même instance comme instance associée aux entités. Lorsque System.FM fait état de l’inactivité ou du redémarrage du nœud (nouvelle instance), le magasin d’intégrité nettoie automatiquement les entités déployées qui peuvent exister uniquement sur le nœud inactif ou sur l’instance précédente du nœud.
@@ -486,7 +486,7 @@ Lors du démarrage de l’application défaillante sous le débogueur, les fenê
 * **Property** : **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, en fonction du rôle de réplica
 
 ### <a name="slow-naming-operations"></a>Opérations de nommage lentes
-**System.NamingService** signale l’intégrité sur son réplica principal quand une opération de nommage prend trop de temps. [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) et [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx) sont des exemples d’opérations de nommage. D’autres méthodes se trouvent sous FabricClient, par exemple dans les [méthodes de gestion de service](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) ou les [méthodes de gestion de propriété](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+**System.NamingService** signale l’intégrité sur son réplica principal quand une opération de nommage prend trop de temps. [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) et [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) sont des exemples d’opérations de nommage. D’autres méthodes se trouvent sous FabricClient, par exemple dans les [méthodes de gestion de service](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou les [méthodes de gestion de propriété](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Le service d’affectation de noms résout les noms des services dans un emplacement du cluster et permet aux utilisateurs de gérer les propriétés et les noms des services. Il s’agit d’un service persistant partitionné Service Fabric. L’une des partitions représente le propriétaire de l’autorité, qui contient des métadonnées sur tous les noms et les services Service Fabric. Les noms Service Fabric sont mappés à des partitions différentes, appelées partitions Propriétaire du nom. Ainsi, le service est extensible. En savoir plus sur le [service de nommage](service-fabric-architecture.md).
@@ -604,7 +604,7 @@ System.Hosting consigne la valeur OK si l’activation du package de service su
 **System.Hosting** consigne la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
 
 * **SourceId**: System.Hosting
-* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (par exemple, **CodePackageActivation:Code:SetupEntryPoint**)
+* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (par exemple, **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### <a name="service-type-registration"></a>Inscription du type de service
 **System.Hosting** consigne la valeur OK si le type de service a été inscrit correctement. Il indique une erreur si l’inscription n’a pas été effectuée à temps (conformément à la configuration de **ServiceTypeRegistrationTimeout**). Si l’inscription du type de service dans le nœud est annulée, cela est dû à la fermeture du runtime. Hosting indique un avertissement.

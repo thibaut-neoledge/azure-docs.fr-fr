@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
 
 > [!TIP]
-> Pour savoir comment créer un serveur ou un pare-feu basé sur un serveur, afficher les propriétés d’un serveur, se connecter à l’aide de SQL Server Management Studio, interroger la base de données master, créer un exemple de base de données et une base de données vide, demander les propriétés d’une base de données, se connecter à l’aide de SQL Server Management Studio et interroger l’exemple de base de données, consultez le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md).
+> Pour savoir comment créer un serveur ou un pare-feu basé sur un serveur, afficher les propriétés d’un serveur, se connecter à l’aide de SQL Server Management Studio, interroger la base de données master, créer un exemple de base de données et une base de données vide, demander les propriétés d’une base de données, se connecter à l’aide de SQL Server Management Studio et interroger l’exemple de base de données, consultez le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Langage et plateforme
@@ -64,8 +65,8 @@ Lorsqu’une erreur temporaire se produit au moment de la connexion à la base d
 
 ## <a name="network-considerations"></a>Remarques relatives au réseau
 * Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Pour en savoir plus, consultez [Configurer un pare-feu sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
-* Si votre programme client se connecte à la base de données SQL V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>Partitionnement de données avec la mise à l’échelle élastique
 La mise à l’échelle élastique simplifie le processus d’évolutivité horizontale. 
@@ -76,9 +77,4 @@ La mise à l’échelle élastique simplifie le processus d’évolutivité hori
 
 ## <a name="next-steps"></a>Étapes suivantes
 Explorez toutes les [fonctionnalités de la base de données SQL](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

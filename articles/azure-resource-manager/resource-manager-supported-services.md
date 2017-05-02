@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ Les tableaux suivants indiquent si les services Microsoft répertoriés prennent
 | Registre de conteneurs |Oui |[REST Registre de conteneurs](/rest/api/containerregistry) |[Ressources de Registre de conteneurs](/azure/templates/microsoft.containerregistry/registries) |
 | Service de conteneur |Oui |[REST Service de conteneur](/rest/api/compute/containerservices) |[Ressources Container Service](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Oui | | |
-| Scale Sets |Oui |[REST Scale Sets](/rest/api/compute/virtualmachinescalesets) |[Ressources de groupe identique](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Jeux de mise à l’échelle |Oui |[REST Scale Sets](/rest/api/virtualmachinescalesets/) |[Ressources de groupe identique](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Oui |[REST Service Fabric](/rest/api/servicefabric) | [Ressources Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Machines virtuelles |Oui |[REST Machine virtuelle](/rest/api/compute/virtualmachines) |[Ressources de machine virtuelle](/azure/templates/microsoft.compute/virtualmachines) |
 | Machines virtuelles (classique) |Limité |- |- |
@@ -60,7 +60,7 @@ Les Services cloud (classiques) peuvent être utilisés avec d’autres ressourc
 | Passerelle réseau |Oui |[REST Passerelle réseau](https://msdn.microsoft.com/library/azure/mt163859.aspx) | [Ressources de connexion](/azure/templates/microsoft.network/connections) <br /> [Ressources de passerelle de réseau local](/azure/templates/microsoft.network/localnetworkgateways) <br /> [Ressources de passerelle de réseau virtuel](/azure/templates/microsoft.network/virtualnetworkgateways) |
 
 ## <a name="storage"></a>Storage
-| Service | Resource Manager activé | API REST | Format de modèle |
+| de diffusion en continu | Resource Manager activé | API REST | Format de modèle |
 | --- | --- | --- | --- | --- |
 | Importation - Exportation | Oui | [Importation et exportation REST](/rest/api/storageimportexport/) | [Importation et exportation de ressources](/azure/templates/microsoft.importexport/jobs) |
 | Storage |Oui |[REST Stockage](/rest/api/storagerp) |[Ressources de stockage](/azure/templates/microsoft.storage/storageaccounts) |
@@ -94,13 +94,13 @@ Les Services cloud (classiques) peuvent être utilisés avec d’autres ressourc
 | --- | --- | --- | --- |
 | Analysis Services | Oui | [REST Analysis Service](/rest/api/analysisservices) | [Ressources Analysis Services](/azure/templates/microsoft.analysisservices/servers) |
 | Cognitive Services |Oui | [REST Cognitive Services](/rest/api/cognitiveservices) |[Ressources Cognitive Services](/azure/templates/microsoft.cognitiveservices/accounts) |
-| Data Catalog |Oui |[REST Data Catalog](/rest/api/datacatalog) |[Schéma Data Catalog](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) |
+| Data Catalog |Oui |[Data Catalog REST](/rest/api/datacatalog) |[Schéma Data Catalog](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) |
 | Data Factory |Oui |[REST Data Factory](/rest/api/datafactory) | |
 | Data Lake Analytics |Oui | [REST Data Lake](/rest/api/datalakeanalytics) |[Ressources Data Lake Analytics](/azure/templates/microsoft.datalakeanalytics/accounts) |
 | Data Lake Store |Oui |[REST Data Lake Store](/rest/api/datalakestore) |[Ressources Data Lake Store](/azure/templates/microsoft.datalakestore/accounts) |
 | HDInsights |Oui |[REST HDInsights](/rest/api/hdinsight) | |
 | Machine Learning |Oui |[REST Machine Learning](/rest/api/machinelearning) |[Ressources Machine Learning](/azure/templates/microsoft.machinelearning/commitmentplans) |
-| Stream Analytics |Oui |[REST Stream Analytics](/rest/api/streamanalytics) | |
+| Stream Analytics |Oui |[Stream Analytics REST](/rest/api/streamanalytics) | |
 | Power BI |Oui |[REST Power BI Embedded](/rest/api/powerbiembedded) |[Ressources Power BI](/azure/templates/microsoft.powerbi/workspacecollections) |
 
 
@@ -132,7 +132,7 @@ Azure Active Directory fait appel au Gestionnaire de ressources pour prendre en 
 | --- | --- | --- | --- |
 | Surveiller |Oui |[REST Monitor](/rest/api/monitor) |[Ressources Insights](/azure/templates/microsoft.insights/alertrules) |
 | Bing Maps |Oui | | |
-| DevTest Labs |Oui | [REST DevTest](/rest/api/dtl) |[Ressources DevTest Lab](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |Oui | [REST DevTest Labs](/rest/api/dtl) |[Ressources DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
 | Visual Studio Account |Oui | |[Schéma Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Gestion et sécurité
@@ -157,7 +157,7 @@ Azure Active Directory fait appel au Gestionnaire de ressources pour prendre en 
 ## <a name="resource-providers-and-types"></a>Fournisseurs et types de ressources
 Lorsque vous déployez des ressources, vous devez fréquemment récupérer des informations sur les fournisseurs et les types de ressources. Vous pouvez récupérer ces informations via l’API REST, Azure PowerShell ou Azure CLI.
 
-Pour fonctionner avec un fournisseur de ressources, ce fournisseur de ressources doit être enregistré avec votre compte. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Les exemples ci-dessous illustrent comment connaître l’état d’inscription d’un fournisseur de ressources, et l’inscrire si nécessaire.
+Pour fonctionner avec un fournisseur de ressources, ce fournisseur de ressources doit être enregistré avec votre compte. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Les exemples dans cette section illustrent comment connaître l’état d’inscription d’un fournisseur de ressources et l’inscrire.
 
 ### <a name="portal"></a>Portail
 Pour afficher la liste des fournisseurs de ressources pris en charge, il vous suffit de sélectionner **Fournisseurs de ressources** dans le panneau de l’abonnement. Pour inscrire votre abonnement auprès d’un fournisseur de ressources, sélectionnez le lien **Inscrire**.
@@ -255,7 +255,7 @@ Pour découvrir quelles versions de l’API sont disponibles pour les types de r
 L’exemple suivant montre comment obtenir les versions de l’API disponibles pour un type de ressource spécifique.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 Le résultat ressemble à ce qui suit :
