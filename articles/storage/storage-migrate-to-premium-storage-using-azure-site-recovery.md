@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2016
+ms.date: 04/06/2017
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 522fd46e8c0ccc64eb97ee6622e9886bb51f1e24
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -31,24 +31,17 @@ Nous recommandons de migrer vers un stockage Premium à l’aide de Site Recover
 
 ![][1]
 
-## <a name="migration-scenario-components"></a>Composants du scénario de migration
+## <a name="azure-site-recovery-components"></a>Composants Azure Site Recovery
 
-**Composants de Site Recovery pertinents dans ce scénario de migration :**
+Il s’agit des composants Site Recovery qui sont pertinents pour ce scénario de migration.
 
 * Un **serveur de configuration** est une machine virtuelle Azure qui coordonne la communication et gère les processus de réplication et de récupération des données. Sur cette machine virtuelle, vous allez exécuter un fichier d’installation unique pour installer le serveur de configuration et un composant supplémentaire, appelé un serveur de processus, comme passerelle de réplication. En savoir plus sur la [configuration requise du serveur](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Le serveur de configuration doit simplement être configuré une seule fois et peut être utilisé pour toutes les migrations vers la même région.
 
-* Un **serveur de processus** est une passerelle de réplication qui reçoit les données de réplication à partir de machines virtuelles source, optimise les données avec la mise en cache, la compression et le chiffrement et envoie ces données à un compte de stockage. Il gère également l’installation Push du service Mobilité sur des machines virtuelles source protégées et assure la détection automatique des machines virtuelles source. Le serveur de processus par défaut est installé sur le serveur de configuration. Vous pouvez déployer des serveurs de processus autonomes supplémentaires pour étendre votre déploiement. En savoir plus sur les [meilleures pratiques de déploiement de serveur de processus](https://azure.microsoft.com/en-us/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) et le [déploiement de serveurs de processus supplémentaires](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Le serveur de processus doit simplement être configuré une seule fois et peut être utilisé pour toutes les migrations vers la même région.
+* Un **serveur de processus** est une passerelle de réplication qui reçoit les données de réplication à partir de machines virtuelles sources, optimise les données avec la mise en cache, la compression et le chiffrement, et envoie ces données à un compte de stockage. Il gère également l’installation Push du service Mobilité sur des machines virtuelles source protégées et assure la détection automatique des machines virtuelles source. Le serveur de processus par défaut est installé sur le serveur de configuration. Vous pouvez déployer des serveurs de processus autonomes supplémentaires pour étendre votre déploiement. En savoir plus sur les [meilleures pratiques de déploiement de serveur de processus](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) et le [déploiement de serveurs de processus supplémentaires](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Le serveur de processus doit simplement être configuré une seule fois et peut être utilisé pour toutes les migrations vers la même région.
 
 * Un **service Mobilité** est un composant qui est déployé sur chaque machine virtuelle standard que vous souhaitez répliquer. Il enregistre les opérations d'écritures de données sur la machine virtuelle standard et les transmet au serveur de processus. En savoir plus sur la [configuration requise pour les machines répliquées](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
 
-**Éléments principaux d'Azure** : 
-
-* Un abonnement Azure
-* Un compte de stockage Premium Azure pour stocker les données répliquées.
-* Un réseau virtuel Azure (VNet) auquel les machines virtuelles Azure se connectent lorsqu’elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la région dans laquelle Site Recovery est exécuté.
-* Un compte de stockage standard Azure dans lequel stocker les journaux de réplication. Il peut s'agir du même compte de stockage que pour les disques de machine virtuelle en cours de migration
-
-Le graphique montre comment ces composants interagissent.
+Ce graphique montre comment ces composants interagissent.
 
 ![][15]
 
@@ -56,6 +49,15 @@ Le graphique montre comment ces composants interagissent.
 > Site Recovery ne prend pas en charge la migration des disques des espaces de stockage.
 
 Pour obtenir des composants supplémentaires pour d’autres scénarios, reportez-vous à la rubrique [Architecture du scénario](../site-recovery/site-recovery-vmware-to-azure.md).
+
+## <a name="azure-essentials"></a>Éléments principaux d’Azure
+
+Il s’agit des conditions requises par Azure pour ce scénario de migration.
+
+* Un abonnement Azure
+* Un compte de stockage Premium Azure pour stocker les données répliquées.
+* Un réseau virtuel (VNet) Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la région dans laquelle Site Recovery est exécuté.
+* Un compte de stockage standard Azure dans lequel stocker les journaux de réplication. Il peut s'agir du même compte de stockage que pour les disques de machine virtuelle en cours de migration
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -68,74 +70,83 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 
 1. **Créer un coffre Recovery Services**. Créez et gérez le coffre Site Recovery par le biais du [portail Azure](https://portal.azure.com). Cliquez sur **Nouveau** > **Gestion** > **Sauvegarde** et **Récupération de sites (OMS)**. Vous pouvez également sélectionner **Parcourir** > **Coffres Recovery Services** > **Ajouter**. Les machines virtuelles sont répliquées dans la région que vous spécifiez à cette étape. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. Notez que la migration vers des comptes de stockage Premium est uniquement prise en charge dans le [portail Azure](https://portal.azure.com), et non dans le [portail classique](https://manage.windowsazure.com).
 
-2. **Sélectionner vos objectifs en matière de protection**. Sur la machine virtuelle sur laquelle vous souhaitez installer le serveur de configuration, ouvrez le [portail Azure](https://portal.azure.com). Accédez à **Coffres Recovery Services** > **Paramètres**. Sous **Paramètres**, sélectionnez **Site Recovery**. Sous **Site Recovery**, sélectionnez **Étape 1 : Préparez l'infrastructure**. Sous **Préparer l'infrastructure**, sélectionnez **Objectif de protection**.
-  
-  ![][2]
-  
-  Sous **Objectif de protection**, dans la première liste déroulante, sélectionnez **Vers Azure**. Dans la deuxième liste déroulante, sélectionnez **Non virtualisé / autre**, puis cliquez sur **OK**.
-  
-  ![][3]
-  
-3. **Configurer l’environnement source (serveur de configuration)**. Téléchargez le **fichier d'installation unifiée Azure Site Recovery** et la **clé d’inscription du coffre** en accédant au panneau **Préparer l'infrastructure** > **Préparer la source** > **Ajouter un serveur**. Vous aurez besoin de la clé d’inscription de coffre pour exécuter le programme d’installation unifiée. Une fois générée, la clé est valide pendant 5 jours.
-  
-  ![][4]
-  
-  ![][5]
-  
-  Sur la machine virtuelle qui vous sert de serveur de configuration, exécutez le programme d’installation unifiée afin d’installer le serveur de configuration et le serveur de processus. Vous pouvez parcourir les captures d’écran [ici](../site-recovery/site-recovery-vmware-to-azure.md#set-up-the-source-environment) pour exécuter l’installation. Vous pouvez consulter les captures d’écran ci-dessous pour connaître les étapes spécifiées pour ce scénario de migration.
+2. Les étapes suivantes vous aident à **sélectionner vos objectifs en matière de protection**.
 
-  Dans **Avant de commencer**, sélectionnez **l’installation du serveur de configuration et du serveur de processus**.
-  
-  ![][6]
+    2a. Sur la machine virtuelle sur laquelle vous souhaitez installer le serveur de configuration, ouvrez le [portail Azure](https://portal.azure.com). Accédez à **Coffres Recovery Services** > **Paramètres**. Sous **Paramètres**, sélectionnez **Site Recovery**. Sous **Site Recovery**, sélectionnez **Étape 1 : Préparez l'infrastructure**. Sous **Préparer l'infrastructure**, sélectionnez **Objectif de protection**.
 
-  Dans **Inscription**, recherchez et sélectionnez la clé d’inscription que vous avez téléchargée à partir du coffre.
-  
-  ![][7]
+    ![][2]
 
-  Dans **Détails de l’environnement**, indiquez si vous voulez répliquer des machines virtuelles VMware. Pour ce scénario de migration, choisissez **non**.
-  
-  ![][8]
-  
-  Une fois l’installation terminée, la fenêtre **Serveur de configuration Microsoft Azure Site Recovery** s'affiche. Utilisez l'onglet **Gérer les comptes** pour créer le compte que Site Recovery peut utiliser pour la découverte automatique (Dans le scénario sur la protection des machines physiques, la configuration du compte n’est pas pertinente, mais vous avez besoin d'au moins un compte pour activer l’une des étapes suivantes. Dans ce cas, vous pouvez nommer le compte et définir le mot de passe comme vous le souhaitez). Utilisez l'onglet **Inscription du coffre** pour télécharger le fichier d’informations d’identification du coffre.
-  
-  ![][9]
+    2b. Sous **Objectif de protection**, dans la première liste déroulante, sélectionnez **Vers Azure**. Dans la deuxième liste déroulante, sélectionnez **Non virtualisé / autre**, puis cliquez sur **OK**.
+
+    ![][3]
+
+3. Les étapes suivantes vous aident à **configurer l’environnement source (serveur de configuration)**.
+
+    3a. Téléchargez le **fichier d'installation unifiée Azure Site Recovery** et la **clé d’inscription du coffre** en accédant au panneau **Préparer l'infrastructure** > **Préparer la source** > **Ajouter un serveur**. Vous aurez besoin de la clé d’inscription de coffre pour exécuter le programme d’installation unifiée. Une fois générée, la clé est valide pendant 5 jours.
+
+    ![][4]
+
+    3b. Ajoutez le serveur de configuration dans le panneau **Ajouter un serveur**.
+
+    ![][5]
+
+    3c. Sur la machine virtuelle qui vous sert de serveur de configuration, exécutez le programme d’installation unifiée afin d’installer le serveur de configuration et le serveur de processus. Vous pouvez parcourir les captures d’écran [ici](../site-recovery/site-recovery-vmware-to-azure.md#set-up-the-source-environment) pour exécuter l’installation. Vous pouvez consulter les captures d’écran ci-dessous pour connaître les étapes spécifiées pour ce scénario de migration.
+
+    Dans **Avant de commencer**, sélectionnez **l’installation du serveur de configuration et du serveur de processus**.
+
+    ![][6]
+
+    3d. Dans **Inscription**, recherchez et sélectionnez la clé d’inscription que vous avez téléchargée à partir du coffre.
+
+    ![][7]
+
+    3e. Dans **Détails de l’environnement**, indiquez si vous voulez répliquer des machines virtuelles VMware. Pour ce scénario de migration, choisissez **non**.
+
+    ![][8]
+
+    3f. Une fois l’installation terminée, la fenêtre **Serveur de configuration Microsoft Azure Site Recovery** s'affiche. Utilisez l'onglet **Gérer les comptes** pour créer le compte que Site Recovery peut utiliser pour la découverte automatique (Dans le scénario sur la protection des machines physiques, la configuration du compte n’est pas pertinente, mais vous avez besoin d'au moins un compte pour activer l’une des étapes suivantes. Dans ce cas, vous pouvez nommer le compte et définir le mot de passe comme vous le souhaitez). Utilisez l'onglet **Inscription du coffre** pour télécharger le fichier d’informations d’identification du coffre.
+
+    ![][9]
 
 4. **Configurer l’environnement cible**. Cliquez sur **Préparer l'infrastructure** > **Cible** et spécifiez le modèle de déploiement que vous souhaitez utiliser pour les machines virtuelles après le basculement. Vous pouvez choisir **Classique** ou **Resource Manager**, en fonction de votre scénario.
-  
-  ![][10]
 
-  Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. Notez que, si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez configurer un compte de stockage standard supplémentaire, afin de stocker les journaux de réplication.
+    ![][10]
 
-5. **Configurer les paramètres de réplication**. Suivez les étapes présentées [ici](../site-recovery/site-recovery-vmware-to-azure.md#set-up-replication-settings) pour vérifier que votre serveur de configuration est correctement associé à la stratégie de réplication que vous créez.
+    Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. Notez que, si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez configurer un compte de stockage Standard supplémentaire afin de stocker les journaux de réplication.
+
+5. **Configurer les paramètres de réplication**. Suivez les étapes présentées dans [Configurer les paramètres de réplication](../site-recovery/site-recovery-vmware-to-azure.md#set-up-replication-settings) pour vérifier que votre serveur de configuration est correctement associé à la stratégie de réplication que vous créez.
 
 6. **Planification de la capacité**. Utilisez le [Capacity Planner](../site-recovery/site-recovery-capacity-planner.md) pour évaluer de manière précise la bande passante réseau, le stockage et les autres conditions requises pour répondre à vos besoins en matière de réplication. Lorsque vous avez terminé, sélectionnez **Oui** dans **Avez-vous effectué une planification de la capacité ?**
-  
-  ![][11]
 
-7. **Installer le service Mobilité et activer la réplication**. Vous pouvez choisir [d'installer le service Mobilité en mode Push](../site-recovery/site-recovery-vmware-to-azure.md#prepare-for-automatic-discovery-and-push-installation) sur vos machines virtuelles source ou [de l'installer manuellement](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) sur vos machines virtuelles source. Vous trouverez les conditions requises pour l'installation en mode Push et le chemin d’accès pour l'installation manuelle dans le lien fourni. Si vous effectuez une installation manuelle, vous devrez peut-être utiliser une adresse IP interne pour rechercher le serveur de configuration. 
-  
-  ![][12]
-  
-  La machine virtuelle ayant basculé aura deux disques temporaires : l'un de la machine virtuelle principale et l’autre créé lors de l'approvisionnement de machines virtuelles dans la région de récupération. Pour exclure le disque temporaire avant la réplication, installez le service Mobilité avant d’activer la réplication. Pour plus d’informations sur la façon d’exclure le disque temporaire, reportez-vous à la rubrique [Exclure les disques de la réplication](../site-recovery/site-recovery-vmware-to-azure.md#exclude-disks-from-replication).
-**À présent, activez la réplication comme suit** :
-  * Cliquez sur **Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option +Répliquer dans le coffre pour activer la réplication d'autres machines.
-  * À l’étape 1, configurez la source en tant que votre serveur de processus.
-  * À l’étape 2, spécifiez le modèle de déploiement après le basculement, un compte de stockage Premium vers lequel migrer, un compte de stockage standard pour enregistrer les journaux et un réseau virtuel vers lequel basculer. 
-  * À l’étape 3, ajoutez des machines virtuelles protégées par adresse IP (vous aurez peut-être besoin d'une adresse IP interne pour les rechercher). 
-  * À l’étape 4, configurez les propriétés en sélectionnant les comptes que vous avez configurés précédemment sur le serveur de processus. 
-  * À l’étape 5, choisissez la stratégie de réplication que vous avez créée précédemment et définissez les paramètres de réplication. 
-  Cliquez sur **OK** pour activer la réplication.
-  
-  > [!NOTE]
-  > Lorsqu’une machine virtuelle Azure est libérée et redémarrée, il n’existe aucune garantie qu’elle aura la même adresse IP. Si l’adresse IP du serveur de configuration/serveur de processus ou les machines virtuelles Azure protégées changent, il se peut que la réplication dans ce scénario ne fonctionne pas correctement.
-  
-  ![][13]
-  
-  Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre les bonnes pratiques dans la couche de stockage pour les machines virtuelles [Windows](../virtual-machines/virtual-machines-windows-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set) et [Linux](../virtual-machines/virtual-machines-linux-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure. Si vos machines virtuelles se trouvent dans un groupe à haute disponibilité sans réplication des disques de toutes les machines virtuelles dans un compte de stockage, nous vous recommandons de migrer plusieurs machines virtuelles à plusieurs reprises, afin que les machines virtuelles dans le même groupe à haute disponibilité ne partagent pas un seul compte de stockage. Utilisez le panneau **Activer la réplication** pour configurer un compte de stockage de destination pour chaque machine virtuelle, un à la fois. Vous pouvez choisir un modèle de déploiement post-basculement en fonction de vos besoins. Si vous choisissez Resource Manager (RM) en tant que modèle de déploiement post-basculement, vous pouvez basculer d’une machine virtuelle RM vers une machine virtuelle RM, ou vous pouvez basculer d’une machine virtuelle classique vers une machine virtuelle RM.
+    ![][11]
+
+7. Les étapes suivantes vous aident à **installer le service Mobilité et activer la réplication**.
+
+    7a. Vous pouvez choisir [d'installer le service Mobilité en mode Push](../site-recovery/site-recovery-vmware-to-azure.md#prepare-for-automatic-discovery-and-push-installation) sur vos machines virtuelles source ou [de l'installer manuellement](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) sur vos machines virtuelles source. Vous trouverez les conditions requises pour l'installation en mode Push et le chemin d’accès pour l'installation manuelle dans le lien fourni. Si vous effectuez une installation manuelle, vous devrez peut-être utiliser une adresse IP interne pour rechercher le serveur de configuration.
+
+    ![][12]
+
+    La machine virtuelle ayant basculé aura deux disques temporaires : l'un de la machine virtuelle principale et l’autre créé lors de l'approvisionnement de machines virtuelles dans la région de récupération. Pour exclure le disque temporaire avant la réplication, installez le service Mobilité avant d’activer la réplication. Pour plus d’informations sur la façon d’exclure le disque temporaire, reportez-vous à la rubrique [Exclure les disques de la réplication](../site-recovery/site-recovery-vmware-to-azure.md#exclude-disks-from-replication).
+
+    7b. À présent, activez la réplication comme suit :
+      * Cliquez sur **Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option +Répliquer dans le coffre pour activer la réplication d'autres machines.
+      * À l’étape 1, configurez la source en tant que votre serveur de processus.
+      * À l’étape 2, spécifiez le modèle de déploiement après le basculement, un compte de stockage Premium vers lequel migrer, un compte de stockage standard pour enregistrer les journaux et un réseau virtuel vers lequel basculer.
+      * À l’étape 3, ajoutez des machines virtuelles protégées par adresse IP (vous aurez peut-être besoin d'une adresse IP interne pour les rechercher).
+      * À l’étape 4, configurez les propriétés en sélectionnant les comptes que vous avez configurés précédemment sur le serveur de processus.
+      * À l’étape 5, choisissez la stratégie de réplication que vous avez créée précédemment et définissez les paramètres de réplication.
+      Cliquez sur **OK** pour activer la réplication.
+
+    > [!NOTE]
+    > Lorsqu’une machine virtuelle Azure est libérée et redémarrée, il n’existe aucune garantie qu’elle aura la même adresse IP. Si l’adresse IP du serveur de configuration/serveur de processus ou les machines virtuelles Azure protégées changent, il se peut que la réplication dans ce scénario ne fonctionne pas correctement.
+
+    ![][13]
+
+    Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre la bonne pratique de la couche de stockage concernant [l‘utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité](../virtual-machines/windows/manage-availability.md). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure. Si vos machines virtuelles se trouvent dans un groupe à haute disponibilité sans réplication des disques de toutes les machines virtuelles dans un compte de stockage, nous vous recommandons de migrer plusieurs machines virtuelles à plusieurs reprises, afin que les machines virtuelles dans le même groupe à haute disponibilité ne partagent pas un seul compte de stockage. Utilisez le panneau **Activer la réplication** pour configurer un compte de stockage de destination pour chaque machine virtuelle, un à la fois. Vous pouvez choisir un modèle de déploiement post-basculement en fonction de vos besoins. Si vous choisissez Resource Manager (RM) en tant que modèle de déploiement post-basculement, vous pouvez basculer d’une machine virtuelle RM vers une machine virtuelle RM, ou vous pouvez basculer d’une machine virtuelle classique vers une machine virtuelle RM.
 
 8. **Exécuter un test de basculement**. Pour vérifier si la réplication est terminée, cliquez sur votre Site Recovery, puis sur **Paramètres** > **Éléments répliqués**. Vous verrez l’état et le pourcentage de votre processus de réplication. Une fois la réplication initiale terminée, exécutez le test de basculement pour valider votre stratégie de réplication. Pour obtenir des instructions détaillées sur les étapes du test de basculement, reportez-vous à la rubrique [Exécution d'un test de basculement dans Site Recovery](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover). Vous pouvez consulter l’état du test de basculement sous **Paramètres** > **Tâches** > **LE_NOM_DE_VOTRE_PLAN_DE_BASCULEMENT**. Dans le panneau, vous verrez une répartition des étapes et leurs résultats (réussite/échec). Si le test de basculement échoue à n'importe quelle étape, cliquez sur l’étape pour vérifier le message d’erreur. Assurez-vous que vos machines virtuelles et la stratégie de réplication répondent aux exigences avant d’exécuter un basculement. Lisez la page [Tester le basculement vers Azure dans Site Recovery](../site-recovery/site-recovery-test-failover-to-azure.md) pour plus d’informations et d’instructions sur les tests de basculement.
 
-9. **Exécutez un basculement**. Une fois le test de basculement terminé, exécutez un basculement pour migrer vos disques vers le Stockage Premium et répliquer les instances de machines virtuelles. Suivez les étapes détaillées dans [Exécuter un basculement](../site-recovery/site-recovery-failover.md#run-a-failover). Assurez-vous de sélectionner **Arrêter les machines virtuelles et synchroniser les dernières données** pour indiquer que le logiciel Site Recovery doit essayer d’arrêter les machines virtuelles protégées et de synchroniser les données, afin que la dernière version de ces dernières fasse l’objet d’un basculement. Si vous ne sélectionnez pas cette option, ou si la tentative n’aboutit pas, le basculement sera effectué depuis le dernier point de récupération disponible pour la machine virtuelle. Site Recovery créera une instance de machine virtuelle dont le type est identique ou similaire à une machine virtuelle compatible avec le stockage Premium. Vous pouvez vérifier les performances et le prix des différentes instances de machine virtuelle en accédant à [Tarification des machines virtuelles Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) ou à [Tarification des machines virtuelles Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
+9. **Exécutez un basculement**. Une fois le test de basculement terminé, exécutez un basculement pour migrer vos disques vers le Stockage Premium et répliquer les instances de machines virtuelles. Suivez les étapes détaillées dans [Exécuter un basculement](../site-recovery/site-recovery-failover.md#run-a-failover). Assurez-vous de sélectionner **Arrêter les machines virtuelles et synchroniser les dernières données** pour indiquer que le logiciel Site Recovery doit essayer d’arrêter les machines virtuelles protégées et de synchroniser les données, afin que la dernière version de ces dernières fasse l’objet d’un basculement. Si vous ne sélectionnez pas cette option ou si la tentative n’aboutit pas, le basculement sera effectué depuis le dernier point de récupération disponible pour la machine virtuelle. Site Recovery créera une instance de machine virtuelle dont le type est identique ou similaire à une machine virtuelle compatible avec le stockage Premium. Vous pouvez vérifier les performances et le prix des différentes instances de machine virtuelle en accédant à [Tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou à [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## <a name="post-migration-steps"></a>Étapes de post-migration
 
@@ -150,7 +161,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ## <a name="troubleshooting"></a>résolution des problèmes
 
 * [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+* [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

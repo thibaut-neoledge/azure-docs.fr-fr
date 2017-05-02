@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a2177926e76b25ceb5ecb4fd9471f961d3fa989f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/29/2017
 Azure SQL Database gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la **gouvernance des ressources** et l’**application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
 
 ## <a name="resource-governance"></a>Gouvernance des ressources
-L’un des objectifs de conception des niveaux de service De base, Standard et Premium est qu’Azure SQL Database se comporte comme si la base de données s’exécutait sur sa propre machine, de façon isolée des autres bases de données. La gouvernance des ressources émule ce comportement. Si l’utilisation des ressources agrégées atteint les ressources maximales disponibles de processeur, de mémoire, d’E/S du journal et d’E/S des données affectées à la base de données, la gouvernance des données met en file d’attente les requêtes en exécution et affecte des ressources aux requêtes en file d’attente à mesure qu’elles se libèrent.
+L’un des objectifs de conception des niveaux de service De base, Standard, Premium et Premium RS est qu’Azure SQL Database se comporte comme si la base de données s’exécutait sur sa propre machine, de façon isolée des autres bases de données. La gouvernance des ressources émule ce comportement. Si l’utilisation des ressources agrégées atteint les ressources maximales disponibles de processeur, de mémoire, d’E/S du journal et d’E/S des données affectées à la base de données, la gouvernance des données met en file d’attente les requêtes en exécution et affecte des ressources aux requêtes en file d’attente à mesure qu’elles se libèrent.
 
 Comme sur une machine dédiée, l’utilisation de toutes les ressources disponibles entraîne une exécution plus longue des requêtes en cours d’exécution, ce qui peut provoquer des expirations de commandes sur le client. Les applications avec la logique de nouvelle tentative agressive et les applications qui exécutent des requêtes sur la base de données avec une fréquence élevée peuvent rencontrer des messages d’erreur lorsque vous tentez d’exécuter de nouvelles requêtes et que la limite de demandes simultanées a été atteinte.
 
@@ -47,7 +47,7 @@ Par exemple, le nombre de connexions à une base de données SQL et le nombre de
 Il existe des niveaux de service et de performances à la fois pour les pools élastiques et pour les bases de données uniques.
 
 ### <a name="single-databases"></a>Bases de données uniques
-Pour une base de données unique, les limites d’une base de données sont définies par ses niveaux de service et de performances. Le tableau suivant décrit les caractéristiques des bases de données De base, Standard et Premium de bases de données à différents niveaux de performances.
+Pour une base de données unique, les limites d’une base de données sont définies par ses niveaux de service et de performances. Le tableau suivant décrit les caractéristiques des bases de données De base, Standard, Premium et Premium RS à différents niveaux de performances.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -56,7 +56,7 @@ Pour une base de données unique, les limites d’une base de données sont déf
 >
 
 ### <a name="elastic-pools"></a>Pools élastiques
-[Pools élastiques](sql-database-elastic-pool.md) partagent des ressources entre les bases de données du pool. Le tableau ci-après décrit les caractéristiques des pools élastiques De base, Standard et Premium.
+[Pools élastiques](sql-database-elastic-pool.md) partagent des ressources entre les bases de données du pool. Le tableau ci-après décrit les caractéristiques des pools élastiques De base, Standard, Premium et Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -66,8 +66,8 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 | Domaine | Limite | Description |
 | --- | --- | --- |
 | Bases de données utilisant l’exportation automatique par abonnement |10 |L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. La version préliminaire de cette fonctionnalité se terminera le 1er mars 2017.  |
-| Bases de données par serveur |Jusqu'à 5000 |Jusqu'à 5000 bases de données sont autorisées par serveur sur les serveurs V12. |
-| DTU par serveur |45000 |45000 DTU sont autorisés par serveur sur des serveurs V12 pour l’approvisionnement des bases de données autonomes et des pools élastiques. Le nombre total de bases de données autonomes et de pools autorisé par serveur est uniquement limité par le nombre de DTU par serveur.  
+| Bases de données par serveur |Jusqu'à 5000 |Jusqu’à 5 000 bases de données sont autorisées par serveur. |
+| DTU par serveur |45000 |45 000 DTU sont autorisés par serveur pour l’approvisionnement des bases de données autonomes et des pools élastiques. Le nombre total de bases de données autonomes et de pools autorisé par serveur est uniquement limité par le nombre de DTU par serveur.  
 
 > [!IMPORTANT]
 > La fonctionnalité Automatiser l’exportation Azure SQL Database est maintenant disponible en version préliminaire et sera supprimée le 1er mars 2017. À partir du 1er décembre 2016, vous ne pourrez plus configurer l’exportation automatisée sur une base de données SQL. Tous vos travaux d’exportation automatisée existants continueront à fonctionner jusqu’au 1er mars 2017. Après le 1er décembre 2016, vous pouvez utiliser [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md) ou [Azure Automation](../automation/automation-intro.md) pour archiver des bases de données SQL régulièrement à l’aide de PowerShell en fonction d’une planification de votre choix. Pour obtenir un exemple de script, vous pouvez télécharger [l’exemple de script sur GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).

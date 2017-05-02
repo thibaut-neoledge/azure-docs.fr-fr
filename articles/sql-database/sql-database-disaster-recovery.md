@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -63,16 +63,11 @@ Pour restaurer la disponibilité des bases de données, vous devez lancer le bas
 Utilisez l’un des guides suivants pour effectuer le basculement vers une base de données secondaire géo-répliquée :
 
 * [Basculement vers une base de données secondaire géo-répliquée à l’aide du portail Azure](sql-database-geo-replication-portal.md)
-* [Basculement vers une base de données secondaire géo-répliquée à l’aide de PowerShell](sql-database-geo-replication-powershell.md)
+* [Basculement vers une base de données secondaire géo-répliquée à l’aide de PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Basculement vers une base de données secondaire géo-répliquée à l’aide de T-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>Récupération à l’aide de la géo-restauration
-Si les temps d’arrêt ne mettent pas en cause la responsabilité de votre entreprise, vous pouvez utiliser la géo-restauration pour récupérer les bases de données de votre application. Cela permet de créer une copie de la base de données à partir de la dernière sauvegarde géo-redondante.
-
-Utilisez l’un des guides suivants pour géo-restaurer une base de données dans une nouvelle région :
-
-* [Géo-restaurer une base de données dans une nouvelle région à l’aide du portail Azure](sql-database-geo-restore-portal.md)
-* [Géo-restaurer une base de données dans une nouvelle région à l’aide de PowerShell](sql-database-geo-restore-powershell.md)
+Si les temps d’arrêt ne mettent pas en cause la responsabilité de votre entreprise, vous pouvez utiliser la [géorestauration](sql-database-recovery-using-backups.md) pour récupérer les bases de données de votre application. Cela permet de créer une copie de la base de données à partir de la dernière sauvegarde géo-redondante.
 
 ## <a name="configure-your-database-after-recovery"></a>Configurer votre base de données après récupération
 Si vous utilisez le basculement par géo-réplication ou la géo-restauration à des fins de restauration après une panne, vous devez vous assurer que la connectivité aux nouvelles bases de données est correctement configurée pour garantir la reprise du fonctionnement normal de l’application. Voici une liste de contrôle de tâches pour vous aider à remettre votre base de données restaurée en service.
