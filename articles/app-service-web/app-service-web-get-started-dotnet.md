@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -132,7 +132,7 @@ Félicitations, votre première application web ASP.NET s’exécute en temps r�
 
 ## <a name="update-the-app-and-redeploy"></a>Mise à jour de l’application et redéploiement
 
-Il est très facile de redéployer une mise à jour dans Azure. Nous allons effectuer une mise à jour de la page d’accueil.
+Il est très simple d’effectuer une mise à jour et de redéployer dans Azure. Nous allons effectuer une mise à jour de la page d’accueil.
 
 À partir de **l’Explorateur de solutions**, ouvrez **Views\Home\Index.cshtml**.
 

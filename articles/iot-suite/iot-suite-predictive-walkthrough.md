@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -63,7 +64,7 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 **L’hôte de processeur d’événements** s’exécute dans une tâche web Azure. Le **processeur d’événements** mémorise les valeurs moyennes des capteurs sur un cycle terminé. Il les transmet à une API qui expose le modèle formé pour calculer la durée de vie utile restante d’un moteur. L’API est exposée par un espace de travail Machine Learning configuré dans le cadre de la solution.
 
 ## <a name="machine-learning"></a>Apprentissage automatique
-Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning via la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution configurée, lorsqu’elle est à l’état **Prêt**.
+Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning via la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution provisionnée, lorsque son état est **Prêt**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -83,8 +84,3 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

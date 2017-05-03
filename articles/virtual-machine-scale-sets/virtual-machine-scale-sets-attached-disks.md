@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
-Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent désormais en charge les machines virtuelles avec des disques de données associés. Les disques de données peuvent être définis dans le profil de stockage pour des groupes identiques créés avec des disques gérés Azure. Auparavant, les seules options de stockage associées directement disponibles avec les machines virtuelles dans des groupes identiques étaient le lecteur du système d’exploitation et les lecteurs temporaires.
+Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent désormais en charge les machines virtuelles avec des disques de données associés. Les disques de données peuvent être définis dans le profil de stockage pour des groupes identiques qui ont été créés avec des disques gérés Azure. Auparavant, les seules options de stockage associées directement disponibles avec les machines virtuelles dans des groupes identiques étaient le lecteur du système d’exploitation et les lecteurs temporaires.
 
 > [!NOTE]
 >  Lorsque vous créez un groupe identique dans lequel des disques de données associés sont définis, vous devez toujours monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique consiste à utiliser une extension de script personnalisé qui appelle un script standard pour partitionner et formater tous les disques de données sur une machine virtuelle.
@@ -58,10 +58,21 @@ Une autre méthode de création d’un groupe identique avec des disques de donn
 Vous pouvez voir un exemple complet et prêt à déployer d’un modèle de groupe identique avec un disque associé défini ici : [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Ajouter un disque de données à un groupe identique existant
+> [!NOTE]
+>  Vous pouvez uniquement associer des disques de données à un groupe identique qui a été créé avec [des disques gérés Azure](./virtual-machine-scale-sets-managed-disks.md).
+
 Vous pouvez ajouter un disque de données à un groupe de machines virtuelles identiques à l’aide de la commande _az vmss disk attach_ d’Azure CLI. Assurez-vous de spécifier un numéro d’unité logique (LUN) qui n’est pas déjà utilisé. L’exemple de CLI suivant ajoute un lecteur de 50 Go au numéro d’unité logique (LUN) 3 :
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+L’exemple PowerShell suivant ajoute un lecteur de 50 Go au numéro d’unité logique (LUN) 3 :
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > Des tailles de machine virtuelle différentes présentent des limites différentes sur les nombres de lecteurs associés qu’elles peuvent prendre en charge. Vérifiez la [caractéristique de taille de la machine virtuelle](../virtual-machines/windows/sizes.md) avant d’ajouter un nouveau disque.
 
