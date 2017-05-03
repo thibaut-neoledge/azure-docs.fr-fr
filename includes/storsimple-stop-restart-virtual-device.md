@@ -14,8 +14,3 @@ Utilisez les applets de commande suivantes pour redémarrer un appareil virtuel.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
