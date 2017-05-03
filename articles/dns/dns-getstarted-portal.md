@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/29/2017
 
 Cet article vous indique la procédure à suivre pour créer votre première zone et votre premier enregistrement à l’aide du portail Azure. Vous pouvez également effectuer ces étapes à l’aide d’Azure PowerShell ou de l’interface de ligne de commande Azure multiplateforme.
 
-Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
+Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite plus bas.
 
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
@@ -41,41 +41,36 @@ Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particu
 
     ![Zone DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. Dans le panneau **Créer une zone DNS** , nommez votre zone DNS. Par exemple, *contoso.com*.
- 
-    ![Créer la zone](./media/dns-getstarted-portal/newzone250.png)
+4. Dans le panneau **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
-5. Ensuite, spécifiez le groupe de ressources que vous souhaitez utiliser. Vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà. Si vous choisissez de créer un nouveau groupe de ressources, utilisez la liste déroulante **Emplacement** pour spécifier l’emplacement du groupe de ressources. Notez que ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
 
-6. Vous pouvez laisser la case **Épingler au tableau de bord** cochée si vous voulez localiser facilement votre nouvelle zone sur votre tableau de bord. Cliquez ensuite sur **Créer**.
+   | **Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |**Name**|contoso.com|Nom de la zone DNS|
+   |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la passerelle de l’application.|
+   |**Groupe de ressources**|**Créer :** contosoDNSRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Emplacement**|Ouest des États-Unis||
 
-    ![Épingler au tableau de bord](./media/dns-getstarted-portal/pindashboard150.png)
-
-7. Lorsque vous cliquez sur Créer, votre nouvelle zone configurée s’affiche sur le tableau de bord.
-
-    ![Creating](./media/dns-getstarted-portal/creating150.png)
-
-8. Lorsque votre nouvelle zone a été créée, le panneau de votre nouvelle zone s’ouvre dans le tableau de bord.
-
+> [!NOTE]
+> Le groupe de ressources fait référence à l’emplacement du groupe de ressources et n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
 
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
 L’exemple suivant vous guide tout au long du processus de création d’un enregistrement « A ». Pour découvrir d’autres types d’enregistrements et pour modifier les enregistrements existants, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md). 
 
+1. Une fois la zone DNS créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la zone DNS **contoso.com** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contoso.com** dans la case **Filtrer par nom...** pour accéder facilement à la zone DNS.
 
 1. En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
 
-    ![Nouveau jeu d’enregistrements](./media/dns-getstarted-portal/newrecordset500.png)
+1. Dans le panneau **Ajouter un jeu d’enregistrements**, entrez les valeurs suivantes, puis cliquez sur **OK**. Dans cet exemple, vous créez un enregistrement A.
 
-4. Dans le panneau **Ajouter un jeu d’enregistrements** , donnez un nom à votre jeu d’enregistrements. Par exemple, vous pouvez nommer votre jeu d’enregistrements «**www**».
-
-    ![Ajouter un jeu d’enregistrements](./media/dns-getstarted-portal/addrecordset500.png)
-
-5. Sélectionnez le type d’enregistrement que vous souhaitez créer. Dans cet exemple, sélectionnez **A**.
-6. Définissez la **durée de vie (TTL)**. La durée de vie par défaut est d’une heure.
-7. Ajoutez l’adresse IP de l’enregistrement.
-8. Sélectionnez **OK** en bas du panneau pour créer l’enregistrement DNS.
-
+   |**Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |**Name**|www|Nom de l’enregistrement|
+   |**Type**|Un | Type d’enregistrement DNS pour créer. Les valeurs acceptables sont A, AAAA, CNAME, MX, NS, SRV, TXT et PTR.  Pour plus d’informations sur les types d’enregistrement, voir [Aperçu des zones DNS et des enregistrements](dns-zones-records.md)|
+   |**TTL**|1|Durée de vie de la requête DNS.|
+   |**Unité de durée de vie**|Heures|Mesure de temps pour la durée de vie.|
+   |**Adresse IP**|{ipAddressValue| Cette valeur est l’adresse IP correspondant à l’enregistrement DNS.|
 
 ## <a name="view-records"></a>Affichage des enregistrements
 
@@ -93,6 +88,14 @@ Les serveurs de noms de votre zone sont indiqués dans le Portail Azure :
 ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
 Ces serveurs de noms doivent être configurés avec le bureau d’enregistrement de noms de domaine (dans lequel vous avez acheté le nom de domaine). Votre bureau d’enregistrement offre la possibilité de configurer les serveurs de noms pour le domaine. Pour plus d’informations, consultez [Délégation de domaine à Azure DNS](dns-domain-delegation.md).
+
+## <a name="delete-all-resources"></a>Supprimer toutes les ressources
+
+Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
+
+1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur le groupe de ressources **MyResourceGroup** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **MyResourceGroup** dans la case **Filtrer par nom...** pour accéder facilement au groupe de ressources.
+1. Dans le panneau **MyResourceGroup**, cliquez sur le bouton **Supprimer**.
+1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Cliquez sur **Supprimer**, tapez *MyResourceGroup* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

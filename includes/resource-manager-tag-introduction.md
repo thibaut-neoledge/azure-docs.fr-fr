@@ -4,13 +4,9 @@ Après avoir appliqué une balise, vous pouvez utiliser sa clé et sa valeur pou
 
 Les limites suivantes s’appliquent aux balises :
 
-* Chaque ressource ou groupe de ressources peut inclure un maximum de 15 balises. 
+* Chaque ressource ou groupe de ressources peut inclure un maximum de 15 paires clé/valeur de balise. Cette limitation s’applique uniquement aux balises directement appliquées au groupe de ressources ou à la ressource. Un groupe de ressources peut contenir de nombreuses ressources qui ont chacune 15 paires clé/valeur de balise. 
 * Le nom de la balise est limité à 512 caractères.
 * La valeur de la balise est limitée à 256 caractères. 
 * Les ressources d’un groupe de ressources n’héritent pas des balises appliquées à ce groupe de ressources. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+Si vous devez associer plus de 15 valeurs à une ressource, utilisez une chaîne JSON pour la valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à une seule clé de balise. Un exemple d’affectation d’une chaîne JSON à la clé de balise est présenté dans cet article.

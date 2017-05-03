@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -73,11 +73,12 @@ Un compte Batch est une entité identifiée de façon unique au sein du service 
 
 Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Au moment de la création du compte, vous pouvez associer un compte de Stockage Azure.
 
-Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Les deux configurations offrent différentes possibilités d’authentification avec le service Batch et d’approvisionnement et de gestion des [pools](#pool) Batch (voir plus loin dans cet article). 
+Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Ces deux configurations vous donnent accès aux différentes fonctionnalités liées aux [pools](#pool) (voir plus loin dans cet article). 
 
 
-* **Service Batch** (par défaut) : vous pouvez accéder aux API Batch avec l’authentification par clé partagée ou [l’authentification Azure Active Directory](batch-aad-auth.md). Les ressources de calcul Batch sont allouées en arrière-plan dans un compte géré par Azure.   
-* **Abonnement utilisateur** : vous ne pouvez accéder aux API Batch qu’avec [l’authentification Azure Active Directory](batch-aad-auth.md). Les ressources de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode vous offre plus de souplesse de configuration des nœuds de calcul et d’intégration à d’autres services. Il implique de configurer un coffre de clés Azure supplémentaire pour votre compte Batch.
+* **Service Batch** : c’est l’option par défaut, les machines virtuelles du pool Batch étant allouées à l’arrière-plan dans les abonnements gérés par Azure. Utilisez cette configuration de compte si des pools de services cloud sont requis. Par contre, ne l’utilisez pas si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez accéder aux API Batch à l’aide de l’authentification de clé partagée ou de [l’authentification Azure Active Directory](batch-aad-auth.md). 
+
+* **Abonnement de l’utilisateur** : utilisez cette configuration de compte si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez uniquement accéder aux API Batch à l’aide de [l’authentification Azure Active Directory](batch-aad-auth.md), et les pools de services cloud ne sont pas pris en charge. Les machines virtuelles de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode exige de configurer un coffre de clés Azure pour votre compte Batch.
  
 
 ## <a name="compute-node"></a>Nœud de calcul

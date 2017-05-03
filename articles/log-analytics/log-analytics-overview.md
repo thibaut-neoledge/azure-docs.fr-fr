@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 762d8deac1f176e51b54295ef571ae529d338d2c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics est un service d’[Operations Management Suite \((OMS)\)](../oper
 ## <a name="is-log-analytics-for-you"></a>Log Analytics est-il adapté à vos besoins ?
 Si aucune analyse n’est actuellement mise en place pour votre environnement Azure, vous devez commencer avec [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) qui recueille et analyse les données de vos ressources Azure.  Log Analytics peut collecter des données à partir d’Azure Monitor pour les corréler avec d’autres données et fournir une analyse supplémentaire.
 
-Si vous souhaitez analyser votre environnement local ou si vous disposez déjà d’une analyse existante effectuée à l’aide de services tels qu’Azure Monitor ou System Center Operations Manager, Log Analytics peut ajouter une valeur significative.  La collecte peut s’effectuer directement à partir de vos agents et également de ces autres outils vers un référentiel unique.  Les outils d’analyse de Log Analytics, tels que les recherches de journaux, les vues et les solutions fonctionnent avec toutes les données collectées. Vous disposez ainsi d’une analyse centralisée de l’ensemble de votre environnement.
+Si vous souhaitez analyser votre environnement local ou si vous disposez déjà d’une analyse existante effectuée à l’aide de services comme Azure Monitor ou System Center Operations Manager, sachez que Log Analytics peut se révéler très utile.  La collecte peut s’effectuer directement à partir de vos agents et également de ces autres outils vers un référentiel unique.  Les outils d’analyse de Log Analytics, tels que les recherches de journaux, les vues et les solutions fonctionnent avec toutes les données collectées. Vous disposez ainsi d’une analyse centralisée de l’ensemble de votre environnement.
 
 
 ## <a name="using-log-analytics"></a>Utilisation de Log Analytics

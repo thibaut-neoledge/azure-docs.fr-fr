@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,11 +40,11 @@ La solution de sécurité et d’audit d’OMS offre une vue détaillée de la s
 Si vous accédez à ce tableau de bord pour la première fois et qu’aucun de vos périphériques n’est surveillé par OMS, les mosaïques ne seront pas remplies avec les données obtenues de l’agent. Lorsque vous installez l’agent, il peut mettre un certain temps à se remplir. Par conséquent, il est possible qu’il manque certaines données dans celles que vous verrez initialement, car elles seront en cours de téléchargement sur le cloud.  Dans ce cas, il est normal que certaines mosaïques n’affichent aucune information tangible. Consultez la rubrique [Connexion directe des ordinateurs Windows à OMS](https://technet.microsoft.com/library/mt484108.aspx) pour savoir comment installer l’agent OMS sur un système Windows, et la rubrique relative à la [connexion des ordinateurs Linux à OMS](https://technet.microsoft.com/library/mt622052.aspx) pour savoir comment l’installer sur un système Linux.
 
 > [!NOTE]
-> L’agent collecte les informations basées sur les événements en cours qui sont activés, par exemple le nom de l’ordinateur, le nom d’utilisateur et l’adresse IP. Toutefois, aucun document/fichier, aucun nom de base de données ni aucune donnée privée ne sont collectés.   
+> L’agent collecte les informations d’après les événements en cours activés, par exemple le nom de l’ordinateur, le nom d’utilisateur et l’adresse IP. Toutefois, aucun document/fichier, aucun nom de base de données ni aucune donnée privée ne sont collectés.   
 > 
 > 
 
-Les solutions sont une collection de règles de logique, de visualisation et d’acquisition des données qui répondent aux problèmes principaux que rencontrent les clients. Sécurité et audit est une solution ; d’autres peuvent être ajoutées séparément. Lisez l’article [Ajouter des solutions](https://technet.microsoft.com/library/mt674635.aspx) pour plus d’informations sur l’ajout d’une nouvelle solution.
+Les solutions sont un ensemble de règles de logique, de visualisation et d’acquisition des données qui répondent aux principaux problèmes que rencontrent les clients. Sécurité et audit est une solution ; d’autres peuvent être ajoutées séparément. Lisez l’article [Ajouter des solutions](https://technet.microsoft.com/library/mt674635.aspx) pour plus d’informations sur l’ajout d’une nouvelle solution.
 
 Le tableau de bord de la solution de sécurité et d’audit d’OMS est organisé en quatre catégories principales :
 
@@ -99,12 +99,12 @@ Tout comme n’importe quelle autre mosaïque dynamique du tableau de bord OMS,
 Cliquez sur le nom de l’ordinateur pour afficher la vue chronologique de l’état de la protection pour cet ordinateur. Cette fonctionnalité est très utile dans les cas où vous devez savoir si le logiciel anti-programmes malveillants a été installé puis supprimé.   
 
 ### <a name="update-assessment"></a>Update assessment (Évaluation des mises à jour)
-Cette option vous permet de déterminer rapidement l’exposition globale aux problèmes de sécurité potentiels, de savoir si ces mises à jour sont importantes pour votre environnement et, le cas échéant, à quel point. La solution de sécurité et d’audit d’OMS permet uniquement de visualiser ces mises à jour. Les données réelles proviennent de [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx) qui est un autre module au sein d’OMS. Voici un exemple de mise à jour :
+Cette option vous permet de déterminer rapidement l’exposition globale aux problèmes de sécurité potentiels, de savoir si ces mises à jour sont importantes pour votre environnement et, le cas échéant, à quel point. La solution de sécurité et d’audit d’OMS permet uniquement de visualiser ces mises à jour. Les données réelles proviennent de [Update Management Solutions](oms-solution-update-management.md) qui est un autre module au sein d’OMS. Voici un exemple de mise à jour :
 
-![mises à jour du système](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![mises à jour du système](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> pour plus d’informations sur la solution Updates, consultez [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx)(Mettre à jour des serveurs avec la solution System Updates).
+> Pour plus d’informations sur la solution Update Management, voir [solution Update Management dans OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -135,7 +135,15 @@ Cette mosaïque peut être utilisée pour accéder à tous les ordinateurs où d
 
 Vous pouvez approfondir votre investigation en cliquant sur chaque ordinateur et en examinant les événements de sécurité signalés.
 
-### <a name="azure-security-center"></a>Centre de sécurité Azure
+### <a name="threat-intelligence"></a>Informations sur les menaces
+
+Grâce à l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS, les administrateurs informatiques peuvent détecter les menaces de sécurité dans l’environnement (par exemple, identifier si un ordinateur en particulier fait partie d’un botnet). Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement cet ordinateur à la commande et au contrôle. Cette option peut également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le Darknet. Pour plus d’informations sur l’option d’informations sur les menaces, voir l’article [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Évaluation de la ligne de base
+
+Avec de nombreuses organisations gouvernementales et entreprises du secteur, Microsoft définit une configuration Windows qui représente des déploiements de serveur hautement sécurisés. Cette configuration regroupe un ensemble de clés de Registre, de paramètres de stratégie d’audit et de paramètres de stratégie de sécurité, ainsi que les valeurs recommandées par Microsoft pour ces paramètres. Cet ensemble de règles est appelé « base de référence de la sécurité ». Pour plus d’informations sur cette option, lire [Évaluation de la base de référence dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-baseline.md).
+
+### <a name="azure-security-center"></a>Azure Security Center
 Cette mosaïque est tout simplement un raccourci vers le tableau de bord du Centre de sécurité Azure. Pour en savoir plus sur cette solution, consultez [Prise en main du Centre de sécurité Azure](../security-center/security-center-get-started.md) .
 
 ## <a name="notable-issues"></a>Notable issues (Problèmes importants)
@@ -153,7 +161,7 @@ L’objectif principal de cette option consiste à permettre au département inf
 Cette option peut également être utilisée pendant un [examen dans le cadre d’une réponse à un incident](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/), afin d’évaluer une attaque et d’obtenir des informations supplémentaires à son propos.
 
 > [!NOTE]
-> Pour en savoir plus sur l’utilisation d’OMS pour la réponse aux incidents, voir la vidéo indiquant [comment tirer parti de Microsoft Azure Security Center et de Microsoft Operations Management Suite pour la réponse aux incidents](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Pour savoir comment utiliser OMS et répondre aux incidents, voir la vidéo indiquant [comment tirer parti de Microsoft Azure Security Center et de Microsoft Operations Management Suite pour la réponse aux incidents](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 

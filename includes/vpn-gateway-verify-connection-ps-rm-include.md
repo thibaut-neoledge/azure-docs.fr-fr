@@ -1,6 +1,6 @@
-Vous pouvez vérifier que votre connexion a réussi via la cmdlet **Get-AzureRmVirtualNetworkGatewayConnection** avec ou sans **-Debug**. 
+Vous pouvez vérifier que votre connexion a réussi via l’applet de commande « Get-AzureRmVirtualNetworkGatewayConnection » avec ou sans « -Debug ». 
 
-1. Utilisez l’exemple d’applet de commande suivant, en configurant les valeurs sur les vôtres. Si vous y êtes invité, sélectionnez A pour exécuter tout. Dans l’exemple, **-Name** fait référence au nom de la connexion que vous avez créée et que vous voulez tester.
+1. Utilisez l’exemple d’applet de commande suivant, en configurant les valeurs sur les vôtres. Si vous y êtes invité, sélectionnez A pour exécuter tout. Dans l’exemple, -Name fait référence au nom de la connexion que vous avez créée et que vous voulez tester.
 
   ```powershell
   Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
@@ -12,4 +12,3 @@ Vous pouvez vérifier que votre connexion a réussi via la cmdlet **Get-AzureRmV
   "ingressBytesTransferred": 33509044,
   "egressBytesTransferred": 4142431
   ```
-  

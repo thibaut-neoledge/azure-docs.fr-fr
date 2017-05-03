@@ -16,9 +16,9 @@ ms.date: 03/07/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b7dbfff716806e8b91488d3eb5eafab582e173ba
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 11d7c919da7e443dcb59c16b4d5fe2b25501fb2d
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -336,7 +336,8 @@ Dans cette section, vous allez créer une application console Java qui simule un
     ```
     private static class TelemetryDataPoint {
       public String deviceId;
-      public double windSpeed;
+      public double temperature;
+      public double humidity;
    
       public String serialize() {
         Gson gson = new Gson();
@@ -367,17 +368,22 @@ Dans cette section, vous allez créer une application console Java qui simule un
     
       public void run()  {
         try {
-          double avgWindSpeed = 10; // m/s
+          double minTemperature = 20;
+          double minHumidity = 60;
           Random rand = new Random();
     
           while (true) {
-            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            double currentTemperature = minTemperature + rand.nextDouble() * 15;
+            double currentHumidity = minHumidity + rand.nextDouble() * 20;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
-            telemetryDataPoint.windSpeed = currentWindSpeed;
+            telemetryDataPoint.temperature = currentTemperature;
+            telemetryDataPoint.humidity = currentHumidity;
     
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
+            msg.setProperty("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+            msg.setMessageId(java.util.UUID.randomUUID().toString()); 
             System.out.println("Sending: " + msgStr);
     
             Object lockobj = new Object();
@@ -396,7 +402,7 @@ Dans cette section, vous allez créer une application console Java qui simule un
     }
     ```
     
-    Cette méthode envoie un nouveau message Appareil vers cloud une seconde après que l’IoT Hub a accusé réception du message précédent. Le message contient un objet JSON sérialisé avec l’ID de l’appareil et un nombre généré de manière aléatoire pour simuler un anémomètre.
+    Cette méthode envoie un nouveau message Appareil vers cloud une seconde après que l’IoT Hub a accusé réception du message précédent. Ce message contient un objet JSON sérialisé avec l’ID de l’appareil et des nombres générés de manière aléatoire pour simuler un thermomètre et un capteur d’humidité.
 11. Remplacez la méthode **main** par le code suivant qui crée un thread pour envoyer des messages des appareils vers le cloud à votre IoT Hub :
     
     ```
@@ -486,3 +492,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-eventhubs-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22
+
