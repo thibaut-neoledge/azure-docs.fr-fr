@@ -427,8 +427,3 @@ Notez les points suivants :
 
 * Les types de données complexes ne sont pas pris en charge (MAP, LIST)
 * Le fichier Parquet offre les options de compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
-
-
-<!--HONumber=Jan17_HO4-->
-
-
