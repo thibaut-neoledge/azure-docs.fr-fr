@@ -49,12 +49,11 @@ Pour plus d’informations, notamment sur les concepts, voir la [page de présen
 
     d. **Utilisateur Administrateur** : si vous le souhaitez, vous pouvez autoriser l’accès au registre à un utilisateur Administrateur. Vous pouvez modifier ce paramètre une fois le registre créé.
 
-    > [!IMPORTANT]
-    > En plus de fournir l’accès via un compte d’utilisateur Admin, les registres de conteneur prennent en charge l’authentification supportée par les principaux du service Azure Active Directory. Pour plus d’informations et pour connaître les éléments à prendre en considération, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
-
+      > [!IMPORTANT]
+      > En plus de fournir l’accès via un compte d’utilisateur Admin, les registres de conteneur prennent en charge l’authentification supportée par les principaux du service Azure Active Directory. Pour plus d’informations et pour connaître les éléments à prendre en considération, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
+      >
 
     e. **Compte de stockage** : utilisez le paramètre par défaut pour créer un [compte de stockage](../storage/storage-introduction.md), ou sélectionnez un compte de stockage existant dans le même emplacement. Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
-
 
 ## <a name="manage-registry-settings"></a>Gérer les paramètres du registre
 Après avoir créé le registre, recherchez ses paramètres en commençant par le panneau des **Registres de conteneur** dans le portail. Par exemple, vous aurez peut-être besoin des paramètres pour vous connecter à votre registre, ou vous souhaiterez peut-être activer ou désactiver l’utilisateur Admin.
