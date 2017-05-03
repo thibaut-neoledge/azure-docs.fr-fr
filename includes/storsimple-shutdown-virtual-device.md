@@ -3,8 +3,3 @@
 2. Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 3. Cliquez sur **Arrêter**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

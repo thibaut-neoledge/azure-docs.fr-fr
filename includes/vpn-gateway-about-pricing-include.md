@@ -8,8 +8,3 @@ Vous payez deux choses : les coûts horaires de calcul de la passerelle de rése
 * Si vous envoyez le trafic entre les réseaux virtuels dans différentes régions, la tarification est basée sur la région.
 * Si vous envoyez le trafic seulement entre les réseaux virtuels qui sont dans la même région, il n’y a aucun coût de données. Le trafic entre les réseaux virtuels dans la même région est gratuit.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

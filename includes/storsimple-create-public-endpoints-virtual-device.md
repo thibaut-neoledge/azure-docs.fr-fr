@@ -12,8 +12,3 @@
 
 Une fois le point de terminaison créé, vous pouvez afficher les détails correspondants pour déterminer l’adresse IP virtuelle publique. Enregistrez cette adresse.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
