@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Avec les applets de commande Azure Batch PowerShell, vous pouvez effectuer pratiquement les mêmes tâches qu’avec les API Batch, le portail Azure et l’interface de ligne de commande Azure, et en écrire les scripts. Il s’agit d’une présentation rapide des applets de commande que vous pouvez utiliser pour gérer vos comptes Batch et travailler avec des ressources Batch telles que les pools, les travaux et les tâches.
 
-Pour obtenir une liste complète des applets de commande Batch et la syntaxe détaillée des applets de commande, consultez [Référence d’applet de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Pour obtenir une liste complète des applets de commande Batch et la syntaxe détaillée des applets de commande, consultez [Référence d’applet de commande Azure Batch](/powershell/module/azurerm.batch/#batch).
 
 Cet article est basé sur les applets de commande d’Azure PowerShell version 3.0.0. Nous vous recommandons de mettre à jour votre Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
 
 ## <a name="prerequisites"></a>Composants requis
 Effectuez les opérations suivantes pour utiliser Azure PowerShell pour gérer vos ressources de traitement par lots.
 
-* [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
 * Exécutez l’applet de commande **Login-AzureRmAccount** pour vous connecter à votre abonnement (les applets de commande Azure Batch font partie du module Azure Resource Manager) :
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Effectuez les opérations suivantes pour utiliser Azure PowerShell pour gérer v
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gestion des clés et des comptes Batch
 ### <a name="create-a-batch-account"></a>Création d’un compte Batch
-**New-AzureBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « États-Unis du Centre » par exemple. Par exemple :
+**New-AzureBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « États-Unis du Centre » par exemple. Par exemple :
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Vous avez mis à jour les propriétés du pool dans le service Batch. Pour dépl
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour connaître la syntaxe détaillée des applets de commande et obtenir des exemples, consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Pour connaître la syntaxe détaillée des applets de commande et obtenir des exemples, consultez les [informations de référence sur les applets de commande Azure Batch](/powershell/module/azurerm.batch/#batch).
 * Pour plus d’informations sur les applications et les packages d’application dans Batch, consultez [Déploiement d’applications avec des packages d’application Azure Batch](batch-application-packages.md).
 
 

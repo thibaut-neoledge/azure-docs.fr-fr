@@ -15,9 +15,9 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7970fb624fcf76d9cba6e60c9766e39b63f175ba
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonct
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Comment obtenir les applets de commande PowerShell pour Azure RemoteApp
 Pour tester la nouvelle fonctionnalité en version préliminaire, vous devez utiliser les applets de commande Azure PowerShell. Vous ne pouvez pas pour le moment utiliser le portail de gestion Azure pour activer le nouveau mode de publication d’applications.
 
-Assurez-vous tout d’abord que vous disposez bien du [module Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Assurez-vous tout d’abord que vous disposez bien du [module Azure PowerShell](/powershell/azure/overview) .
 
 Lancez ensuite la console PowerShell en mode administrateur, puis exécutez l’applet de commande suivante :
 

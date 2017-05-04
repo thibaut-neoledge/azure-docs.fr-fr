@@ -173,7 +173,7 @@
 
 # Référence
 
-## [Module PowerShell (nouveau)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Module PowerShell (nouveau)](/powershell/module/azurerm.machinelearning)
 ## [Module PowerShell (classique)](machine-learning-powershell-module.md)
 ## [Algorithmes et informations de référence sur les modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [Référence d’API REST](/rest/api/machinelearning)

@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ Le contrôle d'accès en fonction du rôle (RBAC) dans l'API du portail Azure et
 
 Pour pouvoir utiliser PowerShell afin de gérer le contrôle d’accès en fonction du rôle (RBAC), vous devez disposer des composants suivants :
 
-* Azure PowerShell, version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Applets de commande Azure Resource Manager. Installez les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) dans PowerShell.
+* Azure PowerShell, version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+* Applets de commande Azure Resource Manager. Installez les [applets de commande Azure Resource Manager](/powershell/azure/overview) dans PowerShell.
 
 ## <a name="list-roles"></a>Répertorier les rôles
 ### <a name="list-all-available-roles"></a>Répertorier tous les rôles disponibles
@@ -87,7 +87,7 @@ Pour répertorier les affectations d'accès de liste pour les administrateurs d'
 ### <a name="search-for-object-ids"></a>Rechercher des ID d’objet
 Pour attribuer un rôle, vous devez identifier l’objet (utilisateur, groupe ou application) et l’étendue.
 
-Si vous ne connaissez pas l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure. Pour découvrir comment rechercher l'ID d'abonnement, consultez [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) sur MSDN.
+Si vous ne connaissez pas l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure. Pour découvrir comment rechercher l'ID d'abonnement, consultez [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) sur MSDN.
 
 Pour obtenir l’ID d’objet pour un groupe Azure AD, utilisez :
 

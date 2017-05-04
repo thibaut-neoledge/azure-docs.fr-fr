@@ -48,7 +48,7 @@
 ### [Résolution des problèmes de l’équilibrage de charge Azure](load-balancer-troubleshoot.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)

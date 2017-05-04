@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
   2. Obtenez un **ID client** et une **clé secrète**. 
   3. Obtenez l’ **ID de locataire**. 
   4. Attribuez l’application **ADFCopyTutorialApp** au rôle **Collaborateur de Data Factory**.  
-* Installez [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Installez [Azure PowerShell](/powershell/azure/overview).  
 * Lancez **PowerShell** et procédez comme suit. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
   
   1. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 
 ## <a name="before-beginning"></a>Avant tout chose
 * Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
-* Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Partie 1 - Connexion et définition des variables
 Dans cette section, vous vous connectez et déclarez les valeurs utilisées pour cette configuration. Les valeurs déclarées sont utilisées dans les exemples de script. Modifiez les valeurs pour les adapter à votre propre environnement. Vous pouvez également utiliser les valeurs déclarées et suivre les étapes pour vous entraîner.
@@ -242,7 +242,7 @@ Pour se connecter à un réseau virtuel à l’aide d’un VPN point à site, ch
 
 ## <a name="clientcertificate"></a>Partie 6 - Installation d’un certificat client exporté
 
-Si vous souhaitez créer une connexion P2S à partir d’un ordinateur client différent de celui que vous avez utilisé pour générer les certificats clients, vous devez installer un certificat client. Lorsque vous installez un certificat client, vous avez besoin du mot de passe créé lors de l’exportation du certificat client.
+Si vous souhaitez créer une connexion P2S à partir d’un ordinateur client différent de celui que vous avez utilisé pour générer les certificats clients, vous devez installer un certificat client. Quand vous installez un certificat client, vous avez besoin du mot de passe créé lors de l’exportation du certificat client.
 
 1. Recherchez le fichier *.pfx* et copiez-le sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* à installer. Laissez la zone **Emplacement de stockage** définie sur **Utilisateur actuel**, puis cliquez sur **Suivant**.
 2. N’apportez aucune modification à la page **Fichier à importer** . Cliquez sur **Suivant**.
@@ -284,7 +284,7 @@ Si vous avez des problèmes pour vous connecter, effectuez les vérifications su
 
 ## <a name="connectVM"></a>Connexion à une machine virtuelle
 
-1. Après vous être connecté à votre réseau virtuel, vous pouvez vous connecter à une machine virtuelle par le biais de votre connexion P2S. Pour vous connecter à la machine virtuelle, vous devez disposer de l’adresse IP privée de cette machine. L’exemple ci-après vous permet d’obtenir l’adresse IP privée avec [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). Les résultats renvoient la liste des machines virtuelles et des adresses IP privées correspondantes dans tous vos groupes de ressources. 
+1. Après vous être connecté à votre réseau virtuel, vous pouvez vous connecter à une machine virtuelle par le biais de votre connexion P2S. Pour vous connecter à la machine virtuelle, vous devez disposer de l’adresse IP privée de cette machine. L’exemple ci-après vous permet d’obtenir l’adresse IP privée avec [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). Les résultats renvoient la liste des machines virtuelles et des adresses IP privées correspondantes dans tous vos groupes de ressources. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

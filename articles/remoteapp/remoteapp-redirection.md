@@ -11,12 +11,12 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: cab03e7765dc7116a7f974833871fae652e8363c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 368bf16c77feed55c397052b63fde4ef3fb29447
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Deux options de redirection sont désactivées par défaut :
 * Redirection USB : vous pouvez utiliser les périphériques USB connectés à votre ordinateur local dans la session à distance.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>Modification de vos paramètres de redirection dans RemoteApp
-Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de Microsoft Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel (SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de Microsoft Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel (SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](/powershell/azure/overview).
 
 Utilisez ensuite une commande semblable à la suivante pour définir les propriétés RDP personnalisées :
 

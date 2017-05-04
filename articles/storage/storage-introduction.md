@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure Storage est la solution de stockage cloud pour les applications récentes 
 * comment vos données Azure Storage sont préservées par la redondance et la réplication ;
 * comment procéder ensuite pour créer votre première application Azure Storage.
 
-Pour être rapidement opérationnel avec Azure Storage, consultez [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Pour plus d’informations sur les outils, bibliothèques et autres ressources pour utiliser Azure Storage, consultez [Étapes suivantes](#next-steps) ci-dessous.
 
@@ -185,12 +187,12 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [Bibliothèque cliente de stockage pour PHP](https://azure.microsoft.com/develop/php/)
 * [Bibliothèque cliente de stockage pour Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Bibliothèque cliente de stockage pour Python](https://azure.microsoft.com/develop/python/)
-* [Applets de commande de stockage pour PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Applets de commande de stockage pour PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Services de gestion Azure Storage
 * [Informations de référence sur l’API REST des fournisseurs de ressources de stockage](/rest/api/storagerp/)
 * [Bibliothèque cliente des fournisseurs de ressources de stockage pour .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Applets de commande des fournisseurs de ressources de stockage pour PowerShell 1.0](/powershell/storage/)
+* [Applets de commande des fournisseurs de ressources de stockage pour PowerShell 1.0](/powershell/module/azure.storage)
 * [API REST de gestion des services de stockage (classique)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Services de déplacement de données Azure Storage
@@ -202,7 +204,7 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [Outils clients d’Azure Storage](storage-explorers.md)
 * [Outils et Kit de développement logiciel (SDK) d’Azure](https://azure.microsoft.com/tools/)
 * [Émulateur de stockage Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Utilitaire de ligne de commande AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -211,7 +213,11 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 ### <a name="documentation"></a>Documentation
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Créer un compte de stockage](storage-create-storage-account.md)
-* [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Pour les administrateurs
 * [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
