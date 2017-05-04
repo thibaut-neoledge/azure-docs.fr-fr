@@ -42,8 +42,7 @@ Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à p
 3. Connectez-vous à votre architecture cliente
 
     ```
-    $cred = Get-Credential
-    Connect-MsolService -Credential $cred
+    Connect-AzureAd -tenantId <tenantId>
     ```
 
 4. Exécutez l’applet de commande PowerShell

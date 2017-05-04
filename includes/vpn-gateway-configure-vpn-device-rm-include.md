@@ -9,5 +9,4 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
 
 - Une clé partagée. Il s’agit de la clé partagée spécifiée lors de la création de la connexion VPN de site à site. Dans nos exemples, nous utilisons une clé partagée basique. Nous vous conseillons de générer une clé plus complexe.
-
 - L’adresse IP publique de votre passerelle de réseau virtuel. Vous pouvez afficher l’adresse IP publique à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande.
