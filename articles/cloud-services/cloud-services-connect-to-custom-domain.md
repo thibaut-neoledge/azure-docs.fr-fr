@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ Nous allons tout d’abord définir un réseau virtuel (VNet) dans Azure. Nous a
 
 Avant de commencer, quelques aspects à prendre en compte :
 
-1. Ce didacticiel utilise Powershell. Par conséquent, vérifiez qu’Azure Powershell est installé et prêt à l’emploi. Pour obtenir de l’aide sur la configuration d’Azure Powershell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Ce didacticiel utilise Powershell. Par conséquent, vérifiez qu’Azure Powershell est installé et prêt à l’emploi. Pour obtenir de l’aide sur la configuration d’Azure Powershell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 2. Vos instances de contrôleur de domaine AD et de rôle web/de travail doivent se trouver dans le réseau virtuel.
 
 Suivez ce guide pas à pas et, si vous rencontrez des problèmes, laissez-nous un commentaire ci-dessous. Nous reviendrons vers vous (oui, nous lisons les commentaires).
@@ -155,9 +156,4 @@ Vos services cloud doivent désormais être joints à votre contrôleur de domai
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

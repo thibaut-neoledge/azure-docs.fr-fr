@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -145,7 +146,7 @@ Pour baliser une machine virtuelle ou un groupe de ressources dans le portail, p
 ### <a name="tag-from-powershell"></a>Baliser à partir de PowerShell
 Tous les Runbooks importés contiennent des informations d’aide au début du script qui décrivent comment exécuter les Runbooks directement à partir de PowerShell. Vous pouvez appeler les Runbooks Add-ScheduleResource et Update-ScheduleResource à partir de PowerShell. Pour ce faire, vous transmettez les paramètres requis qui vous permettent de créer ou de mettre à jour la balise Schedule sur une machine virtuelle ou un groupe de ressources en dehors du portail.
 
-Pour créer, ajouter et supprimer des balises par le biais de PowerShell, vous devez commencer par [configurer votre environnement PowerShell pour Azure](/powershell/azureps-cmdlets-docs). Après avoir effectué cette configuration, vous pouvez passer aux étapes suivantes.
+Pour créer, ajouter et supprimer des balises par le biais de PowerShell, vous devez commencer par [configurer votre environnement PowerShell pour Azure](/powershell/azure/overview). Après avoir effectué cette configuration, vous pouvez passer aux étapes suivantes.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Créer une balise Schedule avec PowerShell
 1. Ouvrez une session PowerShell. Puis utilisez l’exemple ci-après pour vous authentifier avec votre compte d’identification et pour spécifier un abonnement :
@@ -241,9 +242,4 @@ Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’
 * Pour plus d’informations sur les fonctionnalités de prise en charge des scripts PowerShell, voir [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)(Prise en charge de scripts PowerShell natifs dans Azure Automation).
 * Pour plus d’informations sur la journalisation et la sortie de Runbook, voir [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur un compte d’identification Azure et sur l’authentification de vos Runbooks à l’aide de ce compte, voir [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

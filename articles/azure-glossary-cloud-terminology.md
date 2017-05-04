@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,8 +47,8 @@ L’un des deux [modèles de déploiement](resource-manager-deployment-model.md)
 Une [interface de ligne de commande](cli-install-nodejs.md) qui peut être utilisée pour gérer les services Azure à partir de PC Windows, OSX et Linux.
 
 ### <a name="powershell"></a>Azure PowerShell
-Une [interface de ligne de commande](/powershell/azureps-cmdlets-docs) pour gérer les services Azure par le biais d’une ligne de commande à partir de PC Windows. Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Les conseils pour chaque ressource Azure individuelle indiquent les modèles dans lesquels une ressource peut être déployée.   
-Voir aussi [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Une [interface de ligne de commande](/powershell/azure/overview) pour gérer les services Azure par le biais d’une ligne de commande à partir de PC Windows. Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Les conseils pour chaque ressource Azure individuelle indiquent les modèles dans lesquels une ressource peut être déployée.   
+Voir aussi [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>modèle de déploiement Azure Resource Manager
 l’un des deux [modèles de déploiement](resource-manager-deployment-model.md) utilisés pour déployer des ressources dans Microsoft Azure (l’autre est le modèle de déploiement classique). Certaines ressources Azure peuvent être déployées dans un modèle ou l’autre, tandis que d’autres ressources peuvent être déployées dans les deux modèles. Les conseils pour des ressources Azure individuelles indiquent les modèles dans lesquels une ressource peut être déployée.

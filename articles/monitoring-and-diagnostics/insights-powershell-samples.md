@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66848eee215732803a1070e13d56f35b17e54975
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Cet article vous présente des exemples de commandes PowerShell qui vous aideron
 > 
 
 ## <a name="set-up-powershell"></a>Configurer PowerShell
-Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez la rubrique [Comment installer et configurer PowerShell](/powershell/azureps-cmdlets-docs) .
+Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez la rubrique [Comment installer et configurer PowerShell](/powershell/azure/overview) .
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
 Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).

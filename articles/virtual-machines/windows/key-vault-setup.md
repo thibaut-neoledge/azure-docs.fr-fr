@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 993404815b557452898d045910a80fe1e87a4924
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -31,8 +31,8 @@ Dans la pile Azure Resource Manager, les secrets/certificats sont modélisés en
 > [!NOTE]
 > 1. Pour que Key Vault puisse être utilisé avec des machines virtuelles Azure Resource Manager, la propriété **EnabledForDeployment** doit être définie sur true dans Key Vault. Vous pouvez le faire dans différents clients.
 > 2. Le coffre de clés doit être créé dans le même abonnement et le même emplacement que la machine virtuelle.
-> 
-> 
+>
+>
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Utilisation de PowerShell pour configurer Key Vault
 Pour créer un coffre de clés à l’aide de PowerShell, consultez [Prise en main d’Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
@@ -46,7 +46,7 @@ Pour des coffres de clé existants, vous pouvez utiliser l’applet de commande 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="us-cli-to-set-up-key-vault"></a>Utilisation de l’interface de ligne de commande pour configurer Key Vault
-Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Pour l’interface de ligne de commande, vous devez créer d’abord le coffre de clés avant d’affecter la stratégie de déploiement. Pour ce faire, vous pouvez utiliser la commande suivante :
 
@@ -68,5 +68,4 @@ Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDe
     }
 
 Pour les autres options que vous pouvez configurer lorsque vous créez un coffre de clés à l’aide de modèles, consultez la rubrique [Création d’un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
 
