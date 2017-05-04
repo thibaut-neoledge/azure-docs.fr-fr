@@ -85,7 +85,7 @@ Pour les applications exécutées dans le bloc-notes Jupyter, vous pouvez utilis
 L’extrait de code ci-dessous montre comment modifier la configuration d’une application exécutée dans Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Les paramètres de configuration doivent être passés en tant que chaîne JSON et spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne.
 
