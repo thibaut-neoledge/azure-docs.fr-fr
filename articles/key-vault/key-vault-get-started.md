@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,10 +31,10 @@ Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conten
 
 > [!NOTE]
 > Ce didacticiel n'inclut pas d'instructions sur l'écriture de l'application Azure abordée dans une des étapes, en d'autres termes, comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
-> 
-> Ce didacticiel utilise Azure PowerShell. Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez [ce didacticiel équivalent](key-vault-manage-with-cli.md).
-> 
-> 
+>
+> Ce didacticiel utilise Azure PowerShell. Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez [ce didacticiel équivalent](key-vault-manage-with-cli2.md).
+>
+>
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
@@ -41,7 +42,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **version 1.1.0 minimale**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`. Si vous utilisez Azure PowerShell version 0.9.1 à 0.9.8, vous pouvez toujours utiliser ce didacticiel en y apportant quelques changements mineurs. Par exemple, vous devez utiliser la commande `Switch-AzureMode AzureResourceManager` ; certaines commandes Azure Key Vault ont également changé. Pour obtenir la liste des applets de commande Azure Key Vault pour les versions 0.9.1 à 0.9.8, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **version 1.1.0 minimale**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`. Si vous utilisez Azure PowerShell version 0.9.1 à 0.9.8, vous pouvez toujours utiliser ce didacticiel en y apportant quelques changements mineurs. Par exemple, vous devez utiliser la commande `Switch-AzureMode AzureResourceManager` ; certaines commandes Azure Key Vault ont également changé. Pour obtenir la liste des applets de commande Azure Key Vault pour les versions 0.9.1 à 0.9.8, consultez la page [Applets de commande Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 * Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 Ce didacticiel s’adresse aux utilisateurs novices d’Azure PowerShell, mais il repose sur l’hypothèse que vous connaissez les concepts fondamentaux (modules, applets de commande et sessions). Pour plus d’informations, consultez la section [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,13 +57,13 @@ Par exemple, pour obtenir de l’aide pour l’applet de commande **Login-AzureR
 
 Vous pouvez également consulter les didacticiels suivants afin de vous familiariser avec Azure Resource Manager dans Azure PowerShell :
 
-* [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Se connecter à vos abonnements
+## <a id="connect"></a>Se connecter à vos abonnements
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Notez que si vous utilisez une instance spécifique d’Azure, par exemple, Azure Government, utilisez le paramètre -Environment avec cette commande. Par exemple : `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -76,16 +77,16 @@ Ensuite, pour indiquer l’abonnement, tapez ce qui suit :
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Création d’un groupe de ressources
+## <a id="resource"></a>Création d’un groupe de ressources
 Lorsque vous utilisez Azure Resource Manager, toutes les ressources associées sont créées au sein d’un groupe de ressources. Nous allons créer un groupe de ressources nommé **ContosoResourceGroup** pour ce didacticiel :
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Création d’un coffre de clés
-Utilisez l’applet de commande [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) pour créer un coffre de clés. Cette applet de commande a trois paramètres obligatoires : un **nom de groupe de ressources**, un **nom de coffre de clés** et l’**emplacement géographique**.
+## <a id="vault"></a>Création d’un coffre de clés
+Utilisez l’applet de commande [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) pour créer un coffre de clés. Cette applet de commande a trois paramètres obligatoires : un **nom de groupe de ressources**, un **nom de coffre de clés** et l’**emplacement géographique**.
 
 Par exemple, si vous utilisez le nom de coffre **ContosoKeyVault**, le nom de groupe de ressources **ContosoResourceGroup** et l’emplacement **Asie du Sud-Est**, tapez :
 
@@ -99,12 +100,12 @@ La sortie de cette applet de commande affiche les propriétés du coffre de clé
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce coffre de clés.
 
 > [!NOTE]
-> Si vous rencontrez le message d’erreur **L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.KeyVault »** lorsque vous tentez de créer votre coffre de clés, exécutez la commande `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` avant d’exécuter de nouveau la commande New-AzureRmKeyVault. Pour plus d’informations, consultez [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
-> 
-> 
+> Si vous rencontrez le message d’erreur **L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.KeyVault »** lorsque vous tentez de créer votre coffre de clés, exécutez la commande `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` avant d’exécuter de nouveau la commande New-AzureRmKeyVault. Pour plus d’informations, consultez [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+>
+>
 
-## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Ajout d’une clé ou d’un secret au coffre de clés
-Si vous souhaitez qu’Azure Key Vault crée une clé protégée par un logiciel pour vous, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) et tapez ce qui suit :
+## <a id="add"></a>Ajout d’une clé ou d’un secret au coffre de clés
+Si vous souhaitez qu’Azure Key Vault crée une clé protégée par un logiciel pour vous, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) et tapez ce qui suit :
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -144,13 +145,13 @@ Examinons la clé ou le mot de passe que vous venez de créer :
 
 À présent, votre coffre de clés et la clé/le secret sont prêts à être utilisés par les applications qui doivent recevoir les autorisations adéquates.  
 
-## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Inscription d’une application auprès d’Azure Active Directory
+## <a id="register"></a>Inscription d’une application auprès d’Azure Active Directory
 Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Bien que non spécifique d'Azure Key Vault, elle est incluse ici par souci d'exhaustivité.
 
 > [!IMPORTANT]
 > Pour suivre le didacticiel, le compte, le coffre et l’application que vous inscrivez dans cette étape doivent tous se trouver dans le même répertoire Azure.
-> 
-> 
+>
+>
 
 Les applications qui utilisent un coffre de clés doivent s’authentifier à l’aide d’un jeton à partir d’Azure Active Directory. Pour ce faire, le propriétaire de l’application doit d’abord inscrire l’application dans Azure Active Directory. À la fin de l’inscription, le propriétaire de l’application obtient les valeurs suivantes :
 
@@ -169,8 +170,8 @@ Pour inscrire votre application auprès d’Azure Active Directory :
 9. Accédez à la section **clés** , sélectionnez la durée, puis cliquez sur **ENREGISTRER**. La page est actualisée et affiche à présent une valeur de clé. Vous devez configurer votre application avec cette valeur de clé et la valeur d’ **ID CLIENT** . (Les instructions relatives à cette configuration sont propres à l’application.)
 10. Copiez la valeur d’ID client à partir de cette page. Vous l’utiliserez à l’étape suivante pour définir des autorisations sur votre coffre.
 
-## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Autorisation de l’application à utiliser la clé ou le secret
-Pour autoriser l’application à accéder à la clé ou au secret dans le coffre, utilisez l’applet de commande  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
+## <a id="authorize"></a>Autorisation de l’application à utiliser la clé ou le secret
+Pour autoriser l’application à accéder à la clé ou au secret dans le coffre, utilisez l’applet de commande  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Par exemple, si le nom de votre coffre est **ContosoKeyVault** , que l'application que vous souhaitez autoriser a l'ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed et que vous souhaitez autoriser l'application à déchiffrer et à signer avec des clés dans le coffre, exécutez la commande suivante :
 
@@ -180,7 +181,7 @@ Si vous souhaitez autoriser cette même application à lire les éléments secre
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Si vous souhaitez utiliser un module de sécurité matériel (HSM)
+## <a id="HSM"></a>Si vous souhaitez utiliser un module de sécurité matériel (HSM)
 Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
 
 Pour créer les clés protégées par HSM, vous devez utiliser le [niveau de service Azure Key Vault Premium qui prend en charge les clés protégées par HSM](https://azure.microsoft.com/pricing/free-trial/). En outre, notez que cette fonctionnalité n’est pas disponible pour Azure en Chine.
@@ -206,8 +207,8 @@ La commande suivante importe un package BYOK (Bring Your Own Key, Apporter votre
 
 Pour plus d'instructions sur la génération de ce package BYOK, consultez [Génération et transfert de clés protégées par HSM pour Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Suppression du coffre de clés et des clés/secrets associés
-Si vous n’avez plus besoin du coffre de clés ni de la clé ou du secret qu’il contient, vous pouvez supprimer le coffre de clés à l’aide de l’applet de commande [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx) :
+## <a id="delete"></a>Suppression du coffre de clés et des clés/secrets associés
+Si vous n’avez plus besoin du coffre de clés ni de la clé ou du secret qu’il contient, vous pouvez supprimer le coffre de clés à l’aide de l’applet de commande [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) :
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -216,7 +217,7 @@ Vous pouvez également supprimer un groupe de ressources Azure, qui inclut le co
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Autres applets de commande Azure PowerShell
+## <a id="other"></a>Autres applets de commande Azure PowerShell
 Autres commandes pouvant être utiles pour la gestion du coffre de clés Azure.
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'` : cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des clés et propriétés sélectionnées.
@@ -225,18 +226,12 @@ Autres commandes pouvant être utiles pour la gestion du coffre de clés Azure.
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` : exemple montrant comment supprimer une clé spécifique.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` : exemple montrant comment supprimer un secret spécifique.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 Pour assurer le suivi d'un didacticiel sur l'utilisation d'Azure Key Vault dans une application web, consultez la page [Utilisation d'Azure Key Vault à partir d'une application web](key-vault-use-from-web-application.md).
 
 Pour voir comment votre coffre de clés est utilisé, consultez l’article [Journalisation d’Azure Key Vault](key-vault-logging.md).
 
-Pour obtenir la liste des dernières applets de commande Azure PowerShell pour le coffre de clés Azure, consultez la page relative aux [applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
+Pour obtenir la liste des dernières applets de commande Azure PowerShell pour le coffre de clés Azure, consultez la page relative aux [applets de commande Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

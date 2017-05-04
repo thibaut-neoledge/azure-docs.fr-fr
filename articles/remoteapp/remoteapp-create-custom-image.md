@@ -12,12 +12,12 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c5b87c3a814b816e8bdc28d3e22b64c2197579af
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 976c918c6553f050d77814438fc45ee65147013a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 * [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à RemoteApp.
 * Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
 * Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
-* Installer le module [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* Installer le module [Azure PowerShell](/powershell/azure/overview) .
 * Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
 
 ## <a name="create-a-template-image"></a>Création d'une image de modèle

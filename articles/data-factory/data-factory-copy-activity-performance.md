@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -234,7 +234,7 @@ Vous êtes facturé en fonction de deux étapes : la durée de la copie et le ty
 ## <a name="performance-tuning-steps"></a>Procédure de réglage des performances
 Nous vous recommandons d’effectuer cette procédure pour régler les performances de votre service Data Factory avec l’activité de copie :
 
-1. **Établir une ligne de base**. Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Vous pouvez utiliser le [modèle de découpage](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) Data Factory pour limiter la quantité de données que vous utilisez.
+1. **Établir une ligne de base**. Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Vous pouvez utiliser le [modèle de découpage](data-factory-scheduling-and-execution.md) Data Factory pour limiter la quantité de données que vous utilisez.
 
    Collectez les temps d’exécution et les caractéristiques de performances à l’aide de **l’application de surveillance et gestion**. Choisissez **Surveiller et gérer** sur votre page d’accueil Data Factory. Dans l’arborescence, sélectionnez le **jeu de données de sortie**. Dans la liste des **fenêtres d’activité** , sélectionnez l’exécution de l’activité de copie. **fenêtres d’activité** répertorient la durée de l’activité de copie et la taille des données qui sont copiées. Le débit est répertorié dans **l’Explorateur de fenêtres d’activité**. Pour en savoir plus sur l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md).
 

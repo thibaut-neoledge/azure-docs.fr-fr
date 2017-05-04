@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2449ffda80ec7cb7a73a6eac229d09c3a4a96cc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +105,7 @@ Contrairement à la sauvegarde manuelle de disque de données de machine virtuel
 
 ![Tous les disques durs virtuels impliqués ont été copiés à l’aide de la commande PowerShell **start-azurestorageblobcopy**](media/sap-hana-backup-file-level/image031.png)
 
-Une fois la sauvegarde du RAID logiciel local effectuée, tous les disques durs virtuels impliqués ont été copiés à l’aide de la commande PowerShell **start-azurestorageblobcopy** (voir [Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy)). Dans la mesure où cela affecte uniquement le système de fichiers dédié à la conservation des fichiers de sauvegarde, il n’existe aucun problème de cohérence des fichiers journaux ou des données SAP HANA sur le disque. L’avantage de cette commande est qu’elle fonctionne lorsque la machine virtuelle est en ligne. Pour être certain qu’aucun processus n’écrit dans le groupe d’entrelacements de sauvegarde, veillez à le démonter avant la copie d’objets blob, puis à le remonter. Vous pouvez également utiliser une méthode appropriée pour &quot;figer&quot; le système de fichiers. Par exemple, via xfs\_freeze pour le système de fichiers XFS.
+Une fois la sauvegarde du RAID logiciel local effectuée, tous les disques durs virtuels impliqués ont été copiés à l’aide de la commande PowerShell **start-azurestorageblobcopy** (voir [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Dans la mesure où cela affecte uniquement le système de fichiers dédié à la conservation des fichiers de sauvegarde, il n’existe aucun problème de cohérence des fichiers journaux ou des données SAP HANA sur le disque. L’avantage de cette commande est qu’elle fonctionne lorsque la machine virtuelle est en ligne. Pour être certain qu’aucun processus n’écrit dans le groupe d’entrelacements de sauvegarde, veillez à le démonter avant la copie d’objets blob, puis à le remonter. Vous pouvez également utiliser une méthode appropriée pour &quot;figer&quot; le système de fichiers. Par exemple, via xfs\_freeze pour le système de fichiers XFS.
 
 ![Cette capture d’écran affiche la liste des objets blob dans le conteneur de disques durs virtuels sur le portail Azure](media/sap-hana-backup-file-level/image032.png)
 
@@ -160,5 +160,5 @@ Le stockage des fichiers de sauvegarde SAP HANA sur les fichiers Azure pourrait 
 ## <a name="next-steps"></a>Étapes suivantes
 * L’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md) fournit une vue d’ensemble et des informations sur la mise en route.
 * L’article [Sauvegarde SAP HANA à partir de captures instantanées de stockage](sap-hana-backup-storage-snapshots.md) décrit l’option de sauvegarde à partir d’instantanés de stockage.
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (instances de grande taille), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
 

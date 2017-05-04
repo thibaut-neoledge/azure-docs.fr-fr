@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -86,7 +86,7 @@ Une alerte de fraude peut être déclarée de deux façons.  À l’aide de l'ap
 3. Terminez l'appel.
 
 ### <a name="view-fraud-reports"></a>Afficher les rapports de fraude
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Sélectionnez à gauche Active Directory.
 3. En haut de la page, sélectionnez **Fournisseurs d’authentification multifacteur**. Cela fait apparaître une liste de vos fournisseurs d’authentification multifacteur.
 4. Sélectionnez votre fournisseur d’authentification multifacteur et cliquez sur **Gérer** en bas de la page. Le portail de gestion Azure Multi-Factor Authentication s’affiche.
@@ -98,7 +98,7 @@ Une alerte de fraude peut être déclarée de deux façons.  À l’aide de l'ap
 Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois sans procéder à la vérification en deux étapes. Le contournement est temporaire et expire après le nombre de secondes spécifié. Par conséquent, lorsque l’application mobile ou le téléphone ne reçoit pas de notification ou d’appel téléphonique, vous pouvez activer un contournement à usage unique afin que l’utilisateur puisse accéder à la ressource souhaitée.
 
 ### <a name="create-a-one-time-bypass"></a>Créer un contournement à usage unique
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 3. Dans le portail de gestion Azure Multi-Factor Authentication, si le nom de votre client ou fournisseur Azure MFA s’affiche à gauche avec le signe **+**, cliquez sur le signe **+** pour afficher les différents groupes de réplication du serveur MFA et le groupe Azure par défaut. Sélectionnez le groupe approprié.
 4. Sous Administration des utilisateurs, sélectionnez **Contournement à usage unique**.
@@ -110,7 +110,7 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 7. La limite de temps entre en vigueur immédiatement, par conséquent, l’utilisateur doit se connecter avant l’expiration du contournement à usage unique. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Sélectionnez à gauche Active Directory.
 3. En haut de la page, sélectionnez **Fournisseurs d’authentification multifacteur**. Cela fait apparaître une liste de vos fournisseurs d’authentification multifacteur.
 4. Sélectionnez votre fournisseur d’authentification multifacteur et cliquez sur **Gérer** en bas de la page. Le portail de gestion Azure Multi-Factor Authentication s’affiche.
@@ -134,7 +134,7 @@ Il existe deux étapes dans la création d’un message personnalisé. Tout d’
 Pour télécharger votre message personnalisé :
 
 1. Créer un message vocal personnalisé à l'aide d'un des formats de fichiers pris en charge.
-2. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+2. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 3. Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 4. Dans le portail de gestion Azure Multi-Factor Authentication, cliquez sur **Messages vocaux** dans la section Configurer.
 5. Dans la page Configurer : messages vocaux, cliquez sur **Nouveau message vocal**.
@@ -164,7 +164,7 @@ La mise en cache vous permet de définir une période spécifique pour que les t
 La mise en cache n’est pas destinée à être utilisée pour les connexions à Azure AD.
 
 ### <a name="set-up-caching"></a>Configurer la mise en cache 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 3. Dans le portail de gestion Azure Multi-Factor Authentication, cliquez sur **Mise en cache** dans la section Configurer.
 4. Dans la page Configurer la mise en cache, cliquez sur **Nouveau cache**.
@@ -193,7 +193,7 @@ Lorsque la fonction Adresses IP approuvées est activée, la vérification en de
 Que la fonction Adresses IP approuvées soit activée ou non, la vérification en deux étapes est requise pour les flux de navigateur et les mots de passe d’application sont requis pour les applications client riches plus anciennes. 
 
 ### <a name="to-enable-trusted-ips"></a>Pour activer Adresses IP approuvées
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez à la page de paramètres du service d’authentification MFA pour obtenir des instructions au début de cet article.
 3. Dans la page Paramètres du service, sous Adresses IP approuvées, vous disposez de deux options :
    
@@ -255,7 +255,7 @@ Azure AD prend en charge la fédération (authentification unique) avec les serv
 ### <a name="allow-app-password-creation"></a>Autoriser la création de mots de passe d’application
 Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d'application. Cette fonctionnalité doit être activée. Pour permettre aux utilisateurs de créer des mots de passe d’application, procédez comme suit :
 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez à la page de paramètres du service d’authentification MFA pour obtenir des instructions au début de cet article.
 3. Sélectionnez la case d’option située à côté de **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur**.
 
@@ -283,7 +283,7 @@ La mémorisation de MFA sur les appareils fiables réduit donc le nombre d’aut
 >Cette fonctionnalité n’est pas compatible avec la fonctionnalité « Maintenir la connexion » d’AD FS lorsque l’utilisateur effectue la vérification en deux étapes pour AD FS via le serveur Azure MFA ou via une solution MFA tierce. Si vos utilisateurs cochent la case « Maintenir la connexion » sur AD FS alors qu’ils marquent leur appareil comme digne de confiance pour MFA, ils ne pourront pas procéder à la vérification une fois le délai associé à la mémorisation MFA expiré. Azure AD demande une vérification immédiate en deux étapes, mais AD FS renvoie un jeton avec la revendication MFA d’origine et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. Ceci permet de définir une boucle de vérification entre Azure AD et AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez à la page de paramètres du service d’authentification MFA pour obtenir des instructions au début de cet article.
 3. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, cochez la case **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
    ![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
@@ -310,7 +310,7 @@ Lorsque vos utilisateurs inscrivent leurs comptes à MFA, ils choisissent la mé
 | Code de vérification de l’application mobile |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les trente secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion.<br>L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Comment activer/désactiver les méthodes d'authentification
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez à la page de paramètres du service d’authentification MFA pour obtenir des instructions au début de cet article.
 3. Dans les options de vérification de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.
    ![Options de vérification](./media/multi-factor-authentication-whats-next/authmethods.png)

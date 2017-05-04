@@ -17,9 +17,9 @@ ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 1767a2db05abd3abadfedbef86c38e55c5a57980
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne
 
 ## <a name="rdma-network-for-nc24r-vms"></a>Réseau RDMA pour les machines virtuelles NC24r
 
-La connectivité réseau RDMA peut être activée sur des machines virtuelles NC24r déployées dans le même groupe à haute disponibilité. L’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle NC24r, utilisez les applets de commande [Azure PowerShell](/powershell/azureps-cmdlets-docs) pour Azure Resource Manager.
+La connectivité réseau RDMA peut être activée sur des machines virtuelles NC24r déployées dans le même groupe à haute disponibilité. L’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle NC24r, utilisez les applets de commande [Azure PowerShell](/powershell/azure/overview) pour Azure Resource Manager.
 
 > [!NOTE]
 > Actuellement, seul Windows Server 2012 R2 prend en charge le réseau RDMA sur des machines virtuelles NC24r.

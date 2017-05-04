@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +64,7 @@ Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils pui
 Quelques minutes après cette modification, le nouveau mot de passe est utilisable Azure AD DS. Après 20 minutes environ (en général), vous pouvez vous connecter aux ordinateurs joints au domaine managé à l’aide du nouveau mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Prise en main de la gestion de mot de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Activer la synchronisation de mot de passe dans Azure Active Directory Domain Services pour un locataire Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrer un domaine managé par Azure Active Directory Domain Services ](active-directory-ds-admin-guide-administer-domain.md)

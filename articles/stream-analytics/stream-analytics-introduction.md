@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ De nos jours, d'importantes quantités de données transitent à haute vitesse s
 * **Connectivité :** Stream Analytics se connecte directement à Azure Event Hubs et à Azure IoT Hub pour l’ingestion de flux de données, ainsi qu’au service BLOB Azure pour l’ingestion de données d’historique. Les résultats peuvent être écrits de Stream Analytics vers les objets blob ou tables de stockage Azure, le service Base de données SQL Azure, les instances Azure Data Lake Store, DocumentDB, les hubs d’événements Event Hubs, les rubriques ou files d’attente Service Bus Azure et Power BI, où ils peuvent être visualisés, faire l’objet d’un traitement plus poussé par les workflows, être utilisés dans les analyses par lot via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ou être traités à nouveau en tant que série d’événements. Lorsque vous utilisez Event Hubs, vous pouvez composer plusieurs Stream Analytics avec d’autres sources de données et moteurs de traitement sans dénaturer la capacité de diffusion des calculs.  
 
 ## <a name="get-help"></a>Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :

@@ -15,10 +15,6 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 
 1 GPU = une moitié de carte M60.
 
-**Systèmes d’exploitation pris en charge**
-
-* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
 ## <a name="nc-instances"></a>Instances NC
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU |
@@ -32,10 +28,4 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 
 *Prenant en charge RDMA
 
-**Systèmes d’exploitation pris en charge**
-
-* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS - consultez [Configuration du pilote série N pour Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
-
-<br>
 

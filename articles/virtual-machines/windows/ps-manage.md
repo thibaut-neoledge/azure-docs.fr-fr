@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ca695dd140af0a6f9b13f75e0402e1675b9e79d7
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c8ed83c6c0219995030408f276d4ef7d83703c7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 Cet article vous présente des tâches de gestion courantes que vous pouvez effectuer sur une machine virtuelle Azure.
 
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > Vous devrez peut-être réinstaller Azure PowerShell pour utiliser les fonctionnalités de cet article. Les fonctionnalités Managed Disks sont disponibles dans la version 3.5 et ultérieure.

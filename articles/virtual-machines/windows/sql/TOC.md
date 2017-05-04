@@ -36,7 +36,7 @@
 ## [Modèles d’application](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Pilotes SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

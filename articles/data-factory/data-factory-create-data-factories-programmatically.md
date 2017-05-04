@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
     ```
 
    > [!NOTE]
-   > Remplacez **resourcegroupname** par le nom de votre groupe de ressources Azure. Vous pouvez créer un groupe de ressources à l’aide du cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) .
+   > Remplacez **resourcegroupname** par le nom de votre groupe de ressources Azure. Vous pouvez créer un groupe de ressources à l’aide du cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
 7. Ajoutez à la méthode **Main** le code suivant, qui crée une **fabrique de données**.
 
     ```csharp
@@ -445,7 +445,7 @@ Voici comment créer l’application Active Directory (le principal du service) 
 Notez l’ID d’application et le mot de passe (clé secrète client) et utilisez-les dans la procédure.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Obtenir les ID d’abonnement et client Azure
-Si vous n’avez pas la dernière version d’Azure PowerShell sur votre ordinateur, suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Si vous n’avez pas la dernière version d’Azure PowerShell sur votre ordinateur, suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante
 2. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.

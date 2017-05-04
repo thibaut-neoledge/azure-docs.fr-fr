@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Utilisez la procédure suivante pour activer l’authentification multifacteur p
 Après avoir activé les utilisateurs, vous devez les en avertir par e-mail. La prochaine fois qu’ils tentent de se connecter, il leur sera demandé d’inscrire leur compte pour la vérification en deux étapes. Une fois qu’ils commencent à utiliser la vérification en deux étapes, ils devront également configurer des mots de passe d’application afin d’éviter d’être déconnectés des applications sans navigateur.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Utiliser PowerShell pour automatiser l’activation de la vérification en deux étapes
-Pour modifier [l’état](multi-factor-authentication-whats-next.md) à l’aide [d’Azure AD PowerShell](/powershell/azureps-cmdlets-docs), vous pouvez utiliser les éléments suivants.  Vous pouvez modifier `$st.State` pour définir l’un des états suivants :
+Pour modifier [l’état](multi-factor-authentication-whats-next.md) à l’aide [d’Azure AD PowerShell](/powershell/azure/overview), vous pouvez utiliser les éléments suivants.  Vous pouvez modifier `$st.State` pour définir l’un des états suivants :
 
 * activé
 * Appliquée

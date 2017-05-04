@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
-ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -213,11 +214,6 @@ Oui. Vous pouvez utiliser des API REST pour les réseaux virtuels dans les modè
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 Oui. En savoir plus sur l’utilisation des éléments suivants :
 - Le portail Azure pour déployer des réseaux virtuels via les modèles de déploiement [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) et [classique](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) et [classique](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking).
+- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) et [classique](/powershell/module/azure/?view=azuresmps-3.7.0).
 - [L’interface de ligne de commande (CLI) Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) pour gérer les réseaux virtuels déployés via les deux modèles de déploiement.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

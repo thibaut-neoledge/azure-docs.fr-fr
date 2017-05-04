@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 16ea28d13ccbe559d7988032e162581cde363157
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 Les modifications apportées à ces limites seront annoncées sur la page des [mises à jour concernant l’accélération réseau Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Créer une machine virtuelle Windows avec accélération réseau
-1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 2. Pour obtenir la version préliminaire, envoyez un e-mail à [Abonnements à l’accélération réseau](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) en indiquant votre ID d’abonnement et l’utilisation prévue. N’effectuez pas les étapes restantes tant que vous n’avez pas reçu d’e-mail vous informant que vous avez été accepté dans la version préliminaire.
 3. Inscrivez votre capacité avec l’abonnement en entrant les commandes suivantes :
    

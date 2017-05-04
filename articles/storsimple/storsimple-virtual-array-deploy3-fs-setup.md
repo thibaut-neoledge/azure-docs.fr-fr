@@ -16,9 +16,9 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
@@ -102,7 +102,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres d’heure configurés.
 11. Configurez les paramètres de cloud de votre appareil. Dans le cadre de cette étape, vous allez effectuer la configuration de l’appareil local, puis inscrire l’appareil auprès de votre service StorSimple Device Manager.
     
-    1. Saisissez la **clé d’inscription de service** que vous avez obtenue à l’ [étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+    1. Saisissez la **clé d’inscription de service** que vous avez obtenue à l’ [étape 2 : Obtention de la clé d’inscription](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
     2. S’il s’agit du premier appareil que vous inscrivez auprès de ce service, la **clé de chiffrement des données du service** vous est présentée. Copiez-la et enregistrez-la en lieu sûr. Cette clé et la clé d’inscription du service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Device Manager. 
        
        S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la clé de chiffrement des données du service. Pour plus d’informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
