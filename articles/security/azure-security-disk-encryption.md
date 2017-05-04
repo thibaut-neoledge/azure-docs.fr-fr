@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ Après avoir téléchargé le fichier .pfx, déployez un certificat dans le coff
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Définir la stratégie d’accès au coffre de clés pour l’application Azure AD
-Votre application Azure AD a besoin d’autorisations d’accès aux clés ou aux clés secrètes dans le coffre. Utilisez l’applet de commande [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx) pour accorder des autorisations à l’application en utilisant l’ID client (qui a été généré lors de l’enregistrement de l’application) comme valeur du paramètre _–ServicePrincipalName_. Pour en savoir plus, consultez le billet de blog [Azure Key Vault – Étape par étape](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Voici comment exécuter cette tâche via PowerShell :
+Votre application Azure AD a besoin d’autorisations d’accès aux clés ou aux clés secrètes dans le coffre. Utilisez l’applet de commande [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0) pour accorder des autorisations à l’application en utilisant l’ID client (qui a été généré lors de l’enregistrement de l’application) comme valeur du paramètre _–ServicePrincipalName_. Pour en savoir plus, consultez le billet de blog [Azure Key Vault – Étape par étape](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Voici comment exécuter cette tâche via PowerShell :
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Reportez-vous au tableau de terminologie suivant pour comprendre certains des te
 | Interface de ligne de commande | Voir [Interface de ligne de commande Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) est le sous-système de chiffrement de disque transparent Linux utilisé pour activer le chiffrement de disque sur les machines virtuelles IaaS Linux. |
 | KEK | La clé de chiffrement à clé est la clé asymétrique (RSA 2048) que vous pouvez utiliser pour protéger ou encapsuler la clé secrète. Vous pouvez fournir une clé protégée par le module HSM ou une clé protégée par le logiciel. Pour plus d’informations, consultez la documentation relative à [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| Applets de commande PS | Voir [Applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs). |
+| Applets de commande PS | Voir [Applets de commande Azure PowerShell](/powershell/azure/overview). |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Créer et configurer votre coffre de clés pour Azure Disk Encryption
 Azure Disk Encryption protège les clés et les clés secrètes de chiffrement dans votre coffre de clés. Pour configurer votre coffre de clés pour Azure Disk Encryption, suivez les étapes de chacune des sections suivantes.
@@ -391,7 +391,7 @@ Azure Disk Encryption protège les clés et les clés secrètes de chiffrement d
 Pour créer un coffre de clés, utilisez l’une des options suivantes :
 
 * [Modèle Resource Manager « 101-Key-Vault-Create »](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [Applets de commande Key Vault Azure PowerShell](https://msdn.microsoft.com/library/dn868052.aspx)
+* [Applets de commande Key Vault Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
 * Comment [Sécuriser votre coffre de clés](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
@@ -401,7 +401,7 @@ Pour créer un coffre de clés, utilisez l’une des options suivantes :
 ![coffre de clés Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configurer une clé de chiffrement à clé (facultatif)
-Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la protection des clés de chiffrement BitLocker, ajoutez une clé de chiffrement à clé à votre coffre de clés. Utilisez l’applet de commande [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel de gestion des clés locales. Pour plus d’informations, consultez la [Documentation relative à Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
+Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la protection des clés de chiffrement BitLocker, ajoutez une clé de chiffrement à clé à votre coffre de clés. Utilisez l’applet de commande [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel de gestion des clés locales. Pour plus d’informations, consultez la [Documentation relative à Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | vmName | Nom de la machine virtuelle IaaS. |
 
 #### <a name="using-powershell-cmdlets"></a>Utilisation d’applets de commande PowerShell
-Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré à l’aide de l’applet de commande PowerShell [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx).  
+Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré à l’aide de l’applet de commande PowerShell [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk).  
 
 #### <a name="using-cli-commands"></a>Utilisation des commandes CLI
 Pour activer le chiffrement de disque de ce scénario à l’aide des commandes CLI, procédez comme suit :
@@ -630,7 +630,7 @@ Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffr
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Obtenir l’état de chiffrement d’une machine virtuelle IaaS chiffrée
-Vous pouvez obtenir l’état de chiffrement en utilisant Azure Resource Manager, des [applets de commande PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou des commandes CLI. Les sections ci-dessous expliquent comment utiliser le portail Azure Classic et les commandes de l’interface de ligne de commande pour obtenir l’état de chiffrement.
+Vous pouvez obtenir l’état de chiffrement en utilisant Azure Resource Manager, des [applets de commande PowerShell](/powershell/azure/overview) ou des commandes CLI. Les sections ci-dessous expliquent comment utiliser le portail Azure Classic et les commandes de l’interface de ligne de commande pour obtenir l’état de chiffrement.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Obtenir l’état de chiffrement d’une machine virtuelle Windows chiffrée à l’aide d’Azure Resource Manager
 Pour obtenir l’état de chiffrement de la machine virtuelle IaaS à partir d’Azure Resource Manager, procédez comme suit :
@@ -713,7 +713,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | sequenceVersion | Version de séquence de l’opération BitLocker. Incrémentez ce numéro de version à chaque fois qu’une opération de déchiffrement de disque est exécutée sur la même machine virtuelle. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>Désactivation du chiffrement sur une machine virtuelle IaaS existante ou en cours d’exécution
-Pour désactiver le chiffrement sur une machine virtuelle IaaS existante ou en cours d’exécution à l’aide de l’applet de commande PowerShell, utilisez [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx). Cette applet de commande prend en charge les machines virtuelles Linux et Windows. Elle installe une extension sur la machine virtuelle permettant de désactiver le chiffrement. Si le paramètre _Nom_ n’est pas spécifié, une extension avec le nom par défaut _AzureDiskEncryption pour les machines virtuelles Windows_ est créée.
+Pour désactiver le chiffrement sur une machine virtuelle IaaS existante ou en cours d’exécution à l’aide de l’applet de commande PowerShell, utilisez [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). Cette applet de commande prend en charge les machines virtuelles Linux et Windows. Elle installe une extension sur la machine virtuelle permettant de désactiver le chiffrement. Si le paramètre _Nom_ n’est pas spécifié, une extension avec le nom par défaut _AzureDiskEncryption pour les machines virtuelles Windows_ est créée.
 
 Sur les machines virtuelles Linux, l’extension AzureDiskEncryptionForLinux est utilisée.
 
@@ -1149,7 +1149,7 @@ La clé secrète de chiffrement de disque obtenue précédemment doit être tél
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>La clé secrète de chiffrement de disque non chiffré avec une clé de chiffrement à clé KEK
-Utilisez [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx) pour configurer la clé secrète dans votre coffre de clés. Si vous disposez d’une machine virtuelle Windows, le fichier bek est encodé sous forme de chaîne en base64, puis téléchargé dans le coffre de clés à l’aide de l’applet de commande `Set-AzureKeyVaultSecret`. Pour Linux, la phrase secrète est encodée sous forme de chaîne en base64, puis téléchargée dans le coffre de clés. Assurez-vous également que les balises suivantes sont définies lors de la création de la clé secrète dans le coffre de clés.
+Utilisez [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret) pour configurer la clé secrète dans votre coffre de clés. Si vous disposez d’une machine virtuelle Windows, le fichier bek est encodé sous forme de chaîne en base64, puis téléchargé dans le coffre de clés à l’aide de l’applet de commande `Set-AzureKeyVaultSecret`. Pour Linux, la phrase secrète est encodée sous forme de chaîne en base64, puis téléchargée dans le coffre de clés. Assurez-vous également que les balises suivantes sont définies lors de la création de la clé secrète dans le coffre de clés.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Utilisez [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.a
 Utilisez `$secretUrl` à l’étape suivante pour [attacher le lecteur du système d’exploitation sans utiliser de clé de chiffrement à clé](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disque chiffré avec une clé secrète de chiffrement de disque à clé KEK
-Avant de télécharger la clé secrète dans le coffre de clés, vous pouvez éventuellement la chiffrer à l’aide d’une clé de chiffrement à clé. Utilisez [l’API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de retour à la ligne pour chiffrer d’abord la clé secrète à l’aide de la clé de chiffrement à clé. La sortie de cette opération de retour à la ligne est une chaîne d’URL encodée en base64 que vous pouvez ensuite charger comme clé secrète à l’aide de l’applet de commande [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Avant de télécharger la clé secrète dans le coffre de clés, vous pouvez éventuellement la chiffrer à l’aide d’une clé de chiffrement à clé. Utilisez [l’API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de retour à la ligne pour chiffrer d’abord la clé secrète à l’aide de la clé de chiffrement à clé. La sortie de cette opération de retour à la ligne est une chaîne d’URL encodée en base64 que vous pouvez ensuite charger comme clé secrète à l’aide de l’applet de commande [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

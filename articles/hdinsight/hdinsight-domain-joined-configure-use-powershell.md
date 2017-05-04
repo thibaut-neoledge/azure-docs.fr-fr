@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Vous devez disposer des éléments suivants pour terminer ce didacticiel :
 * Familiarisez-vous avec les [services de domaine Azure AD](https://azure.microsoft.com/services/active-directory-ds/), et la structure de [tarification](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 * Assurez-vous que votre abonnement est dans la liste approuvée de cette version préliminaire publique. Pour ce faire, envoyez un e-mail à hdipreview@microsoft.com, avec votre ID d’abonnement.
 * Un certificat SSL signé par une autorité signataire pour votre domaine. Le certificat est requis pour la configuration du LDAP sécurisé. Les certificats auto-signés ne peuvent pas être utilisés.
-* Azure PowerShell.  Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell.  Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Créez un réseau virtuel Azure pour votre instance Azure AD.
 Pour plus d’instructions, consultez [ceci](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).

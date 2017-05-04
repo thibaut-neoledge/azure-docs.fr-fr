@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 76acf42e80de445ff897ca59e34a35e8057ec843
-ms.openlocfilehash: 0535676070fdc83c115c63ec69f09a31fa712740
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 642f3369bedc54c9067ae5520bc94da97b5e36b2
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,25 +37,25 @@ Le tableau suivant récapitule les options de déplacement de données vers une 
 | <b>Fichier plat (mise en forme CSV ou TSV)</b> |<a href="#bulk-insert-sql-query">Requête SQL Bulk Insert |
 | <b>SQL Server local</b> |1. <a href="#export-flat-file">Exporter dans un fichier plat<br> 2. <a href="#insert-tables-bcp">Assistant Migration de la base de données SQL<br> 3. <a href="#db-migration">Sauvegarde et restauration de base de données<br> 4. <a href="#adf">Azure Data Factory |
 
-## <a name="a-nameprereqsaprerequisites"></a><a name="prereqs"></a>Configuration requise
+## <a name="prereqs"></a>Configuration requise
 Les procédures décrites ici nécessitent :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Un accès à une **base de données Azure SQL Database**. Si vous devez configurer une base de données Azure SQL Database, l’article [Bien démarrer avec Microsoft Azure SQL Database](../sql-database/sql-database-get-started.md) fournit des informations sur la configuration d’une nouvelle instance de base de données Azure SQL Database.
-* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 
 **Données** : les processus de migration sont illustrés à l’aide du [jeu de données NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/). Le jeu de données NYC Taxi contient des informations sur les données de voyage et les prix. Il est disponible sur Stockage Blob Azure : [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
 Vous pouvez adapter les procédures décrites ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
 
-## <a name="a-namefile-to-azure-sql-databasea-moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Déplacement des données à partir d'un fichier plat source vers une base de données Azure SQL
+## <a name="file-to-azure-sql-database"></a> Déplacement des données à partir d'un fichier plat source vers une base de données Azure SQL
 Les données de fichiers plats (au format CSV ou TSV) peuvent être déplacées vers une base de données Azure SQL à l'aide d'une requête SQL Bulk Insert.
 
-### <a name="a-namebulk-insert-sql-querya-bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Requête SQL Bulk Insert
+### <a name="bulk-insert-sql-query"></a> Requête SQL Bulk Insert
 Les étapes de la procédure à l'aide de la requête SQL Bulk Insert sont similaires à celles décrites dans les sections de déplacement des données à partir d'une source de fichier plat vers SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Requête SQL Bulk Insert](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="a-namesql-on-prem-to-sazure-sql-databasea-moving-data-from-on-premise-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement des données à partir d’un SQL Server local vers une base de données Azure SQL
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement des données à partir d’un SQL Server local vers une base de données Azure SQL
 Si la source de données est stockée dans un serveur local SQL Server, il existe différentes possibilités pour déplacer les données vers une base de données Azure SQL :
 
 1. [Exporter dans un fichier plat](#export-flat-file)
@@ -64,22 +65,17 @@ Si la source de données est stockée dans un serveur local SQL Server, il exis
 
 Les étapes des trois premières options sont très similaires à celles décrites dans les sections de [Déplacer des données vers un serveur SQL Server sur une machine virtuelle Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) qui traitent des mêmes procédures. Vous trouverez dans les instructions ci-dessous des liens vers les sections appropriées de cette rubrique.
 
-### <a name="a-nameexport-flat-fileaexport-to-flat-file"></a><a name="export-flat-file"></a>Exporter dans un fichier plat
+### <a name="export-flat-file"></a>Exporter dans un fichier plat
 Les étapes de l’exportation vers un fichier plat sont similaires à celles de la section [Exporter dans un fichier plat](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
 
-### <a name="a-nameinsert-tables-bcpasql-database-migration-wizard"></a><a name="insert-tables-bcp"></a>Assistant Migration de la base de données SQL
+### <a name="insert-tables-bcp"></a>Assistant Migration de la base de données SQL
 Les étapes d’utilisation de l’Assistant de migration de base de données SQL sont semblables à celles de la section [Assistant Migration de la base de données SQL](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
 
-### <a name="a-namedb-migrationadatabase-back-up-and-restore"></a><a name="db-migration"></a>Sauvegarde et restauration de base de données
+### <a name="db-migration"></a>Sauvegarde et restauration de base de données
 Les étapes d’utilisation de la sauvegarde et de restauration de la base de données sont similaires à celles de la section [Sauvegarde et restauration de base de données](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
 
-### <a name="a-nameadfaazure-data-factory"></a><a name="adf"></a>Azure Data Factory
+### <a name="adf"></a>Azure Data Factory
 La procédure de déplacement des données vers une base de données Azure SQL avec Azure Data Factory (ADF) est décrite dans la rubrique [Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Cette rubrique montre comment déplacer des données d’une base de données SQL Server locale vers une base de données Azure via le stockage d’objets blob Azure à l’aide d’ADF.
 
 Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
