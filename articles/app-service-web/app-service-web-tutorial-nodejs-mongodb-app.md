@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ef3fc25ed06eb498600df4fc8fcad37f0f0dc676
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Avant d’exécuter cet exemple, tenez compte des conditions préalables suivant
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---test-local-mongodb-database"></a>Étape 1 : tester la base de données MongoDB locale
+## <a name="test-local-mongodb-database"></a>Tester la base de données MongoDB locale
 Dans cette étape, vous allez vérifier le bon fonctionnement de votre base de données MongoDB locale.
 
 Ouvrez la fenêtre du terminal et `CD` dans le répertoire `bin` de votre installation MongoDB. 
@@ -54,7 +54,7 @@ Lorsque vous avez terminé de tester votre base de données MongoDB, tapez `Ctrl
 
 <a name="step2"></a>
 
-## <a name="step-2---create-local-nodejs-application"></a>Étape 2 : créer une application Node.js locale
+## <a name="create-local-nodejs-application"></a>Créer une application Node.js locale
 Cette étape consiste à configurer le projet Node.js local.
 
 ### <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
@@ -103,7 +103,7 @@ Essayez de cliquer sur **Admin** > **Manage Articles** (Administrateur > Gérer 
 
 Pour arrêter Node.js à tout moment, tapez `Ctrl`+`C` dans le terminal. 
 
-## <a name="step-3---create-a-production-mongodb-database"></a>Étape 3 : créer une base de données MongoDB de production
+## <a name="create-a-production-mongodb-database"></a>Créer une base de données MongoDB de production
 
 Dans cette étape, vous allez créer une base de données MongoDB dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données pour sa charge de travail de production.
 
@@ -163,7 +163,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## <a name="step-4---connect-your-nodejs-application-to-the-database"></a>Étape 4 : connecter votre application Node.js à la base de données
+## <a name="connect-your-nodejs-application-to-the-database"></a>Connecter votre application Node.js à la base de données
 
 Dans cette étape, vous allez connecter votre exemple d’application MEAN.js à la base de données DocumentDB que vous venez de créer, à l’aide d’une chaîne de connexion MongoDB. 
 
@@ -242,7 +242,7 @@ MEAN.JS version: 0.5.0
 
 Dans un navigateur, accédez à `http://localhost:8443`. Cliquez sur **S’inscrire** dans le menu supérieur et essayez de créer un utilisateur fictif, comme précédemment. Si vous réussissez, cela signifie que votre application écrit des données dans la base de données DocumentDB dans Azure. 
 
-## <a name="step-5---deploy-the-nodejs-application-to-azure"></a>Étape 5 : déployer l’application Node.js dans Azure
+## <a name="deploy-the-nodejs-application-to-azure"></a>Déployer l’application Node.js dans Azure
 Dans cette étape, vous allez déployer dans Azure App Service votre application Node.js connectée à MongoDB.
 
 ### <a name="create-an-app-service-plan"></a>Créer un plan App Service
@@ -435,7 +435,7 @@ Essayez de cliquer sur **Admin** > **Manage Articles** (Administrateur > Gérer 
 
 **Félicitations !** Vous exécutez une application Node.js orientée données dans Azure App Service.
 
-## <a name="step-6---update-data-model-and-redeploy"></a>Étape 6 : mettre à jour le modèle de données et redéployer
+## <a name="update-data-model-and-redeploy"></a>Mettre à jour le modèle de données et redéployer
 
 Dans cette étape, vous allez apporter certaines modifications au modèle de données `article` et publier vos modifications dans Azure.
 
@@ -569,7 +569,7 @@ Une fois le `git push` terminé, accédez à votre application web Azure et essa
 >
 >
 
-## <a name="step-7---stream-diagnostic-logs"></a>Étape 7 : diffuser les journaux de diagnostic 
+## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic 
 
 Pendant l’exécution de votre application Node.js dans Azure App Service, vous pouvez acheminer les journaux de la console directement vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
@@ -583,7 +583,7 @@ Une fois que la diffusion a démarré, actualisez votre application web Azure da
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`. 
 
-## <a name="step-8---manage-your-azure-web-app"></a>Étape 8 : gérer votre application web Azure
+## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
 
 Accédez au portail Azure pour voir l’application web que vous avez créée.
 

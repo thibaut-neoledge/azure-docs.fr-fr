@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 04/19/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 674404b135d2e512840505ee0927db98824aa8b1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,19 +30,20 @@ ms.lasthandoff: 03/04/2017
 >
 >
 
-Dans cette rubrique, vous allez apprendre à gérer vos solutions avec Azure PowerShell et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cette rubrique se concentre sur les tâches de gestion. Vous allez :
+Dans cet article, vous allez apprendre à gérer vos solutions avec Azure PowerShell et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cette rubrique se concentre sur les tâches de gestion. Vous allez :
 
 1. Créer un groupe de ressources
 2. Ajouter une ressource au groupe de ressources
 3. Ajouter une balise à la ressource
 4. Interroger les ressources selon des noms ou des valeurs de balise
 5. Appliquer et supprimer un verrou sur la ressource
-6. Créer un modèle Resource Manager à partir de votre groupe de ressources
-7. Supprimer un groupe de ressources
+6. Supprimer un groupe de ressources
+
+Cet article n’indique pas comment déployer un modèle Resource Manager sur votre abonnement. Pour plus d’informations, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](resource-group-template-deploy.md).
 
 ## <a name="get-started-with-azure-powershell"></a>Prise en main de Microsoft Azure PowerShell
 
-Si Azure PowerShell n’est pas installé sur votre système, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Si Azure PowerShell n’est pas installé sur votre système, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 Si vous avez déjà installé Azure PowerShell mais ne l’avez pas mis à jour récemment, envisagez d’installer la version la plus récente. Vous pouvez mettre à jour la version en appliquant la même méthode que lors de l’installation. Par exemple, si vous avez utilisé le programme Web Platform Installer, relancez-le et recherchez si une mise à jour est disponible.
 
@@ -52,7 +53,7 @@ Pour vérifier votre version du module de ressources Azure, utilisez l’applet 
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Cette rubrique a été mise à jour pour la version 3.3.0. Si vous possédez une version antérieure, les étapes présentées dans cette rubrique ne correspondront peut-être pas à votre situation. Pour plus d’informations sur les applets de commande pour cette version, consultez [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources) (Module AzureRM.Resources).
+Cette rubrique a été mise à jour pour la version 3.3.0. Si vous possédez une version antérieure, les étapes présentées dans cette rubrique ne correspondront peut-être pas à votre situation. Pour plus d’informations sur les applets de commande pour cette version, consultez [AzureRM.Resources Module](/powershell/module/azurerm.resources) (Module AzureRM.Resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Connexion à votre compte Azure
 Avant de travailler sur votre solution, vous devez vous connecter à votre compte.
@@ -142,7 +143,7 @@ Get-AzureRmResourceGroup
 ## <a name="add-resources-to-a-resource-group"></a>Ajouter des ressources à un groupe de ressources
 Pour ajouter une ressource au groupe de ressources, vous pouvez utiliser l’applet de commande **New-AzureRmResource** ou une applet de commande spécifique au type de ressource que vous créez (comme **New-AzureRmStorageAccount**). Il est peut-être plus facile d’utiliser une applet de commande spécifique à un type de ressource, car elle inclut les paramètres relatifs aux propriétés requises pour la nouvelle ressource. Pour utiliser **New-AzureRmResource**, vous devez connaître toutes les propriétés à définir, même si vous n’êtes pas invité à les entrer.
 
-Cependant, l’ajout d’une ressource à l’aide d’applets de commande risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Microsoft recommande de définir l’infrastructure de votre solution Azure dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable. Cette rubrique n’indique pas comment déployer un modèle Resource Manager sur votre abonnement. Pour plus d’informations, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](resource-group-template-deploy.md). Dans le cadre de cette rubrique, vous créez un compte de stockage avec une applet de commande PowerShell et générerez plus tard un modèle à partir de votre groupe de ressources.
+Cependant, l’ajout d’une ressource à l’aide d’applets de commande risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Microsoft recommande de définir l’infrastructure de votre solution Azure dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable. Dans le cadre de cette rubrique, vous créez un compte de stockage avec une applet de commande PowerShell et générerez plus tard un modèle à partir de votre groupe de ressources.
 
 L’applet de commande suivante permet de créer un compte de stockage. Au lieu d’utiliser le nom indiqué dans l’exemple, entrez un nom unique pour le compte de stockage. Le nom doit comprendre entre 3 et 24 caractères et comporter uniquement des lettres en minuscules et des nombres. Si vous utilisez le nom indiqué dans l’exemple, vous recevez une erreur, car ce nom est déjà en cours d’utilisation.
 
@@ -221,25 +222,6 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 ```
 
 Pour plus d’informations sur la définition des verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
-
-## <a name="export-resource-manager-template"></a>Exporter un modèle Resource Manager
-Pour un groupe de ressources existant (déployé via PowerShell ou l'une des autres méthodes telles que le portail), vous pouvez afficher le modèle Resource Manager pour le groupe de ressources. L’exportation du modèle offre deux avantages :
-
-1. Vous pouvez facilement automatiser les prochains déploiements de la solution, car l’ensemble de l’infrastructure est défini dans le modèle.
-2. Vous pouvez vous familiariser avec la syntaxe de modèle en regardant dans la JSON (JavaScript Object Notation) qui représente votre solution.
-
-> [!NOTE]
-> La fonctionnalité Modèle d’exportation est en version préliminaire. Tous les types de ressources ne la prennent pas actuellement en charge. Lorsque vous tentez d’exporter un modèle, une erreur indiquant que certaines ressources n’ont pas été exportées peut s’afficher. Le cas échéant, vous pouvez définir manuellement ces ressources dans votre modèle après l’avoir téléchargé.
->
->
-
-Pour afficher le modèle d’un groupe de ressources, exécutez l’applet de commande **Export-AzureRmResourceGroup** .
-
-```powershell
-Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
-```
-
-Il existe de nombreuses options et scénarios pour l’exportation d’un modèle Resource Manager. Pour plus d’informations, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
 ## <a name="remove-resources-or-resource-group"></a>Supprimer des ressources ou un groupe de ressources
 Vous pouvez supprimer une ressource ou un groupe de ressources. Lorsque vous supprimez un groupe de ressources, vous supprimez également toutes les ressources qu’il contient.

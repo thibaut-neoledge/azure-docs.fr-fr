@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 5780c56a05ce1c40500927dec9df7906b02a1d13
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,9 +29,8 @@ Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont tr�
 
 Le Proxy d’application fonctionne après l’installation d’un service Windows Server léger appelé connecteur sur votre réseau. Vous pouvez installer plusieurs connecteurs en fonction de vos besoins en évolutivité et en haute disponibilité. Commencez avec un connecteur et en ajoutez-en d’autres en fonction de vos besoins. Chaque fois qu’un connecteur est installé, il est ajouté au pool de connecteurs qui sert votre client.
 
-Nous vous recommandons de ne pas installer les connecteurs sur les mêmes serveurs qui hébergent vos applications.
+Nous vous recommandons de ne pas installer les connecteurs sur les mêmes serveurs qui hébergent vos applications. Vous devez toutefois être en mesure d’accéder à l’application à partir du serveur sur lequel vous installez le connecteur.
 
-Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont pas utilisés. Lorsqu’un connecteur est en cours d’exécution, il reste actif car il se connecte au service. Les connecteurs inutilisés sont marqués comme _inactifs_ et sont supprimés après 10 jours d’inactivité. 
 
 ## <a name="connector-maintenance"></a>Maintenance du connecteur
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répondra pas à ce trafic.
@@ -43,8 +42,22 @@ Vous pouvez surveiller vos connecteurs à partir de l’ordinateur sur lequel il
 
  ![Connecteurs de proxy d’application Azure AD](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
 
+Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont pas utilisés. Lorsqu’un connecteur est en cours d’exécution, il reste actif car il se connecte au service. Les connecteurs inutilisés sont marqués comme _inactifs_ et sont supprimés après 10 jours d’inactivité. 
+
+## <a name="automatic-updates-to-the-connector"></a>Mises à jour automatiques sur le connecteur
+
+Avec le service de mise à jour du connecteur, nous proposons une solution automatisée pour rester à jour. Ainsi, vous avez l’avantage continu de nouvelles fonctionnalités et d’améliorations de sécurité et de performances.
+
+Azure AD prend en charge les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](active-directory-application-proxy-enable.md) afin d’obtenir les mises à jour.
+
+Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre connecteur si :
+
+- Vous n’avez qu’un seul connecteur. Pour éviter ce temps d’arrêt et optimiser la disponibilité, nous vous recommandons d’installer un second connecteur et de [créer un groupe de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
+
+- Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
+
 ## <a name="all-networking-is-outbound"></a>Tous les réseaux sont sortants
-Les connecteurs envoient uniquement des demandes sortantes, afin que la connexion soit toujours initiée par le ou les connecteurs. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session a été établie.
+Les connecteurs envoient uniquement des demandes sortantes, afin que la connexion soit toujours initiée par le connecteur. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session a été établie.
 
 Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Le trafic vers le service est envoyé aux centres de données Azure sur plusieurs ports différents. Pour plus d’informations sur les ports utilisés, consultez [ Activer le proxy d’application dans portail Azure](active-directory-application-proxy-enable.md).
 
@@ -56,7 +69,7 @@ Utilisez [l’outil de test des ports du connecteur de proxy d’application Azu
 
 ## <a name="network-security"></a>Sécurité du réseau
 
-Les connecteurs peuvent être installés n’importe où sur le réseau qui leur permet d’envoyer des requêtes à la fois vers le service et les applications principales. Ils fonctionnent correctement si vous les installez à l’intérieur du réseau d’entreprise, au sein d’une zone démilitarisée (DMZ), ou même sur une machine virtuelle. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications.
+Les connecteurs peuvent être installés n’importe où sur le réseau pourvu qu’ils puissent envoyer des requêtes à la fois vers le service de proxy d’application et les applications principales. Ils fonctionnent correctement si vous les installez à l’intérieur du réseau d’entreprise, au sein d’une zone démilitarisée (DMZ), ou même sur une machine virtuelle exécutée dans le cloud. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications.
 
 Les déploiements DMZ sont plus complexes. Une des raisons de déployer des connecteurs dans une zone démilitarisée est d’utiliser une autre infrastructure comme des équilibreurs de charge d’application principale ou des systèmes de détection des intrusions.
 
@@ -71,7 +84,7 @@ Les connecteurs peuvent également être joints à des domaines ou forêts qui d
 Généralement, le déploiement de connecteurs est simple et ne nécessite aucune configuration spéciale. Mais certaines conditions uniques doivent être prises en compte :
 
 * Les organisations qui limitent le trafic sortant doivent [ouvrir les ports requis](active-directory-application-proxy-enable.md#open-your-ports).
-* Des machines conformes aux normes FIPS peuvent être requises pour modifier leur configuration afin d’autoriser le service du connecteur, le service de mise à jour du connecteur et son programme d’installation à générer et stocker un certificat sur cet ordinateur.
+* Des machines conformes aux normes FIPS peuvent être requises pour modifier leur configuration afin d’autoriser le service du connecteur, le service de mise à jour du connecteur et son programme d’installation à générer et stocker un certificat.
 * Les organisations qui verrouillent leur environnement sur la base des processus qui émettent des requêtes réseau doivent s’assurer que les deux services de connecteur sont activés pour accéder à tous les ports et adresses IP nécessaires.
 * Dans certains cas, les proxys de transfert sortants peuvent arrêter l’authentification de certificat bidirectionnelle et entraîner un échec de la communication.
 
@@ -101,18 +114,6 @@ Un autre facteur affectant les performances est la qualité de la connexion rés
 * **Le service en ligne :** les connexions à latence faible ou élevée affectent le service du connecteur. Il est préférable que votre organisation soit connectée à Azure via Express Route. Sinon, assurez-vous que l’équipe réseau garantit que les connexions à Azure sont gérées de façon efficace.  
 * **Applications principales :** dans certains cas, il existe des proxys supplémentaires entre le connecteur et les applications principales. Résolvez ce problème en ouvrant un navigateur à partir de l’ordinateur du connecteur et en accédant à ces applications. Si vous exécutez les connecteurs dans Azure et que les applications sont locales, l’expérience peut ne pas être celle que vos utilisateurs attendent.
 * **Contrôleurs de domaine :** si les connecteurs effectuent l’authentification unique à l’aide de la délégation Kerberos contrainte (KCD), ils contactent les contrôleurs de domaine avant d’envoyer la requête au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans un environnement occupé, la réactivité des contrôleurs de domaine peut affecter l’expérience. Ce problème est plus courant pour les connecteurs qui s’exécutent dans Azure, tandis que les contrôleurs de domaine sont locaux.
-
-## <a name="automatic-updates-to-the-connector"></a>Mises à jour automatiques sur le connecteur
-
-Avec le service de mise à jour du connecteur, nous proposons une solution automatisée pour rester à jour. Ainsi, vous avez l’avantage continu de nouvelles fonctionnalités et d’améliorations de sécurité et de performances.
-
-Azure AD prend en charge les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](active-directory-application-proxy-enable.md) afin d’obtenir les mises à jour.
-
-Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre connecteur si :
-
-- Vous n’avez qu’un seul connecteur. Étant donné qu’aucun autre connecteur n’est présent pour rediriger le trafic via, le service n’est pas disponible pendant la mise à jour. Pour éviter ce temps d’arrêt et optimiser la disponibilité, nous vous recommandons d’installer un second connecteur et de [créer un groupe de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
-
-- Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
 
 ## <a name="under-the-hood"></a>Sous le capot
 

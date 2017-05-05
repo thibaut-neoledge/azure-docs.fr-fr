@@ -1,28 +1,26 @@
 ---
-title: "Événement de fin de tâche - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 9dcc468b-e0a7-4b80-bec8-ffd466afdc8a
-caps.latest.revision: 4
+title: "Événement de fin de tâche Azure Batch | Microsoft Docs"
+description: "Référence pour l’événement de fin de tâche Batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c42ccc5e443274d8e342b7f7f62293459185c354
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 015adf7dbc47c29a78df4e4889b2ee1ddcccdd8e
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-complete-event"></a>Événement de fin de tâche
-Corps de journal des événements de fin de tâche
 
-## <a name="remarks"></a>Remarques
+# <a name="task-complete-event"></a>Événement de fin de tâche
+
  Cet événement est émis quand une tâche est terminée, quel que soit le code de sortie. Il permet de déterminer la durée d’une tâche, son emplacement d’exécution, et si elle a été tentée plus d’une fois.
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Créer une application hautement disponible dans Azure à l’aide de groupes de machines virtuelles identiques | Microsoft Docs"
-description: "Créez et déployez une application hautement disponible sur les machines virtuelles Linux à l’aide d’un groupe de machines virtuelles identiques et d’Azure CLI."
+title: "Créer un groupe de machines virtuelles identiques pour Linux dans Azure | Microsoft Docs"
+description: "Créez et déployez une application hautement disponible sur des machines virtuelles Linux à l’aide d’un groupe de machines virtuelles identiques"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
+author: iainfoulds
 manager: timlt
 editor: 
 tags: 
@@ -13,33 +13,33 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: adegeo
+ms.date: 04/18/2017
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4c76fb202f501f671504646395b800aeb90d8e69
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 73167924f95c8cea0ac3cb4651cb3571fb24cc01
+ms.lasthandoff: 04/21/2017
 
 ---
 
-# <a name="create-a-highly-available-application-on-linux-with-virtual-machine-scale-sets"></a>Créer une application hautement disponible sur Linux avec des groupes de machines virtuelles identiques
-Ce didacticiel vous montre comment créer une application hautement disponible dans un groupe de machines virtuelles identiques. Vous apprendrez également à automatiser la configuration des machines virtuelles dans le groupe identique. 
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Linux
+Dans ce didacticiel, vous allez découvrir comment les groupes de machines virtuelles identiques Azure vous permettent de mettre rapidement à l’échelle le nombre de machines virtuelles exécutant votre application. Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation du processeur, de la demande de mémoire ou du trafic réseau. Pour voir fonctionner un groupe de machines virtuelles identiques, vous créez une application Node.js qui s’exécute sur plusieurs machines virtuelles Linux.
+
+Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
-## <a name="step-1---create-a-resource-group"></a>Étape 1 : Création d’un groupe de ressources
-Pour suivre ce didacticiel, assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous n’êtes pas encore connecté à votre abonnement Azure, connectez-vous avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
+## <a name="scale-set-overview"></a>Vue d’ensemble des groupes identiques
+Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Les groupes identiques utilisent les mêmes composants que ceux que vous avez découverts dans le didacticiel précédent, qui traitait de la [création de machines virtuelles hautement disponibles](tutorial-availability-sets.md). Les machines virtuelles d’un groupe identique sont créées dans un groupe de disponibilité et réparties entre les domaines d’erreur logique et de mise à jour.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroupVMSS` à l’emplacement `westus` :
+Les machines virtuelles sont créées en fonction des besoins dans un groupe identique. Vous pouvez définir des règles de mise à l’échelle automatique pour contrôler comment et quand les machines virtuelles sont ajoutées ou supprimées du groupe identique. Ces règles peuvent se déclencher en fonction de mesures telles que la charge du processeur, l’utilisation de la mémoire ou le trafic réseau.
 
-```azurecli
-az group create --name myResourceGroupVMSS --location westus
-```
+Les groupes identiques prennent en charge jusqu’à 1 000 machines virtuelles lorsque vous utilisez une image de plateforme Azure. Pour les charges de production, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md). Vous pouvez créer un maximum de 100 machines virtuelles dans un groupe identique lorsque vous utilisez une image personnalisée.
 
 
-## <a name="step-2---define-your-app"></a>Étape 2 : Définition de votre application
-Vous utilisez la même configuration **cloud-init** à partir du didacticiel que celle utilisée pour créer une application hautement disponible à équilibrage de charge. Pour plus d’informations sur l’utilisation de **cloud-init**, consultez [Utiliser cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-an-app-to-scale"></a>Créer une application à mettre à l’échelle
+À des fins de production, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md) qui inclut votre application installée et configurée. Pour ce didacticiel, nous allons personnaliser les machines virtuelles au premier démarrage pour voir fonctionner un groupe identique rapidement.
 
-Créez un fichier nommé `cloud-init.txt` et collez la configuration suivante :
+Dans le didacticiel précédent, vous avez appris à [personnaliser une machine virtuelle Linux au premier démarrage](tutorial-automate-vm-deployment.md) avec cloud-init. Vous pouvez utiliser le même fichier de configuration cloud-init pour installer NGINX et exécuter une simple application Node.js « Hello World ». Créez un fichier nommé `cloud-init.txt` et collez la configuration suivante :
 
 ```yaml
 #cloud-config
@@ -76,7 +76,7 @@ write_files:
         console.log('Hello world app listening on port 3000!')
       })
 runcmd:
-  - nginx -s reload
+  - service nginx restart
   - cd "/home/azureuser/myapp"
   - npm init
   - npm install express -y
@@ -84,16 +84,18 @@ runcmd:
 ```
 
 
-## <a name="step-3---create-scale-set"></a>Étape 3 : Création du groupe identique
-Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Les groupes identiques utilisent les mêmes composants que ceux que vous avez découverts dans le didacticiel permettant de [générer une application hautement disponible dans Azure](tutorial-load-balance-nodejs.md). Ces composants incluent les groupes à haute disponibilité, les domaines d’erreur et de mise à jour, et les équilibrages de charge.
+## <a name="create-a-scale-set"></a>Créer un groupe identique
+Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroupScaleSet` à l’emplacement `westus` :
 
-Avec un groupe identique, ces ressources sont créées et gérées pour vous. Le nombre de machines virtuelles dans votre groupe identique peut augmenter ou diminuer automatiquement selon des règles définies. Vous pouvez [utiliser une image personnalisée](capture-image.md) comme source de votre machine virtuelle ou configurer les machines virtuelles pendant le déploiement avec la commande **cloud-init** comme dans ce didacticiel.
+```azurecli
+az group create --name myResourceGroupScaleSet --location westus
+```
 
-Créez un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#create). L’exemple suivant permet de créer un groupe identique nommé `myScaleSet` :
+Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#create). L’exemple suivant crée un groupe identique nommé `myScaleSet`, utilise le fichier cloud-init pour personnaliser la machine virtuelle et génère des clés SSH si elles n’existent pas :
 
 ```azurecli
 az vmss create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
   --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
@@ -105,12 +107,14 @@ az vmss create \
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
 
-## <a name="step-4---configure-firewall"></a>Étape 4 : Configuration du pare-feu
-Un équilibrage de charge a été créé automatiquement dans le cadre du groupe de machines virtuelles identiques. L’équilibrage de charge répartit le trafic sur un ensemble de machines virtuelles définies à l’aide de règles d’équilibrage de charge. Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb probe create](/cli/azure/network/lb/probe#create). L’exemple suivant permet de créer une règle nommée `myLoadBalancerRuleWeb` :
+## <a name="allow-web-traffic"></a>Autoriser le trafic web
+Un équilibrage de charge a été créé automatiquement dans le cadre du groupe de machines virtuelles identiques. L’équilibrage de charge répartit le trafic sur un ensemble de machines virtuelles définies à l’aide de règles d’équilibrage de charge. Vous trouverez plus d’informations sur les concepts de l’équilibrage de charge et la configuration dans le didacticiel suivant, intitulé [Équilibrage de charge des machines virtuelles dans Azure](tutorial-load-balancer.md).
+
+Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb rule create](/cli/azure/network/lb/rule#create). L’exemple suivant permet de créer une règle nommée `myLoadBalancerRuleWeb` :
 
 ```azurecli
 az network lb rule create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
   --lb-name myScaleSetLB \
   --backend-pool-name myScaleSetLBBEPool \
@@ -120,12 +124,12 @@ az network lb rule create \
   --protocol tcp
 ```
 
-## <a name="step-5---test-your-app"></a>Étape 5 : Test de l’application
-Obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#show). L’exemple suivant obtient l’adresse IP de `myScaleSetLBPublicIP` créée dans le cadre du groupe identique :
+## <a name="test-your-app"></a>Test de l'application
+Pour voir votre application Node.js sur le web, obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#show). L’exemple suivant obtient l’adresse IP de `myScaleSetLBPublicIP` créée dans le cadre du groupe identique :
 
 ```azurecli
 az network public-ip show \
-    --resource-group myResourceGroupVMSS \
+    --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -133,43 +137,66 @@ az network public-ip show \
 
 Entrez l’adresse IP publique dans un navigateur web. L’application s’affiche, avec notamment le nom d’hôte de la machine virtuelle sur laquelle l’équilibrage de charge a distribué le trafic :
 
-![Exécution de l’application Node.js](./media/tutorial-load-balance-nodejs/running-nodejs-app.png)
+![Exécution de l’application Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Forcez l’actualisation de votre navigateur web pour visualiser la distribution de trafic par l’équilibrage de charge sur les machines virtuelles du groupe identique exécutant votre application.
+Pour voir le groupe identique en action, vous pouvez forcer l’actualisation de votre navigateur web pour visualiser la distribution de trafic par l’équilibrage de charge sur l’ensemble des machines virtuelles exécutant votre application.
 
 
-## <a name="step-6---management-tasks"></a>Étape 6 : Tâches de gestion
+## <a name="management-tasks"></a>Tâches de gestion
 Tout au long du cycle de vie du groupe identique, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Azure CLI 2.0 offre un moyen rapide pour effectuer ces tâches. Voici quelques tâches courantes.
 
-### <a name="increase-or-decrease-vm-instances"></a>Augmenter ou diminuer les instances de machines virtuelles
-Vous pouvez augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#scale). L’exemple suivant augmente à `5` le nombre de machines virtuelles dans votre groupe identique :
+### <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
+Pour afficher une liste des machines virtuelles exécutées dans votre groupe identique, utilisez [az vmss list-instances](/cli/azure/vmss#list-instances) comme suit :
 
 ```azurecli
-az vmss scale --resource-group myResourceGroupVMSS --name myScaleSet --new-capacity 5
+az vmss list-instances \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --output table
+```
+
+Le résultat ressemble à l’exemple suivant :
+
+```azurecli
+  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
+------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
+           1  True                  westus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  westus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+```
+
+
+### <a name="increase-or-decrease-vm-instances"></a>Augmenter ou diminuer les instances de machines virtuelles
+Pour afficher le nombre d’instances présentes dans un groupe identique, utilisez [az vmss show](/cli/azure/vmss#show) et interrogez `sku.capacity` :
+
+```azurecli
+az vmss show \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --query [sku.capacity] \
+    --output table
+```
+
+Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#scale). L’exemple suivant définit sur `5` le nombre de machines virtuelles dans votre groupe identique :
+
+```azurecli
+az vmss scale \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --new-capacity 5
 ```
 
 Les règles de mise à l’échelle automatique vous permettent de définir comment augmenter ou réduire le nombre de machines virtuelles dans votre groupe identique en réponse à la demande, notamment le trafic réseau ou l’utilisation du processeur. Actuellement, ces règles ne peuvent pas être définies dans Azure CLI 2.0. Utilisez le [portail Azure](https://portal.azure.com) pour configurer la mise à l’échelle automatique.
 
 ### <a name="get-connection-info"></a>Obtenir des informations de connexion
-Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Cette commande renvoie l’adresse IP publique et les ports pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
+Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Cette commande renvoie l’adresse IP publique et le port pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group myResourceGroupVMSS --name myScaleSet
-```
-
-### <a name="delete-resource-group"></a>Supprimer un groupe de ressources
-La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
-
-```azurecli
-az group delete --name myResourceGroupVMSS
+az vmss list-instance-connection-info --resource-group myResourceGroupScaleSet --name myScaleSet
 ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, nous avons défini l’application web avec **cloud-init** et configuré chaque machine virtuelle pendant le déploiement. Pour plus d’informations sur la capture d’une machine virtuelle à utiliser comme image source dans votre groupe identique, consultez [Généraliser et capturer une machine virtuelle Linux](capture-image.md).
+Dans ce didacticiel, vous avez appris à créer un groupe de machines virtuelles identiques. Passez au didacticiel suivant pour en savoir plus sur les concepts de l’équilibrage de charge des machines virtuelles.
 
-Pour en savoir plus sur certaines des fonctionnalités du groupe de machines virtuelles identiques présentées dans ce didacticiel, consultez les informations suivantes :
+[Équilibrage de charge des machines virtuelles](tutorial-load-balancer.md)
 
-- [Présentation des groupes de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
-- [Vue d’ensemble d’Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
-- [Contrôler le flux de trafic réseau avec les groupes de sécurité réseau](../../virtual-network/virtual-networks-nsg.md)

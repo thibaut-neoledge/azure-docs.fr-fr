@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 
-Pour utiliser [l’accès conditionnel à Azure Active Directory en fonction de l’appareil](active-directory-conditional-access-azure-portal.md), vos ordinateurs doivent être inscrits auprès d’Azure Active Directory (Azure AD). Vous pouvez obtenir la liste des appareils inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/). 
+Pour utiliser [l’accès conditionnel à Azure Active Directory en fonction de l’appareil](active-directory-conditional-access-azure-portal.md), vos ordinateurs doivent être inscrits auprès d’Azure Active Directory (Azure AD). Vous pouvez obtenir la liste des appareils inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 Cet article vous présente les étapes de configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine dans votre organisation.
 
@@ -302,7 +302,7 @@ Dans la revendication ci-dessus,
 
 
 Pour plus d’informations sur la vérification du domaine, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md).  
-Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
+Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -418,7 +418,7 @@ Le script ci-après vous aide à créer les règles de transformation d’émiss
     ]
     => issue(
         Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
-        Value = "http://<verified-domain-name>/adfs/services/trust/"
+        Value = "http://' + $oneOfVerifiedDomainNames + '/adfs/services/trust/"
     );'
     }
 
@@ -461,7 +461,7 @@ Le script ci-après vous aide à créer les règles de transformation d’émiss
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Si vous avez déjà émis une revendication **ImmutableID** pour les comptes d’utilisateurs, définissez l’élément **$oneOfVerifiedDomainNames** du script sur la valeur **$true**.
+- Si vous avez déjà émis une revendication **ImmutableID** pour les comptes d’utilisateurs, définissez l’élément **$immutableIDAlreadyIssuedforUsers** du script sur la valeur **$true**.
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Étape 3 : Activation des appareils Windows de bas niveau
 
@@ -565,7 +565,7 @@ Le programme d’installation crée une tâche planifiée sur le système, qui s
 
 ## <a name="step-5-verify-registered-devices"></a>Étape 5 : Vérification des appareils inscrits
 
-Vous pouvez vérifier les appareils qui ont été correctement inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/).
+Vous pouvez vérifier les appareils qui ont été correctement inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 La sortie de cette applet de commande affiche les appareils inscrits dans Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 

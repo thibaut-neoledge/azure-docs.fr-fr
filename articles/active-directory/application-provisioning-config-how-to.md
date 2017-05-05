@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c0283282c0f19c3a0e0f4304de2b5ab4768d3290
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -38,6 +38,8 @@ Si vous avez besoin d’assistance en matière d’approvisionnement automatique
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuration d’une application pour l’approvisionnement automatique
 
 *Automatique* : dans le cadre d’un approvisionnement automatique, un connecteur d’approvisionnement Azure AD a été développé pour cette application. Pour plus d’informations sur le service d’approvisionnement Azure AD et sur son fonctionnement, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+
+Pour plus d’informations sur l’approvisionnement d’utilisateurs et de groupes spécifiques sur une application, consultez [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
 
 Les étapes nécessaires pour activer et configurer l’approvisionnement automatique varient selon l’application.
 

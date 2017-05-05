@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f819992125f77897545ce3194870b1eadf400852
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -609,6 +609,85 @@ Exemple :
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 Cet exemple renvoie un événement (le dernier événement) par EventID.
+
+### <a name="join"></a>Join
+Regroupe les résultats de deux requêtes pour former un seul jeu de résultats.  Prend en charge différents types de jointures décrits dans le tableau suivant.
+  
+| Type de jointure | Description |
+|:--|:--|
+| interne | Renvoie uniquement les enregistrements comportant une valeur correspondante dans les deux requêtes. |
+| externe | Renvoie tous les enregistrements des deux requêtes.  |
+| gauche  | Renvoie tous les enregistrements de la requête de gauche et les enregistrements correspondants de la requête de droite. |
+
+
+- Les jointures ne prennent pas en charge les requêtes incluant le mot clé **IN** ou la commande **Measure** pour l’instant.
+- Vous ne pouvez inclure qu’un seul champ dans une jointure.
+- Une recherche unique ne doit pas comporter plus d’une jointure.
+
+**Syntaxe**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**Exemples**
+
+Pour illustrer les différents types de jointures, pensez à joindre un type de données recueilli à partir d’un journal personnalisé appelé MyBackup_CL avec la pulsation pour chaque ordinateur.  Ces types de données contiennent les données suivantes.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Ordinateur | LastBackupStatus |
+|:---|:---|:---|
+| 20/04/2017 01:26:32.137 | srv01.contoso.com | Succès |
+| 20/04/2017 02:13:12.381 | srv02.contoso.com | Succès |
+| 20/04/2017 02:13:12.381 | srv03.contoso.com | Échec |
+
+`Type = Hearbeat` (un seul sous-ensemble de champs présenté)
+
+| TimeGenerated | Ordinateur | ComputerIP |
+|:---|:---|:---|
+| 21/04/2017 12:01:34.482 | srv01.contoso.com | 10.10.100.1 |
+| 21/04/2017 12:02:21.916 | srv02.contoso.com | 10.10.100.2 |
+| 21/04/2017 12:01:47.373 | srv04.contoso.com | 10.10.100.4 |
+
+#### <a name="inner-join"></a>jointure interne
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Renvoie les enregistrements suivants dans lesquels le champ Ordinateur correspond pour les deux types de données.
+
+| Ordinateur| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 | Succès | 21/04/2017 12:01:34.482 | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 20/04/2017 02:13:12.381 | Succès | 21/04/2017 12:02:21.916 | 10.10.100.2 | Heartbeat |
+
+
+#### <a name="outer-join"></a>jointure externe
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Renvoie les enregistrements suivants pour les deux types de données.
+
+| Ordinateur| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 | Succès  | 21/04/2017 12:01:34.482 | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 20/04/2017 14:14:12.381 | Succès  | 21/04/2017 12:02:21.916 | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 20/04/2017 01:33:35.974 | Échec  | 21/04/2017 12:01:47.373 | | |
+| srv04.contoso.com |                           |          | 21/04/2017 12:01:47.373 | 10.10.100.2 | Heartbeat |
+
+
+
+#### <a name="left-join"></a>jointure gauche
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Renvoie les enregistrements suivants à partir de MyBackup_CL avec tous les champs correspondants à partir de Heartbeat.
+
+| Ordinateur| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 20/04/2017 01:26:32.137 | Succès | 21/04/2017 12:01:34.482 | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 20/04/2017 02:13:12.381 | Succès | 21/04/2017 12:02:21.916 | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 20/04/2017 02:13:12.381 | Échec | | | |
 
 
 ### <a name="extend"></a>Extend

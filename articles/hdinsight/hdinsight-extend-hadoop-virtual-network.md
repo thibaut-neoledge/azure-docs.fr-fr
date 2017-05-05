@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/13/2017
+ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 938f6e4bf7d9d6418c9b10531725807a0a9dbce4
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ Découvrez comment utiliser les réseaux virtuels Azure avec HDInsight pour acti
 
 * Azure CLI 2.0 : Pour plus d’informations, consultez [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-* Azure PowerShell : Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Azure PowerShell : Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > Les étapes décrites dans ce document nécessitent la dernière version d'Azure PowerShell et de l’interface de ligne de commande (CLI) Azure. Si vous utilisez une ancienne version, les commandes peuvent être différentes. Pour de meilleurs résultats, utilisez les liens précédents pour installer les dernières versions.
@@ -116,6 +116,8 @@ Les adresses IP qui doivent être autorisés sont spécifiques à la région dan
 | Brésil | Sud du Brésil | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Est du Canada | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Centre du Canada | 52.228.37.66</br>52.228.45.222 | 443 |
+| Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | 443 |
+| &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132</br>51.5.144.101 | 443 |
 | Inde | Inde centrale | 52.172.153.209</br>52.172.152.49 | 443 |
 | Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | 443 |

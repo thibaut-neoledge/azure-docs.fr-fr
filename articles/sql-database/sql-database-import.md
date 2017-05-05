@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3602a1a5f281bec79937dc20e44f447527be8377
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 8ef393e414559ed6c7a2a3b41a0c8cf060f8d4da
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ Cet article décrit l’importation d’un fichier [BACPAC](https://msdn.microso
 Lorsque vous avez besoin d’importer une base de données à partir d’une archive ou lors de la migration à partir d’une autre plateforme, vous pouvez importer les données et le schéma de base de données à partir d’un fichier BACPAC. Un fichier BACPAC est un fichier ZIP avec une extension de fichier BACPAC contenant les métadonnées et les données à partir d’une base de données SQL Server. Il peut être importé à partir du Stockage Blob Azure (stockage standard uniquement) ou à partir du stockage local dans un emplacement local. Pour optimiser la vitesse de l’importation, nous vous recommandons de spécifier un niveau de performances et un niveau de service supérieurs, par exemple P6, puis de descendre en puissance une fois l’importation réussie. En outre, le niveau de compatibilité de la base de données après l’importation est basé sur le niveau de compatibilité de la base de données source. 
 
 > [!IMPORTANT] 
-> Après avoir migré votre base de données vers la base de données SQL Azure, vous pouvez choisir d’utiliser la base de données avec son niveau de compatibilité actuel (niveau 100 pour la base de données AdventureWorks2008R2) ou à un niveau supérieur. Pour plus d’informations sur les implications et les options de fonctionnement d’une base de données à un niveau de compatibilité spécifique, consultez [Niveau de compatibilité ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Consultez également [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) pour plus d’informations sur les paramètres supplémentaires au niveau de la base de données relatifs aux niveaux de compatibilité.   >
+> Après avoir migré votre base de données vers la base de données SQL Azure, vous pouvez choisir d’utiliser la base de données avec son niveau de compatibilité actuel (niveau 100 pour la base de données AdventureWorks2008R2) ou à un niveau supérieur. Pour plus d’informations sur les implications et les options du fonctionnement d’une base de données à un niveau de compatibilité spécifique, consultez [Niveau de compatibilité ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Consultez également [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) pour plus d’informations sur les paramètres supplémentaires au niveau de la base de données relatifs aux niveaux de compatibilité.   >
 
 > [!NOTE]
 > Pour importer un fichier BACPAC dans une nouvelle base de données, vous devez d’abord créer un serveur logique de base de données SQL Azure. Pour obtenir un didacticiel indiquant comment migrer une base de données SQL Server vers une base de données SQL Azure à l’aide de SQLPackage, consultez [Migrer une base de données SQL Server](sql-database-migrate-your-sql-server-database.md)
@@ -44,7 +44,7 @@ Lorsque vous avez besoin d’importer une base de données à partir d’une arc
 
 Cet article fournit des instructions pour créer une base de données SQL Azure à partir d’un fichier BACPAC stocké dans le Stockage Blob Azure à l’aide du [portail Azure](https://portal.azure.com). L’importation à l’aide du portail Azure ne prend en charge que l’importation d’un fichier BACPAC à partir du Stockage Blob Azure.
 
-Pour importer une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Importer** sur la barre d’outils. Spécifiez le nom de fichier *.bacpac, fournissez le compte de stockage Azure et le conteneur pour le fichier bacpac, et fournissez les informations d’identification pour la connexion à la base de données source.  
+Pour importer une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Importer** sur la barre d’outils. Spécifiez le compte de stockage et le conteneur, puis sélectionnez le fichier *.bacpac que vous souhaitez importer. Sélectionnez la taille de la base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination.  
 
    ![Importation de base de données](./media/sql-database-import/import.png)
 

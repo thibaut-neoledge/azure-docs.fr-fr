@@ -1,28 +1,26 @@
 ---
-title: "Événement d’échec de tâche - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+title: "Événement d’échec de tâche Azure Batch | Microsoft Docs"
+description: "Référence pour l’événement d’échec de tâche Batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 880fe1cfb0496311d7c386f25762c5d02a6c91f4
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-fail-event"></a>Événement d’échec de tâche
-Corps de journal des événements d’échec de tâche
 
-## <a name="remarks"></a>Remarques
+# <a name="task-fail-event"></a>Événement d’échec de tâche
+
  Cet événement est émis quand une tâche se termine avec une erreur. Actuellement, tous les codes de sortie autres que zéro sont considérés comme des échecs. Cet événement est émis *n plus* d’un événement de fin de tâche et peut être utilisé pour détecter si une tâche a échoué.
 
 
@@ -56,9 +54,9 @@ Corps de journal des événements d’échec de tâche
 
 |Nom de l'élément|Type|Remarques|
 |------------------|----------|-----------|
-|jobId|Chaîne|ID du travail contenant la tâche.|
+|jobId|String|ID du travail contenant la tâche.|
 |id|String|ID de la tâche.|
-|taskType|Chaîne|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
+|taskType|String|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
 |systemTaskVersion|Int32|Compteur de tentatives internes d’exécution d’une tâche. En interne, le service Batch peut recommencer une tâche pour prendre en compte des problèmes temporaires. Ces problèmes peuvent être des erreurs de planification internes ou des tentatives de récupération à partir de nœuds de calcul en mauvais état.|
 |[nodeInfo](#nodeInfo)|Type complexe|Contient des informations sur le nœud de calcul sur lequel la tâche a été exécutée.|
 |[multiInstanceSettings](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Pour plus d’informations, voir [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
@@ -69,7 +67,7 @@ Corps de journal des événements d’échec de tâche
 
 |Nom de l'élément|Type|Remarques|
 |------------------|----------|-----------|
-|poolId|String|ID u pool sur lequel la tâche a été exécutée.|
+|poolId|Chaîne|ID u pool sur lequel la tâche a été exécutée.|
 |nodeId|String|ID du nœud sur lequel la tâche a été exécutée.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings

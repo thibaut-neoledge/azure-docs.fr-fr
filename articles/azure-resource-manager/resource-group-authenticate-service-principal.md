@@ -1,6 +1,6 @@
 ---
 title: "Créer une identité pour l’application Azure avec PowerShell | Microsoft Docs"
-description: "Explique comment utiliser Azure PowerShell pour créer une application et un principal du service Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
+description: "Explique comment utiliser Azure PowerShell pour créer une application et un principal du service Azure Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: db36f52f538905683b4cbc6db7cc41b56710db8c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: eb6bddbe4220418f7c525985ab6a15524589829e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,15 +29,15 @@ ms.lasthandoff: 04/04/2017
 > 
 > 
 
-Lorsque vous avez une application ou un script qui doit accéder à des ressources, vous pouvez configurer une identité pour l’application et l’authentifier l’application avec ses propres informations d’identification. Cette identité est connue en tant que principal de service. Cette approche vous permet ce qui suit :
+Lorsque vous avez une application ou un script qui doit pouvoir accéder à des ressources, vous pouvez configurer une identité pour l’application et authentifier l’application avec ses propres informations d’identification. Cette identité est connue en tant que principal de service. Cette approche vous permet d’effectuer les opérations suivantes :
 
-* Affectez à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
+* Affecter à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
 * Utilisez un certificat pour l’authentification lors de l’exécution d’un script sans assistance.
 
-Cette rubrique vous montre comment utiliser [Azure PowerShell](/powershell/azureps-cmdlets-docs) pour configurer tout ce dont vous avez besoin pour qu’une application puisse s’exécuter sous ses propres informations d’identification et sous sa propre identité.
+Cette rubrique vous montre comment utiliser [Azure PowerShell](/powershell/azure/overview) pour configurer tout ce dont vous avez besoin pour qu’une application puisse s’exécuter sous ses propres informations d’identification et sous sa propre identité.
 
 ## <a name="required-permissions"></a>Autorisations requises
-Pour effectuer cette rubrique, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Active Directory et d’affecter un rôle au principal du service. 
+Pour effectuer cette rubrique, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Azure Active Directory et d’affecter un rôle au principal du service. 
 
 Le moyen le plus simple pour vérifier que votre compte dispose des autorisations adéquates est d’utiliser le portail. Consultez [Vérifier l’autorisation requise](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -85,7 +85,7 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
- # Create Active Directory application with password
+ # Create Azure Active Directory application with password
  $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
 
  # Create Service Principal for the AD app
@@ -110,7 +110,7 @@ Quelques points à noter concernant le script :
 * Spécifiez le paramètre ResourceGroup uniquement lorsque vous souhaitez limiter l’étendue de l’attribution de rôles à un groupe de ressources.
 * Pour les applications à locataire unique, la page d’accueil et les URI des identificateurs ne sont pas validées.
 *  Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 
@@ -194,7 +194,7 @@ Quelques points à noter concernant le script :
 * Spécifiez le paramètre ResourceGroup uniquement lorsque vous souhaitez limiter l’étendue de l’attribution de rôles à un groupe de ressources.
 * Pour les applications à locataire unique, la page d’accueil et les URI des identificateurs ne sont pas validées.
 *  Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 Si vous **n’avez pas Windows 10 ou Windows Server 2016 Technical Preview**, vous devez télécharger le [générateur de certificat auto-signé](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) depuis le centre de scripts Microsoft. Extrayez son contenu et importez l’applet de commande dont vous avez besoin.
@@ -212,7 +212,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fournir un certificat via un script PowerShell automatisé
-Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Active Directory. Si vous disposez d’un seul abonnement, vous pouvez utiliser :
+Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Azure Active Directory. Si vous disposez d’un seul abonnement, vous pouvez utiliser :
 
 ```powershell
 Param (
@@ -302,11 +302,11 @@ Quelques points à noter concernant le script :
 * L’étendue de l’accès est limitée à l’abonnement.
 * Pour les applications à locataire unique, la page d’accueil et les URI des identificateurs ne sont pas validées.
 *  Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {id} n’existe pas dans le répertoire. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fournir un certificat via un script PowerShell automatisé
-Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Active Directory.
+Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Azure Active Directory.
 
 ```powershell
 Param (
@@ -345,7 +345,7 @@ Si vous avez besoin extraire l’ID de l’application, utilisez :
 
 ## <a name="change-credentials"></a>Modifier les informations d’identification
 
-Pour modifier les informations d’identification d’une application Active Directory, en raison d’une faille de sécurité ou de l’expiration des informations d’identification, utilisez les applets de commande [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) et [New-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermadappcredential).
+Pour modifier les informations d’identification d’une application Active Directory, en raison d’une faille de sécurité ou de l’expiration des informations d’identification, utilisez les applets de commande [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) et [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
 Pour supprimer toutes les informations d’identification d’une application, utilisez :
 
@@ -388,11 +388,11 @@ Vous pouvez également appeler des opérations REST à partir de PowerShell pour
 
 ## <a name="debug"></a>Déboguer
 
-Vous pouvez rencontrer les erreurs suivantes lors de la création d’un principal de service :
+Lors de la création d’un principal de service, vous pouvez rencontrer les erreurs suivantes :
 
-* **« Authentication_Unauthorized »** ou **« Aucun abonnement trouvé dans le contexte. »** - Vous voyez cette erreur lorsque votre compte n’a pas les [autorisations requises](#required-permissions) sur Active Directory pour inscrire une application. En règle générale, vous obtenez cette erreur lorsque seuls les utilisateurs administrateurs dans Active Directory peuvent inscrire des applications et que votre compte n’est pas un administrateur. Demandez à votre administrateur de vous affecter à un rôle d’administrateur, ou autorisez les utilisateurs ordinaires à inscrire des applications.
+* **« Authentication_Unauthorized »** ou **« Aucun abonnement trouvé dans le contexte. »** - Vous voyez cette erreur lorsque votre compte ne possède pas les [autorisations requises](#required-permissions) sur Azure Active Directory pour inscrire une application. En règle générale, vous obtenez cette erreur lorsque seuls des utilisateurs administrateurs dans votre annuaire Azure Active Directory peuvent inscrire des applications et que votre compte n’est pas un compte d’administrateur. Demandez à votre administrateur de vous affecter à un rôle d’administrateur ou d’autoriser les utilisateurs ordinaires à inscrire des applications.
 
-* Le message indique que votre compte **« n’est pas autorisé à effectuer l’action ’Microsoft.Authorization/roleAssignments/write’ sur l’étendue ’/subscriptions/{guid}’ »**. Vous voyez cette erreur lorsque votre compte n’a pas d’autorisations suffisantes pour affecter un rôle à une identité. Demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur.
+* Le message indique que votre compte **« n’est pas autorisé à effectuer l’action ’Microsoft.Authorization/roleAssignments/write’ sur l’étendue ’/subscriptions/{guid}’ »** - Vous voyez cette erreur lorsque votre compte ne dispose pas d’autorisations suffisantes pour affecter un rôle à une identité. Demandez à votre administrateur d’abonnement de vous ajouter au rôle Administrateur de l’accès utilisateur.
 
 ## <a name="sample-applications"></a>Exemples d'applications
 Les exemples d’applications suivants montrent comment ouvrir une session en tant que principal du service.
@@ -425,6 +425,6 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 * Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](../active-directory/active-directory-application-objects.md). 
-* Pour plus d’informations sur l’authentification Active Directory, consultez la rubrique [Scénarios d’authentification pour Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* Pour plus d’informations sur l’authentification Azure Active Directory, consultez la rubrique [Scénarios d’authentification pour Azure AD](../active-directory/active-directory-authentication-scenarios.md).
 
 
