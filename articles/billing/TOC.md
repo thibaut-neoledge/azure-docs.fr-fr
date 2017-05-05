@@ -33,6 +33,7 @@
 
 # Référence
 ## [Présentation de l’API](billing-usage-rate-card-overview.md)
+## [Présentation de l’API de création de rapports d’entreprise](billing-enterprise-api.md)
 ## [Facturer REST](/rest/api/billing)
 ## [Utilisation et RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Solution partenaire : Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

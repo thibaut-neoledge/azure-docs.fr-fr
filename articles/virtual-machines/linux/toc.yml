@@ -4,7 +4,7 @@
   items:
   - name: "À propos des Machines virtuelles"
     href: overview.md
-- name: "Démarrage rapide"
+- name: "Démarrages rapides"
   expanded: true
   items:
   - name: "Créer une machine virtuelle - Interface de ligne de commande Azure"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - Gérer la mise en réseau"
     href: tutorial-virtual-network.md
+  - name: "9 - Gérer la sécurité des machines virtuelles"
+    href: tutorial-azure-security.md
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"
