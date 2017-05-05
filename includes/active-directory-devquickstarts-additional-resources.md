@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous recommandons d’activer les notifications lorsque des incidents de sécurité surviennent en vous rendant sur [la page TechCenter consacrée aux notifications de sécurité technique](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

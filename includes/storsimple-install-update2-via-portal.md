@@ -34,8 +34,3 @@
 9. La mise à jour prend quelques heures. Sélectionnez la tâche de mise à jour et cliquez sur **Détails** pour afficher les détails de la tâche à tout moment.
 10. Une fois la mise à jour terminée, accédez à la page **Maintenance** et faites défiler l’écran jusqu’à **Mises à jour logicielles**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

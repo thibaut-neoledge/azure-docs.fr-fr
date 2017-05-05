@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
+## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
 Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle :
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
     - **10.0.0.1** par votre passerelle par défaut
     - **eth2** le nom de votre carte réseau secondaire
-
-
-<!--HONumber=Feb17_HO2-->
-
-
