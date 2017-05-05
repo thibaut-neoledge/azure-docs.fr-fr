@@ -31,7 +31,7 @@
 
 ## Integrate
 ### [Services de fédération](multi-factor-authentication-get-started-adfs.md)
-#### [Utiliser AD FS&2;.0](multi-factor-authentication-get-started-adfs-cloud.md)
+#### [Utiliser AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
 #### [Utiliser AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 #### [Utiliser Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 ### Répertoires
@@ -47,3 +47,4 @@
 ## Résolution des problèmes
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [Poser une question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Erreurs d’extension NPS](multi-factor-authentication-nps-errors.md)

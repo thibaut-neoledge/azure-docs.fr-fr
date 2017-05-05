@@ -4,7 +4,7 @@
   items:
   - name: "À propos de SQL Database"
     href: sql-database-technical-overview.md
-- name: "Démarrage rapide"
+- name: "Démarrages rapides"
   expanded: true
   items:
   - name: "Créer une base de données - Portail"
@@ -38,7 +38,9 @@
   - name: "1 - Créer/concevoir une base de données SQL"
     href: sql-database-design-first-database.md
   - name: "2 - Migrer un serveur SQL existant"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 - Sécuriser vos bases de données SQL"
+    href: sql-database-security-tutorial.md
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"

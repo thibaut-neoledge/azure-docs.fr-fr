@@ -15,13 +15,12 @@
 ### [Portail Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Traiter les résultats de recherche](search-pagination-page-layout.md)
-## Didacticiels
-### [.NET](search-howto-dotnet-sdk.md)
-### [Version préliminaire des synonymes .NET](search-synonyms-tutorial-sdk.md)
-### [Portail](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Didacticiels
+## [.NET](search-howto-dotnet-sdk.md)
+## [Version préliminaire des synonymes .NET](search-synonyms-tutorial-sdk.md)
+## [Portail](search-get-started-portal.md)
+## [Node.JS](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Procédures
 ## Planifier et concevoir
 ### [Limites du service](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### Recherche personnalisée
 #### [Analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Résultats de pagination](search-pagination-page-layout.md)
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navigation à facettes](search-faceted-navigation.md)
 ### [Version préliminaire des synonymes](search-synonyms.md)
 
 # Référence
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (Management)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [.NET Management](/rest/api/searchmanagement)

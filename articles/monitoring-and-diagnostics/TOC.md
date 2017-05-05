@@ -56,15 +56,16 @@
 # Référence
 ## [Listes des mesures prises en charge](monitoring-supported-metrics.md)
 ## [Sources de données d’analyse](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Historique des versions Azure Diagnostics](azure-diagnostics-versioning-history.md)
-## [Azure Diagnostics Schema](azure-diagnostics-schema.md)
-### [Diagnostics Schema 1.0](azure-diagnostics-schema-1dot0.md)
-### [Diagnostics Schema 1.2](azure-diagnostics-schema-1dot2.md)
-### [Diagnostics Schema 1.3 à 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Historique des versions de l’Extension Diagnostics Azure](azure-diagnostics-versioning-history.md)
+## [Schéma d’extension Diagnostics Azure](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 à 1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Ressources
 ## [Exemples PowerShell](insights-powershell-samples.md)
 ## [Exemples Azure CLI 1.0](insights-cli-samples.md)
+## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=monitor)

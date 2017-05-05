@@ -4,7 +4,7 @@
   items:
   - name: "À propos des Machines virtuelles"
     href: overview.md
-- name: "Démarrage rapide"
+- name: "Démarrages rapides"
   expanded: true
   items:
   - name: "Créer une machine virtuelle - Portail"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 - Automatiser la configuration"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - Équilibrer la charge des machines virtuelles"
+  - name: "4 - Créer des images de machine virtuelle"
+    href: tutorial-custom-images.md
+  - name: "5 - Machines virtuelles hautement disponibles"
+    href: tutorial-availability-sets.md
+  - name: "6 - Créer un groupe de machines virtuelles identiques"
+    href: tutorial-create-vmss.md
+  - name: "7 - Équilibrer la charge des machines virtuelles"
     href: tutorial-load-balancer.md
-  - name: "5 - Gérer la mise en réseau"
+  - name: "8 - Gérer la mise en réseau"
     href: tutorial-virtual-network.md
+  - name: "9 - Gérer la sécurité des machines virtuelles"
+    href: tutorial-azure-security.md
+
 - name: "Exemples"
   items:
   - name: "PowerShell"
