@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a8c4987066e0439f8775d823e91666a006a9fca9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
 
-![Connexion entre capteur, appareil IoT, IoT Hub, travail Stream Analytics, Azure Machine Learning et stockage d’objets Blob](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
+![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -46,7 +46,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
+- Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui traite des exigences suivantes :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -75,16 +75,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Ouvrez le classeur Excel, notez **l’URL DU SERVICE WEB** et la **CLÉ D’ACCÈS**.
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Ajouter un groupe de consommateurs à votre instance IoT Hub
-
-Les groupes de consommateurs sont utilisés par les applications pour lire des données de l’instance Azure IoT Hub. Dans cette leçon, vous créez un groupe de consommateurs que le service web utilisera pour lire les données de votre instance IoT Hub.
-
-Pour ajouter un groupe de consommateurs à votre instance IoT Hub, procédez comme suit :
-
-1. Dans le [portail Azure](https://ms.portal.azure.com/), ouvrez votre instance IoT Hub.
-1. Cliquez sur **Points de terminaison** dans le volet de gauche, puis sélectionnez **Événements** dans le volet central, saisissez un nom sous **Groupes de consommateurs** (dans le volet de droite) et cliquez sur **Enregistrer**.
-
-   ![Ajouter un groupe de consommateurs à votre instance IoT Hub](media/iot-hub-weather-forecast-machine-learning/6_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Créer, configurer et exécuter un travail Stream Analytics
 

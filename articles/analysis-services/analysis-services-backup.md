@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ded51e2e34aa1583b249af11a260eaa4304f79f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,6 +83,9 @@ Avant de procéder à la sauvegarde, vous devez configurer les paramètres de st
 Utilisez l’applet de commande [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
 ## <a name="restore"></a>Restauration
+Lors de la restauration, votre fichier de sauvegarde doit être dans le compte de stockage que vous avez configuré pour votre serveur. Si vous devez déplacer un fichier de sauvegarde d’un emplacement local vers votre compte de stockage, utilisez [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou l’utilitaire de ligne de commande [AzCopy](../storage/storage-use-azcopy.md). 
+
+Si vous restaurez une base de données tabulaire de 1200 modèles à partir d’un serveur SQL Server Analysis Services local, vous devez tout d’abord supprimer tous les utilisateurs de domaine des rôles du modèle, puis les rajouter aux rôles en tant qu’utilisateurs Azure Active Directory. Les rôles doivent être identiques.
 
 ### <a name="to-restore-by-using-ssms"></a>Pour effectuer une restauration à l’aide de SSMS
 
@@ -103,5 +106,8 @@ Utilisez l’applet de commande [Restore-ASDatabase](https://docs.microsoft.com/
 
 
 ## <a name="related-information"></a>Informations connexes
-[Comptes de stockage Azure](../storage/storage-create-storage-account.md)   
+
+[Des comptes de stockage Azure](../storage/storage-create-storage-account.md)  
+[Haute disponibilité](analysis-services-bcdr.md)     
 [Gérer Azure Analysis Services](analysis-services-manage.md)
+

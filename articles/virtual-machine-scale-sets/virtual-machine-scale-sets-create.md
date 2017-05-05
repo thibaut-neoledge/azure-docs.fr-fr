@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 56a460fa8132d310352fbb7e085091c3ee7fa848
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ Ce didacticiel vous montre comment créer un groupe de machines virtuelles ident
 
 Si vous utilisez Azure CLI 2.0 ou Azure PowerShell pour créer un groupe identique, vous devez d’abord vous connecter à votre abonnement.
 
-Pour plus d’informations sur l’installation, la configuration et la connexion à Azure avec Azure CLI ou PowerShell, consultez [Bien démarrer avec Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) ou [Bien démarrer avec les applets de commande Azure PowerShell](/powershell/resourcemanager/).
+Pour plus d’informations sur l’installation, la configuration et la connexion à Azure avec Azure CLI ou PowerShell, consultez [Bien démarrer avec Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) ou [Bien démarrer avec les applets de commande Azure PowerShell](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ Le portail Azure offre un moyen pratique de créer rapidement un groupe identiqu
 En savoir plus sur les [disques de données](virtual-machine-scale-sets-attached-disks.md).
 
 Découvrez comment [gérer vos applications](virtual-machine-scale-sets-deploy-app.md).
+

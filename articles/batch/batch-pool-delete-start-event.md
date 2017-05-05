@@ -1,28 +1,26 @@
 ---
-title: "Événement de début de suppression de pool - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: feddca1e-c69c-4257-be44-a36172e77157
-caps.latest.revision: 4
+title: "Événement de début de suppression de pool Azure Batch | Microsoft Docs"
+description: "Référence pour l’événement de début de suppression de pool Batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: ef61238c6dc342173215ae628565a0b87a86bcad
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: f8a5241dce422e5c826ab428da6d7bc93284a1cf
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-delete-start-event"></a>Événement de début de suppression de pool
-Corps de journal des événements de début de suppression de pool
 
-## <a name="remarks"></a>Remarques
+# <a name="pool-delete-start-event"></a>Événement de début de suppression de pool
+
  Cet événement est émis quand une opération de suppression du pool a commencé. Étant donné que la suppression de pool est un événement asynchrone, vous pouvez vous attendre à ce qu’un événement de fin de suppression de pool soit émis au terme de l’opération de suppression.
 
  L’exemple suivant montre le corps d’un événement de début de suppression de pool.
@@ -35,4 +33,4 @@ Corps de journal des événements de début de suppression de pool
 
 |Élément|Type|Remarques|
 |-------------|----------|-----------|
-|id|Chaîne|ID du pool.|
+|id|String|ID du pool.|
