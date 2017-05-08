@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 Si vous vous trouvez dans cette page, c’est probablement parce que vous avez malheureusement rencontré un problème alors que vous utilisez le portail MyApps. S’il existe des cas qui vous obligent à contacter le support technique ou votre administrateur pour résoudre un problème, nous vous proposons dans cette rubrique des réponses aux questions courantes que vous pouvez essayer vous-même en premier lieu.
 
-Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
@@ -49,7 +49,7 @@ MyApps est un portail web qui vous permet d’effectuer les tâches suivantes :
 3.    Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
 4.    Cliquez sur **Envoyer**.
 
-Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Comment configurer la réinitialisation du mot de passe ?
@@ -58,7 +58,7 @@ Pour plus d’informations, consultez [Comment mettre à jour votre propre mot d
 2.    Sous **Gérer le compte**, cliquez sur **Configurer la réinitialisation du mot de passe libre-service**.
 3.    Suivez les étapes de la boîte de dialogue, puis soumettez.
 
-Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?

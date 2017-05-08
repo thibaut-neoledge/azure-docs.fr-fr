@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour contrôle d’accès en fonction du rôle Azure
@@ -40,6 +40,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur de sauvegarde](#backup-contributor) | Gérer la sauvegarde dans le coffre Recovery Services |
 | [Opérateur de sauvegarde](#backup-operator) | Gérer la sauvegarde (à l’exception de la suppression de la sauvegarde) dans le coffre Recovery Services |
 | [Lecteur de sauvegarde](#backup-reader) | Afficher tous les services de gestion des sauvegardes  |
+| [Lecteur de facturation](#billing-reader) | Afficher toutes les informations de facturation  |
 | [Collaborateur BizTalk](#biztalk-contributor) |Gérer BizTalk Services |
 | [Collaborateur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) |Gérer les bases de données ClearDB MySQL |
 | [Collaborateur](#contributor) |Gérer tout sauf les accès |
@@ -215,6 +216,15 @@ Surveiller la gestion des sauvegardes dans le coffre Recovery Services
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Lire les résultats d’une opération effectuée sur les éléments enregistrés du coffre |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Lire les éléments enregistrés du coffre |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Lire l’utilisation du coffre Recovery Services |
+
+## <a name="billing-reader"></a>Lecteur de facturation
+Afficher toutes les informations de facturation
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Lire les rôles et les affectations de rôles |
+| Microsoft.Billing/*/read |Lire les informations de facturation |
+| Microsoft.Support/* |Créer et gérer les tickets de support |
 
 ### <a name="biztalk-contributor"></a>Collaborateur BizTalk
 Gérer BizTalk Services

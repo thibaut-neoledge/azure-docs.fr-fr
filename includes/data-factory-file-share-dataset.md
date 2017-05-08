@@ -48,8 +48,3 @@ Dans cet exemple, {Slice} est remplacé par la valeur de la variable système Da
 ],
 ```
 Dans cet exemple, l'année, le mois, le jour et l'heure de SliceStart sont extraits dans des variables distinctes qui sont utilisées par les propriétés folderPath et fileName.
-
-
-<!--HONumber=Jan17_HO3-->
-
-

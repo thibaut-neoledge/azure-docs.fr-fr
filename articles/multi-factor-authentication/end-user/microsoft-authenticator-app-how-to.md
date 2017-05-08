@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2017
+ms.date: 04/25/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017, end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 6872b216ab2bfd5823b65b1bb70d503c7628ee13
-ms.openlocfilehash: 26d9f04f9d3019ab5fcad48ef1e9821a4dd6a724
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 6bcf667849a8cb52126f832eed0b99a893182150
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Prise en main de l’application Microsoft Authenticator
@@ -43,7 +43,7 @@ Pour un compte Microsoft personnel (celui qui vous permet de vous connecter à O
 
 ### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Ajouter un compte professionnel ou scolaire à l’application à l’aide du scanneur de code QR
 1. Accédez à l’écran des paramètres de vérification de la sécurité.  Pour savoir comment accéder à cet écran, consultez [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Cochez la case **Application Azure Authenticator**, puis sélectionnez **Configurer**.
+2. Cochez la case **Application Authenticator**, puis sélectionnez **Configurer**.
 
     ![Le bouton Configurer sur l’écran des paramètres de vérification de la sécurité.](./media/authenticator-app-how-to/azureauthe.png)
 

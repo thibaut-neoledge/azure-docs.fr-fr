@@ -5,8 +5,3 @@ Un partage Stockage Fichier étant un partage de fichiers SMB standard, les appl
 
 Vous pouvez créer des partages de fichiers Azure à l’aide du [portail Azure](https://portal.azure.com), des applets de commande PowerShell pour Azure Storage, des bibliothèques clientes Azure Storage ou de l’API REST d’Azure Storage. En outre, comme ces partages de fichiers sont des partages SMB, vous pouvez y accéder via les API de système de fichiers standard et connues.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -15,8 +15,3 @@ Vous avez besoin d’une assistance ? Envoyez-nous un [ticket de support].</br>
 
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

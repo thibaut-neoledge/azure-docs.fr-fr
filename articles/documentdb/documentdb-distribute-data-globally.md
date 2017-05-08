@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ DocumentDB est conçu pour disposer de fonctionnalités de délimitation géogra
 DocumentDB vous permet d’ajouter (associer) ou de supprimer (dissocier) les régions de votre compte de base de données à tout moment (voir [figure précédente](#UnlimitedRegionsPerAccount)). En vertu de la réplication de données à travers les partitions en parallèle, DocumentDB garantit une disponibilité dans les 30 minutes que lorsqu’une nouvelle région est en ligne, n’importe où dans le monde et jusqu’à 100 To. 
 
 ### <a id="FailoverPriorities"></a>Priorités de basculement
-Pour contrôler l’ordre exact des basculements régionaux lors d’une panne dans plusieurs régions, DocumentDB vous permet d’associer la priorité à différentes régions associées au compte de la base de données (voir figure suivante). DocumentDB garantit que la séquence de basculement automatique a lieu dans l’ordre de priorité que vous avez spécifié.
+Pour contrôler l’ordre exact des basculements régionaux lors d’une panne dans plusieurs régions, DocumentDB vous permet d’associer la priorité à différentes régions associées au compte de la base de données (voir figure suivante). DocumentDB garantit que la séquence de basculement automatique a lieu dans l’ordre de priorité que vous avez spécifié. Pour plus d’informations sur les basculements régionaux, consultez [Basculements régionaux automatiques pour la continuité des activités dans DocumentDB](documentdb-regional-failovers.md).
 
 **Un locataire de DocumentDB peut configurer l’ordre de priorité de basculement (volet droit) pour les régions associées à un compte de base de données**
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2bb2422a8458f1577c14bad8d24d8c9cb3ead1b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ Deux approches sont possibles afin de supprimer une passerelle de réseau virtue
 ## <a name="before-beginning"></a>Avant tout chose
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Téléchargez la dernière version des applets de commande PowerShell Azure Resource Manager.
-Téléchargez et installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur le téléchargement et l’installation des applets de commande PowerShell, consultez la page [Guide pratique d’installation et de configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Téléchargez et installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur le téléchargement et l’installation des applets de commande PowerShell, consultez la page [Guide pratique d’installation et de configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Connectez-vous à votre compte Azure. 
 Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
@@ -325,3 +325,4 @@ Le résultat retourné indique « Réussi ».
     ResourceGroupName : RG1
     Location          : eastus
     ProvisioningState : Succeeded
+

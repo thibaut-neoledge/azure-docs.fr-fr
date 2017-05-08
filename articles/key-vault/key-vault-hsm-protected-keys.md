@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
-ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b499b46d4edbe4e33c568b7c50e0a44dd75a00f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,13 +78,13 @@ Pour cette première étape, exécutez les procédures qui suivent sur la statio
 ### <a name="step-11-install-azure-powershell"></a>Étape 1.1 : installer Azure PowerShell
 Depuis la station de travail connectée à Internet, téléchargez et installez le module Azure PowerShell qui inclut les applets de commande servant à gérer le coffre de clés Azure. Cela nécessite au moins la version 0.8.13.
 
-Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Étape 1.2 : Obtenez votre ID d’abonnement Azure.
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure en utilisant la commande suivante :
 
         Add-AzureAccount
-Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Utilisez ensuite la commande [Get-AzureSubscription](https://msdn.microsoft.com/library/azure/dn790366.aspx) :
+Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Utilisez ensuite la commande [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) :
 
         Get-AzureSubscription
 Dans le résultat, recherchez l’ID de l’abonnement que vous utiliserez pour le coffre de clés Azure. Vous aurez besoin cet ID d’abonnement ultérieurement.
@@ -399,7 +400,7 @@ Une fois cette opération accomplie, le message **Résultat : RÉUSSITE** s’a
 Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le fichier de sortie issu de la première étape (KeyTransferPackage-ContosoFirstHSMkey.byok) pour votre station de travail connectée à Internet.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Étape 5 : Transférez votre clé vers le coffre de clés Azure
-Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
+Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -407,10 +408,5 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

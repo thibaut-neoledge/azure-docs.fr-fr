@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b55ad97235a05bd579177c7ef944bca801a6aaae
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 - [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="use-cli-10-to-set-up-key-vault"></a>Utiliser CLI 1.0 pour configurer Key Vault
-Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Pour CLI 1.0, vous devez créer le coffre de clés avant d’attribuer la stratégie de déploiement. Vous pouvez ensuite attribuer la stratégie à l’aide de la commande suivante :
 
@@ -54,5 +54,4 @@ Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDe
     }
 
 Pour les autres options que vous pouvez configurer lorsque vous créez un coffre de clés à l’aide de modèles, consultez la rubrique [Création d’un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
 

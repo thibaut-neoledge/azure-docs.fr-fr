@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 0f6af54b351235390afa88f1ce156abd839a723f
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: c20f5c39b00992d801909c8e5de292f3c2f12673
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -54,7 +54,7 @@ Il s’agit de l’approche recommandée si vous souhaitez qu’un utilisateur f
 Conséquence de la connexion de l’utilisateur final : votre application reçoit un jeton d’accès et un jeton d’actualisation. Le jeton d’accès est lié à chaque demande adressée au Data Lake Store ou à Data Lake Analytics et, par défaut, il est valide pendant une heure. Le jeton d’actualisation peut être utilisé pour obtenir un nouveau jeton d’accès et, par défaut, il est valide pendant deux semaines au maximum, s’il est régulièrement utilisé. Vous pouvez utiliser deux approches différentes pour la connexion de l’utilisateur final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Utilisation de la fenêtre contextuelle OAuth 2.0
-Votre application peut déclencher une fenêtre contextuelle d’autorisation OAuth 2.0 dans laquelle l’utilisateur final peut entrer ses informations d’identification. Cette fenêtre contextuelle fonctionne également avec le processus d’authentification à&2; facteurs Azure AD (TFA), si nécessaire. 
+Votre application peut déclencher une fenêtre contextuelle d’autorisation OAuth 2.0 dans laquelle l’utilisateur final peut entrer ses informations d’identification. Cette fenêtre contextuelle fonctionne également avec le processus d’authentification à 2 facteurs Azure AD (TFA), si nécessaire. 
 
 > [!NOTE]
 > Cette méthode n’est pas encore prise en charge dans la bibliothèque d’authentification Azure AD (ADAL) pour Python ou Java.
@@ -62,17 +62,17 @@ Votre application peut déclencher une fenêtre contextuelle d’autorisation OA
 > 
 
 ### <a name="directly-passing-in-user-credentials"></a>Transmission directe des informations d’identification de l’utilisateur
-Votre application peut fournir directement des informations d’identification de l’utilisateur à Azure AD. Cette méthode fonctionne uniquement avec les comptes d’utilisateur dotés d’ID d’organisation. Elle n’est pas compatible avec les comptes d’utilisateur personnels ou « live ID », notamment ceux se terminant par @outlook.com ou @live.com. En outre, cette méthode n’est pas compatible avec les comptes d’utilisateur qui nécessitent l’authentification à&2; facteurs Azure AD (TFA).
+Votre application peut fournir directement des informations d’identification de l’utilisateur à Azure AD. Cette méthode fonctionne uniquement avec les comptes d’utilisateur dotés d’ID d’organisation. Elle n’est pas compatible avec les comptes d’utilisateur personnels ou « live ID », notamment ceux se terminant par @outlook.com ou @live.com. En outre, cette méthode n’est pas compatible avec les comptes d’utilisateur qui nécessitent l’authentification à 2 facteurs Azure AD (TFA).
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>De quoi ai-je besoin pour utiliser cette approche ?
 * Votre nom de domaine Azure AD. Celui-ci est déjà répertorié dans les conditions préalables de cet article.
 * Application native **Azure AD**
-* ID client de l’application native Azure AD
-* URI de réponse de l’application native Azure AD
+* ID de l’application native Azure AD
+* URI de redirection de l’application native Azure AD
 * Définir des autorisations déléguées
 
 
-## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web Active Directory
+## <a name="step-1-create-an-active-directory-native-application"></a>Étape 1 : Créer une application native Active Directory
 
 Créez et configurez une application native Azure AD pour l’authentification de l’utilisateur final auprès d’Azure Data Lake Store à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
@@ -80,9 +80,9 @@ Si vous suivez les instructions du lien ci-dessus, veillez à sélectionner le t
 
 ![Créer une application web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Créer une application native")
 
-## <a name="step-2-get-client-id-reply-uri-and-set-delegated-permissions"></a>Étape 2 : obtenir un ID client et un URI de réponse, et définir des autorisations déléguées
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Étape 2 : Obtenir l’ID et l’URI de redirection de l’application
 
-Consultez la page [Obtenir l’ID client](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) pour récupérer l’ID client (également appelé l’ID de l’application) de l’application native Azure AD.
+Consultez la page [Obtenir l’ID de l’application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) pour récupérer l’ID de l’application (également appelé l’ID client dans le portail Azure Classic) de l’application native Azure AD.
 
 Pour récupérer l’URI de redirection, suivez les étapes ci-dessous.
 
@@ -116,9 +116,10 @@ Pour récupérer l’URI de redirection, suivez les étapes ci-dessous.
 5. Répétez les deux dernières étapes pour accorder également des autorisations à **l’API Gestion des services Microsoft Azure**.
    
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article vous a créé une application web Azure AD et regroupé les informations nécessaires dans les applications clientes que vous créez à l’aide du Kit de développement logiciel (SDK) .NET, du Kit de développement Logiciel Java, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.
+Dans cet article vous a créé une application native Azure AD et regroupé les informations nécessaires dans les applications clientes que vous créez à l’aide du Kit de développement logiciel (SDK) .NET, du Kit de développement logiciel (SDK) Java, de l’API REST, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.
 
 * [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 * [Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
+* [Prise en main d’Azure Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md)
 
 

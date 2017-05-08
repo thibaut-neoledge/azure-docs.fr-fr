@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 282cb0a7705d0650852699ed5fe09f61fda42d0f
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -216,12 +217,7 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 * [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md)
 * [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 * [Vue d’ensemble d’Azure Automation DSC](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Applets de commande Azure Automation DSC](/powershell/module/azurerm.automation/#automation)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

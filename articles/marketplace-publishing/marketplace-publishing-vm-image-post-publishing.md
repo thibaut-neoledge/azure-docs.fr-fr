@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: ed2921750f93f344a4c3dbef31d9f523dedc0aae
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 766e686170c35f3899e070671654c337d3dc642f
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -49,14 +50,14 @@ Vous pouvez ajouter une nouvelle version à la référence répertoriée et repu
 4. À partir de la section **RÉFÉRENCES (SKU)** de l’onglet **IMAGES DE MACHINES VIRTUELLES** , recherchez la référence (SKU) que vous souhaitez mettre à jour.
 5. Ensuite, ajoutez le nouveau numéro de version de la référence et cliquez sur le bouton **« + »** . La nouvelle version doit être au format X.Y.Z, où X, Y et Z sont des entiers. Les modifications de la version doivent uniquement être incrémentielles.
 6. Dans la zone **URL de disque dur virtuel de système d’exploitation** , ajoutez l’URI de la signature d’accès partagé créé pour le disque dur virtuel du système d’exploitation, puis enregistrez les modifications.
-   
+
    > [!IMPORTANT]
    > Vous ne pouvez pas incrémenter/décrémenter le nombre de disques de données d’une référence répertoriée. Vous devez dans ce cas créer une nouvelle référence. Reportez-vous à la section [3. Comment ajouter une nouvelle référence (SKU) sous une offre répertoriée](#3-how-to-add-a-new-sku-under-a-live-offer) pour obtenir une aide précise.
-   > 
-   > 
+   >
+   >
 7. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 8. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
 
 ## <a name="2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku"></a>2. Comment mettre à jour les détails non techniques d’une offre ou d’une référence (SKU)
@@ -70,23 +71,23 @@ Vous pouvez mettre à jour les détails de l’offre et la republier en suivant 
 3. Dans le menu de gauche, cliquez sur l’onglet **MARKETING** .
 4. Cliquez sur le bouton **FRANÇAIS (FRANCE)** .
 5. Dans le menu de gauche, cliquez sur l’onglet **DÉTAILS** . Sous la section *DESCRIPTION* de l’onglet **DÉTAILS** , vous pouvez mettre à jour le titre, le résumé bref et le résumé long de l’offre, puis enregistrer les modifications.
-   
+
    > [!NOTE]
    > Tenez compte des éléments suivants lorsque vous mettez à jour les détails de la référence (SKU).
    > **N’entrez pas deux fois le même texte dans la description de l’offre et de la référence (SKU). N’entrez pas deux fois le même texte dans le titre de la référence (SKU) et dans le résumé long de l’offre. N’entrez pas deux fois le même texte dans le titre de la référence (SKU) et dans le résumé de l’offre.**
-   > 
-   > 
-   
+   >
+   >
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
 6. Sous la section *LOGOS* de l’onglet **DÉTAILS** , vous pouvez mettre à jour les logos. Toutefois, assurez-vous que les logos respectent les [instructions Azure Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (reportez-vous à la section Étape 1 : Fournir du contenu marketing à Marketplace -> Détails -> Instructions relatives aux logos Azure Marketplace).
-   
+
    > [!NOTE]
    > La bannière est facultative. Vous pouvez choisir de ne pas télécharger de bannière. Cependant, une fois la bannière téléchargée, aucune disposition ne permet de la supprimer du portail de publication. Dans ce cas, vous devez suivre les [instructions relatives à la bannière](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (reportez-vous à la section Étape 1 : Fournir du contenu marketing à Marketplace -> Détails -> Instructions supplémentaires relatives aux bannières).
-   > 
-   > 
+   >
+   >
 7. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md).
 8. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
 ### <a name="22-update-the-sku-description"></a>2.2. Mettre à jour la description de la référence (SKU)
@@ -97,14 +98,14 @@ Vous pouvez mettre à jour les détails de la référence (SKU) et republier vot
 3. Dans le menu de gauche, cliquez sur l’onglet **MARKETING** .
 4. Cliquez sur le bouton **FRANÇAIS (FRANCE)** .
 5. Dans le menu de gauche, cliquez sur l’onglet **PLANS** . Sous la section *RÉFÉRENCES (SKU)* de l’onglet **PLANS** , vous pouvez mettre à jour le titre, le résumé et la description de la référence (SKU), puis enregistrer les modifications.
-   
+
    > [!NOTE]
    > Tenez compte des éléments suivants lorsque vous mettez à jour les détails de la référence (SKU). **N’entrez pas deux fois le même texte dans la description de l’offre et de la référence (SKU). N’entrez pas deux fois le même texte dans le titre de la référence (SKU) et dans le résumé long de l’offre. N’entrez pas deux fois le même texte dans le titre de la référence (SKU) et dans le résumé de l’offre.**
-   > 
-   > 
+   >
+   >
 6. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce lien
 7. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
 
 ### <a name="23-change-the-existing-links-or-add-new-links"></a>2.3 Modifier les liens existants ou ajouter de nouveaux liens
@@ -117,16 +118,16 @@ Vous pouvez modifier les liens existants ou ajouter de nouveaux liens, puis repu
 5. Dans le menu de gauche, cliquez sur l’onglet **LIENS** .
 6. Si vous souhaitez ajouter un nouveau lien, sous la section *LIENS* , cliquez sur le bouton **AJOUTER UN LIEN** . La boîte de dialogue *Ajouter un lien* s’ouvre. Dans cette boîte de dialogue, vous pouvez ajouter le titre et les champs URL du lien, puis enregistrer les modifications. Vous pouvez entrer n’importe quel lien contenant des informations utiles aux clients.
 7. Si vous souhaitez mettre à jour ou supprimer un lien existant, sélectionnez le lien approprié, puis cliquez sur le bouton Modifier ou sur le bouton Supprimer.
-   
+
    > [!NOTE]
    > Assurez-vous que les liens que vous avez saisis dans cette section fonctionnent correctement, car ceux-ci sont validés lors du processus de demande de production.
-   > 
-   > 
+   >
+   >
 8. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md).
 9. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
 
 ### <a name="24-change-an-existing-sample-image-or-add-a-new-sample-image"></a>2.4 Modifier une image d’exemple existante ou ajouter une nouvelle image d’exemple
@@ -134,8 +135,8 @@ Vous pouvez modifier les images d’exemple existantes ou en ajouter de nouvelle
 
 > [!NOTE]
 > Une seule image d’exemple est affichée sur la page [https://portal.azure.com](https://portal.azure.com).
-> 
-> 
+>
+>
 
 1. Connectez-vous au [portail de publication](https://publish.windowsazure.com)
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
@@ -143,15 +144,15 @@ Vous pouvez modifier les images d’exemple existantes ou en ajouter de nouvelle
 4. Cliquez sur le bouton **FRANÇAIS (FRANCE)** .
 5. Dans le menu de gauche, cliquez sur l’onglet **IMAGES D’EXEMPLE** .
 6. Si vous souhaitez ajouter une nouvelle image d’exemple, sous la section *Images d’exemple* , cliquez sur le bouton **TÉLÉCHARGER UNE NOUVELLE IMAGE** , puis enregistrez les modifications.
-   
+
    > [!NOTE]
    > L’ajout d’une image d’exemple est une étape facultative.
-   > 
-   > 
+   >
+   >
 7. Si vous souhaitez mettre à jour ou supprimer une image d’exemple existante, recherchez l’image appropriée, puis cliquez sur le bouton **REMPLACER L’IMAGE** ou sur le bouton Supprimer.
 8. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md).
 9. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
 ### <a name="25-update-the-legal-content"></a>2.5 Mettre à jour le contenu juridique
@@ -165,7 +166,7 @@ Vous pouvez mettre à jour le contenu juridique et republier votre offre en suiv
 6. La limite de caractères pour les conditions d'utilisation est de 1 000 000 caractères.
 7. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 8. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
 
 ### <a name="26-update-the-support-information"></a>2.6 Mettre à jour les informations de support
@@ -176,14 +177,14 @@ Vous pouvez mettre à jour les informations de support et republier votre offre 
 3. Dans le menu de gauche, cliquez sur l’onglet **SUPPORT** .
 4. Sous la section *Contact Ingénierie* de l’onglet **SUPPORT** , vous pouvez mettre à jour les coordonnées du contact. Ces coordonnées sont uniquement utilisées pour les communications internes entre le partenaire et Microsoft.
 5. Dans la section *Service clientèle* de l’onglet **SUPPORT**, vous pouvez mettre à jour les coordonnées, comme **le nom, l’adresse e-mail, le numéro de téléphone** et **l’URL du support technique**. Ces coordonnées sont uniquement utilisées pour les communications internes entre le partenaire et Microsoft.
-   
+
    > [!NOTE]
    > Si vous souhaitez assurer un support par courrier électronique, indiquez un numéro de téléphone factice sous la section **Service clientèle** . Dans ce cas, l’adresse e-mail que vous avez fournie est utilisée.
-   > 
-   > 
+   >
+   >
 6. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 7. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
 ### <a name="27-update-the-categories"></a>2.7 Mettre à jour les catégories
@@ -195,7 +196,7 @@ Vous pouvez mettre à jour les catégories de votre offre et la republier en sui
 4. Sous la section *Catégories* , vous pouvez mettre à jour les catégories de votre offre, puis enregistrer les modifications. Vous pouvez sélectionner jusqu’à cinq catégories de la galerie Azure Marketplace.
 5. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 6. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
 
 ## <a name="3-how-to-add-a-new-sku-under-a-listed-offer"></a>3. Comment ajouter une nouvelle référence (SKU) à une offre répertoriée
@@ -204,20 +205,20 @@ Vous pouvez ajouter une nouvelle référence (SKU) à votre offre en direct en s
 1. Connectez-vous au [portail de publication](https://publish.windowsazure.com).
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3. Dans le menu de gauche, cliquez sur l’onglet **RÉFÉRENCES (SKU)** . Cliquez ensuite sur le bouton **AJOUTER UNE RÉFÉRENCE (SKU)**.  Une nouvelle boîte de dialogue s’affiche. Entrez un identificateur de référence (SKU) en minuscules. Cochez la case Choisir votre propre modèle de facturation (BYOL) si vous souhaitez publier de nouvelles références (SKU) avec un modèle de facturation BYOL. Sinon, décochez-la. Ensuite, cliquez sur la coche de la boîte de dialogue pour créer une référence (SKU). Si vous n’avez pas opté pour le modèle de facturation BYOL pour la nouvelle référence (SKU), le modèle de facturation sera automatiquement défini sur Toutes les heures pour la nouvelle référence (SKU). Si vous souhaitez activer la version d’évaluation gratuite de 30 jours pour le modèle de facturation horaire, cliquez sur « Un mois » pour l’option « Une version d’évaluation gratuite est-elle disponible ? ». Sinon, sélectionnez « AUCUNE VERSION D’ÉVALUATION ». [Remarque : L’option « Une version d’évaluation gratuite est-elle disponible ? » n’apparaît que si vous n’avez PAS sélectionné BYOL dans la boîte de dialogue au moment de la création de la référence (SKU).]
-   
+
    > [!IMPORTANT]
    > L’option « Masquer cette référence (SKU) à partir du Marketplace, car elle doit toujours être achetée via un modèle de solution » doit être marquée comme « OUI » UNIQUEMENT si vous êtes autorisé à publier une offre de modèle de solution dans Azure Marketplace. Dans le cas contraire, cette option doit toujours être marquée comme « NON ».
-   > 
-   > 
+   >
+   >
 4. Maintenant, dans le menu de gauche, cliquez sur l’onglet **IMAGES DE MACHINES VIRTUELLES** et retrouvez la référence (SKU) que vous avez créée.
 5. Pour configurer la nouvelle référence (SKU), reportez-vous à l’ÉTAPE 5 de ce [lien](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) pour obtenir des instructions.
 6. Pour ajouter la documentation marketing d’une nouvelle référence (SKU), reportez-vous à la section Étape 1 : Fournir du contenu marketing à Marketplace -> Détails -> Points 2 à 5 de ce [lien](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
 7. Pour ajouter les informations de tarification de la nouvelle référence (SKU), reportez-vous à la section 2.1. Définissez vos prix de machines virtuelles de ce [lien](marketplace-publishing-push-to-staging.md#step-2-set-your-prices)
 8. Après avoir effectué les modifications, accédez à l’onglet **PUBLIER** et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 9. Une fois que vous avez testé votre offre dans l’environnement de préproduction, accédez à l’onglet **PUBLIER** dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
 ## <a name="4-how-to-change-the-data-disk-count-for-a-listed-sku"></a>4. Comment modifier le nombre de disques de données pour une référence (SKU) répertoriée
@@ -234,8 +235,8 @@ L’équipe de support vous guidera tout au long du processus de suppression de 
 
 > [!NOTE]
 > Vous pouvez toujours supprimer l’offre quand elle est à l’état de brouillon (c’est-à-dire, ni à l’état INTERMÉDIAIRE ni EN PRODUCTION) en cliquant sur le bouton **SUPPRIMER LE BROUILLON** sous l’onglet **HISTORIQUE**.
-> 
-> 
+>
+>
 
 ## <a name="6-how-to-delete-a-listed-sku-from-the-azure-marketplace"></a>6. Comment supprimer une référence (SKU) répertoriée d’Azure Marketplace
 Vous pouvez supprimer une référence (SKU) répertoriée dans Azure Marketplace en suivant les étapes ci-dessous :
@@ -266,32 +267,32 @@ Veuillez suivre les étapes indiquées ci-dessous :
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3. Dans le menu de gauche, cliquez sur l’onglet **TARIFICATION** .
 4. Sous l’onglet Tarification, sélectionnez la région dont vous souhaitez réinitialiser la tarification.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
 5. En cas de références avec modèle de facturation à l’heure, réinitialisez le prix de tous les cœurs tels qu’ils sont dans la production de la région sélectionnée. Pour les références avec modèle de facturation BYOL, rendez la référence disponible dans la région en cochant la case à côté de la référence sous la section DISPONIBILITÉ DE LA RÉFÉRENCE AVEC LICENCE EXTERNE (BYOL) (voir la capture d’écran ci-dessous).
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
 6. Cliquez maintenant sur le bouton **TARIFICATION AUTOMATIQUE POUR LES AUTRES MARCHÉS EN FONCTION DES PRIX POUR LES ÉTATS-UNIS**.
-   
+
    > [!NOTE]
    > Le libellé du bouton peut être différent selon la région que vous avez sélectionnée. Comme nous avons sélectionné les États-Unis lors de la création de ce document, le bouton est intitulé « Tarification automatique pour les autres marchés en fonction des prix pour les États-Unis » dans la capture d’écran ci-dessous.
-   > 
-   > 
-   
+   >
+   >
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
 7. L’Assistant de tarification automatique s’ouvre. La première page affiche la sélection pour le marché de base. Effectuez votre sélection et passez à la page suivante en cliquant sur le bouton **« -> »**.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
 8. L’option permettant de sélectionner les cœurs et les plans s’affichera sur la page 2. Sélectionnez les cœurs et les plans voulus, puis cliquez sur le bouton « -> ».
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
 9. La page 3 affiche les marchés et régions. Cliquez sur le bouton Activer/désactiver tout pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
 10. La page 4 affiche le taux de change. Cliquez sur le bouton Terminer pour terminer la procédure. L’Assistant réinitialisera la tarification en fonction de votre sélection.
 11. Maintenant, accédez à l’onglet Tarification et cliquez sur le bouton « AFFICHER LE RÉSUMÉ ET LES MODIFICATIONS ».
     Sélectionnez « Brouillon » dans la section « Afficher la version » et « Production » dans la section « Comparer à » (voir la capture d’écran ci-dessous). Si vous ne constatez aucune différence de prix, cela signifie que la tarification a été rétablie avec succès aux valeurs de production.
-    
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
 12. Après avoir effectué les modifications, accédez à l’onglet PUBLIER et cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**. Pour des instructions détaillées sur le test de votre offre dans l’environnement intermédiaire, reportez-vous à ce [lien](marketplace-publishing-vm-image-test-in-staging.md)
 13. Une fois que vous avez testé votre offre dans l’environnement intermédiaire, accédez à l’onglet PUBLIER dans le portail de publication et cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
@@ -305,7 +306,7 @@ Procédez comme suit :
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3. Dans le menu de gauche, cliquez sur l’onglet **RÉFÉRENCES (SKU)** .
 4. Cliquez sur le bouton MODIFIER pour rétablir le modèle de facturation. Une fenêtre s’affiche. Cochez ou décochez la case **« La facturation et la gestion des licences sont traitées à l’extérieur d’Azure (apportez votre propre licence) »** selon le cas.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Une fois cette opération effectuée, consultez la réponse à la question 8 dans ce document pour rétablir la tarification.
 6. Ensuite, accédez à l’onglet **PUBLIER** dans le portail de publication et déployez l’offre dans un environnement intermédiaire pour la tester. Une fois que vous avez fini de tester l’offre, cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
@@ -317,23 +318,16 @@ Procédez comme suit :
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3. Dans le menu de gauche, cliquez sur l’onglet **RÉFÉRENCES (SKU)** .
 4. Sélectionnez votre référence et rétablissez le paramètre de visibilité de la référence à la valeur de la production.
-   
+
     ![dessin](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. Une fois que vous avez terminé les modifications, cliquez sur le bouton **DEMANDER UNE APPROBATION POUR LANCER LA PRODUCTION** pour republier votre offre dans Azure Marketplace.
 
 ## <a name="see-also"></a>Voir aussi
 * [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Présentation du rapport Informations du vendeur](marketplace-publishing-report-seller-insights.md)
 * [Présentation du rapport Revenus](marketplace-publishing-report-payout.md)
 * [Modification de « l'offre incitative revendeurs » des fournisseurs de solutions Cloud](marketplace-publishing-csp-incentive.md)
 * [Résolution des problèmes de publication courants dans le Marketplace](marketplace-publishing-support-common-issues.md)
 * [Obtenir de l’aide en tant qu’éditeur](marketplace-publishing-get-publisher-support.md)
 * [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

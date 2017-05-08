@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fe56028d4731a83ffb8010b0094c98dec7374be0
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-quotas"></a>Quotas Event Hubs
-Cette section répertorie les quotas et les limites de base de Microsoft Azure Event Hubs.
+Cette section répertorie les quotas et les limites de base de Azure Event Hubs.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
@@ -30,6 +30,6 @@ Cette section répertorie les quotas et les limites de base de Microsoft Azure E
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Créer un Event Hub](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 

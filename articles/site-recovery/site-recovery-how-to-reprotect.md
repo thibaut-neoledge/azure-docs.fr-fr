@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7b7177faa9fa571d3a62ee15b4a0fbfdab3a097f
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Voici les quelques étapes préalables à prendre en compte lors de la préparat
         * Si vous avez une machine virtuelle Windows, vous avez besoin d’un serveur cible maître Windows. Vous pouvez réutiliser le serveur de processus local et les machines cibles maîtres.
 * Un serveur de configuration est requis localement, lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échouera. Veillez à effectuer des sauvegardes régulières de votre serveur. En cas d'incident, vous devez restaurer le serveur avec la même adresse IP pour que la restauration automatique réussisse.
 * Vérifiez que vous avez défini le paramètre disk.EnableUUID=true dans les paramètres de configuration de la machine virtuelle cible maître dans VMware. Si cette ligne n’existe pas, ajoutez-la. Ce paramètre est nécessaire pour fournir un UUID cohérent au disque de machine virtuelle (VMDK) et lui assurer ainsi un montage correct.
-* *Vous ne pouvez pas utiliser Storage vMaster pour le serveur cible maître*. Cela peut provoquer l’échec de la restauration. La machine virtuelle ne démarrera pas, car elle n’aura pas accès aux disques.
+* *Vous ne pouvez pas utiliser Storage vMotion sur le serveur cible maître*. Cela peut provoquer l’échec de la restauration. La machine virtuelle ne démarrera pas, car elle n’aura pas accès aux disques. Pour éviter ce problème, excluez les serveurs cibles maîtres de votre liste vMotion.
 * Vous devez ajouter un nouveau disque sur le serveur maître cible. Ce lecteur est appelé lecteur de rétention. Ajoutez un disque et formatez le lecteur.
 * D’autres conditions préalables s’appliquent au serveur cible maître. Elles sont répertoriées dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -76,6 +76,11 @@ N’oubliez pas que la réplication s’effectue uniquement sur le VPN S2S ou vi
 
 Pour en savoir plus sur l’installation d’un serveur de processus Azure, consultez [cet article](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> Nous recommandons toujours d’utiliser un serveur de processus Azure lors de la restauration automatique. Les performances de réplication sont plus élevées si le serveur de processus est plus proche de la machine virtuelle de réplication (machine basculée dans Azure). Toutefois, dans vos preuves de concepts ou lors des démonstrations, vous pouvez utiliser le serveur de processus local avec ExpressRoute avec l’homologation privée pour accélérer ces démonstrations.
+
+
+
 ### <a name="what-are-the-ports-to-be-open-on-different-components-so-that-reprotect-can-work"></a>Quels ports doivent être ouverts sur les différents composants pour que la reprotection fonctionne ?
 
 ![Basculement-restauration automatique sur tous les ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
@@ -94,9 +99,12 @@ Cliquez sur les liens suivants pour en savoir plus sur l’installation d’un s
 
 * Si la machine virtuelle est présente en local sur le serveur vCenter, le serveur cible maître a besoin d’accéder au VMDK de la machine virtuelle locale. Cet accès est nécessaire pour écrire les données répliquées sur des disques de la machine virtuelle. Assurez-vous que le magasin de données de la machine virtuelle locale est monté sur l’hôte du serveur cible maître avec accès en lecture/écriture.
 
-* Si la machine virtuelle n’est pas présente en local sur le serveur vCenter, vous devez créer une nouvelle machine virtuelle durant la reprotection. Cette machine virtuelle sera créée sur l’hôte ESX sur lequel vous créez le serveur cible maître. Sélectionnez bien l’hôte ESX afin que la machine virtuelle de la restauration automatique soit créée sur l’hôte de votre choix.
+* Si la machine virtuelle n’est pas présente en local sur le serveur vCenter, le service Site Recovery doit créer une machine virtuelle durant la reprotection. Cette machine virtuelle sera créée sur l’hôte ESX sur lequel vous créez le serveur cible maître. Sélectionnez bien l’hôte ESX afin que la machine virtuelle de la restauration automatique soit créée sur l’hôte de votre choix.
 
 * *Vous ne pouvez pas utiliser Storage vMotion pour le serveur cible maître*. Cela peut provoquer l’échec de la restauration. La machine virtuelle ne démarrera pas, car elle n’aura pas accès aux disques.
+
+> [!WARNING]
+> Si un serveur cible maître subit un Storage vMotion après la reprotection, les disques des machines virtuelles protégés qui sont attachés au serveur cible maître sont migrés vers la cible de vMotion. Si vous essayez d’effectuer une restauration automatique après cela, le détachement des disques échoue et indique que les disques sont introuvables. Après quoi, il devient très difficile de trouver les disques dans vos comptes de stockage. Vous devez les rechercher manuellement et les attacher à la machine virtuelle. Après quoi, vous pouvez démarrer la machine virtuelle locale.
 
 * Vous devez ajouter un nouveau lecteur dans votre serveur cible maître Windows existant. Ce lecteur est appelé lecteur de rétention. Ajoutez un disque et formatez le lecteur. Le lecteur de rétention est utilisé pour arrêter les points dans le temps où la machine virtuelle est répliquée vers le site local. Pour être répertorié pour le serveur cible maître, un lecteur de rétention doit respecter les critères suivants.
 
@@ -113,6 +121,11 @@ Cliquez sur les liens suivants pour en savoir plus sur l’installation d’un s
    * Le volume de rétention par défaut pour Windows est le volume R.
 
    * Le volume de rétention par défaut pour Linux est /mnt/retention.
+   
+   > [!IMPORTANT]
+   > Vous devez ajouter un nouveau lecteur si vous utilisez une machine CS+PS existante, une mise à l’échelle ou une machine PS+MT. Le nouveau lecteur doit respecter les conditions ci-dessus. Si le lecteur de rétention n’est pas présent, aucun n’apparaît dans la liste de sélection déroulante sur le portail. Une fois que vous avez ajouté un lecteur au serveur cible maître local, quinze minutes sont nécessaires pour que ce lecteur apparaisse dans la sélection sur le portail. Vous pouvez également actualiser le serveur de configuration si le lecteur n’apparaît pas au bout de 15 minutes.
+
+
 
 * Si vous avez une machine virtuelle Linux basculée, vous avez besoin d’un serveur cible maître Linux. Si vous avez une machine virtuelle Windows basculée, vous avez besoin d’un serveur cible maître Windows.
 

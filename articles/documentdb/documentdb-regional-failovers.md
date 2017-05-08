@@ -16,19 +16,19 @@ ms.date: 02/09/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e23c5849cb89d0d72052e3ebaace14a55f9c6f71
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>Basculements régionaux automatiques pour la continuité des activités dans DocumentDB
-Azure DocumentDB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multi-régions](documentdb-distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes DocumentDB offrent des capacités de haute disponibilité, des latences inférieures à&10; millisecondes, des[niveaux de cohérence bien définis](documentdb-consistency-levels.md), un basculement régional transparent avec des API à hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
+Azure DocumentDB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multi-régions](documentdb-distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes DocumentDB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des[niveaux de cohérence bien définis](documentdb-consistency-levels.md), un basculement régional transparent avec des API à hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
 
 Azure DocumentDB prend en charge des basculements explicites et basés sur des stratégies qui vous permettent de contrôler le comportement du système de bout en bout en cas de défaillance. Dans cet article, nous allons répondre aux questions suivantes :
 
 * Comment fonctionnent les basculements manuels dans DocumentDB ?
-* Comment fonctionnent les basculements automatiques dans DocumentDB ?
+* Comment fonctionnent les basculements automatiques dans DocumentDB et que se passe-t-il lorsqu’un centre de données tombe en panne ?
 * Comment utiliser les basculements manuels dans différentes architectures d’application ?
 
 Vous pouvez également découvrir les basculements régionaux dans cette vidéo Azure Friday avec Scott Hanselman et Karthik Raman, responsable principal de l’ingénierie DocumentDB.
@@ -72,7 +72,7 @@ Le diagramme d’architecture suivant montre un déploiement d’application mul
 À présent, nous allons voir comment le service DocumentDB gère les défaillances régionales par le biais de basculements automatiques. 
 
 ## <a id="AutomaticFailovers"></a>Basculements automatiques
-Dans des cas rares de panne régionale Azure, DocumentDB déclenche automatiquement le basculement de tous les comptes DocumentDB présents dans la région affectée. 
+Dans des cas rares de panne régionale Azure ou de panne de centre de données, DocumentDB déclenche automatiquement le basculement de tous les comptes DocumentDB présents dans la région affectée. 
 
 **Que se passe-t-il si une région de lecture connaît une panne ?**
 
@@ -112,7 +112,7 @@ Voici certains des scénarios courants où le basculement manuel peut être util
 
 **Mise à jour du service** : certains déploiements d’applications distribués globalement peuvent impliquer la redirection du trafic vers une région différente par le biais du Traffic Manager lors de la mise à jour de service planifiée. De tels déploiements d’applications peuvent utiliser le basculement manuel pour conserver l’état d’écriture de la région où il y aura un trafic actif pendant la mise à jour du service.
 
-**Simulations de continuité d’activité et de récupération d’urgence (Business Continuity and Disaster Recovery, BCDR)** : la plupart des applications d’entreprise incluent des tests de continuité d’activité dans le cadre de leurs processus de développement et de mise sur le marché. Les tests de continuité d’activité et de récupération d’urgence sont souvent une étape importante de certification de conformité et de garantie de disponibilité en cas de pannes régionales. Vous pouvez tester la disponibilité de BCDR dans applications qui utilisent DocumentDB pour le stockage en déclenchant un basculement manuel de votre compte DocumentDB et/ou en ajoutant et en supprimant une région dynamiquement.
+**Simulations de continuité d’activité et de récupération d’urgence (Business Continuity and Disaster Recovery, BCDR) et Haute disponibilité et récupération d’urgence (High Availability and Disaster Recovery, HADR)** : la plupart des applications d’entreprise incluent des tests de continuité d’activité dans le cadre de leurs processus de développement et de mise sur le marché. Les tests BCDR et HADR sont souvent une étape importante de certification de conformité et de garantie de disponibilité en cas de pannes régionales. Vous pouvez tester la disponibilité de BCDR dans applications qui utilisent DocumentDB pour le stockage en déclenchant un basculement manuel de votre compte DocumentDB et/ou en ajoutant et en supprimant une région dynamiquement.
 
 Dans cet article, nous avons examiné le fonctionnement des basculements manuels et automatiques dans Azure DocumentDB et comment vous pouvez configurer vos comptes DocumentDB et les applications de manière à ce qu'ils soient disponibles au niveau mondial. Avec la prise en charge de la réplication au niveau mondial d’Azure DocumentDB, vous pouvez améliorer la latence de bout en bout et garantir une haute disponibilité même en cas de défaillance de la région. 
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ Vous pouvez procéder de deux façons : vous pouvez supprimer le groupe de resso
 Il s’agit du moyen le plus simple pour vous assurer de supprimer toutes les ressources associées à votre cluster, y compris le groupe de ressources. Vous pouvez supprimer le groupe de ressources à l’aide de PowerShell ou du Portail Azure. Si votre groupe de ressources comporte des ressources qui ne sont pas liées au cluster Service Fabric, vous pouvez supprimer des ressources spécifiques.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Supprimer le groupe de ressources à l’aide d’Azure PowerShell
-Vous pouvez également supprimer le groupe de ressources en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Vous pouvez également supprimer le groupe de ressources en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
 
@@ -78,7 +78,7 @@ Si vous avez déployé votre cluster à l’aide du portail ou de l’un des mod
     ![Ressources balisées][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Supprimer les ressources à l’aide d’Azure PowerShell
-Vous pouvez supprimer les ressources individuellement en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Vous pouvez supprimer les ressources individuellement en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
 

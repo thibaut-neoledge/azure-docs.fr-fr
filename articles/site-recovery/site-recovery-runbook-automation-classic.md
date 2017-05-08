@@ -15,8 +15,9 @@ ms.workload: required
 ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
-ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c91a1210e84d215449b98aae14bda490aa2cb156
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -90,7 +91,7 @@ Désormais, ces deux paramètres sont disponibles dans vos ressources.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Pour en savoir plus sur la connexion à votre abonnement avec PowerShell, cliquez [ici](/powershell/azureps-cmdlets-docs).
+Pour en savoir plus sur la connexion à votre abonnement avec PowerShell, cliquez [ici](/powershell/azure/overview).
 
 Ensuite, vous allez créer un Runbook dans Microsoft Azure Automation, capable d’ajouter un point de terminaison pour la machine virtuelle frontale après le basculement.
 
@@ -278,9 +279,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 [Vue d’ensemble de Microsoft Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble de Microsoft Azure Automation")
 
 [Exemples de scripts Microsoft Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Exemples de scripts Microsoft Azure Automation")
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

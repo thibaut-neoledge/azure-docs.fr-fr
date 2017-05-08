@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -44,16 +44,17 @@ Passons à la configuration de votre environnement de développement Visual Stud
 2. Ouvrez **PowerBI-embedded.sln** dans Visual Studio. Vous devrez peut-être exécuter la commande **Update-Package** dans la Console du Gestionnaire de Package NuGet pour mettre à jour les packages utilisés dans cette solution.
 3. Générez la solution.
 4. Exécutez l’application de console **ProvisionSample** . Dans l’exemple d’application console, vous allez approvisionner un espace de travail et importer un fichier PBIX.
-5. Pour configurer un nouvel **espace de travail**, sélectionnez l’option 2, **Report management** (Gestion de rapport), puis sélectionnez l’option 3, **Import PBIX Desktop file into a workspace** (Importer le fichier PBIX Desktop dans un espace de travail).
+5. Pour approvisionner un nouvel **espace de travail**, sélectionnez l’option 1, **Collection management** (Gestion des collections), puis choisissez l’option 6, **Provision a new Workspace** (Approvisionner un nouvel espace de travail).
+6. Pour importer un nouveau **rapport**, sélectionnez l’option 2, **Report management** (Gestion de rapport), puis sélectionnez l’option 3, **Import PBIX Desktop file into a workspace** (Importer le fichier PBIX Desktop dans un espace de travail).
 
-6. Entrez le nom de votre **collection d’espaces de travail** et la **clé d’accès**. Vous pouvez les obtenir dans le **Portail Azure**. Pour en savoir plus sur la façon d’obtenir votre **clé d’accès**, consultez [Affichage des touches d’accès rapide aux API de Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) dans Prise en main de Microsoft Power BI Embedded.
+7. Entrez le nom de votre **collection d’espaces de travail** et la **clé d’accès**. Vous pouvez les obtenir dans le **Portail Azure**. Pour en savoir plus sur la façon d’obtenir votre **clé d’accès**, consultez [Affichage des touches d’accès rapide aux API de Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) dans Prise en main de Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-7. Copiez et enregistrez **l’ID d’espace de travail** qui vient d’être créé et qui sera utilisé ultérieurement dans cet article. Une fois l’**ID d’espace de travail** créé, il est disponible dans le **portail Azure**.
+8. Copiez et enregistrez **l’ID d’espace de travail** qui vient d’être créé et qui sera utilisé ultérieurement dans cet article. Une fois l’**ID d’espace de travail** créé, il est disponible dans le **portail Azure**.
 
     ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
-8. Pour importer un fichier PBIX dans votre **espace de travail**, sélectionnez l’option **6. Importez le fichier PBIX Desktop dans un espace de travail existant**. Si vous n’avez pas de fichier PBIX sous la main, téléchargez [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
-9. Si vous y êtes invité, entrez un nom convivial pour votre **jeu de données**.
+9. Pour importer un fichier PBIX dans votre **espace de travail**, sélectionnez l’option **6. Importez le fichier PBIX Desktop dans un espace de travail existant**. Si vous n’avez pas de fichier PBIX sous la main, téléchargez [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. Si vous y êtes invité, entrez un nom convivial pour votre **jeu de données**.
 
 La réponse doit ressembler à ceci :
 

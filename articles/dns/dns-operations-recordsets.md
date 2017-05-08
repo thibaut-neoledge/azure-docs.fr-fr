@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1d7f24b8a65347bc54b273d08c06b22320cbeb2c
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -51,7 +51,7 @@ Vous pouvez utiliser l’applet de commande `New-AzureRmDnsRecordSet` pour crée
 
 Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, si vous utilisez un jeu d’enregistrements de type « A », vous devez spécifier l’adresse IP à l’aide du paramètre `-IPv4Address`. D’autres paramètres sont utilisés pour d’autres types d’enregistrements. Pour plus d’informations, voir les [autres exemples de types d’enregistrements](#additional-record-type-examples).
 
-L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie 3 600 secondes. Le jeu d’enregistrements ne contient qu’un seul enregistrement, dont l’adresse IP est «&1;.2.3.4 ».
+L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie 3 600 secondes. Le jeu d’enregistrements ne contient qu’un seul enregistrement, dont l’adresse IP est « 1.2.3.4 ».
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -127,7 +127,7 @@ New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements PTR avec un seul enregistrement
 
-Dans ce cas, « my-arpa-zone.com » indique la zone ARPA de recherche inversée représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement «&10; » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA de recherche inversée représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement « 10 » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "myservice.contoso.com") 
@@ -135,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure « @ » dans le nom du jeu d’enregistrements lors de la création d’un jeu d’enregistrements SRV à l’apex de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le  *\_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure « @ » dans le nom du jeu d’enregistrements lors de la création d’un jeu d’enregistrements SRV à l’apex de la zone.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -385,5 +385,5 @@ Apprenez-en davantage sur les [zones et enregistrements dans Azure DNS](dns-zone
 <br>
 Découvrez comment [protéger vos zones et enregistrements](dns-protect-zones-recordsets.md) lors de l’utilisation d’Azure DNS.
 <br>
-Examinez la [documentation de référence d’Azure DNS PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
+Examinez la [documentation de référence d’Azure DNS PowerShell](/powershell/module/azurerm.dns).
 

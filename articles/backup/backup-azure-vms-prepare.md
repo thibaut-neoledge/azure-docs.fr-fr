@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,7 +83,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 | Option | Avantages | Inconvénients |
 | --- | --- | --- |
 | Plages IP de liste blanche |Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande <i>Set-AzureNetworkSecurityRule</i>. |Difficile à gérer, car les plages IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage. |
-| Serveur proxy HTTP |Contrôle granulaire dans le proxy sur les URL de stockage autorisées.<br>Un seul point d’accès Internet aux machines virtuelles.<br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
+| Serveur proxy HTTP |Contrôle granulaire dans le proxy sur les URL de stockage autorisées. Pour configurer un contrôle granulaire dans le proxy, le modèle d’URL https://\*.blob.core.windows.net/\* doit figurer dans la liste approuvée. Pour ajouter à la liste approuvée uniquement le compte de stockage utilisé par la machine virtuelle, le modèle d’URL https://\<storageAccount\>.blob.core.windows.net/\* doit figurer dans la liste approuvée. <br>Un seul point d’accès Internet aux machines virtuelles.<br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Mettez sur liste approuvée les plages IP du centre de données Azure
 Pour mettre sur liste approuvée les plages d’adresses IP des centres de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) .

@@ -17,9 +17,9 @@ ms.workload: identity
 ms.date: 04/02/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9078689d9b2cc66c9674cb5728b7e2f7d669bc43
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 36ea3356648a1a6333c2a1e2c042d27ae2f829b4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Toutes les fonctionnalités pour l’affectation de licences basée sur les grou
 > Avant de commencer à exécuter les applets de commande, veillez d’abord à vous connecter à votre client en exécutant l’applet de commande `Connect-MsolService`.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Afficher les licences de produit attribuées à un groupe
-L’applet de commande [Get-MsolGroup](https://docs.microsoft.com/powershell/msonline/v1/get-msolgroup) peut être utilisé pour récupérer l’objet de groupe et vérifier la propriété *Licences* : elle répertorie toutes les licences de produit actuellement affectées au groupe.
+L’applet de commande [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) peut être utilisé pour récupérer l’objet de groupe et vérifier la propriété *Licences* : elle répertorie toutes les licences de produit actuellement affectées au groupe.
 ```
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber

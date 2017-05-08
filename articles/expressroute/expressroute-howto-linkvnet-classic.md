@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c30f58079c9d8b8077b65881517178fa0ae0e598
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-1. Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger les modules PowerShell les plus récents à partir de la section PowerShell de la [page des téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de [Comment installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
+1. Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger les modules PowerShell les plus récents à partir de la section PowerShell de la [page des téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de [Comment installer et configurer Azure PowerShell](/powershell/azure/overview) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
 2. Avant de commencer la configuration, vous devez examiner les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md).
 3. Vous devez disposer d’un circuit ExpressRoute actif.
    * Suivez les instructions pour [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de service de connectivité.

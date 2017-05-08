@@ -1,6 +1,6 @@
 ---
-title: "Gérer des machines virtuelles Linux avec Azure CLI | Microsoft Docs"
-description: "Didacticiel - Gérer des machines virtuelles Linux avec Azure CLI"
+title: "Créer et gérer des machines virtuelles Linux avec Azure CLI | Microsoft Docs"
+description: "Didacticiel : créer et gérer des machines virtuelles Linux avec l’interface Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -9,186 +9,252 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/28/2017
+ms.date: 04/25/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c0f22806034eef1fc5ff37d547d066f554ec0a85
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: bcb075b320bab942c6421be72ea1445d5fa3f603
+ms.lasthandoff: 04/26/2017
 
 ---
 
-# <a name="manage-linux-virtual-machines-with-the-azure-cli"></a>Gérer des machines virtuelles Linux avec Azure CLI
+# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
 
-Dans ce didacticiel, vous créez une machine virtuelle et effectuez des tâches de gestion courantes telles que l’ajout d’un disque, l’automatisation de l’installation de logiciels et ma création d’un instantané de machine virtuelle. 
+Ce didacticiel examine les éléments de la création de machines virtuelles Azure de base, par exemple la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Ce didacticiel couvre également les opérations de gestion de base telles que la gestion de l’état, la suppression et le redimensionnement d’une machine virtuelle.
 
-Pour suivre ce didacticiel, assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## <a name="step-1--log-in-to-azure"></a>Étape 1 : Connexion à Azure
-
-Tout d’abord, ouvrez un terminal et connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login).
-
-```azurecli
-az login
-```
-
-## <a name="step-2--create-resource-group"></a>Étape 2 : Création d’un groupe de ressources
+## <a name="create-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `westeurope`. 
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé `myResourceGroupVM` est créé dans la région `westus`. 
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroupVM --location westus
 ```
 
-## <a name="step-3---prepare-configuration"></a>Étape 3 : Préparer la configuration
+Le groupe de ressources est spécifié lors de la création ou de la modification d’une machine virtuelle, qui peut être vue dans ce didacticiel.
 
-Lors du déploiement d’une machine virtuelle, **cloud-init** peut être utilisé pour automatiser les configurations, comme l’installation de packages, la création de fichiers et l’exécution de scripts. Dans ce didacticiel, les configurations de deux éléments sont automatisées :
-
-- Installation d’un serveur Web NGINX
-- Configuration d’un deuxième disque sur la machine virtuelle
-
-Étant donné que la configuration **cloud-init** se produit au moment du déploiement de la machine virtuelle, une configuration **cloud-init** doit être définie avant de créer la machine virtuelle.
-
-Créez un fichier nommé `cloud-init.txt` et copiez le contenu suivant dedans. Cette configuration installe le package NGINX et exécute des commandes pour formater et monter le deuxième disque.
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-runcmd:
-  - (echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
-  - sudo mkfs -t ext4 /dev/sdc1
-  - sudo mkdir /datadrive
-  - sudo mount /dev/sdc1 /datadrive
-```
-
-## <a name="step-4---create-virtual-machine"></a>Étape 4 : Créer une machine virtuelle
+## <a name="create-virtual-machine"></a>Create virtual machine
 
 Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
-Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Dans cet exemple, une machine virtuelle exécutant Ubuntu est créée avec un nom de `myVM`. Un disque de 50 Go est créé et lié à la machine virtuelle à l’aide de l’argument `--data-disk-sizes-gb`. L’argument `--custom-data` accepte la configuration cloud-init et la copie sur la machine virtuelle. Enfin, les clés SSH sont également créées si elles n’existent pas.
+Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Cet exemple crée une machine virtuelle nommée `myVM` qui exécute Ubuntu Server. 
 
 ```azurecli
-az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
-  --generate-ssh-keys \
-  --data-disk-sizes-gb 50 \
-  --custom-data cloud-init.txt
+az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Une fois que la machine virtuelle a été créée, l’interface Azure CLI fournit les informations suivantes. Prenez note de l’adresse IP publique, cette adresse étant utilisée pour accéder à la machine virtuelle. 
+Une fois la machine virtuelle créée, l’interface Azure CLI fournit des informations concernant cette machine virtuelle. Notez la valeur de `publicIpAddress`, car cette adresse peut être utilisée pour accéder à la machine virtuelle. 
 
 ```azurecli
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "52.174.34.95",
-  "resourceGroup": "myResourceGroup"
+  "resourceGroup": "myResourceGroupVM"
 }
 ```
 
-Alors que la machine virtuelle a été déployée, la configuration **cloud-init** peut prendre quelques minutes. 
+## <a name="connect-to-vm"></a>Se connecter à une machine virtuelle
 
-## <a name="step-5--configure-firewall"></a>Étape 5 : Configuration du pare-feu
+Vous pouvez maintenant vous connecter à la machine virtuelle à l’aide de SSH. Remplacez l’exemple d’adresse IP par la valeur de `publicIpAddress` notée à l’étape précédente.
 
-Un [groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md) (NSG) Azure contrôle le trafic entrant et sortant pour une ou plusieurs machines virtuelles. Les règles de groupe de sécurité réseau autorisent ou refusent le trafic réseau sur un port ou une plage de ports spécifique. Ces règles peuvent également inclure un préfixe d’adresse source afin que seul le trafic provenant d’une source prédéfinie puisse communiquer avec une machine virtuelle.
+```bash
+ssh 52.174.34.95
+```
 
-Dans la section précédente, le serveur web NGINX a été installé. Sans règle de groupe de sécurité de réseau pour autoriser le trafic entrant sur le port 80, le serveur web n’est pas accessible sur Internet. Cette étape vous guide lors de la création de la règle de groupe de sécurité réseau pour autoriser les connexions entrantes sur le port 80.
+Une fois que vous avez terminé avec la machine virtuelle, fermez la session SSH. 
 
-### <a name="create-nsg-rule"></a>Création de la règle de groupe de sécurité réseau
+```bash
+exit
+```
 
-Pour créer une règle de groupe de sécurité réseau entrante, utilisez la commande [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port). L’exemple suivant ouvre le port `80` pour la machine virtuelle.
+## <a name="understand-vm-images"></a>Comprendre les images de machine virtuelle
+
+La Place de marché Azure comprend de nombreuses images qui permettent de créer des machines virtuelles. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide d’une image Ubuntu. Dans cette étape, vous allez utiliser l’interface Azure CLI pour rechercher dans la Place de marché une image CentOS, qui servira ensuite à déployer une deuxième machine virtuelle.  
+
+Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image#list).
 
 ```azurecli
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
+az vm image list --output table
 ```
 
-Maintenant, accédez à l’adresse IP publique de la machine virtuelle. Avec la règle de groupe de sécurité réseau en place, le site web NGINX par défaut s’affiche.
+La commande renvoie les images de machine virtuelle les plus populaires sur Azure.
 
-![Site par défaut NGINX](./media/tutorial-manage-vm/nginx.png)  
+```bash
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
 
-## <a name="step-6--snapshot-virtual-machine"></a>Étape 6 – Capture d’un instantané de la machine virtuelle
-
-La capture instantanée du disque crée une copie en lecture seule à un moment donné du disque. Dans cette étape, un instantané du disque de système d’exploitation des machines virtuelles est capturé. Avec un instantané de disque de système d’exploitation, la machine virtuelle peut être rapidement restaurée à un état spécifique, ou l’instantané peut être utilisé pour créer une nouvelle machine virtuelle avec un état identique.
-
-### <a name="create-snapshot"></a>Création d’un instantané
-
-Avant de créer un instantané, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az vm show](https://docs.microsoft.com/cli/azure/vm#show) pour obtenir l’ID du disque. Dans cet exemple, l’ID du disque est stocké dans une variable et est utilisé dans une étape ultérieure.
+Vous pouvez obtenir une liste complète en ajoutant l’argument `--all`. Vous pouvez également utiliser `--publisher` ou `–offer` pour filtrer la liste d’images. Dans cet exemple, la liste est filtrée pour toutes les images dont l’offre correspond à `CentOS`. 
 
 ```azurecli
-osdiskid=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+az vm image list --offer CentOS --all --output table
 ```
 
-Maintenant que vous avez l’ID du disque, la commande suivante crée l’instantané.
-
-```azurcli
-az snapshot create -g myResourceGroup --source "$osdiskid" --name osDisk-backup
-```
-
-### <a name="create-disk-from-snapshot"></a>Création d’un disque à partir d’une capture instantanée
-
-Cet instantané peut ensuite être converti en disque qui peut être utilisé pour recréer la machine virtuelle.
+Résultat partiel :
 
 ```azurecli
-az disk create --resource-group myResourceGroup --name mySnapshotDisk --source osDisk-backup
+Offer             Publisher         Sku   Urn                                     Version
+----------------  ----------------  ----  --------------------------------------  -----------
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201503         6.5.201503
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201506         6.5.201506
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20150904       6.5.20150904
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309       6.5.20160309
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-### <a name="restore-virtual-machine-from-snapshot"></a>Restauration de la machine virtuelle à partir de l’instantané
-
-Pour illustrer la récupération de machine virtuelle, supprimez la machine virtuelle existante. 
+Pour déployer une machine virtuelle à l’aide d’une image spécifique, notez la valeur de la colonne `Urn`. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
 
 ```azurecli
-az vm delete --resource-group myResourceGroup --name myVM
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
-Lorsque vous recréez la machine virtuelle, l’interface réseau existant est réutilisée. Cela garantit que les configurations de sécurité réseau sont conservées.
+## <a name="understand-vm-sizes"></a>Comprendre les tailles de machine virtuelle
 
-Obtenez le nom d’interface réseau avec la commande [az network nic list](https://docs.microsoft.com/cli/azure/network/nic#list). Cet exemple place le nom dans une variable nommée `nic`, qui est utilisée dans l’étape suivante.
+Une taille de machine virtuelle détermine la quantité de ressources de calcul comme le processeur, le processeur graphique (GPU) et la mémoire qui sont mises à la disposition de la machine virtuelle. Les machines virtuelles doivent être correctement dimensionnés en fonction de la charge de travail attendue. Si la charge de travail augmente, une machine virtuelle existante peut être redimensionnée.
+
+### <a name="vm-sizes"></a>Tailles de machine virtuelle
+
+Le tableau suivant classe les tailles en fonction des cas d’utilisation.  
+
+| Type                     | Tailles           |    Description       |
+|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [Usage général](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
+| [Optimisé pour le calcul](sizes-compute.md)   | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
+| [Mémoire optimisée](../virtual-machines-windows-sizes-memory.md)    | GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/cœur élevé. Idéale pour les bases de données relationnelles, les caches moyens à grands et l’analytique en mémoire.                 |
+| [Optimisé pour le stockage](../virtual-machines-windows-sizes-storage.md)      | Ls                | Débit de disque et E/S élevés. Idéale pour les bases de données NoSQL, SQL et Big Data.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NC            | Machines virtuelles spécialisées conçues pour les opérations graphiques lourdes et la retouche vidéo.       |
+| [Hautes performances](sizes-hpc.md) | H, A8-11          | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 
+
+
+### <a name="find-available-vm-sizes"></a>Rechercher les tailles de machines virtuelles disponibles
+
+Pour afficher la liste des tailles de machines virtuelles disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
 ```azurecli
-nic=$(az network nic list --resource-group myResourceGroup --query "[].[name]" -o tsv)
+az vm list-sizes --location westus --output table
 ```
 
-Créez une nouvelle machine virtuelle à l’aide du disque d’instantané.
+Résultat partiel :
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --attach-os-disk mySnapshotDisk --os-type linux --nics $nic
+  MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
+------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
+                 2          3584  Standard_DS1                          1           1047552                    7168
+                 4          7168  Standard_DS2                          2           1047552                   14336
+                 8         14336  Standard_DS3                          4           1047552                   28672
+                16         28672  Standard_DS4                          8           1047552                   57344
+                 4         14336  Standard_DS11                         2           1047552                   28672
+                 8         28672  Standard_DS12                         4           1047552                   57344
+                16         57344  Standard_DS13                         8           1047552                  114688
+                32        114688  Standard_DS14                        16           1047552                  229376
+                 1           768  Standard_A0                           1           1047552                   20480
+                 2          1792  Standard_A1                           1           1047552                   71680
+                 4          3584  Standard_A2                           2           1047552                  138240
+                 8          7168  Standard_A3                           4           1047552                  291840
+                 4         14336  Standard_A5                           2           1047552                  138240
+                16         14336  Standard_A4                           8           1047552                  619520
+                 8         28672  Standard_A6                           4           1047552                  291840
+                16         57344  Standard_A7                           8           1047552                  619520
 ```
 
-Prenez note de la nouvelle adresse IP publique, et accédez à cette adresse dans un navigateur Internet. Vous verrez que NGINX est en cours d’exécution sur la machine virtuelle restaurée. 
+### <a name="create-vm-with-specific-size"></a>Créer une machine virtuelle d’une taille spécifique
 
-### <a name="reconfigure-data-disk"></a>Reconfiguration du disque de données
-
-Le disque de données peut désormais être rattaché à la machine virtuelle. 
-
-Trouvez d’abord le nom des disques de données à l’aide de la commande [az disk list](https://docs.microsoft.com/cli/azure/disk#list). Cet exemple place le nom du disque dans une variable nommée `datadisk`, qui est utilisée dans l’étape suivante.
+Dans le précédent exemple de création d’une machine virtuelle, aucune taille n’a été spécifiée ; la taille par défaut a donc été appliquée. Vous pouvez sélectionner une taille de machine virtuelle au moment de la création à l’aide de la commande [az vm create](/cli/azure/vm#create) et de l’argument `--size`. 
 
 ```azurecli
-datadisk=$(az disk list -g myResourceGroup --query "[?contains(name,'myVM')].[name]" -o tsv)
+az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
 ```
 
-Utilisez la commande [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) pour attacher le disque.
+### <a name="resize-a-vm"></a>Redimensionner une machine virtuelle
+
+Après avoir déployé une machine virtuelle, vous pouvez la redimensionner pour augmenter ou diminuer l’allocation des ressources.
+
+Avant de redimensionner une machine virtuelle, vérifiez si la taille souhaitée est disponible dans le cluster Azure actuel. La commande [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) commande renvoie la liste des tailles disponibles. 
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk $datadisk
+az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
+```
+Si la taille souhaitée est disponible, la machine virtuelle peut être redimensionnée à partir d’un état sous tension, mais elle est redémarrée au cours de l’opération. Utilisez la commande [az vm resize]( /cli/azure/vm#resize) commande pour effectuer le redimensionnement.
+
+```azurecli
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Le disque doit également être monté sur le système d’exploitation. Pour monter le disque, connectez-vous à la machine virtuelle et exécutez `sudo mount /dev/sdc1 /datadrive`, ou votre opération de montage de disque par défaut. 
+Si la taille souhaitée ne figure pas dans le cluster actuel, la machine virtuelle doit être libérée avant de procéder au redimensionnement. Utilisez la commande [az vm deallocate]( /cli/azure/vm#deallocate) pour arrêter la machine virtuelle et la libérer. Notez que lorsque la machine virtuelle est remise sous tension, toutes les données contenues dans le disque temporaire peuvent être supprimées. L’adresse IP publique change également, sauf si une adresse IP statique est utilisée. 
 
-## <a name="step-7--management-tasks"></a>Étape 7 : Tâches de gestion
+```azurecli
+az vm deallocate --resource-group myResourceGroupVM --name myVM
+```
+
+Après la libération, le redimensionnement peut être effectué. 
+
+```azurecli
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
+```
+
+Après le redimensionnement, la machine virtuelle peut être démarrée.
+
+```azurecli
+az vm start --resource-group myResourceGroupVM --name myVM
+```
+
+## <a name="vm-power-states"></a>États d’alimentation de la machine virtuelle
+
+Une machine virtuelle Azure peut présenter différents états d’alimentation. Cet état représente l’état actuel de la machine virtuelle du point de vue de l’hyperviseur. 
+
+### <a name="power-states"></a>États d’alimentation
+
+| État d’alimentation | Description
+|----|----|
+| Starting | Indique que la machine virtuelle est en cours de démarrage. |
+| Exécution | Indique que la machine virtuelle est en cours d’exécution. |
+| En cours d’arrêt | Indique que la machine virtuelle est en cours d’arrêt. | 
+| Arrêté | Indique que la machine virtuelle est arrêtée. Les machines virtuelles à l’état arrêté entraînent toujours des frais de calcul.  |
+| Libération | Indique que la machine virtuelle est en cours de libération. |
+| Libéré | Indique que la machine virtuelle est supprimée de l’hyperviseur, mais reste disponible dans le plan de contrôle. Les machines virtuelles à l’état Libéré n’entraînent pas de frais de calcul. |
+| - | Indique que l’état d’alimentation de la machine virtuelle est inconnu. |
+
+### <a name="find-power-state"></a>Rechercher un état d’alimentation
+
+Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm#get-instance-view). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
+
+```azurecli
+az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+```
+
+Output:
+
+```azurecli
+ode                DisplayStatus    Level
+------------------  ---------------  -------
+PowerState/running  VM running       Info
+```
+
+## <a name="management-tasks"></a>Tâches de gestion
 
 Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter des tâches de gestion telles que le démarrage, l’arrêt ou la suppression d’une machine virtuelle. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les tâches répétitives ou complexes. À l’aide de l’interface Azure CLI, de nombreuses tâches courantes de gestion peuvent être exécutées à partir de la ligne de commande ou dans des scripts. 
 
@@ -197,33 +263,19 @@ Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter de
 Cette commande renvoie les adresses IP publiques et privées d’une machine virtuelle.  
 
 ```azurecli
-az vm list-ip-addresses --resource-group myResourceGroup --name myVM
-```
-
-### <a name="resize-virtual-machine"></a>Redimensionner la machine virtuelle
-
-Pour redimensionner une machine virtuelle Azure, vous devez connaître le nom des tailles disponibles dans la région Azure choisie. Vous pouvez trouver ces tailles avec la commande [az vm list-sizes](https://docs.microsoft.com/cli/azure/vm#list-sizes).
-
-```azurecli
-az vm list-sizes --location westeurope --output table
-```
-
-La machine virtuelle peut être redimensionnée à l’aide de la commande [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize). 
-
-```azurecli
-az vm resize -g myResourceGroup -n myVM --size Standard_F4s
+az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>Arrêt d’une machine virtuelle
 
 ```azurecli
-az vm stop --resource-group myResourceGroup --name myVM
+az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>Démarrage d’une machine virtuelle
 
 ```azurecli
-az vm start --resource-group myResourceGroup --name myVM
+az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="delete-resource-group"></a>Supprimer un groupe de ressources
@@ -231,10 +283,11 @@ az vm start --resource-group myResourceGroup --name myVM
 La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel crée une machine virtuelle en utilisant des ressources Azure individuelles. Le didacticiel suivant s’appuie sur ces concepts pour créer une application à haute disponibilité avec équilibrage de charge et résistante aux événements de maintenance. Continuez avec le didacticiel suivant, [Création d’une application à haute disponibilité avec équilibrage de charge sur des machines virtuelles Linux dans Azure](tutorial-load-balance-nodejs.md).
 
-Exemples : [Exemples de scripts de ligne de commande](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Dans ce didacticiel, vous avez appris les tâches de création et de gestion de base des machines virtuelles. Passez au didacticiel suivant pour en savoir plus sur les disques de machine virtuelle.  
+
+[Créer et gérer des disques de machine virtuelle](./tutorial-manage-disks.md)

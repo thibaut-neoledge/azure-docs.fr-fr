@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fa5467f38944435cc21d4d3ebd5a645c4f268b9b
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c4948d83b5eff5280f6a0d16535f3eb29d680f04
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Ce scénario est choisi pour sa simplicité, pas pour sa rentabilité ou pour d�
 Le but de ce didacticiel est de vous présenter les étapes nécessaires pour installer la solution décrite ci-dessus sans développer les détails de chaque étape. Par conséquent, au lieu de donner les étapes de configuration dans l’interface utilisateur graphique, il utilise le script PowerShell pour vous guider rapidement dans chaque étape. Ce didacticiel part des principes suivants :
 
 * Vous avez déjà un compte Azure avec un abonnement de machine virtuelle.
-* Vous avez installé les [cmdlets Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Vous avez installé les [cmdlets Azure PowerShell](/powershell/azure/overview).
 * Vous disposez déjà d’une connaissance approfondie des groupes de disponibilité Always On pour les solutions locales. Pour plus d’informations, voir [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Connexion à votre abonnement Azure et création du réseau virtuel

@@ -1,6 +1,6 @@
 ---
-title: "Transfert automatique d’entités de messagerie de Service Bus | Microsoft Docs"
-description: "Comment chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique."
+title: "Transfert automatique d’entités de messagerie Azure Service Bus | Microsoft Docs"
+description: "Guide pratique pour chaîner une file d’attente ou un abonnement Service Bus à une autre file d’attente ou rubrique."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 04/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
-ms.openlocfilehash: cbbd416a065b3284e85957cc024955d11524d3da
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d58e9b9dc4771cc69265d02b62cf8fe3c9b7d72e
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Chaînage des entités Service Bus avec transfert automatique
-La fonctionnalité de *transfert automatique* vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu’il n’est pas possible de chaîner une sous-file d’attente, comme une file d’attente de rebut, à une autre file d’attente ou rubrique.
+
+La fonctionnalité de *transfert automatique* de Service Bus vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu’il n’est pas possible de chaîner une sous-file d’attente, comme une file d’attente de rebut, à une autre file d’attente ou rubrique.
 
 ## <a name="using-auto-forwarding"></a>Utilisation du transfert automatique
 Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] sur les objets [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] pour la source, comme dans l’exemple suivant.
@@ -45,7 +47,8 @@ Vous pouvez également utiliser le transfert automatique pour découpler les exp
 Si Alice part en vacances, sa file d’attente personnelle, et non la rubrique ERP, se remplit. Dans ce scénario, étant donné qu’un représentant commercial n’a pas reçu les messages, aucun des rubriques ERP n’atteint jamais son quota.
 
 ## <a name="auto-forwarding-considerations"></a>Considérations sur le transfert automatique
-Si l’entité de destination a accumulé de nombreux messages et dépasse le quota, ou l’entité de destination est désactivée, l’entité source ajoute les messages à sa [file d’attente de rebut](service-bus-dead-letter-queues.md) jusqu’à ce qu’il y ait de l’espace dans la destination (ou que l’entité soit réactivée). Ces messages continuent de résider dans la file d'attente de rebut, donc vous devez explicitement les recevoir et les traiter à partir de la file d'attente de rebut.
+
+Si l’entité de destination accumule de nombreux messages et dépasse le quota, ou si l’entité de destination est désactivée, l’entité source ajoute les messages à sa [file d’attente de rebut](service-bus-dead-letter-queues.md) jusqu’à ce qu’il y ait de l’espace dans la destination (ou que l’entité soit réactivée). Ces messages continuent de résider dans la file d'attente de rebut, donc vous devez explicitement les recevoir et les traiter à partir de la file d'attente de rebut.
 
 Lors du chaînage de rubriques individuelles pour obtenir une rubrique composite avec de nombreux abonnements, nous vous recommandons d’avoir un nombre modéré d’abonnements à la rubrique de premier niveau et beaucoup d’abonnements aux rubriques de second niveau. Par exemple, une rubrique de premier niveau avec 20 abonnements, chacun étant chaîné à une rubrique de second niveau possédant 200 abonnements, permet d’obtenir un débit plus élevé qu’une rubrique de premier niveau possédant 200 abonnements, chacun étant chaîné à une rubrique de second niveau possédant 20 abonnements.
 
@@ -54,24 +57,23 @@ Service Bus facture une opération pour chaque message transféré. Par exemple,
 Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubrique, le créateur de l’abonnement doit disposer des autorisations de **gestion** de l’entité source et l’entité de destination. L’envoi de messages à la rubrique source ne nécessite que des autorisations **d’envoi** sur la rubrique source.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur le transfert automatique, consultez les rubriques de référence suivantes :
 
 * [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
+Pour en savoir plus sur les améliorations des performances de Service Bus, consultez 
 
-[QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-[QueueDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
+* [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus](service-bus-performance-improvements.md)
+* [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
+
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

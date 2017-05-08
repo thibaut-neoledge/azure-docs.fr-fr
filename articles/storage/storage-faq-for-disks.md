@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks est une fonctionnalité qui simplifie la gestion des disques asso
 
 **Si je crée un disque standard géré à partir d’un disque dur virtuel existant présentant une taille de 80 Go, combien cela me coûtera-t-il ?**
 
-Un disque géré Standard créé à partir d’un disque dur virtuel de 80 Go sera traité comme la taille immédiatement supérieure disponible de disque Premium, dont le coût s’élève à 10 dollars. Vous serez facturé 10 dollars par disque. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage).
+Un disque géré standard créé à partir d’un disque dur virtuel de 80 Go sera traité comme la taille immédiatement supérieure disponible de disque standard, dont le coût s’élève à 10 dollars. Vous serez facturé 10 dollars par disque. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage).
 
 **Des frais de transaction s’appliquent-ils aux disques gérés Standard ?**
 
@@ -121,6 +121,11 @@ Oui.
 
 Actuellement, Azure Managed Disks prend uniquement en charge le stockage localement redondant (LRS).
 
+**Puis-je réduire (ou réduire la taille de) mes disques gérés ?**
+Non. Cette fonctionnalité n’est pas prise en charge pour l’instant. 
+
+**Puis-je modifier la propriété de nom d’ordinateur lors de l’utilisation d’un disque de système d’exploitation spécialisé (pas préparé avec Sysprep ni généralisé) pour configurer une machine virtuelle** Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle hérite de celle de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks et port 8443
 
 **Pourquoi les clients doivent-ils débloquer le trafic sortant sur le port 8443 pour les machines virtuelles avec Azure Managed Disks ?**
@@ -189,8 +194,13 @@ Les limites combinées pour le cache et le disque SSD local d’une machine de l
 
 Le disque local SSD est un stockage temporaire inclus avec une machine virtuelle de disques gérés. Ce stockage temporaire n’occasionne aucun frais supplémentaire. Il est recommandé de ne pas utiliser ce disque SSD local pour le stockage des données de votre application, car il n’est pas persistant dans le Stockage Blob Azure.
 
+**Y-a-t-il des répercussions sur l’utilisation de la fonction TRIM sur les disques Premium ?**
+
+Il n’existe aucun inconvénient à utiliser TRIM sur des disques Azure Premium ou Standard.
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article, dans les commentaires, ou dans le [forum du stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) du site MSDN afin de solliciter l’équipe du stockage Azure et d’autres membres de la communauté sur des problématiques autour de cet article.
 
 Pour soumettre une demande de fonctionnalité, transmettez vos questions et vos idées sur le [forum des commentaires du stockage Azure](https://feedback.azure.com/forums/217298-storage).
+

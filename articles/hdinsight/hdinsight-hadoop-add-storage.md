@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -52,7 +52,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 * Il arrête et redémarre les services Oozie, YARN, MapReduce2 et HDFS pour qu’ils récupèrent les informations du nouveau compte de stockage.
 
 > [!WARNING]
-> Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, il se peut que vous rencontriez des problèmes de performances. Lorsque vous accédez à des données stockées dans une autre région, le trafic réseau sort du centre de données Azure régional, puis est acheminé via l’Internet public, ce qui peut entraîner de la latence. Par ailleurs, l’envoi de données hors d’un centre de données régional peut coûter plus cher du fait que des frais de sortie sont appliqués lorsque des données quittent un centre de données.
+> L’utilisation d’un compte de stockage dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
 ## <a name="the-script"></a>Le script
 

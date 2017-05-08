@@ -1,6 +1,6 @@
 ---
 title: "Créer une identité pour une application Azure avec l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Explique comment utiliser l’interface de ligne de commande (CLI) Azure pour créer une application et un principal du service Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
+description: "Explique comment utiliser l’interface de ligne de commande (CLI) Azure pour créer une application et un principal du service Azure Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4ea75e08a630ad777444ea3a3cb85f4bb0efe01f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8a883dedee31d9efab6e2eb4c0ac67b467afe34
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -37,7 +37,7 @@ Lorsque vous avez une application ou un script qui doit pouvoir accéder à des 
 Cet article explique comment utiliser [Azure CLI 1.0](../cli-install-nodejs.md) pour configurer une application qui s’exécute sous ses propres informations d’identification et sous sa propre identité. Installez la dernière version d’[Azure CLI 1.0](../cli-install-nodejs.md) pour vous assurer que votre environnement correspond aux exemples utilisés dans cet article.
 
 ## <a name="required-permissions"></a>Autorisations requises
-Pour effectuer cette rubrique, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Active Directory et d’affecter un rôle au principal du service. 
+Pour effectuer cette rubrique, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Azure Active Directory et d’affecter un rôle au principal du service. 
 
 Le moyen le plus simple pour vérifier que votre compte dispose des autorisations adéquates est d’utiliser le portail. Consultez [Vérifier l’autorisation requise dans le portail](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -72,7 +72,7 @@ Dans cette section, vous allez suivre la procédure qui vous permettra de créer
      info:    ad sp create command OK
    ```
 
-3. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous ajoutez le principal du service au rôle Lecteur, ce qui l’autorise à lire toutes les ressources de l’abonnement. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md). Pour le paramètre objectid, fournissez l’ID objet que vous avez utilisé lors de la création de l’application. Avant d’exécuter cette commande, vous devez donner le temps au nouveau principal du service de se propager dans Active Directory. Lorsque vous exécutez ces commandes manuellement, en général il s’est écoulé suffisamment de temps entre les tâches. Dans un script, vous devez ajouter une étape de veille entre les commandes (telle que `sleep 15`). Si une erreur s’affiche indiquant que le principal n’existe pas dans le répertoire, réexécutez la commande.
+3. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous ajoutez le principal du service au rôle Lecteur, ce qui l’autorise à lire toutes les ressources de l’abonnement. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md). Pour le paramètre objectid, fournissez l’ID objet que vous avez utilisé lors de la création de l’application. Avant d’exécuter cette commande, vous devez donner le temps au nouveau principal du service de se propager dans Azure Active Directory. Lorsque vous exécutez ces commandes manuellement, en général il s’est écoulé suffisamment de temps entre les tâches. Dans un script, vous devez ajouter une étape de veille entre les commandes (telle que `sleep 15`). Si une erreur s’affiche indiquant que le principal n’existe pas dans le répertoire, réexécutez la commande.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -83,7 +83,7 @@ Et voilà ! Votre application Active Directory et votre principal du service so
 ### <a name="provide-credentials-through-azure-cli"></a>Fournir des informations d’identification via Azure CLI
 Maintenant, vous devez vous connecter en tant qu’application pour effectuer des opérations.
 
-1. Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Active Directory. Pour récupérer l’ID de locataire pour l’abonnement actuellement authentifié, utilisez :
+1. Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Azure Active Directory. Pour récupérer l’ID de locataire pour l’abonnement actuellement authentifié, utilisez :
    
    ```azurecli
    azure account show
@@ -192,7 +192,7 @@ Pour ce faire, [OpenSSL](http://www.openssl.org/) doit être installé.
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous ajoutez le principal du service au rôle Lecteur, ce qui l’autorise à lire toutes les ressources de l’abonnement. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md). Pour le paramètre objectid, fournissez l’ID objet que vous avez utilisé lors de la création de l’application. Avant d’exécuter cette commande, vous devez donner le temps au nouveau principal du service de se propager dans Active Directory. Lorsque vous exécutez ces commandes manuellement, en général il s’est écoulé suffisamment de temps entre les tâches. Dans un script, vous devez ajouter une étape de veille entre les commandes (telle que `sleep 15`). Si une erreur s’affiche indiquant que le principal n’existe pas dans le répertoire, réexécutez la commande.
+6. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous ajoutez le principal du service au rôle Lecteur, ce qui l’autorise à lire toutes les ressources de l’abonnement. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md). Pour le paramètre objectid, fournissez l’ID objet que vous avez utilisé lors de la création de l’application. Avant d’exécuter cette commande, vous devez donner le temps au nouveau principal du service de se propager dans Azure Active Directory. Lorsque vous exécutez ces commandes manuellement, en général il s’est écoulé suffisamment de temps entre les tâches. Dans un script, vous devez ajouter une étape de veille entre les commandes (telle que `sleep 15`). Si une erreur s’affiche indiquant que le principal n’existe pas dans le répertoire, réexécutez la commande.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -201,7 +201,7 @@ Pour ce faire, [OpenSSL](http://www.openssl.org/) doit être installé.
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Fournir un certificat via un script Azure CLI automatisé
 Maintenant, vous devez vous connecter en tant qu’application pour effectuer des opérations.
 
-1. Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Active Directory. Pour récupérer l’ID de locataire pour l’abonnement actuellement authentifié, utilisez :
+1. Chaque fois que vous vous connectez en tant que principal de service, vous devez fournir l’ID de locataire du répertoire de votre application AD. Un locataire est une instance d’Azure Active Directory. Pour récupérer l’ID de locataire pour l’abonnement actuellement authentifié, utilisez :
    
    ```azurecli
    azure account show
@@ -263,7 +263,7 @@ Maintenant, vous devez vous connecter en tant qu’application pour effectuer de
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
+Vous êtes maintenant authentifié en tant que principal du service pour l’application Azure Active Directory que vous avez créée.
 
 ## <a name="change-credentials"></a>Modifier les informations d’identification
 
@@ -285,7 +285,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 Lors de la création d’un principal de service, vous pouvez rencontrer les erreurs suivantes :
 
-* **« Authentication_Unauthorized »** ou **« Aucun abonnement trouvé dans le contexte. »** - Vous voyez cette erreur lorsque votre compte n’a pas les [autorisations requises](#required-permissions) sur Active Directory pour inscrire une application. En règle générale, vous obtenez cette erreur lorsque seuls des utilisateurs administrateurs dans votre Active Directory peuvent inscrire des applications et que votre compte n’est pas un compte d’administrateur. Demandez à votre administrateur de vous affecter à un rôle d’administrateur ou d’autoriser les utilisateurs ordinaires à inscrire des applications.
+* **« Authentication_Unauthorized »** ou **« Aucun abonnement trouvé dans le contexte. »** - Vous voyez cette erreur lorsque votre compte ne possède pas les [autorisations requises](#required-permissions) sur Azure Active Directory pour inscrire une application. En règle générale, vous obtenez cette erreur lorsque seuls des utilisateurs administrateurs dans votre Azure Active Directory peuvent inscrire des applications et que votre compte n’est pas un compte d’administrateur. Demandez à votre administrateur de vous affecter à un rôle d’administrateur ou d’autoriser les utilisateurs ordinaires à inscrire des applications.
 
 * Le message indique que votre compte **« n’est pas autorisé à effectuer l’action ’Microsoft.Authorization/roleAssignments/write’ sur l’étendue ’/subscriptions/{guid}’ »** - Vous voyez cette erreur lorsque votre compte ne dispose pas d’autorisations suffisantes pour affecter un rôle à une identité. Demandez à votre administrateur d’abonnement de vous ajouter au rôle Administrateur de l’accès utilisateur.
 

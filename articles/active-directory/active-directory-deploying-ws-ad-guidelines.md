@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0bcde69385b74fa62a629159abfff4bb16d9da89
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -394,7 +394,7 @@ Pour des raisons de performances et de tolérance de pannes, il est souhaitable 
 
 Les machines virtuelles inscrivent leur nom DNS automatiquement au démarrage ou lors d’une modification de nom.
 
-Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](https://msdn.microsoft.com/library/azure/jj152841) (Applets de commande de gestion Azure).
+Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](/powershell/module/azurerm.compute/#virtual_machines) (Applets de commande de gestion Azure).
 
 ### <a name="BKMK_DistributedDCs"></a>Contrôleurs de domaine géolocalisés
 Azure présente des avantages lors de l’hébergement de plusieurs contrôleurs de domaine sur différents réseaux virtuels :

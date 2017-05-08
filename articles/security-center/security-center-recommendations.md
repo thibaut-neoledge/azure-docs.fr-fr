@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b16d8607ca0dbb08421b332df11e462267eb80f5
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -49,7 +49,7 @@ Après la définition d’une stratégie de sécurité, le Centre de sécurité 
 
 Pour afficher les détails de chaque recommandation :
 
-1. Cliquez sur la **mosaïque Recommandations** dans le panneau **Centre de sécurité**. Le panneau **Recommandations** s’ouvre.
+Sélectionnez la mosaïque **Recommandations** dans le panneau **Security Center**. Le panneau **Recommandations** s’ouvre.
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
@@ -98,7 +98,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 
 Vous pouvez filtrer et ignorer les recommandations.
 
-1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
+1. Sélectionnez **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
     ![Filtrer les recommandations][2]
 2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Rejeté**.

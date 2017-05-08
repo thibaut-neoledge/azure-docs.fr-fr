@@ -1,5 +1,5 @@
 ---
-title: "Bonnes pratiques pour la mise à l’échelle automatique | Microsoft Docs"
+title: "Bonnes pratiques pour la mise à l’échelle automatique | Microsoft Docs"
 description: "Découvrez comment procéder efficacement à une mise à l’échelle automatique dans Machines virtuelles, Virtual Machine Scale Sets et Services cloud."
 author: kamathashwin
 manager: carmonm
@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Bonnes pratiques relatives à la mise à l’échelle automatique des machines virtuelles
+# <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. Il s’applique à Machines virtuelles, Virtual Machine Scale Sets et Services cloud.  Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
@@ -149,9 +150,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 * Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 * Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle.
   Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

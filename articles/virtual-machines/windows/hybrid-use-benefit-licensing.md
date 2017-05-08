@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 3/10/2017
+ms.date: 4/10/2017
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76459acd75cc09a315b0dad219990a830a6ad111
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -32,30 +32,31 @@ Pour les clients avec Software Assurance, Azure Hybrid Use Benefit permet d’ut
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Méthodes d’utilisation d’Azure Hybrid Use Benefit
 Il existe deux manières de déployer des machines virtuelles Windows avec Azure Hybrid Use Benefit :
 
-1. Si vous avez un abonnement de type Accord Entreprise, vous pouvez [déployer des machines virtuelles à partir d’images de Marketplace spécifiques](#deploy-a-vm-using-the-azure-marketplace) qui sont préconfigurées avec Azure Hybrid Use Benefit.
-2. Si vous n’avez pas d’Accord Entreprise, vous pouvez [télécharger une machine virtuelle personnalisée](#upload-a-windows-vhd) et [effectuez le déploiement à l’aide d’un modèle Resource Manager](#deploy-a-vm-via-resource-manager) ou [d’Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+1. Vous pouvez déployer des machines virtuelles à partir [d’images Marketplace spécifiques](#deploy-a-vm-using-the-azure-marketplace) qui sont préconfigurées avec Azure Hybrid Use Benefit - Windows Server 2016, Windows Server 2012R2, Windows Server 2012 et Windows Server 2008SP1.
+2. Vous pouvez [télécharger une machine virtuelle personnalisée](#upload-a-windows-vhd) et [effectuez le déploiement à l’aide d’un modèle Resource Manager](#deploy-a-vm-via-resource-manager) ou [d’Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Déploiement d’une machine virtuelle à l’aide d’Azure Marketplace
-Pour les clients avec des [abonnements de type Accord Entreprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), des images préconfigurées avec Azure Hybrid Use Benefit sont disponibles dans Marketplace. Ces images peuvent être déployées directement à partir du portail Azure, de modèles Resource Manager ou d’Azure PowerShell, par exemple. Les images dans Marketplace sont indiquées par le nom `[HUB]` comme suit :
-
-![Images Azure Hybrid Use Benefit dans Azure Marketplace](./media/hybrid-use-benefit-licensing/ahub-images-portal.png)
+Les images suivantes sont disponibles sur le Marketplace et sont préconfigurées avec Azure Hybrid Use Benefit : Windows Server 2016, Windows Server 2012R2, Windows Server 2012 et Windows Server 2008SP1. Ces images peuvent être déployées directement à partir du portail Azure, de modèles Resource Manager ou d’Azure PowerShell.
 
 Vous pouvez déployer ces images directement à partir du portail Azure. Pour une utilisation dans des modèles Resource Manager et avec Azure PowerShell, affichez la liste des images comme suit :
 
 Pour Windows Server :
 ```powershell
-Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
-    -Offer "WindowsServer-HUB"
+Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
+2016-Datacenter version 2016.127.20170406 ou ultérieure
+
+2012-R2-Datacenter version 4.127.20170406 ou ultérieure
+
+2012-Datacenter version 3.127.20170406 ou ultérieure
+
+2008-R2-SP1 version 2.127.20170406 ou ultérieure
 
 Pour le client Windows :
 ```powershell
 Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
-
-Si vous n’avez pas un abonnement de type Accord Entreprise, poursuivez votre lecture pour obtenir des instructions sur le téléchargement d’une machine virtuelle personnalisée et le déploiement avec Azure Hybrid Use Benefit.
-
 
 ## <a name="upload-a-windows-vhd"></a>Charger un disque dur virtuel Windows
 Pour déployer une machine virtuelle Windows dans Azure, vous devez d’abord créer un disque dur virtuel contenant votre build Windows de base. Ce disque dur virtuel doit être correctement préparé par Sysprep avant son téléchargement sur Azure. Découvrez [plus d’information sur la configuration requise du disque dur virtuel et le processus Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et la [prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Sauvegardez la machine virtuelle avant d’exécuter Sysprep. 
@@ -220,4 +221,6 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 En savoir plus sur les [licences Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 En savoir plus sur [l’utilisation de modèles Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+Découvrez comment [Azure Hybrid Use Benefit et Azure Site Recovery rendent la migration d’applications vers Azure encore plus rentable](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
 

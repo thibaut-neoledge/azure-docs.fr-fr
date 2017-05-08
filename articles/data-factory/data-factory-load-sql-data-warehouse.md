@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e61eeb9ec7895b4f436534a1fd8b2cb608cf613
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d0aea6ffc04792e7e70a15accf92de05c553ff46
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -177,9 +177,7 @@ Cette section vous montre comment configurer la destination : la table `lineite
 
     ![Assistant Copie - Page Mappage de table](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Acceptez les paramètres par défaut pour le mappage de colonne et cliquez sur **Suivant**.
-
-    ![Assistant Copie - Page Mappage de schéma](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+4. Dans la page Mappage de schéma, laissez l’option « Appliquer le mappage de colonnes » décochée et cliquez sur **Suivant**.
 
 ## <a name="step-4-performance-settings"></a>Étape 4 : Paramètres de performance
 

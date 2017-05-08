@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 4d7476156b51ca82b1f119becb1576a97d2bd457
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -54,10 +54,10 @@ Une fois vos stratégies créées, vous pouvez générer votre application.
 
 ## <a name="download-the-code"></a>Téléchargement du code
 
-Le code associé à ce didacticiel est stocké sur [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Vous pouvez cloner l’exemple en exécutant :
+Le code associé à ce didacticiel est stocké sur [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Vous pouvez cloner l’exemple en exécutant :
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studio pour commencer. Le fichier solution contient deux projets : `TaskWebApp` et `TaskService`. `TaskWebApp` est l’application web MVC avec laquelle l’utilisateur interagit. `TaskService` est l’API web du serveur principal de l’application qui stocke la liste de tâches de chaque utilisateur. Cet article traite uniquement de l’application `TaskWebApp`. Pour savoir comment générer `TaskService` à l’aide d’Azure AD B2C, consultez [notre didacticiel sur les API web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).

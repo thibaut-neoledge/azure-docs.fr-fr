@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -54,10 +55,5 @@ La fonctionnalité « Exécuter maintenant » de la stratégie permet de véri
 ## <a name="notes"></a>Remarques
 * Au-delà des stratégies d’inscription, il est également possible d’utiliser des attributs personnalisés dans les stratégies de connexion ou d’authentification ainsi que dans les stratégies de modification de profil.
 * Les attributs personnalisés présentent toutefois un inconvénient connu. L’attribut est créé lors de sa première utilisation dans une stratégie, et non pas lorsque vous l’ajoutez à la liste des **Attributs utilisateur**.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

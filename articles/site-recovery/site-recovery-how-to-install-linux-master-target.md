@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -37,13 +37,14 @@ Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum
 * Le serveur maître cible doit appartenir à un réseau capable de communiquer avec le serveur de processus et le serveur de configuration.
 * La version du serveur cible maître doit être inférieure ou égale à celle du serveur de processus et du serveur de configuration. Par exemple, si la version du serveur de configuration est 9.4, celle du serveur cible maître peut être 9.4 ou 9.3 mais pas 9.5.
 * Le serveur cible maître ne peut être qu’une machine virtuelle VMware, et pas un serveur physique.
-* Le serveur cible maître doit suivre les contraintes de dimensionnement suivantes :
+
+## <a name="master-target-sizing-guideline"></a>Contraintes de dimensionnement du serveur cible maître
+
+Le serveur cible maître doit être créé selon les contraintes de dimensionnement suivantes :
     * RAM - 6 Go ou plus
-    * Taille du disque de système d’exploitation - 50 Go ou plus (pour installer CentOS6.6)
+    * Taille du disque de système d’exploitation - 100 Go ou plus (pour installer CentOS 6.6)
     * Taille du disque supplémentaire pour le lecteur de conservation - 1 To
     * Cœurs d’UC - 4 cœurs ou plus
-
-
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Procédure de déploiement du serveur maître cible

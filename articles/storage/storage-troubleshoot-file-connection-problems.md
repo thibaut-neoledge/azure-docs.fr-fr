@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 0635120c4e16f3b8531039eee4c6651e7cdeca40
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -261,15 +261,17 @@ La désactivation de la mise en cache peut entraîner une baisse des performance
 
 Dans certains scénarios, l’option de montage serverino peut entraîner l’exécution de stat par la commande ls sur chaque entrée de répertoire. Ce comportement entraîne une dégradation des performances lors de l’énumération d’un répertoire volumineux. Vous pouvez vérifier les options de montage dans l’entrée « /etc/fstab » :
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> <mount-point> cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Vous pouvez également vérifier si les options appropriées sont utilisées en exécutant simplement la commande **sudo mount | grep cifs**, puis en examinant sa sortie :
+Vous pouvez également vérifier si les options appropriées sont utilisées en exécutant simplement la commande `sudo mount | grep cifs` (voir exemple de sortie ci-dessous).
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
-(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
-dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> on <mount-point> type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,
+noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,
+mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
+Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
 
 <a id="ubuntumounterror"></a>
 ## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erreur de montage (11) : ressource temporairement indisponible lors du montage sur le noyau Ubuntu 4.8+

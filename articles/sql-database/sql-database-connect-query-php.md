@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e39d108e9d6962647cbf76e50299b73939fe5977
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,9 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-php-and-database-communications-software"></a>Installer le logiciel de communication de la base de données et PHP
+
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de PHP et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec PHP, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **PHP**, puis sélectionnez votre système d’exploitation.
+
 ### <a name="mac-os"></a>**Mac OS**
 Ouvrez votre terminal et saisissez les commandes suivantes pour installer **brew**, le **pilote ODBC Microsoft pour Mac** et les **pilotes PHP Microsoft pour SQL Server**. 
 
@@ -73,7 +76,7 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de connexion vous permet de vous connecter à la base de données SQL Azure.
+Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
@@ -84,7 +87,7 @@ Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de conn
 4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.     
     
 ## <a name="select-data"></a>Sélectionner des données
-Utilisez le code suivant pour interroger votre base de données SQL Azure à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) avec une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). La fonction sqlsrv_query peut être utilisée pour récupérer un jeu de résultats d’une requête à partir d’une base de données SQL. Cette fonction accepte une requête et renvoie un jeu de résultats qui peut être itéré à l’aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) et d’une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). La fonction sqlsrv_query peut être utilisée pour récupérer un jeu de résultats d’une requête à partir d’une base de données SQL. Cette fonction accepte une requête et renvoie un jeu de résultats qui peut être itéré à l’aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -113,7 +116,7 @@ sqlsrv_free_stmt($getResults);
 
 
 ## <a name="insert-data"></a>Insertion des données
-Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product dans la base de données spécifiée à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) et de l’instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) et de l’instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -165,7 +168,7 @@ else{
 ```
 
 ## <a name="delete-data"></a>Suppression de données
-Utilisez le code suivant pour supprimer les données de votre base de données SQL Azure à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) et de l’instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
+Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de la fonction [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) et de l’instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
 ```PHP
 <?php

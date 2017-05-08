@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
-ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
-ms.lasthandoff: 11/23/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,6 +47,9 @@ La science des données implique une itération sur une séquence de tâches : 
 Le renvoi de la machine virtuelle pour la science des données démarre votre projet d’analyse. Elle vous permet de travailler sur des tâches basées sur différents langages, notamment R, Python, SQL et C#. Visual Studio propose un IDE qui vous permet de développer et tester très simplement votre code. Le SDK Azure inclus dans la machine virtuelle vous permet de créer des applications à l’aide de divers services disponibles sur la plateforme cloud de Microsoft. 
 
 Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation Azure en fonction de la taille de la machine virtuelle approvisionnée. Vous trouverez plus d’informations sur les frais de calcul dans la section sur les détails de tarification de la page [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) (Machine virtuelle pour la science des données). 
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
+Une image [CentOS](machine-learning-data-science-linux-dsvm-intro.md) est également disponible avec la plupart des même outils que l’image Windows. Une image [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et des cadres de formation approfondis.
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :

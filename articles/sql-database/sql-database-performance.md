@@ -16,15 +16,16 @@ ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 071cc504cc4111e20391af86ffdc7819644ec434
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 155e9ddb48c65ad1648e18eb306c9badc2cb27e8
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="sql-database-performance-insight"></a>Informations sur les performances des bases de données SQL
 La base de données SQL Azure fournit des outils de performances pour vous aider à identifier et à améliorer les performances de vos bases de données en fournissant des recommandations et des actions de paramétrage intelligentes. 
 
-1. Accédez à votre base de données dans le [portail Azure](http://portal.azure.com) et cliquez sur **Tous les paramètres** > **Performances** > **Vue d’ensemble** pour ouvrir la page **Performances**. 
+1. Accédez à votre base de données dans le [portail Azure](http://portal.azure.com) et cliquez sur **Tous les paramètres** > **Performances ** > **Vue d’ensemble** pour ouvrir la page **Performances**. 
 2. Cliquez sur **Recommandations** pour ouvrir [SQL Database Advisor](#sql-database-advisor), puis cliquez sur **Requêtes** pour ouvrir [Analyse des performances des requêtes](#query-performance-insight).
    
     ![Afficher les performances](./media/sql-database-performance/entries.png)
@@ -55,11 +56,6 @@ En cliquant sur **Vue d’ensemble** ou sur la vignette **Performances**, vous a
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
-* [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+* [Quand utiliser un pool élastique ?](sql-database-elastic-pool.md)
 
 
