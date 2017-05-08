@@ -31,8 +31,3 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
   * Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`
 * Une fois l’inscription terminée, Azure AD affecte un identificateur client unique à votre application, l’ID d’application. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

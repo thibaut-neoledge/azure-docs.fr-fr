@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Installer Node.js 
+
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de Node.js et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Node.js, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Node.js**, puis sélectionnez votre système d’exploitation.
 
 ### <a name="mac-os"></a>**Mac OS**
 Entrez les commandes suivantes pour installer **brew**, un gestionnaire de package facile à utiliser pour Mac OS X et **Node.js**.
@@ -63,11 +65,11 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de connexion vous permet de vous connecter à la base de données SQL Azure.
+Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué sur l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**. 
+3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**. 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -75,7 +77,7 @@ Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de conn
     
 ## <a name="select-data"></a>Sélectionner des données
 
-Utilisez le code suivant pour interroger votre base de données SQL Azure. Tout d’abord, importez les classes Connexion et Requête de pilote à partir de la bibliothèque de pilote Tedious. Puis, créez l’objet de configuration et remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. Créez un objet `Connection` à l’aide de l’objet `config` spécifié. Puis, définissez le rappel pour l’événement `connect` de l’objet `connection` pour exécuter la fonction `queryDatabase()`.
+Utilisez le code suivant pour rechercher les 20 principaux produits par catégorie dans votre base de données SQL Azure. Tout d’abord, importez les classes Connexion et Requête de pilote à partir de la bibliothèque de pilote Tedious. Puis, créez l’objet de configuration et remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. Créez un objet `Connection` à l’aide de l’objet `config` spécifié. Puis, définissez le rappel pour l’événement `connect` de l’objet `connection` pour exécuter la fonction `queryDatabase()`.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>Insérer des données dans la base de données
-Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product. Remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. Cette fois, utilisez une **instruction INSERT** dans la fonction `insertIntoDatabase()`.
+Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la fonction `insertIntoDatabase()` et de l’instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>Mettre à jour les données dans la base de données
-Utilisez le code suivant pour mettre à jour des données dans la base de données. Remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. Cette fois, utilisez une **instruction UPDATE** dans la fonction `updateInDatabase()`. Cet exemple utilise le nom de produit inséré dans l’exemple précédent.
+Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de la fonction `updateInDatabase()` et de l’instruction Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Remplacez les variables **nom d’utilisateur**, **mot de passe**, **serveur** et **base de données** par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. Cet exemple utilise le nom de produit inséré dans l’exemple précédent.
 
 ```js
 var Connection = require('tedious').Connection;

@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -93,6 +93,12 @@ Vous ne pouvez pas restaurer une machine virtuelle, tant qu’elle n’a pas un 
 
 Si vous sélectionnez le point de récupération cohérent d’application, la restauration automatique d’une machine virtuelle s’effectue à son dernier point de récupération cohérent d’application disponible. Dans le cas d’un plan de récupération avec un groupe de réplication, chaque groupe de réplication est rétabli à son point de récupération disponible commun.
 Notez que les points de récupération cohérents d’application peuvent se trouver dans le passé et qu’une perte de données est susceptible de se produire.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>Que se passe-t-il au niveau des outils VMware après une restauration automatique ?
+
+Pendant le basculement vers Azure, les outils VMware ne peuvent pas s’exécuter sur la machine virtuelle Azure. Dans le cas d’une machine virtuelle Windows, ASR désactive les outils VMware pendant le basculement. Dans le cas d’une machine virtuelle Linux, ASR désinstalle les outils VMware pendant le basculement. 
+
+Lors du basculement de la machine virtuelle Windows, les outils VMware sont réactivés au moment de la restauration automatique. De même, pour une machine virtuelle Linux, les outils VMware sont réinstallés sur la machine pendant le basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

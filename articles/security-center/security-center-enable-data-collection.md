@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
-ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Activer la collecte des données dans Azure Security Center
-Pour aider les clients à prévenir les menaces, à les détecter et à y répondre, Azure Security Center collecte et traite des données concernant vos machines virtuelles Azure, notamment des informations de configuration, des métadonnées, des journaux des événements et bien plus. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. La collecte de données est recommandée, mais vous pouvez la refuser en désactivant cette fonctionnalité dans la stratégie de Security Center (consultez la page [Désactiver la collecte de données](#disabling-data-collection)). Si vous désactivez la collecte de données, Security Center vous recommandera d’activer la collecte de données dans la stratégie de sécurité de cet abonnement.
+Pour aider les clients à prévenir les menaces, à les détecter et à y répondre, Azure Security Center collecte et traite des données concernant vos machines virtuelles Azure, notamment des informations de configuration, des métadonnées et des journaux d’événements. Lorsque vous accédez au Centre de sécurité pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. La collecte de données est recommandée, mais vous pouvez la refuser en désactivant cette fonctionnalité dans la stratégie de Security Center (consultez la page [Désactiver la collecte de données](#disabling-data-collection)). Si vous désactivez la collecte de données, Security Center vous recommande d’activer la collecte de données dans la stratégie de sécurité de cet abonnement.
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
@@ -85,9 +86,4 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 [4]: ./media/security-center-enable-data-collection/storage-account.png
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

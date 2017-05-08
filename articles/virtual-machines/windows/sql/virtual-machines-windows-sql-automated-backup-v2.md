@@ -16,13 +16,17 @@ ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dbf4b04ad92d9339b15d7f247b947dd58b17daa5
-ms.lasthandoff: 04/06/2017
-
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
+ms.lasthandoff: 04/26/2017
 
 ---
+
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour SQL Server 2016 dans des machines virtuelles Azure (Resource Manager)
+
+> [!div class="op_single_selector"]
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant les éditions SQL Server 2016 Standard, Enterprise ou Developer. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée version 2 dépend de l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
@@ -47,10 +51,9 @@ Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditio
 
 **Configuration de la base de données**:
 
-- Les bases de données cibles doivent utiliser le modèle de récupération complète.
+- Les bases de données cibles doivent utiliser le modèle de récupération complète. Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
 - Les bases de données système n’ont pas besoin d’utiliser le modèle de récupération complète. Mais si vous avez besoin de sauvegardes de journaux pour un modèle ou MSDB, vous devez utiliser le modèle de récupération complète.
-
-Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
+- Les bases de données cible doivent se trouver sur l’instance SQL Server par défaut. L’extension IaaS SQL Server ne prend pas en charge les instances nommées.
 
 **Modèle de déploiement Azure** :
 
@@ -122,9 +125,11 @@ Puis des sauvegardes complètes de toutes les bases de données seront relancée
 > Lorsque vous planifiez des sauvegardes quotidiennes, il est recommandé de planifier une fenêtre de temps assez large pour s’assurer que toutes les bases de données puissent être sauvegardées durant cet intervalle. Ceci est particulièrement important dans le cas où vous avez une grande quantité de données à sauvegarder.
 
 ## <a name="configuration-in-the-portal"></a>Configuration dans le portail
-Vous pouvez utiliser le portail Azure pour configurer la sauvegarde automatisée version 2 lors de l’approvisionnement ou pour des machines virtuelles SQL Server 2016 existantes. 
+
+Vous pouvez utiliser le portail Azure pour configurer la sauvegarde automatisée version 2 lors de l’approvisionnement ou pour des machines virtuelles SQL Server 2016 existantes.
 
 ### <a name="new-vms"></a>Nouvelles machines virtuelles
+
 Utilisez le portail Azure pour configurer une sauvegarde automatisée version 2 lorsque vous créez une machine virtuelle SQL Server 2016 dans le modèle de déploiement Resource Manager. 
 
 Dans le panneau **Paramètres SQL Server**, sélectionnez **Sauvegarde automatisée**. La capture d’écran suivante du portail Azure illustre le panneau **Sauvegarde automatisée SQL** .
@@ -137,6 +142,7 @@ Dans le panneau **Paramètres SQL Server**, sélectionnez **Sauvegarde automatis
 Pour plus de contexte, voir la rubrique complète intitulée [Configuration d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Machines virtuelles existantes
+
 Pour les machines virtuelles SQL Server existantes, sélectionnez votre machine virtuelle SQL Server. Puis sélectionnez la section **Configuration de SQL Server** du panneau **Paramètres**.
 
 ![Sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
@@ -150,6 +156,7 @@ Lorsque vous avez terminé, cliquez sur le bouton **OK** au bas du panneau **Con
 Si vous activez la sauvegarde automatisée pour la première fois, Azure configure l’agent IaaS de SQL Server en arrière-plan. Pendant ce temps, le portail Azure n’indiquera peut-être pas que la sauvegarde automatisée est configurée. Patientez quelques minutes jusqu’à ce que l’agent soit installé et configuré. Le portail Azure reflète alors les nouveaux paramètres.
 
 ## <a name="configuration-with-powershell"></a>Configuration avec PowerShell
+
 Vous pouvez utiliser PowerShell pour configurer une sauvegarde automatisée version 2. Avant de commencer, vous devez :
 
 - [Télécharger et installer la version la plus récente d’Azure PowerShell](http://aka.ms/webpi-azps).
@@ -176,7 +183,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a name="a-idverifysettings-verify-current-settings"></a><a id="verifysettings"> Vérifier les paramètres actuels
+### <a id="verifysettings"></a> Vérifier les paramètres actuels
 Si vous avez activé la sauvegarde automatisée lors de la configuration, vous pouvez utiliser PowerShell pour vérifier votre configuration actuelle. Exécutez la commande **Get-AzureRmVMSqlServerExtension** et examinez la propriété **AutoBackupSettings** :
 
 ```powershell

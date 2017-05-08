@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -406,6 +406,8 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 -   **Wait** \- Cette action simple déclenche une attente pendant une durée définie ou jusqu’à un moment spécifique.  
   
 -   **Workflow** \- Cette action représente un workflow imbriqué.  
+
+-   **Function** \- Cette action représente une fonction d’Azure.
 
 ### <a name="collection-actions"></a>Actions de collection
 
@@ -828,6 +830,47 @@ Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau
 Un contrôle d’accès est effectué sur le workflow \(plus précisément, sur le déclencheur\), ce qui signifie que vous avez besoin d’un accès au workflow.  
   
 Les sorties de l’action `workflow` sont basées sur ce que vous avez défini pour l’action `response` dans le workflow enfant. Si vous n’avez pas défini d’action `response`, les sorties sont vides.  
+
+## <a name="function-action"></a>Action function   
+
+|Nom|Requis|Type|Description|  
+|--------|------------|--------|---------------|  
+|function id|Oui|String|ID de ressource de la fonction que vous souhaitez appeler.|  
+|statique|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
+|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Lorsque vous enregistrez l’application logique, certaines vérifications sont effectuées sur la fonction référencée :
+-   Vous devez avoir accès à la fonction.
+-   Seuls le déclencheur HTTP standard ou un déclencheur webhook JSON générique sont autorisés.
+-   Aucune route ne doit être définie.
+-   Seuls les niveaux d’autorisation « fonction » et « anonyme » sont autorisés.
+
+L’URL du déclencheur est récupéré, mis en cache et utilisé au runtime. Par conséquent, si une opération invalide l’URL en cache, l’action échoue au runtime. Pour contourner ce problème, enregistrez de nouveau l’application logique pour que l’application logique puisse de nouveau récupérer et mettre en cache l’URL du déclencheur.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Actions de collection (étendues et boucles)
 

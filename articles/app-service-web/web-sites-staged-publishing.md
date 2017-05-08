@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -187,7 +187,7 @@ Ouvrez le panneau d’un emplacement de déploiement, cliquez sur **Vue d’ense
 ## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets Azure PowerShell pour les emplacements de déploiement
 Azure PowerShell est un module qui fournit des applets de commande pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement des applications dans Azure App Service.
 
-* Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Créer une application web

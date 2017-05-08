@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 04fc29fe21b77a34094bb89ecb8496f78856f56b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,6 +33,8 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Installer les bibliothèques de communication de base de données et Ruby
+
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de Ruby et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Ruby, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Ruby**, puis sélectionnez votre système d’exploitation.
 
 ### <a name="mac-os"></a>**Mac OS**
 Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre script Ruby. Entrez les commandes suivantes pour installer **brew**, **FreeTDS** et **TinyTDS**.
@@ -60,7 +62,7 @@ gem install tiny_tds
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de connexion vous permet de vous connecter à la base de données SQL Azure.
+Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
@@ -72,7 +74,7 @@ Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de conn
     
 
 ## <a name="select-data"></a>Sélectionner des données
-Utilisez le code suivant pour interroger votre base de données SQL Azure à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). La fonction TinyTDS::Client accepte une requête et retourne un jeu de résultats. Une itération est effectuée sur le jeu de résultats en utilisant [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
+Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) et d’une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). La fonction TinyTDS::Client accepte une requête et retourne un jeu de résultats. Une itération est effectuée sur le jeu de résultats en utilisant [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -95,7 +97,7 @@ end
 ```
 
 ## <a name="insert-data"></a>Insertion des données
-Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product dans la base de données spécifiée à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
+Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction INSERT en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) générée automatiquement.    
   
@@ -133,7 +135,7 @@ insert('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')
 ```
 
 ## <a name="update-data"></a>Mettre à jour des données
-Utilisez le code suivant pour mettre à jour les données de votre base de données SQL Azure à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
+Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) et d’une instruction Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -154,7 +156,7 @@ update('BrandNewProduct', 500, client)
 ```
 
 ## <a name="delete-data"></a>Suppression de données
-Utilisez le code suivant pour supprimer des données de votre base de données SQL Azure à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
+Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) et d’une instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -196,3 +198,4 @@ delete('BrandNewProduct', client)
 - Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
 - Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
 - Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
+

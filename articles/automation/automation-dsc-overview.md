@@ -15,9 +15,9 @@ ms.workload: TBD
 ms.date: 02/02/2017
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
-ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 852284ce7e82d782c31bb085d4878de25412411a
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
@@ -116,7 +116,7 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 
 * [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 * [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md)
-* [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Applets de commande Azure Automation DSC](/powershell/module/azurerm.automation/#automation)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 * [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 

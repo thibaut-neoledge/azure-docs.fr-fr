@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +47,7 @@ Des _Kits de développement logiciel (SDK) de services_ sont disponibles pour pl
 Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_. Dans certains didacticiels concernant IoT Hub, vous pouvez être invité à utiliser le [portail Azure Classic](https://manage.windowsazure.com).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
+[Azure PowerShell](/powershell/azure/overview) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer les ressources pour votre solution dans le cadre d’une seule opération coordonnée.
@@ -257,3 +257,4 @@ Vous pouvez utiliser un service d’émission de jeton pour implémenter un méc
 
 ## <a name="x509-client-certificate"></a>Certificat client X.509
 Un appareil peut utiliser un certificat X.509 pour s’authentifier auprès du [IoT Hub](#iot-hub). L’utilisation d’un certificat X.509 est une alternative à l’utilisation d’un [jeton SAP](#shared-access-signature).
+

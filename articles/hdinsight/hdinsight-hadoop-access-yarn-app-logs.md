@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 736801cd7afce0fced9943e26c98e73ef471e7d4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Cette rubrique explique comment accéder aux journaux des applications YARN (Yet
 
 
 ### <a name="prerequisites"></a>Conditions préalables
-* Un cluster HDInsight Windows  Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-provision-clusters.md).
+* Un cluster HDInsight Windows  Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
 Le serveur <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> fournit des informations génériques sur les applications terminées, ainsi que des informations sur les applications spécifiques à l’infrastructure, via deux interfaces différentes. Plus précisément :

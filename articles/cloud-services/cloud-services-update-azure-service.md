@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: b159d3583c24e36c2803d7d02deca1415669d054
-ms.openlocfilehash: ebc5461177df5b5a16ab9b5668f5fda890ee11a4
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
-## <a name="overview"></a>Vue d'ensemble
-À 10 000 pieds, la mise à jour d’un Service Cloud, et notamment de ses rôles et du système d’exploitation invité, est un processus qui se déroule en trois étapes. Tout d’abord, les fichiers binaires et de configuration du nouveau Service Cloud et de la version de système d’exploitation doivent être téléchargés. Dans un deuxième temps, Azure réserve des ressources de calcul et réseau au Service Cloud selon les spécifications de la nouvelle version de Service Cloud. Enfin, Azure effectue une mise à niveau propagée pour effectuer une mise à jour incrémentielle du client vers la nouvelle version ou le nouveau système d’exploitation invité tout en préservant votre disponibilité. Cet article discute des détails de cette dernière étape, la mise à jour propagée.
+
+La mise à jour d’un service cloud, et notamment de ses rôles et du système d’exploitation invité, est un processus qui se déroule en trois étapes. Tout d’abord, les fichiers binaires et de configuration du nouveau Service Cloud et de la version de système d’exploitation doivent être téléchargés. Dans un deuxième temps, Azure réserve des ressources de calcul et réseau au Service Cloud selon les spécifications de la nouvelle version de Service Cloud. Enfin, Azure effectue une mise à niveau propagée pour effectuer une mise à jour incrémentielle du client vers la nouvelle version ou le nouveau système d’exploitation invité tout en préservant votre disponibilité. Cet article discute des détails de cette dernière étape, la mise à jour propagée.
 
 ## <a name="update-an-azure-service"></a>Mettre à jour un Service Azure
 Azure organise vos instances de rôle en regroupements logiques appelés domaines de mise à niveau (UD). Les domaines de mise à niveau (UD) sont des ensembles logiques d’instances de rôle qui sont mis à jour en tant que groupe.  Azure met à jour un domaine de mise à niveau de Service Cloud à la fois, ce qui permet aux instances présentes sur les autres domaines de mise à niveau de maintenir le trafic.
@@ -66,9 +67,9 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 | Modifier les certificats existants |Oui |Oui |Oui |
 | Déployer un nouveau code |Oui |Oui |Oui |
 
-<sup>1</sup>Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
+<sup>1</sup> Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
 
-<sup>2</sup>Nécessite le kit de développement logiciel (SDK) Azure 1.5 ou versions ultérieures.
+<sup>2</sup> Nécessite le kit de développement logiciel (SDK) Azure 1.5 ou versions ultérieures.
 
 > [!WARNING]
 > La modification de la taille de machine virtuelle détruira les données locales.
@@ -90,11 +91,11 @@ Vous pouvez décider si vous souhaitez mettre à jour tous les rôles de votre s
 
 Le diagramme suivant montre comment la mise à niveau se poursuit si vous mettez à niveau tous les rôles dans le service :
 
-![Mettre à niveau le service](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Mettre à niveau le service](media/cloud-services-update-azure-service/IC345879.png "Mettre à niveau le service")
 
 Le diagramme suivant montre comment la mise à jour se déroule en cas de mise à jour d’un seul rôle :
 
-![Mettre à niveau le rôle](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Mettre à niveau le rôle](media/cloud-services-update-azure-service/IC345880.png "Mettre à niveau le rôle")  
 
 Pendant une mise à jour automatique, le 	contrôleur de structure Azure évalue de façon périodique l’état du service cloud pour déterminer quand il est temps de passer à un autre domaine de mise à niveau. Cette évaluation de l’état est effectuée sur une base par rôle et considère uniquement les instances de la dernière version (c’est-à-dire les instances de domaines de mise à niveau qui ont déjà été examinées). Il vérifie qu’un nombre minimum d’instances de rôle, pour chaque rôle, a atteint un état terminal satisfaisant.
 
@@ -178,7 +179,7 @@ Les domaines de mise à niveau sont identifiés avec un index de base zéro : l
 
 Le diagramme suivant montre comment un service contenant deux rôles qui sont distribués lorsque le service définit deux domaines de mise à niveau. Le service exécute huit instances de rôle web et neuf instances de rôle de travail.
 
-![Distribution des domaines de mise à niveau](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Distribution des domaines de mise à niveau](media/cloud-services-update-azure-service/IC345533.png "Distribution des domaines de mise à niveau")
 
 > [!NOTE]
 > Notez qu’Azure contrôle la façon dont les instances sont affectées entre d’un domaine de mise à niveau à l’autre. Il est impossible de spécifier quelles sont les instances affectées, et à quel domaine.
@@ -189,9 +190,4 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 [Gestion des services cloud](cloud-services-how-to-manage.md)  
 [Surveillance des services cloud](cloud-services-how-to-monitor.md)  
 [Configurer Cloud Services](cloud-services-how-to-configure.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

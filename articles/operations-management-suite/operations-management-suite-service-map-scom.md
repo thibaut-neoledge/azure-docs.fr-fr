@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ L’intégration entre SCOM et Service Map est activée en important le groupeme
 
     ![SCOM - Assistant Configuration](media/oms-service-map/scom-configuration.png)
 
-3. La première étape de l’Assistant est la configuration de la connexion qui vous permet d’entrer les informations pour votre principal de service Azure. Entrez l’ID ou le nom du client, l’ID d’application (ou le nom d’utilisateur ou l’ID client) et le mot de passe du principal de service.  [Plus d'informations sur la création d’un principal de service](#creating-a-service-principal).
+3. La première étape de l’Assistant est la configuration de la connexion qui vous permet d’entrer les informations pour votre principal de service Azure. Entrez l’ID ou le nom du client, l’ID d’application (aussi appelé nom d’utilisateur ou ID client) et le mot de passe du principal de service.  [Plus d'informations sur la création d’un principal de service](#creating-a-service-principal).
 
     ![SCOM - Configurer le nom du principal de service](media/oms-service-map/scom-config-spn.png)
 
@@ -77,8 +77,8 @@ Une fois l’espace de travail OMS connecté, un nouveau dossier Service Map s�
 ![SCOM - Surveillance](media/oms-service-map/scom-monitoring.png)
 
 Le dossier Service Map possède trois nœuds :
-### <a name="all-alerts"></a>All Alerts (Toutes les alertes) :
-Il affiche toutes les alertes sur les communications entre SCOM et la solution Service Map dans OMS.
+### <a name="active-alerts"></a>Alertes actives :
+Il affiche toutes les alertes actives sur les communications entre SCOM et la solution Service Map dans OMS.
 
 **Remarque :** il ne s’agit pas d’alertes OMS exposées dans SCOM.
 ### <a name="servers"></a>Serveurs :

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1ed23fc5a69cea70636de8b18911c1b11119d3a3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 591749e2a91f8dcc080b5fa697c1f9bf953d836f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par 
 ## <a name="numeric-functions"></a>Fonctions numériques
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
-* [add](#add)
+* [ajouter](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
 * [int](#int)
@@ -278,7 +278,7 @@ L’exemple suivant soustrait un paramètre à un autre paramètre.
 }
 ```
 
-## <a name="string-functions"></a>Fonctions sur les chaînes de caractères
+## <a name="string-functions"></a>Fonctions de chaîne
 Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
 * [base64](#base64)
@@ -293,7 +293,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [take](#takestring)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [trim](#trim)
+* [découper](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
 
@@ -656,7 +656,7 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 
 <a id="trim" />
 
-### <a name="trim"></a>trim
+### <a name="trim"></a>découper
 `trim (stringToTrim)`
 
 Supprime tous les espaces de début et de fin de la chaîne indiquée.
@@ -1094,7 +1094,7 @@ L’objet renvoyé par listKeys a le format suivant :
 
 <a id="providers" />
 
-### <a name="providers"></a>providers
+### <a name="providers"></a>fournisseurs
 `providers (providerNamespace, [resourceType])`
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction renvoie tous les types pris en charge pour le fournisseur de ressources.
@@ -1296,7 +1296,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 <a id="subscription" />
 
-### <a name="subscription"></a>subscription
+### <a name="subscription"></a>abonnement
 `subscription()`
 
 Renvoie des détails sur l’abonnement au format suivant :

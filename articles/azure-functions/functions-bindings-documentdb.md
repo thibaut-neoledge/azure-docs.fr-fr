@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 04/18/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -37,34 +37,27 @@ Pour plus d’informations sur DocumentDB, consultez [Présentation de DocumentD
 ## <a name="documentdb-input-binding"></a>Liaison d’entrée DocumentDB
 La liaison d’entrée DocumentDB récupère un document DocumentDB et le transmet au paramètre d’entrée nommé de la fonction. L’ID du document peut être déterminé en fonction du déclencheur qui appelle la fonction. 
 
-L’entrée DocumentDB d’une fonction utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
+La liaison d’entrée DocumentDB possède les propriétés suivantes dans *function.json* :
 
-```json
-{
-  "name": "<Name of input parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "id": "<Id of the DocumentDB document - see below>",
-  "connection": "<Name of app setting with connection string - see below>",
-  "direction": "in"
-},
-```
+- `name` : nom de l’identificateur utilisé dans le code de fonctions pour le document.
+- `type` : doit être défini sur « documentdb ».
+- `databaseName` : la base de données contenant le document.
+- `collectionName` : collection contenant le document.
+- `id` : ID du document à récupérer. Cette propriété prend en charge les paramètres de liaison ; consultez la section [Lier aux propriétés d’entrée personnalisées dans une expression de liaison](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) de l’article [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+- `sqlQuery` : une requête SQL DocumentDB utilisée pour récupérer plusieurs documents. La requête prend en charge les liaisons d’exécution. Par exemple : `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection` : le nom du paramètre d’application qui contient votre chaîne de connexion DocumentDB.
+- `direction` : doit être défini sur `"in"`.
 
-Notez les points suivants :
+Les propriétés `id` et `sqlQuery` ne peuvent pas être spécifiées. Si `id` et `sqlQuery` ne sont pas définis, l’ensemble de la collection est récupéré.
 
-* `id` prend en charge des liaisons semblables à `{queueTrigger}`, qui utilise la valeur de chaîne du message de file d’attente en tant qu’ID de document.
-* `connection` doit être le nom d’un paramètre d’application qui pointe vers le point de terminaison pour votre compte DocumentDB (avec la valeur `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si vous créez un compte DocumentDB par le biais de l’interface utilisateur du portail de Functions, le processus de création du compte crée automatiquement un paramètre d’application. Pour utiliser un compte DocumentDB existant, vous devez [configurer ce paramètre d’application manuellement](functions-how-to-use-azure-function-app-settings.md). 
-* Si le document spécifié est introuvable, le paramètre d’entrée nommé de la fonction est défini sur `null`. 
+## <a name="using-a-documentdb-input-binding"></a>Utilisation d’une liaison d’entrée DocumentDB
 
-## <a name="input-usage"></a>Utilisation en entrée
-Cette section vous montre comment utiliser la liaison d’entrée DocumentDB dans le code de votre fonction.
-
-Dans les fonctions C# et F#, toutes les modifications apportées au document d’entrée (paramètre d’entrée nommé) sont automatiquement renvoyées à la collection une fois que la fonction s’est correctement terminée. Dans les fonctions Node.js, les mises à jour du document dans la liaison d’entrée ne sont pas renvoyées à la collection. Toutefois, vous pouvez utiliser `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour apporter des mises à jour aux documents d’entrée. Pour en avoir un aperçu, consultez [l’exemple Node.js](#innodejs).
+* Dans les fonctions C# et F#, lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée via les paramètres d’entrée nommés sont automatiques. 
+* Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez [l’exemple JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
-## <a name="input-sample"></a>Exemple d’entrée
+## <a name="input-sample-for-single-document"></a>Exemple d’entrée pour un seul document
 Supposez que le tableau `bindings` de function.json contient la liaison d’entrée DocumentDB suivante :
 
 ```json
@@ -83,12 +76,13 @@ Consultez l’exemple dans le langage de votre choix pour voir comment utiliser 
 
 * [C#](#incsharp)
 * [F#](#infsharp)
-* [Node.JS](#innodejs)
+* [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
 ### <a name="input-sample-in-c"></a>Exemple d’entrée en C# #
 
 ```cs
+// Change input document contents using DocumentDB input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -99,12 +93,13 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>Exemple d’entrée en F# #
 
 ```fsharp
+(* Change input document contents using DocumentDB input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Vous devez ajouter un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
+Cet exemple requiert un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
 
 ```json
 {
@@ -121,11 +116,12 @@ Vous devez ajouter un fichier `project.json` qui spécifie les dépendances NuGe
 
 Pour ajouter un fichier `project.json`, consultez [F# package management](functions-reference-fsharp.md#package) (Gestion des packages F#).
 
-<a name="innodejs"></a>
+<a name="injavascript"></a>
 
-### <a name="input-sample-in-nodejs"></a>Exemple d’entrée en Node.js
+### <a name="input-sample-in-javascript"></a>Exemple d’entrée en JavaScript
 
 ```javascript
+// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -133,29 +129,66 @@ module.exports = function (context) {
 };
 ```
 
-## <a id="docdboutput"></a>Liaison de sortie DocumentDB
-La liaison de sortie DocumentDB vous permet d’écrire un nouveau document dans une base de données Azure DocumentDB. 
+## <a name="input-sample-with-multiple-documents"></a>Exemple d’entrée avec plusieurs documents
 
-La liaison de sortie utilise l’objet JSON suivant dans le tableau `bindings` de function.json : 
+Supposons que vous souhaitiez récupérer plusieurs documents spécifiés par une requête SQL, à l’aide d’un déclencheur de file d’attente pour personnaliser les paramètres de requête. 
 
-```json
+Dans cet exemple, le déclencheur de file d’attente fournit un paramètre `departmentId`. Un message de file d’attente de `{ "departmentId" : "Finance" }` renvoie tous les enregistrements pour le département des finances. Utilisez ce qui suit dans *function.json* :
+
+```
 {
-  "name": "<Name of output parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "createIfNotExists": <true or false - see below>,
-  "connection": "<Value of AccountEndpoint in Application Setting - see below>",
-  "direction": "out"
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "DocumentDBConnection"
 }
 ```
 
-Notez les points suivants :
+### <a name="input-sample-with-multiple-documents-in-c"></a>Exemple d’entrée avec plusieurs documents en C#
 
-* Définissez `createIfNotExists` sur `true` pour créer la base de données et la collection si elle n’existe pas. La valeur par défaut est `false`. Les collections sont créées avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` doit être le nom d’un paramètre d’application qui pointe vers le point de terminaison pour votre compte DocumentDB (avec la valeur `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si vous créez un compte DocumentDB par le biais de l’interface utilisateur du portail de Functions, le processus de création du compte crée automatiquement un paramètre d’application. Pour utiliser un compte DocumentDB existant, vous devez [configurer ce paramètre d’application manuellement](functions-how-to-use-azure-function-app-settings.md). 
+```csharp
+public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+{   
+    foreach (var doc in documents)
+    {
+        // operate on each document
+    }    
+}
 
-## <a name="output-usage"></a>Utilisation en sortie
+public class QueuePayload
+{
+    public string departmentId { get; set; }
+}
+```
+
+### <a name="input-sample-with-multiple-documents-in-javascript"></a>Exemple d’entrée avec plusieurs documents en JavaScript
+
+```javascript
+module.exports = function (context, input) {    
+    var documents = context.bindings.documents;
+    for (var i = 0; i < documents.length; i++) {
+        var document = documents[i];
+        // operate on each document
+    }        
+    context.done();
+};
+```
+
+## <a id="docdboutput"></a>Liaison de sortie DocumentDB
+La liaison de sortie DocumentDB vous permet d’écrire un nouveau document dans une base de données Azure DocumentDB. Elle possède les propriétés suivantes dans *function.json* :
+
+- `name` : identificateur utilisé dans le code de fonctions pour le nouveau document.
+- `type` : doit être défini sur `"documentdb"`.
+- `databaseName` : base de données contenant la collection dans laquelle le nouveau document sera créé.
+- `collectionName` : collection dans laquelle le nouveau document sera créé.
+- `createIfNotExists` : valeur booléenne indiquant si la collection sera ou non créée si elle n’existe pas. La valeur par défaut est *false*. Cette configuration est due au fait que les collections sont créées avec un débit réservé, ce qui a des conséquences sur le plan tarifaire. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection` : nom du paramètre d’application qui contient votre chaîne de connexion DocumentDB.
+- `direction` : doit être défini sur `"out"`.
+
+## <a name="using-a-documentdb-output-binding"></a>Utilisation d’une liaison de sortie DocumentDB
 Cette section vous montre comment utiliser la liaison de sortie DocumentDB dans le code de votre fonction.
 
 Si vous écrivez dans le paramètre de sortie de votre fonction, par défaut, un nouveau document est généré dans votre base de données avec un GUID généré automatiquement en tant qu’ID de document. Vous pouvez spécifier l’ID du document de sortie en spécifiant la propriété JSON `id` dans le paramètre de sortie. 
@@ -163,27 +196,11 @@ Si vous écrivez dans le paramètre de sortie de votre fonction, par défaut, un
 >[!Note]  
 >Lorsque vous spécifier l’ID d’un document existant, il est remplacé par le nouveau document de sortie. 
 
-Vous pouvez écrire à l’élément de sortie à l’aide d’un des types suivants :
-
-* N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) : utile pour la sérialisation JSON.
-  Si vous déclarez un type de sortie personnalisée (par exemple, `out FooType paramName`), Azure Functions tente de sérialiser un objet en JSON. Si le paramètre de sortie est Null quand la fonction s’arrête, le runtime Functions crée un objet blob comme objet Null.
-* Chaîne : (`out string paramName`) utile pour les données d’objet blob de texte. Le runtime Functions crée un objet blob uniquement si le paramètre de chaîne n’est pas Null quand la fonction s’arrête.
-
-Dans les fonctions C#, vous pouvez également définir une sortie vers les types suivants :
-
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
 Pour générer plusieurs documents, vous pouvez également vous lier à `ICollector<T>` ou `IAsyncCollector<T>` où `T` est un des types pris en charge.
-
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Exemple de sortie
+## <a name="documentdb-output-binding-sample"></a>Exemple de liaison de sortie DocumentDB
 Supposez que le tableau `bindings` de function.json contient la liaison de sortie DocumentDB suivante :
 
 ```json
@@ -223,7 +240,7 @@ Consultez l’exemple dans le langage de votre choix pour voir comment utiliser 
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
-* [Node.JS](#outnodejs)
+* [JavaScript](#outjavascript)
 
 <a name="outcsharp"></a>
 
@@ -276,7 +293,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-Vous devez ajouter un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
+Cet exemple requiert un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
 
 ```json
 {
@@ -293,9 +310,9 @@ Vous devez ajouter un fichier `project.json` qui spécifie les dépendances NuGe
 
 Pour ajouter un fichier `project.json`, consultez [F# package management](functions-reference-fsharp.md#package) (Gestion des packages F#).
 
-<a name="outnodejs"></a>
+<a name="outjavascript"></a>
 
-### <a name="output-sample-in-nodejs"></a>Exemple de sortie en Node.js
+### <a name="output-sample-in-javascript"></a>Exemple de sortie en JavaScript
 
 ```javascript
 module.exports = function (context) {

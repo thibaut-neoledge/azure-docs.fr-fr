@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0053f93218e9fec4d72fb229bfb2c6159d8b5bc7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +44,7 @@ Pour configurer HDInsight de façon à fonctionner avec Data Lake Store à l’a
 Avant de commencer le didacticiel, veillez à ce que vos mots de passe répondent aux exigences suivantes :
 
 * **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou version ultérieure** : consultez [Installation et configuration de PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 ou version ultérieure** : consultez [Installation et configuration de PowerShell](/powershell/azure/overview).
 * **Kit de développement logiciel (SDK) Windows** : pour l’installer, consultez [Téléchargements et outils pour Windows 10](https://dev.windows.com/en-us/downloads). Il vous permet de créer un certificat de sécurité.
 * **Principal de service Active Directory Azure** : ce didacticiel explique comment créer un principal de service dans Azure Active Directory (Azure AD). Toutefois, vous devez être administrateur Azure AD pour pouvoir créer un principal du service. Si vous êtes administrateur, vous pouvez ignorer ce prérequis et poursuivre le didacticiel.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/30/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7c1532db4d58673add9b8076154c471554810614
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 1d712ef6987a4af2014bedb54378f288bcf535a8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -48,10 +48,10 @@ Si vous suivez les instructions du lien ci-dessus, veillez à sélectionner le t
 
 ![Créer une application web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Créer une application web")
 
-## <a name="step-2-get-client-id-client-secret-and-tenant-id"></a>Étape 2 : Obtenir l’ID client, la clé secrète client et l’ID du locataire
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Étape 2 : obtenir un ID d’application, une clé d’authentification et un ID de locataire
 Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre application. Si l’application s’exécute sous ses propres informations d’identification, vous aurez également besoin d’une clé d’authentification.
 
-* Pour obtenir des instructions afin de récupérer l’ID et la clé secrète client de votre application, consultez la page [Obtenir la clé d’authentification et l’ID d’une application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Pour obtenir des instructions afin de récupérer l’ID de l’application et la clé d’authentification (également appelée clé secrète client), consultez la page [Obtenir la clé d’authentification et l’ID d’une application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 * Pour obtenir des instructions afin de récupérer l’ID du locataire, consultez [Obtenir l’ID du locataire](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 
@@ -90,8 +90,7 @@ Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre a
 
 4. Dans la liste des points de terminaison, copiez le point de terminaison de jeton OAuth 2.0.
 
-
-     ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison de jeton OAuth")   
+    ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison de jeton OAuth")   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article vous a créé une application web Azure AD et regroupé les informations nécessaires dans les applications clientes que vous créez à l’aide du Kit de développement logiciel (SDK) .NET, du Kit de développement Logiciel Java, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.

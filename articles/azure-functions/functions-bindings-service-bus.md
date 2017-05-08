@@ -17,16 +17,18 @@ ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Liaisons Service Bus Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et utiliser des liaisons Azure Service Bus dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente et les rubriques Service Bus.
+Cet article explique comment configurer et utiliser des liaisons Azure Service Bus dans Azure Functions. 
+
+Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente et les rubriques Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -66,14 +68,14 @@ Les déclencheurs de file d’attente et de rubrique Service Bus sont définis p
 
 Notez les points suivants :
 
-* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre déclencheur. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Bus, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre déclencheur. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.
   Si vous laissez `connection` vide, le déclencheur suppose qu’une chaîne de connexion Service Bus par défaut est spécifiée dans le paramètre d’application nommé `AzureWebJobsServiceBus`.
 * Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.
 
 ## <a name="trigger-behavior"></a>Comportement du déclencheur
 * **Thread unique** - Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `serviceBus.maxConcurrentCalls` sur 1 dans *host.json*. 
-  Pour plus d’informations sur *host.json*, consultez [Structure des dossiers](functions-reference.md#folder-structure) et [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Pour plus d’informations sur *host.json*, consultez [Structure de dossiers](functions-reference.md#folder-structure) et [host.json](https://git.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestion des messages incohérents** - Service Bus assure sa propre gestion des messages incohérents. Il est impossible de la contrôler ou de la configurer dans la configuration ou le code d’Azure Functions. 
 * **Comportement de PeekLock** - Le runtime Functions reçoit un message en mode [`PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) et appelle `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle `Abandon`. 
   Si la fonction s’exécute au-delà du délai imparti à `PeekLock`, le verrou est automatiquement renouvelé.
@@ -81,7 +83,7 @@ Notez les points suivants :
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Utilisation du déclencheur
-Cette section vous montre comment utiliser votre déclencheur Service Hub dans le code de votre fonction. 
+Cette section vous montre comment utiliser votre déclencheur Service Bus dans le code de votre fonction. 
 
 Dans C# and F#, le message du déclencheur Service Bus peut être désérialisé vers l’un des types d'entrée suivants :
 
@@ -183,7 +185,7 @@ La sortie de file d’attente et de rubrique Service Bus utilise les objets JSON
 
 Notez les points suivants :
 
-* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Hub, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison de sortie. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Pour `connection`, [créez un paramètre d’application dans votre application de fonction](functions-how-to-use-azure-function-app-settings.md) qui contient la chaîne de connexion à votre espace de noms Service Bus, puis spécifiez le nom du paramètre d’application dans la propriété `connection` de votre liaison de sortie. Vous obtenez la chaîne de connexion en suivant les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.
   Si vous laissez `connection` vide, la liaison de sortie suppose qu’une chaîne de connexion Service Bus par défaut est spécifiée dans le paramètre d’application nommé `AzureWebJobsServiceBus`.
 * Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.

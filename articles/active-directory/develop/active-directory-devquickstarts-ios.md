@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: c74e63621d422f8fa13bc1dd2730ec2c3325a46a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7ea7008495225b384be3e4728524393bf8c9ba6e
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Intégration d’Azure AD dans une application iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/iOS) qui vous permettra de devenir opérationnel avec Azure Active Directory en quelques minutes !  Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code.  Une fois terminé, vous disposerez d’une application simple qui peut authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation. 
+> 
+> 
 
 Pour les clients iOS qui doivent accéder à des ressources protégées, Azure AD fournit la bibliothèque d’authentification Active Directory (ADAL).  Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d’accès pour votre application.  Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches Objective C qui effectue les actions suivantes :
 
@@ -38,11 +41,6 @@ Pour générer l’application fonctionnelle complète, vous devez :
 3. utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD.
 
 Pour commencer, téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  Vous avez également besoin d’un client Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application.  Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
-
-> [!TIP]
-> Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/iOS) qui vous permettra de devenir opérationnel avec Azure Active Directory en quelques minutes !  Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code.  Une fois terminé, vous disposerez d’une application simple qui peut authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation. 
-> 
-> 
 
 ## <a name="1-determine-what-your-redirect-uri-will-be-for-ios"></a>1. Déterminez votre URI de redirection pour iOS
 Afin de pouvoir lancer en toute sécurité vos applications dans certains scénarios d’authentification unique, vous devez créer un **URI de redirection** dans un format particulier. Un URI de redirection permet de garantir que les jetons sont renvoyés vers la bonne application qui les a appelés.

@@ -13,19 +13,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 04/21/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 767698f12a5cb58fafc70c58e3d36a65194c2999
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
+ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
+ms.lasthandoff: 04/23/2017
 
 
 ---
 # <a name="use-the-azure-documentdb-emulator-for-development-and-testing"></a>Utilisation de l'émulateur Azure DocumentDB pour le développement et le test
 
-[**Téléchargement de l'émulateur**](https://aka.ms/documentdb-emulator)
-
+<table>
+<tr>
+  <td><strong>Fichiers binaires</strong></td>
+  <td>[Télécharger MSI](https://aka.ms/documentdb-emulator)</td>
+</tr>
+<tr>
+  <td><strong>Docker</strong></td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+</tr>
+<tr>
+  <td><strong>Source Docker</strong></td>
+  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+</tr>
+</table>
+  
 L' émulateur Azure DocumentDB fournit un environnement local qui émule le service Azure DocumentDB à des fins de développement. L’émulateur DocumentDB vous permet de développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur DocumentDB, vous pouvez commencer à utiliser un compte Azure DocumentDB dans le cloud.
 
 Nous vous recommandons de commencer par visionner la vidéo suivante, où Kirill Gavrylyuk montre comment prendre en main l’émulateur DocumentDB.
@@ -56,7 +69,7 @@ L’émulateur DocumentDB peut être exécuté sur Docker pour Windows. L’ému
 Une fois que [Docker pour Windows](https://www.docker.com/docker-windows) est installé, vous pouvez extraire l’image de l’émulateur à partir de Docker Hub en exécutant la commande suivante depuis votre interpréteur de commandes favori (cmd.exe, PowerShell, etc.).
 
 ```      
-docker pull mominag/documentdb_emulator 
+docker pull microsoft/azure-documentdb-emulator 
 ```
 Pour démarrer l’image, exécutez les commandes suivantes :
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ La stratégie de contrôle d’accès Key Vault prend uniquement en charge 16 en
 
 Voici les conditions préalables requises :
 * [Installez le module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Installez Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Installez Azure PowerShell](/powershell/azure/overview).
 * Pour exécuter les commandes suivantes, vous avez besoin d’autorisations pour créer/modifier des groupes dans le locataire Azure Active Directory. Si vous ne disposez pas des autorisations, vous devrez peut-être contacter votre administrateur Active Directory Azure.
 
 Exécutez à présent les commandes suivantes dans PowerShell.
@@ -57,9 +58,4 @@ Si vous avez besoin d’accorder un autre jeu d’autorisations à un groupe d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur comment [sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

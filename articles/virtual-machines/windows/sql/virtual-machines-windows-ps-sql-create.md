@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a91122759bea12631fb83d631b21728d5a8f7403
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ Si vous avez besoin de la version classique de cette rubrique, consultez la page
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte Azure et un abonnement, avant de commencer. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)1.4.0 ou version ultérieure (ce didacticiel a été écrit avec la version 1.5.0).
+* [Azure PowerShell](/powershell/azure/overview)1.4.0 ou version ultérieure (ce didacticiel a été écrit avec la version 1.5.0).
   * Pour récupérer votre version, tapez **Get-Module Azure -ListAvailable**.
 
 ## <a name="configure-your-subscription"></a>Configurer votre abonnement
@@ -115,14 +115,14 @@ Et vous pouvez voir les références SKU disponibles pour une offre avec la comm
     Get-AzureRmVMImageSku -Location 'East US' -Publisher 'MicrosoftSQLServer' -Offer 'SQL2014SP1-WS2012R2' | Select Skus
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Avec le modèle de déploiement Resource Manager, le premier objet que vous créez est le groupe de ressources. Nous allons utiliser l’applet de commande [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt759837.aspx) pour créer un groupe de ressources Azure et ses ressources avec le nom et l’emplacement du groupe de ressources définis par les variables que vous avez déjà initialisées.
+Avec le modèle de déploiement Resource Manager, le premier objet que vous créez est le groupe de ressources. Nous allons utiliser l’applet de commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) pour créer un groupe de ressources Azure et ses ressources avec le nom et l’emplacement du groupe de ressources définis par les variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour créer votre groupe de ressources.
 
     New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>Créer un compte de stockage
-La machine virtuelle nécessite des ressources de stockage pour le disque du système d’exploitation ainsi que pour les données et fichiers journaux de SQL Server. Pour plus de simplicité, nous allons créer un seul disque pour les deux. Vous pouvez attacher des disques supplémentaires ultérieurement, à l’aide de l’applet de commande [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) , pour placer vos données et vos fichiers journaux SQL Server sur des disques dédiés. Nous allons utiliser l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage standard dans votre nouveau groupe de ressources, avec le nom du compte de stockage, le nom de référence du stockage et l’emplacement définis à l’aide des variables que vous avez déjà initialisées.
+La machine virtuelle nécessite des ressources de stockage pour le disque du système d’exploitation ainsi que pour les données et fichiers journaux de SQL Server. Pour plus de simplicité, nous allons créer un seul disque pour les deux. Vous pouvez attacher des disques supplémentaires ultérieurement, à l’aide de l’applet de commande [Add-Azure Disk](/powershell/module/azure/add-azuredisk) , pour placer vos données et vos fichiers journaux SQL Server sur des disques dédiés. Nous allons utiliser l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) pour créer un compte de stockage standard dans votre nouveau groupe de ressources, avec le nom du compte de stockage, le nom de référence du stockage et l’emplacement définis à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour créer votre compte de stockage.
 
@@ -136,7 +136,7 @@ La machine virtuelle requiert plusieurs ressources réseau pour la connectivité
 * Une interface réseau doit être définie avec une adresse IP privée ou publique.
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>Créer une configuration de sous-réseau de réseau virtuel
-Nous allons commencer par créer une configuration de sous-réseau pour notre réseau virtuel. Dans notre didacticiel, nous allons créer un sous-réseau par défaut à l’aide de l’applet de commande [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx) . Nous allons créer notre configuration de sous-réseau de réseau virtuel avec le nom et le préfixe d’adresse définis à l’aide des variables déjà initialisées.
+Nous allons commencer par créer une configuration de sous-réseau pour notre réseau virtuel. Dans notre didacticiel, nous allons créer un sous-réseau par défaut à l’aide de l’applet de commande [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) . Nous allons créer notre configuration de sous-réseau de réseau virtuel avec le nom et le préfixe d’adresse définis à l’aide des variables déjà initialisées.
 
 > [!NOTE]
 > Vous pouvez définir des propriétés supplémentaires dans la configuration de sous-réseau de réseau virtuel à l’aide de cette applet de commande, mais cela sort du cadre de ce didacticiel.
@@ -148,14 +148,14 @@ Exécutez l’applet de commande suivante pour créer la configuration de votre 
     $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-Ensuite, nous allons créer notre réseau virtuel à l’aide de l’applet de commande [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx) . Nous allons créer notre réseau virtuel dans votre nouveau groupe de ressources, avec le nom, l’emplacement et le préfixe d’adresse définis avec les variables que vous avez déjà initialisées, et à l’aide de la configuration de sous-réseau définie à l’étape précédente.
+Ensuite, nous allons créer notre réseau virtuel à l’aide de l’applet de commande [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) . Nous allons créer notre réseau virtuel dans votre nouveau groupe de ressources, avec le nom, l’emplacement et le préfixe d’adresse définis avec les variables que vous avez déjà initialisées, et à l’aide de la configuration de sous-réseau définie à l’étape précédente.
 
 Exécutez l’applet de commande suivante pour créer votre réseau virtuel.
 
     $VNet = New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName -Location $Location -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
 
 ### <a name="create-the-public-ip-address"></a>Créer une adresse IP publique
-Maintenant que nous avons défini notre réseau virtuel, nous devons configurer une adresse IP pour la connectivité à la machine virtuelle. Dans ce didacticiel, nous allons créer une adresse IP publique à l’aide de l’adressage IP dynamique pour la connectivité Internet. Nous allons utiliser l’applet de commande [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) pour créer l’adresse IP publique dans le groupe de ressources déjà créé, avec le nom, l’emplacement, la méthode d’allocation et le libellé du nom de domaine DNS définis à l’aide des variables que vous avez déjà initialisées.
+Maintenant que nous avons défini notre réseau virtuel, nous devons configurer une adresse IP pour la connectivité à la machine virtuelle. Dans ce didacticiel, nous allons créer une adresse IP publique à l’aide de l’adressage IP dynamique pour la connectivité Internet. Nous allons utiliser l’applet de commande [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) pour créer l’adresse IP publique dans le groupe de ressources déjà créé, avec le nom, l’emplacement, la méthode d’allocation et le libellé du nom de domaine DNS définis à l’aide des variables que vous avez déjà initialisées.
 
 > [!NOTE]
 > Vous pouvez définir des propriétés supplémentaires de l’adresse IP publique à l’aide de cette applet de commande, mais cela sort du cadre de ce didacticiel. Vous pouvez également créer une adresse privée ou une adresse avec une adresse statique, mais cela sort du cadre de ce didacticiel.
@@ -167,7 +167,7 @@ Exécutez l’applet de commande suivante pour créer votre adresse IP publique.
     $PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
 
 ### <a name="create-the-network-interface"></a>Créer l’interface réseau
-Nous sommes maintenant prêts à créer l’interface réseau que notre machine virtuelle utilisera. Nous allons utiliser l’applet de commande [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx) pour créer notre interface réseau dans le groupe de ressources déjà créé, et avec le nom, l’emplacement, le sous-réseau et l’adresse IP publique définis auparavant.
+Nous sommes maintenant prêts à créer l’interface réseau que notre machine virtuelle utilisera. Nous allons utiliser l’applet de commande [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) pour créer notre interface réseau dans le groupe de ressources déjà créé, et avec le nom, l’emplacement, le sous-réseau et l’adresse IP publique définis auparavant.
 
 Exécutez l’applet de commande suivante pour créer votre interface réseau.
 
@@ -177,7 +177,7 @@ Exécutez l’applet de commande suivante pour créer votre interface réseau.
 Maintenant que nous avons défini les ressources réseau et de stockage, nous pouvons définir les ressources de calcul de la machine virtuelle. Dans notre didacticiel, nous allons configurer la taille de la machine virtuelle et plusieurs propriétés du système d’exploitation, spécifier l’interface réseau que nous avons créée auparavant, définir le Blob Storage et identifier le disque du système d’exploitation.
 
 ### <a name="create-the-vm-object"></a>Créer l’objet de machine virtuelle
-Nous allons commencer par spécifier la taille de la machine virtuelle. Dans ce didacticiel, nous spécifions une DS13. Nous allons utiliser l’applet de commande [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) pour créer une machine virtuelle configurable, avec le nom et la taille définis à l’aide des variables que vous avez déjà initialisées.
+Nous allons commencer par spécifier la taille de la machine virtuelle. Dans ce didacticiel, nous spécifions une DS13. Nous allons utiliser l’applet de commande [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) pour créer une machine virtuelle configurable, avec le nom et la taille définis à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour créer l’objet de machine virtuelle.
 
@@ -191,14 +191,14 @@ Exécutez l’applet de commande suivante puis, dans la fenêtre de demande d’
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Configurer les propriétés du système d’exploitation de la machine virtuelle
-Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) pour configurer le système d’exploitation Windows, exiger l’installation de [l’agent de machine virtuelle](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
+Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) pour configurer le système d’exploitation Windows, exiger l’installation de [l’agent de machine virtuelle](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour définir les propriétés du système d’exploitation de votre machine virtuelle.
 
     $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>Ajouter l’interface réseau à la machine virtuelle
-Ensuite, nous allons ajouter l’interface réseau précédemment créée à la machine virtuelle. Nous allons utiliser l’applet de commande [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) pour ajouter l’interface réseau à l’aide de la variable d’interface réseau définie auparavant.
+Ensuite, nous allons ajouter l’interface réseau précédemment créée à la machine virtuelle. Nous allons utiliser l’applet de commande [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) pour ajouter l’interface réseau à l’aide de la variable d’interface réseau définie auparavant.
 
 Exécutez l’applet de commande suivante pour définir l’interface réseau de votre machine virtuelle.
 
@@ -212,21 +212,21 @@ Exécutez l’applet de commande suivante pour définir l’emplacement de Blob 
     $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>Configurer les propriétés du disque du système d’exploitation de la machine virtuelle
-Ensuite, nous allons configurer les propriétés du disque du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) pour spécifier que le système d’exploitation de la machine virtuelle proviendra d’une image, pour définir la mise en cache en lecture seule (car SQL Server est installé sur le même disque) et spécifier le nom de la machine virtuelle ainsi que le disque du système d’exploitation définis à l’aide des variables configurées auparavant.
+Ensuite, nous allons configurer les propriétés du disque du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) pour spécifier que le système d’exploitation de la machine virtuelle proviendra d’une image, pour définir la mise en cache en lecture seule (car SQL Server est installé sur le même disque) et spécifier le nom de la machine virtuelle ainsi que le disque du système d’exploitation définis à l’aide des variables configurées auparavant.
 
 Exécutez l’applet de commande suivante pour configurer les propriétés du disque du système d’exploitation de votre machine virtuelle.
 
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Spécifier l’image de plateforme de la machine virtuelle
-Notre dernière étape de configuration consiste à spécifier l’image de plateforme de notre machine virtuelle. Dans notre didacticiel, nous utilisons la dernière image en date de SQL Server 2016 CTP. Nous allons utiliser l’applet de commande [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) pour utiliser cette image définie par les variables définies auparavant.
+Notre dernière étape de configuration consiste à spécifier l’image de plateforme de notre machine virtuelle. Dans notre didacticiel, nous utilisons la dernière image en date de SQL Server 2016 CTP. Nous allons utiliser l’applet de commande [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) pour utiliser cette image définie par les variables définies auparavant.
 
 Exécutez l’applet de commande suivante pour définir l’image de plateforme de votre machine virtuelle.
 
     $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $PublisherName -Offer $OfferName -Skus $Sku -Version $Version
 
 ## <a name="create-the-sql-vm"></a>Créer la machine virtuelle SQL
-Une fois les étapes de configuration terminées, vous pouvez créer la machine virtuelle. Nous allons utiliser l’applet de commande [New-AzureRmVM](https://msdn.microsoft.com/library/mt603754.aspx) pour créer la machine virtuelle à l’aide des variables que nous avons définies.
+Une fois les étapes de configuration terminées, vous pouvez créer la machine virtuelle. Nous allons utiliser l’applet de commande [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) pour créer la machine virtuelle à l’aide des variables que nous avons définies.
 
 Exécutez l’applet de commande suivante pour créer votre machine virtuelle.
 

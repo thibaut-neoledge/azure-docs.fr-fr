@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -28,6 +29,15 @@ Cet article contient des informations sur les différentes versions et les derni
 > Il existe également une boîte à outils Azure pour l’environnement de développement Eclipse. Pour plus d’informations, consultez [Kit de ressources Azure pour Eclipse].
 > 
 > 
+
+### <a name="april-14-2017"></a>14 avril 2017
+La version d’avril 2017 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
+
+* **Expérience de connexion Azure améliorée** : le kit de ressources Azure pour IntelliJ prend désormais en charge deux méthodes de connexion à votre compte Azure : *interactive* et *automatisée*. Pour plus d’informations, consultez [Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ].
+* **Publication à l’aide de conteneurs Docker** : à présent, vous pouvez publier vos applications web en tant que conteneurs Docker à l’aide du kit de ressources Azure pour IntelliJ. Pour plus d’informations, consultez [Comment publier une application web en tant que conteneur Docker à l’aide du kit de ressources Azure pour IntelliJ].
+* **Gestion des comptes de stockage** : le kit de ressources Azure pour IntelliJ prend désormais en charge la gestion de vos comptes de stockage à partir de la vue de l’Explorateur Azure. Pour plus d’informations, consultez [Gestion des comptes de stockage avec l’Explorateur Azure pour IntelliJ].
+* **Gestion des machines virtuelles** : le kit de ressources Azure pour IntelliJ prend désormais en charge la gestion de vos machines virtuelles à partir de la fenêtre de l’outil Explorateur Azure. Pour plus d’informations, consultez [Gestion des machines virtuelles avec l’Explorateur Azure pour IntelliJ].
+* **Suppression de la prise en charge du débogage distant**. Le débogage distant des applications web Java dans Azure App Service a été supprimé du kit de ressources Azure pour IntelliJ ; cette action était nécessaire pour résoudre certains problèmes rencontrés par les utilisateurs lors de l’utilisation du kit de ressources.
 
 ### <a name="august-26-2016"></a>26 août 2016
 La version d’août 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
@@ -61,13 +71,15 @@ La version d’avril 2016 du kit de ressources Azure pour IntelliJ inclut les am
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
 * [Kit de ressources Azure pour Eclipse]
+  * [Nouveautés du kit de ressources Azure pour Eclipse]
   * [Installation du kit de ressources Azure pour Eclipse]
   * [Créer une application web « Hello World » pour Azure dans Eclipse]
-  * [Nouveautés du kit de ressources Azure pour Eclipse]
+  * [Azure Sign In Instructions for the Azure Toolkit for Eclipse] (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
 * [Kit de ressources Azure pour IntelliJ]
-  * [Installation du kit de ressources Azure pour IntelliJ]
-  * [Créer une application web « Hello World » pour Azure dans IntelliJ]
   * *Nouveautés du kit de ressources Azure pour IntelliJ (cet article)*
+  * [Installation du kit de ressources Azure pour IntelliJ]
+  * [Azure Sign In Instructions for the Azure Toolkit for IntelliJ] (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
+  * [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
@@ -79,15 +91,17 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
+[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
 [Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
+[Comment publier une application web en tant que conteneur Docker à l’aide du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[Gestion des comptes de stockage avec l’Explorateur Azure pour IntelliJ]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Gestion des machines virtuelles avec l’Explorateur Azure pour IntelliJ]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [Plug-in Outils HDInsight pour IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

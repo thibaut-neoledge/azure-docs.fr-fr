@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 03b7e184d26ceccd12f40b4935d7c451b7eee01e
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -197,7 +197,7 @@ Temps approximatif d’accomplissement : 15 minutes
 
 Si l’application cible n’est pas présente dans la galerie, vous pouvez utiliser Apportez votre propre application. Pour en savoir plus : [Découvrez les nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Ajout d’applications personnalisées à partir d’un seul emplacement](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
- Gardez à l’esprit les conditions requises suivantes :
+ Gardez à l’esprit les exigences suivantes :
    * L’application doit avoir une URL de connexion connue
    * La page de connexion doit contenir un formulaire HTML avec un ou plusieurs champs de texte que les extensions de navigateur peuvent remplir automatiquement. Au minimum, elle doit contenir le nom d’utilisateur et le mot de passe.
 
@@ -395,7 +395,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Fournissez les données de réinitialisation de mot de passe en libre-service comme configuré à l’étape 2 | http://aka.ms/ssprsetup |
 | Fermez le navigateur |  |
 | Recommencez le processus de connexion en tant que professionnel de l’information, déjà utilisé à l’étape 4 |  |
-| Réinitialisez le mot de passe | [Mettre à jour votre mot de passe : Réinitialiser mon mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password) |
+| Réinitialisez le mot de passe | [Mettre à jour votre mot de passe : Réinitialiser mon mot de passe](active-directory-passwords-update-your-own-password.md) |
 | Essayez de vous connecter avec votre nouveau mot de passe Azure AD, ainsi qu’aux ressources locales |  |
 
 ### <a name="considerations"></a>Considérations

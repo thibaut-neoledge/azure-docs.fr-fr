@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -36,7 +36,7 @@ Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d�
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
 
-1. Les abonnements source et de destination doivent exister dans le même [client Active Directory](../active-directory/active-directory-howto-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
+1. Les abonnements source et de destination doivent exister dans le même [client Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
 
   Pour Azure PowerShell, utilisez :
 
@@ -50,7 +50,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Active Directory associé. 
+  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Azure Active Directory associé. 
 
   ![Modifier l’annuaire](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +67,7 @@ Vous pouvez déplacer la plupart des ressources via les opérations en libre-ser
 
 Appelez le support technique quand vous devez :
 
-* Déplacer vos ressources vers un nouveau compte Azure (et un locataire Active Directory).
+* Déplacer vos ressources vers un nouveau compte Azure (et un locataire Azure Active Directory).
 * Déplacer des ressources classiques, mais que vous rencontrez des problèmes avec les limitations.
 
 ## <a name="services-that-enable-move"></a>Services permettant le déplacement

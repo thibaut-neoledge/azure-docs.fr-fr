@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b36fb2b94dcee94eb299221bbb5c82080d23bfb1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +41,7 @@ Cette rubrique décrit comment rechercher des éditeurs d’images de machines v
 
 ## <a name="find-azure-images-with-powershell"></a>Rechercher des images Azure avec PowerShell
 > [!NOTE]
-> Installez et configurez la [dernière version d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`. 
+> Installez et configurez la [dernière version d’Azure PowerShell](/powershell/azure/overview). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -134,3 +134,4 @@ Dans cette liste, copiez le nom de référence SKU choisi. Vous disposez de tout
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’image que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’image, consultez [Création d'une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+

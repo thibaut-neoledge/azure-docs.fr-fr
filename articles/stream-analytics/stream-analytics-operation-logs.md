@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e694eb8f4d658ff9410ae7be2bd4b69500ecbf20
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7ac1a7f8e2f4f67aeb674f0720bc7108d44dad42
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -81,10 +81,10 @@ Vous pouvez sélectionner l’une des erreurs et cliquer sur **Détails** pour o
 
   ![Détails de l'opération](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-Si vous devez contacter le [support technique](https://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**. 
+Si vous devez contacter le [support technique](https://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**. 
 
 ## <a name="get-help"></a>Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

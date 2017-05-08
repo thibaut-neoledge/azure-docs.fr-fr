@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -40,7 +40,7 @@ L’extension de l’agent OMS peut être exécutée sur ces distributions de Li
 | Oracle Linux | 5, 6 et 7 |
 | Red Hat Enterprise Linux Server | 5, 6 et 7 |
 | Debian GNU/Linux | 6, 7 et 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 et 12 |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
@@ -49,7 +49,7 @@ L’extension de l’agent OMS pour Linux nécessite que la machine virtuelle ci
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **workspaceId** et **workspaceKey** respectent la casse.
+Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible. Ces valeurs sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **workspaceId** et **workspaceKey** respectent la casse.
 
 ```json
 {
@@ -63,7 +63,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +81,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1.3 |
 | workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +106,7 @@ L’exemple suivant suppose que l’extension OMS est imbriquée dans la ressour
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +131,7 @@ Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressou
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -148,7 +148,7 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l�
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -168,6 +168,30 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>Codes d’erreur et signification
+
+| Code d'erreur | Signification | Action possible |
+| :---: | --- | --- |
+| 2 | Option non valide fournie à l’application shell | |
+| 3 | Aucune option fournie à l’application shell | |
+| 4 | Type de package non valide | |
+| 5 | L’application shell doit être exécutée en tant que racine | |
+| 6 | Architecture de package non valide | |
+| 10 | La machine virtuelle est déjà connectée à un espace de travail OMS | Pour connecter la machine virtuelle à l’espace de travail spécifié dans le schéma d’extension, définissez stopOnMultipleConnections sur la valeur false dans les paramètres publics ou supprimez cette propriété. Cette machine virtuelle est facturée une fois pour chaque espace de travail auquel elle est connectée. |
+| 11 | Configuration non valide fournie à l’extension | Suivez les exemples précédents pour définir toutes les valeurs de propriété du déploiement. |
+| 20 | Échec de l’installation de SCX/OMI | |
+| 21 | Échec de l’installation des kits SCX/Provider | |
+| 22 | Échec de l’installation du package fourni | |
+| 23 | Package SCX ou OMI déjà installé | |
+| 30 | Erreur d’application interne | |
+| 51 | Cette extension n’est pas prise en charge sur le système d’exploitation de la machine virtuelle | |
+| 60 | Version d’OpenSSL non prise en charge | Installez une version d’OpenSSL correspondant aux [packages requis](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Bibliothèque de ctypes Python manquante | Installez la bibliothèque ou le package de ctypes Python (python-ctypes). |
+| 62 | Programme tar manquant | Installez tar. |
+| 63 | Programme sed manquant | Installez sed. |
+
+Pour plus d’informations sur la résolution des problèmes, consultez le [guide de résolution des problèmes de l’Agent OMS pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### <a name="support"></a>Support
 

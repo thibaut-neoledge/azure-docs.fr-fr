@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,83 +31,53 @@ Le fait d’appliquer une stratégie de balise à un groupe de ressources ou à 
 
 Il est souvent exigé que toutes les ressources d’un groupe de ressources aient une valeur et une balise particulières. Cette exigence est souvent nécessaire pour effectuer le suivi des coûts par département. Les conditions suivantes doivent être remplies :
 
-* La balise et la valeur requises sont ajoutées à des ressources nouvelles et mises à jour qui ne possèdent pas encore de balises.
-* La balise et la valeur requises sont ajoutées à des ressources nouvelles et mises à jour qui possèdent des balises autres que la balise et la valeur requises.
+* La balise et la valeur requises sont ajoutées à des ressources nouvelles et mises à jour qui ne possèdent pas de balises.
 * Il n’est pas possible de supprimer la balise et la valeur requises des ressources existantes.
 
-Pour respecter ces exigences, appliquez à un groupe de ressources les trois stratégies suivantes :
+Pour respecter ces exigences, vous devez appliquer à un groupe de ressources deux stratégies intégrées.
 
-* [Ajouter une balise](#append-tag) 
-* [Ajouter une balise avec d’autres balises](#append-tag-with-other-tags)
-* [Exiger une balise et une valeur](#require-tag-and-value)
+| ID | Description |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Applique une balise requise et sa valeur par défaut lorsqu’elle n’est pas spécifiée par l’utilisateur. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Applique une balise requise et sa valeur. |
 
-### <a name="append-tag"></a>Ajouter une balise
+### <a name="powershell"></a>PowerShell
 
-La règle de stratégie suivante ajoute la balise costCenter avec une valeur prédéfinie si aucune balise n’est présente :
+Le script PowerShell suivant affecte les deux définitions de stratégies intégrées à un groupe de ressources. Avant d’exécuter le script, affectez toutes les balises requises au groupe de ressources. Chaque balise du groupe de ressources est requise pour les ressources contenues dans le groupe. Pour les affecter à tous les groupes de ressources de votre abonnement, n’indiquez pas le paramètre `-Name` lorsque vous récupérez les groupes de ressources.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>Ajouter une balise avec d’autres balises
-
-La règle de stratégie suivante ajoute la balise costCenter avec une valeur prédéfinie si certaines balises sont présentes mais que la balise costCenter n’est pas définie :
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>Exiger une balise et une valeur
-
-La règle de stratégie suivante refuse la mise à jour ou la création de ressources qui ne possèdent pas la balise costCenter à la valeur prédéfinie.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+Après avoir attribué les stratégies, vous pouvez déclencher une mise à jour sur toutes les ressources existantes pour appliquer les stratégies de balise que vous avez ajoutées. Le script suivant conserve toutes les autres balises existant sur les ressources :
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -150,26 +120,6 @@ La stratégie suivante refuse les demandes dépourvues de balise contenant la cl
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## <a name="trigger-updates-to-existing-resources"></a>Déclencher des mises à jour sur des ressources existantes
-
-Le script PowerShell suivant déclenche une mise à jour sur des ressources existantes pour appliquer les stratégies de balise que vous avez ajoutées.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

@@ -12,165 +12,99 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 04/19/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0320aafd5eed1b3ef658d5f020fc37ba1dcff308
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c889a609b8d49474216fe1dcfba69a881edb4133
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
-> * [Portail](resource-group-template-deploy-portal.md)
-> * [API REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
-Cette rubrique explique comment utiliser [Azure CLI 2.0](/cli/azure/install-az-cli2) avec les modèles Resource Manager pour déployer vos ressources dans Azure.  Votre modèle peut être un fichier local ou un fichier externe disponible par le biais d’un URI. Lorsque votre modèle se trouve dans un compte de stockage, vous pouvez restreindre l’accès au modèle et fournir un jeton de signature d’accès partagé (SAP) au cours du déploiement.
+Cette rubrique explique comment utiliser [Azure CLI 2.0](/cli/azure/install-az-cli2) avec les modèles Resource Manager pour déployer vos ressources dans Azure.  Votre modèle peut être un fichier local ou un fichier externe disponible par le biais d’un URI.
 
-## <a name="deploy"></a>Déployer
+Vous pouvez obtenir le modèle (storage.json) utilisé dans ces exemples dans l’article [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md#final-template). Pour utiliser le modèle avec ces exemples, créez un fichier JSON et ajoutez le contenu copié.
 
-* Afin de prendre rapidement en main le déploiement, utilisez les commandes suivantes pour déployer un modèle local avec des paramètres inline :
+## <a name="deploy-local-template"></a>Déployer un modèle local
 
-  ```azurecli
-  az login
-  az account set --subscription {subscription-id}
+Afin de prendre rapidement en main le déploiement, utilisez les commandes suivantes pour déployer un modèle local avec des paramètres inline :
 
-  az group create --name ExampleGroup --location "Central US"
-  az group deployment create \
-      --name ExampleDeployment \
-      --resource-group ExampleGroup \
-      --template-file storage.json \
-      --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-  ```
+```azurecli
+az login
 
-  Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
+az group create --name ExampleGroup --location "Central US"
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
+```
 
-  ```azurecli
-  "provisioningState": "Succeeded",
-  ```
-  
-* La commande `az account set` est uniquement nécessaire si vous souhaitez utiliser un abonnement autre que votre abonnement par défaut. Pour afficher tous vos abonnements et leurs numéros d’identification, utilisez :
+Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
 
-  ```azurecli
-  az account list
-  ```
+```azurecli
+"provisioningState": "Succeeded",
+```
 
-* Pour déployer un modèle externe, utilisez le paramètre **template-uri** :
+Dans l’exemple précédent, un groupe de ressources a été créé dans votre abonnement par défaut. Pour utiliser un autre abonnement, ajoutez l’applet de commande [Set-AzureRmContext](/cli/azure/account#set) une fois connecté.
+
+## <a name="deploy-external-template"></a>Déployer un modèle externe
+
+Pour déployer un modèle externe, utilisez le paramètre **template-uri**. Le modèle peut se trouver sur n’importe quel URI accessible publiquement (par exemple, un fichier de compte de stockage).
    
-   ```azurecli
-   az group deployment create \
-       --name ExampleDeployment \
-       --resource-group ExampleGroup \
-       --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
-       --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-   ```
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
+```
 
-* Pour transmettre les valeurs du paramètre dans un fichier, utilisez :
+Vous pouvez protéger votre modèle en demandant un accès à l’aide d’un jeton de signature d’accès partagé (SAP). Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-cli-sas-token.md).
 
-   ```azurecli
-   az group deployment create \
-       --name ExampleDeployment \
-       --resource-group ExampleGroup \
-       --template-file storage.json \
-       --parameters @storage.parameters.json
-   ```
+## <a name="parameter-files"></a>Fichiers de paramètres
 
-   Le fichier de paramètres doit être au format suivant :
+Les exemples précédents vous ont montré comment transmettre des paramètres en tant que valeurs inline. Vous pouvez spécifier des valeurs de paramètre dans un fichier et transmettre ce fichier au cours du déploiement. 
 
-   ```json
-   {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-        "storageNamePrefix": {
-            "value": "contoso"
-        },
-        "storageSKU": {
-            "value": "Standard_GRS"
-        }
+Le fichier de paramètres doit être au format suivant :
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+     "storageNamePrefix": {
+         "value": "contoso"
+     },
+     "storageSKU": {
+         "value": "Standard_GRS"
      }
-   }
-   ```
+  }
+}
+```
 
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Pour utiliser le mode complet, utilisez le paramètre de mode :
+Pour transmettre un fichier de paramètres locaux, utilisez :
 
 ```azurecli
 az group deployment create \
     --name ExampleDeployment \
-    --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    --parameters @storage.parameters.json
 ```
 
-## <a name="deploy-template-from-storage-with-sas-token"></a>Déployer un modèle à partir du stockage avec un jeton SAP
-Vous pouvez ajouter vos modèles à un compte de stockage et les lier au cours du déploiement avec un jeton SAP.
+## <a name="test-a-deployment"></a>Tester un déploiement
 
-> [!IMPORTANT]
-> Une fois les étapes ci-dessous suivies, l’objet blob contenant le modèle n’est accessible qu’au propriétaire du compte. Toutefois, lorsque vous créez un jeton SAP pour l’objet blob, celui-ci est accessible à toute personne ayant cet URI. Si un autre utilisateur intercepte l’URI, il pourra accéder au modèle. L’utilisation d’un jeton SAP est un bon moyen de limiter l’accès à vos modèles, mais vous ne devez pas inclure de données sensibles comme des mots de passe directement dans le modèle.
-> 
-> 
+Pour tester votre modèle et vos valeur de paramètre sans réellement déployer toutes les ressources, utilisez [az group deployment validate](/cli/azure/group/deployment#validate). Les mêmes options sont utilisées pour les fichiers locaux ou distants.
 
-### <a name="add-private-template-to-storage-account"></a>Ajouter un modèle privé au compte de stockage
-L’exemple suivant configure un conteneur de compte de stockage privé et charge un modèle :
-   
 ```azurecli
-az group create --name "ManageGroup" --location "South Central US"
-az storage account create \
-    --resource-group ManageGroup \
-    --location "South Central US" \
-    --sku Standard_LRS \
-    --kind Storage \
-    --name {your-unique-name}
-connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
-    --name {your-unique-name} \
-    --query connectionString)
-az storage container create \
-    --name templates \
-    --public-access Off \
-    --connection-string $connection
-az storage blob upload \
-    --container-name templates \
-    --file vmlinux.json \
-    --name vmlinux.json \
-    --connection-string $connection
+az group deployment validate \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters @storage.parameters.json
 ```
-
-### <a name="provide-sas-token-during-deployment"></a>Fournir un jeton SAP au cours du déploiement
-Pour déployer un modèle dans un compte de stockage privé, générez un jeton SAP et incluez-le dans l’URI du modèle. Définissez le délai d’expiration de façon à laisser suffisamment de temps pour terminer le déploiement.
-   
-```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
-connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
-    --name {your-unique-name} \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name templates \
-    --name vmlinux.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-    --container-name templates \
-    --name vmlinux.json \
-    --output tsv \
-    --connection-string $connection)
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token
-```
-
-Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles liés, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
 ## <a name="debug"></a>Déboguer
 
@@ -182,136 +116,40 @@ az group deployment operation list --resource-group ExampleGroup --name vmlinux 
 
 Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="complete-deployment-script"></a>Exécuter le script de déploiement
 
-L’exemple suivant montre le script Azure CLI 2.0 pour le déploiement d’un modèle généré par la fonctionnalité [Exporter le modèle](resource-manager-export-template.md) :
+## <a name="export-resource-manager-template"></a>Exporter un modèle Resource Manager
+Pour un groupe de ressources existant (déployé via Azure CLI ou l'une des autres méthodes telles que le portail), vous pouvez afficher le modèle Resource Manager pour le groupe de ressources. L’exportation du modèle offre deux avantages :
+
+1. Vous pouvez facilement automatiser les prochains déploiements de la solution, car l’ensemble de l’infrastructure est défini dans le modèle.
+2. Vous pouvez vous familiariser avec la syntaxe de modèle en regardant dans la JSON (JavaScript Object Notation) qui représente votre solution.
+
+Pour afficher le modèle d’un groupe de ressources, exécutez la commande [az group export](/cli/azure/group#export).
 
 ```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az resource group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az resource group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+az group export --name ExampleGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-* Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-* Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
-* Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-* Pour consulter une série en quatre parties sur l’automatisation du déploiement, consultez [Automatisation des déploiements d’applications sur des machines virtuelles Azure](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cette série couvre l’architecture, l’accès, la sécurité, la disponibilité, la mise à l’échelle et le déploiement des applications.
+Pour plus d’informations, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
+
+[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
+
+Pour utiliser le mode complet, utilisez le paramètre `mode` :
+
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --mode Complete \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
+```
+
+
+## <a name="next-steps"></a>Étapes suivantes
+* Pour accéder à un exemple de script complet qui déploie un modèle, consultez la page [Déploiement d’un modèle Azure Resource Manager](resource-manager-samples-cli-deploy.md).
+* Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
+* Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-cli-sas-token.md).
+* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 

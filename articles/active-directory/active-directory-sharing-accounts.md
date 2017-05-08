@@ -3,7 +3,7 @@ title: "Partage de comptes à l’aide d’Azure AD | Microsoft Docs"
 description: "Décrit comment Azure Active Directory permet aux organisations de partager des comptes en toute sécurité pour les applications locales et les services cloud grand public."
 services: active-directory
 documentationcenter: 
-author: msStevenPo
+author: curtand
 manager: femila
 editor: 
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
-ms.author: stevenpo
+ms.date: 05/04/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b689a0033103231d560c9ba4b349e675f304e35c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,10 +74,5 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

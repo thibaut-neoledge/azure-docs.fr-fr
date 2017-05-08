@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
-ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerS
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou souhaitez connaître les valeurs à indiquer pour une configuration réussie. Les utilisateurs avancés de PowerShell peuvent prendre les commandes et indiquer leurs propres valeurs pour les variables (lignes commençant par « $ »).
 
-Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Puis ouvrez une invite de commandes Windows PowerShell.
+Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . Puis ouvrez une invite de commandes Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Étape 1 : Ajouter votre compte
 1. À l’invite PowerShell, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**.

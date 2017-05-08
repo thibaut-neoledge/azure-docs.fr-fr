@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: e68d39c4591341c706fcd89a584768cba07de7e1
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -32,44 +32,45 @@ Pour les entreprises qui ont investi dans des solutions de fédération non-Micr
 Pour plus d’informations sur la façon dont votre fournisseur d’identité tiers peut être répertorié ici, contactez Oxford Computer Groupe à l’adresse [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
 > [!IMPORTANT]
-> Oxford Computer Group a uniquement testé la fonctionnalité de fédération de ces scénarios d’authentification unique. Oxford Computer Group n’a pas testé les composants de synchronisation, d’authentification à&2; facteurs, etc., de ces scénarios d’authentification unique.
+> Oxford Computer Group a uniquement testé la fonctionnalité de fédération de ces scénarios d’authentification unique. Oxford Computer Group n’a pas testé les composants de synchronisation, d’authentification à 2 facteurs, etc., de ces scénarios d’authentification unique.
 > 
 > Par ailleurs, l’utilisation de la connexion au moyen d’un ID secondaire à UPN n’est pas testée dans ce programme.
 > 
 > 
 
 * [Azure Active Directory](#azure-active-directory)
-* [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
-* [PingFederate 6.11](#pingfederate-611) 
-* [PingFederate 7.2](#pingfederate-72) 
-* [PingFederate 8.x](#pingfederate-8x)
-* [Centrify](#centrify) 
-* [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
-* [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
+* [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
+* [BIG-IP avec Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x--116x) 
+* [BitGlass](#bitglass)
+* [CA Secure Cloud](#ca-secure-cloud) 
 * [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
-* [RadiantOne CFS 3.0](#radiantone-cfs-30) 
+* [Centrify](#centrify) 
+* [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+* [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
+* [IceWall Federation Version 3.0](#icewall-federation-version-30) 
+* [Memority](#memority)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 * [Okta](#okta) 
 * [OneLogin](#onelogin) 
-* [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-* [BIG-IP avec Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x--116x) 
-* [VMware Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
-* [Sign&go 5.3](#signgo-53) 
-* [IceWall Federation Version 3.0](#icewall-federation-version-30) 
-* [CA Secure Cloud](#ca-secure-cloud) 
-* [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-* [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
+* [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
+* [PingFederate 6.11, 7.2, 8.x](#pingfederate-611-72-8x)
+* [RadiantOne CFS 3.0](#radiantone-cfs-30) 
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
-* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
+* [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
+* [Sign&go 5.3](#signgo-53) 
+* [SoftBank](#softbank)
+* [VMware Identity Manager](#vmware-identity-manager)
+* [VMware Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
+
 
 > [!IMPORTANT]
 > Étant donné qu’il s’agit de produits tiers, Microsoft n’offre aucun support technique concernant les problèmes et questions liés au déploiement, à la configuration, au dépannage, aux meilleures pratiques, etc., de ces fournisseurs d’identité tiers. Pour toute question sur ces fournisseurs d’identité et pour bénéficier d’un support technique, contactez directement les éditeurs tiers pris en charge.
 > 
 > L’interopérabilité de ces fournisseurs d’identité tiers avec les services cloud Microsoft a uniquement été testée à l’aide des protocoles WS-Federation et WS-Trust. Le protocole SAML n’a pas fait l’objet de tests.
 > 
-> 
+
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory peut authentifier les utilisateurs en opérant une fédération avec votre Active Directory local ou, à défaut de serveur de fédération local, en utilisant une synchronisation de mot de passe. 
 
 Voici la matrice de prise en charge de scénarios de cette expérience d’authentification : 
 
@@ -84,162 +85,20 @@ Pour plus d’informations sur l’utilisation d’Azure Active Directory avec A
 
 Pour plus d’informations sur l’utilisation d’Azure Active Directory avec une synchronisation de mot de passe, consultez [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimal IDM Virtual Identity Server Federation Services
-Optimal IDM Virtual Identity Server Federation Services peut authentifier les utilisateurs qui résident dans les répertoires Active Directory locaux des clients.
+## <a name="authanvil-single-sign-on-45"></a>AuthAnvil Single Sign On 4.5
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
 | Client | Support | Exceptions |
 | --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Pour plus d’informations sur les stratégies d’accès des clients, consultez [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) |
-
-## <a name="pingfederate-611"></a>PingFederate 6.11
-PingFederate 6.11 implémente la norme d’identité WS Federation largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucune (les versions antérieures doivent être mises à niveau vers la version 6.11) |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, téléchargez le fichier pdf [ici.](http://go.microsoft.com/fwlink/?LinkID=266321)
-
-## <a name="pingfederate-72"></a>PingFederate 7.2
-PingFederate 7.2 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, consultez [ceci.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
-
-## <a name="pingfederate-8x"></a>PingFederate 8.x
-PingFederate 8.x implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, consultez [ceci.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
-
-## <a name="centrify"></a>Centrify
-Centrify permet d’offrir une expérience d’authentification unique fédérée pour Office 365 sans exiger l’hébergement d’un serveur de fédération local.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Le contrôle d’accès des clients n’est pas pris en charge. |
-
-Pour plus d’informations sur Centrify, consultez [ici.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
-
-## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
-IBM Tivoli Federated Identity Manager 6.2.2 avec IBM Security Access Manager for Microsoft Applications 1.4 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur IBM Tivoli Federated Identity Manager, consultez [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
-
-## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
-SecureAuth IdP 7.2.0 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur SecureAuth, consultez [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
-
-## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 version cumulative 4
-CA SiteMinder Federation 12.52 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur CA SiteMinder, consultez [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 
-
-## <a name="radiantone-cfs-30"></a>RadiantOne CFS 3.0
-RadiantOne Cloud Federation Service (CFS) 3.0 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur RadiantOne CFS, consultez [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
-
-## <a name="okta"></a>Okta
-Okta implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée nécessite la configuration supplémentaire d’un serveur web et de l’application Okta. |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur Okta, consultez [Okta.](https://www.okta.com/)
-
-## <a name="onelogin"></a>OneLogin
-Testé en mai 2014, OneLogin implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Authentification Windows intégrée |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur OneLogin, consultez [OneLogin.](https://www.onelogin.com/)
-
-## <a name="netiq-access-manager-401"></a>NetIQ Access Manager 4.0.1
-NetIQ Access Manager 4.0.1 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |*Contrats Kerberos pris en charge |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
 | Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
 
-* NetIQ prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos.  Pour obtenir de l’aide sur cette configuration, contactez NetIQ ou consultez le guide d’installation et de configuration. Pour plus d’informations sur NetIQ Access Manager, consultez [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
+Pour plus d’informations, consultez [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP avec Access Policy Manager BIG-IP ver. 11.3x – 11.6x
-BIG-IP avec Access Policy Manager, (APM) BIG-IP ver. 11.3x – 11.6x implémente la norme d’identité SAML largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
 
@@ -253,8 +112,7 @@ Pour plus d’informations sur BIG-IP Access Policy Manager, consultez [BIG-IP A
 
 Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec BIG-IP Access Policy Manager, téléchargez le fichier pdf [ici.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
 
-## <a name="vmware--workspace-portal-version-21"></a>VMware Workspace Portal version 2.1
-VMware Workspace Portal version 2.1 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
+## <a name="bitglass"></a>BitGlass
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -264,36 +122,9 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 | Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
 
-Pour plus d’informations sur VMware Workspace Portal version 2.1, téléchargez le fichier pdf [ici.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
-
-## <a name="signgo-53"></a>Sign&go 5.3
-Sign&go 5.3 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Contrats Kerberos pris en charge |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Sign&go 5.3 prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos.  Pour obtenir de l’aide sur cette configuration, contactez Ilex ou consultez le guide d’installation et de configuration [ici.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
-
-## <a name="icewall-federation-version-30"></a>IceWall Federation Version 3.0
-IceWall Federation Version 3.0 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
-
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
-
-Pour plus d’informations sur IceWall Federation, consultez [ceci](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) et [ceci.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
+Pour plus d’informations sur BitGlass, cliquez [ici.](http://www.bitglass.com )
 
 ## <a name="ca-secure-cloud"></a>CA Secure Cloud
-CA Secure Cloud implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -305,8 +136,31 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations sur CA Secure Cloud, consultez [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
 
+## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 version cumulative 4
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur CA SiteMinder, consultez [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 
+
+## <a name="centrify"></a>Centrify
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Le contrôle d’accès des clients n’est pas pris en charge. |
+
+Pour plus d’informations sur Centrify, consultez [ici.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell One Identity Cloud Access Manager v7.1
-Dell One Identity Cloud Access Manager implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -320,8 +174,19 @@ Pour en savoir plus sur Dell One Identity Cloud Access Manager, consultez [Dell 
 
  Pour savoir comment configurer ce STS afin de fournir l’expérience d’authentification unique à vos utilisateurs Office 365, consultez [Configure Office 365 Users](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
 
-## <a name="authanvil-single-sign-on-45"></a>AuthAnvil Single Sign On 4.5
-AuthAnvil Single Sign On 4.5 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une infrastructure d’échange d’attributs.
+## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur IBM Tivoli Federated Identity Manager, consultez [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+
+## <a name="icewall-federation-version-30"></a>IceWall Federation Version 3.0
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -331,23 +196,22 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 | Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
 
-Pour plus d’informations, consultez [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+Pour plus d’informations sur IceWall Federation, consultez [ceci](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) et [ceci.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
 
-## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
-Sailpoint IdentityNow implémente les normes d’identité WS Federation/WS-Trust largement utilisées pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
+## <a name="memority"></a>Memority
 
-Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+Voici la matrice de prise en charge de scénarios de cette expérience d’authentification : 
 
 | Client | Support | Exceptions |
 | --- | --- | --- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucune |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
 
-Pour plus d’informations, consultez [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
+Pour plus d’informations sur l’utilisation de Memority, consultez [Memority](http://www.memority.com)
+
 
 ## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
-NetIQ Access Manager implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -359,4 +223,155 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d'informations, consultez [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
 
+## <a name="okta"></a>Okta
 
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée nécessite la configuration supplémentaire d’un serveur web et de l’application Okta. |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur Okta, consultez [Okta.](https://www.okta.com/)
+
+## <a name="onelogin"></a>OneLogin
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Authentification Windows intégrée |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur OneLogin, consultez [OneLogin.](https://www.onelogin.com/)
+
+## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimal IDM Virtual Identity Server Federation Services
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |
+
+Pour plus d’informations sur les stratégies d’accès des clients, consultez [Limiting Access to Office 365 Services Based on the Location of the Client (Limiter l’accès aux services Office 365 en fonction de l’emplacement du client).](https://technet.microsoft.com/library/hh526961.aspx) |
+
+
+
+
+
+## <a name="pingfederate-611-72-8x"></a>PingFederate 6.11, 7.2, 8.x
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour obtenir des instructions sur la façon de configurer ce STS afin de fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, consultez l’une des rubriques suivantes : 
+
+- [PingFederate 6.11](http://go.microsoft.com/fwlink/?LinkID=266321)
+- [PingFederate 7.2](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+- [PingFederate 8.x](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
+
+## <a name="radiantone-cfs-30"></a>RadiantOne CFS 3.0
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Authentification Windows intégrée |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur RadiantOne CFS, consultez [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
+
+## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucune |
+
+Pour plus d’informations, consultez [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
+
+## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique : 
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur SecureAuth, consultez [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## <a name="signgo-53"></a>Sign&go 5.3
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Contrats Kerberos pris en charge |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Sign&go 5.3 prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos.  Pour obtenir de l’aide sur cette configuration, contactez Ilex ou consultez le guide d’installation et de configuration [ici.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+
+## <a name="softbank"></a>SoftBank
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur BitGlass, cliquez [ici.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
+
+## <a name="vmware-identity-manager"></a>VMware Identity Manager
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations, cliquez [ici.](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
+
+## <a name="vmware--workspace-portal-version-21"></a>VMware Workspace Portal version 2.1
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations sur VMware Workspace Portal version 2.1, téléchargez le fichier pdf [ici.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)

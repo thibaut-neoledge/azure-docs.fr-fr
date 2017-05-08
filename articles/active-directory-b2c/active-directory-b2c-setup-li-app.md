@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -50,10 +51,5 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **LinkedIn**, puis cliquez sur **OK**.
 6. Cliquez sur **Configurer ce fournisseur d’identité** , puis entrez l’ID client et la clé secrète client de l’application LinkedIn que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration LinkedIn.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

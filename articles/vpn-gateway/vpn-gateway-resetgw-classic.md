@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c63af2de6272604f4d2d1ee694ccc4272192ef9a
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0065a4a73ddd7eb9877359626bac231ec3fdef7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
 
 ### <a name="resource-manager-deployment-model"></a>Modèle de déploiement de Resource Manager
 
-Vous avez besoin de la dernière version des applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . L’applet de commande PowerShell Resource Manager permettant de réinitialiser une passerelle est `Reset-AzureRmVirtualNetworkGateway`. L’exemple suivant réinitialise la passerelle VPN Azure « VNet1GW » dans le groupe de ressources « TestRG1 ».
+Vous avez besoin de la dernière version des applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . L’applet de commande PowerShell Resource Manager permettant de réinitialiser une passerelle est `Reset-AzureRmVirtualNetworkGateway`. L’exemple suivant réinitialise la passerelle VPN Azure « VNet1GW » dans le groupe de ressources « TestRG1 ».
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -70,7 +70,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>Modèle de déploiement classique
 
-Vous avez besoin de la dernière version des applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . L’applet de commande PowerShell permettant de réinitialiser la passerelle VPN Azure est **Reset-AzureVNetGateway**. L’exemple qui suit permet de réinitialiser la passerelle VPN Azure du réseau virtuel appelé « ContosoVNet ».
+Vous avez besoin de la dernière version des applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . L’applet de commande PowerShell permettant de réinitialiser la passerelle VPN Azure est **Reset-AzureVNetGateway**. L’exemple qui suit permet de réinitialiser la passerelle VPN Azure du réseau virtuel appelé « ContosoVNet ».
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

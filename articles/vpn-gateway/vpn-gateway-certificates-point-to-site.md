@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5e63eb6bbbcd130d5ccd87f3155aba8cac518392
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 72fc6eb93c77dd5a0a7ce55897f4c06fb98c0721
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="create-a-self-signed-root-certificate-for-point-to-site-connections-using-powershell"></a>Créer un certificat auto-signé pour les connexions de point à site avec PowerShell
 
-Les connexions de point à site utilisent des certificats pour l’authentification. Lorsque vous configurez une connexion de point à site, il vous faut charger la clé publique (fichier .cer) d’un certificat racine sur Azure. Cet article vous aide à créer un certificat racine auto-signé, exporter la clé publique et générer et installer des certificats clients.
+Les connexions de point à site utilisent des certificats pour l’authentification. Lorsque vous configurez une connexion de point à site, il vous faut charger la clé publique (fichier .cer) d’un certificat racine sur Azure. Les certificats clients doivent être générés à partir du certificat racine et installés sur chaque ordinateur client qui se connecte au réseau virtuel. Le certificat client permet au client de s’authentifier. Cet article vous explique comment créer un certificat racine auto-signé, exporter la clé publique et générer des certificats clients. Cet article ne contient ni instruction de configuration de point à site ni questions fréquentes relatives aux connexions de point à site. Pour obtenir des informations à ce sujet, choisissez l’un des articles de la liste suivante :
 
-> [!NOTE]
-> La méthode makecert était auparavant recommandée pour créer les certificats racines auto-signés et générer des certificats clients pour les connexions de point à site. Vous pouvez désormais utiliser PowerShell pour créer ces certificats. L’un des avantages de PowerShell est de pouvoir créer des certificats SHA-2. 
->
->
+> [!div class="op_single_selector"]
+> * [Créer un certificat auto-signé](vpn-gateway-certificates-point-to-site.md)
+> * [Configuration d’une connexion point à site à un réseau virtuel - Resource Manager - Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Configuration d’une connexion point à site à un réseau virtuel - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Configuration d’une connexion point à site à un réseau virtuel - Classic - Portail Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> 
+> 
 
 ## <a name="rootcert"></a>Créer un certificat racine auto-signé
 
-Les étapes suivantes vous guideront dans la création d’un certificat racine auto-signé avec PowerShell. Windows 10 est requis pour suivre les étapes suivantes. Les applets de commande et les paramètres utilisés dans les étapes suivantes font partie du système d’exploitation Windows 10, et non d’une version de PowerShell.
+Les étapes suivantes vous guideront dans la création d’un certificat racine auto-signé avec PowerShell sur Windows 10. Les applets de commande et les paramètres utilisés dans les étapes suivantes font partie du système d’exploitation Windows 10, et non d’une version de PowerShell. Cela ne signifie pas que les certificats que vous créez ne peuvent être installés que sur Windows 10. Pour plus d’informations sur les clients pris en charge, consultez le [Forum Aux Questions sur les connexions point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 1. Sur un ordinateur sous Windows 10, ouvrez une console Windows PowerShell avec élévation de privilèges.
 2. Utilisez l’exemple suivant pour créer le certificat racine auto-signé. L’exemple suivant crée un certificat racine auto-signé nommé « P2SRootCert », automatiquement installé dans « Certificates-Current User\Personal\Certificates ». Vous pouvez afficher le certificat en ouvrant *certmgr.msc*.
@@ -45,10 +48,9 @@ Les étapes suivantes vous guideront dans la création d’un certificat racine 
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-
 ### <a name="cer"></a>Pour obtenir la clé publique
 
-Les connexions de point à site requièrent le chargement de la clé publique (.cer) dans Azure. Les étapes suivantes vous aideront à exporter le fichier .cer pour votre certificat racine auto-signé.
+Les connexions de point à site requièrent le chargement de la clé publique (.cer) dans Azure. Les étapes suivantes vous aideront à exporter le fichier .cer pour votre certificat racine auto-signé :
 
 1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Localisez le certificat racine auto-signé, généralement dans « Certificates - Curent User\Personal\Certificates » et cliquez avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**.
 2. Dans l’assistant, cliquez sur **Suivant**. Sélectionnez **Non, ne pas exporter la clé privée**, puis cliquez sur **Suivant**.
@@ -57,9 +59,8 @@ Les connexions de point à site requièrent le chargement de la clé publique (.
 5. Cliquez sur **Terminer** pour exporter le certificat. Vous voyez **L’exportation a réussi**. Cliquez sur **OK** pour fermer l’assistant.
 
 ### <a name="to-export-a-self-signed-root-certificate-optional"></a>Pour exporter un certificat racine auto-signé (facultatif)
-Vous souhaiterez peut-être exporter le certificat racine auto-signé et le stocker en toute sécurité. Si besoin est, vous pouvez l’installer ultérieurement sur un autre ordinateur et générer davantage de certificats clients ou exporter un autre fichier .cer.
 
-Pour exporter le certificat racine auto-signé au format .pfx, sélectionnez le certificat racine et suivez les étapes décrites dans la section [Exporter un certificat client](#clientexport) pour l’exportation.
+Vous souhaiterez peut-être exporter le certificat racine auto-signé et le stocker en toute sécurité. Si besoin est, vous pouvez l’installer ultérieurement sur un autre ordinateur et générer davantage de certificats clients ou exporter un autre fichier .cer. Pour exporter le certificat racine auto-signé au format .pfx, sélectionnez le certificat racine et suivez les étapes décrites dans la section [Exporter un certificat client](#clientexport).
 
 ## <a name="clientcert"></a>Générer un certificat client
 
@@ -67,11 +68,11 @@ Chaque ordinateur client qui se connecte à un réseau virtuel avec une connexio
 
 Les étapes suivantes vous guident dans la génération d’un certificat client à partir d’un certificat racine auto-signé. Vous pouvez générer plusieurs certificats clients à partir d’un même certificat racine. Lorsque vous générez des certificats clients suivant les étapes ci-dessous, le certificat client est automatiquement installé sur l’ordinateur que vous avez utilisé pour générer le certificat. Si vous souhaitez installer un certificat client sur un autre ordinateur client, vous pouvez exporter le certificat.
 
-Windows 10 est requis pour suivre les étapes suivantes. Les applets de commande et les paramètres utilisés dans les étapes suivantes font partie du système d’exploitation Windows 10, et non d’une version de PowerShell.
+Vous devez utiliser Windows 10 pour pouvoir générer des certificats clients à l’aide de la procédure PowerShell suivante. Les applets de commande et les paramètres utilisés dans les étapes suivantes font partie du système d’exploitation Windows 10, et non d’une version de PowerShell. Cela ne signifie pas que les certificats que vous créez ne peuvent être installés que sur Windows 10. Pour plus d’informations sur les clients pris en charge, consultez le [Forum Aux Questions sur les connexions point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ### <a name="example-1"></a>Exemple 1
 
-Cet exemple utilise la variable « $cert » déclarée dans la section précédente. Si vous avez fermé la console PowerShell après la création du certificat racine auto-signé, ou que vous créez des certificats clients supplémentaires dans une nouvelle session de console PowerShell, suivez les étapes décrites dans l’exemple 2.
+Cet exemple utilise la variable « $cert » déclarée dans la section précédente. Si vous avez fermé la console PowerShell après la création du certificat racine auto-signé, ou que vous créez des certificats clients supplémentaires dans une nouvelle session de console PowerShell, suivez les étapes décrites dans [l’exemple 2](#ex2).
 
 Modifiez et exécutez l’exemple pour générer un certificat client. Si vous exécutez l’exemple suivant sans le modifier, le résultat est un certificat client nommé « P2SChildCert ».  Si vous souhaitez donner un autre nom au certificat enfant, modifiez la valeur CN. Ne modifiez pas la valeur TextExtension lors de l’exécution de cet exemple. Le certificat client que vous générez est automatiquement installé dans « Certificates - Current User\Personal\Certificates » sur votre ordinateur.
 
@@ -83,7 +84,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="example-2"></a>Exemple 2
+### <a name="ex2"></a>Exemple 2
 
 Si vous créez des certificats clients supplémentaires ou que vous n’utilisez pas la même session PowerShell que pour créer votre certificat racine auto-signé, suivez les étapes suivantes :
 
@@ -126,7 +127,7 @@ Si vous créez des certificats clients supplémentaires ou que vous n’utilisez
 
 Lorsque vous générez un certificat client, il est automatiquement installé sur l’ordinateur que vous avez utilisé pour le générer. Si vous souhaitez installer le certificat client sur un autre ordinateur client, il vous faut exporter le certificat client généré.                              
 
-1. Pour exporter un certificat client, ouvrez **Gérer les certificats utilisateur**. Les certificats clients que vous avez générés se trouvent par défaut dans « Certificates - Current User\Personal\Certificates ». Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches** puis sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**.
+1. Pour exporter un certificat client, ouvrez **Gérer les certificats utilisateur**. Les certificats clients que vous avez générés se trouvent par défaut dans « Certificates - Current User\Personal\Certificates ». Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter** pour ouvrir **l’Assistant Exportation du certificat**.
 2. Dans l’Assistant, cliquez sur **Suivant**, sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
 3. Dans la page **Format de fichier d’exportation**, laissez les valeurs par défaut sélectionnées. Assurez-vous que l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible** est sélectionnée. Cette option exporte également les informations de certificat racine qui sont nécessaires à la réussite de l’authentification. Cliquez ensuite sur **Suivant**.
 4. Dans la page **Sécurité** , vous devez protéger la clé privée. Si vous choisissez d’utiliser un mot de passe, veillez à enregistrer ou à mémoriser celui que vous définissez pour ce certificat. Cliquez ensuite sur **Suivant**.
@@ -144,6 +145,7 @@ Si vous souhaitez créer une connexion P2S à partir d’un ordinateur client di
 5. Cliquez sur **Terminer**. Dans la page **Avertissement de sécurité** relative à l’installation du certificat, cliquez sur **Oui**. Vous pouvez cliquer sur « Oui » sans hésitation, car vous avez généré le certificat. Le certificat est désormais importé.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Poursuivez votre configuration point à site. 
 
 * Pour connaître les étapes du modèle de déploiement **Resource Manager**, consultez la page [Configurer une connexion de point à site à un réseau virtuel](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 

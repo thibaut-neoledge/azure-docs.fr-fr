@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -41,7 +41,9 @@ La sélection de l’option **Publier** affiche une autre fenêtre. Vous pouvez 
 
 ![Publication d'une application Service Fabric][image2]
 
-À présent, vous pouvez cliquer sur **Publier** dans la boîte de dialogue. Vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application Visual Objects possède un service web accessible en tapant [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) dans la barre d’adresse de votre navigateur.  Vous devez normalement voir 10 objets visuels flottants en rotation à l'écran.
+À présent, vous pouvez cliquer sur **Publier** dans la boîte de dialogue. Vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application Visual Objects possède un service web accessible en tapant [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) dans la barre d’adresse de votre navigateur.  Vous devez normalement voir 10 objets visuels flottants en rotation à l'écran.
+
+**REMARQUE :** si vous procédez au déploiement vers le profil `Cloud.xml` (Azure Service Fabric), l’application doit alors être disponible à l’adresse **http://{NomServiceFabric}.{Région}.cloudapp.azure.com:8081/visualobjects/**. Assurez-vous d’avoir configuré `8081/TCP` dans l’équilibreur Load Balancer (recherchez l’équilibreur Load Balancer dans le même groupe de ressources que l’instance Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Étape 2 : Mettre à jour l'exemple Visual Objects
 Vous pouvez remarquer qu'avec la version qui a été déployée à l'étape 1, les objets visuels ne sont pas en rotation. Mettons à niveau cette application vers une application dans laquelle les objets visuels sont en rotation.

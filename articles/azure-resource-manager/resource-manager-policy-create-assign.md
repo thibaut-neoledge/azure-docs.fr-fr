@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -141,6 +141,8 @@ L'exemple suivant montre une définition d’alias : Comme vous pouvez le voir, 
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+Avant de passer aux exemples PowerShell, assurez-vous que vous avez [installé la dernière version](/powershell/azure/install-azurerm-ps) d’Azure PowerShell. Les paramètres de stratégie ont été ajoutés dans la version 3.6.0. Si vous utilisez une version antérieure, les exemples renvoient une erreur indiquant que le paramètre est introuvable.
 
 ### <a name="create-policy-definition"></a>Créer une définition de stratégie
 Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`. L’exemple suivant crée une définition de stratégie qui permet d’autoriser uniquement les ressources en Europe du Nord et en Europe de l’Ouest.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Utilisateur | Peut restaurer n’importe quel groupe Office 365 supprimé dont i
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Affichage des groupes Office 365 supprimés disponibles pour la restauration
-Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces applets de commande font partie du [module Azure Active Directory PowerShell V2 Preview](https://www.powershellgallery.com/packages/AzureADPreview). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/).
+Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces applets de commande font partie du [module Azure Active Directory PowerShell V2 Preview](https://www.powershellgallery.com/packages/AzureADPreview). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 Notez que les applets de commande pour la gestion de la suppression réversible et de la récupération sont en préversion publique et que nous devons parfois apporter des modifications majeures aux applets de commande en préversion. Pour cette raison, l’utilisation de ces applets de commande dans un environnement de production est déconseillée.
 
 1.    Exécutez l’applet de commande suivante pour afficher tous les groupes Office 365 supprimés dans votre locataire et dont la restauration est toujours possible.

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 569a8db4266182122e9da175840484473e9106e5
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,9 +31,9 @@ Pour afficher toutes les applications dans votre client, vous devez utiliser le 
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Plus de services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
@@ -67,7 +67,7 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 
 6.  Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [Services connectés](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) de Visual Studio.
 
-7.  Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](https://docs.microsoft.com/powershell/azuread/v2/azureactivedirectory).
+7.  Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 8.  Lorsque vous [donnez votre consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) en tant qu’administrateur afin d’utiliser les données dans votre client.
 
@@ -91,13 +91,13 @@ Pour **supprimer une application**, suivez les instructions ci-dessous :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Plus de services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher une liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez n’apparaît pas, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
@@ -113,7 +113,7 @@ Pour **désactiver toutes les futures opérations de consentement de l’utilisa
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Plus de services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
 

@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 04/11/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b37aecc5ac13210234efee624018ae783dea7820
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +91,7 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Autres composants requis**
 
-* **Azure PowerShell** - [installez et configurez Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** - [installez et configurez Azure PowerShell](/powershell/azure/overview) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 * **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.5.0 ou ultérieure du script.
 
 **Création du fichier de configuration**

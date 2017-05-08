@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 17202bfc03e9b60d12f1a071eff427520a0dce83
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-java-software"></a>Installer le logiciel Java
+
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de Java et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Java, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Java**, puis sélectionnez votre système d’exploitation.
 
 ### <a name="mac-os"></a>**Mac OS**
 Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre projet Java. Entrez les commandes suivantes pour installer **brew** et **Maven**. 
@@ -50,11 +52,11 @@ sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Installez [Maven](https://maven.apache.org/download.cgi) à l’aide du programme d’installation officiel.  
+Installez [Maven](https://maven.apache.org/download.cgi) à l’aide du programme d’installation officiel. Vous pouvez utiliser Maven pour gérer les dépendances, générer, tester et exécuter votre projet Java. 
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de connexion vous permet de vous connecter à la base de données SQL Azure.
+Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
@@ -67,7 +69,7 @@ Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de conn
 
 6. Passez en revue la chaîne de connexion **JDBC** complète.
 
-    ![Chaîne de connexion JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)
+    ![Chaîne de connexion JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
 
 ### <a name="create-maven-project"></a>**Créer un projet Maven**
 À partir du terminal, créez un nouveau projet Maven. 
@@ -87,7 +89,7 @@ Ajoutez **Microsoft JDBC Driver pour SQL Server** aux dépendances dans ***pom.x
 
 ## <a name="select-data"></a>Sélectionner des données
 
-Utilisez le code suivant pour interroger votre base de données SQL Azure à l’aide de la classe [connexion](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) avec une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de la classe [connexion](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) et d’une instruction Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -144,7 +146,7 @@ public class App {
 
 ## <a name="insert-data"></a>Insertion des données
 
-Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product dans la base de données spécifiée à l’aide de la classe [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la classe [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -174,7 +176,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();
@@ -200,7 +202,7 @@ public class App {
 ```
 ## <a name="update-data"></a>Mettre à jour des données
 
-Utilisez le code suivant pour mettre à jour les données dans votre base de données SQL Azure en utilisant la classe [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) pour mettre à jour les données dans votre base de données SQL Azure. Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez précédemment ajouté en utilisant la classe [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) pour mettre à jour les données dans votre base de données SQL Azure. Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -251,7 +253,7 @@ public class App {
 
 ## <a name="delete-data"></a>Suppression de données
 
-Utilisez le code suivant pour supprimer des données de votre base de données SQL Azure à l’aide des [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
+Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de la classe [Instructions préparées](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) avec une instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Remplacez les paramètres du nom d’hôte, du nom de la base de données, de l’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;

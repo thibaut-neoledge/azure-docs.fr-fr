@@ -11,27 +11,27 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e75099e1ca7e3bbfc427883a8c343d773f3923ae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Service Azure Batch pour les travaux Machine Learning
 
-Le traitement par pool Batch de Machine Learning utilise le [service Azure Batch](../batch/batch-technical-overview.md) pour fournir une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par lots classique a lieu dans un environnement multi-clients, qui limite le nombre de travaux simultanés que vous pouvez soumettre. Les travaux sont mis en file d’attente d’après le principe premier entré, premier sorti. Cette incertitude signifie que vous ne pouvez pas prédire précisément à quel moment votre travail sera exécuté.
+Le traitement par pool Batch de Machine Learning utilise une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par lots classique pour Machine Learning a lieu dans un environnement multi-clients, qui limite le nombre de travaux simultanés que vous pouvez soumettre. Les travaux sont mis en file d’attente d’après le principe premier entré, premier sorti. Cette incertitude signifie que vous ne pouvez pas prédire précisément à quel moment votre travail sera exécuté.
 
-Le traitement par pool Batch vous permet de créer des pools Azure Batch dans lesquels vous pouvez soumettre des programmes de traitement par lots. Vous contrôlez la taille du pool ainsi que le pool auquel le travail est soumis. Le travail du service d’exécution de lot s’exécute dans son propre espace de traitement fournissant ainsi des performances de traitement prévisibles et la possibilité de créer des pools de ressources qui correspondent à la charge de traitement que vous soumettez.
+Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots. Vous contrôlez la taille du pool ainsi que le pool auquel le travail est soumis. Le travail du service d’exécution de lot s’exécute dans son propre espace de traitement fournissant ainsi des performances de traitement prévisibles et la possibilité de créer des pools de ressources qui correspondent à la charge de traitement que vous soumettez.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Comment utiliser le traitement par pool Batch
 
-Pour utiliser le traitement par pool Batch, vous devez disposer des éléments suivants :
+La configuration du traitement par pool Batch n’est pas disponible actuellement via le portail Azure. Pour utiliser le traitement par pool Batch, vous devez :
 
--   Un compte de pool Batch qui possède une URL de service du pool et une clé d’autorisation
--   Un service web et un plan de facturation basés sur un nouveau Resource Manager
+-   appeler le service CSS pour créer un compte de pool Batch et obtenir une URL de service du pool et une clé d’autorisation ;
+-   créer un service web et un plan de facturation basés sur un nouveau Resource Manager.
 
 Pour créer votre compte, appelez le Support technique et Service clientèle Microsoft (CSS) et indiquez votre ID d’abonnement. CSS collabore avec vous pour déterminer la capacité appropriée à votre situation. CSS configure ensuite votre compte avec le nombre maximal de pools que vous pouvez créer et le nombre maximal de machines virtuelles que vous pouvez placer dans chaque pool. Une fois votre compte configuré, vous recevez l’URL de service du pool et une clé d’autorisation.
 

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b4acb01f4939b55317ac0c78eb467159d872f47a
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
-Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article explique comment utiliser le [module PowerShell du Gestionnaire de ressources Service Bus](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) pour approvisionner et gérer les entités Service Bus (espaces de noms, files d’attente, rubriques et abonnements) à l’aide d’une console Azure PowerShell locale ou d’un script.
+Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article explique comment utiliser le [module PowerShell du Gestionnaire de ressources Service Bus](/powershell/module/azurerm.servicebus) pour approvisionner et gérer les entités Service Bus (espaces de noms, files d’attente, rubriques et abonnements) à l’aide d’une console Azure PowerShell locale ou d’un script.
 
 Vous pouvez également gérer les entités Service Bus à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).
 
@@ -32,7 +32,7 @@ Vous pouvez également gérer les entités Service Bus à l’aide de modèles A
 Avant de débuter, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Pour plus d’informations sur la façon de se procurer un abonnement, consultez les [options d’achat][purchase options], les [offres spéciales membres][member offers] ou découvrez comment créer un [compte gratuit][free account].
-* Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps).
+* Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la page [Bien démarrer avec les applets de commande Azure PowerShell](/powershell/azure/get-started-azureps).
 * Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
 ## <a name="get-started"></a>Prise en main
@@ -158,11 +158,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Approvisionne d'autres entités Service Bus
 
-Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) pour approvisionner d’autres entités, telles que des rubriques et abonnements. La syntaxe de ces applets de commande est similaire à celle des applets de commande de création de file d’attente décrites dans la section précédente.
+Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/azurerm.servicebus) pour approvisionner d’autres entités, telles que des rubriques et abonnements. La syntaxe de ces applets de commande est similaire à celle des applets de commande de création de file d’attente décrites dans la section précédente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). Cette page répertorie toutes les applets de commande disponibles.
+- Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/azurerm.servicebus). Cette page répertorie toutes les applets de commande disponibles.
 - Pour plus d’informations sur l’utilisation des modèles Azure Resource Manager, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informations sur les [bibliothèques de gestion Service Bus .NET](service-bus-management-libraries.md).
 

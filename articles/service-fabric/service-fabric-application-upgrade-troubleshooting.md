@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -187,7 +187,7 @@ La mise à niveau continue à partir du domaine de mise à niveau dans lequel el
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric ne suit pas les stratégies de contrôle d’intégrité spécifiées
 Cause possible 1 :
 
-Service Fabric convertit tous les pourcentages en nombres réels d’entités (par exemple, réplicas, partitions et services) pour l’évaluation de l’intégrité et arrondit toujours au nombre d’entités entières. Par exemple, si la valeur maximale *MaxPercentUnhealthyReplicasPerPartition* est 21 % et qu’il existe cinq réplicas, Service Fabric autorise jusqu’à deux réplicas défectueux (c’est-à-dire, Math.Ceiling (5\*0,21)). Par conséquent, les stratégies de contrôle d’intégrité doivent être définies pour tenir compte de cela.
+Service Fabric convertit tous les pourcentages en nombres réels d’entités (par exemple, réplicas, partitions et services) pour l’évaluation de l’intégrité et arrondit toujours au nombre d’entités entières. Par exemple, si la valeur maximale *MaxPercentUnhealthyReplicasPerPartition* est 21 % et qu’il existe cinq réplicas, Service Fabric autorise jusqu’à deux réplicas défectueux (c’est-à-dire, `Math.Ceiling (5*0.21)`). Par conséquent, les stratégies de contrôle d’intégrité doivent être définies pour tenir compte de cela.
 
 Cause possible 2 :
 
@@ -222,7 +222,4 @@ Contrôlez les mises à niveau de votre application à l'aide des [Paramètres d
 Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
 Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
-
-Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
-
 

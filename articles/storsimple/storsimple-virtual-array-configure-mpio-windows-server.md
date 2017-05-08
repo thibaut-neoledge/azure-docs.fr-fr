@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurer MPIO (Multipath I/O) sur un hôte Windows Server pour la baie virtuelle StorSimple
@@ -46,7 +46,7 @@ Cette section détaille la configuration requise de l’hôte Windows Server et 
 ### <a name="on-storsimple-virtual-array"></a>Sur le tableau virtuel StorSimple
 * La baie virtuelle doit être configurée comme un serveur iSCSI. Pour en savoir plus, consultez [Configurer une baie virtuelle comme un serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md). Une ou plusieurs interfaces réseau doivent être activées sur la baie.   
 * Les interfaces réseau de votre baie virtuelle doivent être accessibles à partir de l’hôte Windows Server.
-* Un ou plusieurs volumes doivent être créés sur votre baie virtuelle StorSimple. Pour plus d’informations, consultez [Ajouter un volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) à votre tableau virtuel StorSimple. Dans cette procédure, nous avons créé 3 volumes (1 localement épinglé et 2 volumes à plusieurs niveaux, comme indiqué ci-dessous) sur le tableau virtuel.
+* Un ou plusieurs volumes doivent être créés sur votre baie virtuelle StorSimple. Pour plus d’informations, consultez [Ajouter un volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) à votre tableau virtuel StorSimple. Dans cette procédure, nous avons créé 3 volumes (1 localement épinglé et 2 volumes à plusieurs niveaux, comme indiqué ci-dessous) sur le tableau virtuel.
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 
@@ -79,7 +79,7 @@ MPIO doit être configuré afin d’identifier les volumes StorSimple. Pour conf
 Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la baie StorSimple peuvent être montés et peuvent alors tirer parti de MPIO pour la redondance. Pour monter un volume, effectuez les étapes suivantes.
 
 #### <a name="to-mount-volumes-on-the-host"></a>Montage de volumes sur l’hôte
-1. Ouvrez la fenêtre **Propriétés de l’initiateur iSCSI** sur l’hôte Windows Server. Accédez à **Gestionnaire de serveur > Tableau de bord > Outils > Initiateur iSCSI**.
+1. Ouvrez la fenêtre **Propriétés de l’initiateur iSCSI** sur l’hôte Windows Server. Accédez à **Gestionnaire de serveur > Tableau de bord > Outils > Initiateur iSCSI** .
 2. Dans la boîte de dialogue **Propriétés de l’initiateur iSCSI**, cliquez sur **Détection**, puis cliquez sur **Détecter un portail cible**.
 3. Dans la boîte de dialogue **Détecter un portail cible** , procédez comme suit :
    

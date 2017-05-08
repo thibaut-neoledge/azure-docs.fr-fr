@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: e2d70bbb2af4231a9ba7e4d9a843593ff5d9f7d3
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec3c593c0fb6a92b65284285b330e20f788b84c5
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ Cet article s’applique aux machines virtuelles et aux cartes réseau créées 
 
 Les sections suivantes de cet article décrivent les étapes permettant d’effectuer toutes les tâches liées aux cartes réseau. Chaque section comporte :
 - La procédure permettant d’effectuer la tâche dans le portail Azure. Pour effectuer toutes les étapes, vous devez ouvrir une session sur le [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
-- Les commandes permettant d’effectuer la tâche à l’aide d’Azure PowerShell ainsi que des liens vers les références de commandes. Installez et configurez PowerShell en suivant les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour obtenir de l’aide sur les commandes PowerShell ainsi que des exemples, entrez `get-help <command> -full`.
+- Les commandes permettant d’effectuer la tâche à l’aide d’Azure PowerShell ainsi que des liens vers les références de commandes. Installez et configurez PowerShell en suivant les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Pour obtenir de l’aide sur les commandes PowerShell ainsi que des exemples, entrez `get-help <command> -full`.
 - Les commandes permettant d’effectuer la tâche à l’aide de l’interface de ligne de commande Azure (CLI) avec des liens vers les références de commandes. Installez Azure CLI en suivant les étapes décrites dans l’article [How to Install and Configure the Azure CLI 2.0 (Installation et configuration d’Azure CLI 2.0)](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> -h`.
 
 ## <a name="nics"></a>Interfaces réseau
@@ -78,7 +78,7 @@ Le portail Azure crée une configuration IP principale nommée **ipconfig1** ave
 |**Outil**|**Commande**|
 |:---|:---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/nic)|
 
 ### <a name="view-nics"></a>Afficher et modifier les interfaces réseau et les paramètres
 
@@ -100,7 +100,7 @@ Pour afficher et modifier les interfaces réseau et les paramètres, procédez c
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) pour afficher les cartes réseau dans l’abonnement ; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) pour afficher les paramètres d’une carte réseau|
-|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) pour afficher les cartes réseau dans l’abonnement ou pour afficher les paramètres d’une carte réseau|
+|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) pour afficher les cartes réseau dans l’abonnement ou pour afficher les paramètres d’une carte réseau|
 
 ### <a name="dns"></a>Modifier les paramètres DNS d’une carte réseau
 
@@ -116,7 +116,7 @@ Pour modifier les paramètres DNS d’une carte réseau, procédez comme suit. L
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="ip-forwarding"></a>Modifier le transfert IP pour une carte réseau
 
@@ -136,7 +136,7 @@ Pour modifier les paramètres de transfert IP d’une carte réseau, procédez c
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="subnet"></a>Modifier le sous-réseau auquel une carte réseau est connectée
 
@@ -153,7 +153,7 @@ Vous pouvez modifier le sous-réseau auquel une carte réseau est connectée, ma
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 
 ### <a name="delete-nic"></a>Supprimer une interface réseau
@@ -169,7 +169,7 @@ Lorsque vous supprimez une carte réseau, toutes les adresses MAC ou IP qui lui 
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="ip-configs"></a>Configurations IP
 Chaque carte réseau dispose d’au moins une configuration IP, appelée configuration **principale**. Une carte réseau peut également avoir une ou plusieurs configurations IP *secondaires* qui lui sont associées. Le nombre d’adresses IP que vous pouvez affecter à une carte réseau est limité. Pour en savoir plus, consultez l’article [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Chaque configuration IP :
@@ -205,7 +205,7 @@ Vous pouvez ajouter autant de configurations IP que nécessaire à une carte ré
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ### <a name="change-ip-config"></a>Modifier une configuration IP
 
@@ -225,7 +225,7 @@ Pour modifier les paramètres d’adresses IP privées et publiques d’une conf
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ### <a name="delete-ip-config"></a>Supprimer une configuration IP secondaire à partir d’une carte réseau
 
@@ -239,7 +239,7 @@ Procédez comme suit pour supprimer une configuration IP secondaire à partir d�
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 
 ## <a name="nsgs"></a>Groupes de sécurité réseau
@@ -259,7 +259,7 @@ Pour associer ou dissocier un groupe de sécurité réseau vis-à-vis d’une ca
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="vms"></a>Attacher et détacher des cartes réseau vis-à-vis d’une machine virtuelle
 
@@ -286,7 +286,7 @@ Vous pouvez utiliser PowerShell ou l’interface CLI pour créer une machine vir
 Vous ne pouvez pas attacher de carte réseau existante à une nouvelle machine virtuelle, ni créer de machine virtuelle avec plusieurs cartes réseau à l’aide du portail Azure. Vous pouvez utiliser les commandes Azure CLI ou PowerShell suivantes pour attacher une ou plusieurs cartes existantes lors de la création d’une machine virtuelle :
 
 - **CLI :** [az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)
-- **PowerShell :** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell :** [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)
 
 ### <a name="vm-view-nic"></a>Afficher les cartes réseau attachées à une machine virtuelle
 
@@ -298,21 +298,21 @@ Vous ne pouvez pas attacher de carte réseau existante à une nouvelle machine v
 |**Outil**|**Commande**|
 |---|---|
 |**INTERFACE DE LIGNE DE COMMANDE**|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|**PowerShell**|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)|
 
 ### <a name="vm-attach-nic"></a>Attacher une carte réseau à une machine virtuelle existante
 
 La machine virtuelle à laquelle vous souhaitez attacher une carte réseau doit prendre en charge plusieurs cartes réseau et se trouver à l’état Arrêté (Désalloué). Vous ne pouvez pas attacher de carte réseau à une machine virtuelle existante à l’aide du portail Azure. Vous pouvez utiliser les commandes Azure CLI ou PowerShell suivantes pour attacher des cartes réseau aux machines virtuelles :
 
 - **CLI :** [az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)
-- **PowerShell :** [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell :** [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)
 
 ### <a name="vm-detach-nic"></a>Détacher une carte réseau d’une machine virtuelle existante
 
 La machine virtuelle dont vous souhaitez détacher une carte réseau doit se trouver à l’état Arrêté (Désalloué) et deux cartes réseau doivent y être attachées au minimum. Vous pouvez détacher n’importe quelle carte réseau, mais au moins une carte réseau doit être attachée à la machine virtuelle. Si vous détachez une carte réseau principale, Azure affecte l’attribut principal à la carte réseau qui est attachée à la machine virtuelle depuis le plus longtemps. Vous pouvez également désigner vous-même n’importe quelle carte réseau en tant que carte réseau principale. Vous ne pouvez pas détacher de cartes réseau d’une machine virtuelle ni définir l’attribut principal pour une carte réseau à l’aide du portail Azure, bien que ces deux opérations soient possibles par le biais de l’interface CLI ou de PowerShell. Vous pouvez utiliser les commandes Azure CLI ou PowerShell suivantes pour détacher des cartes réseau des machines virtuelles :
 
 - **CLI :** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)
-- **PowerShell :** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell :** [Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec plusieurs cartes réseau ou configurations IP à l’aide de scripts, consultez les articles suivants :

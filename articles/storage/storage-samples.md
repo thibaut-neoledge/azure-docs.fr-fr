@@ -15,8 +15,9 @@ ms.workload: storage
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: dc466ed5dbd7ad14dd1c84760d9205b940acf504
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -27,9 +28,12 @@ Utilisez les liens ci-dessous pour afficher et télécharger des exemples d’ut
 ## <a name="azure-code-samples-library"></a>Bibliothèque Exemples de code Azure
 La bibliothèque [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage) comprend des exemples relatifs au service Stockage Azure que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
 
-## <a name="getting-started-samples"></a>Exemples de mise en route
-* [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md)
-* [Démarrages rapides Visual Studio pour Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+<!--## Getting started samples-->
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+-->
 
 ## <a name="net-samples"></a>Exemples relatifs à .NET
 Pour explorer les exemples relatifs à .NET, téléchargez la [bibliothèque cliente de stockage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) à partir de NuGet. Cette bibliothèque est également disponible dans le [Kit de développement logiciel (SDK) Microsoft Azure pour .NET](https://azure.microsoft.com/downloads/).
@@ -76,10 +80,5 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 ### <a name="c-resources"></a>Ressources relatives à C++
 * [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
 * [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

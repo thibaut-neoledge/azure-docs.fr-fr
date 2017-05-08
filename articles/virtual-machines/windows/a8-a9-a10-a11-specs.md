@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: edc3cf6906bb535aec6e5203a5b306e33cd51599
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7f86fb57d9082e19b506c42737aaa020d474d599
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Pour accéder au réseau RDMA Azure pour le trafic MPI Windows, les instances pr
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 ou version ultérieure, bibliothèque Intel MPI 5.x
 
   Les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct pour la communication entre les instances. 
-* **Extension de machine virtuelle HpcVmDrivers** : sur des machines virtuelles prenant en charge RDMA, l’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. (Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement.) Si vous devez ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les applets de commande [Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* **Extension de machine virtuelle HpcVmDrivers** : sur des machines virtuelles prenant en charge RDMA, l’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. (Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement.) Si vous devez ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les applets de commande [Azure PowerShell](/powershell/azure/overview). 
 
   
   Par exemple, pour installer la dernière version 1.1 de l’extension HpcVMDrivers sur une machine virtuelle existante prenant en charge RDMA, nommée myVM et déployée dans le modèle de déploiement Resource Manager :
