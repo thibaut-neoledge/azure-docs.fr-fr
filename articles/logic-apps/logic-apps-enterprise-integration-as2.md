@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/10/2017
 
 
@@ -49,7 +50,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
     ![Plus de services, filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
 3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
-Si aucun compte d’intégration ne s’affiche, [créez-en un].(../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
+Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
 
     ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
