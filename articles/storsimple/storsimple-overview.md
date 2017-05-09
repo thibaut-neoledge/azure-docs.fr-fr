@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 

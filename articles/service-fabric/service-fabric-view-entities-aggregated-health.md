@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a93c84435c1adab117961bceae0f7b49b2b2348a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 

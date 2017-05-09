@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 6f9fe94e11e47580b406ff9d91029db41faceb8e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
 ---

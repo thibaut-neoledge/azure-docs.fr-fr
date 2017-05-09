@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 8d2449f84ca0caf85e22a91e14f04ea3c329be03
+ms.contentlocale: fr-fr
 ms.lasthandoff: 05/01/2017
 
 

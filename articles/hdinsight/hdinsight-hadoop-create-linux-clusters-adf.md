@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 

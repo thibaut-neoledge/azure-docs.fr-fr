@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/27/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/18/2017
 
 

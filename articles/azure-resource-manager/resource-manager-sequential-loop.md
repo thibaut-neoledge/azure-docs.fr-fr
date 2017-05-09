@@ -10,9 +10,10 @@ ms.service: guidance
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: petertay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 44d59488600e05d6ae80a169b5d682e8fa94ccc5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/18/2017
 
 
