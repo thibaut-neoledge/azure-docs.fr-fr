@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8bfc4892343dd62c958ce6937c4879a2b029cb88
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -46,9 +47,9 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Sélectionnez **Calcul** à partir du panneau **Nouveau**, sélectionnez **Ubuntu Server 16.04 LTS** à partir du panneau **Calcul**, puis cliquez sur le bouton **Créer**.
+2. Sélectionnez **Calcul** à partir du panneau **Nouveau**, sélectionnez *Ubuntu Server 16.04 LTS* à partir du panneau **Calcul**, puis cliquez sur le bouton **Créer**.
 
-3. Remplissez le formulaire **Paramètres de base** de la machine virtuelle. Sous **Type d’authentification**, sélectionnez **SSH**. Lorsque vous collez votre **clé publique SSH**, veillez à supprimer tout espace blanc au début ou à la fin. Pour **Groupe de ressources** créez-en un nouveau. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont créées et gérées collectivement. Lorsque vous avez terminé, cliquez sur **OK**.
+3. Remplissez le formulaire **Paramètres de base** de la machine virtuelle. Sous **Type d’authentification**, sélectionnez *SSH*. Lorsque vous collez votre **clé publique SSH**, veillez à supprimer tout espace blanc au début ou à la fin. Pour **Groupe de ressources** créez-en un nouveau. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont créées et gérées collectivement. Lorsque vous avez terminé, cliquez sur **OK**.
 
     ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
@@ -56,11 +57,11 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Dans le panneau Paramètres, sélectionnez **Oui** sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
+5. Dans le panneau Paramètres, sélectionnez *Oui* sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 
-7. Pour surveiller l’état du déploiement, cliquez sur la machine virtuelle. La machine virtuelle peut être trouvée dans le tableau de bord du portail Azure, ou en sélectionnant **Machines virtuelles** dans le menu de gauche. Une fois la machine virtuelle créée, l’état passe à **En cours de déploiement** à **En cours d’exécution**.
+7. Pour surveiller l’état du déploiement, cliquez sur la machine virtuelle. La machine virtuelle peut être trouvée dans le tableau de bord du portail Azure, ou en sélectionnant **Machines virtuelles** dans le menu de gauche. Une fois la machine virtuelle créée, l’état passe à *En cours de déploiement* à *En cours d’exécution*.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web 
@@ -68,10 +69,10 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 Par défaut, seules les connexions SSH sont autorisées dans les machines virtuelles Linux déployées dans Azure. Si cette machine virtuelle doit être un serveur web, vous devez ouvrir le port 80 au trafic web. Cette étape vous guide lors de la création d’une règle de groupe de sécurité réseau (NSG) pour autoriser les connexions entrantes sur le port 80.
 
 1. Dans le panneau de la machine virtuelle, dans la section **Essentials**, cliquez sur le nom du **groupe de ressources**.
-2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit être le nom de la machine virtuelle suivi de -nsg ajouté à la fin.
+2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit correspondre au nom de la machine virtuelle suivi de *-nsg* ajouté à la fin.
 3. Cliquez sur le titre **Règle de sécurité entrante** pour ouvrir la liste des règles entrantes. Vous devriez voir une règle pour RDP dans la liste.
 4. Cliquez sur **+ Ajouter** pour ouvrir le panneau **Ajouter une règle de sécurité entrante**.
-5. Sous **Nom**, tapez **nginx**. Assurez-vous que l’option **Plage de ports** est définie sur 80 et l’option **Action** sur **Autoriser**. Cliquez sur **OK**.
+5. Sous **Nom**, tapez *nginx*. Assurez-vous que l’option **Plage de ports** est définie sur *80* et que l’option **Action** est définie sur *Autoriser*. Cliquez sur **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
@@ -104,7 +105,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Afficher la page d’accueil NGNIX
 
-Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Veillez à utiliser le `publicIpAddress` décrit pour vous rendre sur la page par défaut. 
+Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Obtenez l’*adresse IP publique* à partir du panneau pour la machine virtuelle, puis utilisez la pour visiter la page web par défaut.
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle

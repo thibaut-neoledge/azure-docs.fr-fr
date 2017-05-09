@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Mesures personnalisées associées à l’élément de télémétrie auquel elles appartiennent. Elles sont aussi soumises à un échantillonnage à l’aide de l’élément de télémétrie dans lequel ces mesures sont contenues. Utilisez [mesures de télémétrie](#metric-telemetry) pour effectuer le suivi de la mesure qui a la valeur indépendante de tout autre type de données de télémétrie. 
+ > Des mesures personnalisées sont associées à l’élément de télémétrie auquel elles appartiennent. Elles sont soumises à un échantillonnage à l’aide de l’élément de télémétrie dans lequel ces mesures sont contenues. Pour effectuer le suivi d’une mesure dont la valeur est indépendante de tout autre type de données de télémétrie, utilisez [Télémétrie des mesures](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
 
 Longueur maximale de clé  : 150

@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble des niveaux tarifaires de messagerie Service Bus Premium et Standard | Microsoft Docs"
+title: "Vue d’ensemble des niveaux tarifaires de messagerie Azure Service Bus Premium et Standard | Microsoft Docs"
 description: Couches messagerie Service Bus Premium et Standard
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ Les sections suivantes décrivent les quelques différences entre les couches de
 
 ### <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
-Les files d’attente et les rubriques partitionnées sont prises en charge dans la messagerie Premium, mais elles ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire aux performances. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, voir [Files d’attentes et rubriques partitionnées](service-bus-partitioning.md).
+Les files d’attente et rubriques partitionnées sont prises en charge dans la messagerie Premium ; en fait ces entités sont toujours partitionnées (et ne peut pas être désactivées). Toutefois, les files d’attente et les rubriques partitionnées Premium ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire pour améliorer les performances. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, voir [Files d’attentes et rubriques partitionnées](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entités Express
 

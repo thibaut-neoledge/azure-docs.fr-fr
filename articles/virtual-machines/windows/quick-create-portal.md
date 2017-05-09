@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 2. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-3. Sélectionnez **Calcul** à partir du panneau **Nouveau**, sélectionnez **Windows Server 2016 Datacenter** à partir du panneau **Calcul**, puis cliquez sur le bouton **Créer**.
+3. Sélectionnez **Calcul** à partir du panneau **Nouveau**, sélectionnez *Windows Server 2016 Datacenter* à partir du panneau **Calcul**, puis cliquez sur le bouton **Créer**.
 
 4. Remplissez le formulaire **Paramètres de base** de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Pour **Groupe de ressources** créez-en un nouveau. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont créées et gérées collectivement. Lorsque vous avez terminé, cliquez sur **OK**.
 
@@ -46,21 +47,21 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. Dans le panneau Paramètres, sélectionnez **Oui** sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
+6. Dans le panneau Paramètres, sélectionnez *Oui* sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
 
 7. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 
-8. Pour surveiller l’état du déploiement, cliquez sur la machine virtuelle. La machine virtuelle peut être trouvée dans le tableau de bord du portail Azure, ou en sélectionnant **Machines virtuelles** dans le menu de gauche. Une fois la machine virtuelle créée, l’état passe à **En cours de déploiement** à **En cours d’exécution**.
+8. Pour surveiller l’état du déploiement, cliquez sur la machine virtuelle. La machine virtuelle peut être trouvée dans le tableau de bord du portail Azure, ou en sélectionnant **Machines virtuelles** dans le menu de gauche. Une fois la machine virtuelle créée, l’état passe à *En cours de déploiement* à *En cours d’exécution*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web 
 
 Pour autoriser le trafic pour IIS, vous devez ouvrir le port 80 pour le trafic web. Cette étape vous guide lors de la création d’une règle de groupe de sécurité réseau (NSG) pour autoriser les connexions entrantes sur le port 80.
 
 1. Dans le panneau de la machine virtuelle, dans la section **Essentials**, cliquez sur le nom du **groupe de ressources**.
-2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit être le nom de la machine virtuelle suivi de -nsg ajouté à la fin.
+2. Dans le panneau du groupe de ressources, cliquez sur le **groupe de sécurité réseau** dans la liste des ressources. Le nom du groupe de sécurité réseau doit correspondre au nom de la machine virtuelle suivi de *-nsg* ajouté à la fin.
 3. Cliquez sur le titre **Règle de sécurité entrante** pour ouvrir la liste des règles entrantes. Vous devriez voir une règle pour RDP dans la liste.
 4. Cliquez sur **+ Ajouter** pour ouvrir le panneau **Ajouter une règle de sécurité entrante**.
-5. Sous **Nom**, tapez **IIS**. Assurez-vous que l’option **Plage de ports** est définie sur 80 et l’option **Action** sur **Autoriser**. Cliquez sur **OK**.
+5. Sous **Nom**, tapez *IIS*. Assurez-vous que l’option **Plage de ports** est définie sur *80* et que l’option **Action** est définie sur *Autoriser*. Cliquez sur **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Avec IIS installé et le port 80 désormais ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil par défaut IIS. Obtenez l’**adresse IP publique** à partir du panneau pour la machine virtuelle, puis utilisez la pour visiter la page web par défaut. 
+Avec IIS installé et le port 80 désormais ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil par défaut IIS. Obtenez l’*adresse IP publique* à partir du panneau pour la machine virtuelle, puis utilisez la pour visiter la page web par défaut. 
 
 ![Site par défaut IIS](./media/quick-create-powershell/default-iis-website.png) 
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 05/01/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4ec11ffeae94b4a8e5a65566f0f0c067f45a0134
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: f485dc6a52488b44bbd0e68432d3fd2bcdb060a9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -48,7 +49,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
 * Une adresse IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
-* La dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* La dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 
 ### <a name="example-values"></a>Valeurs utilisées dans l’exemple
 
@@ -76,23 +77,8 @@ ConnectionName          = myGWConnection
 ```
 
 ## <a name="Login"></a>1. Connexion à votre abonnement
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
-
-  ```powershell
-  Login-AzureRmAccount
-  ```
-2. Vérifiez les abonnements associés au compte.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-3. Spécifiez l’abonnement que vous souhaitez utiliser.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+[!INCLUDE [vpn-gateway-ps-login](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="VNet"></a>2. Créer un réseau virtuel et un sous-réseau de passerelle
 
@@ -173,17 +159,16 @@ Parfois, les préfixes de votre passerelle de réseau local changent. Les étape
 
 ## <a name="PublicIP"></a>4. Demander une adresse IP publique
 
-Demandez une adresse IP publique qui sera allouée à votre passerelle VPN de réseau virtuel. Il s’agit de l’adresse IP à laquelle votre périphérique VPN devra se connecter.
+Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
-Actuellement, la passerelle de réseau virtuel du modèle de déploiement Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle de réseau virtuel n’est pas modifiée lors du redimensionnement, de la réinitialisation ou d’autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
-
-Utilisez l’exemple PowerShell suivant :
+Demandez une adresse IP publique qui sera affectée à votre passerelle VPN de réseau virtuel.
 
 ```powershell
 $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>5. Créer la configuration de l’adressage IP de la passerelle
+
 La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple suivant pour créer la configuration de votre passerelle :
 
 ```powershell
@@ -210,7 +195,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="ConfigureVPNDevice"></a>7. Configuration de votre périphérique VPN
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel à l’aide de PowerShell, utilisez l’exemple suivant :
 
@@ -219,6 +204,7 @@ Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 ```
 
 ## <a name="CreateConnection"></a>8. Créer la connexion VPN
+
 Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer ces valeurs par les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN. Notez que la valeur « -ConnectionType » pour la connexion de site à site est *IPsec*.
 
 1. Définissez les variables.
@@ -239,17 +225,25 @@ Après un bref délai, la connexion sera établie.
 ## <a name="toverify"></a>9. Vérifier la connexion VPN
 Il existe différentes façons de vérifier votre connexion VPN.
 
-[!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="modify"></a>Pour modifier des préfixes d’adresses IP d’une passerelle de réseau local
-Si vous devez modifier les préfixes de votre passerelle de réseau local, suivez les instructions suivantes. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé ou non votre connexion à la passerelle.
+## <a name="connectVM"></a>Connexion à une machine virtuelle
 
-[!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
+[!INCLUDE [Connect to VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="modifygwipaddress"></a>Pour modifier l’adresse IP d’une passerelle de réseau local
-[!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+
+## <a name="modify"></a>Modifier des préfixes d’adresses IP d’une passerelle de réseau local
+
+Si les préfixes d’adresse IP que vous souhaitez acheminer vers votre emplacement local changent, vous pouvez modifier la passerelle de réseau local. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé ou non votre connexion à la passerelle.
+
+[!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
+
+## <a name="modifygwipaddress"></a>Modifier l’adresse IP d’une passerelle de réseau local
+
+[!INCLUDE [Modify gw IP](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 *  Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
 

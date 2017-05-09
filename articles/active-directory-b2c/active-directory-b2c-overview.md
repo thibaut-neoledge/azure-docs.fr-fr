@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2f64c905d2304bfc94415e871012a783cd2cf328
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -57,7 +58,7 @@ Les liens ci-dessous vous seront utiles pour explorer le service en profondeur 
 * Consultez les [informations de tarification relatives à Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Consultez notre [exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) pour Azure Active Directory B2C. 
 * Pour obtenir de l’aide sur Stack Overflow, utilisez la balise [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
-* Faites-nous part de vos commentaires sur le [forum d’Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c), votre avis nous intéresse !
+* Faites-nous part de vos commentaires à l’aide de [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c), votre avis nous intéresse !
 * Consultez [l’article de référence sur les protocoles Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Consultez [l’article de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Consultez les [Forums Aux Questions sur Azure Active Directory B2C](active-directory-b2c-faqs.md).

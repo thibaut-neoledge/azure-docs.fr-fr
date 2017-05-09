@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -29,7 +30,7 @@ Les environnements Time Series Insights comprennent deux types indépendants des
 * Stratégies d’accès de gestion
 * Stratégies d’accès aux données
 
-Ces deux types de stratégies accordent aux principaux Azure Active Directory (utilisateurs et applications) diverses autorisations sur un environnement spécifique. Les principaux (utilisateurs et applications) doivent appartenir à l’Active Directory (ou « locataire Azure ») associé à l’abonnement contenant l’environnement.
+Ces deux stratégies accordent aux principaux Azure Active Directory (utilisateurs et applications) diverses autorisations sur un environnement spécifique. Les principaux (utilisateurs et applications) doivent appartenir à l’Active Directory (ou « locataire Azure ») associé à l’abonnement contenant l’environnement.
 
 Les stratégies d’accès de gestion accordent des autorisations liées à la configuration de l’environnement, telles que la
 *    création et la suppression de l’environnement, des sources d’événements, des ensembles de données de référence et la
@@ -39,6 +40,7 @@ Stratégies d’accès aux données accordent des autorisations pour générer d
 
 Les deux types de stratégies permettent de distinguer clairement l’accès à la gestion de l’environnement et l’accès aux données contenues dans l’environnement. Par exemple, il est possible de configurer un environnement de sorte que le propriétaire/créateur de l’environnement soit supprimé de l’accès aux données. Et les utilisateurs et services qui sont autorisés à lire des données de l’environnement peuvent ne pas avoir accès à la configuration de l’environnement.
 
+## <a name="grant-data-access"></a>Accorder l’accès aux données
 Les étapes suivantes montrent comment accorder l’accès aux données pour un utilisateur principal :
 
 1.    Connectez-vous au [portail Azure](https://portal.azure.com).

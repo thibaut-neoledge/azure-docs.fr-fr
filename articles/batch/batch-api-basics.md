@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez ut
 
 * Le sous-réseau spécifié doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**. 
 
-* Si des groupes de sécurité réseau sont associés au réseau virtuel spécifié, la communication entrante doit être activée. Pour un pool Linux, les ports 29876, 29877 et 22 doivent être activés. Pour un pool Windows, le port 3389 doit être activé.
+* Si des groupes de sécurité réseau sont associés au réseau virtuel spécifié, la communication entrante doit être activée. Pour les pools Linux et Windows, les ports 29876 et 29877 doivent être activés. Vous pouvez éventuellement activer (ou filtrer) les ports 22 ou 3389 pour SSH sur les pools Linux ou pour RDP sur les pools Windows, respectivement.
 
 D’autres paramètres du réseau virtuel varient en fonction du mode d’allocation de pool du compte Batch.
 

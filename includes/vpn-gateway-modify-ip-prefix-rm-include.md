@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Modifier les préfixes - sans connexion de passerelle
+### <a name="noconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - sans connexion de passerelle
 
 - Pour ajouter des préfixes d’adresses :
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Pour supprimer un préfixe d’adresse :<br>
+- Pour supprimer des préfixes d’adresses :<br>
   Abandonnez les préfixes dont vous n'avez plus besoin. Dans cet exemple, le préfixe 20.0.0.0/24 (de l’exemple précédent) n’est plus nécessaire. Nous allons donc modifier la passerelle de réseau local et exclure ce préfixe.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Modifier les préfixes - avec une connexion de passerelle existante
-Si vous disposez d’une connexion de passerelle et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez suivre les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN.
+### <a name="withconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - avec une connexion de passerelle existante
 
-> [!IMPORTANT]
-> Ne supprimez pas la passerelle VPN. Si vous procédez ainsi, vous devrez revenir en arrière pour la créer à nouveau. En outre, vous devez mettre à jour votre périphérique VPN local avec la nouvelle adresse IP de passerelle VPN.
-> 
-> 
+Si vous disposez d’une connexion de passerelle et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez suivre les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN. Lorsque vous modifiez des préfixes d’adresses IP, vous n’avez pas besoin de supprimer la passerelle VPN. Vous devez uniquement supprimer la connexion.
+
 
 1. Supprimez la connexion.
 

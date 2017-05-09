@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Lorsque vous créez un compte Automation dans le portail Azure, deux entités d�
 
 Le contrôle d’accès en fonction du rôle est disponible avec Azure Resource Manager pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un compte d’identification, et pour authentifier ce principal du service.  Pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).  
 
-
-
 #### <a name="authentication-methods"></a>Méthodes d’authentification
 Le tableau suivant résume les différentes méthodes d’authentification pour chaque environnement pris en charge par Azure Automation.
 
@@ -136,6 +135,13 @@ Si vous avez un compte Automation défini pour une région spécifique et que vo
 | Sud-Est de l’Australie |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Sud du Royaume-Uni | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Gouvernement américain - Virginie | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Pour obtenir la liste des adresses IP plutôt que celle des noms, téléchargez et consultez le fichier xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) à partir du Centre de téléchargement Microsoft. 
+
+> [!NOTE]
+> Ce fichier contient les plages d’adresses IP (y compris les plages de calcul, SQL et de stockage) utilisées dans les centres de données Microsoft Azure. Un fichier mis à jour est publié chaque semaine et reflète les plages actuellement déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne seront pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine et effectuez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’Express Route peuvent remarquer que ce fichier permet de mettre à jour la publication BGP de l’espace Azure la première semaine de chaque mois. 
+> 
+
 
 ## <a name="implementation"></a>Implémentation
 
@@ -191,27 +197,6 @@ La méthode recommandée pour intégrer Automation est de sélectionner l’offr
 8. Cliquez sur **Créer** pour poursuivre l’intégration d’Automation et d’un espace de travail OMS. Tous les paramètres sont validés et une tentative de déploiement de l’offre dans votre abonnement est effectuée.  Ce processus peut prendre plusieurs secondes. Vous pouvez suivre la progression sous **Notifications** dans le menu. 
 
 Une fois l’offre intégrée, vous pouvez commencer à créer des runbooks, à utiliser les solutions de gestion que vous avez activées, ou commencer à utiliser [Log Analytics](https://docs.microsoft.com/azure/log-analytics) pour collecter les données générées par les ressources de vos environnements cloud ou locaux.   
-
-### <a name="resources-included"></a>Ressources incluses
-Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Les ressources sont récapitulées dans les 2 tableaux ci-dessous :<br>
-
-#### <a name="run-as-account-resources"></a>Ressources de compte d’identification
-
-| Ressource | Description |
-| --- | --- |
-| Runbook AzureAutomationTutorial | Exemple de Runbook Graphical qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
-| Runbook AzureAutomationTutorialScript | Exemple de Runbook PowerShell qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
-| AzureRunAsCertificate | La ressource de certificat créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell ci-dessous pour un compte existant. Le certificat permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Resource Manager des Runbooks. Ce certificat a une durée de vie d’1 an. |
-| AzureRunAsConnection | La ressource de connexion créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell pour un compte existant. |
-
-#### <a name="classic-run-as-account-resources"></a>Ressources de compte d’identification Classic
-
-| Ressource | Description |
-| --- | --- |
-| Runbook AzureClassicAutomationTutorial | Exemple de Runbook Graphical qui accède à toutes les machines virtuelles créées sur le modèle de déploiement classique dans un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
-| Runbook AzureClassicAutomationTutorialScript | Exemple de Runbook PowerShell qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis écrit leur nom et leur état. |
-| AzureClassicRunAsCertificate | Ressource de certificat créée automatiquement et utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks. Ce certificat a une durée de vie d’1 an. |
-| AzureClassicRunAsConnection | Ressource de connexion créée automatiquement et utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez confirmer que votre nouveau compte Automation s’authentifie auprès de ressources Azure en consultant [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Test d’authentification du compte d’identification Azure Automation).

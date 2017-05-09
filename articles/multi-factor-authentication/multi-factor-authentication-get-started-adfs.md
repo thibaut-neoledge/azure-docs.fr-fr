@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 00ee90b6d264c1aee4b488cd1c2a5447809a1e3c
-ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -30,7 +32,7 @@ Si votre organisation a fédéré votre Active Directory local avec Azure Active
 
 Le tableau suivant résume le processus de vérification avec la sécurisation des ressources à l’aide d’Azure Multi-Factor Authentication et AD FS
 
-| Processus de vérification : applications web | Processus de vérification : applications hors navigateur |
+| Processus de vérification : applications basées sur le navigateur | Processus de vérification : applications hors navigateur |
 |:--- |:--- |:--- |
 | Sécurisation des ressources Azure AD à l'aide d’Azure Multi-Factor Authentication |<li>La première étape de vérification est effectuée en local à l’aide d’AD FS.</li> <li>La seconde étape est une méthode par téléphone effectuée à l’aide de l’authentification cloud.</li> |
 | Sécurisation des ressources Azure AD à l'aide des services ADFS |<li>La première étape de vérification est effectuée en local à l’aide d’AD FS.</li><li>La seconde étape est effectuée localement en répondant à la demande.</li> |
@@ -40,7 +42,7 @@ Mises en garde relatives aux mots de passe d'application pour les utilisateurs f
 * Les mots de passe d’applications sont vérifiés à l’aide de l’authentification cloud et contournent donc la fédération. La fédération n’est utilisée activement que lorsque vous configurez un mot de passe d’application.
 * Les paramètres de contrôle d’accès client locaux ne sont pas honorés par les mots de passe d’application.
 * Vous perdez la fonctionnalité de journalisation-authentification locale pour les mots de passe d’application.
-* La désactivation/suppression de compte peut mettre jusqu’à&3; heures pour synchroniser les répertoires, ce qui peut retarder la désactivation/suppression des mots de passe d’application dans l’identité de cloud.
+* La désactivation/suppression de compte peut mettre jusqu’à 3 heures pour synchroniser les répertoires, ce qui peut retarder la désactivation/suppression des mots de passe d’application dans l’identité de cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la configuration d’Azure Multi-Factor Authentication ou du serveur Azure Multi-Factor Authentication avec AD FS, consultez les articles suivants :
@@ -48,9 +50,4 @@ Pour plus d’informations sur la configuration d’Azure Multi-Factor Authentic
 * [Sécuriser les ressources cloud à l’aide d’Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
