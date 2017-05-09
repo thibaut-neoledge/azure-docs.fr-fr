@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -49,10 +51,5 @@ Vous pouvez également utiliser [Microsoft PowerShell](https://msdn.microsoft.co
 * [Utilisation de noms de domaine personnalisés pour simplifier l’expérience de connexion pour vos utilisateurs](active-directory-add-domain.md)
 * [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
 * [En savoir plus sur les concepts de gestion de domaine dans Azure AD](active-directory-add-domain-concepts.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
