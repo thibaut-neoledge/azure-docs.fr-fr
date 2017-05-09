@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: e0c74ef9fa2fa2e0b69a3730d7af30969d60e3f8
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

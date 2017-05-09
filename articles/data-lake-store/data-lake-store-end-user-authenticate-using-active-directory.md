@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: c20f5c39b00992d801909c8e5de292f3c2f12673
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/22/2017
 
 

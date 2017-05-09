@@ -15,9 +15,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

@@ -14,9 +14,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: kgremban
 ROBOTS: NOINDEX
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/21/2017
 
 ---

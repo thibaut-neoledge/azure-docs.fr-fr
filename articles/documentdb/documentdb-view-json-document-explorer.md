@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: kirillg
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 
