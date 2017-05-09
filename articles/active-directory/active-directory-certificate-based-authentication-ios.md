@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e30d5c81817eb3501615763553d501509c559f0c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: c024d8d47ab9b78399d8eb8b4df1f764f2877339
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 

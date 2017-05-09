@@ -15,9 +15,10 @@ ms.workload: big-data
 ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
 
 ---
