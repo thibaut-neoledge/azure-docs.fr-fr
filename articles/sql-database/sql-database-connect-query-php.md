@@ -15,9 +15,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

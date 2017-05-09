@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/18/2017
 ms.author: jroth
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 29a92f0c70bffedeb75c50b7fc3b687ee5ee227d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

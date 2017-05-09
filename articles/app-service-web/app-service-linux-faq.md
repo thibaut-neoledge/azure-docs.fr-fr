@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/22/2017
 
 

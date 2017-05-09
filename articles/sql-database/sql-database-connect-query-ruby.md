@@ -15,9 +15,10 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

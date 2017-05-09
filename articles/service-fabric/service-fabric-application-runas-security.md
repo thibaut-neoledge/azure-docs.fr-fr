@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/26/2017
 
 

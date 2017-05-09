@@ -15,9 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/25/2017
 
 

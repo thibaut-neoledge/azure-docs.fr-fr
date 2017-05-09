@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/26/2017
 
 

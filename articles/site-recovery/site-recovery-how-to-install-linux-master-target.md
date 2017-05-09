@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/25/2017
 
 

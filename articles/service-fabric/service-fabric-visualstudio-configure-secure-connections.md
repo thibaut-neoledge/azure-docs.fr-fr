@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 

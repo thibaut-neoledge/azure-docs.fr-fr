@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: d0aea6ffc04792e7e70a15accf92de05c553ff46
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 
