@@ -12,32 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1222223f8c45249402bfdd04c8754074f877e132
-ms.openlocfilehash: 1236489212b2a9c421972599a12511d5bc42efdf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 97845748ef44469d1ec6a91ff8184288dc6350d9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Déploiement du portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
-Le portail de l’utilisateur permet à l’administrateur d’installer et de configurer le portail Azure Multi-Factor Authentication. Le portail de l’utilisateur est un site web IIS qui permet aux utilisateurs de s’inscrire dans Azure Multi-Factor Authentication et de gérer leurs comptes. L’utilisateur peut modifier son numéro de téléphone ou son code PIN, ou décider de contourner Azure Multi-Factor Authentication lors de sa prochaine connexion.
+Le portail de l’utilisateur est un site web IIS qui permet aux utilisateurs de s’inscrire dans Azure Multi-Factor Authentication et de gérer leurs comptes. L’utilisateur peut modifier son numéro de téléphone ou son code PIN, ou décider de contourner Azure Multi-Factor Authentication lors de sa prochaine connexion.
 
-Les utilisateurs se connectent au portail de l’utilisateur grâce à leur nom d’utilisateur et à leur mot de passe, puis effectuent soit un appel de vérification en deux étapes soit répondent à des questions de sécurité pour s’authentifier. Si l’inscription est autorisée, les utilisateurs configurent leur numéro de téléphone et leur code PIN lors de leur première connexion au portail de l’utilisateur.
+Les utilisateurs se connectent au portail de l’utilisateur avec leur nom d’utilisateur et leur mot de passe, puis effectuent soit un appel de vérification en deux étapes soit répondent à des questions de sécurité pour s’authentifier. Si l’inscription est autorisée, les utilisateurs configurent leur numéro de téléphone et leur code PIN lors de leur première connexion au portail de l’utilisateur.
 
 Les administrateurs du portail de l’utilisateur peuvent être configurés et autorisés à ajouter de nouveaux utilisateurs et à mettre à jour les utilisateurs existants.
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
+>[!NOTE] 
+>Le portail de l’utilisateur est disponible uniquement avec le serveur Multi-Factor Authentication. Si vous utilisez Multi-Factor Authentication dans le cloud, reportez vos utilisateurs à [Configurer le compte pour la vérification en deux étapes](./end-user/multi-factor-authentication-end-user-first-time.md) ou [Gérer les paramètres de la vérification en deux étapes](./end-user/multi-factor-authentication-end-user-manage-settings.md).
+
+
 ## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Déploiement du portail de l’utilisateur sur le même serveur qu’Azure Multi-Factor Authentication
 La configuration suivante est requise pour installer le portail de l’utilisateur sur le même serveur qu’Azure Multi-Factor Authentication :
 
 * IIS, avec asp.net et IIS 6 avec compatibilité de la métabase (pour IIS 7 ou version ultérieure)
-* L’utilisateur connecté doit disposer des droits d'administrateur sur l'ordinateur et le domaine le cas échéant,  car le compte doit être autorisé à créer des groupes de sécurité Active Directory.
+* Un compte avec des droits d’administrateur sur l’ordinateur et le domaine le cas échéant. Le compte doit être autorisé à créer des groupes de sécurité Active Directory.
 
-### <a name="to-deploy-the-user-portal"></a>Déploiement du portail de l’utilisateur
-1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Portail de l’utilisateur** dans le menu de gauche, puis cliquez sur le bouton **Installer le portail de l’utilisateur**.
-2. Cliquez sur **Next**.
+Pour déployer le portail de l’utilisateur, procédez comme suit :
+
+1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Portail de l’utilisateur** dans le menu de gauche, puis cliquez sur **Installer le portail de l’utilisateur**.
+2. Cliquez sur **Suivant**.
 3. Cliquez sur **Suivant**.
 4. Si l’ordinateur est joint à un domaine et si Active Directory n’est pas configuré pour sécuriser la communication entre le portail de l’utilisateur et le service Azure Multi-Factor Authentication, l’étape Active Directory s’affiche. Cliquez sur le bouton **Suivant** pour terminer automatiquement cette configuration.
 5. Cliquez sur **Suivant**.
@@ -47,22 +54,23 @@ La configuration suivante est requise pour installer le portail de l’utilisate
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploy-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Déploiement du portail de l’utilisateur du serveur Azure Multi-Factor Authentication sur un autre serveur
-Pour permettre à l’application Microsoft Authenticator de communiquer avec le portail de l’utilisateur, utilisez la configuration suivante : 
+## <a name="deploy-the-user-portal-on-a-separate-server"></a>Déploiement du portail de l’utilisateur sur un serveur distinct
+Si le serveur sur lequel le serveur Azure Multi-Factor Authentication est exécuté n’est pas orienté Internet, vous devez installer le portail de l’utilisateur sur un serveur orienté Internet distinct. 
 
-* Vous devez utiliser la version 6.0 ou ultérieure du serveur Azure Multi-Factor Authentication.
-* Le portail de l’utilisateur doit être installé sur un serveur web orienté Internet exécutant Microsoft® Internet Information Services (IIS) 6.x, IIS 7.x ou une version ultérieure.
+Si votre organisation utilise l’application Microsoft Authenticator comme méthode de vérification et que vous souhaitez déployer le portail de l’utilisateur sur son propre serveur, respectez la configuration requise suivante : 
+
+* Utilisez la version 6.0 ou ultérieure du serveur Azure Multi-Factor Authentication.
+* Installez le portail de l’utilisateur sur un serveur web orienté Internet exécutant Microsoft Internet Information Services (IIS) 6.x ou une version ultérieure.
 * Lorsque vous utilisez IIS 6.x, vérifiez qu’ASP.NET v2.0.50727 est installé, inscrit et **autorisé**.
-* Les services de rôle requis lors de l'utilisation d'IIS 7.x ou version ultérieure incluent ASP.NET et une compatibilité avec la métabase IIS 6.
-* Le portail de l’utilisateur doit être sécurisé avec un certificat SSL.
-* Le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication doit être installé dans IIS 6.x, 7.x ou une version ultérieure sur le serveur hébergeant Azure Multi-Factor Authentication.
-* Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication  Web Service doit être sécurisé avec un certificat SSL.
-* Le portail de l’utilisateur doit pouvoir se connecter au Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication via SSL.
-* Le portail de l’utilisateur doit pouvoir s’authentifier auprès du Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication à l’aide des informations d’identification d’un compte de service membre du groupe de sécurité « PhoneFactor Admins ». Ce compte et ce groupe de service existent dans Active Directory si le serveur Azure Multi-Factor Authentication s'exécute sur un serveur appartenant à un domaine. Ce compte et ce groupe de service existent localement sur le serveur Azure Multi-Factor Authentication s'il n'est pas joint à un domaine.
+* Lors de l’utilisation d’IIS 7.x ou version ultérieure, les services de rôle ASP.NET et de compatibilité avec la métabase IIS 6 sont requis.
+* Sécurisez le portail de l’utilisateur avec un certificat SSL.
+* Sécurisez le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication avec un certificat SSL.
+* Vérifiez que le portail de l’utilisateur peut se connecter au Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication via SSL.
+* Vérifiez que le portail de l’utilisateur peut s’authentifier auprès du Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication à l’aide des informations d’identification d’un compte de service membre du groupe de sécurité « PhoneFactor Admins ». Ce compte et ce groupe de service existent dans Active Directory si le serveur Azure Multi-Factor Authentication s'exécute sur un serveur appartenant à un domaine. Ce compte et ce groupe de service existent localement sur le serveur Azure Multi-Factor Authentication s'il n'est pas joint à un domaine.
 
 Une installation du portail de l'utilisateur sur un serveur autre que le serveur Azure Multi-Factor Authentication nécessite les trois étapes suivantes :
 
-1. Installation du Kit de développement logiciel (SDK) du service web
+1. Installation du Kit de développement logiciel (SDK) du service Web sur le même serveur que le serveur Azure Multi-Factor Authentication
 2. Installation du portail de l'utilisateur
 3. Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -76,18 +84,20 @@ Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec u
 ### <a name="step-2-install-the-user-portal"></a>Étape 2 : installer le portail de l’utilisateur
 Avant d’installer le portail de l’utilisateur sur un autre serveur, familiarisez-vous avec les bonnes pratiques suivantes :
 
-* Il est utile d'ouvrir un navigateur web sur le serveur web sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+* Il est utile d’ouvrir un navigateur web sur le serveur web orienté Internet et d’accéder à l’URL du Kit de développement logiciel (SDK) du service web qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 * Si un pare-feu ou un proxy inverse est situé devant le serveur web du portail de l’utilisateur et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du portail de l’utilisateur et ajouter la clé suivante à la section `<appSettings>` pour qu’il utilise le protocole http au lieu de https.
 
     `<add key="SSL_REQUIRED" value="false"/>`
 
 #### <a name="to-install-the-user-portal"></a>Installation du portail de l'utilisateur
-1. Ouvrez l'explorateur Windows sur le serveur Azure Multi-Factor Authentication et accédez au dossier où est installé le serveur Azure Multi-Factor Authentication (par exemple C:\Program Files\Multi-Factor Authentication Server). Choisissez la version 32 bits ou 64 bits du fichier d’installation MultiFactorAuthenticationUserPortalSetup comme il convient pour le serveur sur lequel le portail de l'utilisateur sera installé. Copiez le fichier d'installation sur le serveur sur Internet.
-2. Sur le serveur Web sur Internet, le fichier d'installation doit être exécuté avec des droits d'administrateur. Le plus simple consiste à ouvrir une invite de commandes en tant qu'administrateur et à accéder à l'emplacement où le fichier d'installation a été copié.
+1. Ouvrez l’Explorateur Windows sur le serveur contenant Azure MFA et accédez au dossier dans lequel le serveur Azure Multi-Factor Authentication est installé (par ex., C:\Program Files\Multi-Factor Authentication Server). Copiez la version 32 bits ou 64 bits du fichier d’installation MultiFactorAuthenticationUserPortalSetup sur le serveur orienté internet.
+2. Sur le serveur web orienté Internet, exécutez le fichier avec des droits d’administrateur. Le plus simple consiste à ouvrir une invite de commandes en tant qu'administrateur et à accéder à l'emplacement où le fichier d'installation a été copié.
 3. Exécutez le fichier d'installation MultiFactorAuthenticationUserPortalSetup64, modifiez le nom du site et du répertoire virtuel si vous le souhaitez.
 4. Après avoir terminé l'installation du portail de l'utilisateur, accédez à C:\inetpub\wwwroot\MultiFactorAuth (ou au répertoire approprié basé sur le nom du répertoire virtuel) et modifiez le fichier web.config.
-5. Recherchez la clé USE_WEB_SERVICE_SDK et modifiez la valeur de false à true. Recherchez les clés WEB_SERVICE_SDK_AUTHENTICATION_USERNAME et WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD et définissez les valeurs du nom d’utilisateur et du mot de passe du compte de service qui est membre du groupe de sécurité PhoneFactor Admins (consultez la section Configuration requise ci-dessus). Veillez à saisir le nom d'utilisateur et le mot de passe entre guillemets à la fin de la ligne (valeur = «  » / >). Nous vous recommandons d’utiliser un nom d’utilisateur complet (par exemple domaine\nom d’utilisateur ou ordinateur\nom d’utilisateur).
-6. Recherchez le paramètre pfup_pfwssdk_PfWsSdk et modifiez la valeur « http://localhost:4898/PfWsSdk.asmx » pour l'URL du Kit de développement logiciel (SDK) Web Service qui s'exécute sur le serveur Azure Multi-Factor Authentication (par exemple https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Cette connexion utilisant SSL, reportez-vous au Kit de développement logiciel (SDK) du service Web par le nom du serveur, et non par l’adresse IP, car le certificat SSL a été émis pour le nom du serveur. Si le nom du serveur n’aboutit pas à une adresse IP du serveur sur Internet, ajoutez une entrée au fichier hosts sur ce serveur pour mapper le nom du serveur Azure Multi-Factor Authentication en son adresse IP. Enregistrez le fichier web.config après que les modifications ont été apportées.
+5. Recherchez la clé USE_WEB_SERVICE_SDK et modifiez la valeur de **false** à **true**. 
+6. Recherchez la clé WEB_SERVICE_SDK_AUTHENTICATION_USERNAME et définissez la valeur sur le nom d’utilisateur du compte de service dans le groupe de sécurité PhoneFactor Admins. Utilisez un nom d’utilisateur complet comme domaine\nom d’utilisateur ou ordinateur\nom d’utilisateur. 
+7. Recherchez la clé WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD et définissez la valeur sur le mot de passe du compte de service dans le groupe de sécurité PhoneFactor Admins.
+8. Recherchez le paramètre pfup_pfwssdk_PfWsSdk et modifiez la valeur « http://localhost:4898/PfWsSdk.asmx » pour l'URL du Kit de développement logiciel (SDK) Web Service qui s'exécute sur le serveur Azure Multi-Factor Authentication (par exemple https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Cette connexion utilisant SSL, reportez-vous au Kit de développement logiciel (SDK) du service Web par le nom du serveur, et non par l’adresse IP, car le certificat SSL a été émis pour le nom du serveur. Si le nom du serveur n’aboutit pas à une adresse IP du serveur orienté Internet, ajoutez une entrée au fichier hosts sur ce serveur pour mapper le nom du serveur Azure Multi-Factor Authentication en son adresse IP. Enregistrez le fichier web.config après que les modifications ont été apportées.
 
     Pour plus d’informations sur la modification du fichier de configuration, consultez [Sécurisez vos ressources cloud et locales à l’aide du serveur Azure Multi-Factor Authentication avec AD FS dans Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md#edit-the-multifactorauthenticationadfsadapterconfig-file).
 
@@ -119,30 +129,30 @@ L’utilisateur peut voir la plupart de ces paramètres dès qu’ils sont activ
 ![Paramètres du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 ### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
-1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Portail de l’utilisateur**. Dans l’onglet Paramètres, saisissez l’URL qui mène au portail de l’utilisateur dans la zone de texte **URL du portail de l’utilisateur**. Cette URL est insérée dans les courriers électroniques qui sont envoyés aux utilisateurs lorsqu’ils sont importés dans le serveur Azure Multi-Factor Authentication, si la fonctionnalité de courrier électronique a été activée.
-2. Choisissez les paramètres que vous souhaitez utiliser dans le portail de l'utilisateur. Par exemple, si les utilisateurs sont autorisés à contrôler leurs méthodes d’authentification, vérifiez que l’option **Autoriser les utilisateurs à sélectionner une méthode** est activée, ainsi que les méthodes qu’ils peuvent choisir.
+1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Portail de l’utilisateur**. Dans l’onglet Paramètres, saisissez l’URL qui mène au portail de l’utilisateur dans la zone de texte **URL du portail de l’utilisateur**. Si la fonctionnalité de courrier électronique a été activée, cette URL est insérée dans les courriers électroniques qui sont envoyés aux utilisateurs lorsqu’ils sont importés dans le serveur Azure Multi-Factor Authentication.
+2. Choisissez les paramètres que vous souhaitez utiliser dans le portail de l'utilisateur. Par exemple, si les utilisateurs sont autorisés à choisir leurs méthodes d’authentification, vérifiez que l’option **Autoriser les utilisateurs à sélectionner la méthode** est activée, ainsi que les méthodes qu’ils peuvent choisir.
 3. Cliquez sur le lien **Aide** dans le coin supérieur droit pour comprendre les paramètres affichés.
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
 ## <a name="administrators-tab"></a>Onglet Administrateurs
-Cet onglet vous permet simplement d'ajouter des utilisateurs disposant des privilèges d'administrateur.  Lorsque vous ajoutez un administrateur, vous pouvez régler les autorisations qu’il reçoit. Cliquez sur le bouton **Ajouter**, sélectionnez un utilisateur et ses autorisations, puis sur cliquez sur **Ajouter**.
+Utilisez l’onglet **Administrateurs** pour ajouter des utilisateurs disposant des privilèges d’administrateur.  Lorsque vous ajoutez un administrateur, vous pouvez régler les autorisations qu’il reçoit. Cliquez sur le bouton **Ajouter**, sélectionnez un utilisateur et ses autorisations, puis sur cliquez sur **Ajouter**.
 
 ![Administrateurs du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 ## <a name="security-questions"></a>Questions de sécurité
-Cet onglet vous permet de spécifier les questions de sécurité auxquelles les utilisateurs devront répondre si l’option **Utiliser les questions de sécurité de secours** est sélectionnée.  Le serveur Azure Multi-Factor Authentication contient des questions par défaut que vous pouvez utiliser. Vous pouvez en modifier l’ordre ou ajouter vos propres questions.  Si vous ajoutez des questions, vous pouvez également spécifier la langue dans laquelle celles-ci doivent s’afficher.
+Utilisez l’onglet **Questions de sécurité** pour spécifier les questions de sécurité auxquelles les utilisateurs devront répondre si l’option **Utiliser les questions de sécurité de secours** est sélectionnée.  Le serveur Azure Multi-Factor Authentication contient des questions par défaut que vous pouvez utiliser. Vous pouvez en modifier l’ordre ou ajouter vos propres questions.  Si vous ajoutez des questions, vous pouvez également spécifier la langue dans laquelle celles-ci doivent s’afficher.
 
 ![Questions de sécurité du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
 ## <a name="saml"></a>SAML
-Utilisez cet onglet pour configurer le portail de l’utilisateur afin qu’il accepte les revendications d’un fournisseur d’identité utilisant SAML.  Vous pouvez spécifier le délai d’expiration de la session, le certificat de vérification et l’URL de redirection après déconnexion.
+Utilisez l’onglet **SAML** pour configurer le portail de l’utilisateur afin qu’il accepte les revendications d’un fournisseur d’identité utilisant SAML.  Vous pouvez spécifier le délai d’expiration de la session, le certificat de vérification et l’URL de redirection après déconnexion.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
-Cet onglet vous permet de spécifier des adresses IP uniques ou des plages d’adresses IP qui peuvent être ajoutées, permettant aux utilisateurs qui se connectent à partir de l’une de ces adresses IP de contourner la vérification en deux étapes.
+Utilisez l’onglet **Adresses IP approuvées** pour spécifier des adresses IP uniques ou des plages d’adresses IP qui peuvent être ajoutées, permettant aux utilisateurs qui se connectent à partir de l’une de ces adresses IP de contourner la vérification en deux étapes.
 
 ![Adresses IP de confiance du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -175,10 +185,5 @@ Si les administrateurs ont configuré le serveur Azure Multi-Factor Authenticati
 ![Questions de sécurité du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/secq.png)  
 
 L’inscription automatique de l’utilisateur est à présent terminée et l’utilisateur est connecté au portail de l’utilisateur.  Les utilisateurs peuvent se reconnecter au portail de l’utilisateur à tout moment pour modifier leurs numéros de téléphone, leur code PIN, leurs méthodes d’authentification et leurs questions de sécurité, si les administrateurs les y autorisent.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

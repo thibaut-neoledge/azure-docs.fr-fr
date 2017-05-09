@@ -1,6 +1,6 @@
 **Pour créer un profil CDN**
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau**dans l’angle supérieur gauche.  Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau**dans l’angle supérieur gauche.  Dans le panneau **Nouveau**, sélectionnez **Web + mobile**, puis **CDN**.
    
     Le panneau du nouveau profil CDN s'affiche.
    

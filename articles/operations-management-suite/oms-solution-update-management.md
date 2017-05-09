@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Après avoir activé cette solution, tout ordinateur Windows directement connect
 Vous pouvez toutefois ajouter les ordinateurs Windows à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides.  Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.  
 
 ## <a name="configuration"></a>Configuration
-Procédez comme suit pour ajouter la solution de gestion des mises à jour à votre espace de travail OMS et pour vérifier que les agents rapportent effectivement. Les agents Windows sont automatiquement ajoutés, sans aucune configuration supplémentaire. 
+Procédez comme suit pour ajouter la solution de gestion des mises à jour à votre espace de travail OMS et pour vérifier que les agents rapportent effectivement. Les agents Windows déjà connectés à votre espace de travail sont automatiquement ajoutés, sans aucune configuration supplémentaire. 
 
-Trois méthodes différentes vous permettent d’ajouter cette solution : à partir d’Azure Marketplace dans le portail Azure en sélectionnant l’offre Automation & Control ou une solution de gestion de mises à jour, ou à partir de la galerie de solutions OMS dans votre espace de travail OMS.  Si vous disposez déjà d’un compte Automation et d’un espace de travail OMS liés dans les mêmes groupe de ressources et région, sélectionnez Automation & Control pour vérifier votre configuration et installer uniquement la solution et la configurer dans les deux services.  Sélectionnez la solution de gestion de mises à jour à partir d’Azure Marketplace pour disposer du même comportement.  Si l’un ou l’autre service n’est pas déployé dans votre abonnement, effectuez les étapes du panneau **Créer une nouvelle solution** et confirmez que vous voulez installer les autres solutions recommandées présélectionnées.  Facultativement, vous pouvez ajouter la solution de gestion de mises à jour à votre espace de travail OMS en effectuant les étapes décrites dans la rubrique [Ajouter une solution OMS](../log-analytics/log-analytics-add-solutions.md) de la galerie de solutions.  
+Vous pouvez déployer la solution à l’aide des méthodes suivantes :
+
+* À partir de la Place de marché Azure, dans le portail Azure, en sélectionnant l’offre Automatisation et contrôle ou la solution Gestion des mises à jour
+* À partir de la galerie de solutions d’OMS, dans votre espace de travail OMS
+
+Si vous disposez déjà d’un compte Automation et d’un espace de travail OMS liés dans les mêmes groupe de ressources et région, sélectionnez Automation & Control pour vérifier votre configuration et installer uniquement la solution et la configurer dans les deux services.  Sélectionnez la solution de gestion de mises à jour à partir d’Azure Marketplace pour disposer du même comportement.  Si l’un ou l’autre service n’est pas déployé dans votre abonnement, effectuez les étapes du panneau **Créer une nouvelle solution** et confirmez que vous voulez installer les autres solutions recommandées présélectionnées.  Facultativement, vous pouvez ajouter la solution de gestion de mises à jour à votre espace de travail OMS en effectuant les étapes décrites dans la rubrique [Ajouter une solution OMS](../log-analytics/log-analytics-add-solutions.md) de la galerie de solutions.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Confirmer les agents OMS et le groupe d’administration Operations Manager connectés à OMS
 
@@ -144,7 +150,7 @@ Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows
 > [!NOTE]
 > Les machines virtuelles Windows déployées à partir d’Azure Marketplace sont configurées par défaut pour recevoir des mises à jour automatiques de Windows Update Service.  Ce comportement ne change pas après l’ajout de cette solution ou de machines virtuelles Windows à votre espace de travail.  Si vous n’avez pas géré activement des mises à jour avec cette solution, le comportement par défaut (appliquer automatiquement des mises à jour) s’applique.  
 
-Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/linux/update-infrastructure-redhat.md) déployée dans Azure.  Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
+Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure.  Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
 
 ### <a name="viewing-update-deployments"></a>Affichage des déploiements de mises à jour
 Cliquez sur la mosaïque **Déploiement de mises à jour** pour afficher la liste des déploiements de mises à jour existants.  Ces déploiements sont regroupés par état : **Planifié**, **Exécution en cours** et **Terminé**.<br><br> ![Page de planification des déploiements de mises à jour](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

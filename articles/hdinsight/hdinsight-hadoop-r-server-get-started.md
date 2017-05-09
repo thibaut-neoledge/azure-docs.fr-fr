@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight inclut une option R Server à intégrer dans votre cluster HDInsight. 
 > Les étapes décrites dans ce document supposent que vous utilisez un mot de passe.
 
 
-### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Création de cluster automatisée
 
-Vous pouvez automatiser la création de HDInsight R Server à l’aide de modèles ARM, du Kit de développement logiciel (SDK) et de PowerShell.
+Vous pouvez automatiser la création de HDInsight R Server à l’aide de modèles Azure Resource Manager, du Kit de développement logiciel (SDK) et de PowerShell.
 
 * Pour créer un R Server à l’aide d’un modèle Azure Resource Management, consultez la rubrique [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Déployer un cluster HDInsight R Server).
 * Pour obtenir un R Server à l’aide du Kit de développement logiciel (SDK) .NET, consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Comment mettre à l’échelle des nœuds de calcul de l’opérationnalisation Microsoft R Server sur des nœuds Worker HDInsight ?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Comment mettre à l’échelle des nœuds de calcul de l’opérationnalisation Microsoft R Server sur des nœuds Worker HDInsight ?
 
 
 ### <a name="decommission-the-worker-nodes"></a>Désactiver le(s) nœud(s) Worker
@@ -629,6 +626,10 @@ Une fois que tous les nœuds Worker désactivés ont été configurés pour exé
 * Recherchez la section « URI » et ajouter l’adresse IP du nœud Worker ainsi que les détails du port.
 
 ![Ligne de commande Désactiver les nœuds Worker](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

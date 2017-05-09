@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Déployer la solution
+
+Si vous n’avez pas déjà approvisionné la solution préconfigurée de surveillance à distance dans votre compte :
+
 1. Connectez-vous à [azureiotsuite.com][lnk-azureiotsuite] à l’aide des informations d’identification de votre compte Azure, puis cliquez sur **+** pour créer une solution.
 2. Cliquez sur **Sélectionner** sur la vignette **Surveillance à distance**.
 3. Entrez un **Nom de solution** pour votre solution préconfigurée de surveillance à distance.

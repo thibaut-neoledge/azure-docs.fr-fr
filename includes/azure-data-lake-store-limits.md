@@ -3,4 +3,5 @@ Azure Data Lake Store est un référentiel d'entreprise à très grande échelle
 | **Ressource** | **Limite par défaut** | **Commentaires** |
 | --- | --- | --- |
 | Nombre maximal de comptes Data Lake Store, par abonnement, par région |10 | Contactez le Support pour demander une augmentation de cette limite |
-
+| Nombre maximal de listes de contrôle d’accès (ACL) par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utiliser des groupes pour gérer l’accès avec moins d’entrées |
+| Nombre maximal de listes de contrôle d’accès (ACL) par défaut, par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utiliser des groupes pour gérer l’accès avec moins d’entrées |

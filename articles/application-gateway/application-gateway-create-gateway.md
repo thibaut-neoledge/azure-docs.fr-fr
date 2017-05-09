@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -106,11 +107,11 @@ Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n�
 
 Vous pouvez configurer la passerelle Application Gateway à l’aide d’un objet de configuration ou de XML.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Configurer la passerelle Application Gateway à l’aide de XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Configurer la passerelle Application Gateway à l’aide de XML
 
 Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.  
 
-### <a name="step-1"></a>Étape 1 :
+#### <a name="step-1"></a>Étape 1 :
 
 Copiez le texte suivant dans le Bloc-notes.
 
@@ -211,7 +212,7 @@ L’exemple suivant montre comment configurer la passerelle Application Gateway 
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Étape 2 :
+#### <a name="step-2"></a>Étape 2 :
 
 Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de commande `Set-AzureApplicationGatewayConfig` avec un fichier XML de configuration.
 
@@ -219,14 +220,14 @@ Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de c
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurer la passerelle Application Gateway à l’aide d’un objet de configuration
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurer la passerelle Application Gateway à l’aide d’un objet de configuration
 
 L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle d’application. Après avoir créé l’objet de configuration, vous utilisez la commande `Set-AzureApplicationGateway` pour valider la configuration dans la ressource Application Gateway créée précédemment.
 
 > [!NOTE]
 > Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création des différents éléments définit les objets `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` utilisés.
 
-### <a name="step-1"></a>Étape 1
+#### <a name="step-1"></a>Étape 1
 
 Créez tous les éléments de configuration.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Étape 2 :
+#### <a name="step-2"></a>Étape 2 :
 
 Affectez tous les éléments de configuration à un objet de configuration Application Gateway ($appgwconfig).
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Supprimer une passerelle Application Gateway
+## <a name="delete-the-application-gateway"></a>Supprimer la passerelle Application Gateway
 
-Pour supprimer une passerelle Application Gateway :
+Pour supprimer la passerelle Application Gateway :
 
 1. Utilisez l’applet de commande `Stop-AzureApplicationGateway` pour arrêter la passerelle.
 2. Utilisez l’applet de commande `Remove-AzureApplicationGateway` pour supprimer la passerelle.

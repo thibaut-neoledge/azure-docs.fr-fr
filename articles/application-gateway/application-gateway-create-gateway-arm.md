@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé **
 > [!NOTE]
 > Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez la page [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md) .
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
+## <a name="create-a-virtual-network-and-a-subnet"></a>Créer un réseau virtuel et un sous-réseau
 
 L’exemple ci-après indique comment créer un réseau virtuel à l’aide de Resource Manager. Cet exemple crée un réseau virtuel pour Application Gateway. Application Gateway requiert son propre sous-réseau. C’est la raison pour laquelle le sous-réseau créé pour Application Gateway est plus petit que l’espace d’adressage du réseau virtuel. L’utilisation d’un sous-réseau de plus petite taille permet que d’autres ressources, y compris sans s’y limiter, les serveurs web soient configurés dans le même réseau virtuel.
 
@@ -135,7 +136,7 @@ Affectez la variable de sous-réseau pour les étapes suivantes, cette variable 
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
+## <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
 
 Créez une ressource IP publique **publicIP01** dans le groupe de ressources **appgw-rg** pour la région « West US ». Application Gateway peut utiliser une adresse IP publique, l’adresse IP ou les deux pour recevoir les demandes d’équilibrage de charge.  Cet exemple utilise uniquement une adresse IP publique. Dans l’exemple suivant, aucun nom DNS n’est configuré pour la création de l’adresse IP publique.  Application Gateway ne prend pas en charge de noms DNS personnalisés sur des adresses IP publiques.  Si un nom personnalisé est requis pour le point de terminaison public, un enregistrement CNAME doit être créé pour pointer vers le nom DNS généré automatiquement pour l’adresse IP publique.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > La valeur par défaut pour **InstanceCount** est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre **GatewaySize** est Medium. Vous pouvez choisir entre **Standard_Small**, **Standard_Medium** et **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
 Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée **appgwtest**.
 
@@ -233,7 +234,7 @@ Récupérez les informations relatives au DNS et à l’adresse IP virtuelle de 
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Supprimer une passerelle Application Gateway
+## <a name="delete-the-application-gateway"></a>Supprimer la passerelle Application Gateway
 
 Pour supprimer une passerelle Application Gateway, procédez comme suit :
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Supprimer toutes les ressources
+
+Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
