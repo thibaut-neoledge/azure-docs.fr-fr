@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/13/2017
 
 
@@ -52,7 +53,7 @@ Un utilisateur invité B2B est invité à partir d’une organisation partenaire
 1. Si un hôte invite un employé à l’aide d’une adresse client
   1. Cela n’est pas conforme à nos stratégies de gestion des licences et n’est actuellement pas recommandée.
 
-2.    Si une organisation hôte ajoute un utilisateur à partir d’un autre conglomérat
+2. Si une organisation hôte ajoute un utilisateur à partir d’un autre conglomérat
   1. Dans ce cas, l’utilisateur est invité à l’aide des API B2B, mais il ne s’agit généralement pas de B2B. Dans l’idéal, ces organisations doivent inviter les utilisateurs des autres organisations en tant que membres (notre API le permet). Dans ce cas, les licences doivent être assignées à ces membres pour leur permettre d’accéder aux ressources de l’organisation à l’origine de l’invitation.
 
   2. Certaines organisations utilisent une autre stratégie et ajoutent les utilisateurs de l’autre organisation comme « Invité ». Il existe deux cas :
