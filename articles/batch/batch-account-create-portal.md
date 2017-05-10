@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 11f8c3f37e56e0b5c566c4abdb60697c5279e72a
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,10 +28,10 @@ ms.lasthandoff: 04/06/2017
 > [!div class="op_single_selector"]
 > * [Portail Azure](batch-account-create-portal.md)
 > * [Gestion de lots .NET](batch-management-dotnet.md)
-> 
-> 
+>
+>
 
-Apprenez à créer un compte Azure Batch dans le [portail Azure][azure_portal] et choisissez les propriétés du compte qui correspondent à votre scénario de calcul. Découvrez où se trouvent les propriétés du compte importantes, telles que les clés d’accès et les URL du compte. 
+Apprenez à créer un compte Azure Batch dans le [portail Azure][azure_portal] et choisissez les propriétés du compte qui correspondent à votre scénario de calcul. Découvrez où se trouvent les propriétés du compte importantes, telles que les clés d’accès et les URL du compte.
 
 Pour plus d’informations sur les comptes et les scénarios Batch, consultez la [présentation des fonctionnalités](batch-api-basics.md).
 
@@ -46,28 +47,28 @@ Utilisez le portail pour créer un compte Batch dans l’un des deux *modes d’
 
 1. Connectez-vous au [portail Azure][azure_portal].
 2. Cliquez sur **Nouveau** > **Calcul** > **Service Batch**.
-   
+
     ![Batch dans Marketplace][marketplace_portal]
 3. Le panneau **Nouveau compte Batch** s’affiche. Consultez les descriptions ci-dessous de chaque élément du panneau.
-   
+
     ![Création d’un compte Batch][account_portal]
-   
+
     a. **Nom du compte** : le nom du compte Batch que vous choisissez doit être unique dans la région Azure dans laquelle le compte est créé (voir **Emplacement** ci-dessous). Le nom de compte peut contenir uniquement des caractères minuscules ou des chiffres et doit comporter 3 à 24 caractères.
-   
+
     b. **Abonnement** : l’abonnement dans lequel créer le compte Batch. Si vous n’avez qu’un seul abonnement, il est sélectionné par défaut.
 
     c. **Mode d’allocation de pool** : sélectionnez **Service Batch**.
-   
+
     c. **Groupe de ressources** : sélectionnez un groupe de ressources pour votre nouveau compte Batch (vous pouvez également en créer un).
-   
+
     d. **Emplacement** : la région Azure dans laquelle créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
-   
+
     e. **Compte de stockage** (facultatif) : compte de stockage Azure à usage général à associer à votre compte Batch. Cela est recommandé pour la plupart des comptes Batch. Pour plus d’informations, consultez la section [Compte Azure Storage lié](#linked-azure-storage-account) disponible plus loin dans cet article.
 
 4. Cliquez sur **Créer** pour créer le compte.
-   
+
    Le portail indique que le déploiement est en cours. Une fois l’opération terminée, la notification **Déploiements réussis** s’affiche dans **Notifications**.
-   
+
 ## <a name="user-subscription-mode"></a>Mode Abonnement utilisateur
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Autoriser Azure Batch à accéder à l’abonnement (opération ponctuelle)
@@ -75,7 +76,7 @@ Lorsque vous créez votre premier compte Batch en mode Abonnement utilisateur, p
 
 1. Connectez-vous au [portail Azure][azure_portal].
 
-2. Cliquez sur **Plus de services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch. 
+2. Cliquez sur **Plus de services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch.
 
 3. Dans le panneau **Abonnement**, cliquez sur **Contrôle d’accès (IAM)** > **Ajouter**.
 
@@ -88,35 +89,35 @@ Lorsque vous créez votre premier compte Batch en mode Abonnement utilisateur, p
 ### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 En mode Abonnement utilisateur, un coffre de clés Azure appartenant au même groupe de ressources que le compte Batch est requis. Assurez-vous que le groupe de ressources se trouve dans une région prise en charge par votre abonnement et dans laquelle Batch est [disponible](https://azure.microsoft.com/regions/services/).
 
-1. Dans le [portail Azure][azure_portal], cliquez sur **Nouveau** > **Sécurité et identité** > **Key Vault**. 
+1. Dans le [portail Azure][azure_portal], cliquez sur **Nouveau** > **Sécurité et identité** > **Key Vault**.
 
 2. Dans le panneau **Création d’un coffre de clés**, entrez un nom pour le coffre de clés et créez un groupe de ressources dans la région souhaitée pour votre compte Batch. Conservez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
 ### <a name="create-a-batch-account"></a>Création d’un compte Batch
 
 1. Dans le [portail Azure][azure_portal], cliquez sur **Nouveau** > **Calcul** > **Service Batch**.
-   
+
     ![Batch dans Marketplace][marketplace_portal]
 3. Le panneau **Nouveau compte Batch** s’affiche. Consultez les descriptions ci-dessous de chaque élément du panneau.
-   
+
     ![Création d’un compte Batch][account_portal_byos]
-   
+
     a. **Nom du compte** : le nom du compte Batch que vous choisissez doit être unique dans la région Azure dans laquelle le compte est créé (voir **Emplacement** ci-dessous). Le nom de compte peut contenir uniquement des caractères minuscules ou des chiffres et doit comporter 3 à 24 caractères.
-   
+
     b. **Abonnement** : si vous avez plusieurs abonnements, sélectionnez celui que vous avez inscrit auprès du service Batch.
 
     c. **Mode d’allocation de pool** : sélectionnez **Abonnement utilisateur**.
 
     d. **Coffre de clés** : sélectionnez le coffre de clés que vous avez créé pour votre compte Batch dans la section précédente. Vous pouvez éventuellement créer un coffre de clés. Après avoir sélectionné le coffre, activez la case à cocher pour accorder l’accès Azure Batch au coffre de clés.
-   
+
     c. **Groupe de ressources** : sélectionnez le groupe de ressources dans lequel vous avez créé le coffre de clés.
-   
-    d. **Emplacement** : région Azure dans laquelle vous avez créé le coffre de clés pour le compte Batch. 
-   
+
+    d. **Emplacement** : région Azure dans laquelle vous avez créé le coffre de clés pour le compte Batch.
+
     e. **Compte de stockage** (facultatif) : compte de stockage Azure à usage général à associer à votre compte Batch. Cela est recommandé pour la plupart des comptes Batch. Pour plus d’informations, consultez la section [Compte Azure Storage lié](#linked-azure-storage-account) ci-dessous.
 
 4. Cliquez sur **Créer** pour créer le compte.
-   
+
    Le portail indique que le déploiement est en cours. Une fois l’opération terminée, la notification **Déploiements réussis** s’affiche dans **Notifications**.
 
 
@@ -126,16 +127,16 @@ Une fois le compte créé, vous pouvez ouvrir le **Panneau du compte Batch** pou
 
 ![Panneau de compte Batch dans le portail Azure][account_blade]
 
-* **URL de compte Batch** : lorsque vous développez une application avec des [API Batch](batch-apis-tools.md#batch-development-apis), vous avez besoin d’une URL de compte pour accéder aux ressources de votre Batch. Une URL de compte Batch a le format suivant :
-  
+* **URL de compte Batch** : lorsque vous développez une application avec des [API Batch](batch-apis-tools.md#azure-accounts-for-batch-development), vous avez besoin d’une URL de compte pour accéder aux ressources de votre Batch. Une URL de compte Batch a le format suivant :
+
     `https://<account_name>.<region>.batch.azure.com`
 
 ![URL de compte Batch dans le portail][account_url]
 
 * **Clés d’accès** (mode Service Batch) : pour authentifier l’accès à votre compte Batch à partir de votre application, vous avez besoin d’une clé d’accès. (Ce paramètre n’est pas disponible en mode Abonnement utilisateur, dans lequel vous utilisez l’authentification Azure Active Directory.)
 
-    Pour afficher ou régénérer les clés d’accès de votre compte Batch, entrez `keys` dans la zone **Recherche** du menu de gauche dans le volet du compte Batch, puis sélectionnez **Clés**. 
-  
+    Pour afficher ou régénérer les clés d’accès de votre compte Batch, entrez `keys` dans la zone **Recherche** du menu de gauche dans le volet du compte Batch, puis sélectionnez **Clés**.
+
     ![Clés de compte Batch dans le portail Azure][account_keys]
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
@@ -148,15 +149,15 @@ Nous vous recommandons de créer un compte de stockage dédié à votre compte B
 
 ![Création d’un compte de stockage « à usage général »][storage_account]
 
-> [!NOTE] 
+> [!NOTE]
 > Azure Batch prend actuellement en charge uniquement le type de compte de stockage à usage général. Ce type de compte est décrit à l’étape 5, [Créez un compte de stockage] (../storage/storage-create-storage-account.md#create-a-storage-account), dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 >
 >
 
 > [!WARNING]
 > Soyez prudent lorsque vous régénérez les clés d’accès d’un compte de stockage lié. Ne régénérez qu’une clé du compte de stockage et cliquez sur **Synchroniser les clés** dans le panneau du compte de stockage lié. Attendez cinq minutes que les clés se propagent aux nœuds de calcul de vos pools, puis régénérez et synchronisez l’autre clé si nécessaire. Si vous régénérez les deux clés en même temps, les nœuds de calcul ne pourront pas les synchroniser, car elles perdront l’accès au compte de stockage.
-> 
-> 
+>
+>
 
 ![Régénération de clés de compte de stockage][4]
 
@@ -197,3 +198,4 @@ Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mai
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 [account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
+

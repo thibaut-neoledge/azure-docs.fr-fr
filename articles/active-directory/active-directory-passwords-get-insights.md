@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b010891a177f27eef99bd65e0d940c83375aa5ec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -202,16 +203,12 @@ Pour accéder aux rapports de gestion des mots de passe, procédez comme suit :
 4. Regardez sous la section **Journaux d’activité** .
 5. Sélectionnez le rapport **Activité de réinitialisation de mot de passe** ou **Activité d’inscription à la réinitialisation de mot de passe**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Visualiser l’activité d’inscription de réinitialisation de mot de passe dans le portail Classic
 Le rapport Activité d’inscription de réinitialisation de mot de passe montre toutes les inscriptions à la réinitialisation de mot de passe qui ont eu lieu dans votre organisation.  Une inscription à la réinitialisation de mot de passe est affichée dans ce rapport pour tout utilisateur qui a inscrit des informations d’authentification dans le portail d’inscription à la réinitialisation de mot de passe ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Période max** : 30 jours
 * **Nombre max de lignes** : 75 000
 * **Téléchargeable**: Oui, via un fichier CSV
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Description des colonnes du rapport
 La liste suivante décrit chacune des colonnes du rapport en détail :
@@ -234,8 +231,6 @@ Ce rapport montre toutes les tentatives de réinitialisation de mot de passe qui
 * **Période max** : 30 jours
 * **Nombre max de lignes** : 75 000
 * **Téléchargeable**: Oui, via un fichier CSV
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Description des colonnes du rapport
 La liste suivante décrit chacune des colonnes du rapport en détail :
@@ -308,8 +303,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 * [**Forum Aux Questions**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
 * [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 * [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

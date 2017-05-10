@@ -16,10 +16,10 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 Dans cette vue d’ensemble des principaux composants du service Azure Batch, nous aborderons les fonctionnalités et ressources du service Batch qui permettent aux développeurs de créer des solutions de calcul parallèles à grande échelle.
 
-Que vous développiez une application ou un service de calcul distribué émettant des appels [d’API REST][batch_rest_api] directs, ou que vous utilisiez l’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#batch-development-apis), vous utiliserez la plupart des ressources et des fonctionnalités présentées dans cet article.
+Que vous développiez une application ou un service de calcul distribué émettant des appels [d’API REST][batch_rest_api] directs, ou que vous utilisiez l’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#azure-accounts-for-batch-development), vous utiliserez la plupart des ressources et des fonctionnalités présentées dans cet article.
 
 > [!TIP]
 > Pour une présentation plus poussée du service Batch, consultez l’article [Notions de base d’Azure Batch](batch-technical-overview.md).
@@ -74,13 +74,13 @@ Un compte Batch est une entité identifiée de façon unique au sein du service 
 
 Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Au moment de la création du compte, vous pouvez associer un compte de Stockage Azure.
 
-Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Ces deux configurations vous donnent accès aux différentes fonctionnalités liées aux [pools](#pool) (voir plus loin dans cet article). 
+Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Ces deux configurations vous donnent accès aux différentes fonctionnalités liées aux [pools](#pool) (voir plus loin dans cet article).
 
 
-* **Service Batch** : c’est l’option par défaut, les machines virtuelles du pool Batch étant allouées à l’arrière-plan dans les abonnements gérés par Azure. Utilisez cette configuration de compte si des pools de services cloud sont requis. Par contre, ne l’utilisez pas si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez accéder aux API Batch à l’aide de l’authentification de clé partagée ou de [l’authentification Azure Active Directory](batch-aad-auth.md). 
+* **Service Batch** : c’est l’option par défaut, les machines virtuelles du pool Batch étant allouées à l’arrière-plan dans les abonnements gérés par Azure. Utilisez cette configuration de compte si des pools de services cloud sont requis. Par contre, ne l’utilisez pas si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez accéder aux API Batch à l’aide de l’authentification de clé partagée ou de [l’authentification Azure Active Directory](batch-aad-auth.md).
 
 * **Abonnement de l’utilisateur** : utilisez cette configuration de compte si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez uniquement accéder aux API Batch à l’aide de [l’authentification Azure Active Directory](batch-aad-auth.md), et les pools de services cloud ne sont pas pris en charge. Les machines virtuelles de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode exige de configurer un coffre de clés Azure pour votre compte Batch.
- 
+
 
 ## <a name="compute-node"></a>Nœud de calcul
 Un nœud de calcul est une machine virtuelle Azure dédiée au traitement d’une partie de la charge de travail de votre application. La taille d’un nœud détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Vous pouvez créer des pools de nœuds Windows ou Linux à l’aide d’images d’Azure Cloud Services ou du Marketplace de machines virtuelles. Pour plus d’informations sur ces options, voir la section suivante [Pool](#pool) .
@@ -336,7 +336,7 @@ Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez ut
 
 * Le réseau virtuel doit avoir un nombre suffisant **d’adresses IP** libres pour prendre en charge la propriété `targetDedicated` du pool. Si le sous-réseau n’a pas suffisamment d’adresses IP disponibles, le service Batch alloue partiellement les nœuds de calcul dans le pool et renvoie une erreur de redimensionnement.
 
-* Le sous-réseau spécifié doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**. 
+* Le sous-réseau spécifié doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**.
 
 * Si des groupes de sécurité réseau sont associés au réseau virtuel spécifié, la communication entrante doit être activée. Pour les pools Linux et Windows, les ports 29876 et 29877 doivent être activés. Vous pouvez éventuellement activer (ou filtrer) les ports 22 ou 3389 pour SSH sur les pools Linux ou pour RDP sur les pools Windows, respectivement.
 
@@ -345,7 +345,7 @@ D’autres paramètres du réseau virtuel varient en fonction du mode d’alloca
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Réseaux virtuels pour les pools approvisionnés dans le service Batch
 
 Dans le mode d’allocation du service Batch, seuls les pools **Configuration des services cloud** peuvent être affectés à un réseau virtuel. En outre, le réseau virtuel spécifié doit être un réseau virtuel **classique**. Les réseaux virtuels créés avec le modèle de déploiement Azure Resource Manager ne sont pas pris en charge.
-   
+
 
 
 * Le principal du service *MicrosoftAzureBatch* doit avoir le rôle de contrôle d’accès en fonction du rôle (RBAC) [Collaborateur de machine virtuelle classique](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) pour le réseau virtuel spécifié. Dans le portail Azure :
@@ -368,7 +368,7 @@ Avec la [mise à l’échelle automatique](batch-automatic-scaling.md), le servi
 
 Pour activer la mise à l’échelle automatique, écrivez une [formule de mise à l’échelle automatique](batch-automatic-scaling.md#automatic-scaling-formulas) et associez-la à un pool. Le service Batch utilise la formule pour déterminer le nombre cible de nœuds dans le pool pour le prochain intervalle de mise à l’échelle (intervalle que vous pouvez configurer). Vous pouvez spécifier les paramètres de mise à l’échelle automatique pour un pool lorsque vous le créez ou activez la mise à l’échelle sur un pool ultérieurement. Vous pouvez également mettre à jour les paramètres de mise à l’échelle sur un pool compatible avec la mise à l’échelle.
 
-Par exemple, il se peut qu’un travail exige que vous envoyiez un grand nombre de tâches devant être exécutées. Vous pouvez attribuer au pool une formule de mise à l’échelle qui règle le nombre de nœuds du pool en fonction du nombre actuel de tâches en file d’attente et du degré d’achèvement des tâches dans le travail. Le service Batch évalue régulièrement la formule et redimensionne le pool en fonction de la charge de travail et des autres paramètres de votre formule. Le service ajoute des nœuds selon les besoins lorsqu’il existe un grand nombre de tâches en file d’attente, et supprime des nœuds lorsqu’aucune tâche n’est en file d’attente ni en cours d’exécution. 
+Par exemple, il se peut qu’un travail exige que vous envoyiez un grand nombre de tâches devant être exécutées. Vous pouvez attribuer au pool une formule de mise à l’échelle qui règle le nombre de nœuds du pool en fonction du nombre actuel de tâches en file d’attente et du degré d’achèvement des tâches dans le travail. Le service Batch évalue régulièrement la formule et redimensionne le pool en fonction de la charge de travail et des autres paramètres de votre formule. Le service ajoute des nœuds selon les besoins lorsqu’il existe un grand nombre de tâches en file d’attente, et supprime des nœuds lorsqu’aucune tâche n’est en file d’attente ni en cours d’exécution.
 
 Une formule de mise à l’échelle peut être basée sur les mesures suivantes :
 
