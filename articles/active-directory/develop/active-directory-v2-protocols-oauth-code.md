@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e9da636d5dbe95ea7d0bd8cf186af30247ca8bd8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/18/2017
 
 
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web.  Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau.  Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l'une de nos bibliothèques open source.
-
-<!-- TODO: Need link to libraries -->
 
 > [!NOTE]
 > Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0.  Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
@@ -303,10 +303,5 @@ Une réponse de jeton réussie se présente ainsi :
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
 Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

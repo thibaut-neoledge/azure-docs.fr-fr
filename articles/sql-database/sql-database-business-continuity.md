@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/07/2017
 ms.author: sashan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 2ddbe1766a978f9849c310a72086f95cbb68cd83
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/14/2017
 
 
@@ -68,8 +69,7 @@ Si la base de données primaire se déconnecte de manière inattendue ou si vous
 
 > [!IMPORTANT]
 > Pour utiliser la géo-réplication active et les groupes de basculement automatique, vous devez être le propriétaire ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations concernant l’abonnement ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
->
->
+> 
 
 Utilisez la géoréplication active si votre application répond à l’un des critères suivants :
 
@@ -131,8 +131,8 @@ Si la planification et la préparation ne sont pas effectuées correctement, la 
 Si vous utilisez la géo-réplication active et les groupes de basculement automatique comme mécanisme de récupération, vous pouvez configurer une stratégie de basculement automatique ou utiliser le [basculement manuel](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Une fois le basculement lancé, la base de données secondaire est promue comme nouvelle base principale et peut alors enregistrer de nouvelles transactions et répondre aux requêtes, avec des pertes de données minimes pour les données qui n’avaient pas encore été répliquées. Pour plus d’informations sur la création du processus de basculement, reportez-vous à la section [Conception d’une application pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> Lorsque le centre de données revient en ligne, les anciennes bases primaires se reconnectent automatiquement à la nouvelle base primaire et deviennent les bases de données secondaires. Si vous devez replacer la base de données primaire dans sa région d’origine, vous pouvez initier un basculement programmé de manière manuelle (restauration automatique).
->
+> Lorsque le centre de données revient en ligne, les anciennes bases primaires se reconnectent automatiquement à la nouvelle base primaire et deviennent les bases de données secondaires. Si vous devez replacer la base de données primaire dans sa région d’origine, vous pouvez initier un basculement programmé de manière manuelle (restauration automatique). 
+> 
 
 ### <a name="perform-a-geo-restore"></a>Effectuer une restauration géographique
 Si vous utilisez des sauvegardes automatisées avec une réplication de stockage géoredondant comme mécanisme de récupération, [lancez une récupération de base de données à l’aide de la géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore). La récupération intervient sous 12 heures dans la plupart des cas, avec une perte de données de 1 heure maximum, selon le moment où la dernière sauvegarde différentielle horaire a été effectuée et répliquée. Tant que la récupération n’est pas terminée, la base de données ne peut pas enregistrer de transactions ou répondre à des requêtes.
