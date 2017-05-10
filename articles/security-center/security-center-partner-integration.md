@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
@@ -58,7 +58,7 @@ Selon la configuration de votre environnement Azure et la stratégie de sécurit
 
 Après le déploiement d’une solution de partenaire, vous pouvez afficher des informations sur l’intégrité de la solution et effectuer les tâches de gestion de base à partir de la mosaïque de solutions de partenaires dans le tableau de bord principal du Security Center. Pour plus d’informations sur la gestion des solutions de partenaire dans Security Center, consultez [Surveillance des solutions de partenaire](security-center-partner-solutions.md) avec Azure Security Center.
 
-![Intégration des partenaires](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
+![Intégration des partenaires](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
 
 ## <a name="see-also"></a>Voir aussi

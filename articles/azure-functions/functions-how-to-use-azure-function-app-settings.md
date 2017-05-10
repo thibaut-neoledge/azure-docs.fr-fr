@@ -132,6 +132,6 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 + [Configurer des applications web dans Azure App Service](../app-service-web/web-sites-configure.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 
