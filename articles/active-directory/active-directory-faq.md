@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 521169d52d37e644ba416e27c9adc8587868ab40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -28,7 +29,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory 
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accédez à Azure et à Azure Active Directory
-**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
+ **Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
 
 **R :** Pour accéder au portail Azure Classic, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
 
@@ -126,7 +127,7 @@ Si vous avez d’autres questions concernant les mots de passe, consultez [Forum
 - - -
 **Q : Que faire si je ne me souviens pas de mon mot de passe Office 365/Azure AD actuel lorsque j’essaie de modifier mon mot de passe ?**
 
-**R :** Pour ce type de situation, plusieurs options s’offrent à vous.  Utilisez la réinitialisation de mot de passe en libre-service si elle est disponible.  Le fonctionnement de la réinitialisation de mot de passe en libre-service dépend de la façon dont elle est configurée.  Pour plus d’informations, consultez [Fonctionnement du portail de réinitialisation de mot de passe](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+**R :** Pour ce type de situation, plusieurs options s’offrent à vous.  Utilisez la réinitialisation de mot de passe en libre-service si elle est disponible.  Le fonctionnement de la réinitialisation de mot de passe en libre-service dépend de la façon dont elle est configurée.  Pour plus d’informations, consultez [Fonctionnement du portail de réinitialisation de mot de passe](active-directory-passwords-best-practices.md).
 
 Pour les utilisateurs Office 365, l’administrateur peut réinitialiser le mot de passe à l’aide de la procédure décrite dans [Réinitialiser les mots de passe utilisateur](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -146,7 +147,7 @@ Nous appliquons une stratégie plus étoffée pour verrouiller les comptes.  Cet
 Ce message s’applique aux mots de passe couramment utilisés au niveau mondial, tels que toutes les variantes de « Password » et de « 123456 ».
 
 **Q : Une demande de connexion émanant de sources douteuses (botnets, point de terminaison Tor) sera-t-elle bloquée dans un client B2C ou nécessite-t-elle un client d’une édition De base ou Premium ?**</br>
-Nous disposons d’une passerelle qui filtre les demandes et offre une certaine protection contre les botnets. Elle s’applique à tous les clients B2C. 
+Nous disposons d’une passerelle qui filtre les demandes et offre une certaine protection contre les botnets. Elle s’applique à tous les clients B2C.
 
 ## <a name="application-access"></a>Accès aux applications
 **Q : Où puis-je trouver une liste des applications qui sont déjà intégrées à Azure AD et leurs fonctionnalités ?**

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f35da063fc637f315b52ea38b63d2c8222cecd21
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -197,29 +198,29 @@ Dans le cas de FreshDesk, l’approvisionnement est une tâche manuelle.
 1. Connectez-vous à votre locataire **Freshdesk** .
 2. Dans le menu situé en haut, cliquez sur **Admin**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![Administrateur](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Administrateur")
 
 3. Dans l’onglet **General Settings**, cliquez sur **Agents**.
    
-       ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
 
 4. Cliquez sur **New Agent**.
    
-       ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
 
 5. Dans la boîte de dialogue Agent Information, procédez comme suit :
    
-       ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
    
-       a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   a. Dans la zone de texte **Full Name** , tapez le nom du compte Azure AD que vous souhaitez approvisionner.
 
-       b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. Dans la zone de texte **Email** , tapez l’adresse de messagerie Azure AD du compte Azure AD que vous souhaitez approvisionner.
 
-       c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. Dans la zone de texte **Title** , tapez le titre du compte Azure AD que vous souhaitez approvisionner.
 
-       d. Select **Agents role**, and then click **Assign**.
+   d. Sélectionnez **Agents role**, puis cliquez sur **Assign**.
        
-       e. Click **Save**.     
+   e. Cliquez sur **Save**.     
    
     >[!NOTE]
     >Le titulaire du compte Azure AD reçoit alors un message électronique qui contient un lien pour confirmer le compte avant qu’il soit activé. 
