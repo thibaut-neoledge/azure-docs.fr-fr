@@ -14,10 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 758c9112539ebaedc6c8180b7e6642d5d26fa16d
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 18501fc0fdb3174b3ec74e3dde3422b27898bf10
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,11 +28,11 @@ Ce guide sur l’architecture et le déploiement technique, divisé en cinq part
 
 Les cinq parties de ce guide traitent des thèmes suivants :
 
-- [Présentation et architecture](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastructure et connectivité](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Installation de SAP HANA](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Dépannage et surveillance](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Guide pratique de résolution des problèmes et de surveillance de SAP HANA (grandes instances) sur Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="definitions"></a>Définitions
 
@@ -132,7 +133,7 @@ Toutefois, il existe des différences importantes entre l’exécution de SAP HA
 - Contrairement à Azure, le serveur SAP HANA sur Azure (grandes instances) est dédié à un client spécifique. Un redémarrage ou un arrêt du serveur n’affecte pas le système d’exploitation, ni SAP HANA puisqu’il est déployé sur un autre serveur. (La seule exception est lorsqu’un serveur rencontre des problèmes et qu’un redéploiement doit être effectué sur une autre lame.)
 - Contrairement à Azure, où les types de processeurs hôtes sont sélectionnés en fonction du meilleur rapport prix/performances, les types de processeurs choisis pour SAP HANA sur Azure (grandes instances) sont les plus performants de la gamme de processeurs Intel E7v3.
 
-De nombreux clients seront déployés sur le matériel SAP HANA sur Azure (grandes instances), et chacun est protégé des autres par le déploiement de leurs propres réseaux locaux virtuels. Pour connecter de grandes instances HANA dans un réseau virtuel Azure, les composants réseau en place procèdent à la traduction d’adresses réseau entre la plage d’adresses IP de réseau virtuel Azure et l’espace d’adressage IP du réseau local virtuel au sein de l’infrastructure matérielle.
+De nombreux clients seront déployés sur le matériel SAP HANA sur Azure (grandes instances), et chacun est protégé des autres par le déploiement de leurs propres réseaux locaux virtuels. Pour connecter les grandes instances HANA à un réseau virtuel Azure, les composants réseau en place connectent les unités de grandes instances HANA du locataire de manière isolée dans les réseaux virtuels de l’abonnement Azure de ce locataire. 
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilités et modèle opérationnel
 
@@ -146,7 +147,7 @@ Toutefois, ce service étant optimisé pour SAP HANA, vous devez collaborer avec
 
 La liste suivante fournit plus de détails sur chacune des couches et vos responsabilités :
 
-**Réseau :** tous les réseaux internes pour le tampon de grande instance exécutant SAP HANA, son accès au stockage, la connectivité entre les instances (pour la montée en charge et d’autres fonctions), la connectivité avec le paysage et la connectivité à Azure, à l’endroit où se trouve la couche Application SAP résidant dans les machines virtuelles Azure. Il inclut également la connectivité WAN entre les centres de données Azure pour la réplication à des fins de récupération d’urgence. Tous les réseaux sont partitionnés par le locataire et la qualité de service est appliquée.
+**Mise en réseau :** tous les réseaux internes pour le tampon de grande instance exécutant SAP HANA, son accès au stockage, la connectivité entre les instances (pour la montée en charge et d’autres fonctions), la connectivité avec le paysage et la connectivité à Azure, à l’endroit où se trouve la couche Application SAP résidant dans les machines virtuelles Azure. Il inclut également la connectivité WAN entre les centres de données Azure pour la réplication à des fins de récupération d’urgence. Tous les réseaux sont partitionnés par le locataire et la qualité de service est appliquée.
 
 **Stockage :** le stockage partitionné virtualisé pour tous les volumes requis par les serveurs SAP HANA, ainsi que pour les captures instantanées.
 
@@ -179,11 +180,11 @@ Consultez le [SLA pour SAP HANA sur des grandes instances Azure](https://azure.m
 
 Le dimensionnement des grandes instances HANA n’est pas différent du dimensionnement HANA en général. Pour les systèmes déployés et existants, si vous souhaitez migrer d’autres SGBDR vers HANA, SAP fournit plusieurs rapports qui s’exécutent sur vos systèmes SAP existants. Ils vérifient les données et calculent les besoins en mémoire de la table si la base de données est migrée vers HANA. Lisez les Notes SAP suivantes pour obtenir plus d’informations sur l’exécution de ces rapports et savoir comment obtenir leurs correctifs/versions les plus récents :
 
-- SAP Note #1793345 - Sizing for SAP Suite on HANA (Note SAP n° 1793345 - Dimensionnement de SAP Suite sur HANA)
-- SAP Note #1872170 - Suite on HANA and S/4 HANA sizing report (Note SAP n° 1872170 - Rapport de dimensionnement de Suite sur HANA et S/4 HANA)
-- SAP Note #2121330 - FAQ: SAP BW on HANA Sizing Report (Note SAP n° 2121330 - FAQ : Rapport de dimensionnement SAP BW sur HANA)
-- SAP Note #1736976 - Sizing Report for BW on HANA (Note SAP n°1 736976 : Rapport de dimensionnement de BW sur HANA)
-- SAP Note #2296290 - New Sizing Report for BW on HANA (Note SAP n° 2296290 - Nouveau rapport de dimensionnement pour BW sur HANA)
+- [Note de support SAP #1793345 - Sizing for SAP Suite on HANA](https://launchpad.support.sap.com/#/notes/1793345) (Dimensionnement de SAP Suite sur HANA)
+- [Note de support SAP #1872170 - Suite on HANA and S/4 HANA sizing report](https://launchpad.support.sap.com/#/notes/1872170) (Rapport de dimensionnement de Suite sur HANA et S/4 HANA)
+- [Note de support SAP #2121330 - FAQ: SAP BW on HANA Sizing Report](https://launchpad.support.sap.com/#/notes/2121330) (FAQ : Rapport de dimensionnement SAP BW sur HANA)
+- [Note de support SAP #1736976 - Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/1736976) (Rapport de dimensionnement de BW sur HANA)
+- [Note de support SAP #2296290 - New Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/2296290) (Nouveau rapport de dimensionnement pour BW sur HANA)
 
 Pour les nouvelles implémentations, SAP Quick Sizer permet de calculer les besoins en mémoire de l’implémentation du logiciel SAP sur HANA.
 
@@ -201,7 +202,7 @@ Il s’agit de la configuration requise pour l’exécution de SAP HANA sur Azur
 
 **Connectivité réseau :**
 
-- Azure ExpressRoute entre le système local et Azure : assurez-vous de demander au moins une connexion de 1 Gbit/s à votre FAI pour connecter votre centre de données local à Azure.
+- Azure ExpressRoute entre le système local et Azure : assurez-vous de demander au moins une connexion de 1 Gbit/s à votre FAI pour connecter votre centre de données local à Azure.
 
 **Système d’exploitation :**
 
@@ -217,7 +218,9 @@ Il s’agit de la configuration requise pour l’exécution de SAP HANA sur Azur
 > Le système d’exploitation fourni par Microsoft n’est pas inscrit auprès de Red Hat, ni connecté à une instance Red Hat Subscription Manager.
 
 - Gestionnaire d’abonnements Red Hat déployé dans Azure sur une machine virtuelle Azure. Cela offre la possibilité d’enregistrer SAP HANA sur Azure (grandes instances) et de le mettre à jour par Red Hat (comme il n’existe aucun accès internet direct depuis le locataire déployé sur le tampon de grande instance Azure).
-- Contrat de service et de support conclu avec le fournisseur Linux implicitement inclus dans l’abonnement à la version Linux ou autre contrat de service et de support qui couvre la version spécifique de Linux utilisée et qui répond aux critères de SAP.
+- Le système SAP requiert également un contrat de support avec votre fournisseur Linux. Ce contrat est également requis avec les grandes instances HANA ou si vous exécutez Linux dans Azure. Contrairement à certaines des images de la galerie Linux Azure, les frais de service ne sont PAS inclus dans l’offre de solution HANA (grandes instances). Il vous incombe de respecter les exigences de SAP en matière de contrat de support avec le distributeur Linux.   
+   - Pour connaître les exigences en matière de contrat de support avec SUSE Linux, consultez la [Note de support SAP #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (SUSE LINUX Enterprise Server 12 : notes d’installation) et la [Note de support SAP #1056161 - SUSE Priority Support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Support prioritaire SUSE pour les applications SAP).
+   - Avec Red Hat Linux, vous devez disposer d’un niveau d’abonnement prenant en charge le support et la maintenance (mise à jour des systèmes d’exploitation des grandes instances HANA). Red Hat recommande l’abonnement « RHEL for SAP Business Applications » pour le support et les services. Consultez la [Note de support SAP #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) (Red Hat Enterprise Linux 7.x : installation et mise à jour) et la [Note de support SAP #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) (Red Hat Enterprise Linux 6.x : installation et mise à jour) pour en savoir plus.
 
 **Base de données :**
 
@@ -235,6 +238,19 @@ Il s’agit de la configuration requise pour l’exécution de SAP HANA sur Azur
 - Personnel certifié pour l’installation de SAP HANA.
 - Compétences en architecture SAP pour créer la haute disponibilité et la récupération d’urgence autour de SAP HANA.
 
+
+## <a name="storage"></a>Storage
+
+La disposition du stockage de SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur Azure Service Management en suivant les meilleures pratiques recommandées par SAP. Voir le livre blanc [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Conditions de stockage SAP HANA).
+
+Les grandes instances HANA présentent généralement 4 fois plus de capacité mémoire que de volume de stockage. Le volume fourni dans les unités est prévu pour le stockage des sauvegardes de journaux HANA. Pour plus d’informations, consultez le [Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+En tant que client, vous pouvez utiliser les captures instantanées de stockage à des fins de sauvegarde/restauration et de récupération d’urgence. Vous trouverez plus de détails à ce sujet à la page [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+### <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
+Le stockage utilisé pour les grandes instances HANA permet un chiffrement transparent des données lorsqu’elles sont stockées sur les disques. Vous pouvez activer ce type de chiffrement au moment du déploiement d’une unité de grandes instances HANA. Vous pouvez également modifier les volumes chiffrés après le déploiement. Le passage d’un volume non chiffré à un volume chiffré est transparent et n’entraîne aucun temps d’arrêt. 
+
+
 ## <a name="networking"></a>Mise en réseau
 
 L’architecture de mise en réseau Azure est un composant clé pour la réussite du déploiement des applications SAP. En règle générale, les déploiements SAP HANA sur Azure (grandes instances) ont un plus grand paysage SAP avec plusieurs solutions SAP distinctes et tailles de bases de données variées, une consommation des ressources d’UC et une utilisation de la mémoire différentes. Il est très probable que seuls un ou deux de ces systèmes SAP soient basés sur SAP HANA, et votre paysage SAP est certainement un hybride qui utilise :
@@ -251,23 +267,26 @@ La mise en réseau Azure dans le contexte des systèmes SAP déployés dans Azur
 - Les réseaux virtuels Azure doivent être connectés au circuit Azure ExpressRoute qui se connecte au réseau local.
 - Un circuit ExpressRoute doit généralement avoir une bande passante de 1 Gbit/s ou plus. Cela permet de bénéficier d’une bande passante suffisante pour transférer des données entre les systèmes locaux et les systèmes s’exécutant sur des machines virtuelles Azure (ainsi que pour la connexion aux systèmes Azure depuis les systèmes locaux des utilisateurs finaux).
 - Tous les systèmes SAP dans Azure doivent être configurés dans les réseaux virtuels Azure pour communiquer entre eux.
-- Le répertoire Active Directory et le DNS hébergés en local sont étendus à Azure via ExpressRoute.
+- Le répertoire Active Directory et le DNS hébergés en local sont étendus à Azure via ExpressRoute, en local.
 
-**Recommandation :** déployez le paysage SAP complet sur Azure dans un seul abonnement Azure. De nombreuses procédures dans un paysage SAP nécessitent une connectivité réseau transparente, voire moindre, entre les instances de développement, de test et de production. En outre, l’architecture SAP NetWeaver dispose de plusieurs automatismes qui reposent sur cette mise en réseau transparente entre ces différentes instances. Par conséquent, conserver le paysage SAP complet dans un abonnement Azure, même lorsque l’environnement est déployé dans plusieurs régions Azure, est fortement conseillé.
-
-L’architecture et les processus autour de SAP HANA sur Azure (grandes instances) sont basés sur la recommandation ci-dessus.
 
 > [!NOTE] 
 > Un seul abonnement Azure peut être associé à un seul locataire dans un tampon de grande instance d’une région Azure spécifique, et inversement, un seul locataire de tampon de grande instance peut être associé à un seul abonnement Azure.
 
-Le déploiement de SAP HANA sur Azure (grandes instances) dans deux régions Azure différentes entraîne le déploiement d’un locataire distinct dans le tampon de grande instance. Toutefois, vous pouvez vous attendre à ce que ces deux locataires finissent dans le même abonnement Azure tant que ces instances font partie du même paysage SAP.
+Le déploiement de SAP HANA sur Azure (grandes instances) dans deux régions Azure différentes entraîne le déploiement d’un locataire distinct dans le tampon de grande instance. Toutefois, vous pouvez exécuter ces deux locataires dans le même abonnement Azure tant que ces instances font partie du même paysage SAP. 
 
 > [!IMPORTANT] 
 > Seul le déploiement Azure Resource Manager est pris en charge avec SAP HANA sur Azure (grandes instances).
 
+### <a name="internet-connectivity-of-hana-large-instances"></a>Connectivité internet des grandes instances HANA
+Les grandes instances HANA ne bénéficient PAS d’une connectivité directe à Internet. Cela limite par exemple la possibilité d’enregistrer l’image du système d’exploitation directement auprès du fournisseur du système d’exploitation. Par conséquent, vous devrez utiliser le serveur local SLES SMT ou le gestionnaire d’abonnements RHEL.
+
+### <a name="data-encryption-between-azure-vms-and-hana-large-instances"></a>Chiffrement des données entre les machines virtuelles Azure et les grandes instances HANA
+Les données transférées entre les grandes instances HANA et les machines virtuelles Azure ne sont pas chiffrées. En revanche, vous pouvez activer le chiffrement du trafic pour l’échange entre le DBMS HANA et les applications basées sur JDBC/ODBC. Reportez-vous à [cette documentation SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
+
 ### <a name="additional-azure-vnet-information"></a>Informations supplémentaires sur les réseaux virtuels Azure
 
-Pour connecter un réseau virtuel Azure à ExpressRoute, une passerelle Azure doit être créée, (consultez [À propos des passerelles de réseau virtuel pour ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Une passerelle Azure peut être utilisée avec ExpressRoute pour rediriger vers une infrastructure en dehors d’Azure (ou un tampon de grande instance Azure), ou pour la connexion entre les réseaux virtuels Azure (consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Vous pouvez connecter la passerelle Azure à quatre connexions ExpressRoute différentes maximum, tant que celles-ci proviennent de MS Enterprise Exchanges (MSEE) distincts.
+Pour connecter un réseau virtuel Azure à ExpressRoute, une passerelle Azure doit être créée, (consultez [À propos des passerelles de réseau virtuel pour ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Une passerelle Azure peut être utilisée avec ExpressRoute pour rediriger vers une infrastructure en dehors d’Azure (ou un tampon de grande instance Azure), ou pour la connexion entre les réseaux virtuels Azure (consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Vous pouvez connecter la passerelle Azure à quatre connexions ExpressRoute différentes maximum, tant que celles-ci proviennent de MS Enterprise Edges (MSEE) distincts.  Consultez la page [Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour en savoir plus. 
 
 > [!NOTE] 
 > Le débit fourni par une passerelle Azure est différent pour les deux cas d’utilisation (consultez [À propos de la passerelle VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Le débit maximal pouvant être atteint avec une passerelle de réseau virtuel est de 10 Gbits/s, à l’aide d’une connexion ExpressRoute. Gardez à l’esprit que la copie de fichiers entre une machine virtuelle Azure résidant dans un réseau virtuel Azure et un système local (en tant que flux de copie unique) ne bénéficiera pas du débit total des différentes références de passerelles. Pour tirer parti de l’intégralité de la bande passante de la passerelle de réseau virtuel, vous devez utiliser plusieurs flux ou copier différents fichiers dans des flux parallèles d’un seul fichier.
@@ -296,7 +315,12 @@ Il s’agit d’un exemple simple d’un système SAP unique, où la couche Appl
 
 ### <a name="multiple-sap-systems-or-large-sap-systems"></a>Plusieurs systèmes SAP ou grands systèmes SAP
 
-Si plusieurs systèmes SAP ou si de grands systèmes SAP sont déployés en se connectant à SAP HANA sur Azure (grandes instances), il est raisonnable de supposer que le débit de la référence de passerelle de réseau virtuel HighPerformance puisse devenir un goulot d’étranglement. Dans ce cas, la référence UltraPerformance doit être choisie, si elle est disponible. Toutefois, si seulement la référence HighPerformance (2 Gbits/s max.) est disponible, ou s’il est possible que la référence UltraPerformance (10 Gbit/s) ne soit pas suffisante, vous devrez fractionner les couches Application dans plusieurs réseaux virtuels Azure.
+Si plusieurs systèmes SAP ou si de grands systèmes SAP sont déployés en se connectant à SAP HANA sur Azure (grandes instances), il est raisonnable de supposer que le débit de la référence de passerelle de réseau virtuel HighPerformance puisse devenir un goulot d’étranglement. Dans ce cas, la référence UltraPerformance doit être choisie, si elle est disponible. Toutefois, si seulement la référence HighPerformance (2 Gbits/s max.) est disponible, ou s’il est possible que la référence UltraPerformance (10 Gbit/s) ne soit pas suffisante, vous devrez fractionner les couches Application dans plusieurs réseaux virtuels Azure. Il pourrait également être utile de créer des réseaux virtuels spéciaux se connectant aux grandes instances HANA dans les cas suivants :
+
+- Exécution de sauvegardes directement à partir des grandes instances HANA vers une machine virtuelle Azure hébergeant des partages NFS.
+- Copie de sauvegardes volumineuses ou d’autres fichiers des unités de grandes instances HANA vers l’espace disque géré dans Azure.
+
+L’utilisation de réseaux virtuels distincts, qui hébergent des machines virtuelles gérant le stockage, élimine l’impact des transferts de données ou de fichiers volumineux depuis les grandes instances HANA vers Azure sur la passerelle de réseau virtuel associée aux machines virtuelles exécutant la couche Application SAP. 
 
 Pour une architecture réseau plus évolutive :
 
@@ -307,55 +331,27 @@ Pour une architecture réseau plus évolutive :
 
 ![Déploiement de la couche Application SAP sur plusieurs réseaux virtuels Azure](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Le déploiement de la couche Application SAP, ou des composants, sur plusieurs réseaux virtuels Azure comme présenté ci-dessus a introduit une augmentation inévitable de la latence qui s’est produite lorsque les applications hébergées dans ces réseaux virtuels Azure communiquent entre elles. Par défaut, le trafic réseau entre les machines virtuelles Azure situées dans différents réseaux virtuels passera par les routeurs MSEE Routers dans cette configuration. Toutefois, depuis septembre 2016, cela peut être évité et optimisé. La méthode d’optimisation et de réduction de la latence de communication entre les deux réseaux virtuels consiste à homologuer vos réseaux virtuels Azure dans la même région. Cela est valable même s’il s’agit d’abonnements différents. Grâce à l’homologation des réseaux virtuels Azure, des machines virtuelles de deux réseaux virtuels Azure peuvent utiliser le réseau Azure principal pour communiquer directement entre elles. La latence est donc la même que si les machines virtuelles se trouvaient dans le même réseau virtuel. Tandis que le trafic d’adressage des plages d’adresses IP connectées via la passerelle du réseau virtuel Azure est acheminé via la passerelle de réseau virtuel individuel du réseau virtuel. Pour obtenir plus d’informations sur l’homologation du réseau virtuel Azure, consultez l’article [Homologation de réseaux virtuels](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
-### <a name="minimal-deployment"></a>Déploiement minimal
+Le déploiement de la couche Application SAP, ou des composants, sur plusieurs réseaux virtuels Azure comme présenté ci-dessus a introduit une augmentation inévitable de la latence qui s’est produite lorsque les applications hébergées dans ces réseaux virtuels Azure communiquent entre elles. Par défaut, le trafic réseau entre les machines virtuelles Azure situées dans différents réseaux virtuels passera par les routeurs MSEE Routers dans cette configuration. Toutefois, depuis septembre 2016, cela peut être évité et optimisé. La méthode d’optimisation et de réduction de la latence de communication entre les deux réseaux virtuels consiste à homologuer vos réseaux virtuels Azure dans la même région. Cela est valable même s’il s’agit d’abonnements différents. Grâce à l’homologation des réseaux virtuels Azure, des machines virtuelles de deux réseaux virtuels Azure peuvent utiliser le réseau Azure principal pour communiquer directement entre elles. La latence est donc la même que si les machines virtuelles se trouvaient dans le même réseau virtuel. Tandis que le trafic d’adressage des plages d’adresses IP connectées via la passerelle du réseau virtuel Azure est acheminé via la passerelle de réseau virtuel individuel du réseau virtuel. Pour obtenir plus d’informations sur l’homologation du réseau virtuel Azure, consultez l’article [Homologation de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-Pour un petit système SAP (déploiement minimal), les machines virtuelles Azure hébergent la couche Application SAP dans un système Azure natif (au sein d’un réseau virtuel unique) et se connectent au tampon de grande instance via ExpressRoute. Suivez les étapes ci-dessous pour que SAP HANA sur Azure (grandes instances) soit prêt à être utilisé :
-
-- Collectez des informations spécifiques relatives aux quatre plages d’adresses IP différentes :
-
-  1. Une plage d’adresses /29 pour les connexions P2P à utiliser pour les circuits ExpressRoute.
-  
-  2. Un bloc CIDR unique /24 (recommandé) à utiliser pour affecter les adresses IP spécifiques nécessaires à SAP HANA sur Azure (grandes instances).
-  3. Un ou plusieurs blocs CIDR /24 (recommandé) pour les sous-réseaux de locataire de votre réseau virtuel Azure. Il s’agit des sous-réseaux de l’abonnement Azure du client où se trouveront les machines virtuelles Azure liées à SAP ; les adresses pourront accéder à SAP HANA sur Azure (grandes instances). Il doit y avoir un bloc d’adresses de locataire par sous-réseau, et les blocs peuvent être agrégés s’ils sont contigus et dans le même réseau virtuel.
-  4. Un CIDR /28 de vos sous-réseaux de passerelle de réseau virtuel (un CIDR /27 doit être utilisé si vous souhaitez une mise en réseau P2S).
-
-  - Les deux premières plages sont nécessaires (une par abonnement et région Azure). Les plages d’adresses IP indiquées aux points 3 et 4 sont au minimum requises par réseau virtuel Azure, et si plusieurs sous-réseaux/locataires dans un réseau virtuel sont souhaités, plusieurs plages doivent être spécifiées pour le point 3.
-![Plages d’adresses IP nécessaires pour le déploiement minimal de SAP HANA sur Azure (grandes instances)](./media/hana-overview-architecture/image5-ip-address-range-a.png)
-
-  -  Si vous configurez plusieurs sous-réseaux de locataire dans un réseau virtuel Azure : ![plages d’adresses IP avec espace d’adressage contigu pour un réseau virtuel Azure](./media/hana-overview-architecture/image6-ip-address-range-b.png)
-
-> [!IMPORTANT] 
-> Chaque plage d’adresses IP spécifiée ci-dessus ne doit pas chevaucher une autre plage ; chaque plage doit être discrète et ne doit pas être un sous-réseau d’une autre plage. Seule l’adresse définie aux points 3 et 4 doit être appliquée à des réseaux virtuels Azure, toutes les autres sont utilisées pour le routage et la connectivité de grande instance. En outre, il est recommandé que les plages d’adresses de l’espace d’adressage soient mappées aux plages du sous-réseau et n’aient pas d’espace vide ou non assigné. En cas de chevauchement entre les plages définies aux points 1 et 2 avec les plages définies aux points 3 et 4, le réseau virtuel Azure ne se connecte pas au circuit ExpressRoute.
-
-- Un circuit Express Route est créé par Microsoft entre votre abonnement Azure et le tampon de grande instance.
-- Créez un locataire réseau sur le tampon de grande instance.
-- Configurez la mise en réseau dans l’infrastructure de SAP HANA sur Azure (grandes instances) pour accepter les adresses IP de la plage spécifiée dans votre réseau virtuel Azure, qui communiqueront avec des grandes instances HANA.
-- Configurez la traduction d’adresses réseau dans le locataire du client du tampon de grande instance (afin que l’adresse IP interne du locataire soit mappée à une adresse IP définie par le locataire pour Azure).
-- En fonction de la référence SAP HANA sur Azure (grandes instances) spécifique achetée, attribuez une unité de calcul dans un réseau de locataire, allouez et montez le stockage et installez le système d’exploitation (SUSE ou RedHat Linux).
-
-Déploiement minimal de l’architecture réseau SAP HANA sur Azure (grandes instances) :
-
-![Déploiement minimal avec des plages d’adresses IP](./media/hana-overview-architecture/image7-minimal-deployment.png)
 
 ### <a name="routing-in-azure"></a>Routage dans Azure
 
 Deux points importants sont à prendre en compte en matière de routage pour SAP HANA sur Azure (grandes instances) :
 
-1. L’accès à SAP HANA sur Azure (grandes instances) se fait uniquement via les machines virtuelles Azure dans la connexion ExpressRoute dédiée, et non directement via le système local. Par conséquent, les clients d’administration et toutes les applications nécessitant un accès direct, telles que SAP Solution Manager s’exécutant en local, ne peuvent pas se connecter à la base de données SAP HANA.
+1. L’accès à SAP HANA sur Azure (grandes instances) se fait uniquement via les machines virtuelles Azure dans la connexion ExpressRoute dédiée, et non directement via le système local. Certains clients d’administration et toutes les applications nécessitant un accès direct, telles que SAP Solution Manager s’exécutant en local, ne peuvent pas se connecter à la base de données SAP HANA.
 
-2. SAP HANA sur Azure (grandes instances) a une adresse IP attribuée à partir d’un pool de traduction d’adresses réseau défini. Cette adresse IP est accessible via l’abonnement Azure et ExpressRoute. Puisque l’adresse IP fait partie d’un pool de traduction d’adresses réseau, vous devrez effectuer une configuration de mise en réseau supplémentaire dans l’environnement. Pour plus d’informations, consultez l’article sur l’installation de SAP HANA.
+2. Une adresse IP de la plage du pool d’adresses IP de serveur que vous avez soumis est affectée aux unités SAP HANA sur Azure (grandes instances). (Consultez la page [Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour en savoir plus).  Cette adresse IP est accessible via l’abonnement Azure et le circuit ExpressRoute qui connecte les réseaux virtuels Azure à HANA sur Azure (grandes instances). L’adresse IP affectée hors de la plage de ce pool d’adresses IP de serveur est directement attribuée à l’unité matérielle et n’est PLUS traduite, comme cela était le cas dans les premiers déploiements de cette solution. 
 
 > [!NOTE] 
-> Si vous avez besoin de vous connecter à SAP HANA sur Azure (grandes instances) dans un scénario _d’entrepôt de données_, où les applications et/ou les utilisateurs finaux doivent se connecter à la base de données SAP HANA (exécution directe), un autre composant réseau doit être utilisé : un proxy inverse pour router les données dans les deux sens. Par exemple, F5 BIG-IP avec Traffic Manager déployé dans Azure en tant que solution de routage de trafic/pare-feu virtuelle.
+> Si vous avez besoin de vous connecter à SAP HANA sur Azure (grandes instances) dans un scénario _d’entrepôt de données_, où les applications et/ou les utilisateurs finaux doivent se connecter à la base de données SAP HANA (exécution directe), un autre composant réseau doit être utilisé : un proxy inverse pour router les données dans les deux sens. Par exemple, F5 BIG-IP, NGINX avec Traffic Manager déployé dans Azure en tant que solution de routage de trafic/pare-feu virtuelle.
 
 ### <a name="leveraging-in-multiple-regions"></a>Utilisation dans plusieurs régions
 
-Vous pouvez avoir d’autres raisons de déployer SAP HANA sur Azure (grandes instances) dans plusieurs régions Azure, en plus de la récupération d’urgence. Vous voulez peut-être accéder aux grandes instances HANA à partir de chaque machine virtuelle déployée dans les différents réseaux virtuels dans les régions. Puisque les adresses IP transformées des différents serveurs de grandes instances HANA ne sont pas propagées au-delà des réseaux virtuels Azure (qui sont directement connectés via leur passerelle aux instances), il existe une légère modification de la conception du réseau virtuel présenté ci-dessus : une passerelle de réseau virtuel Azure peut gérer quatre circuits ExpressRoute différents de divers MSEE, et chaque réseau virtuel qui est connecté à l’un des tampons de grande instance peut être connecté au tampon de grande instance dans une autre région Azure.
+Vous pouvez avoir d’autres raisons de déployer SAP HANA sur Azure (grandes instances) dans plusieurs régions Azure, en plus de la récupération d’urgence. Vous voulez peut-être accéder aux grandes instances HANA à partir de chaque machine virtuelle déployée dans les différents réseaux virtuels dans les régions. Puisque les adresses IP affectées aux différentes unités de grandes instances HANA ne sont pas propagées au-delà des réseaux virtuels Azure (qui sont directement connectés via leur passerelle aux instances), il existe une légère modification de la conception du réseau virtuel présenté ci-dessus : une passerelle de réseau virtuel Azure peut gérer quatre circuits ExpressRoute différents de divers MSEE, et chaque réseau virtuel qui est connecté à l’un des tampons de grande instance peut être connecté au tampon de grande instance dans une autre région Azure.
 
 ![Réseaux virtuels Azure connectés aux tampons de grande instance Azure dans différentes régions Azure](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-La figure ci-dessus illustre comment les différents réseaux virtuels Azure dans les deux régions sont connectés à deux circuits ExpressRoute distincts qui sont utilisés pour se connecter à SAP HANA sur Azure (grandes instances) dans les deux régions Azure. Les connexions nouvellement introduites sont représentées par les lignes rouges rectangulaires. Avec ces connexions en dehors des réseaux virtuels Azure, les machines virtuelles s’exécutant dans l’un de ces réseaux virtuels peuvent accéder à chacune des différentes unités de grandes instances HANA déployées dans les deux régions (en supposant que vous utilisez le même abonnement). Comme vous voyez dans le schéma ci-dessus, il est supposé que vous disposez de deux connexions ExpressRoute du système local aux deux régions Azure, qui sont recommandées pour des raisons de récupération d’urgence.
+La figure ci-dessus illustre comment les différents réseaux virtuels Azure dans les deux régions sont connectés à deux circuits ExpressRoute distincts qui sont utilisés pour se connecter à SAP HANA sur Azure (grandes instances) dans les deux régions Azure. Les connexions nouvellement introduites sont représentées par les lignes rouges rectangulaires. Avec ces connexions, en dehors des réseaux virtuels Azure, les machines virtuelles s’exécutant dans l’un de ces réseaux virtuels peuvent accéder à chacune des différentes unités de grandes instances HANA déployées dans les deux régions (en supposant que vous utilisez le même abonnement). Comme vous voyez dans le schéma ci-dessus, il est supposé que vous disposez de deux connexions ExpressRoute du système local aux deux régions Azure, qui sont recommandées pour des raisons de récupération d’urgence.
 
 > [!IMPORTANT] 
 > Si plusieurs circuits ExpressRoute sont utilisés, les paramètres de BGP Local Preference et du préfixe AS Path doivent être utilisés pour garantir le routage correct du trafic.

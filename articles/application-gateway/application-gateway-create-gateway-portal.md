@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/05/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 2195eb4ce0e22c8c7c72ac0638ab927f13c4d454
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,171 +32,113 @@ ms.lasthandoff: 03/30/2017
 > * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud.
-Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc.
+Apprenez à créer une passerelle Application Gateway à l’aide du déchargement SSL.
 
-Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
+![Exemple de scénario][scenario]
 
-## <a name="scenario"></a>Scénario
-
-Dans ce scénario, vous allez apprendre à créer une passerelle Application Gateway à l’aide du portail Azure.
+Application Gateway est une appliance virtuelle dédiée qui intègre Application Delivery Controller (ADC) en tant que service, offrant diverses fonctionnalités d’équilibrage de charge de couche 7 pour votre application.
 
 Ce scénario va :
 
-* créer une passerelle Application Gateway moyenne avec deux instances ;
-* créer un réseau virtuel nommé AdatumAppGatewayVNET avec un bloc CIDR réservé de 10.0.0.0/16 ;
-* créer un sous-réseau appelé Appgatewaysubnet qui utilise 10.0.0.0/28 comme bloc CIDR ;
-* configurer un certificat pour le déchargement SSL.
+1. [Créer une passerelle Application Gateway moyenne](#create-an-application-gateway) en utilisant le déchargement SSL avec deux instances dans son propre sous-réseau
+1. [Ajouter des serveurs au pool principal](#add-servers-to-backend-pools)
+1. [Supprimer toutes les ressources](#delete-all-resources) Vous allez être facturé pour certaines des ressources créées dans cet exercice pendant leur configuration. Pour réduire les frais, après avoir terminé l’exercice, veillez à effectuer les étapes décrites dans cette section pour supprimer les ressources créées.
 
-![Exemple de scénario][scenario]
+
 
 > [!IMPORTANT]
 > La configuration supplémentaire de la passerelle Application Gateway, y compris les sondes d’intégrité personnalisées, les adresses de pool principal et les règles supplémentaires sont configurées après avoir configuré la passerelle Application Gateway et non lors du déploiement initial.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsque vous créez un réseau virtuel, assurez-vous que vous laissez suffisamment d’espace d’adresse pour disposer de plusieurs sous-réseaux. Une fois que vous avez déployé une passerelle Application Gateway sur un sous-réseau, seules les passerelles Application Gateway supplémentaires peuvent être ajoutées au sous-réseau.
+Pour créer une passerelle Application Gateway, procédez comme suit : La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsque vous créez un réseau virtuel, assurez-vous que vous laissez suffisamment d’espace d’adresse pour disposer de plusieurs sous-réseaux. Une fois que vous avez déployé une passerelle Application Gateway sur un sous-réseau, seules les passerelles Application Gateway supplémentaires peuvent être ajoutées au sous-réseau.
 
-## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
+1. Dans le volet Favoris, cliquez sur **Nouveau**.
+1. Dans le panneau **Nouveau**, cliquez sur **Mise en réseau**. Dans le panneau **Mise en réseau**, cliquez sur **Application Gateway**, comme indiqué dans l’image suivante :
 
-### <a name="step-1"></a>Étape 1
+    ![Création d’une passerelle Application Gateway][1]
 
-Accédez au portail Azure, cliquez sur **Nouveau** > **Mise en réseau** > **Application Gateway**
+1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
 
-![Création d’une passerelle Application Gateway][1]
+   | **Paramètre** | **Valeur** | **Détails**
+   |---|---|---|
+   |**Nom**|AdatumAppGateway|Nom de la passerelle Application Gateway|
+   |**Niveau**|Standard|Les valeurs disponibles sont Standard et WAF. Consultez la page [Pare-feu d’applications web (WAF)](application-gateway-web-application-firewall-overview.md) pour en savoir plus sur WAF.|
+   |**Taille de la référence (SKU)**|Moyenne|Si vous sélectionnez le niveau Standard, vous avez le choix entre Petite, Moyenne et Grande. Si vous choisissez le niveau WAF, les options sont limitées à Moyenne et Grande.|
+   |**Nombre d’instances**|2|Nombre d’instances de la passerelle Application Gateway pour la haute disponibilité. Un nombre d’instances de 1 doit être utilisé uniquement à des fins de test.|
+   |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la passerelle de l’application.|
+   |**Groupe de ressources**|**Créer un nouveau :** AdatumAppGatewayRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Emplacement**|Ouest des États-Unis||
 
-### <a name="step-2"></a>Étape 2 :
+1. Dans le panneau **Paramètres** qui s’affiche sous **Réseau virtuel**, cliquez sur **Choisir un réseau virtuel**. Vous accédez alors au panneau **Choisir un réseau virtuel**.  Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer un réseau virtuel**.
 
-Remplissez ensuite les informations de base relatives à la passerelle Application Gateway. Lorsque vous avez terminé, cliquez sur **OK**
+ ![choisir un réseau virtuel][2]
 
-Les informations nécessaires pour les paramètres de base sont les suivantes :
+1. Dans le panneau **Créer un réseau virtuel**, entrez les valeurs suivantes, puis cliquez sur **OK**. Les panneaux **Créer un réseau virtuel** et **Choisir un réseau virtuel** se ferment. Le champ **Sous-réseau** du panneau **Paramètres** est aussi automatiquement renseigné avec le nom du sous-réseau sélectionné.
 
-* **Nom** -Nom de la passerelle Application Gateway.
-* **Niveau** : il s’agit du niveau de la passerelle d’application. Deux niveaux sont disponibles : **WAF** et **Standard**. WAF active la fonctionnalité de pare-feu d’applications web.
-* **Taille de la référence (SKU)** : taille de la passerelle Application Gateway. Les options disponibles sont **Petit**, **Moyen** et **Grand**. L’option Petit n’est pas disponible lorsque le niveau WAF est sélectionné.
-* **Nombre d’instances** - Nombre d’instances. Cette valeur doit être un nombre compris entre 2 et 10.
-* **Groupe de ressources** - Groupe de ressources destiné à contenir la passerelle Application Gateway. Il peut s’agir d’un groupe de ressources existant ou nouveau.
-* **Emplacement** - Région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cette notion est importante, car le réseau virtuel et l’adresse IP publique doivent se trouver au même emplacement que la passerelle.
+   |**Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |**Nom**|AdatumAppGatewayVNET|Nom de la passerelle Application Gateway|
+   |**Espace d’adressage**|10.0.0.0/16| Espace d’adressage du réseau virtuel|
+   |**Nom du sous-réseau**|AppGatewaySubnet|Nom du sous-réseau de la passerelle Application Gateway|
+   |**Plage d’adresses de sous-réseau**|10.0.0.0/28| Ce sous-réseau autorise plusieurs sous-réseaux supplémentaires dans le réseau virtuel pour les membres du pool principal|
 
-![panneau montrant les paramètres de base][2]
+1. Dans le panneau **Paramètres**, sous **Configuration d’adresse IP frontale**, choisissez **Public** comme **Type d’adresse IP**.
 
-> [!NOTE]
-> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
-> 
-> 
+1. Dans le panneau **Paramètres**, sous **Adresse IP publique**, cliquez sur **Choisir une adresse IP publique** pour accédez au panneau **Choisir une adresse IP publique**, puis cliquez sur **créer**.
 
-### <a name="step-3"></a>Étape 3
+ ![choisir une adresse ip publique][3]
 
-Une fois les paramètres de base définis, l’étape suivante consiste à définir le réseau virtuel à utiliser. Le réseau virtuel héberge l’application pour laquelle la passerelle Application Gateway effectue l’équilibrage de charge.
+1. Dans le panneau **Créer une adresse IP publique**, acceptez la valeur par défaut et cliquez sur **OK**. Les panneaux **Choisir une adresse IP publique** et **Créer une adresse IP publique** se ferment et le champ **Adresse IP publique** est renseigné avec l’adresse IP publique choisie.
 
-Cliquez sur **Choisir un réseau virtuel** pour configurer le réseau virtuel.
+1. Dans le panneau **Paramètres**, sous **Configuration de l’écouteur**, cliquez sur **HTTPS** sous **Protocole**. Cette opération ajoute des champs supplémentaires. Cliquez sur l’icône de dossier en regard du champ **Charger un certificat PFX** et choisissez le certificat .pfx approprié. Entrez les informations suivantes dans les autres champs **Configuration de l’écouteur** :
 
-![panneau montrant les paramètres de la passerelle Application Gateway][3]
+   |**Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |Nom|Nom du certificat|Cette valeur est un nom convivial utilisé pour référencer le certificat|
+   |Mot de passe|Mot de passe du fichier .pfx| Il s’agit du mot de passe utilisé pour la clé privée|
 
-### <a name="step-4"></a>Étape 4
+1. Cliquez sur **OK** dans le panneau **Paramètres** pour continuer.
 
-Dans le panneau **Choisir un réseau virtuel** , cliquez sur **Créer nouveau**
-
-Bien que cela ne soit pas expliqué dans ce scénario, un réseau virtuel peut être sélectionné à ce stade.  Si un réseau virtuel existant est utilisé, il est important de savoir que le réseau virtuel a besoin d’un sous-réseau vide ou d’un sous-réseau contenant uniquement des ressources Application Gateway pour pouvoir être utilisé.
-
-![panneau Choisir un réseau virtuel][4]
-
-### <a name="step-5"></a>Étape 5
-
-Remplissez les informations de réseau dans le panneau **Créer un réseau virtuel** comme décrit dans la description du précédent [scénario](#scenario) .
-
-![panneau Créer un réseau virtuel avec informations saisies][5]
-
-### <a name="step-6"></a>Étape 6
-
-Une fois le réseau virtuel créé, l’étape suivante consiste à définir l’adresse IP frontale de la passerelle Application Gateway. À ce stade, le choix se résume à une adresse IP privée ou publique pour le serveur frontal. Le choix dépend si l’application est accessible sur Internet ou en interne uniquement. Ce scénario suppose l’utilisation d’une adresse IP publique. Pour choisir une adresse IP privée, il est possible de cliquer sur le bouton **Privé** . Une adresse IP affectée automatiquement est choisie, ou vous pouvez cocher la case **Choisir une adresse IP privée spécifique** pour en saisir une manuellement.
-
-### <a name="step-7"></a>Étape 7
-
-Cliquez sur **Choisir une adresse IP publique**. Si une adresse IP publique existante est disponible, elle peut être choisie à ce stade Dans ce scénario, vous créez une nouvelle adresse IP publique. Cliquez sur **Create new**
-
-![Panneau Choisir une adresse IP publique][6]
-
-### <a name="step-8"></a>Étape 8
-
-Attribuez ensuite un nom convivial à l’adresse IP publique et cliquez sur **OK**
-
-![Panneau Créer une adresse IP publique][7]
-
-### <a name="step-9"></a>Étape 9
-
-Le dernier paramètre à configurer lors de la création d’une passerelle Application Gateway est la configuration de l’écouteur.  Si **http** est utilisé, il n’y a rien d’autre à configurer. Vous pouvez alors cliquer sur **OK**. Une configuration supplémentaire est requise pour utiliser **https**.
-
-Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire. Un export .pfx du certificat doit donc être fourni, ainsi que le mot de passe.
-
-### <a name="step-10"></a>Étape 10
-
-Cliquez sur **HTTPS**, puis sur l’icône de **dossier** situé à côté de la zone de texte **Charger un certificat PFX**.
-Accédez au fichier de certificat .pfx sur votre système de fichiers. Une fois sélectionné, donnez un nom convivial au certificat et tapez le mot de passe du fichier .pfx.
-
-Une fois terminé, cliquez sur **OK** pour passer en revue les paramètres de la passerelle Application Gateway.
-
-![section Configuration de l’écouteur du panneau Paramètres][9]
-
-### <a name="step-11"></a>Étape 11
-
-Consultez la page Résumé et cliquez sur **OK**.  La passerelle Application Gateway est maintenant mise en file d’attente et créée.
-
-### <a name="step-12"></a>Étape 12
-
-Une fois la passerelle Application Gateway créée, accédez à celle-ci dans le portail pour poursuivre sa configuration.
-
-![Vue des ressources de la passerelle Application Gateway][10]
-
-Ces étapes permettent de créer une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
+1. Passez en revue les paramètres du panneau **Résumé** et cliquez sur **OK** pour démarrer la création de la passerelle Application Gateway. La création d’une passerelle Application Gateway est une tâche longue qui vous prendra un certain temps.
 
 ## <a name="add-servers-to-backend-pools"></a>Ajouter des serveurs aux pools principaux
 
-Une fois la passerelle Application Gateway créée, il reste à y ajouter les systèmes qui hébergent l’application dont la charge doit être équilibrée. Les adresses IP ou les valeurs FQDN de ces serveurs sont ajoutées aux pools d’adresses principaux.
+Une fois la passerelle Application Gateway créée, il reste à y ajouter les systèmes qui hébergent l’application dont la charge doit être équilibrée. Les adresses IP, les noms de domaine complets ou les cartes réseaux de ces serveurs sont ajoutés aux pools d’adresses principaux.
 
 ### <a name="ip-address-or-fqdn"></a>Adresse IP ou nom de domaine complet
 
-#### <a name="step-1"></a>Étape 1
+1. Une fois la passerelle Application Gateway créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la passerelle **AdatumAppGateway** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **AdatumAppGateway** dans la case **Filtrer par nom…** pour accéder facilement à la passerelle d’application.
 
-Cliquez sur la passerelle Application Gateway que vous avez créée, cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel.
+1. La passerelle Application Gateway que vous avez créée s’affiche. Cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel **appGatewayBackendPool** pour accéder au panneau **appGatewayBackendPool**.
 
-![Pools principaux Application Gateway][11]
+   ![Pools principaux Application Gateway][4]
 
-#### <a name="step-2"></a>Étape 2
-
-Cliquez sur **Add Target** (Ajouter cible) pour ajouter des adresses IP ou des valeurs de nom de domaine complet
-
-![Pools principaux Application Gateway][11-1]
-
-#### <a name="step-3"></a>Étape 3
-
-Une fois que vous avez saisi toutes les valeurs associées aux pools principaux, cliquez sur **Enregistrer**
-
-![Ajouter des valeurs aux pools principaux Application Gateway][12]
-
-Cette opération enregistre les valeurs dans le pool principal. Une fois la passerelle Application Gateway mise à jour, le trafic qui y accède est acheminé vers les adresses principales ajoutées à cette étape.
+1. Cliquez sur **Ajouter une cible** pour ajouter des adresses IP ou des valeurs de nom de domaine complet. Choisissez **Adresse IP ou nom de domaine complet** comme **Type** et entrez votre adresse IP ou le nom de domaine complet dans le champ. Répétez cette procédure pour les autres membres du pool principal. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
 ### <a name="virtual-machine-and-nic"></a>Machine virtuelle et carte d’interface réseau
 
 Vous pouvez également ajouter des cartes d’interface réseau de machine virtuelle en tant que membres de pool principal. Seules les machines virtuelles s’exécutant dans le même réseau virtuel que la passerelle Application Gateway peuvent être sélectionnées.
 
-#### <a name="step-1"></a>Étape 1
+1. Une fois la passerelle Application Gateway créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la passerelle **AdatumAppGateway** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **AdatumAppGateway** dans la case **Filtrer par nom…** pour accéder facilement à la passerelle d’application.
 
-Cliquez sur la passerelle Application Gateway que vous avez créée, cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel.
+1. La passerelle Application Gateway que vous avez créée s’affiche. Cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel **appGatewayBackendPool** pour accéder au panneau **appGatewayBackendPool**.
 
-![Pools principaux Application Gateway][11]
+   ![Pools principaux Application Gateway][5]
 
-#### <a name="step-2"></a>Étape 2
+1. Cliquez sur **Ajouter une cible** pour ajouter des adresses IP ou des valeurs de nom de domaine complet. Choisissez **Machine virtuelle** comme **Type** et sélectionnez la machine virtuelle et la carte réseau à utiliser. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
-Cliquez sur **Add Target** (Ajouter cible) pour ajouter un nouveau membre de pool principal. Choisissez une machine virtuelle et une carte d’interface réseau dans les listes déroulantes.
+   > [!NOTE]
+   > Seules les machines virtuelles s’exécutant dans le même réseau virtuel que la passerelle Application Gateway peuvent être sélectionnées dans la liste déroulante.
 
-![Ajouter des cartes d’interface réseau aux pools principaux Application Gateway][13]
+## <a name="delete-all-resources"></a>Supprimer toutes les ressources
 
-#### <a name="step-3"></a>Étape 3
+Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
 
-Lorsque vous avez terminé, cliquez sur **Enregistrer** pour enregistrer les cartes réseau en tant que membres de pool principal.
-
-![Enregistrer les cartes réseau des pools principaux Application Gateway][14]
+1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur le groupe de ressources **AdatumAppGatewayRG** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **AdatumAppGatewayRG** dans la case **Filtrer par nom…** pour accéder facilement au groupe de ressources.
+1. Dans le panneau **AdatumAppGatewayRG**, cliquez sur le bouton **Supprimer**.
+1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Cliquez sur **Supprimer**, tapez AdatumAppGateway comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -213,15 +156,5 @@ Découvrez comment protéger vos applications grâce au [Pare-feu d’applicatio
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
 [4]: ./media/application-gateway-create-gateway-portal/figure4.png
 [5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[6]: ./media/application-gateway-create-gateway-portal/figure6.png
-[7]: ./media/application-gateway-create-gateway-portal/figure7.png
-[8]: ./media/application-gateway-create-gateway-portal/figure8.png
-[9]: ./media/application-gateway-create-gateway-portal/figure9.png
-[10]: ./media/application-gateway-create-gateway-portal/figure10.png
-[11]: ./media/application-gateway-create-gateway-portal/figure11.png
-[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
-[12]: ./media/application-gateway-create-gateway-portal/figure12.png
-[13]: ./media/application-gateway-create-gateway-portal/figure13.png
-[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 

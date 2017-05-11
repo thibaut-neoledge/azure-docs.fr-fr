@@ -12,73 +12,59 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 04/24/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
-ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 861fcd7160fcab025909b60086f1a5a8a68f33fb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Planification et exécution avec Data Factory
-Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. 
-
-## <a name="prerequisites"></a>Composants requis
-Cet article suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données. Pour les concepts de base d’Azure Data Factory, consultez les articles suivants :
+Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. Cet article suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données. Pour les concepts de base d’Azure Data Factory, consultez les articles suivants :
 
 * [Présentation de Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
 * [Groupes de données](data-factory-create-datasets.md) 
 
-## <a name="schedule-an-activity"></a>Planification d’une activité
-Grâce à la section planificateur de l’activité JSON, vous pouvez planifier l’activité pour qu’elle s’exécute de façon récurrente. Par exemple, vous pouvez planifier une activité toutes les heures comme suit :
+## <a name="start-and-end-times-of-pipeline"></a>Heures de début et de fin de pipeline
+Un pipeline est actif uniquement entre son heure de **début** et son heure de **fin**. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n’est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. Vous trouvez ces paramètres (début, fin, suspendu) dans la définition du pipeline : 
+
+```json
+"start": "2017-04-01T08:00:00Z",
+"end": "2017-04-01T11:00:00Z"
+"isPaused": false
+```
+
+Pour plus d’informations sur ces propriétés, consultez l’article [Créer des pipelines](data-factory-create-pipelines.md). 
+
+
+## <a name="specify-schedule-for-an-activity"></a>Spécifier la planification d’une activité
+Ce n’est pas le pipeline qui est exécuté. Ce sont les activités dans le pipeline qui sont exécutées dans le contexte global du pipeline. Vous pouvez planifier l’activité pour qu’elle s’exécute de façon récurrente grâce à la section **scheduler** (planificateur) de l’activité JSON. Par exemple, vous pouvez planifier l’exécution d’une activité toutes les heures comme suit :  
 
 ```json
 "scheduler": {
     "frequency": "Hour",
     "interval": 1
-},  
-```
-
-![Exemple de planificateur](./media/data-factory-scheduling-and-execution/scheduler-example.png)
-
-Comme indiqué dans le diagramme, la spécification d’un calendrier pour l'activité crée une série de fenêtres récurrentes. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas. Ces fenêtres récurrentes logiques pour l'activité sont appelés *fenêtres d'activité*.
-
-Pour la fenêtre d’activité en cours d’exécution, vous pouvez accéder à l’intervalle de temps associé à la fenêtre d’activité par le biais des variables système [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) et [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) de l’activité JSON. Vous pouvez utiliser ces variables à différentes fins dans votre activité JSON. Par exemple, vous pouvez les utiliser pour sélectionner les données à partir des jeux de données d’entrée et de sortie représentant les données de série chronologique.
-
-La propriété **scheduler** prend en charge les mêmes sous-propriétés que la propriété **availability** dans un jeu de données. Consultez [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability) pour plus de détails. Exemples : planification à un décalage spécifique, définition du mode pour faire coïncider le traitement au début ou à la fin de l’intervalle de la fenêtre d’activité.
-
-Vous pouvez spécifier les propriétés du **planificateur** pour une activité, mais cette propriété est **facultative**. Si vous définissez une propriété, elles devront correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
-
-## <a name="time-series-datasets-and-data-slices"></a>Jeux de données et tranches de données de série chronologique
-Les données de série chronologique sont une séquence continue de points de données comprenant généralement des mesures successives effectuées pendant un certain intervalle de temps. Parmi les exemples de données de série chronologique, on trouve : des données de capteur, des données pour application de télémétrie.
-
-Avec Data Factory, vous pouvez traiter les données de série par lot pendant l’exécution de l’activité. En règle générale, il existe des cadences périodiques régissant le rythme auquel les données d’entrée arrivent et les données de sortie sont générées. Cette cadence est modélisée en spécifiant la **Disponibilité** du jeu de données comme suit :
-
-```json
-"availability": {
-  "frequency": "Hour",
-  "interval": 1
 },
 ```
 
-Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée tranche de données. Le diagramme suivant illustre un exemple d’une activité avec un jeu de données d’entrée et un jeu de données de sortie. Ces jeux de données ont la propriété **Disponibilité** définie sur une fréquence de «Toutes les heures ».
+Comme illustré dans le diagramme suivant, la définition d’une planification pour une activité crée une série de fenêtres récurrentes dans les heures de début et de fin du pipeline. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas. Ces fenêtres récurrentes logiques pour une activité sont appelées des **fenêtres d’activité**.
 
-![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
+![Exemple de planificateur d’activité](media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme précédent. Le diagramme illustre trois tranches d’entrée qui sont prêtes pour le traitement. L’activité de 10 à 11 h est en cours, et produit la tranche de sortie de 10 à 11 h.
+La propriété **scheduler** (planificateur) d’une activité est facultative. Si vous définissez cette propriété, elle doit correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie pour l’activité. Le jeu de données de sortie pilote actuellement la planification. Vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. 
 
-Vous pouvez accéder à l’intervalle de temps associé à la tranche actuelle en cours de production dans le jeu de données JSON avec des variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) et [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+## <a name="specify-schedule-for-a-dataset"></a>Spécifier la planification d’un jeu de données
+Une activité dans un pipeline Data Factory peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Pour une activité, vous pouvez spécifier la cadence à laquelle les données d’entrée sont disponibles ou les données de sortie sont produites à l’aide de la section **availability** (disponibilité) dans les définitions de jeu de données. 
 
-Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la **disponibilité** du jeu de données de sortie. Ainsi, **WindowStart**, **WindowEnd** et **SliceStart** et **SliceEnd** font toujours correspondre la même période de temps et une tranche de sortie unique.
+La **Fréquence** dans la section **availability** (disponibilité) spécifie l’unité de temps. Les valeurs autorisées pour la fréquence sont : minute, heure, jour, semaine et mois. La propriété **interval** (intervalle) dans la section availability (disponibilité) spécifie un multiplicateur de fréquence. Par exemple : si la fréquence est définie sur Jour et l’intervalle sur 1 pour un jeu de données de sortie, les données de sortie sont produites chaque jour. Si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. 
 
-Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, consultez [Création de jeux de données](data-factory-create-datasets.md).
+Dans l’exemple suivant, les données d’entrée seront disponibles toutes les heures et les données de sortie sont produites toutes les heures (`"frequency": "Hour", "interval": 1`). 
 
-## <a name="move-data-from-sql-database-to-blob-storage"></a>Déplacement des données à partir de SQL Database vers le stockage blob
-Mettons quelque chose en place en créant un pipeline qui copie les données d’une table de base de données SQL Azure vers un stockage sur objet blob Azure toutes les heures.
-
-**Entrée : jeu de données de base données SQL Azure**
+**Jeu de données d'entrée :** 
 
 ```json
 {
@@ -100,9 +86,8 @@ Mettons quelque chose en place en créant un pipeline qui copie les données d�
 }
 ```
 
-La **fréquence** est définie sur **Heure** et **l’intervalle** sur **1** dans la section Disponibilité.
 
-**Sortie : Jeu de données de stockage sur objet Blob Azure**
+**Jeu de données de sortie**
 
 ```json
 {
@@ -117,38 +102,10 @@ La **fréquence** est définie sur **Heure** et **l’intervalle** sur **1** dan
                 "type": "TextFormat"
             },
             "partitionedBy": [
-                {
-                    "name": "Year",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "yyyy"
-                    }
-                },
-                {
-                    "name": "Month",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%M"
-                    }
-                },
-                {
-                    "name": "Day",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%d"
-                    }
-                },
-                {
-                    "name": "Hour",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%H"
-                    }
-                }
+                { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "%d" } },
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "%H" }}
             ]
         },
         "availability": {
@@ -159,10 +116,10 @@ La **fréquence** est définie sur **Heure** et **l’intervalle** sur **1** dan
 }
 ```
 
-La **fréquence** est définie sur **Heure** et **l’intervalle** sur **1** dans la section Disponibilité.
+Le **jeu de données de sortie pilote actuellement la planification**. En d’autres termes, la planification spécifiée pour le jeu de données de sortie est utilisée pour exécuter une activité lors de l’exécution. Vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. 
 
-**Activité : activité de copie**
-
+Dans la définition de pipeline suivante, la propriété **scheduler** (planificateur) est utilisée pour spécifier la planification de l’activité. Cette propriété est facultative. La planification de l’activité doit actuellement correspondre à la planification spécifiée pour le jeu de données de sortie.
+ 
 ```json
 {
     "name": "SamplePipeline",
@@ -194,279 +151,175 @@ La **fréquence** est définie sur **Heure** et **l’intervalle** sur **1** dan
                         "name": "AzureBlobOutput"
                     }
                 ],
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 }
             }
         ],
-        "start": "2015-01-01T08:00:00Z",
-        "end": "2015-01-01T11:00:00Z"
+        "start": "2017-04-01T08:00:00Z",
+        "end": "2017-04-01T11:00:00Z"
     }
 }
 ```
 
-L’exemple montre les sections Planification d’activité et Disponibilité d’un jeu de données défini à la fréquence toutes les heures. L’exemple montre comment vous pouvez utiliser **WindowStart** et **WindowEnd** pour sélectionner les données pertinentes pour l’exécution d’une activité et les copier sur un objet Blob avec le bon **folderPath**. **folderPath** est paramétré pour avoir un dossier distinct pour chaque heure.
+Dans cet exemple, l’activité s’exécute toutes les heures entre les heures de début et de fin du pipeline. Les données de sortie sont produites toutes les heures pour des trois fenêtres de temps (8h-9h, 9h-10h et 10h-11h). 
 
-Lorsque trois des tranches entre 8 et 11 h s’exécutent, et que les données dans la base de données SQL Azure sont les suivantes :
+Chaque unité de données consommée ou produite pendant l’exécution d’une activité est appelée **tranche de données**. Le diagramme suivant illustre un exemple d’une activité avec un jeu de données d’entrée et un jeu de données de sortie : 
 
-![Exemple d’entrée](./media/data-factory-scheduling-and-execution/sample-input-data.png)
+![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Après avoir déployé le pipeline, l’objet blob Azure est renseigné comme suit :
+Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme. Le diagramme illustre trois tranches d’entrée qui sont prêtes pour le traitement. L’activité de 10 à 11 h est en cours, et produit la tranche de sortie de 10 à 11 h. 
 
-* Fichier mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt avec des données
-    ```  
-    10002345,334,2,2015-01-01 08:24:00.3130000
-    10002345,347,15,2015-01-01 08:24:00.6570000
-    10991568,2,7,2015-01-01 08:56:34.5300000
-    ```
-  
-  > [!NOTE]
-  > &lt;Guid&gt; est remplacé par un vrai guid. Exemple de nom de fichier : Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-  > 
-  > 
-* Fichier mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt avec des données :
+Vous pouvez accéder à l’intervalle de temps associé à la tranche actuelle dans le jeu de données JSON à l’aide des variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) et [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). De même, vous pouvez accéder à l’intervalle de temps associé à une fenêtre d’activité à l’aide des variables WindowStart et WindowEnd. La planification d’une activité doit correspondre à la planification du jeu de données de sortie pour l’activité. Par conséquent, les valeurs SliceStart et SliceEnd sont identiques aux valeurs WindowStart et WindowEnd, respectivement. Pour plus d’informations sur ces variables, consultez les articles [Variables système et fonctions Data Factory](data-factory-functions-variables.md#data-factory-system-variables).  
 
-    ```json  
-    10002345,334,1,2015-01-01 09:13:00.3900000
-    24379245,569,23,2015-01-01 09:25:00.3130000
-    16777799,21,115,2015-01-01 09:47:34.3130000
-    ```
-* Fichier mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sans données.
+Vous pouvez utiliser ces variables à différentes fins dans votre activité JSON. Par exemple, vous pouvez les utiliser pour sélectionner les données à partir des jeux de données d’entrée et de sortie représentant les données de série chronologique (par exemple : 8h à 9h). Cet exemple utilise également **WindowStart** et **WindowEnd** pour sélectionner les données pertinentes pour l’exécution d’une activité et les copier sur un objet Blob avec le bon **folderPath**. **folderPath** est paramétré pour avoir un dossier distinct pour chaque heure.  
 
-## <a name="active-period-for-pipeline"></a>Période active pour le pipeline
-[Création de Pipelines](data-factory-create-pipelines.md) a présenté le concept de période active pour un pipeline spécifié par la définition des propriétés **start** et **end**.
+Dans l’exemple précédent, la planification spécifiée pour les jeux de données d’entrée et de sortie est la même (toutes les heures). Si le jeu de données d’entrée de l’activité est disponible à une fréquence différente, par exemple toutes les 15 minutes, l’activité qui produit ce jeu de données de sortie est toujours exécutée une fois par heure car le jeu de données de sortie pilote la planification de l’activité. Pour plus d’informations, consultez [Modélisation des jeux de données avec des fréquences différentes](#model-datasets-with-different-frequencies).
 
-Vous pouvez définir la date de début pour la période d’activité du pipeline dans le passé. Data Factory calcule (remplit postérieurement) automatiquement toutes les tranches de données dans le passé automatiquement et commence à les traiter.
+## <a name="dataset-availability-and-policies"></a>Disponibilité et stratégies du jeu de données
+Vous avez vu l’utilisation des propriétés de fréquence et d’intervalle de la section availability (disponibilité) de la définition du jeu de données. D’autres propriétés affectent la planification et l’exécution d’une activité. 
+
+### <a name="dataset-availability"></a>Disponibilité du jeu de données 
+Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **availability** :
+
+| Propriété | Description | Requis | Default |
+| --- | --- | --- | --- |
+| frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b>: minute, heure, jour, semaine, mois |Oui |N/D |
+| interval |Spécifie un multiplicateur de fréquence<br/><br/>«Frequency» et «interval» déterminent la fréquence à laquelle la tranche est produite.<br/><br/>Si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/><b>Remarque :</b> si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. |Oui |N/D |
+| style |Spécifie si le segment doit être généré au début / à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si la fréquence est définie sur Month et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.<br/><br/>Si la fréquence est définie sur Day et le style défini sur EndOfInterval, le segment est généré la dernière heure du jour.<br/><br/>Si la fréquence est définie sur Hour et le style défini sur EndOfInterval, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non |EndOfInterval |
+| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/><b>Remarque :</b> si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si <b>interval</b> est défini sur <b>hourly</b> (frequency : hour et interval : 1) et si <b>AnchorDateTime</b> contient <b>minutes et seconds</b>, les parties <b>minutes et seconds</b> de la valeur AnchorDateTime sont ignorées. |Non |01/01/0001 |
+| Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/><b>Remarque :</b> si anchorDateTime et offset sont spécifiés, un décalage combiné est obtenu. |Non |N/D |
+
+### <a name="offset-example"></a>exemple offset
+Par défaut, les tranches quotidiennes (`"frequency": "Day", "interval": 1`) commencent à 0 h UTC (minuit). Si vous souhaitez que l’heure de début soit 6 h UTC, définissez le décalage comme indiqué dans l’extrait suivant : 
+
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
+### <a name="anchordatetime-example"></a>Exemple anchorDateTime
+Dans l’exemple suivant, le jeu de données est généré toutes les 23 heures. La première tranche commence à l’heure spécifiée par anchorDateTime, qui est défini sur `2017-04-19T08:00:00` (heure UTC).
+
+```json
+"availability":    
+{    
+    "frequency": "Hour",        
+    "interval": 23,    
+    "anchorDateTime":"2017-04-19T08:00:00"    
+}
+```
+
+### <a name="offsetstyle-example"></a>Exemple de décalage/style
+Le jeu de données suivant est un jeu de données mensuel et est généré le 3 de chaque mois à 8h00 (`3.08:00:00`) :
+
+```json
+"availability": {
+    "frequency": "Month",
+    "interval": 1,
+    "offset": "3.08:00:00",    
+    "style": "StartOfInterval"
+}
+```
+
+### <a name="dataset-policy"></a>Stratégie du jeu de données
+Un jeu de données peut avoir une stratégie de validation définie qui spécifie comment les données générées par l’exécution d’une tranche peuvent être validées avant qu’il soit prêt à la consommation. Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de la tranche de sortie devient **En attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**. Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval dépendant de cette tranche qui ne sont pas traitées. [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md) .
+
+La section **policy** de la définition du jeu de données définit les critères ou la condition que les segments du jeu de données doivent remplir. Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **policy** (stratégie) :
+
+| Nom de la stratégie | Description | Appliqué(e) à | Requis | Default |
+| --- | --- | --- | --- | --- |
+| minimumSizeMB | Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |objet blob Azure |Non |N/D |
+| minimumRows | Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données SQL Azure</li><li>table Azure</li></ul> |Non |N/D |
+
+#### <a name="examples"></a>Exemples
+**minimumSizeMB :**
+
+```json
+"policy":
+
+{
+    "validation":
+    {
+        "minimumSizeMB": 10.0
+    }
+}
+```
+
+**minimumRows**
+
+```json
+"policy":
+{
+    "validation":
+    {
+        "minimumRows": 100
+    }
+}
+```
+
+Pour plus d’informations sur ces propriétés et exemples, consultez l’article [Créer des jeux de données](data-factory-create-datasets.md). 
+
+## <a name="activity-policies"></a>Stratégies d’activité
+Les stratégies affectent le comportement d'exécution d'une activité, en particulier lors du traitement du segment d'une table. Le tableau suivant fournit les détails.
+
+| Propriété | Valeurs autorisées | Valeur par défaut | Description |
+| --- | --- | --- | --- |
+| accès concurrentiel |Entier  <br/><br/>Valeur max : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Détermine l’ordre des segments de données qui sont traités.<br/><br/>Par exemple, si vous avez 2 segments (l’un se produisant à 16 heures et l’autre à 17 heures) et que les deux sont en attente d’exécution. Si vous définissez executionPriorityOrder sur NewestFirst, le segment à 17 h est traité en premier. De même, si vous définissez executionPriorityOrder sur OldestFIrst, le segment à 16 h est traité en premier. |
+| retry |Entier <br/><br/>La valeur max peut être 10 |0 |Nombre de nouvelles tentatives avant que le traitement des données du segment ne soit marqué comme un échec. L'exécution de l'activité pour un segment de données est répétée jusqu'au nombre de tentatives spécifié. La nouvelle tentative est effectuée dès que possible après l'échec. |
+| timeout |TimeSpan |00:00:00 |Délai d'expiration de l'activité. Exemple : 00:10:00 (implique un délai d’expiration de 10 minutes)<br/><br/>Si une valeur n’est pas spécifiée ou est égale à 0, le délai d’expiration est infini.<br/><br/>Si le temps de traitement des données sur un segment dépasse la valeur du délai d’expiration, il est annulé et le système tente de réexécuter le traitement. Le nombre de nouvelles tentatives dépend de la propriété « retry ». Quand le délai d’expiration est atteint, l’état est défini sur TimedOut. |
+| delay |TimeSpan |00:00:00 |Spécifie le délai avant le début du traitement des données du segment.<br/><br/>L’exécution d’activité pour une tranche de données est démarrée une fois que le délai a dépassé l’heure d’exécution prévue.<br/><br/>Exemple : 00:10:00 (implique un délai de 10 minutes) |
+| longRetry |Entier <br/><br/>Valeur max : 10 |1 |Le nombre de nouvelles tentatives longues avant l’échec de l’exécution du segment.<br/><br/>Les tentatives longRetry sont espacées par longRetryInterval. Par conséquent, si vous devez spécifier un délai entre chaque tentative, utilisez longRetry. Si les valeurs Retry et longRetry sont spécifiées, chaque tentative longRetry inclut des tentatives Retry et le nombre maximal de tentatives sera égal à Retry * longRetry.<br/><br/>Par exemple, si nous avons les paramètres suivants dans la stratégie de l’activité :<br/>Retry : 3<br/>longRetry : 2<br/>longRetryInterval : 01:00:00<br/><br/>Supposons qu’il existe un seul segment à exécuter (dont l’état est Waiting) et que l’exécution de l’activité échoue à chaque fois. Au départ, il y aurait 3 tentatives consécutives d'exécution. Après chaque tentative, l’état du segment serait Retry. Une fois les 3 premières tentatives terminées, l’état du segment serait LongRetry.<br/><br/>Après une heure (c’est-à-dire la valeur de longRetryInterval), il y aurait un autre ensemble de 3 tentatives consécutives d’exécution. Ensuite, l'état du segment serait Failed et aucune autre tentative ne serait exécutée. Par conséquent, 6 tentatives ont été exécutées.<br/><br/>Si une exécution réussit, l’état de la tranche est Ready et aucune nouvelle tentative n’est tentée.<br/><br/>La valeur longRetry peut être utilisée dans les situations où les données dépendantes arrivent à des moments non déterministes ou lorsque l’environnement global où le traitement des données se produit est douteux. Dans ces cas, l’exécution de nouvelles tentatives l’une après l’autre peut ne pas être utile et procéder ainsi après un intervalle de temps précis produit la sortie désirée.<br/><br/>Mise en garde : ne définissez pas de valeurs élevées pour longRetry ou longRetryInterval. En règle générale, des valeurs plus élevées impliquent d’autres problèmes systémiques. |
+| longRetryInterval |TimeSpan |00:00:00 |Le délai entre les nouvelles tentatives longues |
+
+Pour plus d’informations, consultez l’article [Pipelines](data-factory-create-pipelines.md). 
 
 ## <a name="parallel-processing-of-data-slices"></a>Traitement en parallèle des tranches de données
-Vous pouvez configurer des tranches de données pour qu’elles soient exécutées en parallèle en définissant la propriété **concurrency** dans la section relative à la stratégie de l’activité JSON. Pour plus d’informations sur cette propriété, consultez [Création de pipelines](data-factory-create-pipelines.md).
+Vous pouvez définir la date de début du pipeline dans le passé. Lorsque vous procédez ainsi, Data Factory calcule (remplit postérieurement) automatiquement toutes les tranches de données dans le passé automatiquement et commence à les traiter. Par exemple : si vous créez un pipeline avec la date de début 2017-04-01 et que la date actuelle est 2017-04-10. Si la cadence du jeu de données de sortie est tous les jours, Data Factory commence immédiatement le traitement de toutes les tranches entre le 2017-04-01 et le 2017-04-09, car la date de début se situe dans le passé. La tranche du 2017-04-10 n’est pas encore traitée, car la valeur de la propriété style dans la section availability (disponibilité) est EndOfInterval par défaut. La tranche la plus ancienne est traitée en premier, car la valeur par défaut de executionPriorityOrder est OldestFirst. Pour obtenir une description de la propriété style, consultez la section [Disponibilité du jeu de données](#dataset-availability). Pour obtenir une description de la section executionPriorityOrder, consultez la section [Stratégies d’activité](#activity-policies). 
+
+Vous pouvez configurer des tranches de données pour qu’elles soient traitées en parallèle en définissant la propriété **concurrency** (concurrence) dans la section **policy** (stratégie) de l’activité JSON. Cette propriété détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. La valeur par défaut de la propriété de concurrence est 1. Une tranche est donc traitée à la fois par défaut. La valeur maximale est 10. Lorsqu’un pipeline doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. 
 
 ## <a name="rerun-a-failed-data-slice"></a>Réexécuter une tranche de données ayant échoué
-Vous pouvez surveiller l’exécution des tranches visuellement, avec tous les détails. Pour plus d’informations, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou de [l’application Surveillance et gestion](data-factory-monitor-manage-app.md).
+Lorsqu’une erreur se produit pendant le traitement d’une tranche de données, vous pouvez savoir pourquoi le traitement d’une tranche a échoué à l’aide de panneaux du portail Azure ou de l’application Surveiller et gérer. Pour plus d’informations, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou de [l’application Surveillance et gestion](data-factory-monitor-manage-app.md).
 
-Prenons l’exemple suivant, il montre les deux activités. Activity1 génère un jeu de données chronologique avec des tranches en sortie qui sont consommées en tant qu’entrée Activity2 pour générer le jeu de données de série de chronologie de la sortie finale.
+Prenons l’exemple suivant, il montre les deux activités. Activity1 et Activity2. Activity1 utilise une tranche de Dataset1 et génère une tranche de Dataset2, qui est utilisé en entrée par Activity2 pour produire une tranche du jeu de données final.
 
 ![Tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
 Le diagramme montre que, parmi les trois tranches récentes, il y a eu un échec, ce qui a généré une tranche 9 à 10 h pour Dataset2. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données. Par conséquent, il ne lance pas l’activité sur la tranche 9 à 10 h en aval.
 
-Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou de [l’application Surveillance et gestion](data-factory-monitor-manage-app.md).
+Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou [Application de surveillance et gestion](data-factory-monitor-manage-app.md).
 
 Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour **Dataset2**, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-## <a name="run-activities-in-a-sequence"></a>Exécution d’activités dans une séquence
+## <a name="multiple-activities-in-a-pipeline"></a>Plusieurs activités à l’intérieur d’un pipeline
+Un pipeline peut toutefois contenir plusieurs activités. Si vous avez plusieurs activités dans un pipeline et que la sortie d’une activité n’est pas une entrée dans une autre activité, les activités peuvent s’exécuter en parallèle si les tranches de données d’entrée pour les activités sont prêtes.
+
 Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
 
-Considérez l’exemple suivant :
+Par exemple, considérez le cas suivant, dans lequel un pipeline a deux activités :
 
-1. Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de sortie D2.
-2. Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’entrée D2 et produit le jeu de données de sortie D3.
+1. L’activité A1 nécessitant le jeu de données d’entrée externe D1 et qui produit le jeu de données de sortie D2.
+2. L’activité A2 nécessitant le jeu de données d’entrée D2 et qui produit le jeu de données de sortie D3.
 
-Dans ce scénario, les activités A1 et A2 sont dans des pipelines différents. L’activité A1 s’exécute lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécute lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 n’est pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
+Dans ce scénario, les activités A1 et A2 sont dans le même pipeline. L’activité A1 s’exécute lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécute lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 n’est pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
 
-La vue de diagramme se présente comme dans le diagramme suivant :
-
-![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
-
-Comme mentionné plus tôt, les activités peuvent être dans le même pipeline. La vue de diagramme avec les deux activités dans le même pipeline se présente comme dans le diagramme suivant :
+La vue de diagramme avec les deux activités dans le même pipeline se présente comme dans le diagramme suivant :
 
 ![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### <a name="copy-sequentially"></a>Copier de manière séquentielle
-Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : (ActivitédeCopie1 et ActivitédeCopie2) avec les jeux de données de sortie de données d’entrée suivants :   
+Comme mentionné plus tôt, les activités peuvent être dans des pipelines différents. Dans ce scénario, la vue de diagramme se présente comme dans le diagramme suivant :
 
-Activitédecopie1
+![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-Jeu de données d'entrée. Sortie : Dataset2.
-
-Activitédecopie2
-
-Entrée : Jeudedonnées2.  Sortie : Jeudedonnées3.
-
-ActivitédeCopie2 s’exécute uniquement si ActivitédeCopie1 s’est exécutée avec succès et que JeudeDonnées2 est disponible.
-
-Voici l’exemple de pipeline JSON :
-
-```json
-{
-    "name": "ChainActivities",
-    "properties": {
-        "description": "Run activities in sequence",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "copyBehavior": "PreserveHierarchy",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset1"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlob1ToBlob2",
-                "description": "Copy data from a blob to another"
-            },
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset3"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlob2ToBlob3",
-                "description": "Copy data from a blob to another"
-            }
-        ],
-        "start": "2016-08-25T01:00:00Z",
-        "end": "2016-08-25T01:00:00Z",
-        "isPaused": false
-    }
-}
-```
-
-Notez que dans l’exemple, le jeu de données de sortie de la première activité de copie (Dataset2) est spécifié en tant qu’entrée pour la deuxième activité. Par conséquent, la deuxième activité s’exécute uniquement lorsque le jeu de données de sortie de la première activité est prêt.  
-
-Dans l’exemple, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous spécifiez JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne s’exécute pas avant la fin d’ActivitédeCopie1. Par exemple :
-
-Activitédecopie1
-
-Entrée : Jeudedonnées1. Sortie : Dataset2.
-
-Activitédecopie2
-
-Entrées : Jeudedonnées3, Jeudedonnées2. Sortie : Jeudedonnées4.
-
-```json
-{
-    "name": "ChainActivities",
-    "properties": {
-        "description": "Run activities in sequence",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "copyBehavior": "PreserveHierarchy",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset1"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlobToBlob",
-                "description": "Copy data from a blob to another"
-            },
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset3"
-                    },
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset4"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlob3ToBlob4",
-                "description": "Copy data from a blob to another"
-            }
-        ],
-        "start": "2017-04-25T01:00:00Z",
-        "end": "2017-04-25T01:00:00Z",
-        "isPaused": false
-    }
-}
-```
-
-Notez que dans l’exemple, deux jeux de données d’entrée sont spécifiés pour la deuxième activité de copie. Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
-
-* ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
-* JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
+Consultez la section [Copier de manière séquentielle](#copy-sequentially) de l’annexe pour obtenir un exemple.
 
 ## <a name="model-datasets-with-different-frequencies"></a>Modélisation des jeux de données avec des fréquences différentes
 Dans les exemples, les fréquences de planification des jeux de données d’entrée et de sortie et l’intervalle d’activité sont les mêmes. Certains scénarios exigent que la fréquence de génération d’une sortie à soit différente de celles d’une ou de plusieurs entrées. Data factory prend en charge la modélisation de ces scénarios.
@@ -743,88 +596,69 @@ L’activité Hive accepte les deux entrées et génère une tranche de sortie t
 }
 ```
 
-## <a name="data-factory-functions-and-system-variables"></a>Variables système et fonctions Data Factory
 Pour obtenir la liste des fonctions et variables système prises en charge par Azure Data Factory, consultez [Variables système et fonctions Data Factory](data-factory-functions-variables.md) .
 
-## <a name="data-dependency-deep-dive"></a>Examen approfondi de la dépendance de données
-Pour générer une tranche de jeu de données en exécutant une activité, Data Factory utilise le *modèle de dépendance* pour déterminer les relations entre les jeux de données consommés et générés par une activité.
+## <a name="appendix"></a>Annexe
 
-L’intervalle de temps des jeux de données d’entrée requis pour générer la tranche de jeu de données de sortie s’appelle la *période de dépendance*.
+### <a name="example-copy-sequentially"></a>Exemple : Copier de manière séquentielle
+Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : (ActivitédeCopie1 et ActivitédeCopie2) avec les jeux de données de sortie de données d’entrée suivants :   
 
-Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. En d’autres termes, toutes les tranches d’entrée constituant la période de dépendance doivent être à l’état **Prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
+Activitédecopie1
 
-Pour générer la tranche de jeu de données [**début**, **fin**], une fonction mettant en adéquation la tranche de jeu de données avec la période de dépendance doit exister. Cette fonction est essentiellement une formule qui convertit le début et la fin de la tranche de jeu de données au début et à la fin de la période de dépendance. Plus formellement :
+Jeu de données d'entrée. Sortie : Dataset2.
 
-```
-DatasetSlice = [start, end]
-DependencyPeriod = [f(start, end), g(start, end)]
-```
+Activitédecopie2
 
-**F** et **g** sont des fonctions de mappage qui calculent le début et la fin de la période de dépendance pour chaque activité d’entrée.
+Entrée : Jeudedonnées2.  Sortie : Jeudedonnées3.
 
-Comme on le voit dans les exemples, la période de dépendance est identique à la période de la tranche de données qui est produite. Dans ces cas, Data Factory calcule automatiquement les tranches d’entrée qui se situent dans la période de dépendance.  
+ActivitédeCopie2 s’exécute uniquement si ActivitédeCopie1 s’est exécutée avec succès et que JeudeDonnées2 est disponible.
 
-Par exemple, dans l’exemple d’agrégation où la sortie est générée quotidiennement et des données d’entrée sont disponibles toutes les heures, la période de tranche de données est de 24 heures. Data Factory recherche les tranches d’entrée chaque heure pour chaque intervalle et rend la tranche de sortie dépendante d’une tranche d’entrée.
-
-Vous pouvez également fournir votre propre correspondance pour la période de dépendance comme indiqué dans l’exemple, où une des entrées était hebdomadaire et la tranche de sortie est générée au quotidien.
-
-## <a name="data-dependency-and-validation"></a>Dépendance et validation de données
-Un jeu de données peut avoir une stratégie de validation définie qui spécifie comment les données générées par l’exécution d’une tranche peuvent être validées avant qu’il soit prêt à la consommation. Consultez [Création de jeux de données](data-factory-create-datasets.md) pour plus d’informations.
-
-Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de la tranche de sortie devient **En attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**.
-
-Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval dépendant de cette tranche qui ne sont pas traitées.
-
-[Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md) .
-
-## <a name="external-data"></a>Données externes
-Un jeu de données peut être marqué en tant qu’externe (comme indiqué dans l’extrait de code JSON suivant), l’implication n’a pas été générée avec Data Factory. Dans ce cas, la stratégie de jeu de données peut avoir un ensemble de paramètres décrivant la stratégie de validation et de réexécution du jeu de données. Consultez [Création de pipelines](data-factory-create-pipelines.md) pour obtenir la description de toutes les propriétés.
-
-Similaires aux jeux de données produits par Data Factory, les tranches de données pour les données externes doivent être prêtes avant que les tranches dépendantes puissent être traitées.
+Voici l’exemple de pipeline JSON :
 
 ```json
 {
-    "name": "AzureSqlInput",
-    "properties":
-    {
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties":
-        {
-            "tableName": "MyTable"
-        },
-        "availability":
-        {
-            "frequency": "Hour",
-            "interval": 1     
-        },
-        "external": true,
-        "policy":
-        {
-            "externalData":
-            {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }  
-    }
-}
-```
-## <a name="onetime-pipeline"></a>Pipeline onetime
-Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (par exemple  toutes les heures ou tous les jours) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d’informations, consultez [Planification des activités](#scheduling-and-execution) . Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime**, comme indiqué dans l’exemple JSON suivant. La valeur par défaut de cette propriété est **scheduled**(planifié).
-
-```json
-{
-    "name": "CopyPipeline",
+    "name": "ChainActivities",
     "properties": {
+        "description": "Run activities in sequence",
         "activities": [
             {
                 "type": "Copy",
                 "typeProperties": {
                     "source": {
-                        "type": "BlobSource",
-                        "recursive": false
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "copyBehavior": "PreserveHierarchy",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob1ToBlob2",
+                "description": "Copy data from a blob to another"
+            },
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -834,27 +668,127 @@ Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiqu
                 },
                 "inputs": [
                     {
-                        "name": "InputDataset"
+                        "name": "Dataset2"
                     }
                 ],
                 "outputs": [
                     {
-                        "name": "OutputDataset"
+                        "name": "Dataset3"
                     }
-                ]
-                "name": "CopyActivity-0"
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob2ToBlob3",
+                "description": "Copy data from a blob to another"
             }
-        ]
-        "pipelineMode": "OneTime"
+        ],
+        "start": "2016-08-25T01:00:00Z",
+        "end": "2016-08-25T01:00:00Z",
+        "isPaused": false
     }
 }
 ```
 
-Notez les points suivants :
+Notez que dans l’exemple, le jeu de données de sortie de la première activité de copie (Dataset2) est spécifié en tant qu’entrée pour la deuxième activité. Par conséquent, la deuxième activité s’exécute uniquement lorsque le jeu de données de sortie de la première activité est prêt.  
 
-* Les heures de **début** et de **fin** ne sont pas spécifiées.
-* La **disponibilité** des jeux de données d’entrée et de sortie est spécifiée (**fréquence** et **intervalle**) même si les valeurs ne sont pas utilisées par Data Factory.  
-* La vue schématique n’affiche pas les pipelines à usage unique (onetime). Ce comportement est normal.
-* Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre.
+Dans l’exemple, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous spécifiez JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne s’exécute pas avant la fin d’ActivitédeCopie1. Par exemple :
 
+Activitédecopie1
 
+Entrée : Jeudedonnées1. Sortie : Dataset2.
+
+Activitédecopie2
+
+Entrées : Jeudedonnées3, Jeudedonnées2. Sortie : Jeudedonnées4.
+
+```json
+{
+    "name": "ChainActivities",
+    "properties": {
+        "description": "Run activities in sequence",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "copyBehavior": "PreserveHierarchy",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlobToBlob",
+                "description": "Copy data from a blob to another"
+            },
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset3"
+                    },
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset4"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob3ToBlob4",
+                "description": "Copy data from a blob to another"
+            }
+        ],
+        "start": "2017-04-25T01:00:00Z",
+        "end": "2017-04-25T01:00:00Z",
+        "isPaused": false
+    }
+}
+```
+
+Notez que dans l’exemple, deux jeux de données d’entrée sont spécifiés pour la deuxième activité de copie. Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
+
+* ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
+* JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination. 
