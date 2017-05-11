@@ -15,10 +15,11 @@ ms.workload: multiple
 ms.date: 04/03/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 0563f6c3aa4508ef2acac6b17dc85ecbf11bb154
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -34,8 +35,8 @@ Cet article décrit les différentes entités qui composent vos formules de mise
 
 > [!IMPORTANT]
 > Chaque compte Azure Batch est limité à un nombre maximal de cœurs (et donc de nœuds de calcul) utilisables pour le traitement. Le service Batch crée des nœuds uniquement jusqu’à cette limite de cœurs. Le service Batch peut ne pas atteindre le nombre cible de nœuds de calcul spécifié par une formule de mise à l’échelle automatique. Consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’affichage et l’augmentation des quotas de votre compte.
-> 
-> 
+>
+>
 
 ## <a name="automatic-scaling-formulas"></a>Formules de mise à l’échelle automatique
 Une formule de mise à l’échelle automatique est une valeur de chaîne définie par vos soins qui contient une ou plusieurs instructions. La formule de mise à l’échelle automatique est affectée à l’élément [autoScaleFormula][rest_autoscaleformula] d’un pool (Batch REST) ou la propriété [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Le service Batch utilise votre formule pour déterminer le nombre de nœuds de calcul cibles d’un pool pour le prochain intervalle de traitement. La chaîne de formule ne peut pas dépasser 8 Ko. Elle peut inclure jusqu’à 100 instructions séparées par des points-virgules, et peut comprendre des sauts de ligne et des commentaires.
@@ -110,8 +111,8 @@ Vous pouvez **obtenir** la valeur des variables définies par le service ci-apr�
 
 > [!TIP]
 > Les variables en lecture seule définies par le service qui sont illustrées ci-dessus sont des *objets* qui fournissent diverses méthodes pour accéder aux données qui leur sont associées. Pour plus d’informations, consultez la section [Obtenir des exemples de données](#getsampledata) ci-dessous.
-> 
-> 
+>
+>
 
 ## <a name="types"></a>Types
 Ces **types** sont pris en charge dans une formule.
@@ -121,7 +122,7 @@ Ces **types** sont pris en charge dans une formule.
 * doubleVecList
 * string
 * timestamp : structure composée qui inclut les éléments suivants :
-  
+
   * year
   * mois (1-12)
   * jour (1-31)
@@ -130,7 +131,7 @@ Ces **types** sont pris en charge dans une formule.
   * minute (00-59)
   * seconde (00-59)
 * timeinterval
-  
+
   * TimeInterval_Zero
   * TimeInterval_100ns
   * TimeInterval_Microsecond
@@ -253,8 +254,8 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 
 > [!IMPORTANT]
 > Nous vous **conseillons fortement** **d’éviter de vous appuyer *uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « Donne-moi le dernier exemple disponible, quelle que soit son ancienneté ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
-> 
-> 
+>
+>
 
 ## <a name="metrics"></a>Mesures
 Vous pouvez utiliser à la fois les métriques de **ressource** et de **tâche** quand vous définissez une formule. Vous ajustez le nombre cible de nœuds dédiés dans le pool en fonction des données métriques que vous obtenez et évaluez. Consultez la section [Variables](#variables) ci-dessus pour plus d’informations sur chaque métrique.
@@ -367,12 +368,12 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Outre l’API REST Batch et le SDK .NET, vous pouvez utiliser d’autres [SDK Batch](batch-apis-tools.md#batch-development-apis), des [applets de commande Batch PowerShell](batch-powershell-cmdlets-get-started.md) et l’[interface CLI Batch](batch-cli-get-started.md) avec la mise à l’échelle automatique.
+Outre l’API REST Batch et le SDK .NET, vous pouvez utiliser d’autres [SDK Batch](batch-apis-tools.md#azure-accounts-for-batch-development), des [applets de commande Batch PowerShell](batch-powershell-cmdlets-get-started.md) et l’[interface CLI Batch](batch-cli-get-started.md) avec la mise à l’échelle automatique.
 
 > [!IMPORTANT]
 > Quand vous créez un pool avec mise à l’échelle automatique, le paramètre `targetDedicated` **ne doit pas** être spécifié. De même, si vous souhaitez redimensionner manuellement un pool compatible avec une mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
-> 
-> 
+>
+>
 
 ### <a name="automatic-scaling-interval"></a>Intervalle de mise à l’échelle automatique
 Par défaut, le service Batch ajuste la taille d’un pool en fonction de sa formule de mise à l’échelle toutes les **15 minutes**. Cet intervalle peut toutefois être configuré à l’aide des propriétés de pool suivantes :
@@ -384,8 +385,8 @@ L’intervalle doit être compris entre cinq minutes et 168 heures. Si un inte
 
 > [!NOTE]
 > La mise à l’échelle automatique ne peut pas actuellement répondre aux modifications en moins d’une minute, mais vise plutôt à ajuster progressivement la taille de votre pool pendant l’exécution d’une charge de travail.
-> 
-> 
+>
+>
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Activer la mise à l’échelle automatique sur un pool existant
 Si vous avez déjà créé un pool avec un nombre défini de nœuds de calcul à l’aide du paramètre *targetDedicated*, vous pouvez encore activer la mise à l’échelle automatique sur le pool. Chaque SDK Batch propose une opération d’activation de mise à l’échelle automatique, par exemple :
@@ -397,14 +398,14 @@ Quand vous activez la mise à l’échelle automatique sur un pool existant, les
 
 * Si la mise à l’échelle automatique est actuellement **désactivée** sur le pool au moment de l’émission de la requête d’activation, vous *devez* spécifier une formule de mise à l’échelle automatique valide quand vous émettez la requête. Vous pouvez *éventuellement* spécifier un intervalle d’évaluation de mise à l’échelle automatique. Si aucun intervalle n’est spécifié, la valeur par défaut de 15 minutes est utilisée.
 * Si la mise à l’échelle automatique est actuellement **activée** sur le pool, vous pouvez spécifier une formule de mise à l’échelle automatique, un intervalle d’évaluation ou les deux. Vous ne pouvez pas omettre les deux propriétés.
-  
+
   * Si vous spécifiez un nouvel intervalle d’évaluation de mise à l’échelle automatique, la planification d’évaluation existante est arrêtée, puis une nouvelle planification est démarrée. L’heure de début de la nouvelle planification est l’heure à laquelle la requête d’activation de mise à l’échelle automatique a été émise.
   * Si vous omettez la formule de mise à l’échelle automatique ou l’intervalle d’évaluation, le service Batch continue d’utiliser la valeur actuelle de ce paramètre.
 
 > [!NOTE]
 > La valeur spécifiée pour le paramètre *targetDedicated* au moment de la création du pool est ignorée lorsque la formule de mise à l’échelle automatique est évaluée.
-> 
-> 
+>
+>
 
 Cet extrait de code en C# utilise la bibliothèque [Batch .NET][net_api] pour activer la mise à l’échelle automatique sur un pool existant :
 
@@ -443,10 +444,10 @@ Vous pouvez évaluer une formule avant de l’appliquer à un pool. De cette fa�
 Pour évaluer une formule de mise à l’échelle automatique, vous devez d’abord **activer la mise à l’échelle automatique** sur le pool à l’aide d’une **formule valide**. Pour tester une formule sur un pool sur lequel la mise à l’échelle automatique n’est pas encore activée, vous pouvez utiliser la formule à une ligne `$TargetDedicated = 0` lors de l’activation initiale de la mise à l’échelle automatique. Ensuite, utilisez l’une des méthodes suivantes pour évaluer la formule à tester :
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) ou [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
-  
+
     Ces méthodes Batch .NET nécessitent l’ID d’un pool existant et une chaîne contenant la formule de mise à l’échelle automatique à évaluer. Les résultats de l’évaluation sont contenus dans l’instance [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) retournée.
 * [Évaluer une formule de mise à l’échelle automatique](https://msdn.microsoft.com/library/azure/dn820183.aspx)
-  
+
     Dans cette requête API REST, spécifiez l’ID du pool dans l’URI et la formule de mise à l’échelle automatique dans l’élément *autoScaleFormula* du corps de la requête. La réponse de l’opération contient les éventuelles informations d’erreur associées à la formule.
 
 Dans cet extrait de code [Batch .NET][net_api], nous évaluons une formule avant de l’appliquer à [CloudPool][net_cloudpool]. Si la mise à l’échelle automatique n’est pas activée sur le pool, la première chose que nous faisons est de l’activer.

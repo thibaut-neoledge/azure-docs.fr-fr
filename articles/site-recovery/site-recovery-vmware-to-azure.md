@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -87,7 +88,7 @@ Voici ce que vous devez faire :
 
 1. Installez Windows Server 2012 R2 ou version ultérieure sur une machine virtuelle VMware.
 2. Assurez-vous que la machine virtuelle a accès aux URL répertoriées dans les [conditions préalables](#prerequisites).
-3. Installez [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
+3. Installez [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>Préparation pour l’installation Push et la découverte automatique
@@ -202,7 +203,7 @@ Visionnez une courte vidéo de présentation avant de commencer :
 
 ## <a name="plan-capacity"></a>Planifier la capacité
 
-1. Votre infrastructure de base est désormais configurée. Vous pouvez donc réfléchir à la planification de la capacité et déterminer si des ressources supplémentaires sont nécessaires. [Plus d’informations](site-recovery-plan-capacity-vmware.md)
+1. Votre infrastructure de base est désormais configurée. Vous pouvez donc réfléchir à la planification de la capacité et déterminer si des ressources supplémentaires sont nécessaires. [En savoir plus](site-recovery-plan-capacity-vmware.md).
 2. Lorsque vous avez terminé la planification de la capacité, sélectionnez **Oui** dans **Avez-vous effectué une planification de la capacité ?**
 
    ![Planification de la capacité](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
