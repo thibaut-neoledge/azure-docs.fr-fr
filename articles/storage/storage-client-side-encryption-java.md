@@ -3,20 +3,21 @@ title: "Chiffrement côté client avec Java pour Microsoft Azure Storage | Micro
 description: "La bibliothèque cliente de stockage Azure pour Java prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
 services: storage
 documentationcenter: java
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: lakasa
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 7601449c7f84a4367f9d684d9bbb0cf61fda29b0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/06/2017
 
 
