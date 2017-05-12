@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/13/2017
 
 
@@ -123,9 +124,9 @@ Pour utiliser des magasins Data Lake avec votre compte HDInsight, vous devez per
 Vous accédez à un magasin Data Lake en utilisant un principal du service Azure Active Directory (Azure AD) associé à votre cluster HDInsight.
 
 ### <a name="to-add-a-service-principal"></a>Pour ajouter un principal du service
-1. Lorsque vous créez votre cluster HDInsight, sélectionnez **Identité AAD de cluster** à partir de l’onglet **Source de données**.
+1.Lorsque vous créez votre cluster HDInsight, sélectionnez **Identité AAD de cluster** à partir de l’onglet **Source de données**.
 
-2. Dans la boîte de dialogue **Identité AAD de cluster**, sous **Sélectionner un principal de service AD**, sélectionnez **Créer**.
+2.Dans la boîte de dialogue **Identité AAD de cluster**, sous **Sélectionner un principal de service AD**, sélectionnez **Créer**.
 
 Après avoir nommé le principal du service et avoir créé un mot de passe pour celui-ci, cliquez sur **Gérer l'accès ADLS** pour associer le principal du service à vos magasins Data Lake.
 
