@@ -1,9 +1,8 @@
 ---
-redirect_url: /azure/application-insights/app-insights-usage-overview
-redirect_document_id: TRUE
+redirect_url: active-directory-windesktop
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec72bcdfcf613b165bfa058823e64bf33f66648
+ms.openlocfilehash: bd574eed551a448cab171c2b8b46387c14a398ba
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
