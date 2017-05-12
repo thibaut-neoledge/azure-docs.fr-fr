@@ -3,7 +3,7 @@ title: "Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Az
 description: "Explique l’infrastructure conceptuelle pour l’utilisation des noms de domaine personnalisés dans Azure Active Directory, notamment la fédération pour l’authentification unique"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,16 +57,11 @@ Un nom de domaine doit être vérifié dans Azure AD avant de pouvoir être util
 Une application web Azure utilise son propre mécanisme pour vérifier la propriété d’un domaine. Pour une utilisation avec Azure AD, un domaine doit être vérifié, même s’il a précédemment été vérifié pour une utilisation par une application web Azure dans un abonnement qui s’appuie sur Azure AD. Une application web Azure peut utiliser un nom de domaine qui a été vérifié dans un autre répertoire que le répertoire qui sécurise l’application web.
 
 ## <a name="managing-domain-names"></a>Gestion des noms de domaine
-Les tâches de gestion de domaine peuvent être effectuées à partir du portail Azure Classic et de PowerShell. De nombreuses de tâches peuvent être effectuées à l’aide d’API Graph Azure AD (en version préliminaire publique).
+Les tâches de gestion de domaine peuvent être effectuées à partir du portail Azure Classic et de PowerShell. De nombreuses de tâches peuvent être effectuées à l’aide de l’API Graph Azure AD.
 
 * [Ajout et vérification d’un nom de domaine personnalisé](active-directory-add-domain.md)
 * [Gestion des domaines dans le portail Azure Classic](active-directory-add-manage-domain-names.md)
 * [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Utilisation d’API Graph Azure AD pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
