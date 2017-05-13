@@ -1,5 +1,6 @@
 # Vue d'ensemble
-## [Vue d’ensemble d’Azure Monitor](monitoring-overview.md)
+## [Outils d’analyse sur Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Métriques](monitoring-overview-metrics.md)
 ## [Alertes](monitoring-overview-alerts.md)
 ## [Mise à l’échelle automatique](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Groupes d’actions](monitoring-action-groups.md)
 ## [Journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)
 ## [Intégrations des partenaires](monitoring-partners.md)
-## [Azure Diagnostics](azure-diagnostics.md)
+## [Extension Diagnostics Azure](azure-diagnostics.md)
 
 
 # Prise en main
 ## [Prise en main d’Azure Monitor](monitoring-get-started.md)
+## [Prise en main de la mise à l’échelle automatique](monitoring-autoscale-get-started.md)
 ## [Sécurité et autorisations des rôles](monitoring-roles-permissions-security.md)
+
 
 # Procédures
 ## Utiliser des alertes
@@ -24,6 +27,8 @@
 ## Utiliser la mise à l’échelle automatique
 ### [Meilleures pratiques pour la mise à l’échelle automatique](insights-autoscale-best-practices.md)
 ### [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md)
+### [Modèles courants de mise à l’échelle](monitoring-autoscale-common-scale-patterns.md)
+### [Mise à l’échelle automatique à l’aide d’une métrique personnalisée](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Activer les paramètres de diagnostic à l’aide de modèles Resource Manager](monitoring-enable-diagnostic-logs-using-template.md)
 ## Utiliser l’API REST
 ### [Procédure pas à pas : Utilisation de l’API REST](monitoring-rest-api-walkthrough.md)
-## Utiliser Diagnostics Azure
+## Utiliser l’extension Azure Diagnostics
 ### [Envoyer à Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Envoyer à Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Dépannage](azure-diagnostics-troubleshooting.md)
