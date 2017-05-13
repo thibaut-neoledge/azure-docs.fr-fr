@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: a1cf0b1c7be5e23046c4217965b2ca75ae4b313c
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 538b0064fef8d54c5cac9d4dd43f70ebf1772819
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -29,7 +30,7 @@ Les clusters HDInsight sous Linux utilisent [Mono (https://mono-project.com)](ht
 
 ## <a name="mono-compatibility-with-net"></a>Compatibilité de Mono avec .NET
 
-La version 4.2.1 de Mono est incluse dans la version 3.5 de HDInsight. Pour plus d’informations sur la version de Mono fournie avec HDInsight, consultez [Versions des composants HDInsight](hdinsight-component-versioning.md).
+La version 4.2.1 de Mono est incluse dans la version 3.5 de HDInsight. Pour plus d’informations sur la version de Mono fournie avec HDInsight, consultez [Versions des composants HDInsight](hdinsight-component-versioning.md). Pour installer une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](hdinsight-hadoop-install-mono.md).
 
 Pour plus d’informations sur la compatibilité entre Mono et .NET, consultez le document [Compatibilité avec Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
 

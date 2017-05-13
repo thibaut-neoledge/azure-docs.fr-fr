@@ -53,6 +53,7 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
+### [Créer des définitions d’interface utilisateur](managed-application-createuidefinition-overview.md)
 ## Contrôler l’accès
 ### [Créer un principal du service avec PowerShell](resource-group-authenticate-service-principal.md)
 ### [Créer un principal de service avec l’interface de ligne de commande Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Fonctions numériques](resource-group-template-functions-numeric.md)
 ### [Fonctions de ressource](resource-group-template-functions-resource.md)
 ### [Fonctions de chaîne](resource-group-template-functions-string.md)
+## [Fonctions de définition de l’interface utilisateur](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

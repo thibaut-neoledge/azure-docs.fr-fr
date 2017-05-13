@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour contrôle d’accès en fonction du rôle Azure
@@ -27,14 +28,21 @@ Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intég
 ## <a name="roles-in-azure"></a>Rôles dans Azure
 Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom du rôle pour afficher la liste détaillée de ses propriétés **actions** et **notactions**. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **notactions** spécifie les actions qui sont exclues des actions autorisées.
 
+L’action définit le type d’opération que vous pouvez effectuer sur un type de ressource donné. Par exemple :
+- **Write** permet d’effectuer des opérations PUT, POST, PATCH et DELETE.
+- **Read** permet d’effectuer des opérations GET. 
+
+Cet article traite uniquement des différents rôles qui existent aujourd’hui. Au moment d’attribuer un rôle à un utilisateur, vous pouvez toutefois restreindre un peu plus les actions autorisées en définissant une étendue. Cette possibilité s’avère utile si vous voulez par exemple attribuer le rôle de collaborateur de site web à quelqu’un, mais seulement pour un groupe de ressources. 
+
 > [!NOTE]
-> Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez les applets de commande `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas.
->
->
+> Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez l’applet de commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour afficher la liste de tous les rôles actuels. Vous pouvez explorer de manière plus approfondie un rôle déterminé en utilisant `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas. [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) permet d’afficher la liste des opérations de fournisseurs de ressources Azure spécifiques. 
+
 
 | Nom de rôle | Description |
 | --- | --- |
-| [Collaborateur du service de gestion des API](#api-management-service-contributor) |Gérer les services de gestion des API |
+| [Collaborateur du service Gestion des API](#api-management-service-contributor) |Peut gérer le service Gestion des API et les API |
+| [Rôle d’opérateur du service Gestion des API](#api-management-service-operator-role) | Peut gérer le service Gestion des API, mais pas les API proprement dites |
+| [Rôle de lecteur du service Gestion des API](#api-management-service-reader-role) | Accès en lecture seule au service Gestion des API et aux API |
 | [Collaborateur de composants Application Insights](#application-insights-component-contributor) |Gérer les composants Application Insights |
 | [Opérateur Automation](#automation-operator) |Démarrer, arrêter, suspendre et reprendre les travaux |
 | [Contributeur de sauvegarde](#backup-contributor) | Gérer la sauvegarde dans le coffre Recovery Services |
@@ -79,7 +87,41 @@ Gérer les services de gestion des API
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |Créer et gérer les services de gestion des API |
+| Microsoft.ApiManagement/Service/* |Créer et gérer le service Gestion des API |
+| Microsoft.Authorization/*/read |Autorisation de lecture |
+| Microsoft.Insights/alertRules/* |Créer et gérer les règles d’alerte |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Lire l’intégrité des ressources |
+| Microsoft.Resources/deployments/* |Créer et gérer les déploiements de groupes de ressources |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Lire les rôles et les affectations de rôles |
+| Microsoft.Support/* |Créer et gérer les tickets de support |
+
+### <a name="api-management-service-operator-role"></a>Rôle d’opérateur du service Gestion des API
+Gérer les services de gestion des API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Lire les instances du service Gestion des API |
+| Microsoft.ApiManagement/Service/backup/action | Sauvegarder le service Gestion des API dans le conteneur spécifié dans un compte de stockage fourni par l’utilisateur |
+| Microsoft.ApiManagement/Service/delete | Supprimer une instance du service Gestion des API |
+| Microsoft.ApiManagement/Service/managedeployments/action | Modifier une référence SKU/unités ; ajouter ou supprimer des déploiements régionaux du service Gestion des API |
+| Microsoft.ApiManagement/Service/read | Lire les métadonnées d’une instance du service Gestion des API |
+| Microsoft.ApiManagement/Service/restore/action | Restaurer le service Gestion des API à partir du conteneur spécifié dans un compte de stockage fourni par l’utilisateur |
+| Microsoft.ApiManagement/Service/updatehostname/action | Configurer, mettre à jour ou supprimer des noms de domaine personnalisés pour un service Gestion des API |
+| Microsoft.ApiManagement/Service/write | Créer une instance du service Gestion des API |
+| Microsoft.Authorization/*/read |Autorisation de lecture |
+| Microsoft.Insights/alertRules/* |Créer et gérer les règles d’alerte |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Lire l’intégrité des ressources |
+| Microsoft.Resources/deployments/* |Créer et gérer les déploiements de groupes de ressources |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Lire les rôles et les affectations de rôles |
+| Microsoft.Support/* |Créer et gérer les tickets de support |
+
+### <a name="api-management-service-reader-role"></a>Rôle de lecteur du service Gestion des API
+Gérer les services de gestion des API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Lire les instances du service Gestion des API |
+| Microsoft.ApiManagement/Service/read | Lire les métadonnées d’une instance du service Gestion des API |
 | Microsoft.Authorization/*/read |Autorisation de lecture |
 | Microsoft.Insights/alertRules/* |Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Lire l’intégrité des ressources |

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 65a7872e0880cc74a00ca1c05baae2b34b407a61
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d082b37a2e070136178259c54ada8dc141f81e13
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,7 +38,7 @@ Les groupes à haute disponibilité garantissent une haute disponibilité pour l
 
 ## <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/availability-set#create). Dans cet exemple, nous définissons le nombre de domaines de mise à jour et d’erreur sur **2** pour le groupe à haute disponibilité nommé **myAvailabilitySet** dans le groupe de ressources **myResourceGroupAvailability**.
+Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/availability-set#create). Dans cet exemple, nous définissons le nombre de domaines de mise à jour et d’erreur sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* dans le groupe de ressources *myResourceGroupAvailability*.
 
 ```azurecli
 az vm availability-set create \
@@ -49,7 +50,7 @@ az vm availability-set create \
 
 ## <a name="create-vms-inside-an-availability-set"></a>Créer des machines virtuelles dans un groupe à haute disponibilité
 
-Vous devez créer des machines virtuelles au sein du groupe à haute disponibilité pour vous assurer qu’elles seront correctement réparties dans le matériel. Vous ne pouvez pas ajouter une machine virtuelle existante à un groupe à haute disponibilité après sa création. 
+Vous devez créer des machines virtuelles au sein du groupe à haute disponibilité pour vous assurer qu’elles sont correctement réparties dans le matériel. Vous ne pouvez pas ajouter une machine virtuelle existante à un groupe à haute disponibilité après sa création. 
 
 Le matériel situé à un emplacement est divisé en plusieurs domaines de mise à jour et d’erreur. Un **domaine de mise à jour** est un groupe de machines virtuelles et d’équipements physiques sous-jacents pouvant être redémarrés en même temps. Les machines virtuelles d’un même **domaine d’erreur** partagent un espace de stockage commun ainsi qu’une source d’alimentation et un commutateur réseau. 
 
@@ -73,7 +74,7 @@ Nous disposons désormais de 2 machines virtuelles réparties sur le matériel 
 
 ## <a name="check-for-available-vm-sizes"></a>Vérifier les tailles de machines virtuelles disponibles 
 
-Vous pouvez ajouter ultérieurement d’autres machines virtuelles au groupe à haute disponibilité, mais vous devez connaître les tailles des machines virtuelles qui sont disponibles sur le matériel. Utilisez `az vm availability-set list-sizes` pour répertorier toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité.
+Vous pouvez ajouter ultérieurement d’autres machines virtuelles au groupe à haute disponibilité, mais vous devez connaître les tailles des machines virtuelles qui sont disponibles sur le matériel. Utilisez [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) pour répertorier toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité.
 
 ```azurecli
 az vm availability-set list-sizes \

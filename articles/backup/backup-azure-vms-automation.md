@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: b179588d29c5dd8cc5bd2469e7f1dfe669027eca
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 6b90f0232d0fc527d0232a19f9251519250687f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -144,8 +145,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="backup-azure-vms"></a>Sauvegarde des machines virtuelles Azure
-Un coffre Recovery Services étant créé, vous pouvez l’utiliser pour protéger une machine virtuelle. Toutefois avant d’appliquer la protection, vous devez définir le contexte du coffre et vérifier la stratégie de protection. Le contexte du coffre définit le type de données protégées dans le coffre. La stratégie de protection consiste à planifier le calendrier de l’exécution du travail de sauvegarde et la durée de conservation de chaque instantané de sauvegarde.
+## <a name="back-up-azure-vms"></a>Sauvegarder des machines virtuelles Azure
+Utilisez le nouveau coffre Recovery Services pour protéger votre machine virtuelle. Avant d’appliquer la protection, définissez le contexte du coffre (le type de données qu’il protège), puis vérifiez la stratégie de protection. La stratégie de protection consiste à planifier l’exécution du travail de sauvegarde et la durée de conservation de chaque instantané de sauvegarde.
 
 Avant d’activer la protection sur une machine virtuelle, vous devez définir le contexte du coffre. Le contexte est appliqué à toutes les applets de commande suivantes.
 
@@ -269,7 +270,7 @@ Il existe une différence clé entre la restauration d’une machine virtuelle �
 * Restaurer les disques
 * Créer la machine virtuelle à partir des disques stockés
 
-L’illustration ci-dessous montre la hiérarchie d’objets à partir de RecoveryServicesVault jusqu’à BackupRecoveryPoint.
+L’illustration suivante montre la hiérarchie d’objets à partir de RecoveryServicesVault jusqu’à BackupRecoveryPoint.
 
 ![Hiérarchie d’objets Recovery Services montrant BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
@@ -286,7 +287,7 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 ### <a name="choose-a-recovery-point"></a>Choisir un point de récupération
 Utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://msdn.microsoft.com/library/mt723308.aspx)** pour répertorier tous les points de récupération pour l’élément de sauvegarde. Ensuite, choisissez le point de récupération à restaurer. Si vous ne savez pas quel point de récupération utiliser, nous vous conseillons de choisir le point RecoveryPointType = AppConsistent le plus récent dans la liste.
 
-Dans le script suivant, la variable **$rp**est un tableau de points de récupération pour l’élément de sauvegarde sélectionné. Le tableau est trié dans l’ordre chronologique inverse, le point de récupération le plus récent détenant l’index 0. Utilisez l'indexation de tableau PowerShell standard pour sélectionner le point de récupération. Par exemple : $rp[0] sélectionnera le point de récupération le plus récent.
+Dans le script suivant, la variable **$rp**est un tableau de points de récupération pour l’élément de sauvegarde sélectionné. Le tableau est trié dans l’ordre chronologique inverse, le point de récupération le plus récent détenant l’index 0. Utilisez l'indexation de tableau PowerShell standard pour sélectionner le point de récupération. Par exemple : $rp[0] sélectionne le dernier point de récupération.
 
 ```
 PS C:\> $startDate = (Get-Date).AddDays(-7)
@@ -310,7 +311,7 @@ BackupManagementType        : AzureVM
 
 
 ### <a name="restore-the-disks"></a>Restaurer les disques
-Utilisez l’applet de commande **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** pour restaurer les données et la configuration d’un élément de sauvegarde à un point de récupération. Une fois que vous avez identifié un point de récupération, utilisez-le comme valeur du paramètre **-RecoveryPoint** . Dans l’exemple de code précédent, **$rp[0]** a été choisi comme point de récupération à utiliser. Dans l’exemple de code ci-dessous, **$rp[0]** est spécifié comme point de récupération à utiliser pour la restauration sur disque.
+Utilisez l’applet de commande **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** pour restaurer les données et la configuration d’un élément de sauvegarde à un point de récupération. Lorsque vous avez identifié un point de récupération, utilisez-le comme valeur du paramètre **-RecoveryPoint** . Dans l’exemple de code précédent, **$rp[0]** était le point de récupération à utiliser. Dans l’exemple de code suivant, **$rp [0]** est le point de récupération à utiliser pour restaurer le disque.
 
 Pour restaurer les disques et les informations de configuration
 
@@ -341,18 +342,19 @@ Une fois les disques restaurés, passez à la section suivante, qui explique com
 Après avoir restauré les disques, exécutez les étapes ci-après pour créer et configurer la machine virtuelle à partir du disque.
 
 > [!NOTE]
-> Si vous créez des machines virtuelles chiffrées à l’aide de disques restaurés, votre rôle doit être autorisé à exécuter **Microsoft.KeyVault/vaults/deploy/action**. Si votre rôle ne dispose pas de cette autorisation, créez un rôle personnalisé avec cette action. Consultez [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-custom-roles.md) pour obtenir plus de détails.
+> Si vous utilisez des disques restaurés pour créer des machines virtuelles chiffrées, votre rôle Azure doit avoir l’autorisation d’effectuer l’action **Microsoft.KeyVault/vaults/deploy/action**. Si votre rôle ne dispose pas de cette autorisation, créez un rôle personnalisé avec cette action. Pour en savoir plus, consultez [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-custom-roles.md).
 >
 >
 
 1. Interrogez les propriétés des disques restaurés pour obtenir les détails du travail.
 
-    ```
-    PS C:\> $properties = $details.properties
-    PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
-    PS C:\> $containerName = $properties["Config Blob Container Name"]
-    PS C:\> $blobName = $properties["Config Blob Name"]
-    ```
+  ```
+  PS C:\> $properties = $details.properties
+  PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+  PS C:\> $containerName = $properties["Config Blob Container Name"]
+  PS C:\> $blobName = $properties["Config Blob Name"]
+  ```
+
 2. Définissez le contexte de stockage Azure et restaurez le fichier de configuration JSON.
 
     ```
@@ -361,30 +363,37 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
+
 3. Utilisez le fichier de configuration JSON pour créer la configuration de la machine virtuelle.
 
     ```
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.HardwareProfile.VirtualMachineSize -VMName "testrestore"
     ```
+
 4. Attachez le disque du système d’exploitation et les disques de données.
 
-      Pour les machines virtuelles non chiffrées,
+  Pour les machines virtuelles non chiffrées,
 
-      ```
-      PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
-      PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
-      PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
-       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
-       }
-       ```
-       
-      For encrypted VMs, you need to specify [Key vault information](https://msdn.microsoft.com/library/dn868052.aspx) before you can attach disks.
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
+    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+     }
+    ```
 
-      ```
-      PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)     {     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach     }
-       ```
-       
+    Pour les machines virtuelles chiffrées, vous devez spécifier les [informations du coffre de clés](https://msdn.microsoft.com/library/dn868052.aspx) avant d’attacher des disques.
+
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
+    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+     }
+    ```
+
 5. Définissez les paramètres réseau.
 
     ```
@@ -401,5 +410,5 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Il existe également un article PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.  
+Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article PowerShell [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Il existe également un article PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.  
 

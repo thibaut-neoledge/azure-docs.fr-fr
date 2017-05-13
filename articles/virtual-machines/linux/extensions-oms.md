@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -144,13 +145,16 @@ Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressou
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
-Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent OMS sur une machine virtuelle existante. Avant de déployer l’extension d’agent OMS, créez un fichier public.json et un fichier protected.json. Le schéma pour ces fichiers est détaillé plus haut dans ce document.
+Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent OMS sur une machine virtuelle existante. Remplacez la clé OMS et l’ID OMS par ceux de votre espace de travail OMS. 
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
-  --public-config-path public.json  \
-  --private-config-path protected.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --settings '{"workspaceId": "omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
@@ -160,7 +164,7 @@ azure vm extension set myResourceGroup myVM \
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 La sortie de l’exécution de l’extension est enregistrée dans le fichier suivant :

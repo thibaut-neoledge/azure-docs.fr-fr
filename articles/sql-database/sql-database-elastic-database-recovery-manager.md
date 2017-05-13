@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 2f034718730f112ba85865ae032fb7bd07045b16
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c34af1d0c1df88d13ba82fdef7ca9b33a2e55784
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -124,7 +125,7 @@ Cet exemple ajoute une partition dans le mappage de la partition venant d'être 
    ```
 
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Mise à jour des emplacements de partition après un basculement géographique (restauration) des partitions
-En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou  un emplacement, ou un  point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données dans le mappage de partition et la valeur de la clé de partitionnement est la cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée. 
+En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou  un emplacement, ou un  point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données de la carte de partitions et la valeur de la clé de partitionnement cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée. 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Le basculement géographique et la restauration sont des opérations généralement gérées par un administrateur de cloud de l'application en utilisant intentionnellement l'une des fonctionnalités de continuité d'activité des bases de données SQL Azure. La planification de la continuité des activités requiert des processus, des procédures et des mesures garantissant que les opérations de l’entreprise peuvent continuer sans interruption. Les méthodes disponibles en tant que partie de la classe RecoveryManager doivent être utilisées dans ce flux de travail pour s’assurer que le GSM et LSM sont actualisés en fonction de l’opération de récupération exécutée. Il existe cinq opérations de base pour s’assurer que GSM et LSM reflètent bien les informations précises après un événement de basculement. Le code d’application servant à exécuter ces opérations peut être intégré dans des outils et de flux de travail existants. 

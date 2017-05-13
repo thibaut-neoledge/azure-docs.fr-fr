@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: ryancraw
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -188,7 +189,7 @@ Nous sommes heureux de ce que la combinaison d’Azure Functions et de Stream An
 
 Si vous ne connaissez pas encore Microsoft Azure, nous vous invitons à le découvrir en vous connectant à un [compte d’évaluation Azure gratuit](https://azure.microsoft.com/pricing/free-trial/). Si vous ne connaissez pas encore Stream Analytics, nous vous invitons à [créer votre première tâche Stream Analytics](stream-analytics-create-a-job.md).
 
-Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 Vous pouvez également vous référer aux ressources suivantes :
 

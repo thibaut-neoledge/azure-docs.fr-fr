@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2017
 ms.author: v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 63153ca5c0f5e3c68db09d0e59fa26ee8cb1e465
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 04/04/2017
 
 >[!NOTE]
 >Administrateurs uniquement
+
+Cette section vous montre comment accéder au portail Seller Insights pour la première fois.
 
 ###<a name="overview-of-roles"></a>Présentation des rôles
 
@@ -44,7 +47,7 @@ Dans l’idéal, avant toute connexion au portail des insights de vendeur, l’a
 Pour activer votre service, l’administrateur doit accéder à l’URL figurant dans l’e-mail d’invitation (https://reports.azure.com)
 
 >[!NOTE]
->Remarque : si l’e-mail de l’administrateur est répertorié en tant que compte Microsoft et que vous n’avez pas créé de compte Microsoft associé à l’adresse e-mail à partir de laquelle vous avez reçu l’invitation, vous devrez le créer avant l’authentification en accédant à https://signup.live.command et en utilisant cette adresse e-mail.
+>Si l’adresse de courrier de l’administrateur est répertorié en tant que compte Microsoft et que vous n’avez pas créé de compte Microsoft associé à l’adresse de courrier à partir de laquelle vous avez reçu l’invitation, vous devrez le créer avant l’authentification en accédant à https://signup.live.command et en utilisant cette adresse de courrier.
 
 ###<a name="sign-in-to-the-portal"></a>Connexion au portail
 
@@ -61,7 +64,13 @@ Pour activer votre service, l’administrateur doit accéder à l’URL figurant
 L’administrateur doit vous informer par e-mail que votre compte a été créé et vous fournir l’URL du portail des insights de vendeur (https://reports.azure.com).
 
 >[!NOTE]
->L’administrateur est le propriétaire du compte qui publie effectivement les solutions sur la Place de marché Microsoft Azure.  Le propriétaire de ce compte peut fournir un accès à d’autres personnes.  
+>L’administrateur est le propriétaire du compte qui publie effectivement les solutions sur la Place de marché Microsoft Azure.  Le propriétaire de ce compte peut fournir un accès à d’autres personnes.  Si vous avez accès au portail de publication en tant que coadministrateur, trouvez l’adresse de l’administrateur en procédant comme suit :
+>1. Connectez-vous au portail de publication.
+>2. Cliquez sur l’onglet Éditeurs.
+>3. Ouvrez l’éditeur en question (il n’y en a qu’un généralement).
+>4. Cliquez sur « Administrateurs » dans le coin inférieur gauche.
+>5. L’adresse de courrier d’administrateur que vous recherchez est étiquetée « Propriétaire ».
+
 
 Vous pouvez vous connecter au portail des insights de vendeur à l’aide d’un compte Microsoft personnel ou d’un compte d’entreprise en fonction de celui que votre administrateur a utilisé lors de la configuration de votre profil.  Votre administrateur doit vous indiquer le compte à utiliser.
 
@@ -153,7 +162,7 @@ D. *Volet D* : ce volet présente les données relatives à chaque abonnement.
 
   ![Disposition du volet d][13]
 
-  1. Le volet « Order Detail » (Détail des commandes) présente les données de commandes détaillées.
+  1. Le volet Order Detail (Détail des commandes) présente les données de commandes détaillées.
   2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Vous disposez d’un large éventail de commandes et de valeurs.
 
   ![Vue mensuelle des commandes - volet d - filtres][20]
@@ -195,7 +204,7 @@ D. *Volet D* : ce volet présente les données relatives à chaque abonnement.
 
   ![Disposition du volet c][12]
 
-  1. Sélectionnez « Trend View » (Vue des tendances).
+  1. Sélectionnez Trend View (Vue des tendances).
   2. Sélectionnez les éléments que vous souhaitez afficher dans la liste déroulante « Subject Area » (Domaine), puis cliquez sur « Apply » (Appliquer).  La case « Select All » (Sélectionner tout) est activée par défaut.
 
   ![Vue mensuelle de l’utilisation - volet c - liste déroulante subject area (Domaine)][17]
@@ -212,19 +221,19 @@ D. *Volet D* : ce volet présente les données relatives à chaque abonnement.
 
   ![Disposition du volet d][13]
 
-  1. Le volet « Usage Detail » (Détail de l’utilisation) présente les données de commandes détaillées.
+  1. Le volet Usage Detail (Détail de l’utilisation) présente les données de commandes détaillées.
   2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Vous disposez d’un large éventail de commandes et de valeurs.
 
   ![Vue mensuelle de l’utilisation - volet d - filtres][20]
   3. Sélectionnez le nombre d’éléments que vous souhaitez afficher par page : 10, 20 ou 50.
   4. Téléchargez les données au format Excel ou csv pour une analyse hors connexion.
 
-![Vue mensuelle de l’utilisation - volet d 1][24]
-![Vue mensuelle de l’utilisation - volet d 2][25]
+![Vue mensuelle de l’utilisation - volet d][24]
+![Vue mensuelle de l’utilisation - volet d - télécharger le résultat][25]
 
 ###<a name="accessing-detailed-customer-data"></a>Accès aux données client détaillées
 
-  1. À partir du volet « Order Detail » (Détail des commandes), sous « Orders » (Commandes) ou « Usage » (Utilisation), cliquez sur l’ID d’abonnement Azure qui vous intéresse.  Notez que vous pouvez cliquer uniquement sur les types de licence de Place de marché non-BYOL. Par ailleurs, les ID d’abonnement BYOL sont masqués pour des raisons de sécurité.
+  1. À partir du volet Order Detail (Détail des commandes), sous Orders (Commandes) ou Usage (Utilisation), cliquez sur l’ID d’abonnement Azure qui vous intéresse.  Notez que vous pouvez cliquer uniquement sur les types de licence de Place de marché non-BYOL. Par ailleurs, les ID d’abonnement BYOL sont masqués pour des raisons de sécurité.
 
   ![Volet présentant les données de commandes et d’utilisation client détaillées][26]
   2. Vous êtes redirigé vers l’onglet « Customer » (Client). Les données détaillées pour le client auquel est associé l’ID d’abonnement sont récupérées.
@@ -249,6 +258,8 @@ D. *Volet D* : ce volet présente les données relatives à chaque abonnement.
 
 >[!NOTE]
 >Administrateurs uniquement
+
+Cette section vous montre comment ajouter des utilisateurs ou modifier leurs autorisations dans le portail Seller Insights.
 
 ###<a name="add-user"></a>Ajouter un utilisateur
 
@@ -340,7 +351,7 @@ Essayez de réinitialiser votre mot de passe à l’aide de l’Assistant Réini
 
 
 
-[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account.png
+[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account-v2.png
 [2]: ./media/marketplace-publishing-report-seller-insights-user-guide/default-sign-in-page.png
 [3]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-microsoft-account.png
 [4]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-work-or-school-account.png

@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
-ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 24396f7c82bcc0fb076c4fceca0ec4b0963d36e8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -35,23 +37,23 @@ Configurez votre application native comme suit :
 
 1. Connectez-vous à la version classique du portail Azure.
 2. Cliquez sur l’icône d’Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application** . Cliquez sur le lien ou cliquez sur le bouton **Ajouter** dans la barre de commandes.
+3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien. Vous pouvez également cliquer sur le bouton **Ajouter** dans la barre de commandes.
 4. Sur la page **Que voulez-vous faire**, cliquez sur le lien vers **Ajouter une application développée par mon organisation**.
 5. Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **Application cliente native**. Cliquez sur l’icône en forme de flèche pour continuer.
 6. Sur la page **Informations de l’application**, fournissez **l’URI de redirection** pour l’application cliente native, puis cliquez sur la coche pour terminer.
 
-Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application.
+Votre application a été ajoutée, et vous êtes redirigé vers la page de démarrage rapide pour votre application.
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Étape 3: accorder l’accès à d’autres applications
 Activez l'application native à exposer à d'autres applications dans votre répertoire :
 
 1. Dans le menu principal, cliquez sur **Applications**, sélectionnez la nouvelle application native, puis cliquez sur **Configurer**.
-2. Faites défiler la page jusqu'à la section **Autorisations pour d'autres applications** . Cliquez sur le bouton **Ajouter une application** , puis sélectionnez l'application de proxy à laquelle vous souhaitez accorder l'accès à l'application native et cochez la case dans le coin inférieur droit. Dans la liste déroulante **Autorisations déléguées** , sélectionnez la nouvelle autorisation.
+2. Faites défiler la page jusqu'à la section **Autorisations pour d'autres applications** . Cliquez sur le bouton **Ajouter une application** , puis sélectionnez l’application de proxy à laquelle vous souhaitez accorder l’accès à l’application native et cochez la case dans le coin inférieur droit. Dans la liste déroulante **Autorisations déléguées** , sélectionnez la nouvelle autorisation.
 
 ![Capture d’écran Autorisations pour d’autres applications - ajouter une application](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Étape 4 : modifier la bibliothèque d’authentification Active Directory
-Modifiez le code de l'application native dans le contexte de l'authentification de l'Active Directory Authentication Library (ADAL) de manière à inclure les éléments suivants :
+Modifiez le code de l’application native dans le contexte de l’authentification de l’Active Directory Authentication Library (ADAL) de manière à inclure le texte suivant :
 
         // Acquire Access Token from AAD for Proxy Application
         AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
@@ -68,7 +70,7 @@ Modifiez le code de l'application native dans le contexte de l'authentification 
 Les variables doivent être remplacées comme suit :
 
 * Le **TenantId** se trouve dans le GUID dans l'URL de la page de **configuration** de l'application, juste après « /Directory/ ».
-* **L'URL de front-end** est l'URL de front-end entré dans l'application de Proxy et de se trouve sur la page de **Configuration** de l'application proxy.
+* **L’URL frontale** est l’URL frontale entrée dans l’application de proxy et elle se trouve sur la page **Configuration** de l’application de proxy.
 * **L’ID client** de l'application native est indiqué sur la page de **configuration** page de l'application native.
 * **L’URI de redirection de l'application native** est indiqué sur la page de **configuration** de l'application native.
 
@@ -83,9 +85,4 @@ Pour plus d’informations sur le flux d’application native, consultez [Applic
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 
 Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

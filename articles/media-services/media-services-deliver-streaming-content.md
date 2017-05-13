@@ -1,5 +1,5 @@
 ---
-title: "Publier du contenu Azure Media Services à l’aide de .NET"
+title: "Publier du contenu Azure Media Services à l’aide de .NET | Microsoft Docs"
 description: "Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
 author: juliako
 manager: erikre
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
 
 
 >[!NOTE]
->Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Appliquez le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès. Par exemple, pour les localisateurs destinés à demeurer en place pendant une longue période (stratégies autres que de type chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="use-media-services-net-sdk"></a>Utilisation du Kit de développement logiciel (SDK) .NET de Media Services
 Création d’URL de diffusion 
@@ -95,7 +96,7 @@ Création d’URL de diffusion
         Console.WriteLine();
     }
 
-Le code fournit :
+Sorties :
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +107,7 @@ Le code fournit :
 
 
 > [!NOTE]
-> Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS. Notez qu’actuellement AMS ne prend pas en charge SSL avec les domaines personnalisés.  
+> Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, vérifiez que votre URL de streaming commence par HTTPS. Actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.
 > 
 > 
 
@@ -140,7 +141,7 @@ Génération d’URL de téléchargement progressif
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-Le code fournit :
+Sorties :
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +151,7 @@ Le code fournit :
     . . . 
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Utilisation des extensions du Kit de développement logiciel (SDK) Media Services pour .NET
-Le code suivant appelle les méthodes des extensions du Kit de développement logiciel (SDK) .NET, qui créent un localisateur et génèrent les URL de diffusion en continu lisse, HLS et MPEG-DASH pour la diffusion adaptative en continu.
+Le code suivant appelle les méthodes des extensions du Kit de développement logiciel (SDK) .NET, qui créent un localisateur et génèrent les URL Smooth Streaming, HLS et MPEG-DASH pour la diffusion en continu adaptative.
 
     // Create a loctor.
     _context.Locators.Create(
@@ -175,8 +176,8 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Voir aussi
-[Télécharger des ressources](media-services-deliver-asset-download.md)
-[Configurer la stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [Télécharger les éléments multimédias](media-services-deliver-asset-download.md)
+* [Configurer une stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
 
 

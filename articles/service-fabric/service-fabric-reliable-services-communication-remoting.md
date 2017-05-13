@@ -1,5 +1,6 @@
+
 ---
-title: "Communication à distance des services dans Azure Service Fabric | Microsoft Docs"
+title: "Communication à distance des services dans Service Fabric | Microsoft Docs"
 description: "La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services en utilisant un appel de procédure distante."
 services: service-fabric
 documentationcenter: .net
@@ -12,28 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/10/2017
+ms.date: 04/20/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8e06b3f2f6347468b197f2e90912a5d0facc5404
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: ebca34d5bf092494ea59a4a679f7f1175577320f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/29/2017
 
 
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
-> [!div class="op_single_selector"]
-> * [C# sur Windows](service-fabric-reliable-services-communication-remoting.md)
-> * [Java sur Linux](service-fabric-reliable-services-communication-remoting-java.md)
->
->
-
 Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l’infrastructure Reliable Services fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configuration de la communication à distance sur un service
 La configuration de communication à distance pour un service s'effectue en deux étapes simples :
 
-1. Créez une interface pour implémenter votre service. Cette interface définit les méthodes disponibles pour un appel de procédure distante sur votre service. Ces méthodes doivent être des méthodes asynchrones retournant des tâches. L'interface doit implémenter `Microsoft.ServiceFabric.Services.Remoting.IService` pour signaler que le service dispose d'une interface de communication à distance.
+1. Créez une interface pour implémenter votre service. Cette interface définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Ces méthodes doivent être des méthodes asynchrones retournant des tâches. L'interface doit implémenter `Microsoft.ServiceFabric.Services.Remoting.IService` pour signaler que le service dispose d'une interface de communication à distance.
 2. Utilisez un écouteur de communication à distance dans votre service. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance. L’espace de noms `Microsoft.ServiceFabric.Services.Remoting.Runtime` contient une méthode d’extension `CreateServiceRemotingListener` pour les services avec et sans état qui peuvent être utilisés pour créer un écouteur de communication à distance à l’aide du protocole de transport de communication à distance par défaut.
 
 Par exemple, le service sans état suivant expose une méthode unique pour obtenir « Hello World » sur un appel de procédure distante :
@@ -63,8 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>
-            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -85,6 +80,23 @@ string message = await helloWorldClient.HelloWorldAsync();
 ```
 
 L'infrastructure de communication à distance propage les exceptions levées au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l’aide de `ServiceProxy` peut directement traiter les exceptions levées par le service.
+
+## <a name="service-proxy-lifetime"></a>Durée de vie du proxy du service
+Comme la création de proxy de service est une opération légère, l’utilisateur peut en créer autant de fois que nécessaire. Le proxy de service peut être réutilisé tant que l’utilisateur en a besoin. L’utilisateur peut réutiliser le même proxy en cas d’exception. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’appel de l’API, un contrôle interne vérifie si le client de communication utilisé est valide. En fonction de ce résultat, nous recréons le client de communication. Par conséquent, l’utilisateur n’a pas besoin de recréer le proxy de service en cas d’exception.
+
+### <a name="serviceproxyfactory-lifetime"></a>Durée de vie de la fabrique ServiceProxyFactory
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) est une fabrique qui crée le proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API ServiceProxy.Create pour la création de proxy, l’infrastructure crée le ServiceProxyFactory singleton.
+Il est utile d’en créer un manuellement lorsque vous devez remplacer les propriétés [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
+La fabrique est une opération coûteuse. ServiceProxyFactory conserve le cache du client de communication.
+Il est recommandé de mettre en cache ServiceProxyFactory aussi longtemps que possible.
+
+## <a name="remoting-exception-handling"></a>Gestion des exceptions à distance
+Toutes les exceptions à distance levées par l’API de service sont envoyées au client en tant que AggregateException. Les exceptions à distance doivent être des contrats de données sérialisables. Sinon, une exception [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) est envoyée à l’API de proxy en indiquant l’erreur de sérialisation.
+
+Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de tentatives pour l’exception de basculement est illimité.
+En cas d’exceptions temporaires, il retente uniquement l’appel.
+
+Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) L’utilisateur peut configurer ces valeurs en transmettant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)

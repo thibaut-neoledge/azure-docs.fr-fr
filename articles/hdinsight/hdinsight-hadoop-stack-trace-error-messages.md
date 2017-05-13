@@ -1,6 +1,6 @@
 ---
 title: "Message d’erreur d’arborescence des appels de procédure Hadoop | Microsoft Docs"
-description: "Index des messages d’erreur d’arborescence des appels de procédure dans HDInsight. Recherchez l’erreur dans la liste pour afficher des informations de dépannage."
+description: "Index des messages d’erreur d’arborescence des appels de procédure Hadoop dans Azure HDInsight. Recherchez l’erreur dans la liste pour afficher des informations de dépannage."
 keywords: "arborescence des appels de procédure, messages d’erreur"
 services: hdinsight
 documentationcenter: NA
@@ -14,12 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 02/22/2017
-ms.author: rashimg;jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
-ms.lasthandoff: 11/17/2016
+ms.date: 04/26/2017
+ms.author: gao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: bc6f7904e6307477eb90bb0ca74be19a9c76eb35
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 11/17/2016
 Les articles sont organisés par types d’erreur.
 
 ## <a name="out-of-memory-error"></a>Erreur de mémoire insuffisante
-* [Corriger une erreur de mémoire insuffisante (OOM) avec les paramètres Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
+* [Corriger une erreur de mémoire insuffisante dans HDInsight lors de l’utilisation de Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md) : corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
 
 ## <a name="hive-query-performance"></a>Performances des requêtes Hive
 * [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md): cet article présente certaines méthodes de l’optimisation des performances Hive courantes que vous pouvez appliquer à des requêtes Hive.

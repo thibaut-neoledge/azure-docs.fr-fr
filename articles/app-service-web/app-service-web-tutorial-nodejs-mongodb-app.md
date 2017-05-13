@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6db07ed122d8dbd9edaa3b4d25680863778a6adf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,6 +33,7 @@ Avant d’exécuter cet exemple, tenez compte des conditions préalables suivant
 
 1. [Téléchargement et installation de GIT](https://git-scm.com/)
 1. [Téléchargement et installation de Node.js et NPM](https://nodejs.org/)
+1. [Installer Gulp.js](http://gulpjs.com/)
 1. [Téléchargement, installation et exécution de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
 1. [Téléchargement et installation de l’interface Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -40,7 +42,7 @@ Avant d’exécuter cet exemple, tenez compte des conditions préalables suivant
 ## <a name="test-local-mongodb-database"></a>Tester la base de données MongoDB locale
 Dans cette étape, vous allez vérifier le bon fonctionnement de votre base de données MongoDB locale.
 
-Ouvrez la fenêtre du terminal et `CD` dans le répertoire `bin` de votre installation MongoDB. 
+Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. 
 
 Exécutez `mongo` dans le terminal pour vous connecter à votre serveur MongoDB local.
 
@@ -59,7 +61,7 @@ Cette étape consiste à configurer le projet Node.js local.
 
 ### <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Ouvrez la fenêtre de terminal et `CD` dans un répertoire de travail.  
+Ouvrez la fenêtre de terminal et `cd` dans un répertoire de travail.  
 
 Exécutez les commandes suivantes pour cloner l’exemple de référentiel. 
 
@@ -107,7 +109,7 @@ Pour arrêter Node.js à tout moment, tapez `Ctrl`+`C` dans le terminal.
 
 Dans cette étape, vous allez créer une base de données MongoDB dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données pour sa charge de travail de production.
 
-Pour MongoDB, ce didacticiel utilise [Azure DocumentDB](/azure/documentdb/), qui peut prendre en charge les connexions clientes MongoDB. En d’autres termes, votre application Node.js sait uniquement qu’elle se connecte à une base de données MongoDB. Le fait que la connexion soit soutenue par une base de données DocumentDB est transparent pour l’application.
+Pour MongoDB, ce tutoriel utilise [Azure DocumentDB](/azure/documentdb/). Azure DocumentDB accepte les connexions client MongoDB, ce qui signifie que votre application Node.js sait uniquement qu’elle se connecte à une base de données MongoDB. Le fait que la connexion soit soutenue par une base de données DocumentDB est transparent pour l’application.
 
 ### <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -193,11 +195,11 @@ Copiez la valeur de `primaryMasterKey` dans un éditeur de texte. Vous aurez bes
 
 Dans votre référentiel MEAN.js, ouvrez `config/env/production.js`.
 
-Dans l’objet `db`, remplacez la valeur de `uri` comme indiqué dans l’exemple suivant. Veillez à remplacer également les deux espaces réservés `<documentdb_name>` par le nom de votre base de données DocumentDB et l’espace réservé `<primary_maste_key>` par la clé que vous avez copiée à l’étape précédente.
+Dans l’objet `db`, remplacez la valeur de `uri` comme indiqué dans l’exemple suivant. Veillez à remplacer également les deux espaces réservés `<documentdb_name>` par le nom de votre base de données DocumentDB et l’espace réservé `<primary_master_key>` par la clé que vous avez copiée à l’étape précédente.
 
 ```javascript
 db: {
-  uri: 'mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+  uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
   ...
 },
 ```
@@ -211,7 +213,7 @@ Enregistrez vos modifications.
 
 ### <a name="test-the-application-in-production-mode"></a>Tester l’application en mode de production 
 
-Comme certaines autres applications Node.js, MEAN.js utilise `gulp prod` pour réduire et regrouper des scripts pour l’environnement de production. Cette opération génère les fichiers nécessaires à l’environnement de production. 
+Comme certaines autres infrastructures web Node.js, MEAN.js utilise `gulp prod` pour réduire et regrouper des scripts pour l’environnement de production. Cette opération génère les fichiers nécessaires à l’environnement de production. 
 
 Exécutez `gulp prod` maintenant.
 
@@ -241,6 +243,8 @@ MEAN.JS version: 0.5.0
 ```
 
 Dans un navigateur, accédez à `http://localhost:8443`. Cliquez sur **S’inscrire** dans le menu supérieur et essayez de créer un utilisateur fictif, comme précédemment. Si vous réussissez, cela signifie que votre application écrit des données dans la base de données DocumentDB dans Azure. 
+
+Dans le terminal, arrêtez Node.js en tapant `Ctrl`+`C`. 
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>Déployer l’application Node.js dans Azure
 Dans cette étape, vous allez déployer dans Azure App Service votre application Node.js connectée à MongoDB.
@@ -353,7 +357,7 @@ Utilisez la commande [az appservice web deployment user set](/cli/azure/appservi
 > Un utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur App Service. Cet utilisateur de déploiement se situe au niveau des comptes. Par conséquent, il est différent de votre compte d’abonnement Azure. Vous n’avez à configurer cet utilisateur de déploiement qu’une seule fois.
 
 ```azurecli
-az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
+az appservice web deployment user set --user-name <specify-a-username> --password <minimum-8-char-capital-lowercase-number>
 ```
 
 Utilisez la commande [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) pour configurer l’accès Git local à l’application web Azure. 
@@ -441,7 +445,7 @@ Dans cette étape, vous allez apporter certaines modifications au modèle de don
 
 ### <a name="update-the-data-model"></a>Mettre à jour le modèle de données
 
-Ouvrez `modules/articles/server/models/articles.server.controller.js`.
+Ouvrez `modules/articles/server/models/article.server.model.js`.
 
 Dans `ArticleSchema`, ajoutez un type `String` appelé `comment`. Lorsque vous aurez terminé, votre code de schéma doit ressembler à ceci :
 
@@ -484,7 +488,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Ouvrez ensuite `modules/client/views/view-article.client.view.js`.
+Ouvrez ensuite `modules/articles/client/views/view-article.client.view.html`.
 
 Juste au-dessus de la balise de fermeture `</section>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -492,7 +496,7 @@ Juste au-dessus de la balise de fermeture `</section>`, ajoutez la ligne suivant
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Ensuite, ouvrez `modules/client/views/list-articles.client.view.js`.
+Ensuite, ouvrez `modules/articles/client/views/list-articles.client.view.html`.
 
 Juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -500,7 +504,7 @@ Juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Ensuite, ouvrez `modules/client/views/admin/list-articles.client.view.js`.
+Ensuite, ouvrez `modules/articles/client/views/admin/list-articles.client.view.html`.
 
 À l’intérieur de la balise `<div class="list-group">`, juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -508,7 +512,7 @@ Ensuite, ouvrez `modules/client/views/admin/list-articles.client.view.js`.
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Pour finir, ouvrez `modules/client/views/admin/list-articles.client.view.js`.
+Pour finir, ouvrez `modules/articles/client/views/admin/form-article.client.view.html`.
 
 Recherchez la balise `<div class="form-group">` qui contient le bouton Envoyer, qui ressemble à ceci :
 
@@ -550,6 +554,8 @@ Cliquez sur **Admin** > **Manage Articles** (Administrateur > Gérer les article
 Vous devriez maintenant voir la nouvelle zone de texte `Comment`.
 
 ![Champ de commentaire ajouté aux Articles](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+
+Dans le terminal, arrêtez Node.js en tapant `Ctrl`+`C`. 
 
 ### <a name="publish-changes-to-azure"></a>Publier les modifications dans Azure
 

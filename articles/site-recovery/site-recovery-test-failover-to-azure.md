@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2aed07ff82c33111ef1abc9c9cc6b0ba2a9d3718
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -71,6 +72,24 @@ Le déclenchement d’un test basculement implique les étapes suivantes :
 1. Vérification des conditions requises : cette étape s’assure que toutes les conditions requises pour le basculement sont satisfaites.
 1. Basculement : cette étape consiste à traiter les données et à les préparer pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
 1. Démarrer : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
+
+## <a name="time-taken-for-failover"></a>Durée du basculement
+
+Dans certains cas, le basculement des machines virtuelles nécessite une étape supplémentaire intermédiaire qui dure généralement de 8 à 10 minutes. Il s’agit des cas suivants :
+
+* Machines virtuelles VMware utilisant une version antérieure à la 9.8 pour le service de mobilité
+* Serveurs physiques 
+* Machines virtuelles VMware Linux
+* Machines virtuelles Hyper-V protégées en tant que serveurs physiques
+* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
+
+Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible. 
 
 
 ## <a name="creating-a-network-for-test-failover"></a>Création d’un réseau pour le test de basculement

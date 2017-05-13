@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
-ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -80,7 +81,7 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 | Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 correct, aucun MDN n’est configuré <br>Success = a reçu ou envoyé un message AS2 correct, le MDN est configuré et reçu ou un MDN est envoyé <br>Failed = a reçu un message AS2 incorrect, aucun MDN n’est configuré <br>Pending = a reçu ou envoyé un message AS2 correct, le MDN est configuré et un accusé de réception fonctionnel est attendu |
+| État | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 correct, aucun MDN n’est configuré <br>Success = a reçu ou envoyé un message AS2 correct, le MDN est configuré et reçu ou un MDN est envoyé <br>Failed = a reçu un message AS2 incorrect, aucun MDN n’est configuré <br>Pending = a reçu ou envoyé un message AS2 correct, la notification de réception du message (MDN) est configurée et attendue |
 | Ack | État du message de notification d’état du message <br>Accepted = a reçu ou envoyé un MDN positif <br>Pending = en attente de réception ou d’envoi d’un MDN <br>Rejected = a reçu ou envoyé un MDN négatif <br>Not Required = le MDN n’est pas configuré dans l’accord |
 | Direction | Direction du message AS2. |
 | ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |

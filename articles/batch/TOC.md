@@ -19,6 +19,7 @@
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)
+### [Machines virtuelles de faible priorité](batch-low-pri-vms.md)
 ### [Gérer les comptes Batch avec Batch Management .NET](batch-management-dotnet.md)
 ### [Conserver les résultats des tâches et des travaux](batch-task-output.md)
 ### [Exécuter des tâches MPI dans Batch](batch-mpi.md)

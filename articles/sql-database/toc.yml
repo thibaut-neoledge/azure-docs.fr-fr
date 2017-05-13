@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 - Sécuriser vos bases de données SQL"
     href: sql-database-security-tutorial.md
+  - name: "4 – Améliorer les performances de la base de données SQL"
+    href: sql-database-performance-tutorial.md
+  - name: "5 - Implémenter une application mutualisée"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 - Déployer une application mutualisée"
+    href: sql-database-saas-tutorial.md
+  - name: "7 - Approvisionner/répertorier les nouveaux clients"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 - Analyser les performances"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 - Restaurer un client unique"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 - Gérer les schémas de client"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 - Exécuter une analyse ad hoc"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 - Surveiller avec Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 - Gérer les analyses des clients"
+
 - name: "Exemples"
   items:
   - name: "Interface de ligne de commande Azure"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Récupération des bases de données"
       href: sql-database-recovery-using-backups.md
-    - name: "Géoréplication"
+    - name: "Basculement automatique et géoréplication"
       href: sql-database-geo-replication-overview.md
     - name: "Connexions"
       href: sql-database-geo-replication-security-config.md

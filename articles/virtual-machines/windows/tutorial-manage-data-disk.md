@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/21/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6bc28290f5ae0466b8e1a260d411b7eab6f12439
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,15 +27,15 @@ ms.lasthandoff: 04/26/2017
 
 Ce didacticiel décrit les différents disques de machines virtuelles et explique comment sélectionner une configuration de disque et comment créer et attacher des disques aux machines virtuelles Azure. Ce didacticiel couvre également la prise de captures instantanées de disque.  
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 
 Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquement attachés à celle-ci. 
 
-**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 1 To ; ces disques hébergent le système d’exploitation des machines virtuelles.  Le disque de système d’exploitation se voit attribuer une lettre de lecteur de `c:` par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. Le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt un disque de données, qui est décrit plus loin dans cet article.
+**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 1 To ; ces disques hébergent le système d’exploitation des machines virtuelles.  Le disque de système d’exploitation se voit attribuer la lettre de lecteur *c:* par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. Le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt un disque de données, qui est décrit plus loin dans cet article.
 
-**Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que la machine virtuelle. Les disques temporaires sont extrêmement performants et peuvent être utilisés pour des opérations telles que le traitement de données temporaires. Toutefois, si la machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur un disque temporaire sont supprimées. La taille du disque temporaire est déterminée par la taille de la machine virtuelle. Les disques temporaires se voient attribuer une lettre de lecteur de `d:` par défaut.
+**Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que la machine virtuelle. Les disques temporaires sont extrêmement performants et peuvent être utilisés pour des opérations telles que le traitement de données temporaires. Toutefois, si la machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur un disque temporaire sont supprimées. La taille du disque temporaire est déterminée par la taille de la machine virtuelle. Les disques temporaires se voient attribuer la lettre de lecteur *d:* par défaut.
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 
@@ -79,7 +80,7 @@ Les disques Premium reposent sur un disque SSD à faible latence et hautes perfo
 |Type de disque de stockage Premium | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Taille du disque (arrondie) | 128 Go | 512 Go | 1 024 Go (1 To) |
-| IOPS par disque | 500 | 2,300 | 5 000 |
+| IOPS par disque | 500 | 2 300 | 5 000 |
 Débit par disque | 100 Mo/s | 150 Mo/s | 200 Mo/s |
 
 Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par disque, un niveau de performances plus élevé est possible en entrelaçant plusieurs disques de données. Par exemple, 64 disques de données peuvent être attachés à la machine virtuelle Standard_GS5. Si chacun de ces disques est de type P30, vous pouvez atteindre un nombre maximum d’E/S par seconde de 80 000. Pour plus d’informations sur le nombre max. d’E/S par seconde par machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](./sizes.md).
@@ -91,7 +92,7 @@ Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une mach
 Créez la configuration initiale avec [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). L’exemple suivant configure un disque d’une taille de 128 Go.
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Créez le disque de données avec la commande [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
@@ -138,3 +139,4 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 Dans ce didacticiel, vous avez développé vos connaissances sur les disques de machine virtuelle. Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
 
 [How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
+

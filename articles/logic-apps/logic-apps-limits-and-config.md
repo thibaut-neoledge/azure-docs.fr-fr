@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2a270ba8ae17077c55c6b1473d4955dfb5f79ca1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -83,6 +84,9 @@ Voici les limites pour une instance d’application logique.
 |Name|Limite|Remarques|
 |----|----|----|
 |Exécutions d’actions par tranche de 5 minutes |100 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+|Appels de lecture de point de terminaison de runtime toutes les 5 minutes |60 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+|Appels d’appel de point de terminaison de runtime toutes les 5 minutes |45,000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+|Appels simultanés de blocage de point de terminaison de runtime |~1,000|Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins|
 
 Si vous pensez dépasser cette limite dans le cadre du traitement normal ou souhaitez exécuter des tests de charge susceptibles de dépasser cette limite pour une période donnée, [contactez-nous](mailto://logicappsemail@microsoft.com) afin que nous puissions répondre à vos besoins spécifiques.
 
@@ -111,6 +115,9 @@ Il s’agit des limites concernant les artefacts ajoutés au compte d’intégra
 |----|----|----|
 |Schéma|8 Mo|Vous pouvez utiliser [l’URI d’objet blob](logic-apps-enterprise-integration-schemas.md) pour télécharger des fichiers supérieurs à 2 Mo. |
 |Mappage (fichier XSLT)|2 Mo| |
+|Appels de lecture de point de terminaison de runtime toutes les 5 minutes |60 000|Possibilité de distribution au besoin des charges de travail entre plusieurs comptes|
+|Appels d’appel de point de terminaison de runtime toutes les 5 minutes |90 000|Possibilité de distribution au besoin des charges de travail entre plusieurs comptes|
+|Appels simultanés de blocage de point de terminaison de runtime |~1,000|Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Taille des messages des protocoles B2B (AS2, X12, EDIFACT)
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 0f54fb7d2d8cf010baf79409bc6a528d34982500
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d3c3f6ba0da73a8297f437a56f190f90274957ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,6 +35,7 @@ L’authentification directe Azure AD constitue une solution simple pour ces ent
 - Facilité d’utilisation
   - La validation du mot de passe ne nécessite aucun déploiement local, ni configuration réseau complexe.
   - Elle repose sur un connecteur local léger qui écoute et répond aux demandes de validation de mot de passe.
+  - Le connecteur local présente une capacité de mise à jour automatique qui lui permet de recevoir automatiquement les améliorations des fonctionnalités et les résolutions des bogues.
   - Elle peut être configurée en même temps que [Azure AD Connect](active-directory-aadconnect.md). Le connecteur local léger est installé sur le même serveur qu’Azure AD Connect.
 - Sécuriser
   - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
@@ -63,7 +65,7 @@ Les scénarios suivants ne sont PAS pris en charge dans la version préliminaire
 - Azure AD Join pour les appareils Windows 10.
 
 >[!IMPORTANT]
->Pour les scénarios dans lesquels l’authentification directe n’est pas prise en charge pour le moment (applications clientes Office héritées, Exchange ActiveSync et Azure AD Join pour les appareils Windows 10), il existe une solution de contournement : la synchronisation de mot de passe est également activée par défaut lorsque vous activez l’authentification directe. La synchronisation de mot de passe ne sert de solution de secours que pour ces scénarios spécifiques. Si vous n’en avez pas besoin, vous pouvez désactiver la synchronisation de mot de passe sur la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) dans Azure AD Connect.
+>Pour les scénarios dans lesquels la fonctionnalité d’authentification directe n’est pas prise en charge pour le moment (applications clientes Office héritées, Exchange ActiveSync et Azure AD Join pour les appareils Windows 10), il existe une solution de contournement : la synchronisation de mot de passe est également activée par défaut lorsque vous activez l’authentification directe. La synchronisation de mot de passe ne sert de solution de secours que pour ces scénarios spécifiques. Si vous n’en avez pas besoin, vous pouvez désactiver la synchronisation de mot de passe sur la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) dans l’Assistant Azure AD Connect.
 
 ## <a name="how-to-enable-azure-ad-pass-through-authentication"></a>Comment activer l’authentification directe Azure AD ?
 
@@ -74,25 +76,27 @@ Avant de pouvoir activer et utiliser l’authentification directe Azure AD, les 
 - Un client Azure AD dont vous êtes un administrateur global.
 
 >[!NOTE]
->Il est recommandé que le compte d’administrateur général soit un compte cloud uniquement, afin que vous puissiez gérer la configuration de votre client en cas de panne ou d’indisponibilité de vos services locaux. Vous pouvez ajouter un compte d’administrateur général de type cloud uniquement comme indiqué [ici](../active-directory-users-create-azure-portal.md).
+>Il est vivement recommandé que le compte d’administrateur général soit un compte cloud uniquement, afin que vous puissiez gérer la configuration de votre locataire en cas de panne ou d’indisponibilité de vos services locaux. Vous pouvez ajouter un compte d’administrateur général de type cloud uniquement comme indiqué [ici](../active-directory-users-create-azure-portal.md).
 
-- Azure AD Connect 1.1.484.0 ou une version ultérieure. Nous vous recommandons d’utiliser la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+- Azure AD Connect 1.1.486.0 ou une version ultérieure. Nous vous recommandons d’utiliser la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 - Un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect.
   - Ce serveur doit être un membre de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés.
-  - Notez qu’un connecteur est installé sur le même serveur qu’Azure AD Connect.
+  - Notez qu’un connecteur d’authentification directe est installé sur le même serveur qu’Azure AD Connect. Vérifiez que la version de connecteur est 1.5.58.0 ou une version ultérieure.
 
 >[!NOTE]
 >Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations entre les forêts AD et que le routage du suffixe de leurs noms est configuré correctement.
 
-- La haute disponibilité exige que vous disposiez de serveurs supplémentaires exécutant Windows Server 2012 R2 ou une version ultérieure pour installer des connecteurs autonomes.
+- La haute disponibilité exige que vous disposiez de serveurs supplémentaires exécutant Windows Server 2012 R2 ou une version ultérieure pour installer des connecteurs autonomes (la version doit correspondre à 1.5.58.0 ou à une version ultérieure).
 - S’il existe un pare-feu entre l’un des connecteurs et Azure AD, vérifiez les points suivants :
     - Si le filtrage d’URL est activé, assurez-vous que le connecteur peut communiquer avec les URL suivantes :
         -  \*.msappproxy.net
         -  \*.servicebus.windows.net
     - Les connecteurs établissent également des connexions IP directes vers les [plages IP de centre de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
     - Assurez-vous que le pare-feu n’effectue pas d’inspection SSL, car les connecteurs utilisent les certificats clients pour communiquer avec Azure AD.
-    - Assurez-vous que le connecteur peut envoyer des requêtes HTTPS (TCP) à Azure AD sur les ports 80 et 443.
+    - Vérifiez que les connecteurs peuvent envoyer des requêtes sortantes à Azure AD sur les ports 80 et 443.
       - Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
+      - Les connecteurs effectuent des requêtes HTTP sur le port 80 pour télécharger des listes de révocation de certificats SSL. C’est également nécessaire pour que la fonctionnalité de mise à jour automatique fonctionne correctement.
+      - Les connecteurs effectuent des requêtes HTTPS sur le port 443 pour toutes les autres opérations telles que l’activation et la désactivation de la fonctionnalité, l’inscription des connecteurs, le téléchargement des mises à jour du connecteur et la gestion des demandes de connexion de tous les utilisateurs.
 
 >[!NOTE]
 >Nous avons récemment apporté des améliorations afin de réduire le nombre de ports requis par les connecteurs pour communiquer avec notre service. Si vous exécutez des versions antérieures d’Azure AD Connect et/ou des connecteurs autonomes, vous devez laisser ces ports supplémentaires (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) ouverts.
@@ -122,7 +126,7 @@ Pour déployer un connecteur autonome, procédez comme suit :
 
 Dans cette étape, vous téléchargez et installez le logiciel du connecteur sur votre serveur.
 
-1.    [Téléchargez](https://go.microsoft.com/fwlink/?linkid=837580) le connecteur le plus récent.
+1.    [Téléchargez](https://go.microsoft.com/fwlink/?linkid=837580) le connecteur le plus récent. Vérifiez que la version de connecteur est 1.5.58.0 ou une version ultérieure.
 2.    Ouvrez une invite de commandes en tant qu’administrateur.
 3.    Exécutez la commande suivante (/q signifie une installation silencieuse ; l’installation ne vous demande pas d’accepter le Contrat de Licence Utilisateur Final) :
 
@@ -173,7 +177,7 @@ Un connecteur d’authentification directe ne peut pas être installé sur le m�
 
 #### <a name="an-unexpected-error-occured"></a>Une erreur inattendue s’est produite
 
-[Collectez les journaux du connecteur](#how-to-collect-pass-through-authentication-connector-logs?) à partir du serveur et contactez le Support Microsoft Support pour lui faire part de votre problème.
+[Collectez les journaux du connecteur](#collecting-pass-through-authentication-connector-logs) à partir du serveur et contactez le Support Microsoft Support pour lui faire part de votre problème.
 
 ### <a name="issues-during-registration-of-connectors"></a>Problèmes lors de l’inscription des connecteurs
 
@@ -181,9 +185,13 @@ Un connecteur d’authentification directe ne peut pas être installé sur le m�
 
 Assurez-vous que le serveur sur lequel le connecteur a été installé peut communiquer avec nos URL de service et les ports répertoriés [ici](#pre-requisites).
 
+#### <a name="registration-of-the-connector-failed-due-to-token-or-account-authorization-errors"></a>Échec de l’inscription du connecteur en raison d’erreurs d’autorisation lié au jeton ou au compte
+
+Veillez à utiliser un compte d’administrateur général uniquement dans le cloud pour toutes les opérations d’installation et d’inscription Azure AD Connect ou de connecteur autonome. Il existe un problème connu avec les comptes d’administrateur général compatibles MFA ; désactivez MFA temporairement (uniquement pour effectuer les opérations) comme solution de contournement.
+
 #### <a name="an-unexpected-error-occurred"></a>Une erreur inattendue s’est produite
 
-[Collectez les journaux du connecteur](#how-to-collect-pass-through-authentication-connector-logs?) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
+[Collectez les journaux du connecteur](#collecting-pass-through-authentication-connector-logs) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
 
 ### <a name="issues-during-un-installation-of-connectors"></a>Problèmes lors de la désinstallation des connecteurs
 
@@ -197,11 +205,15 @@ Vous devez avoir configuré la [haute disponibilité](#ensuring-high-availabilit
 
 #### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>L’activation de la fonctionnalité a échoué, car il n’y a aucun connecteur disponible
 
-Vous devez disposer d’au moins un serveur de connecteur actif pour activer l’authentification directe sur votre client. Vous pouvez installer un connecteur en installant Azure AD Connect ou en installant un connecteur autonome.
+Vous devez disposer d’au moins un connecteur actif pour activer l’authentification directe sur votre locataire. Vous pouvez installer un connecteur en installant Azure AD Connect ou un connecteur autonome.
 
 #### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>L’activation de la fonctionnalité a échoué en raison de ports bloqués
 
 Assurez-vous que le serveur sur lequel Azure AD Connect est installé peut communiquer avec nos URL de service et les ports répertoriés [ici](#pre-requisites).
+
+#### <a name="the-enabling-of-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L’activation de la fonctionnalité a échoué en raison d’erreurs d’autorisation lié au jeton ou au compte.
+
+Veillez à utiliser un compte d’administrateur général pour le cloud uniquement lors de l’activation de la fonctionnalité. Il existe un problème connu avec les comptes d’administrateur général compatibles MFA (Multi-Factor Authentication) ; désactivez MFA temporairement (uniquement pour effectuer l’opération) comme solution de contournement.
 
 ### <a name="issues-while-operating-the-pass-through-authentication-feature"></a>Problèmes liés au fonctionnement de la fonctionnalité d’authentification directe
 
@@ -217,7 +229,7 @@ La fonctionnalité signale les erreurs suivantes rencontrées par les utilisateu
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Il s’agit probablement d’une erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux du connecteur pour plus d’informations et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="how-to-collect-pass-through-authentication-connector-logs"></a>Comment collecter les journaux d’authentification directe ?
+### <a name="collecting-pass-through-authentication-connector-logs"></a>Collecte des journaux de connecteur d’authentification directe
 
 Selon le type de problème rencontré, que vous trouverez les journaux des connecteurs d’authentification directe dans différents emplacements.
 

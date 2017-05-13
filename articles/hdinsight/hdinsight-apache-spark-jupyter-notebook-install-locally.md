@@ -1,5 +1,5 @@
 ---
-title: "Installer un bloc-notes Jupyter localement et le connecter à un cluster Azure Spark | Microsoft Docs"
+title: "Installer un bloc-notes Jupyter localement et le connecter à un cluster Azure HDInsight Spark | Microsoft Docs"
 description: "Découvrez comment installer le bloc-notes Jupyter localement sur votre ordinateur et le connecter à un cluster Apache Spark sur Azure HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Installer un bloc-notes Jupyter sur votre ordinateur et se connecter au cluster Apache Spark sur HDInsight
 
-Dans cet article, vous allez apprendre à installer le bloc-notes Jupyter avec les noyaux PySpark (pour Python) et Spark (pour Scala) personnalisés avec Spark magic et connecter le bloc-notes à un cluster HDInsight. Plusieurs raisons peuvent motiver l’installation de Jupyter sur votre ordinateur local. Différents défis peuvent également se présenter. La section [Pourquoi dois-je installer Jupyter sur mon ordinateur ?](#why-should-i-install-jupyter-on-my-computer), à la fin de cet article, présente une liste de ces raisons et défis.
+Dans cet article, vous allez apprendre à installer le bloc-notes Jupyter avec les noyaux PySpark (pour Python) et Spark (pour Scala) personnalisés avec Spark magic et connecter le bloc-notes à un cluster HDInsight. Plusieurs raisons peuvent motiver l’installation de Jupyter sur votre ordinateur local. Différents défis peuvent également se présenter. Consultez la section [Pourquoi dois-je installer Jupyter sur mon ordinateur ?](#why-should-i-install-jupyter-on-my-computer) à la fin de cet article.
 
 L’installation de Jupyter et de Spark magic sur votre ordinateur comprend trois étapes essentielles.
 
@@ -42,7 +43,8 @@ La configuration requise indiquée ici ne concerne pas l’installation de Jupyt
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installer le bloc-notes Jupyter sur votre ordinateur
-Vous devez installer Python avant de pouvoir installer les blocs-notes Jupyter. Python et Jupyter font partie de la [distribution Ananconda](https://www.continuum.io/downloads). Lorsque vous installez Anaconda, vous installez en réalité une distribution de Python. Une fois Anaconda installé, vous ajoutez l’installation de Jupyter en exécutant une commande. Cette section fournit les instructions à suivre.
+
+Vous devez installer Python avant de pouvoir installer les blocs-notes Jupyter. Python et Jupyter font partie de la [distribution Ananconda](https://www.continuum.io/downloads). Lorsque vous installez Anaconda, vous installez une distribution de Python. Une fois Anaconda installé, vous ajoutez l’installation de Jupyter en exécutant les commandes appropriées.
 
 1. Téléchargez le [programme d’installation Anaconda](https://www.continuum.io/downloads) pour votre plateforme et exécutez le programme d’installation. Lors de l’exécution de l’assistant d’installation, veillez à sélectionner l’option permettant d’ajouter Anaconda à votre variable PATH.
 2. Exécutez la commande suivante pour installer Jupyter.
@@ -52,13 +54,15 @@ Vous devez installer Python avant de pouvoir installer les blocs-notes Jupyter. 
     Pour plus d’informations sur l’installation de Jupyter, consultez [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html)(Installation de Jupyter à l’aide d’Anaconda).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Installer les noyaux et Spark Magic
-Pour obtenir des instructions sur l’installation des noyaux Spark Magic, PySpark et Spark, consultez la [documentation sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) sur GitHub.
 
-Pour les clusters v3.4, installez sparkmagic 0.5.0 en exécutant `pip install sparkmagic==0.2.3`.
+Pour obtenir des instructions sur l’installation des noyaux Spark Magic, PySpark et Spark, consultez la [documentation sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) sur GitHub. La première étape de la documentation vous invite à installer Spark Magic. Remplacez la première étape du lien par les commandes suivantes, selon la version du cluster HDInsight auquel vous vous connectez. Après cela, suivez les étapes restantes de la documentation Spark Magic. Si vous souhaitez installer les différents noyaux, vous devez effectuer l’étape 3 de la section contenant les instructions d’installation.
 
-Pour les clusters v3.5, installez sparkmagic 0.8.4 en exécutant `pip install sparkmagic==0.8.4`.
+* Pour les clusters v3.4, installez sparkmagic 0.2.3 en exécutant `pip install sparkmagic==0.2.3`.
+
+* Pour les clusters v3.5 et v3.6, installez sparkmagic 0.11.2 en exécutant `pip install sparkmagic==0.11.2`.
 
 ## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Configurer Spark Magic pour accéder au cluster Spark sur HDInsight
+
 Dans cette section, vous configurez Spark Magic que vous avez installé précédemment pour qu’il se connecte à un cluster Apache Spark que vous devez avoir déjà créé dans Azure HDInsight.
 
 1. Les informations de configuration de Jupyter sont généralement stockées dans le répertoire de base des utilisateurs. Pour localiser votre répertoire de base sur n’importe quelle plateforme de système d’exploitation, tapez les commandes suivantes.
@@ -88,19 +92,17 @@ Dans cette section, vous configurez Spark Magic que vous avez installé précéd
           }
         }
 
-4. Remplacez **{USERNAME}**, **{CLUSTERDNSNAME}** et **{BASE64ENCODEDPASSWORD}** par les valeurs appropriées. Vous pouvez utiliser un certain nombre d’utilitaires dans votre langage de programmation favori ou en ligne pour générer un mot de passe codé en base64 pour votre mot de passe actuel. Voici ce à quoi pourrait ressembler un extrait de code Python simple à exécuter à partir de l’invite de commandes :
-
-        python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
+4. Remplacez **{USERNAME}**, **{CLUSTERDNSNAME}** et **{BASE64ENCODEDPASSWORD}** par les valeurs appropriées. Vous pouvez utiliser un certain nombre d’utilitaires dans votre langage de programmation favori ou en ligne pour générer un mot de passe codé en base64 pour votre mot de passe actuel.
 
 5. Configurez les bons paramètres de pulsation dans `config.json`. Vous devez ajouter ces paramètres au même niveau que les extraits de code `kernel_python_credentials` et `kernel_scala_credentials` ajoutés précédemment. Consultez cet [exemple config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json) pour voir comment et où ajouter les paramètres de pulsation.
 
-    * Pour `sparkmagic 0.5.0` (clusters v3.4), incluez :
+    * Pour `sparkmagic 0.2.3` (clusters v3.4), incluez :
 
             "should_heartbeat": true,
             "heartbeat_refresh_seconds": 5,
             "heartbeat_retry_seconds": 1
 
-    * Pour `sparkmagic 0.8.4` (clusters v3.5), incluez :
+    * Pour `sparkmagic 0.11.2` (clusters v3.5 et v3.6), incluez :
 
             "heartbeat_refresh_seconds": 5,
             "livy_server_heartbeat_timeout_seconds": 60,
@@ -115,19 +117,16 @@ Dans cette section, vous configurez Spark Magic que vous avez installé précéd
 
 7. Vérifiez que vous pouvez vous connecter au cluster à l’aide du bloc-notes Jupyter et que vous pouvez utiliser Spark Magic disponible avec les noyaux. Procédez comme suit.
 
-   1. Créer un nouveau bloc-notes. Dans le coin inférieur droit, cliquez sur **Nouveau**. Le noyau par défaut **Python2** doit s’afficher, ainsi que les deux nouveaux noyaux que vous installez : **PySpark** et **Spark**.
+    a. Créer un nouveau bloc-notes. Dans le coin inférieur droit, cliquez sur **Nouveau**. Le noyau par défaut **Python2** doit s’afficher, ainsi que les deux nouveaux noyaux que vous installez : **PySpark** et **Spark**. Cliquez sur **PySpark**.
 
-       ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Créer un bloc-notes Jupyter")
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Créer un bloc-notes Jupyter")
 
-        Cliquez sur **PySpark**.
+    b. Exécutez l’extrait de code suivant :
 
+        %%sql
+        SELECT * FROM hivesampletable LIMIT 5
 
-    2. Exécutez l’extrait de code suivant :
-
-            %%sql
-            SELECT * FROM hivesampletable LIMIT 5
-
-        Votre connexion au cluster HDInsight sera testée, si vous parvenez à récupérer la sortie.
+    Votre connexion au cluster HDInsight sera testée, si vous parvenez à récupérer la sortie.
 
     >[!TIP]
     >Si vous souhaitez mettre à jour la configuration du bloc-notes pour vous connecter à un autre cluster, mettez à jour le fichier config.json en tenant compte du nouveau jeu de valeurs, comme indiqué à l’étape 3 ci-dessus.

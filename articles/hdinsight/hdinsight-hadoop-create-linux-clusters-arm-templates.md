@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 1c095ece98c09290992ffeaca1f7b91a87a78818
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,9 +38,6 @@ Pour suivre les instructions de cet article, il vous faudra :
 * L’interface de ligne de commande Azure ou Azure PowerShell.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
-
-### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ### <a name="resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Un modèle Resource Manager permet de créer les éléments suivants pour votre application en une seule opération coordonnée :
@@ -165,6 +163,10 @@ Consultez [Déployer avec l’API REST](../azure-resource-manager/resource-group
  Utilisez Visual Studio pour créer un projet de groupe de ressources et le déployer vers Azure par le biais de l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet. Ces ressources sont automatiquement ajoutées au modèle Resource Manager. Le projet fournit également un script PowerShell pour déployer le modèle.
 
 Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :

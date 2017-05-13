@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
-ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 21372b8554901594f6770ef1ad18467801ef5fea
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,7 +76,7 @@ Dans le cadre de cette procédure, vous devez créer un fichier de certificat co
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
-1. Sur la page d’intégration d’application **Gigya** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans la page d’intégration d’application **Gigya** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configurer l’authentification unique")
 
@@ -115,7 +117,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
     > 
     > 
    
-    f. Ouvrez votre certificat codé en base&64; dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate** .
+    f. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate** .
    
     g. Cliquez sur **Save Settings**.
 
@@ -125,36 +127,15 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
    
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
-Pour se connecter à Gigya, les utilisateurs d’Azure AD doivent être approvisionnés dans Gigya.  
-Dans le cas de Gigya, l’approvisionnement est une tâche manuelle.
+Les utilisateurs Azure AD sont approvisionnés automatiquement la première fois qu’ils se connectent à Gigya.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
-1. Connectez-vous au site d’entreprise **Gigya** en tant qu’administrateur.
-2. Accédez à **Admin \> Manage Users**, puis cliquez sur **Invite Users**.
-   
-    ![Gestion des utilisateurs](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gestion des utilisateurs")
-
-3. Dans la boîte de dialogue Invite Users, procédez comme suit :
-   
-    ![Inviter des utilisateurs](./media/active-directory-saas-gigya-tutorial/IC789536.png "Inviter des utilisateurs")
-   
-    a. Dans la zone de texte **Email** , tapez l’alias de courrier électronique d’un compte Azure Active Directory valide à approvisionner.
-    
-    b. Cliquez sur **Invite User**.
-      
-    > [!NOTE]
-    > Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
-    > 
-    > 
-
- 
 
 ## <a name="assigning-users"></a>Affectation d’utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 ### <a name="to-assign-users-to-gigya-perform-the-following-steps"></a>Pour affecter des utilisateurs à Gigya, procédez comme suit :
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Sur la page d’intégration d’application **Gigya**, cliquez sur **Affecter des utilisateurs**.
+2. Dans la page d’intégration de l’application **Gigya**, cliquez sur **Affecter des utilisateurs**.
    
     ![Affecter des utilisateurs](./media/active-directory-saas-gigya-tutorial/IC789537.png "Affecter des utilisateurs")
 
@@ -163,10 +144,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
     ![Oui](./media/active-directory-saas-gigya-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

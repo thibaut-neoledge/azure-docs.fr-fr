@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
-ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 4327a3e3f67369a61eb945791ca1011fab6fb01d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -44,7 +45,8 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 ### <a name="attribute-descriptions"></a>Descriptions des attributs
 | Nom de l’attribut | Description |
 | --- | --- |
-| Langage |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+|AdvancedOutput| Si vous définissez AdvancedOutput sur true, le résultat JSON contient les données sur la position de chaque mot unique (en plus des régions et des expressions). Si vous ne souhaitez pas voir ces détails, définissez l’indicateur sur False. La valeur par défaut est false. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| language |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(facultatif) indique l’orientation du texte à rechercher.  « Left » signifie que la partie supérieure de toutes les lettres pointe vers la gauche.  Par défaut, le texte peut être affiché en mode « Up » (comme dans un livre).  Une des valeurs suivantes : AutoDetect (par défaut), Up, Right, Down, Left. |
 | TimeInterval |(facultatif) décrit le taux d’échantillonnage.  La valeur par défaut est chaque demie seconde.<br/>Format JSON – HH:mm:ss.SSS (par défaut : 00:00:00.500)<br/>Format XML – durée de la primitive W3C XSD (par défaut PT0.5) |
 | DetectRegions |(facultatif) Tableau d’objets DetectRegion spécifiant des zones au sein de l’image vidéo dans lesquelles détecter le texte.<br/>Un objet DetectRegion est constitué de quatre valeurs entières suivantes :<br/>Gauche – pixels à partir de la marge de gauche<br/>Haut – pixels à partir de la marge supérieure<br/>Largeur – largeur de la zone en pixels<br/>Height – hauteur de la zone en pixels |
@@ -55,6 +57,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true"
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -74,6 +77,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>

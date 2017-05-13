@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 456c541be7aadcce494bbd54e97deb6f30d5141b
-ms.openlocfilehash: dc9af7e4ef9599886d1be6676f88f71f80c20474
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,11 +50,11 @@ Une fois le déploiement réussi, l’adresse IP virtuelle interne de votre serv
 ### <a name="enable-vnet-connection-using-powershell-cmdlets"></a>Activer la connexion au réseau virtuel à l’aide d’applets de commande PowerShell
 Vous pouvez également activer la connectivité de réseau virtuel à l’aide d’applets de commande PowerShell.
 
-* **Créer un service Gestion des API au sein d’un réseau virtuel** : utilisez l’applet de commande [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) pour créer un service Gestion des API Azure au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
+* **Créer un service Gestion des API au sein d’un réseau virtuel** : utilisez l’applet de commande [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) pour créer un service Gestion des API Azure au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
 
-* **Déployer un service Gestion des API existant au sein d’un réseau virtuel** : utilisez l’applet de commande [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) pour déplacer un service Gestion des API Azure existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
+* **Déployer un service Gestion des API existant au sein d’un réseau virtuel** : utilisez l’applet de commande [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) pour déplacer un service Gestion des API Azure existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
 
-## <a name="a-nameapim-dns-configurationadns-configuration"></a><a name="apim-dns-configuration"></a>Configuration DNS
+## <a name="apim-dns-configuration"></a>Configuration DNS
 Lorsque vous utilisez la Gestion des API en mode réseau virtuel externe, DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre serveur DNS.
 
 > [!NOTE]
@@ -61,23 +63,23 @@ Lorsque vous utilisez la Gestion des API en mode réseau virtuel externe, DNS es
 ### <a name="access-on-default-host-names"></a>Accès sur les noms d’hôtes par défaut :
 Lorsque vous créez un service Gestion des API dans le cloud public Azure, nommé « contoso » par exemple, les points de terminaison de service suivants sont configurés par défaut.
 
->   Passerelle / Proxy : contoso.azure-api.net
+>    Passerelle / Proxy : contoso.azure-api.net
 
 > Portail des éditeurs et portail des développeurs : contoso.portal.azure-api.net
 
 > Point de terminaison de gestion directe : contoso.management.azure-api.net
 
->   Git : contoso.scm.azure-api.net
+>    Git : contoso.scm.azure-api.net
 
 Pour accéder à ces points de terminaison de service Gestion des API, vous pouvez créer une machine virtuelle dans un sous-réseau connecté au réseau virtuel dans lequel la Gestion des API est déployée. En supposant que l’adresse IP virtuelle interne de votre service est 10.0.0.5, vous pouvez effectuer le mappage des fichiers hôtes (%SystemDrive%\drivers\etc\hosts) de la façon suivante :
 
-> 10.0.0.5    contoso.azure-api.net
+> 10.0.0.5      contoso.azure-api.net
 
-> 10.0.0.5    contoso.portal.azure-api.net
+> 10.0.0.5      contoso.portal.azure-api.net
 
-> 10.0.0.5    contoso.management.azure-api.net
+> 10.0.0.5      contoso.management.azure-api.net
 
-> 10.0.0.5    contoso.scm.azure-api.net
+> 10.0.0.5      contoso.scm.azure-api.net
 
 Vous pouvez alors accéder à tous les points de terminaison de service à partir de la machine virtuelle que vous avez créée. Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouvez également créer des enregistrements DNS A et accéder à ces points de terminaison à partir de l’endroit de votre choix dans votre réseau virtuel. 
 
@@ -99,9 +101,4 @@ Vous pouvez ensuite créer des enregistrements A dans votre serveur DNS de faço
 
 [Create API Management service]: api-management-get-started.md#create-service-instance
 [Common Network Configuration Issues]: api-management-using-with-vnet.md#network-configuration-issues
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

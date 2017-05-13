@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
-ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameaccessrestrictionpoliciesa-access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès  
+##  <a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès  
   
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.  
   
@@ -38,7 +40,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.  
   
-##  <a name="a-namecheckhttpheadera-check-http-header"></a><a name="CheckHTTPHeader"></a> Check HTTP header  
+##  <a name="CheckHTTPHeader"></a> Check HTTP header  
  Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à une demande. Vous pouvez éventuellement vérifier si l’en-tête a une certaine valeur ou une valeur comprise dans une plage de valeurs autorisées. Si la vérification échoue, la stratégie met fin au traitement de la demande et renvoie le message d’erreur et le code d’état HTTP spécifiés par la stratégie.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -81,7 +83,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namelimitcallratea-limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limit call rate by subscription  
+##  <a name="LimitCallRate"></a> Limit call rate by subscription  
  La stratégie `rate-limit` évite les pics d’utilisation des API par abonnement en limitant le débit d’appels à un nombre spécifié pour une période donnée. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.  
   
 > [!IMPORTANT]
@@ -136,7 +138,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** product  
   
-##  <a name="a-namelimitcallratebykeya-limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé  
+##  <a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé  
  La stratégie `rate-limit-by-key` évite les pics d’utilisation des API par clé en limitant le débit d’appels à un nombre spécifié pour une période donnée. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans la limite. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.  
   
  Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -194,7 +196,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namerestrictcalleripsa-restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Restrict caller IPs  
+##  <a name="RestrictCallerIPs"></a> Restrict caller IPs  
  La stratégie `ip-filter` filtre (autorise/rejette) les appels de certaines adresses IP et/ou de certaines plages d’adresses.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -237,7 +239,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namesetusagequotaa-set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Set usage quota by subscription  
+##  <a name="SetUsageQuota"></a> Set usage quota by subscription  
  La stratégie `quota` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par abonnement.  
   
 > [!IMPORTANT]
@@ -293,7 +295,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** product  
   
-##  <a name="a-namesetusagequotabykeya-set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a> Set usage quota by key  
+##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
  La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota.  
   
  Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -354,12 +356,12 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namevalidatejwta-validate-jwt"></a><a name="ValidateJWT"></a> Validate JWT  
+##  <a name="ValidateJWT"></a> Validate JWT  
  La stratégie `validate-jwt` applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.  
   
 > [!IMPORTANT]
 >  La stratégie `validate-jwt` exige que la revendication inscrite `exp` soit incluse dans le jeton JWT, sauf si l’attribut `require-expiration-time` est spécifié et a la valeur `false`.  
-> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base&64;. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.  
+> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
@@ -419,7 +421,27 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### <a name="azure-active-directory-b2c-token-validation"></a>Validation d’un jeton Azure Active Directory B2C  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -475,7 +497,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |-------------|-----------------|--------------|  
 |validate-jwt|Élément racine.|Oui|  
 |audiences|Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.|Non|  
-|issuer-signing-keys|Liste de clés de sécurité encodées en base&64; utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.|Non|  
+|issuer-signing-keys|Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.|Non|  
 |issuers|Liste des services principaux acceptables qui ont émis le jeton. Si plusieurs valeurs d’émetteur sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse.|Non|  
 |openid-config|Élément utilisé pour spécifier un point de terminaison de configuration Open ID conforme à partir duquel l’émetteur et les clés de signature peuvent être obtenus.|Non|  
 |required-claims|Contient une liste de revendications censées être présentes sur le jeton pour qu’il soit considéré comme valide. Si l’attribut `match` a la valeur `all`, toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Si l’attribut `match` a la valeur `any`, au moins une revendication doit être présente dans le jeton pour que la validation réussisse.|Non|  
@@ -495,7 +517,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |require-expiration-time|Booléen. Spécifie si une revendication d’expiration est requise dans le jeton.|Non|true|
 |require-scheme|Le nom du schéma de jeton, par ex. « Support ». Lorsque cet attribut est défini, la stratégie garantit que le schéma spécifié est présent dans la valeur d’en-tête d’autorisation.|Non|N/A|
 |require-signed-tokens|Booléen. Spécifie si un jeton doit être signé.|Non|true|  
-|url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.windows.net/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|Oui|N/A|  
+|url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -506,9 +528,4 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

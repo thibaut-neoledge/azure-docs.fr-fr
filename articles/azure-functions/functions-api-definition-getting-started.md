@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9fd5b63259c7771d8b1e346ba3a6c10a4399532a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -120,5 +121,5 @@ Des outils de test sont intégrés à l’affichage interface utilisateur de l�
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
   * Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 * [Référentiel GitHub Azure Functions](https://github.com/Azure/Azure-Functions/)
-  * Consultez le Github Functions pour nous donner votre avis sur la version préliminaire du support de définition d’API ! Créez un ticket github pour les mises à jour que vous souhaitez.
+  * Consultez le GitHub Functions pour nous donner votre avis sur la version préliminaire du support de définition d’API ! Créez un ticket GitHub pour les mises à jour que vous souhaitez.
 

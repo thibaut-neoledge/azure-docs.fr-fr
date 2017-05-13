@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: anmola
-translationtype: Human Translation
-ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
-ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,11 +38,11 @@ Les scénarios sont des opérations complexes composées d’une ou plusieurs ac
 * Scénario de basculement
 
 ## <a name="testing-as-a-service"></a>Tests en tant que service
-Le service d’analyse des erreurs est un service du système Service Fabric qui démarre automatiquement avec un cluster Service Fabric. Ce service agit comme un hôte pour l'injection d'erreurs, l'exécution de scénarios de test et l’analyse d’intégrité. 
+Le service d’analyse des erreurs est un service du système Service Fabric qui démarre automatiquement avec un cluster Service Fabric. Ce service agit comme un hôte pour l’injection d’erreurs, l’exécution de scénarios de test et l’analyse d’intégrité. 
 
 ![Service d’analyse des erreurs][0]
 
-Quand une action d’erreur ou un scénario de test est déclenché, une commande est envoyée au service d’analyse des erreurs pour exécuter l’action d’erreur ou le scénario de test. Le service d’analyse des erreurs est avec état de sorte qu'il peut exécuter les scénarios et les erreurs de façon fiable et valider les résultats. Par exemple, un scénario de test à longue durée d'exécution peut être exécuté de manière fiable par le service d’analyse des erreurs. Et, étant donné que les tests sont exécutés à l'intérieur du cluster, le service peut examiner l'état du cluster et de vos services pour fournir des informations plus détaillées sur les échecs.
+Quand une action d’erreur ou un scénario de test est déclenché, une commande est envoyée au service d’analyse des erreurs pour exécuter l’action d’erreur ou le scénario de test. Le service d’analyse des erreurs est avec état de sorte qu’il peut exécuter les scénarios et les erreurs de façon fiable et valider les résultats. Par exemple, un scénario de test à longue durée d'exécution peut être exécuté de manière fiable par le service d’analyse des erreurs. Et, étant donné que les tests sont exécutés à l'intérieur du cluster, le service peut examiner l'état du cluster et de vos services pour fournir des informations plus détaillées sur les échecs.
 
 ## <a name="testing-distributed-systems"></a>Test des systèmes distribués
 Service Fabric simplifie considérablement les tâches d’écriture et de gestion des applications évolutives distribuées. De même, le service d’analyse des erreurs facilite le test d’une application distribuée. Trois problématiques liées au test doivent être résolues :

@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -29,7 +30,7 @@ La solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des ma
 
 - Les runbooks fonctionnent avec un [compte d’identification Azure](automation-sec-configure-azure-runas-account.md).  Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.  
 
-- Cette solution permet uniquement de gérer les machines virtuelles qui se trouvent dans le même abonnement et le même groupe de ressources que le compte Automation.  
+- Cette solution permet uniquement de gérer les machines virtuelles qui se trouvent dans le même abonnement que le compte Automation.  
 
 - Cette solution peut seulement être déployée dans les régions Azure suivantes : Sud-Est de l’Australie, États-Unis de l’Est, Sud-Est Asiatique et Europe de l’Ouest.  Les runbooks qui gèrent la planification des machines virtuelles peuvent cibler les machines virtuelles de n’importe quelle région.  
 

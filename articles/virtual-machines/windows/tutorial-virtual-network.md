@@ -15,24 +15,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/18/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7015a5317c631dad9079f2694051fa7fb28d232b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: e1b3e9756e149c5cba67f8b5c37e1d153dbf81ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Gérer des réseaux virtuels Azure et des machines virtuelles Windows avec Azure PowerShell
 
-Dans ce didacticiel, vous apprendrez à créer plusieurs machines virtuelles dans un réseau virtuel et à configurer leur connectivité réseau. Une fois cette opération terminée, une machine virtuelle frontale sera accessible sur Internet à partir du port 80 pour les connexions HTTP. Une machine virtuelle principale avec une base de données SQL Server sera isolée et accessible uniquement à partir de la machine virtuelle frontale sur le port 1433.
+Dans ce didacticiel, vous apprendrez à créer plusieurs machines virtuelles dans un réseau virtuel et à configurer leur connectivité réseau. Une fois cette opération terminée, une machine virtuelle « frontale » est accessible via Internet sur le port 80 pour les connexions HTTP. Une machine virtuelle « back-end » avec une base de données SQL Server est isolée et accessible uniquement à partir de la machine virtuelle frontale sur le port 1433.
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-vnet"></a>Créer un réseau virtuel
 
 Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Un réseau virtuel comporte des sous-réseaux, des règles de connectivité vers ces sous-réseaux, et des connexions entre les machines virtuelles et les sous-réseaux.
 
-Vous devez créer un groupe de ressources avec [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-3.8.0) pour pouvoir créer d’autres ressources Azure. L’exemple suivant crée un groupe de ressources nommé `myRGNetwork` à l’emplacement `westus` :
+Vous devez créer un groupe de ressources avec [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) pour pouvoir créer d’autres ressources Azure. L’exemple suivant crée un groupe de ressources nommé *myRGNetwork* à l’emplacement *westus* :
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
@@ -40,7 +41,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
 
 Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
 
-Créez un sous-réseau avec [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0) :
+Créez un sous-réseau avec [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) :
 
 ```powershell
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -48,7 +49,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Créez un réseau virtuel nommé `myVNet` à l’aide de `myFrontendSubnet` avec [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?view=azurermps-3.8.0) :
+Créez un réseau virtuel nommé *myVNet* en utilisant *myFrontendSubnet* avec [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) :
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
@@ -61,9 +62,9 @@ $vnet = New-AzureRmVirtualNetwork `
 
 ## <a name="create-front-end-vm"></a>Créer une machine virtuelle frontale
 
-Pour communiquer avec un réseau virtuel, une machine virtuelle a besoin d’une interface réseau virtuelle. `myFrontendVM` est accessible à partir d’Internet et nécessite donc également une adresse IP publique. 
+Pour communiquer avec un réseau virtuel, une machine virtuelle a besoin d’une interface réseau virtuelle. *myFrontendVM* est accessible à partir d’Internet et a donc aussi besoin d’une adresse IP publique. 
 
-Créez une adresse IP publique avec [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress?view=azurermps-3.8.0) :
+Créez une adresse IP publique avec [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) :
 
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
@@ -73,7 +74,7 @@ $pip = New-AzureRmPublicIpAddress `
   -Name myPublicIPAddress
 ```
 
-Créez une carte réseau avec [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?view=azurermps-3.8.0) :
+Créez une carte réseau avec [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) :
 
 
 ```powershell
@@ -91,36 +92,61 @@ Définissez le nom d’utilisateur et le mot de passe pour le compte Administrat
 $cred = Get-Credential
 ```
 
-Créez les machines virtuelles avec [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-3.8.0), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem?view=azurermps-3.8.0), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage?view=azurermps-3.8.0), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-3.8.0), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-3.8.0) et [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-3.8.0). 
+Créez les machines virtuelles avec [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) et [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
 
 ```powershell
-$frontendVM = New-AzureRmVMConfig -VMName myFrontendVM -VMSize Standard_D1
-$frontendVM = Set-AzureRmVMOperatingSystem -VM $frontendVM -Windows -ComputerName myFrontendVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$frontendVM = Set-AzureRmVMSourceImage -VM $frontendVM -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
-$frontendVM = Set-AzureRmVMOSDisk -VM $frontendVM -Name myFrontendOSDisk -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
-$frontendVM = Add-AzureRmVMNetworkInterface -VM $frontendVM -Id $frontendNic.Id
-New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $frontendVM
+$frontendVM = New-AzureRmVMConfig `
+    -VMName myFrontendVM `
+    -VMSize Standard_D1
+$frontendVM = Set-AzureRmVMOperatingSystem `
+    -VM $frontendVM `
+    -Windows `
+    -ComputerName myFrontendVM `
+    -Credential $cred `
+    -ProvisionVMAgent `
+    -EnableAutoUpdate
+$frontendVM = Set-AzureRmVMSourceImage `
+    -VM $frontendVM `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+$frontendVM = Set-AzureRmVMOSDisk `
+    -VM $frontendVM `
+    -Name myFrontendOSDisk `
+    -DiskSizeInGB 128 `
+    -CreateOption FromImage `
+    -Caching ReadWrite
+$frontendVM = Add-AzureRmVMNetworkInterface `
+    -VM $frontendVM `
+    -Id $frontendNic.Id
+New-AzureRmVM `
+    -ResourceGroupName myRGNetwork `
+    -Location westus `
+    -VM $frontendVM
 ```
 
 ## <a name="install-web-server"></a>Installer le serveur web
 
-Vous pouvez installer IIS sur `myFrontendVM` à l’aide d’une session Bureau à distance. Vous avez besoin de l’adresse IP publique de la machine virtuelle pour y accéder.
+Vous pouvez installer IIS sur *myFrontendVM* à partir d’une session Bureau à distance. Vous avez besoin de l’adresse IP publique de la machine virtuelle pour y accéder.
 
-Vous pouvez obtenir l’adresse IP publique de `myFrontendVM` avec [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-3.8.0). L’exemple suivant obtient l’adresse IP de `myPublicIPAddress` créée précédemment :
+Vous pouvez obtenir l’adresse IP publique de *myFrontendVM* avec [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). L’exemple suivant obtient l’adresse IP pour l’adresse *myPublicIPAddress* créée précédemment :
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myRGNetwork -Name myPublicIPAddress | select IpAddress
+Get-AzureRmPublicIPAddress `
+    -ResourceGroupName myRGNetwork `
+    -Name myPublicIPAddress | select IpAddress
 ```
 
 Notez cette adresse IP : vous en aurez besoin lors des étapes suivantes.
 
-Utilisez la commande suivante pour créer une session Bureau à distance avec `myFrontendVM`. Remplacez `<publicIPAddress>` par l’adresse que vous avez enregistrée précédemment. À l’invite, saisissez les informations d’identification que vous avez utilisées lors de la création de la machine virtuelle.
+Utilisez la commande suivante pour créer une session Bureau à distance avec *myFrontendVM*. Remplacez *<publicIPAddress>* par l’adresse que vous avez enregistrée précédemment. À l’invite, saisissez les informations d’identification que vous avez utilisées lors de la création de la machine virtuelle.
 
 ```
 mstsc /v:<publicIpAddress>
 ``` 
 
-Maintenant que vous êtes connecté à `myFrontendVM`, vous pouvez utiliser une seule ligne de PowerShell pour installer IIS et activer la règle de pare-feu local afin d’autoriser le trafic web. Ouvrez une invite PowerShell et exécutez la commande suivante :
+Maintenant que vous êtes connecté à *myFrontendVM*, vous pouvez utiliser une seule ligne de PowerShell pour installer IIS et activer la règle de pare-feu local pour autoriser le trafic web. Ouvrez une invite PowerShell et exécutez la commande suivante :
 
 Utilisez [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) pour exécuter l’extension de script personnalisé qui installe le serveur Web IIS :
 
@@ -134,11 +160,11 @@ Vous pouvez maintenant utiliser l’adresse IP publique pour accéder à la mac
 
 ## <a name="manage-internal-traffic"></a>Gérer le trafic interne
 
-Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel. Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes réseau distinctes qui sont attachées aux machines virtuelles. L’ouverture et la fermeture de l’accès aux machines virtuelles par le biais des ports s’effectuent à l’aide des règles de groupe de sécurité réseau. Lorsque vous avez créé `myFrontendVM`, le port entrant 3389 a été automatiquement ouvert pour la connectivité RDP.
+Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel. Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes réseau distinctes qui sont attachées aux machines virtuelles. L’ouverture et la fermeture de l’accès aux machines virtuelles par le biais des ports s’effectuent à l’aide des règles de groupe de sécurité réseau. Quand vous avez créé *myFrontendVM*, le port d’entrée 3389 a été automatiquement ouvert pour la connectivité RDP.
 
-La communication interne des machines virtuelles peut être configurée à l’aide d’un groupe de sécurité réseau. Dans cette section, vous apprendrez à créer un sous-réseau supplémentaire dans le réseau et à lui affecter un groupe de sécurité réseau pour autoriser une connexion de `myFrontendVM` vers `myBackendVM` sur le port 1433. Le sous-réseau est ensuite affecté à la machine virtuelle lors de sa création.
+La communication interne des machines virtuelles peut être configurée à l’aide d’un groupe de sécurité réseau. Dans cette section, vous allez apprendre à créer un sous-réseau supplémentaire dans le réseau et à lui affecter un groupe de sécurité réseau pour autoriser une connexion de *myFrontendVM* vers *myBackendVM* sur le port 1433. Le sous-réseau est ensuite affecté à la machine virtuelle lors de sa création.
 
-Vous pouvez limiter le trafic interne vers `myBackendVM` en provenance de `myFrontendVM` uniquement par la création d’un groupe de sécurité réseau pour le sous-réseau principal. L’exemple suivant crée une règle de groupe de sécurité réseau nommée `myBackendNSGRule` avec [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig?view=azurermps-3.8.0) :
+Vous pouvez limiter le trafic interne vers *myBackendVM* en provenance uniquement de *myFrontendVM* en créant un groupe de sécurité réseau pour le sous-réseau back-end. L’exemple suivant crée une règle de groupe de sécurité réseau nommée *myBackendNSGRule* avec [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) :
 
 ```powershell
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -153,7 +179,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Ajoutez un groupe de sécurité réseau nommé `myBackendNSG` avec [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup?view=azurermps-3.8.0) :
+Ajoutez un groupe de sécurité réseau nommé *myBackendNSG* avec [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) :
 
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -164,22 +190,25 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 ```
 ## <a name="add-back-end-subnet"></a>Ajouter un sous-réseau principal
 
-Ajoutez `myBackEndSubnet` à `myVNet` avec [AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0) :
+Ajoutez *myBackEndSubnet* à *myVNet* avec [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) :
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name myBackendSubnet `
+Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
   -VirtualNetwork $vnet `
   -AddressPrefix 10.0.1.0/24 `
   -NetworkSecurityGroup $nsgBackend
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myRGNetwork -Name myVNet
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myRGNetwork `
+  -Name myVNet
 ```
 
 ## <a name="create-back-end-vm"></a>Créer une machine virtuelle principale
 
 Pour créer une machine virtuelle principale, le plus simple consiste à utiliser une image SQL Server. Ce didacticiel crée la machine virtuelle avec le serveur de base de données, mais il ne fournit pas d’informations sur l’accès à la base de données.
 
-Créez `myBackendNic` :
+Créez *myBackendNic* :
 
 ```powershell
 $backendNic = New-AzureRmNetworkInterface `
@@ -195,17 +224,44 @@ Définissez le nom d’utilisateur et le mot de passe pour le compte Administrat
 $cred = Get-Credential
 ```
 
-Créez `myBackendVM` :
+Créez *myBackendVM* :
 
 ```powershell
-$backendVM = New-AzureRmVMConfig -VMName myBackendVM -VMSize Standard_D1
-$backendVM = Set-AzureRmVMOperatingSystem -VM $backendVM -Windows -ComputerName myBackendVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$backendVM = Set-AzureRmVMSourceImage -VM $backendVM -PublisherName MicrosoftSQLServer -Offer SQL2016-WS2016 -Skus Enterprise -Version latest
-$backendVM = Set-AzureRmVMOSDisk -VM $backendVM -Name myBackendOSDisk -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
-$backendVM = Add-AzureRmVMNetworkInterface -VM $backendVM -Id $backendNic.Id
-New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $backendVM
+$backendVM = New-AzureRmVMConfig `
+  -VMName myBackendVM `
+  -VMSize Standard_D1
+$backendVM = Set-AzureRmVMOperatingSystem `
+  -VM $backendVM `
+  -Windows `
+  -ComputerName myBackendVM `
+  -Credential $cred `
+  -ProvisionVMAgent `
+  -EnableAutoUpdate
+$backendVM = Set-AzureRmVMSourceImage `
+  -VM $backendVM `
+  -PublisherName MicrosoftSQLServer `
+  -Offer SQL2016-WS2016 `
+  -Skus Enterprise `
+  -Version latest
+$backendVM = Set-AzureRmVMOSDisk `
+  -VM $backendVM `
+  -Name myBackendOSDisk `
+  -DiskSizeInGB 128 `
+  -CreateOption FromImage `
+  -Caching ReadWrite
+$backendVM = Add-AzureRmVMNetworkInterface `
+  -VM $backendVM `
+  -Id $backendNic.Id
+New-AzureRmVM `
+  -ResourceGroupName myRGNetwork `
+  -Location westus `
+  -VM $backendVM
 ```
 
 L’image utilisée inclut SQL Server, mais elle n’est pas utilisée dans ce didacticiel. Elle est présentée pour vous montrer comment configurer une machine virtuelle afin de gérer le trafic web, et comment configurer une machine virtuelle afin de traiter la gestion de la base de données.
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Dans ce tutoriel, vous avez appris à créer et à sécuriser des réseaux Azure en rapport avec des machines virtuelles. Passez au tutoriel suivant pour apprendre à surveiller la sécurité des machines virtuelles avec Azure Security Center.
+
+[Gérer la sécurité des machines virtuelles](./tutorial-azure-security.md)

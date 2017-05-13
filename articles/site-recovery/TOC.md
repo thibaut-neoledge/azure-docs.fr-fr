@@ -47,8 +47,8 @@
 ## Charges de travail
 ### [Active Directory et DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Microsoft Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD : inscription à la réinitialisation de mot de passe en libre-service | Microsoft Docs"
-description: "Inscrire les données d’authentification en vue de la réinitialisation de mot de passe en libre-service"
+title: "Azure AD : inscription SSPR | Microsoft Docs"
+description: "Inscrire les données d’authentification en vue de la réinitialisation de mot de passe en libre-service Azure AD"
 services: active-directory
-keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD, SSPR"
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
@@ -11,30 +11,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/16/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="register-for-self-service-password-reset"></a>S’inscrire à la réinitialisation de mot de passe en libre-service
 
-Si votre administrateur a activé la réinitialisation de mot de passe en libre-service (SSPR), vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte en tant qu’utilisateur final, sans avoir à contacter qui que ce soit. Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire les méthodes d’authentification ou confirmer les méthodes d’authentification prédéfinies et remplies par votre administrateur.
+En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte, sans avoir à contacter qui que ce soit au moyen de la réinitialisation de mot de passe en libre-service (SSPR). Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire les méthodes d’authentification ou confirmer les méthodes d’authentification prédéfinies et remplies par votre administrateur.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Inscrire ou confirmer les données d’authentification avec SSPR
 
 1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](http://aka.ms/ssprsetup).
 2. Entrez le nom d’utilisateur et le mot de passe qui vous ont été fournis par votre administrateur.
-3. Selon les options approuvées par votre administrateur, différents éléments de la liste suivante apparaîtront ; vous devrez les configurer ou les vérifier pour les utiliser en cas de réinitialisation de mot de passe :
-    * Téléphone de bureau : cette option ne peut être définie que par l’administrateur.
-    * Téléphone d’authentification : cette option doit être définie sur un autre numéro de téléphone auquel vous avez accès, comme un téléphone portable en mesure de recevoir un SMS ou un appel (votre administrateur peut la remplir pour vous avec votre numéro de téléphone portable s’il a déjà votre autorisation d’utiliser ces informations).
-    * Adresse électronique d’authentification : cette option doit être définie sur une autre adresse de messagerie à laquelle vous pouvez accéder sans le mot de passe à réinitialiser.
-    * Questions de sécurité : cette option vous donne une liste de questions fournies par votre administrateur, auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même réponse pour plusieurs questions.
+3. Selon la façon dont votre personnel informatique a effectué la configuration, une ou plusieurs des options suivantes peuvent être configurées et vérifiées par vous. Votre administrateur peut remplir une partie pour vous s’il a l’autorisation d’utiliser les informations.
+    * Le téléphone de bureau ne peut être défini que par l’administrateur.
+    * Le téléphone d’authentification doit être défini sur un autre numéro de téléphone auquel vous avez accès, comme un téléphone portable capable de recevoir un appel ou un SMS.
+    * L’e-mail d’authentification doit être défini sur une autre adresse de messagerie à laquelle vous pouvez accéder sans le mot de passe à réinitialiser.
+    * Les questions de sécurité vous donne une liste de questions fournies par votre administrateur, auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même question ou réponse plusieurs fois.
 4. Fournissez et vérifiez les informations demandées par votre administrateur. Si plusieurs options sont disponibles, nous vous proposons d’inscrire plusieurs méthodes afin d’assurer une certaine souplesse en cas d’indisponibilité d’une méthode (exemple : impossibilité d’accéder au téléphone de bureau en déplacement).
 
     ![Inscrire des méthodes d’authentification et cliquer sur Terminer][Register]
@@ -53,4 +54,5 @@ Les administrateurs peuvent vous demander de confirmer vos méthodes d’authent
 * [Connexion impossible à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Page relative à l’inscription à la réinitialisation de mot de passe, montrant les méthodes inscrites et le bouton Terminer"
+
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 05/02/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 32ca2e4b1dcf5715602b8e1e1f3026cb785fbe0c
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -40,7 +41,7 @@ La plupart des scénarios de connectivité VPN courants sont couverts par la mig
 
 Les scénarios non pris en charge sont les suivants :  
 
-* À l’heure actuelle, les réseaux virtuels contenant des passerelles ExpressRoute ne prennent pas en charge la migration. Par conséquent, la coexistence avec des passerelles ExpressRoute sur un même réseau virtuel n’est actuellement pas prise en charge.
+* Réseau virtuel doté d’une passerelle ExpressRoute et d’une passerelle VPN.
 * Scénarios de transit dans lesquels des extensions de machine virtuelle sont connectées à des serveurs locaux. Les limitations de connectivité VPN de transit sont détaillées ci-après.
 
 > [!NOTE]

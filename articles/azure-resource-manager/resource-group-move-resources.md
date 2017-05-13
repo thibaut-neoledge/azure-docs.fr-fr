@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -75,6 +76,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 
 * API Management
 * Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
+* Application Insights
 * Automatisation
 * Batch
 * Bing Maps
@@ -124,7 +126,6 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
-* Application Insights
 * BizTalk Services
 * Service de conteneur
 * ExpressRoute
@@ -147,12 +148,12 @@ Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas d�
 * Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cette exigence signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service. 
 * Déplacer les applications vers un autre groupe de ressources, mais conserver tous les plans App Service dans le groupe de ressources d'origine.
 
-Si votre groupe de ressources d’origine inclut également une ressource Application Insights, vous ne pouvez pas déplacer cette ressource car Application Insights ne permet pas actuellement l’opération de déplacement. Si vous incluez la ressource Application Insights lors du déplacement d’applications App Service, l’opération de déplacement tout entière échoue. Toutefois, Application Insights et le plan App Service n’ont pas à résider dans le même groupe de ressources pour que l’application fonctionne correctement.
+Le plan App Service ne doit pas forcément résider dans le même groupe de ressources que l’application pour que l’application fonctionne correctement.
 
 Par exemple, si votre groupe de ressources contient :
 
-* **web-a**, qui est associé à **plan-a** et à **app-insights-a**
-* **web-b**, qui est associé à **plan-b** et à **app-insights-b**
+* **web-a**, qui est associé à **plan-a**
+* **web-b**, qui est associé à **plan-b**
 
 Vos options sont :
 
@@ -161,7 +162,7 @@ Vos options sont :
 * Déplacez **web-a**
 * Déplacez **web-b**
 
-Toutes les autres combinaisons impliquant le déplacement d’une ressource qui ne peut pas l’être (Application Insights) ou l’abandon d’un type de ressource qui ne peut pas l’être lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
+Toutes les autres combinaisons impliquent l’abandon d’un type de ressource qui ne peut pas être abandonné lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
 
 Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple :
 

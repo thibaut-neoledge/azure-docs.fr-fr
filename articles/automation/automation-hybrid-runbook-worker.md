@@ -4,7 +4,7 @@ description: "Cet article fournit des informations sur l&quot;installation et l&
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -69,6 +70,7 @@ Si vous avez un compte Automation défini pour une région spécifique et que vo
 | --- | --- |
 | Centre-Sud des États-Unis |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Est des États-Unis 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Centre-Ouest des États-Unis | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europe de l'Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
 | Europe du Nord |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Centre du Canada |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Si vous avez un compte Automation défini pour une région spécifique et que vo
 | Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Est du Japon |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Sud-Est de l’Australie |ase-jobruntimedata-prod-su1.azure-automation.net |
+| Sud du Royaume-Uni | uks-jobruntimedata-prod-su1.azure-automation.net |
+| Gouvernement américain - Virginie | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Pour obtenir la liste des adresses IP plutôt que celle des noms, téléchargez et consultez le fichier xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) à partir du Centre de téléchargement Microsoft. 
+
+> [!NOTE]
+> Ce fichier contient les plages d’adresses IP (y compris les plages de calcul, SQL et de stockage) utilisées dans les centres de données Microsoft Azure. Un fichier mis à jour est publié chaque semaine et reflète les plages actuellement déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne seront pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine et effectuez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’Express Route peuvent remarquer ce fichier utilisé pour mettre à jour la publication BGP de l’espace Azure la première semaine de chaque mois. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Installation de la fonctionnalité Runbook Worker hybride
 

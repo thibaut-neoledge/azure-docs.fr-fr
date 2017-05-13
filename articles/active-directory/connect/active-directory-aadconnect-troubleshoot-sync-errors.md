@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -212,10 +213,10 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Scénarios possibles
-1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
+1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats. Pour plus d’informations sur la gestion des erreurs LargeObject avec l’attribut userCertificate, consultez à l’article [Gérer les erreurs LargeObject provoquées par l’attribut userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
 2. L’attribut userSMIMECertificate de Bob stocke un trop grand nombre de certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
 3. L’attribut thumbnailPhoto de Bob défini dans Active Directory est trop volumineux pour être synchronisé dans Azure AD.
-4. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de 500 ProxyAddresses.
+4. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter trop de ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Procédure de résolution
 1. Assurez-vous que l’attribut à l’origine de l’erreur est dans la limite autorisée.

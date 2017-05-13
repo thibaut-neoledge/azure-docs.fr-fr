@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: bcb075b320bab942c6421be72ea1445d5fa3f603
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,7 +33,7 @@ Les étapes de ce didacticiel peuvent être effectuées à l’aide de la derni�
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé `myResourceGroupVM` est créé dans la région `westus`. 
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *westus*. 
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -44,7 +45,7 @@ Le groupe de ressources est spécifié lors de la création ou de la modificatio
 
 Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
-Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Cet exemple crée une machine virtuelle nommée `myVM` qui exécute Ubuntu Server. 
+Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Dans cet exemple, une machine virtuelle nommée *myVM* est créée et exécute Ubuntu Server. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -107,7 +108,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Vous pouvez obtenir une liste complète en ajoutant l’argument `--all`. Vous pouvez également utiliser `--publisher` ou `–offer` pour filtrer la liste d’images. Dans cet exemple, la liste est filtrée pour toutes les images dont l’offre correspond à `CentOS`. 
+Vous pouvez obtenir une liste complète en ajoutant l’argument `--all`. Vous pouvez également utiliser `--publisher` ou `–-offer` pour filtrer la liste d’images. Dans cet exemple, la liste est filtrée pour toutes les images dont l’offre correspond à *CentOS*. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -126,7 +127,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Pour déployer une machine virtuelle à l’aide d’une image spécifique, notez la valeur de la colonne `Urn`. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
+Pour déployer une machine virtuelle en utilisant une image spécifique, notez la valeur de la colonne *Urn*. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -186,7 +187,12 @@ Résultat partiel :
 Dans le précédent exemple de création d’une machine virtuelle, aucune taille n’a été spécifiée ; la taille par défaut a donc été appliquée. Vous pouvez sélectionner une taille de machine virtuelle au moment de la création à l’aide de la commande [az vm create](/cli/azure/vm#create) et de l’argument `--size`. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
 ```
 
 ### <a name="resize-a-vm"></a>Redimensionner une machine virtuelle
@@ -243,7 +249,10 @@ Une machine virtuelle Azure peut présenter différents états d’alimentation.
 Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm#get-instance-view). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
 ```
 
 Output:

@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84a04f71ffde07e9caa439c03b55920d0bb0ef16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,6 +52,14 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
+* Ajout d’une option permettant de désactiver la vérification SSL pendant son exécution sur l’émulateur DocumentDB.
+* Suppression de la restriction du module de demandes dépendantes qui devait correspondre exactement à la version 2.10.0.
+* Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
+* Ajout de la prise en charge de l’activation de la journalisation de script pendant l’exécution de la procédure stockée.
+* Version de l’API REST passée à « 2017-01-19 » à l’occasion de cette publication.
+
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Modifications éditoriales apportées aux commentaires de documentation.
 
@@ -114,6 +123,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |1er mai 2017 |--- |
 | [2.0.1](#2.0.1) |30 octobre 2016 |--- |
 | [2.0.0](#2.0.0) |29 septembre 2016 |--- |
 | [1.9.0](#1.9.0) |7 juillet 2016 |--- |

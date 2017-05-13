@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/07/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2a2ee58ba86fef089401521d727a301f8b59ce75
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 33282f1ce0c31056524359aeb42399be550334e2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,6 +51,7 @@ Pour les étapes de configuration, consultez [Configuration de l’authentificat
 * Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur aux bases de données Azure SQL pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 * Octroyer à d’autres utilisateurs l’accès à votre base de données : [Authentification et autorisation de base de données SQL : octroi de l’accès](sql-database-manage-logins.md)  
 Vérifiez que les autres utilisateurs peuvent se connecter par le biais du pare-feu : [Configurer une règle de pare-feu au niveau du serveur sur Azure SQL Database à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
+* Pour plus d’informations sur la configuration et la gestion d’Azure AD, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 
 
 

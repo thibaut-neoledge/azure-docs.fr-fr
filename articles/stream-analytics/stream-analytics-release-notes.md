@@ -12,16 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
-ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
-ms.lasthandoff: 02/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notes de publication de Stream Analytics
+
+## <a name="notes-for-05032017-update-of-stream-analytics"></a>Notes relatives à la version du 03/05/2017 de Stream Analytics
+Cette mise à jour concerne la publication de notre documentation de résolution des problèmes.
+
+Le [guide de résolution des problèmes](stream-analytics-troubleshooting-guide.md) et d’autres documents ont été publiés. Nous vous invitons à les consulter et à nous faire part de vos commentaires.
+
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notes relatives à la version du 01/02/2017 de Stream Analytics
 Cette version contient la mise à jour suivante.
 
@@ -136,7 +143,7 @@ Cette version contient les mises à jour suivantes.
 | Les jeux de données Power BI ne peuvent contenir qu’une seule table |Power BI ne peut pas prendre en charge plus d’une table dans un jeu de données. |
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

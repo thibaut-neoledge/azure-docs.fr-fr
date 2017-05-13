@@ -16,10 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f141d4f58727696c5f493c9e8eb19feb518e8968
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d5854a623f656f08c428cd2f6792f25582362990
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,6 +54,8 @@ Hive et Pig permettent de transmettre des données vers des applications externe
 * Clusters __HDInsight sous Linux__ avec [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter des applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.5 de HDInsight.
 
     Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+
+    Pour utiliser une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](hdinsight-hadoop-install-mono.md).
 
 * Les clusters __HDInsight sous Windows__ utilisent le CLR Microsoft .NET pour exécuter des applications .NET.
 
@@ -167,7 +170,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 3. Si vous y êtes invité, entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Se connecter**.
 
-4. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte __(Compte de stockage par défaut)__ est répertoriée.
+4. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte __(compte de stockage par défaut)__ est répertoriée.
 
     ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 

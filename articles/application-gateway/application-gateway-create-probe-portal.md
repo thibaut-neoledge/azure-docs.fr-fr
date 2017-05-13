@@ -13,77 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 14b715013b4154a1fa079c0dc470e675d7cf4c1f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
+
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-create-probe-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’application existante via le portail Azure. Les sondes personnalisées sont utiles pour les applications qui ont une page de contrôle d’intégrité spécifique ou pour les applications qui ne fournissent pas de réponse correcte dans l’application web par défaut.
 
-## <a name="scenario"></a>Scénario
+## <a name="before-you-begin"></a>Avant de commencer
 
-Le scénario suivant passe par la création d’une sonde d’intégrité personnalisée sur une passerelle d’application existante.
-Le scénario suppose que vous avez déjà suivi la procédure de [Création d’une passerelle Application Gateway](application-gateway-create-gateway-portal.md).
+Si vous ne disposez pas déjà d’une passerelle d’application, consultez [Créer une passerelle d’application](application-gateway-create-gateway-portal.md) pour créer une passerelle d’application fonctionnelle.
 
-## <a name="a-namecreateprobeacreate-the-probe"></a><a name="createprobe"></a>Créer la sonde
+## <a name="createprobe"></a>Créer la sonde
 
-Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Ensuite, vous ajoutez la sonde aux paramètres http principaux de la passerelle d’application.
+Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http back-end de la passerelle d’application.
 
-### <a name="step-1"></a>Étape 1
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois](https://azure.microsoft.com/free).
 
-Accédez au [portail Azure](http://portal.azure.com) et sélectionnez une passerelle d’application existante.
+1. Dans le volet Favoris du portail Azure, cliquez sur Toutes les ressources. Cliquez sur la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
 
-![Vue d’ensemble d’Application Gateway][1]
+1. Cliquez sur **Sondes**, puis cliquez sur le bouton **Ajouter** pour ajouter une sonde.
 
-### <a name="step-2"></a>Étape 2 :
+  ![Ajouter un panneau Sonde contenant toutes les informations][1]
 
-Cliquez sur **Sondes**, puis cliquez sur le bouton **Ajouter** pour ajouter une sonde.
+1. Dans le panneau **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis cliquez sur **OK** une fois que vous avez terminé.
 
-![Ajouter un panneau Sonde contenant toutes les informations][2]
+  |**Paramètre** | **Valeur** | **Détails**|
+  |---|---|---|
+  |**Nom**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
+  |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité.|
+  |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.|
+  |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http://contoso.com, utilisez simplement « / ». |
+  |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
+  |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité du serveur principal est disponible.|
+  |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs nécessaires pour marquer l’instance comme étant défaillante. Un seuil de 0 signifie qu’en cas d’échec de contrôle d’intégrité, le serveur principal est immédiatement identifié comme défaillant.|
 
-### <a name="step-3"></a>Étape 3
-
-Remplissez les informations requises pour la sonde et lorsque vous avez terminé, cliquez sur **OK**.
-
-* **Nom** - cette valeur est le nom convivial de la sonde accessible par le biais du portail.
-* **Hôte** - cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.
-* **Chemin d’accès** - reste de l’URL complète de la sonde personnalisée. Un chemin d’accès valide commence par « / »
-* **Intervalle (secondes)** - fréquence d’exécution de la sonde pour vérifier l’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.
-* **Délai d’expiration (secondes)** - intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité du serveur principal est disponible.
-* **Seuil de défaillance sur le plan de l’intégrité** - nombre d’échecs nécessaires pour marquer l’instance comme défaillante. Un seuil de 0 signifie qu’en cas d’échec de contrôle d’intégrité, le serveur principal est immédiatement identifié comme défaillant.
-
-> [!IMPORTANT]
-> Le nom d’hôte n’est pas identique au nom du serveur. Cette valeur est le nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à http://(nom d’hôte):(port des paramètres http)/urlPath
-
-![paramètres de configuration de sonde][3]
+  > [!IMPORTANT]
+  > Le nom d’hôte n’est pas identique au nom du serveur. Cette valeur est le nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à http://(nom d’hôte):(port des paramètres http)/urlPath
 
 ## <a name="add-probe-to-the-gateway"></a>Ajouter une sonde à la passerelle
 
 Maintenant que la sonde a été créée, il est temps de l’ajouter à la passerelle. Les paramètres de la sonde sont définis sur les paramètres http principaux de la passerelle d’application.
 
-### <a name="step-1"></a>Étape 1
+1. Cliquez sur **Paramètres HTTP** dans la passerelle d’application pour afficher le panneau de configuration, puis cliquez sur les paramètres http back-end actuels répertoriés dans la fenêtre.
 
-Cliquez sur les **paramètres HTTP** de la passerelle d’application pour afficher le panneau de configuration, puis cliquez sur les paramètres http principaux actuels dans la fenêtre.
+  ![fenêtre de paramètres https][2]
 
-![fenêtre de paramètres https][4]
+1. Dans le panneau des paramètres **appGatewayBackEndHttpSettings**, cochez la case **Utiliser la sonde personnalisée**, puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
+Quand vous avez terminé, cliquez sur **Enregistrer** pour appliquer les paramètres.
 
-### <a name="step-2"></a>Étape 2
-
-Dans le panneau des paramètres **appGatewayBackEndHttp**, cliquez sur **Utiliser la sonde personnalisée** et choisissez la sonde créée à la section [Créer la sonde](#createprobe).
-Lorsque vous avez terminé, cliquez sur **OK** pour appliquer les paramètres.
-
-![panneau de paramètres appgatewaybackend][5]
-
-La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin d’accès personnalisé défini pour surveiller l’intégrité pour le serveur principal sélectionné. Selon les critères définis, la passerelle d’application vérifie le fichier spécifié dans la sonde. Si l’appel à host:Port/path ne renvoie pas de réponse d’état Http 200 OK, le serveur est mis hors service après avoir atteint le seuil de fonctionnement anormal. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
+La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin personnalisé défini pour contrôler l’intégrité des serveurs back-end. En fonction des critères qui ont été définis, la passerelle d’application vérifie le chemin spécifié dans la sonde. Si l’appel à host:Port/path ne retourne pas de réponse d’état HTTP 200-299, le serveur est mis hors service après avoir atteint le seuil de défaillance sur le plan de l’intégrité. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -91,12 +82,5 @@ Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
-[3]: ./media/application-gateway-create-probe-portal/figure3.png
-[4]: ./media/application-gateway-create-probe-portal/figure4.png
-[5]: ./media/application-gateway-create-probe-portal/figure5.png
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
