@@ -1,6 +1,6 @@
 ---
 title: "Information de référence pour les développeurs JavaScript sur Azure Functions | Microsoft Docs"
-description: "Découvrez comment développer sur Azure Functions à l’aide de JavaScript."
+description: "Découvrez comment développer des fonctions à l’aide de JavaScript."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 060e1145246952c18f89e1088ed28ffb0036e6c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -56,7 +57,7 @@ Les liaisons de `direction === "in"` sont transmises en tant qu’arguments de f
 
 Les arguments sont toujours transmis à la fonction dans leur ordre d’apparition dans *function.json*, même si vous ne les spécifiez pas dans votre instruction d’exportation. Par exemple, si vous avez `function(context, a, b)` et le remplacez par `function(context, a)`, vous pouvez toujours obtenir la valeur `b` dans le code de fonction en faisant référence à `arguments[3]`.
 
-Toutes les liaisons, quelle que soit leur direction, sont également transmises sur l’objet `context` (voir ci-dessous). 
+Toutes les liaisons, quelle que soit leur direction, sont également transmises sur l’objet `context` (voir le script ci-dessous). 
 
 ## <a name="context-object"></a>Objet de contexte
 Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime.
@@ -87,7 +88,7 @@ Retourne un objet nommé qui contient toutes vos données d’entrée et de sort
 ```
 
 ```javascript
-// myInput contains the input data which may have properties such as "name"
+// myInput contains the input data, which may have properties such as "name"
 var author = context.bindings.myInput.name;
 // Similarly, you can set your output data
 context.bindings.myOutput = { 
@@ -100,7 +101,7 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informe le runtime que votre code est terminé. Vous devez appeler `context.done` pour que le runtime sache que votre fonction est terminée et que l’exécution va expirer. 
+Informe le runtime que votre code est terminé. Vous devez appeler `context.done`. Sinon, le runtime ne sait pas que votre fonction est terminée et que l’exécution va expirer. 
 
 La méthode `context.done` permet de transmettre une erreur définie par l’utilisateur au runtime ainsi qu’un conteneur de propriétés, qui remplaceront les propriétés de l’objet `context.bindings`.
 
@@ -168,7 +169,7 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=' + r
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-Ce même code peut être écrit au format suivant :
+Vous pouvez écrire ce même code au format suivant :
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
@@ -177,7 +178,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Configurer le niveau de trace pour la journalisation de la console
 
-Functions vous permet de définir le seuil de niveau de trace pour l’écriture dans la console. Cela facilite le contrôle de l’écriture des traces dans la console à partir de vos fonctions. Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour définir le seuil de toutes les traces écrites dans la console. Ce paramètre s’applique à toutes les fonctions dans votre Function App. L’exemple suivant définit le seuil de trace permettant d’activer la journalisation détaillée :
+Functions vous permet de définir le niveau de trace du seuil pour écrire dans la console, ce qui facilite le contrôle de l’écriture des traces dans la console à partir de vos fonctions. Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour définir le seuil de toutes les traces écrites dans la console. Ce paramètre s’applique à toutes les fonctions dans votre Function App. L’exemple suivant définit le seuil de trace permettant d’activer la journalisation détaillée :
 
 ```json
 { 
@@ -223,7 +224,7 @@ L’objet `response` dispose des propriétés suivantes :
 
 Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permettent d’accéder à des objets de demande et de réponse HTTP :
 
-+ À partir de des liaisons dites d’entrée et de sortie. Avec cette méthode, le déclencheur HTTP et les liaisons fonctionnent de la même manière que toute autre liaison. L’exemple suivant définit l’objet de réponse en utilisant une liaison nommée `response`. 
++ À partir de des liaisons dites d’entrée et de sortie. Avec cette méthode, le déclencheur HTTP et les liaisons fonctionnent de la même manière que toute autre liaison. L’exemple suivant définit l’objet de réponse en utilisant une liaison nommée `response` : 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
@@ -232,13 +233,13 @@ Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permet
 + À partir des propriétés `req` et `res` sur l’objet `context`. Avec cette méthode, vous pouvez utiliser le modèle classique pour accéder aux données HTTP à partir de l’objet de contexte, au lieu d’utiliser le modèle `context.bindings.name` complet. L’exemple suivant montre comment accéder aux objets `req` et `res` sur `context` :
 
     ```javascript
-    // You can access your http request off of the context ...
+    // You can access your http request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
     // and also set your http response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Appel de `context.done()`. Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
++ En appelant `context.done()`. Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
 
     ```json
     {
@@ -255,22 +256,22 @@ Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permet
     context.done(null, res);   
     ```  
 
-## <a name="node-version--package-management"></a>Version du nœud et gestion des packages
+## <a name="node-version-and-package-management"></a>Version du nœud et gestion des packages
 La version de Node est actuellement verrouillée sur `6.5.0`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
 
 Les étapes suivantes vous permettent d’inclure des packages dans votre Function App : 
 
-1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`.
+1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`
 
-2. Cliquez sur **Console de débogage > CMD**.
+2. Cliquez sur **Console de débogage** > **CMD**.
 
 3. Accédez à `D:\home\site\wwwroot`, puis faites glisser le fichier package.json vers le dossier **wwwroot** dans la partie supérieure de la page.  
+    Il existe d’autres manières de télécharger des fichiers dans votre Function App. Pour plus d’informations, consultez [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
 
-    Il existe plusieurs manières de télécharger des fichiers dans votre Function App. Pour plus d’informations, consultez [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**.  
+    Les packages d’actions indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
 
-4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**. Les packages indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
-
-Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction en appelant `require('packagename')`, comme dans l’exemple suivant.
+Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction en appelant `require('packagename')`, comme dans l’exemple suivant :
 
 ```javascript
 // Import the underscore.js library
@@ -283,7 +284,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Vous devez définir un fichier `package.json` à la racine de votre Function App. Cela permet à toutes les fonctions de l’application de partager les mêmes packages mis en cache, pour des performances optimales. En cas de conflit de version, vous pouvez ajouter un fichier `package.json` dans le dossier d’une fonction spécifique.  
+Vous devez définir un fichier `package.json` à la racine de votre Function App. Cela permet à toutes les fonctions de l’application de partager les mêmes packages mis en cache, pour des performances optimales. En cas de conflit de version, vous pouvez ajouter un fichier `package.json` dans le dossier d’une fonction spécifique pour le résoudre.  
 
 ## <a name="environment-variables"></a>Variables d’environnement
 Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme illustré dans l’exemple de code suivant :
@@ -306,14 +307,14 @@ function GetEnvironmentVariable(name)
 ```
 ## <a name="considerations-for-javascript-functions"></a>Considérations relatives aux fonctions JavaScript
 
-Vous devez être conscient des éléments suivants lorsque vous travaillez avec des fonctions JavaScript.
+Lorsque vous utilisez des fonctions JavaScript, tenez compte des considérations décrites dans les deux sections suivantes.
 
 ### <a name="choose-single-core-app-service-plans"></a>Choisir des plans App Service à cœur unique
 
-Lorsque vous créez une Function App qui utilise le plan App Service, nous vous recommandons de sélectionner un plan à cœur unique plutôt qu’un plan à plusieurs cœurs. À l’heure actuelle, Functions exécute les fonctions JavaScript plus efficacement sur des machines virtuelles à cœur unique. Le recours à de plus grandes machines virtuelles ne produit pas les améliorations de performances attendues. Le cas échéant, vous pouvez faire une mise à l’échelle horizontale manuellement en ajoutant des instances de machine virtuelle à cœur unique, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Lorsque vous créez une Function App qui utilise le plan App Service, nous vous recommandons de sélectionner un plan à cœur unique plutôt qu’un plan à plusieurs cœurs. À l’heure actuelle, Functions exécute les fonctions JavaScript plus efficacement sur des machines virtuelles à cœur unique. Le recours à de plus grandes machines virtuelles ne produit pas les améliorations de performances attendues. Le cas échéant, vous pouvez faire une mise à l’échelle horizontale manuellement en ajoutant des instances de machine virtuelle à cœur unique, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
-### <a name="typescriptcoffeescript-support"></a>Prise en charge de TypeScript/CoffeeScript
-Il n’existe encore aucune prise en charge directe pour l’auto-compilation de TypeScript/CoffeeScript via le runtime, ce qui nécessite une gestion externe au runtime, au moment du déploiement. 
+### <a name="typescript-and-coffeescript-support"></a>Prise en charge de typeScript et CoffeeScript
+Comme il n’existe encore aucune prise en charge directe pour l’auto-compilation de TypeScript/CoffeeScript via le runtime, cela nécessite une gestion externe au runtime, au moment du déploiement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :

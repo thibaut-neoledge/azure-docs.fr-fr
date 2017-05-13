@@ -4,24 +4,25 @@ description: "Modèle de données Application Insights pour la télémétrie de
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e27301a4815d16396518ddfc7487b064892e7631
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des mesure : modèle de données Application Insights
 
-Deux types de télémétrie des mesures sont prises en charge par Application Insights : la mesure unique et la mesure pré-agrégée. La mesure unique consiste simplement dans un nom et une valeur. La mesure pré-agrégée spécifie les valeurs minimale et maximale de la mesure dans l’intervalle d’agrégation, ainsi que son écart standard.
+Deux types de télémétrie des mesures sont prises en charge par [Application Insights](app-insights-overview.md) : la mesure unique et la mesure pré-agrégée. La mesure unique consiste simplement dans un nom et une valeur. La mesure pré-agrégée spécifie les valeurs minimale et maximale de la mesure dans l’intervalle d’agrégation, ainsi que son écart standard.
 
 La télémétrie des mesures pré-agrégées suppose que cette période d’agrégation est d’une minute.
 
@@ -71,7 +72,7 @@ Valeur maximale de la mesure agrégée. Ne doit pas être défini pour une mesur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](/application-insights-data-model.md).
-- Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](/app-insights-asp-net-dependencies.md).
-- Découvrez quelles [plateformes](/app-insights-platforms.md) sont prises en charge par Application Insights.
+- Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](app-insights-api-custom-events-metrics.md#send-metrics).
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
+- Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
 

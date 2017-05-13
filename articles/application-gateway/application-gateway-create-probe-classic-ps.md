@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,8 +30,7 @@ ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’application existante à l’aide de PowerShell. Les sondes personnalisées sont utiles pour les applications qui ont une page de contrôle d’intégrité spécifique ou pour les applications qui ne fournissent pas de réponse correcte dans l’application web par défaut.
 
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](application-gateway-create-probe-ps.md).
@@ -42,9 +43,9 @@ Pour créer une passerelle d’application :
 
 1. Créez une ressource de passerelle d’application.
 2. Créez un fichier XML de configuration ou un objet de configuration.
-3. Validez la configuration dans la ressource de passerelle d’application nouvellement créée.
+3. Validez la configuration de la ressource Application Gateway nouvellement créée.
 
-### <a name="create-an-application-gateway-resource"></a>Créer une ressource de passerelle d’application
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Créer une ressource de passerelle d’application avec une sonde personnalisée
 
 Pour créer la passerelle, utilisez l’applet de commande `New-AzureApplicationGateway` en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
@@ -67,15 +68,9 @@ Get-AzureApplicationGateway AppGwTest
 
 Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d’exécution.
 
-## <a name="configure-an-application-gateway"></a>Configurer une passerelle d’application
-
-Vous pouvez configurer la passerelle d’application à l’aide d’un objet de configuration ou de XML.
-
-## <a name="configure-an-application-gateway-by-using-xml"></a>Configurer une passerelle d’application à l’aide de XML
+### <a name="configure-an-application-gateway-by-using-xml"></a>Configurer une passerelle d’application à l’aide de XML
 
 Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.  
-
-### <a name="step-1"></a>Étape 1 :
 
 Copiez le texte suivant dans le Bloc-notes.
 
@@ -154,32 +149,30 @@ Un nouvel élément de configuration \<Probe\> est ajouté pour configurer les s
 
 Les paramètres de configuration sont :
 
-* **Nom** : nom de référence de la sonde personnalisée.
-* **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
-* **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
-* **Intervalle** : configure les vérifications d’intervalle de sonde en secondes.
-* **Délai d’expiration** : définit le délai d’expiration d’un contrôle de réponse HTTP.
-* **Seuil de défaillance sur le plan de l’intégrité** : le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.
+|Paramètre|Description|
+|---|---|
+|**Nom** |Nom de référence de la sonde personnalisée. |
+* **Protocole** | Protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).|
+| **Hôte** et **Chemin** | Chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.|
+| **Intervalle** | Configure les vérifications d’intervalle de sonde en secondes.|
+| **Délai d'expiration** | Définit le délai d’expiration d’un contrôle de réponse HTTP.|
+| **Seuil de défaillance sur le plan de l’intégrité** | Le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.|
 
 Le nom de la sonde est référencé dans la configuration \<BackendHttpSettings\> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Ajouter une configuration de sonde personnalisée à une passerelle d’application existante
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Ajoute une sonde personnalisée à une passerelle d’application existante
 
 La modification de la configuration actuelle d’une passerelle d’application se fait en trois étapes : obtenez le fichier de configuration XML actuel, modifiez-le de façon à avoir une sonde personnalisée et configurez la passerelle d’application avec les nouveaux paramètres XML.
 
-### <a name="step-1"></a>Étape 1
+1. Obtenir le fichier XML à l’aide de `Get-AzureApplicationGatewayConfig`. L’applet de commande exporte le fichier XML de configuration, afin d’être modifié pour y ajouter un paramètre de sonde.
 
-Obtenir le fichier XML à l’aide de `Get-AzureApplicationGatewayConfig`. L’applet de commande exporte le fichier XML de configuration, afin d’être modifié pour y ajouter un paramètre de sonde.
+  ```powershell
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  ```
 
-```powershell
-Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-```
+1. Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` après `<frontendport>`.
 
-### <a name="step-2"></a>Étape 2 :
-
-Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` après `<frontendport>`.
-
-```xml
+  ```xml
 <Probes>
     <Probe>
         <Name>Probe01</Name>
@@ -191,11 +184,11 @@ Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` a
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
 </Probes>
-```
+  ```
 
-Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple suivant :
+  Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple suivant :
 
-```xml
+  ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -204,13 +197,11 @@ Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde c
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-```
+  ```
 
-Enregistrez le fichier XML.
+  Enregistrez le fichier XML.
 
-### <a name="step-3"></a>Étape 3
-
-Mettez à jour la configuration de la passerelle d’application avec le nouveau fichier XML avec `Set-AzureApplicationGatewayConfig`. Cette applet de commande met à jour votre passerelle d’application avec cette nouvelle configuration.
+1. Mettez à jour la configuration de la passerelle d’application avec le nouveau fichier XML avec `Set-AzureApplicationGatewayConfig`. Cette applet de commande met à jour votre passerelle d’application avec cette nouvelle configuration.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -221,10 +212,5 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 Si vous voulez configurer le déchargement SSL (Secure Sockets Layer), consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
 Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

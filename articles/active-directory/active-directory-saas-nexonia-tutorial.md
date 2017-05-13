@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -66,7 +67,7 @@ Pour configurer l’intégration de Nexonia à Azure AD, vous devez ajouter Nex
 
     ![Applications][2]
     
-3. Pour ajouter la nouvelle application, cliquez sur le bouton **New application** (Nouvelle application) en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
@@ -117,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support technique de Nexonia](http://www.nexonia.com/contact-us/) pour obtenir cette valeur. 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support technique de Nexonia](https://nexonia.zendesk.com/hc/requests/new) pour obtenir cette valeur. 
 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
@@ -132,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l’authentification unique](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support Nexonia](http://www.nexonia.com/contact-us/) et fournissez-lui les éléments suivants :
+7. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support Nexonia](https://nexonia.zendesk.com/hc/requests/new) et fournissez-lui les éléments suivants :
 
     • Le **certificat**
 
@@ -143,7 +144,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     • **L’URL de déconnexion**
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Single Sign-On** (Authentification unique) et accédez à la documentation incorporée via la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 
@@ -180,7 +181,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-nexonia-test-user"></a>Création d’un utilisateur de test Nexonia
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Nexonia. Collaborez avec [l’équipe du support technique Nexonia](http://www.nexonia.com/contact-us/) pour ajouter des utilisateurs dans la plateforme Nexonia. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Nexonia. Collaborez avec [l’équipe du support technique Nexonia](https://nexonia.zendesk.com/hc/requests/new) pour ajouter des utilisateurs dans la plateforme Nexonia. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD

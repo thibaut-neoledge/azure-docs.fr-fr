@@ -4,7 +4,7 @@ description: "Modèle de données Application Insights pour la télémétrie de
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: b86b1e1ff7c0370918b2509f98ad65265eb4186e
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Télémétrie des dépendances : modèle de données Application Insights
 
-La télémétrie des dépendances représente une interaction entre un composant surveillé et un composant distant tel que SQL ou un point de terminaison HTTP.
+La télémétrie des dépendances (dans [Application Insights](app-insights-overview.md)) représente une interaction du composant surveillé avec un composant distant tel que SQL ou un point de terminaison HTTP.
 
 ## <a name="name"></a>Nom
 
@@ -29,7 +30,7 @@ Nom de la commande lancée par cet appel de dépendance. Valeur de faible cardin
 
 ## <a name="id"></a>ID
 
-Identificateur d’une instance d’appel de dépendance. Utilisé pour la corrélation avec l’élément de télémétrie de demande correspondant à cet appel de dépendance. Pour plus d’informations, consultez la page relative à la [corrélation](/correlation.md).
+Identificateur d’une instance d’appel de dépendance. Utilisé pour la corrélation avec l’élément de télémétrie de demande correspondant à cet appel de dépendance. Pour plus d’informations, consultez la page relative à la [corrélation](application-insights-correlation.md).
 
 ## <a name="data"></a>Données
 
@@ -41,7 +42,7 @@ Nom du type de dépendance. Valeur de faible cardinalité pour le regroupement l
 
 ## <a name="target"></a>Cible
 
-Site cible d’un appel de dépendance. Exemples : nom de serveur, adresse d’hôte. Pour plus d’informations, consultez la page relative à la [corrélation](/correlation.md).
+Site cible d’un appel de dépendance. Exemples : nom de serveur, adresse d’hôte. Pour plus d’informations, consultez la page relative à la [corrélation](application-insights-correlation.md).
 
 ## <a name="duration"></a>Durée
 
@@ -66,8 +67,9 @@ Indication de la réussite ou non d’un appel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](/application-insights-data-model.md).
-- Configurez le suivi des dépendances pour [.NET](/app-insights-asp-net-dependencies.md).
-- Configurez le suivi des dépendances pour [Java](/app-insights-java-agent.md).
-- Découvrez quelles [plateformes](/app-insights-platforms.md) sont prises en charge par Application Insights.
+- Configurez le suivi des dépendances pour [.NET](app-insights-asp-net-dependencies.md).
+- Configurez le suivi des dépendances pour [Java](app-insights-java-agent.md).
+- [Écrire des données de télémétrie des dépendances personnalisées](app-insights-api-custom-events-metrics.md#trackdependency)
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
+- Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
 

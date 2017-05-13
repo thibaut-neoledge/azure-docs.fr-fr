@@ -10,12 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/20/2017
+ms.date: 04/26/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 9a31288f4cf67e551db016aa3b56058f607ef13a
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 171393bc4145a1d39d6ae7bf76815e7cd2d18164
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -30,7 +31,7 @@ Ces variables d’environnement sont disponibles uniquement dans le contexte de 
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Expansion par ligne de commande des variables d’environnement
 
-Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s’exécutent pas sous un interpréteur de commandes. Elle ne peuvent donc pas tirer parti en mode natif de fonctionnalités de l’interpréteur de commandes telle que l’expansion de variables d’environnement (qui inclut le `PATH`). Pour tirer parti de telles fonctionnalités, vous devez **appeler l’interpréteur de commandes** dans la ligne de commande. Par exemple, en lançant `cmd.exe` sur des nœuds de calcul Windows ou `/bin/sh` sur des nœuds Linux :
+Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s’exécutent pas sous un interpréteur de commandes. Elle ne peuvent donc pas tirer parti en mode natif de fonctionnalités de l’interpréteur de commandes telle que l’expansion de variables d’environnement (qui inclut le `PATH`). Pour tirer parti de telles fonctionnalités, vous devez **appeler l’interpréteur de commandes** dans la ligne de commande. Par exemple, lancez `cmd.exe` sur des nœuds de calcul Windows ou `/bin/sh` sur des nœuds Linux :
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
@@ -38,27 +39,27 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 
 ## <a name="environment-variables"></a>Variables d’environnement
 
-| Nom de la variable         | Description                                                              | Availability | Exemple |
+| Nom de la variable                     | Description                                                              | Availability | Exemple |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
-| `AZ_BATCH_ACCOUNT_NAME`           | Nom du compte Batch auquel la tâche appartient. | Toutes les tâches. | `mybatchaccount` |
-| `AZ_BATCH_CERTIFICATES_DIR`       | Sous-répertoire du [répertoire de travail de la tâche][files_dirs] dans lequel les certificats sont stockés pour les nœuds de calcul Linux. Notez que cette variable d’environnement ne s’applique pas aux nœuds de calcul Windows. | Toutes les tâches. | `/mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs` |
-| `AZ_BATCH_JOB_ID`                 | ID du travail auquel la tâche appartient. | Toutes les tâches, sauf la tâche de démarrage. | `batchjob001` |
-| `AZ_BATCH_JOB_PREP_DIR`           | Chemin d’accès complet du [répertoire de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation` |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR`   | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd` |
-| `AZ_BATCH_NODE_ID`                | ID du nœud auquel la tâche est affectée. | Toutes les tâches. | `tvm-1219235766_3-20160919t172711z` |
-| `AZ_BATCH_NODE_ROOT_DIR`          | Chemin d’accès complet de la racine de tous les [répertoires Batch][files_dirs] sur le nœud. | Toutes les tâches. | `C:\user\tasks` |
-| `AZ_BATCH_NODE_SHARED_DIR`        | Chemin d’accès complet du [répertoire partagé][files_dirs] sur le nœud. Toutes les tâches qui s’exécutent sur un nœud ont accès en lecture/écriture à ce répertoire. Les tâches qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Toutes les tâches. | `C:\user\tasks\shared` |
-| `AZ_BATCH_NODE_STARTUP_DIR`       | Chemin d’accès complet du [répertoire de la tâche de démarrage][files_dirs] sur le nœud. | Toutes les tâches. | `C:\user\tasks\startup` |
-| `AZ_BATCH_POOL_ID`                | ID du pool sur lequel la tâche s’exécute. | Toutes les tâches. | `batchpool001` |
-| `AZ_BATCH_TASK_DIR`               | Chemin d’accès complet du [répertoire de la tâche][files_dirs] sur le nœud. Ce répertoire contient les fichiers `stdout.txt` et `stderr.txt` pour la tâche et le répertoire `AZ_BATCH_TASK_WORKING_DIR`. | Toutes les tâches. | `C:\user\tasks\workitems\batchjob001\job-1\task001` |
-| `AZ_BATCH_TASK_ID`                | ID de la tâche en cours. | Toutes les tâches, sauf la tâche de démarrage. | `task001` |
-| `AZ_BATCH_TASK_WORKING_DIR`       | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] sur le nœud. La tâche en cours d’exécution dispose d’un accès en lecture/écriture à ce répertoire. | Toutes les tâches. | `C:\user\tasks\workitems\batchjob001\job-1\task001\wd` |
-| `CCP_NODES`                       | Liste des nœuds et nombre de cœurs par nœud alloués à une [tâche multi-instance][multi_instance]. Les nœuds et les cœurs sont répertoriés au format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, où le nombre de nœuds est suivi d’une ou plusieurs adresses IP de nœud et du nombre de cœurs pour chacun. |  Tâche principale multi-instance et tâches subordonnées. |`2 10.0.0.4 1 10.0.0.5 1` |
-| `AZ_BATCH_NODE_LIST`              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP;nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4;10.0.0.5` |
-| `AZ_BATCH_HOST_LIST`              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP,nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4,10.0.0.5` |
-| `AZ_BATCH_MASTER_NODE`            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000`|
-| `AZ_BATCH_TASK_SHARED_DIR` | Le chemin d’accès du répertoire est identique pour la tâche principale et chaque tâche subordonnée d’une [tâche multi-instance][multi_instance]. Le chemin d’accès existe sur chaque nœud sur lequel la tâche multi-instance s’exécute, et est accessible en lecture/écriture pour les commandes de la tâche en cours d’exécution sur ce nœud (tant la [commande coordination][coord_cmd] que la [commande application][app_cmd]). Des tâches subordonnées ou une tâche principale qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Tâche principale multi-instance et tâches subordonnées. | `C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask` |
-| `AZ_BATCH_IS_CURRENT_NODE_MASTER` | Spécifie si le nœud actuel est le nœud principal pour une [tâche multi-instance][multi_instance]. Les valeurs possibles sont `true` et `false`.| Tâche principale multi-instance et tâches subordonnées. | `true` |
+| AZ_BATCH_ACCOUNT_NAME           | Nom du compte Batch auquel la tâche appartient.                  | Toutes les tâches.   | mybatchaccount |
+| AZ_BATCH_CERTIFICATES_DIR       | Sous-répertoire du [répertoire de travail de la tâche][files_dirs] dans lequel les certificats sont stockés pour les nœuds de calcul Linux. Notez que cette variable d’environnement ne s’applique pas aux nœuds de calcul Windows.                                                  | Toutes les tâches.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_JOB_ID                 | ID du travail auquel la tâche appartient. | Toutes les tâches, sauf la tâche de démarrage. | batchjob001 |
+| AZ_BATCH_JOB_PREP_DIR           | Chemin d’accès complet du [répertoire de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
+| AZ_BATCH_JOB_PREP_DIR   | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
+| AZ_BATCH_NODE_ID                | ID du nœud auquel la tâche est affectée. | Toutes les tâches. | tvm-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_ROOT_DIR          | Chemin d’accès complet de la racine de tous les [répertoires Batch][files_dirs] sur le nœud. | Toutes les tâches. | C:\user\tasks |
+| AZ_BATCH_NODE_ROOT_DIR        | Chemin d’accès complet du [répertoire partagé][files_dirs] sur le nœud. Toutes les tâches qui s’exécutent sur un nœud ont accès en lecture/écriture à ce répertoire. Les tâches qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Toutes les tâches. | C:\user\tasks\shared |
+| AZ_BATCH_NODE_STARTUP_DIR       | Chemin d’accès complet du [répertoire de la tâche de démarrage][files_dirs] sur le nœud. | Toutes les tâches. | C:\user\tasks\startup |
+| AZ_BATCH_POOL_ID                | ID du pool sur lequel la tâche s’exécute. | Toutes les tâches. | batchpool001 |
+| AZ_BATCH_TASK_DIR               | Chemin d’accès complet du [répertoire de la tâche][files_dirs] sur le nœud. Ce répertoire contient les fichiers `stdout.txt` et `stderr.txt` pour la tâche et le répertoire AZ_BATCH_TASK_WORKING_DI. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
+| AZ_BATCH_TASK_ID                | ID de la tâche en cours. | Toutes les tâches, sauf la tâche de démarrage. | task001 |
+| AZ_BATCH_TASK_WORKING_DIR       | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] sur le nœud. La tâche en cours d’exécution dispose d’un accès en lecture/écriture à ce répertoire. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| CCP_NODES                       | Liste des nœuds et nombre de cœurs par nœud alloués à une [tâche multi-instance][multi_instance]. Les nœuds et les cœurs sont répertoriés au format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, où le nombre de nœuds est suivi d’une ou plusieurs adresses IP de nœud et du nombre de cœurs pour chacun. |  Tâche principale multi-instance et tâches subordonnées. |`2 10.0.0.4 1 10.0.0.5 1` |
+| AZ_BATCH_NODE_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP;nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_HOST_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP,nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4,10.0.0.5` |
+| AZ_BATCH_MASTER_NODE            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000`|
+| AZ_BATCH_TASK_SHARED_DIR | Le chemin d’accès du répertoire est identique pour la tâche principale et chaque tâche subordonnée d’une [tâche multi-instance][multi_instance]. Le chemin d’accès existe sur chaque nœud sur lequel la tâche multi-instance s’exécute, et est accessible en lecture/écriture pour les commandes de la tâche en cours d’exécution sur ce nœud (tant la [commande coordination][coord_cmd] que la [commande application][app_cmd]). Des tâches subordonnées ou une tâche principale qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Tâche principale multi-instance et tâches subordonnées. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | Spécifie si le nœud actuel est le nœud principal pour une [tâche multi-instance][multi_instance]. Les valeurs possibles sont `true` et `false`.| Tâche principale multi-instance et tâches subordonnées. | `true` |
 
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories

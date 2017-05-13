@@ -1,5 +1,5 @@
 ---
-title: PingAccess pour Azure AD Application Proxy | Microsoft Docs
+title: "Authentification basée sur un en-tête avec PingAccess pour le proxy d’application Azure AD | Microsoft Docs"
 description: "Publiez des applications avec PingAccess et Application Proxy pour prendre en charge l’authentification basée sur un en-tête."
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Publier des applications qui prennent en charge l’authentification basée sur un en-tête avec PingAccess pour Azure AD
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Publier des applications qui prennent en charge l’authentification basée sur un en-tête avec le proxy d’application et PingAccess pour Azure AD
 
 Azure Active Directory Application Proxy et PingAccess se sont associés pour permettre aux clients Azure Active Directory d’accéder à davantage d’applications. PingAccess développe les [offres Application Proxy existantes](active-directory-application-proxy-get-started.md) en intégrant l’accès distant aux applications qui utilisent des en-têtes d’authentification. 
 

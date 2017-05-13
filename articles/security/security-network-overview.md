@@ -12,31 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/27/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="azure-network-security-overview"></a>Présentation de la sécurité réseau Azure
 Microsoft Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
 
-Cet article a pour objectif de vous aider à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau. Il vous explique également ce que propose Azure dans chacun de ces domaines. Vous y trouverez de nombreux liens vers d’autres contenus qui vous permettront de développer vos connaissances dans les domaines qui vous intéressent.
+Cet article a pour objectif de vous aider à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau. Nous fournissons également des informations sur ce qu’Azure propose dans chacun de ces domaines, ainsi que des liens pour vous aider à acquérir une compréhension approfondie des domaines intéressants.
 
-Cet article Présentation de sécurité réseau Azure se concentre sur les points suivants :
+Cet article de présentation de la sécurité réseau Azure se concentre sur les points suivants :
 
 * Mise en réseau Azure
-* Azure Network Watcher
 * Contrôle d’accès réseau
 * Accès à distance sécurisé et connectivité intersite
-* Availability
-* Journalisation
+* Disponibilité
 * Résolution de noms
 * Architecture DMZ
-* Centre de sécurité Azure
+* Surveillance et détection des menaces
+
 
 ## <a name="azure-networking"></a>Mise en réseau Azure
 Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cela permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
@@ -45,29 +45,18 @@ En savoir plus :
 
 * [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 
-## <a name="azure-network-watcher"></a>Azure Network Watcher
-Azure Network Watcher inclut un grand nombre de fonctionnalités de surveillance réseau qui facilitent la résolution des problèmes, et fournissent un nouvel ensemble d’outils pour faciliter l’identification des problèmes de sécurité.
-
-[L’affichage des groupes de sécurité ](/network-watcher/network-watcher-security-group-view-overview.md) contribue à l’audit et à la conformité de la sécurité des machines virtuelles et peut être utilisé pour effectuer des audits de programmation comparant les stratégies de lignes de base définies par votre organisation aux règles en vigueur pour chacune de vos machines virtuelles. Cela peut vous aider à identifier les différences de configuration.
-
-[La capture de paquets](/network-watcher/network-watcher-packet-capture-overview.md) vous permet de capturer le trafic réseau vers et depuis la machine virtuelle. Outre la collecte des statistiques réseau et le dépannage des problèmes d’application, la capture de paquets peut être très utile lors des enquêtes sur les intrusions. Vous pouvez également utiliser cette fonctionnalité avec Azure Functions pour démarrer les captures réseau en réponse à des alertes Azure spécifiques.
-
-Pour plus d’informations sur Azure Network Watcher et pour savoir comment commencer à tester certaines fonctionnalités dans vos laboratoires, jetez un œil à la [présentation de la surveillance Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
-
->[!NOTE]
-Azure Network Watcher est toujours en version préliminaire publique, il se peut donc qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les services de la version mise à la disposition générale. Certaines fonctionnalités ne sont peut-être pas prises en charge, disposent peut-être de capacités limitées et ne sont peut-être pas disponibles dans tous les emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de ce service, consultez [la page relative aux mises à jour d’Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## <a name="network-access-control"></a>Contrôle d’accès réseau
-Le contrôle d’accès réseau consiste à limiter la connectivité vers et depuis certains appareils ou sous-réseaux au sein d’un réseau virtuel Azure. Le contrôle d’accès réseau permet de vous assurer que seuls les utilisateurs et appareils autorisés peuvent accéder à vos machines virtuelles et à vos services. Les contrôles d’accès sont basés sur des autorisations ou des refus de connexion vers et depuis votre machine virtuelle ou votre service.
+Le contrôle d’accès réseau consiste à limiter la connectivité vers et depuis certains appareils ou sous-réseaux au sein d’un réseau virtuel Azure. L’objectif du contrôle d’accès réseau est de limiter l’accès à vos machines virtuelles et services aux seuls utilisateurs et appareils approuvés. Les contrôles d’accès sont basés sur des autorisations ou des refus de connexion vers et depuis votre machine virtuelle ou votre service.
 
-Azure prend en charge plusieurs types de contrôle d’accès réseau. Vous avez notamment vu les points suivants :
+Azure prend en charge plusieurs types de contrôle d’accès réseau tels que :
 
 * Contrôle de la couche réseau
 * Contrôle du routage et tunneling forcé
 * Appliances de sécurité de réseau virtuel
 
 ### <a name="network-layer-control"></a>Contrôle de la couche réseau
-Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. Le contrôle d’accès réseau permet de vous assurer que vos machines virtuelles et les services réseau qui s’exécutent sur ces machines peuvent uniquement communiquer avec les appareils réseau avec lesquels ils ont besoin de communiquer et que toutes les autres tentatives de connexion sont bloquées.
+Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. L’objectif du contrôle d’accès réseau est de restreindre les communications des machines virtuelles aux systèmes nécessaires et de faire en sorte que les autres tentatives de communication soient bloquées.
 
 Si vous avez besoin d’un contrôle d’accès réseau de base (basé sur l’adresse IP et les protocoles TCP ou UDP), vous pouvez utiliser des groupes de sécurité réseau. Un groupe de sécurité réseau est un pare-feu de filtrage des paquets avec état qui vous permet de contrôler l’accès sur la base d’un algorithme à [5 tuples](https://www.techopedia.com/definition/28190/5-tuple). Les groupes de sécurité réseau n’effectuent pas d’inspection de la couche d’application ni de contrôles d’accès authentifiés.
 
@@ -76,9 +65,9 @@ En savoir plus :
 * [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Contrôle du routage et tunneling forcé
-La possibilité de contrôler le comportement de routage sur vos réseaux virtuels Azure est une fonctionnalité essentielle en matière de contrôle d’accès et de sécurité réseau. Si le routage est mal configuré, les applications et les services hébergés sur votre machine virtuelle peuvent se connecter à des appareils non autorisés, et notamment à des appareils appartenant à des personnes potentiellement malveillantes.
+La possibilité de contrôler le comportement de routage sur vos réseaux virtuels Azure est une fonctionnalité essentielle en matière de contrôle d’accès et de sécurité réseau. Si le routage n’est pas configuré correctement, les applications et les services hébergés sur votre machine virtuelle peuvent se connecter à des appareils non autorisés, y compris les systèmes détenus et utilisés par des personnes malveillantes potentielles.
 
-La mise en réseau Azure permet de personnaliser le comportement de routage du trafic réseau sur vos réseaux virtuels Azure. Vous pouvez ainsi modifier les entrées de la table de routage par défaut dans votre réseau virtuel Azure. Le contrôle du comportement de routage vous permet de vous assurer que tout le trafic en provenance d’un appareil ou d’un groupe d’appareils donné entre ou quitte votre réseau virtuel Azure par un point spécifique.
+La mise en réseau Azure permet de personnaliser le comportement de routage du trafic réseau sur vos réseaux virtuels Azure. Vous pouvez ainsi modifier les entrées de la table de routage par défaut dans votre réseau virtuel Azure. Le contrôle du comportement de routage vous permet de vous assurer que tout le trafic en provenance d’un appareil ou d’un groupe d’appareils donné entre ou quitte votre réseau virtuel par un point spécifique.
 
 Par exemple, vous pouvez disposer d’une appliance de sécurité de réseau virtuel sur votre réseau virtuel Azure. Vous voulez vous assurer que tout le trafic vers et depuis votre réseau virtuel Azure passe par cette appliance de sécurité virtuelle. Pour cela, vous pouvez configurer les [itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) dans Azure.
 
@@ -106,7 +95,7 @@ Vos besoins en matière de sécurité peuvent inclure :
 * Un contrôle d’accès aux applications
 * Une protection DDoS supplémentaire (en supplément de la protection DDoS assurée par la structure Azure)
 
-Ces fonctionnalités avancées de sécurité réseau peuvent être mises en œuvre via une solution de partenaire Azure. Pour connaître les dernières solutions de sécurité réseau des partenaires Azure, rendez-vous sur [Azure Marketplace](https://azure.microsoft.com/marketplace/) et recherchez les mots clés « sécurité » et « sécurité réseau ».
+Ces fonctionnalités avancées de sécurité réseau peuvent être mises en œuvre via une solution de partenaire Azure. Pour connaître les dernières solutions de sécurité réseau des partenaires Azure, rendez-vous sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/) et recherchez les mots clés « sécurité » et « sécurité réseau ».
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accès à distance sécurisé et connectivité intersite
 Imaginons que vous deviez installer, configurer et gérer vos ressources Azure à distance. Vous souhaitez également déployer des solutions [informatiques hybrides](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) avec des composants hébergés localement et dans le cloud public Azure. Ces scénarios nécessitent un accès à distance sécurisé.
@@ -128,7 +117,7 @@ En savoir plus :
 * [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Connecter votre réseau local à un réseau virtuel Azure à l’aide d’un VPN
-Imaginons que vous souhaitiez connecter l’ensemble ou une partie de votre réseau d’entreprise à un réseau virtuel Azure. Il s’agit d’un scénario d’informatique hybride courant dans lequel les entreprises [étendent leur centre de données local dans Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Dans de nombreux cas, les entreprises hébergent une partie du service dans Azure et l’autre partie dans leur centre de données local, notamment lorsque la solution comprend des serveurs web frontaux dans Azure et des bases de données principales locales. Ce type de connexion « intersite » offre une gestion plus sécurisée des ressources hébergées dans Azure et prend en charge des scénarios tels que l’extension des contrôleurs de domaine Active Directory dans Azure.
+Imaginons que vous souhaitiez connecter l’ensemble ou une partie de votre réseau d’entreprise à un réseau virtuel Azure. Il s’agit d’un scénario d’informatique hybride courant dans lequel les entreprises [étendent leur centre de données local dans Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Dans de nombreux cas, les entreprises hébergent une partie du service dans Azure et l’autre partie dans leur centre de données local, notamment lorsque la solution comprend des serveurs web frontaux dans Azure et des bases de données principales locales. Ces types de connexions « intersite » offrent une gestion plus sécurisée des ressources hébergées dans Azure et prennent en charge des scénarios tels que l’extension des contrôleurs de domaine Active Directory dans Azure.
 
 Pour ce faire, vous pouvez utiliser un [VPN de site à site](https://www.techopedia.com/definition/30747/site-to-site-vpn). Un VPN de site à site est différent d’un VPN de point à site. En effet, un VPN de point à site connecte un seul appareil à un réseau virtuel Azure, tandis qu’un VPN de site à site connecte un réseau entier (tel que votre réseau local) à un réseau virtuel Azure. Une connexion VPN de site à site vers un réseau virtuel Azure utilise le protocole VPN hautement sécurisé en mode de tunneling IPsec.
 
@@ -141,7 +130,7 @@ En savoir plus :
 Les connexions VPN de point à site et de site à site offrent une véritable connectivité intersite. Toutefois, certaines organisations leur reconnaissent les inconvénients suivants :
 
 * Les connexions VPN déplacent les données sur Internet : les connexions s’exposent ainsi à des risques de sécurité liés au déplacement de données sur un réseau public. En outre, il est impossible de garantir la fiabilité et la disponibilité des connexions Internet.
-* La bande passante des connexions VPN aux réseaux virtuels Azure, limitée à environ 200 Mbits/s, s’avère parfois insuffisante pour certaines applications et utilisations.
+* La bande passante des connexions VPN aux réseaux virtuels Azure, limitée à environ 200 Mbits/s, s’avère parfois insuffisante pour certaines applications et utilisations.
 
 Les organisations qui ont besoin du plus haut niveau de disponibilité et de sécurité pour leurs connexions intersites utilisent généralement des liaisons réseau étendu dédiées pour se connecter à des sites distants. Azure vous permet d’utiliser une liaison réseau étendu dédiée pour connecter votre réseau local à un réseau virtuel Azure. Pour cela, vous devez utiliser Azure ExpressRoute.
 
@@ -214,19 +203,6 @@ En savoir plus :
 
 * [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md)
 
-## <a name="logging"></a>Journalisation
-La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les groupes de sécurité réseau afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
-
-* [Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) : ces journaux consignent toutes les opérations envoyées à vos abonnements Azure. Ils sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
-* Journaux des événements : ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
-* Journaux des compteurs : ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
-
-Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux.
-
-En savoir plus :
-
-* [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="name-resolution"></a>Résolution de noms
 La résolution de noms est une fonctionnalité essentielle pour tous les services que vous hébergez dans Azure. En effet, une résolution de noms sécurisée permet d’éviter qu’un cybercriminel ne redirige les requêtes de vos sites vers un site malveillant. Une résolution de noms sécurisée est donc requise pour tous vos services hébergés dans le cloud.
@@ -270,8 +246,25 @@ En savoir plus :
 
 * [Services cloud et sécurité réseau Microsoft](../best-practices-network-security.md)
 
-## <a name="azure-security-center"></a>Azure Security Center
-Azure Security Center vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
+
+## <a name="monitoring-and-threat-detection"></a>Surveillance et détection des menaces
+
+Azure fournit des fonctions pour vous aider dans ce domaine clé avec la détection précoce, la surveillance et la possibilité de collecter et d’examiner le trafic de réseau.
+
+### <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher inclut un grand nombre de fonctionnalités qui facilitent la résolution des problèmes, et fournissent un nouvel ensemble d’outils pour faciliter l’identification des problèmes de sécurité.
+
+[L’affichage des groupes de sécurité ](/network-watcher/network-watcher-security-group-view-overview.md) contribue à l’audit et à la conformité de la sécurité des machines virtuelles et peut être utilisé pour effectuer des audits de programmation comparant les stratégies de lignes de base définies par votre organisation aux règles en vigueur pour chacune de vos machines virtuelles. Cela peut vous aider à identifier les différences de configuration.
+
+[La capture de paquets](/network-watcher/network-watcher-packet-capture-overview.md) vous permet de capturer le trafic réseau vers et depuis la machine virtuelle. Outre la collecte des statistiques réseau et le dépannage des problèmes d’application, la capture de paquets peut être très utile lors des enquêtes sur les intrusions. Vous pouvez également utiliser cette fonctionnalité avec Azure Functions pour démarrer les captures réseau en réponse à des alertes Azure spécifiques.
+
+Pour plus d’informations sur Azure Network Watcher et pour savoir comment commencer à tester certaines fonctionnalités dans vos laboratoires, jetez un œil à la [présentation de la surveillance Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network Watcher est toujours en version préliminaire publique, il se peut donc qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les services de la version mise à la disposition générale. Certaines fonctionnalités ne sont peut-être pas prises en charge, disposent peut-être de capacités limitées et ne sont peut-être pas disponibles dans tous les emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de ce service, consultez [la page relative aux mises à jour d’Azure](https://azure.microsoft.com/updates/?product=network-watcher)
+
+### <a name="azure-security-center"></a>Azure Security Center
+Azure Security Center vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste ensemble de solutions de sécurité.
 
 Azure Security Center vous permet d’optimiser et de surveiller la sécurité réseau grâce aux opérations suivantes :
 
@@ -281,5 +274,19 @@ Azure Security Center vous permet d’optimiser et de surveiller la sécurité r
 
 En savoir plus :
 
-* [Présentation d’Azure Security Center](../security-center/security-center-intro.md)
+* [Présentation du Centre de sécurité Azure](../security-center/security-center-intro.md)
+
+
+### <a name="logging"></a>Journalisation
+La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les groupes de sécurité réseau afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
+
+* [Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) : ces journaux consignent toutes les opérations envoyées à vos abonnements Azure. Ils sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
+* Journaux des événements : ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
+* Journaux des compteurs : ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
+
+Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux.
+
+En savoir plus :
+
+* [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
 

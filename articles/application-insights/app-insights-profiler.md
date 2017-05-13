@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed685f0a4ed26fb8d1c766f87210a99d2b5270ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,6 +44,8 @@ Dans [https://portal.azure.com](https://portal.azure.com), ouvrez la ressource A
 Si vous avez besoin d’arrêter ou redémarrer le profileur, vous devez vous rendre **dans la ressource App Service**, sous **Tâches Web**. Pour le supprimer, allez dans **Extensions**.
 
 Si vous utilisez WebDeploy pour déployer des modifications sur votre application web, veillez à ne pas supprimer le dossier **App_Data** lors du déploiement. Dans le cas contraire, les fichiers de l’extension du profileur seront supprimés lorsque vous déploierez ensuite l’application web dans Azure.
+
+**[Mise à jour]**  L’extension de site Application Insights a intégré l’agent profileur de la version 2.3. Elle remplace l’extension de site Application Insights Profiler initiale. Vous pouvez migrer vers la version la plus récente via l’Assistant **Configuration**.
 
 ## <a name="viewing-profiler-data"></a>Affichage des données du profileur
 
@@ -172,7 +175,7 @@ Lorsque vous configurez le profileur, les mises à jour suivantes sont appliqué
 2. Définissez « Version du .NET Framework » sur 4.6.
 3. Activez l’option « Toujours actif ».
 4. Ajoutez le paramètre d’application « __APPINSIGHTS_INSTRUMENTATIONKEY__ » et définissez la valeur sur la même clé d’instrumentation que celle utilisée par le Kit de développement logiciel (SDK).
-5. Sous **Extensions**, ajoutez « Application Insights Profiler ». L’installation prend 2 à 3 minutes.
+5. Dans **Extensions**, ajoutez Application Insights. L’installation prend quelques minutes.
 
 ## <a id="aspnetcore"></a>Prise en charge d’ASP.NET Core
 

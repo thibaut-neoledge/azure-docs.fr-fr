@@ -10,18 +10,19 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f22b6dbdcc02b1182163f140d9ff13d2876dc0d8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
-La télémétrie des requêtes représente l’exécution de code déclenchée en externe qui encapsule l’exécution du code logique. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut réussir (`success`) ou échouer et a une certaine durée (`duration`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
+Un élément de télémétrie de demande (dans [Application Insights](app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
@@ -35,7 +36,7 @@ Longueur maximale : 1024 caractères
 
 ## <a name="id"></a>ID
 
-Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](/correlation).
+Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](application-insights-correlation.md).
 
 Longueur maximale : 128 caractères
 
@@ -47,7 +48,7 @@ Longueur maximale : 2048 caractères
 
 ## <a name="source"></a>Source
 
-Source de la requête. Il s’agit par exemple de la clé d’instrumentation de l’appelant ou de l’adresse IP de l’appelant. Pour plus d’informations, consultez la page relative à la [corrélation](/correlation.md).
+Source de la requête. Il s’agit par exemple de la clé d’instrumentation de l’appelant ou de l’adresse IP de l’appelant. Pour plus d’informations, consultez la page relative à la [corrélation](application-insights-correlation.md).
 
 Longueur maximale : 1024 caractères
 
@@ -81,7 +82,8 @@ Vous pouvez en apprendre plus sur le code de résultat des requête et le code d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](/application-insights-data-model.md).
-- Découvrez comment [configurer l’application ASP.NET Core](/app-insights-asp-net-core.md) avec Application Insights.
-- Découvrez quelles [plateformes](/app-insights-platforms.md) sont prises en charge par Application Insights.
+- [Écrire une télémétrie de demande personnalisée](app-insights-api-custom-events-metrics.md#trackrequest)
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
+- Découvrez comment [configurer l’application ASP.NET Core](app-insights-asp-net.md) avec Application Insights.
+- Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
 

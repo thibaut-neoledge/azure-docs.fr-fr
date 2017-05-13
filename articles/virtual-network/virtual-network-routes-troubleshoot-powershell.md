@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +59,7 @@ Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtu
 ### <a name="view-effective-routes-for-a-network-interface"></a>Afficher les itinéraires effectifs pour une interface réseau
 Pour afficher les itinéraires agrégés appliqués à une carte d’interface réseau, procédez comme suit :
 
-1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 2. La commande suivante renvoie tous les itinéraires appliqués à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -135,10 +137,5 @@ Quelques éléments à prendre en compte lors de l’examen de la liste d’itin
 * Pour que le trafic VNet Peering fonctionne correctement, un itinéraire système avec **nextHopType** *VNetPeering* doit exister pour la plage de préfixes du réseau virtuel homologué. Si un itinéraire de ce type n’existe pas et si le lien d’homologation du réseau virtuel semble correct :
   * Patientez quelques secondes, puis recommencez s’il s’agit d’un lien d’homologation récemment établi. Il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau dans un sous-réseau.
   * Des règles du groupe de sécurité réseau peuvent avoir une incidence sur les flux de trafic. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux groupes de sécurité réseau](virtual-network-nsg-troubleshoot-powershell.md) .
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

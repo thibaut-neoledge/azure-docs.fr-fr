@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [Portail du service en ligne SoftBank Technology](#softbank)
+* [VMware Workspace One](#vmware-workspace-one)
 * [VMware Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Sign&go 5.3 prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos.  Pour obtenir de l’aide sur cette configuration, contactez Ilex ou consultez le guide d’installation et de configuration [ici.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>Portail du service en ligne SoftBank Technology
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
@@ -348,11 +349,11 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 | --- | --- | --- |
 | Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
 | Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |L’authentification Windows intégrée n’est pas prise en charge |
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucune |
 
-Pour plus d’informations sur BitGlass, cliquez [ici.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
+Pour plus d’informations sur le portail du service en ligne SoftBank Technology, consultez [cette page.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>VMware Workspace One
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 

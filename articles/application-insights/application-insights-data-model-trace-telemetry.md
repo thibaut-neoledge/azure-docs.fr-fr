@@ -4,24 +4,25 @@ description: "Modèle de données Application Insights pour la télémétrie de
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e7825b26c47a80debf92be1ad166e5a18bae4a61
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 178b1ec0edce5a3fb20dc5c591e12cfe6e721cf2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Télémétrie des traces : modèle de données Application Insights
 
-La télémétrie des traces représente les instructions de traces de type `printf` qui sont recherchées dans la zone de texte. `Log4Net`, `NLog` et les autres entrées de fichier journal de type texte sont converties en instances de ce type. La trace ne comporte pas de mesures comme l’extensibilité.
+La télémétrie des traces (dans [Application Insights](app-insights-overview.md)) représente des instructions de traces de type `printf` qui font l’objet de recherches textuelles. `Log4Net`, `NLog` et les autres entrées de fichier journal de type texte sont converties en instances de ce type. La trace ne comporte pas de mesures comme l’extensibilité.
 
 ## <a name="message"></a>Message
 
@@ -39,8 +40,9 @@ Niveau de gravité de trace. La valeur peut être `Verbose`, `Information`, `War
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](/application-insights-data-model.md).
-- [Exploration des journaux .NET dans Application Insights](/app-insights-asp-net-trace-logs.md).
-- [Exploration du suivi des journaux Java dans Application Insights](/app-insights-java-trace-logs.md).
-- Découvrez quelles [plateformes](/app-insights-platforms.md) sont prises en charge par Application Insights.
+- [Exploration des journaux .NET dans Application Insights](app-insights-asp-net-trace-logs.md).
+- [Exploration du suivi des journaux Java dans Application Insights](app-insights-java-trace-logs.md).
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
+- [Écrire des données de télémétrie de trace personnalisées](app-insights-api-custom-events-metrics.md#tracktrace)
+- Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
 

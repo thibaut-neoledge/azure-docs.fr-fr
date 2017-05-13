@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
-ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
-ms.lasthandoff: 02/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7562fbee15e4450542c2c17d8ae2a763a556a44f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -50,8 +51,10 @@ Voici trois exemples de scénarios :
 
 Notez que les tarifs mentionnés dans les exemples sont applicables uniquement pendant la période de la version préliminaire et sont susceptibles d’être modifiés au moment de la sortie publique des connexions hybrides.
 
-### <a name="how-are-wcf-relay-hours-calculated"></a>Comment les heures Relay WCF sont-elles calculées ?
-Les heures de relais sont facturées en fonction du temps cumulé pendant lequel chaque relais Service Bus Relay est « ouvert ». Un relais est explicitement instancié et ouvert à une adresse Service Bus (URL espaces de noms de service) lorsqu’un service WCF doté d’un relais, ou « écouteur de relais », se connecte à cette adresse pour la première fois. Il est fermé lorsque le dernier écouteur se déconnecte de cette adresse. Par conséquent, pour la facturation, un relais est considéré comme « ouvert » dès le moment où le premier écouteur de relais se connecte, jusqu’au moment où l’écouteur de relais se déconnecte de l’adresse Service Bus du relais.
+### <a name="how-are-relay-hours-calculated"></a>Comment les heures Relay sont-elles calculées ?
+Les heures de relais WCF et de connexion hybride sont facturées en fonction du temps cumulé pendant lequel chaque relais Service Bus Relay est « ouvert ». Un relais est explicitement instancié et ouvert à une adresse Service Bus (URL espaces de noms de service) lorsqu’un service doté d’un relais, ou « écouteur de relais », se connecte à cette adresse pour la première fois. Il est fermé lorsque le dernier écouteur se déconnecte de cette adresse. Par conséquent, pour la facturation, un relais est considéré comme « ouvert » dès le moment où le premier écouteur de relais se connecte, jusqu’au moment où l’écouteur de relais se déconnecte de l’adresse Service Bus du relais.
+
+Les relais WCF sont disponibles uniquement dans les espaces de noms de niveau Standard. Dans le cas contraire, les [quotas de tarification et de connexion](../service-bus-messaging/service-bus-quotas.md) destinés aux relais restent inchangés. Cela signifie que les relais continueront à être facturés selon le nombre de messages (pas d'opérations) et les heures de relais. Pour plus d’informations, consultez le tableau [Connexions hybrides et relais WCF](https://azure.microsoft.com/pricing/details/service-bus/) dans la page de détails de tarification.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-given-relay"></a>Que se passe-t-il si plusieurs écouteurs sont connectés à un relais donné ?
 Dans certains cas, plusieurs écouteurs peuvent être connectés à un même relais. Un relais est considéré comme « ouvert » lorsqu’au moins un écouteur Relay y est connecté. L’ajout d’écouteurs supplémentaires à un relais ouvert entraîne des heures Relay supplémentaires. Le nombre d’expéditeurs Relay (clients qui appellent ou envoient des messages aux relais) connectés à un relais n’a aucun effet sur le calcul des heures Relay.

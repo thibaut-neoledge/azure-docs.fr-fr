@@ -12,12 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c4eb1162edc42baafe96e6c33699805ffc121204
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: d71bf041585af101d6aa67ba2697f5192bdfd048
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +36,10 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 Dans les deux cas, si votre serveur principal subit une panne, vous devez modifier les chaînes de connexion des clients de rapport afin de vous connecter au serveur dans un autre centre de données régional. Cette modification doit être envisagée en dernier recours et uniquement en cas de panne très grave du centre de données régional. Il est plus probable qu’une panne du centre de données hébergeant votre serveur principal réapparaisse en ligne avant que vous ne puissiez mettre à jour les connexions sur tous les clients. 
 
-Lorsque vous déterminez la manière dont votre organisation gère les interruptions de service, pensez à la façon dont vous pouvez garantir l’actualisation et la sécurité de vos données. 
 
 
 ## <a name="related-information"></a>Informations connexes
-[Sauvegarde et restauration](analysis-services-backup.md) 
+[Sauvegarde et restauration](analysis-services-backup.md)   
 [Gérer Azure Analysis Services](analysis-services-manage.md) 
 
 

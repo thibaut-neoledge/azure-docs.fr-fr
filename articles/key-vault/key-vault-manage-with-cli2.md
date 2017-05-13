@@ -1,5 +1,5 @@
 ---
-title: "Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) | Microsoft Docs"
+title: "Gestion de Azure Key Vault à l’aide de l’interface de ligne de commande (CLI) | Microsoft Docs"
 description: "Utilisez ce tutoriel pour automatiser les tâches courantes dans Key Vault à l’aide de l’interface de ligne de commande CLI 2.0"
 services: key-vault
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/20/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 24b56848523a9bd7145e1c99394d55b9708e9896
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e53b45ef180362f7554c7819b9ae2eb3dbfe3300
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---

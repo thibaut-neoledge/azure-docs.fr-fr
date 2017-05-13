@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Téléphone : +44 (0) 20 8502 2155
+> Téléphone : +44 (0) 20 8502 2155
 > 
 > **Singapour** :
 >   
@@ -194,7 +195,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 >   
 > The Globe, Singapore 069532
 > 
-> **Téléphone : +65 6709 4933
+> Téléphone : +65 6709 4933
 >   
 > **Amérique du Nord** :
 >   
@@ -202,7 +203,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **Téléphone : +1 713 691 0800
+> Téléphone : +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) propose des services cloud privés et publics (Azure) pour toute la gamme Microsoft Dynamics (NAV, AX, GP, SL, CRM).
@@ -217,7 +218,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 > 
 > Proposer des solutions RemoteApp et Desktop basées sur les sessions : Oui, les deux
 > 
-> **Europe / Moyen-Orient / Afrique**
+> **Europe / Moyen-Orient / Afrique** :
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -227,7 +228,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 > 
 > Téléphone : +31 20 547 8060 
 > 
->  **Amérique**
+>  **Amérique** :
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -239,7 +240,7 @@ La plateforme MyCloudIT réduit le temps nécessaire au déploiement de 95 %, le
 > 
 > Téléphone : +1 858 385 8900 
 > 
-> **Asie-Pacifique**
+> **Asie-Pacifique** :
 > 
 > 105 Cecil Street
 >    

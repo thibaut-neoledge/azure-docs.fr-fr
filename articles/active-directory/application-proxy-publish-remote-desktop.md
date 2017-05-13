@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9724ad2e460837157c7677d2c91493cebc8f7012
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,14 +60,14 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
 ### <a name="publish-the-rd-host-endpoint"></a>Publication du point de terminaison hôte Bureau à distance
 
 1. [Publiez une nouvelle application de proxy d’application](application-proxy-publish-azure-portal.md) avec les valeurs suivantes :
-   - URL interne : https://<rdhost>.com /, où <rdhost> est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance. 
+   - URL interne : https://\<rdhost\>.com /, où \<rdhost\> est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance. 
    - URL externe : ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS. 
    - Méthode de pré-authentification : Azure Active Directory
    - Traduire des URL dans les en-têtes : Non
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
 3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**. Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance. 
 4. Accédez à **Azure Active Directory** > **Inscriptions des applications** > *Votre application* > **Paramètres**. 
-5. Sélectionnez **Propriétés** et mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., https://<rdhost>.com/RDWeb).
+5. Sélectionnez **Propriétés** et mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., https://\<rdhost\>.com/RDWeb).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Trafic RDS direct vers le proxy d’application
 
@@ -82,7 +83,7 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
 
   ![Écran Propriétés de déploiement sur RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Pour chaque collection, exécutez la commande suivante. Remplacez *<yourcollectionname>* et *<proxyfrontendurl>* par vos propres informations. Cette commande active l’authentification unique entre Site Web Bureau à distance et Passerelle Bureau à distance, et optimise les performances :
+8. Pour chaque collection, exécutez la commande suivante. Remplacez *\<yourcollectionname\>* et *\<proxyfrontendurl\>* par vos propres informations. Cette commande active l’authentification unique entre Site Web Bureau à distance et Passerelle Bureau à distance, et optimise les performances :
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
@@ -103,3 +104,4 @@ Testez le scénario avec Internet Explorer sur un ordinateur Windows 7 ou 10.
 
 [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considérations de sécurité pour l’accès aux applications à distance à l’aide du proxy d’application Azure AD](application-proxy-security-considerations.md)
+

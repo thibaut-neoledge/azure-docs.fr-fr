@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 71668ceedca16647f814866ea9cf068f73e5daf6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -82,6 +83,7 @@ Examinons à présent chacune d’entre elles en détail.
 |Délimitation géographique|DocumentDB garantit la gouvernance et la conformité des données pour les régions souveraines (par exemple, en Allemagne, en Chine, pour le gouvernement américain).|
 |Installations protégées|Dans DocumentDB, les données sont stockées sur des disques SSD dans les centres de données protégées d’Azure.<br><br>Pour en savoir plus, consultez les [centres de données Microsoft globaux](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |Chiffrement HTTPS/SSL/TLS|Toutes les interactions client-service de DocumentDB appliquent un chiffrement SSL/TLS 1.2, tout comme les réplications au sein des centres de données ou entre différents centres de données.|
+|Chiffrement au repos|Toutes les données stockées dans DocumentDB sont chiffrées au repos. Pour en savoir plus, consultez [DocumentDB encryption at rest (Chiffrement de DocumentDB au repos](.\documentdb-nosql-database-encryption-at-rest.md)|
 |Serveurs corrigés|En tant que base de données NoSQL gérée, DocumentDB ne nécessite aucune gestion ou correction des serveurs, cela se fait automatiquement.|
 |Comptes administratifs avec des mots de passe forts|Il est difficile de croire que nous devions encore mentionner cette exigence, mais contrairement à certains de nos concurrents, il est impossible d’avoir un compte d’administrateur sans mot de passe dans DocumentDB.<br><br> La sécurité via SSL et l’authentification basée sur un secret HMAC sont intégrées par défaut.|
 |Certifications de sécurité et de protection des données|DocumentDB détient les certifications [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC (European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) et [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA). Des certifications supplémentaires sont en cours.|

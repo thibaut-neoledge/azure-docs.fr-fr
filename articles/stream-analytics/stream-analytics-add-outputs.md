@@ -13,54 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 04/26/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aebad3dc5b6fda757713b53edfe9a6d474b7f4cb
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: fde7c0e0b5e2bd0246156bacd81250da106b341a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 ---
+
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Comment configurer les sorties de données pour les tâches Stream Analytics
+
 Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs sorties de données qui définissent une connexion à un récepteur de données existant. Quand votre travail Stream Analytics traite et transforme les données entrantes, un flux d’événements de sortie de données est écrit dans la sortie de votre travail.
 
 Les sorties de données Stream Analytics peuvent servir de source aux tableaux de bord ou aux alertes en temps réel, déclencher des workflows de déplacement ou simplement archiver les données pour le traitement par lot ultérieurement. Stream Analytics bénéficie d'une intégration de première classe avec plusieurs services Azure, qui sont expliqués en détail ici.
 
 Pour ajouter une sortie à votre tâche Stream Analytics :
 
-1. Dans le portail Azure Classic, cliquez sur **Sorties**, puis sur **Ajouter une sortie** dans votre travail Stream Analytics.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre tâche et cliquez successivement sur **Sorties**, puis sur **Ajouter** dans le panneau Sorties qui s’affiche.
    
     ![Ajout de sorties](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)  
    
-    Dans le portail Azure, cliquez sur la mosaïque **Sorties** de votre travail Stream Analytics.
-   
-    ![Ajout de sorties dans le portail Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
-2. Spécifiez le type de la sortie :
-   
-    ![Choisir le type de déplacement des données](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)  
-   
-    ![Choisir le type de déplacement des données dans le portail Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
-3. Attribuez un nom convivial à cette sortie dans la zone **Alias de sortie** . Ce nom pourra être utilisé dans la requête de votre tâche plus tard pour faire référence à la sortie.  
+2. Attribuez un nom convivial à cette sortie dans la zone **Alias de sortie** . Ce nom pourra être utilisé dans la requête de votre tâche plus tard pour faire référence à la sortie.  
    
     Renseignez le reste des propriétés de connexion requises pour vous connecter à votre sortie.  Ces champs varient selon le type de sortie et sont définis en détail ici.  
    
-    ![Ajouter des propriétés de sortie de données](./media/stream-analytics-add-outputs/3-stream-analytics-add-outputs.png)  
-4. Selon le type de sortie, vous devrez peut-être spécifier comment les données sont sérialisées ou mises en forme. Les paramètres de sérialisation spécifiques pour chaque type de sortie sont décrits ici.
+    ![Choisir le type de déplacement des données](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)  
    
-    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. Ces champs varient selon le type d'entrée et le type de source, et sont définis en détail [ici](stream-analytics-create-a-job.md).  
+3. Selon le type de sortie, vous devrez peut-être spécifier comment les données sont sérialisées ou mises en forme. Les paramètres de sérialisation spécifiques pour chaque type de sortie sont décrits ici.
    
-    ![Ajouter une sortie de données au hub d’événements](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)  
-   
-    ![Sortie de données vers le hub d’événements dans le portail Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)  
+    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. Ces champs varient selon le type d’entrée et le type de source et sont définis en détail dans l’[article Créer une tâche](stream-analytics-create-a-job.md).  
 
 > [!Note]
+>
 > Tout élément de sortie ajouté à la tâche doit exister avant que la tâche soit démarrée et que les événements commencent à transiter. Par exemple, si vous utilisez le stockage d'objets Blob en tant que sortie, la tâche ne créera pas de compte de stockage automatiquement. Celui-ci doit être créé par l'utilisateur avant que la tâche ASA soit démarrée.
 > 
-> 
+ 
 
 ## <a name="get-help"></a>Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

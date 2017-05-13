@@ -13,10 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
-ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -136,7 +137,7 @@ Les machines virtuelles Azure peuvent être déployées et intégrées sur Azure
 
 ### <a name="powershell"></a>PowerShell
 
-Vous pouvez utiliser l’applet de commande [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) pour intégrer des machines virtuelles au portail Azure par le biais de PowerShell.
+Vous pouvez utiliser l’applet de commande [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) pour intégrer des machines virtuelles au portail Azure par le biais de PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Machines virtuelles Amazon Web Services (AWS)
 
@@ -161,7 +162,7 @@ Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autr
 
 Les ordinateurs Linux en local, les ordinateurs dans Azure et les ordinateurs Linux dans des clouds autres qu’Azure peuvent également être intégrés à Azure Automation DSC à condition qu’ils disposent d’un accès sortant à Internet. Leur intégration s’effectue très simplement, en quelques étapes :
 
-1. Assurez-vous que la dernière version de l’ [agent DSC Linux](http://www.microsoft.com/download/details.aspx?id=49150) est installée sur les ordinateurs que vous souhaitez intégrer à Azure Automation DSC.
+1. Assurez-vous que la dernière version du service [Desired State Configuration de PowerShel pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) est installée sur les ordinateurs que vous souhaitez intégrer à Azure Automation DSC.
 2. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation DSC et qu’elles lui adressent des rapports :
 
    + Sur chaque ordinateur Linux que vous souhaitez intégrer sur Azure Automation DSC, utilisez Register.py pour effectuer l’intégration en utilisant les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell :
@@ -390,6 +391,6 @@ L’inscription peut être renouvelée selon la procédure initiale, en utilisan
 ## <a name="related-articles"></a>Articles connexes
 
 * [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md)
-* [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Applets de commande Azure Automation DSC](/powershell/module/azurerm.automation/#automation)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 

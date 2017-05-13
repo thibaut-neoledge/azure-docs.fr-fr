@@ -4,27 +4,26 @@ description: "Didacticiel pour bien démarrer avec les outils Azure Stream Analy
 keywords: visual studio
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
+author: 
+manager: 
+editor: 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: sujie
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
-ms.lasthandoff: 03/29/2017
+ms.date: 
+ms.author: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: cbde312e1f58cb69a7c5edbd22543732a0781fdb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>Utilisation d'outils Azure Stream Analytics pour Visual Studio
-Les outils Azure Stream Analytics pour Visual Studio sont maintenant disponibles de manière générale. Ces outils permettent d'enrichir l'expérience de l'utilisateur Stream Analytics pour la résolution de problèmes, les requêtes complexes et même l'écriture de requêtes en local. Vous avez également la possibilité d’exporter un travail Stream Analytics dans un projet Visual Studio.
-
 ## <a name="introduction"></a>Introduction
 Dans ce didacticiel, vous allez apprendre à utiliser les outils Azure Stream Analytics pour Visual Studio pour créer, tester localement, gérer et déboguer vos travaux Azure Stream Analytics. 
 
@@ -65,33 +64,33 @@ Vous verrez un projet **Toll** généré dans **l’Explorateur de solutions**.
 6.    Le nom de l'event hub doit être défini sur **entrée**.
 7.    Le nom de la stratégie du hub d’événements est **RootManageSharedAccessKey** (valeur par défaut).
 8.    Sélectionnez **JSON** pour l’option **Format de sérialisation de l’événement**, et **UTF8** pour **Encodage**.
-   
-   Vos paramètres ressemblent à ceci :
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
-   
-9.    Cliquez sur **Enregistrer** en bas de la page pour terminer l’exécution de l’Assistant. Vous pouvez maintenant ajouter une autre source d’entrée pour créer le flux de sortie. Cliquez sur le nœud d’entrées, puis cliquez sur **Nouvel élément**.
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
-   
+
+    Vos paramètres ressemblent à ceci :
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
+ 
+9.    Cliquez sur **Enregistrer** en bas de la page pour terminer l’exécution de l’Assistant. Vous pouvez maintenant ajouter une autre source d’entrée pour créer le flux de sortie. Cliquez sur le nœud d’entrées, puis sur **Nouvel élément**.
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
+ 
 10.    Dans la fenêtre contextuelle en haut, choisissez **Entrée Azure Stream Analytics** et modifiez le nom en **ExitStream.json**. Cliquez sur **Ajouter**.
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
-   
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
+ 
 11.    Double-cliquez sur **ExitStream.json** dans le projet et suivez la même procédure que le flux d’entrée pour le renseigner. Veillez à entrer des valeurs pour le nom d'Event Hub comme sur la capture d’écran suivante.
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
-   
-   Vous avez maintenant défini deux flux d’entrée.
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
-   
-   À présent, nous allons ajouter une entrée de données de référence pour le fichier blob contenant les données d’inscription des véhicules.
-   
-12.    Cliquez avec le bouton droit sur le nœud **Entrées**, puis suivez la même procédure pour les entrées de flux de données, mais en sélectionnant **DONNÉES DE RÉFÉRENCE** au lieu de Flux de données, et l'alias d’entrée pour **Inscription**.
-   
-   ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
-   
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
+
+    Vous avez maintenant défini deux flux d’entrée.
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
+ 
+    À présent, nous allons ajouter une entrée de données de référence pour le fichier blob contenant les données d’inscription des véhicules.
+
+12.    Cliquez avec le bouton droit sur le nœud **Entrées**, puis suivez la même procédure pour les entrées de flux de données, mais en sélectionnant **DONNÉES DE RÉFÉRENCE** au lieu de Flux de données et l’alias d’entrée pour **Inscription**.
+
+    ![Définir les sources d’entrée](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
+
 13.    Sélectionnez le compte de stockage contenant **tolldata**. Le nom de conteneur doit être **tolldata** et le **Modèle de chemin d’accès** doit être **registration.json**. Ce nom de fichier respecte la casse et doit être en minuscules.
 14.    Cliquez sur **Enregistrer** pour terminer l’exécution de l’Assistant.
 
@@ -137,32 +136,35 @@ Dans le projet, double-cliquez sur Script.asaql pour ouvrir le script dans l’�
  
 ### <a name="testing-azure-stream-analytics-queries-locally"></a>Test local de requêtes Azure Stream Analytics
 
-1. Vous pouvez tout d’abord compiler la requête pour voir si elle comporte une erreur de syntaxe. [TBD]
-2. Pour valider cette requête par rapport aux exemples de données, vous pouvez utiliser les exemples de données locaux en double-cliquant sur l’entrée et sélectionner **Ajouter une entrée locale** dans le menu contextuel.
-   
-   ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
-   
-   Dans la fenêtre contextuelle, sélectionnez l'exemple de données depuis votre chemin d’accès local. Cliquez sur **Enregistrer**.
-   
-   ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
-   
-   Un fichier nommé **local_EntryStream.json** est automatiquement ajouté à votre dossier d’entrées.
-   
-   ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
-   
-3. Dans l’éditeur de requête, cliquez sur Exécution locale. Ou vous pouvez appuyer sur F5.
-   
-   ![Exécution locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
-   
-   Vous pouvez rechercher le chemin de sortie à partir de la sortie de la console et appuyer sur n’importe quelle touche pour ouvrir le dossier de résultat.
-   
-   ![Exécution locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
-   
-4. Vérifiez le résultat dans le dossier local.
-   
-   ![Exécution locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
-   
-   
+1.    Vous pouvez tout d’abord cliquer avec le bouton droit sur le projet et choisir **Créer** pour compiler la requête et voir si elle comporte une erreur de syntaxe. 
+
+2.    Pour valider cette requête par rapport aux exemples de données, vous pouvez utiliser les exemples de données locaux en double-cliquant sur l’entrée et sélectionner **Ajouter une entrée locale** dans le menu contextuel.
+
+    ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
+ 
+    Dans la fenêtre contextuelle, sélectionnez l’exemple de données depuis votre chemin d’accès local. Cliquez sur **Save**.
+
+    ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
+ 
+    Un fichier nommé **local_EntryStream.json** est automatiquement ajouté à votre dossier d’entrées.
+
+    ![Ajouter une entrée locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
+ 
+3.    Dans l’éditeur de requête, cliquez sur Exécution locale. Ou vous pouvez appuyer sur F5.
+
+    ![Exécution locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
+
+    ![Exécution locale](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
+
+    Vous pouvez appuyer sur une touche quelconque pour afficher la sortie dans la fenêtre de résultat de l’exécution locale ASA dans Visual Studio. 
+
+    ![Exécution locale](./media/stream-analytics-tools-for-vs/local-testing-output.png)
+
+4.  Vous pouvez ouvrir le dossier de résultat pour vérifier les fichiers de sortie aux formats CSV et JSON.
+
+    ![Exécution locale](./media/stream-analytics-tools-for-vs/local-testing-files.png)
+ 
+
 ### <a name="sample-input"></a>Exemple d’entrée
 Vous pouvez également copier des exemples de données de sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données**. 
 
@@ -203,8 +205,8 @@ Vous pouvez voir que l’état du travail est passé à **En cours d’exécutio
 1. Ouvrez l’Explorateur de serveurs Visual Studio, puis cliquez avec le bouton droit sur la table **TollDataRefJoin** .
 2. Cliquez sur **Afficher les données de la table** pour voir le résultat de votre tâche.
    
-   ![Sélection de « Afficher les données de la table » dans l’Explorateur de serveurs](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
-   
+    ![Sélection de « Afficher les données de la table » dans l’Explorateur de serveurs](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
+
 
 ### <a name="view-job-metrics"></a>Affichage des mesures de travail
 Certaines statistiques de travail de base se trouvent dans **Mesures du travail**. 
@@ -214,7 +216,6 @@ Certaines statistiques de travail de base se trouvent dans **Mesures du travail*
  
 ## <a name="list-job-in-server-explorer"></a>Répertorier le travail dans l'Explorateur de serveurs
 Cliquez sur **Tâches Stream Analytics** dans **l'Explorateur de serveurs**, puis sur **Actualiser**. Vous devez voir votre travail sous **Tâches Stream Analytics**.
-
 ![Répertorier les travaux](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 
@@ -226,26 +227,22 @@ Développez le nœud de votre projet et double-cliquez sur le nœud **Vue des tr
 
 ## <a name="export-an-existing-job-to-a-project"></a>Exporter un travail existant dans un projet
 Il existe deux méthodes pour exporter un travail existant vers un projet.
-1. Cliquez avec le bouton droit sur le nœud de travail sous le nœud **Tâches Stream Analytics** dans **l'Explorateur de serveurs**. Cliquez sur **Exporter vers un nouveau projet Stream Analytics** dans le menu contextuel.
-   
-   ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
-   
-   Vous verrez le projet généré dans **l’Explorateur de solutions**.
-   
-   ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
-   
+1. Cliquez avec le bouton droit sur le nœud de travail sous le nœud **Tâches Stream Analytics** dans **l’Explorateur de serveurs**. Cliquez sur **Exporter vers un nouveau projet Stream Analytics** dans le menu contextuel.
+
+    ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
+
+    Vous voyez le projet généré dans **l’Explorateur de solutions**.
+
+    ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
+ 
 2. Dans la vue des travaux, cliquez sur **Générer le projet**.
-   
-   ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
-   
+
+    ![Exporter le travail](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
+
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
  
-1. Le test local ne fonctionne pas si votre requête contient des fonctions géospatiales. 
+1. Aucune prise en charge pour les sorties Power BI et les sorties ADLS.
 2. Aucune prise en charge de l’éditeur pour l’ajout ou la modification de fonctions définies par l'utilisateur JavaScript.
-3. Le test local ne prend pas en charge l’enregistrement de la sortie au format JSON. 
-4. Aucune prise en charge pour les sorties Power BI et les sorties ADLS.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
@@ -253,6 +250,4 @@ Il existe deux méthodes pour exporter un travail existant vers un projet.
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
 

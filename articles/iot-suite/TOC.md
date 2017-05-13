@@ -20,6 +20,9 @@
 #### [Données simulés](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Utiliser des capteurs réels](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Implémenter la mise à jour du microprogramme](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Se connecter à votre passerelle Intel NUC
+### [Données simulés](iot-suite-gateway-kit-get-started-simulator.md)
+### [Utiliser le capteur réel](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Procédure
 ## Connecter un appareil simulé
@@ -33,6 +36,7 @@
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md) (Créer une règle personnalisée dans la solution de surveillance à distance)
 ## [Informations sur l’appareil dans la solution de surveillance à distance](iot-suite-remote-monitoring-device-info.md)
 ## [Déployer une passerelle pour l’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
+## [Personnaliser la fabrique connectée](iot-suite-connected-factory-customize.md)
 
 # Référence
 ## [Architecture de la sécurité](iot-security-architecture.md)

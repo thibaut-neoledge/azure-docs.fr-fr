@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,6 +26,10 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment reprotéger des machines virtuelles Azure d’Azure vers le site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure, en utilisant la procédure [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-failover.md).
+
+> [!WARNING]
+> Si vous avez [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas effectuer de restauration automatique après cela.
+
 
 Une fois la reprotection terminée et les machines virtuelles protégées en cours de réplication, vous pouvez lancer une restauration automatique sur les machines virtuelles afin de les installer sur le site local.
 
@@ -38,8 +43,11 @@ Pour une vue d’ensemble, regardez la vidéo suivante sur la procédure de basc
 Voici les quelques étapes préalables à prendre en compte lors de la préparation de la reprotection.
 
 * Si les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique sont gérées par un serveur vCenter, vous devez vous assurer de disposer des autorisations requises pour la détection des machines virtuelles sur les serveurs vCenter. [En savoir plus](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* Si des captures instantanées sont présentes sur la machine virtuelle locale, la reprotection échoue. Vous pouvez supprimer les captures instantanées avant de passer à la reprotection.
-* Avant de procéder à une restauration automatique, vous devez créer deux autres composants :
+
+> [!WARNING] 
+> Si des captures instantanées sont présentes sur la cible maître local ou la machine virtuelle, la reprotection échoue. Vous pouvez supprimer les captures instantanées sur la cible maître avant de procéder à la reprotection. Les captures instantanées sur la machine virtuelle vont être fusionnées automatiquement lors de la tâche de reprotection.
+
+* Avant de procéder à une restauration automatique, vous allez devoir créer deux autres composants :
   * **Créez un serveur de processus**. Le serveur de processus reçoit des données à partir de la machine virtuelle protégée dans Azure et envoie des données vers le site local. Un réseau à faible latence est requis entre le serveur de processus et la machine virtuelle protégée. Par conséquent, vous pouvez avoir un serveur de processus local si vous utilisez une connexion Azure ExpressRoute ou un serveur de processus Azure si vous utilisez un VPN.
   * **Créez un serveur cible maître**. Le serveur cible maître reçoit des données de restauration automatique. Un serveur cible maître est installé par défaut sur le serveur d’administration sur site que vous avez créé. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique.
         * [Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux](site-recovery-how-to-install-linux-master-target.md).
@@ -176,6 +184,8 @@ Vous pouvez également effectuer la reprotection au niveau du plan de récupéra
 > [!NOTE]
 > Un groupe de réplication doit être reprotégé à l’aide du même serveur cible maître. S’il est reprotégé à l’aide d’un serveur cible maître différent, le serveur ne peut fournir aucun point dans le temps commun.
 
+> [!NOTE]
+> La machine virtuelle locale va être désactivée au cours de la reprotection. Cela permet de garantir la cohérence des données pendant la réplication. N’activez pas la machine virtuelle une fois la reprotection terminée.
 
 Une fois la reprotection réussie, la machine virtuelle passe à l’état protégé.
 

@@ -4,24 +4,25 @@ description: "Modèle de données Application Insights pour la télémétrie de
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 17a39660fce598610ff9a95e886282e6b3faffe4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 49d2429c01fe3fde2e51e4344904f55e43eea1cd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Télémétrie des exceptions : modèle de données Application Insights
 
-Une instance d’exception représente une exception prise en charge ou non prise en charge générée pendant l’exécution de l’application surveillée.
+Dans [Application Insights](app-insights-overview.md), une instance d’exception représente une exception prise en charge ou non prise en charge générée pendant l’exécution de l’application surveillée.
 
 ## <a name="problem-id"></a>ID du problème
 
@@ -35,7 +36,7 @@ Niveau de gravité de trace. La valeur peut être `Verbose`, `Information`, `War
 
 ## <a name="exception-details"></a>Détails de l’exception
 
-Cette section est en cours de création...
+(À développer)
 
 ## <a name="custom-properties"></a>Propriétés personnalisées
 
@@ -47,7 +48,7 @@ Cette section est en cours de création...
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](/application-insights-data-model.md).
-- Découvrez comment [diagnostiquer les exceptions dans vos applications web avec Application Insights](/app-insights-asp-net-exceptions.md).
-- Découvrez quelles [plateformes](/app-insights-platforms.md) sont prises en charge par Application Insights.
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
+- Découvrez comment [diagnostiquer les exceptions dans vos applications web avec Application Insights](app-insights-asp-net-exceptions.md).
+- Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
 

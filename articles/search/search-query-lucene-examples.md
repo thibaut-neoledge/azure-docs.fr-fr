@@ -15,16 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 0f81ac0d19cd0f20c1f2214042eda391a3e68a7d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0740bc1f9e8b8be3c59518d9b23b8a1411c6d16a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
 Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). L’Analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que les requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
 
-Cet article contient des exemples qui affichent la syntaxe de requête Lucene et les résultats côte à côte. Les exemples s’exécutent sur un index de recherche préchargé dans [JSFiddle](https://jsfiddle.net/), éditeur de code en ligne pour le test de script et HTML.
+Cet article contient des exemples qui affichent la syntaxe de requête Lucene et les résultats côte à côte. Les exemples s’exécutent sur un index de recherche préchargé dans [JSFiddle](https://jsfiddle.net/), éditeur de code en ligne pour le test de script et HTML. Pour des informations sur le traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md).
 
 Cliquez avec le bouton droit sur les URL des exemples de requêtes pour ouvrir JSFiddle dans une nouvelle fenêtre de navigateur.
 
@@ -120,9 +122,4 @@ Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les lie
 
 * [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
 * [Interroger votre index Azure Search à l’aide de l’API REST](search-query-rest-api.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

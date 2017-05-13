@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 215db83e766d595b8f03a89ea6b4221fc756b1aa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -50,7 +52,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Le nom et la valeur de la clé de signature d’accès partagé se trouvent dans les informations de connexion du [portail Azure Classic][Azure classic portal] ou dans le volet **Propriétés** de Visual Studio quand vous sélectionnez l’espace de noms Service Bus dans l’Explorateur de serveurs (comme indiqué dans la section précédente).
+Le nom et la valeur de la clé de signature d’accès partagé se trouvent dans les informations de connexion du [portail Azure][Azure portal] ou dans le volet **Propriétés** de Visual Studio quand vous sélectionnez l’espace de noms Service Bus dans l’Explorateur de serveurs (comme indiqué dans la section précédente).
 
 ```python
 bus_service.create_queue('taskqueue')
@@ -69,7 +71,7 @@ bus_service.create_queue('taskqueue', queue_options)
 ## <a name="send-messages-to-a-queue"></a>Envoi de messages à une file d'attente
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **send\_queue\_message** sur l’objet **ServiceBusService**.
 
-L’exemple suivant indique comment envoyer un message test à la file d’attente nommée *taskqueue au moyen de * **send\_queue\_message** :
+L’exemple suivant indique comment envoyer un message test à la file d’attente nommée *taskqueue au moyen de*  **send\_queue\_message** :
 
 ```python
 msg = Message(b'Test Message')
@@ -111,14 +113,9 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
 * [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

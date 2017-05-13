@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 946f3ac069db436828427e575be5a14efac9dda9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
-Azure Service Bus utilise plusieurs courtiers de messages pour traiter les messages et plusieurs banques de messagerie pour stocker les messages. Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Service Bus permet également le *partitionnement* des files d’attente ou des rubriques entre plusieurs courtiers de messages et banques de messagerie. Cela signifie que le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Les rubriques et les files d’attente partitionnées peuvent contenir toutes les fonctionnalités avancées de Service Bus, comme la prise en charge des transactions et des sessions.
+Azure Service Bus utilise plusieurs courtiers de messages pour traiter les messages et plusieurs banques de messagerie pour stocker les messages. Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Service Bus permet également le *partitionnement* des files d’attente et des rubriques, ou des *entités de messagerie* entre plusieurs courtiers de messages et banques de messagerie. Cela signifie que le débit global d’une entité partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Les rubriques et les files d’attente partitionnées peuvent contenir toutes les fonctionnalités avancées de Service Bus, comme la prise en charge des transactions et des sessions.
 
 Pour plus d’informations sur les éléments internes de Service Bus, consultez l’article [Architecture de Service Bus][Service Bus architecture].
+
+Le partitionnement est activé par défaut lors de la création d’entités sur toutes les files d’attente et rubriques à la fois dans la messagerie Standard et Premium. Vous pouvez créer des entités de niveau de messagerie Standard sans partitionnement, mais les files d’attente et les rubriques dans un espace de noms Premium sont toujours partitionnées ; cette option ne peut pas être désactivée. 
+
+Il n’est pas possible de modifier l’option de partitionnement dans une file d’attente ou une rubrique existante dans les niveaux Standard ou Premium. Vous pouvez uniquement définir l’option lorsque vous créez l’entité.
 
 ## <a name="how-it-works"></a>Fonctionnement
 Chaque file d’attente ou rubrique partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente et géré par un courtier de messages différent. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. La sélection est effectuée au hasard par Service Bus ou à l’aide d’une clé de partition que l’expéditeur peut spécifier.
@@ -36,9 +41,19 @@ Il n’existe aucun coût supplémentaire lors de l’envoi d’un message à, o
 ## <a name="enable-partitioning"></a>Activation du partitionnement
 Pour utiliser des rubriques et des files d’attente partitionnées avec Azure Service Bus, utilisez le Kit de développement logiciel (SDK) Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
 
-Vous pouvez créer des files d’attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions, la taille maximale de la file d’attente est (5 \* 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal].
+### <a name="standard"></a>Standard
 
-Il existe plusieurs façons de créer une file d’attente ou une rubrique partitionnée. Lorsque vous créez la file d’attente ou la rubrique à partir de votre application, vous pouvez activer le partitionnement de la file d’attente ou de la rubrique en définissant respectivement la propriété [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] sur **true**. Ces propriétés doivent être définies au moment où la file d’attente ou la rubrique est créée. Il n’est pas possible de modifier ces propriétés sur une file d’attente ou une rubrique existante. Par exemple :
+Dans le niveau de messagerie Standard, vous pouvez créer des files d'attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 copies (16 partitions) de l’entité pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions, la taille maximale de la file d’attente est (5 \* 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal], dans le panneau **Aperçu** de cette entité.
+
+### <a name="premium"></a>Premium
+
+Dans un espace de noms de niveau Premium, vous pouvez créer des files d’attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4, 5, 10, 20, 40 ou 80 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé par défaut, Service Bus crée deux partitions par entité. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal], dans le panneau **Aperçu** de cette entité.
+
+Pour plus d’informations sur le partitionnement dans la couche de messagerie Premium, consultez [Couches messagerie Service Bus Premium et Standard](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Créer une entité partitionnée
+
+Il existe plusieurs façons de créer une file d’attente ou une rubrique partitionnée. Lorsque vous créez la file d’attente ou la rubrique à partir de votre application, vous pouvez activer le partitionnement de la file d’attente ou de la rubrique en définissant respectivement la propriété [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] sur **true**. Ces propriétés doivent être définies au moment où la file d’attente ou la rubrique est créée. Comme indiqué précédemment, il n’est pas possible de modifier ces propriétés dans une file d’attente ou une rubrique existante. Par exemple :
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Vous pouvez également créer une file d’attente ou une rubrique partitionnée dans Visual Studio ou sur le [portail Azure][Azure portal]. Lorsque vous créez une file d’attente ou une rubrique dans le portail, définissez l’option **Activer le partitionnement** dans le volet **Paramètres généraux** de la fenêtre **Paramètres** de la file d’attente ou de la rubrique sur **true**. Dans Visual Studio, cochez la case **Activer le partitionnement** dans la boîte de dialogue **Nouvelle file d’attente** ou **Nouvelle rubrique**.
+Vous pouvez également créer une file d’attente ou une rubrique partitionnée dans Visual Studio ou sur le [portail Azure][Azure portal]. Lorsque vous créez une file d’attente ou une rubrique sur le portail, l’option **Activer le partitionnement** dans le panneau **Créer** de la file d’attente ou de la rubrique est activée par défaut. Vous pouvez uniquement désactiver cette option dans une entité de niveau Standard ; dans le niveau Premium, le partitionnement est toujours activé. Dans Visual Studio, cochez la case **Activer le partitionnement** dans la boîte de dialogue **Nouvelle file d’attente** ou **Nouvelle rubrique**.
 
 ## <a name="use-of-partition-keys"></a>Utilisation de clés de partition
 Lorsqu’un message est placé dans une file d’attente ou une rubrique partitionnée, Service Bus vérifie la présence d’une clé de partition. S'il en trouve une, il sélectionne le fragment basé sur cette clé. S'il ne trouve pas de clé de partition, il sélectionne le fragment basé sur un algorithme interne.
