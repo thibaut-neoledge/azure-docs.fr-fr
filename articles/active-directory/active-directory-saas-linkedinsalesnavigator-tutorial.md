@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 69143ccdbfbf50701d44e0342e8eb4ebe68b22da
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -142,11 +142,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue associée
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
