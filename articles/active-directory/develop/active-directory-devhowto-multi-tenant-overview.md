@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: skwan;bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 4b44b83d22c0d10466198df5cb3e820323fdba39
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée
 Si vous proposez une application SaaS (Software as a Service) à de nombreuses organisations, vous pouvez configurer votre application pour accepter les connexions à partir de n’importe quel client Azure AD.  Dans Azure AD, ce processus s’appelle créer une application mutualisée.  Les utilisateurs de n’importe quel client Azure AD pourront se connecter à votre application après votre consentement afin d’utiliser leur compte avec votre application.  
 
-Si vous avez une application existante qui possède son propre système de compte, ou qui prend en charge d’autres types de connexion à partir d’autres fournisseurs de cloud, l’ajout d’une connexion Azure AD à partir de n’importe quel client est aussi simple que l’inscription de votre application, l’ajout d’une connexion dans le code via OAuth2, OpenID Connect ou SAML, et l’ajout d’un bouton Microsoft Se connecter à votre application. Cliquez sur le bouton ci-dessous pour en savoir plus sur la personnalisation de votre application.
+Si vous avez une application existante qui possède son propre système de compte, ou prend en charge d’autres types de connexion auprès d’autres fournisseurs cloud, l’ajout de la connexion Azure AD à partir de n’importe quel client est simple. Inscrivez simplement votre application, ajoutez le code de connexion via OAuth2, OpenID Connect ou SAML, et placez un bouton « Se connecter avec Microsoft » dans votre application. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
 
 Cet article suppose que vous êtes déjà familiarisé avec la création d’une application à client unique pour Azure AD.  Si ce n’est pas le cas, retournez à la [page d’accueil du guide du développeur][AAD-Dev-Guide] et testez l’un de nos démarrages rapides !
 
@@ -47,7 +48,7 @@ Notez également que, avant qu’une application ne soit mutualisée, l’URI d'
 Les inscriptions clientes natives sont mutualisées par défaut.  Aucune action n’est nécessaire de votre part pour rendre mutualisée une connexion d’application cliente native.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Mise à jour de votre code pour envoyer des demandes à /common
-Dans une application à client unique, les demandes de connexion sont envoyées au point de terminaison de connexion du client.   Par exemple, pour contoso.onmicrosoft.com, le point de terminaison serait :
+Dans une application à client unique, les demandes de connexion sont envoyées au point de terminaison de connexion du client. Par exemple, pour contoso.onmicrosoft.com, le point de terminaison serait :
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -59,9 +60,9 @@ Quand Azure AD reçoit une demande sur le point de terminaison /common, elle con
 
 La réponse de connexion envoyée à l’application contient un jeton représentant l’utilisateur.  La valeur issuer du jeton indique à une application de quel client provient l’utilisateur.  Lorsqu’une réponse revient du point de terminaison /common, la valeur issuer du jeton correspond au client de l’utilisateur.  Il est important de noter que point de terminaison /common n’est pas un client et n’est pas un émetteur : il s’agit simplement d’un multiplexeur.  Lorsque vous utilisez /common, la logique de votre application permettant de valider les jetons doit être mise à jour en conséquence. 
 
-Comme mentionné précédemment, les applications mutualisées doivent également fournir une expérience de connexion cohérente aux utilisateurs en suivant les directives de personnalisation des applications Azure Active Directory. Cliquez sur le bouton ci-dessous pour en savoir plus sur la personnalisation de votre application.
+Comme mentionné précédemment, les applications mutualisées doivent également fournir une expérience de connexion cohérente aux utilisateurs en suivant les directives de personnalisation des applications Azure Active Directory. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
 
 Intéressons-nous désormais de plus près à l’utilisation du point de terminaison /common et à l’implémentation de votre code.
 
@@ -85,9 +86,9 @@ pour télécharger deux informations essentielles utilisées pour valider les je
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-où la valeur GUID est la version « rename-safe » de l’ID du client.  Si vous cliquez sur le lien de métadonnées ci-dessus pour `contoso.onmicrosoft.com`, vous pouvez afficher cette valeur issuer dans le document.
+où la valeur GUID est la version « rename-safe » de l’ID du client.  Si vous cliquez sur le lien de métadonnées précédent pour `contoso.onmicrosoft.com`, vous pouvez afficher cette valeur issuer dans le document.
 
-Lorsqu’une application à client unique valide un jeton, elle vérifie la signature du jeton à l’aide des clés de connexion du document de métadonnées et s’assure que la valeur issuer du jeton correspond celle figurant dans le document de métadonnées.
+Lorsqu’une application client unique valide un jeton, elle vérifie la signature du jeton par rapport aux clés de signature à partir du document de métadonnées. Cela lui permet de s’assurer que la valeur de l’émetteur du jeton correspond à celui qui a été trouvé dans le document de métadonnées.
 
 Comme le point de terminaison /common ne correspond pas à un client et n’a pas la valeur issuer, lorsque vous examinez la valeur issuer dans les métadonnées pour /common, elle comporte une URL basée sur un modèle au lieu d’une valeur réelle :
 
@@ -111,20 +112,20 @@ Pour une application mutualisée, l’inscription initiale de l’application s�
 Ce processus de consentement dépend des autorisations demandées par l’application.  Azure AD prend en charge deux types d’autorisations, application seule et application déléguée :
 
 * une autorisation déléguée accorde à une application la possibilité d’agir comme un utilisateur connecté pour un sous-ensemble d’actions que l’utilisateur peut effectuer.  Par exemple, vous pouvez accorder à une application l’autorisation déléguée pour lire le calendrier de l’utilisateur connecté.
-* Une autorisation d’application seule est directement accordée à l’identité de l’application.  Par exemple, vous pouvez accorder à une application une autorisation application seule pour lire la liste des utilisateurs d’un client, et cette opération sera possible quels que soient les clients connectés à l’application.
+* Une autorisation d’application seule est directement accordée à l’identité de l’application.  Par exemple, vous pouvez accorder à une application une autorisation application seule pour lire la liste des utilisateurs d’un client, quels que soient les clients connectés à l’application.
 
 Certaines autorisations peuvent être accordées par un utilisateur standard, tandis que d’autres nécessitent le consentement de l’administrateur d’un client. 
 
 ### <a name="admin-consent"></a>Consentement de l’administrateur
-Les autorisations application seule nécessitent toujours le consentement de l’administrateur d’un client.  Si votre application demande une autorisation d’application seule et qu’un utilisateur standard tente de se connecter à l’application, votre application reçoit un message d’erreur indiquant que l’utilisateur n’est pas en mesure de donner son consentement.
+Les autorisations application seule nécessitent toujours le consentement de l’administrateur d’un client.  Si votre application demande une autorisation d’application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur indiquant que l’utilisateur n’est pas en mesure de donner son consentement s’affiche.
 
 Certaines autorisations déléguées nécessitent également le consentement de l’administrateur d’un client.  Par exemple, la possibilité de réécrire dans Azure AD en tant que l’utilisateur connecté requiert le consentement de l’administrateur d’un client.  Comme les autorisations application seule, si un utilisateur standard tente de se connecter à une application qui demande une autorisation déléguée nécessitant le consentement de l’administrateur, votre application reçoit une erreur.  Le fait qu’une autorisation nécessite ou non le consentement d’un administrateur est déterminé par le développeur qui a publié la ressource, et ces informations sont disponibles dans la documentation de cette ressource.  Des liens vers les rubriques qui décrivent les autorisations disponibles pour l’API Graph Azure AD et les API Graph Microsoft se trouvent dans la section [Contenu connexe](#related-content) de cet article.
 
-Si votre application utilise des autorisations qui nécessitent le consentement de l’administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse initier l’action.  La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect standard, mais qui inclut également le paramètre de chaîne de requête `prompt=admin_consent` .  Une fois que l’administrateur a donné son consentement et que le principal de service est créée dans le client, les connexions ultérieures n’ont plus besoin du paramètre `prompt=admin_consent` .   Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs n’auront plus à donner leur consentement par la suite.
+Si votre application utilise des autorisations qui nécessitent le consentement de l’administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse initier l’action.  La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect standard, mais qui inclut également le paramètre de chaîne de requête `prompt=admin_consent` .  Une fois que l’administrateur a donné son consentement et que le principal de service est créé dans le client, les connexions ultérieures n’ont plus besoin du paramètre `prompt=admin_consent`. Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs n’auront plus à donner leur consentement par la suite.
 
-Le paramètre `prompt=admin_consent` peut également être utilisé par les applications qui demandent des autorisations ne nécessitant pas le consentement de l’administrateur, mais qui souhaitent offrir une expérience où l’administrateur d’un client « s’inscrit » une fois auprès de l’application et où les autres utilisateurs n’ont plus à donner leur consentement par la suite.
+Le paramètre `prompt=admin_consent` peut également être utilisé par les applications qui demandent des autorisations qui ne nécessitent pas d’autorisation de l’administrateur. Cela s’effectue lorsque l’application requiert une expérience où l’administrateur du client « s’inscrit » une fois et qu’aucun utilisateur n’a à donner de consentement à compter de ce moment.
 
-Si une application requiert le consentement de l’administrateur, que l’administrateur se connecte à l’application mais que le paramètre `prompt=admin_consent` n’est pas envoyé, l’administrateur pourra donner son consentement à l’application, mais uniquement pour son compte d’utilisateur.  Les utilisateurs standard ne pourront toujours pas se connecter et donner leur consentement à l’application.  Cela s’avère utile si vous souhaitez donner à l’administrateur du client la possibilité d’explorer votre application avant d’autoriser l’accès à d’autres utilisateurs.
+Si une application requiert le consentement de l’administrateur, et qu’un administrateur se connecte alors que le paramètre `prompt=admin_consent` n’est pas envoyé, l’administrateur consentira correctement à l’application **uniquement pour son compte utilisateur**.  Les utilisateurs standard ne pourront toujours pas se connecter et donner leur consentement à l’application.  Cela s’avère utile si vous souhaitez donner à l’administrateur du client la possibilité d’explorer votre application avant d’autoriser l’accès à d’autres utilisateurs.
 
 L’administrateur d’un client peut empêcher les utilisateurs standard de donner son consentement aux applications.  Si cette fonctionnalité est désactivée, le consentement de l’administrateur est toujours requis pour que l’application soit configurée dans le client.  Si vous souhaitez tester votre application en désactivant le consentement de l’utilisateur standard, vous pouvez utiliser le commutateur de configuration dans la section sur la configuration du locataire Azure AD du [portail Azure][AZURE-portal].
 
@@ -136,17 +137,28 @@ L’administrateur d’un client peut empêcher les utilisateurs standard de don
 ### <a name="consent-and-multi-tier-applications"></a>Consentement et applications multiniveau
 Votre application peut comporter plusieurs niveaux, chacun représenté par sa propre inscription dans Azure AD.  Par exemple, une application native qui appelle une API web ou une application web qui appelle une autre API web.  Dans ces deux cas, le client (application native ou application web) demande des autorisations pour appeler la ressource (API web).  Pour que le client puisse donner son consentement pour un client, toutes les ressources nécessitant des autorisations doivent déjà exister dans ce client.  Si cette condition n’est pas remplie, Azure AD renvoie une erreur indiquant que la ressource doit d’abord être ajoutée.
 
-Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts.  Comment ajouter d’abord la ressource au client ?  Pour cela, Azure AD permet de donner le consentement pour le client et la ressource en seule étape, dans laquelle l’utilisateur voit l’ensemble des autorisations demandées par le client et la ressource sur la page de consentement.  Pour activer ce comportement, l’inscription de l’application de la ressource doit inclure l’ID Application du client en tant qu’élément `knownClientApplications` dans son manifeste d’application.  Par exemple :
+**Plusieurs niveaux dans un seul client**
+
+Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts.  Comment ajouter d’abord la ressource au client ?  Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement.  Pour activer ce comportement, l’inscription de l’application de la ressource doit inclure l’ID Application du client en tant qu’élément `knownClientApplications` dans son manifeste d’application.  Par exemple :
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Cette propriété peut être mise à jour via le [manifeste d’application][AAD-App-Manifest] de la ressource et est illustrée dans un client natif multiniveau appelant un exemple d’API web dans la section [Contenu connexe](#related-content) à la fin de cet article. Le diagramme ci-dessous décrit le processus de consentement pour une application multiniveau :
+Cette propriété peut être mise à jour via la ressource [Manifeste de l’application][AAD-App-Manifest]. Cela est illustré par un client natif multiniveau appelant un exemple d’API web dans la section [Contenu connexe](#related-content) à la fin de cet article. Le diagramme ci-dessous décrit le processus de consentement pour une application multiniveau enregistrée dans un seul client :
 
 ![Consentement pour une application cliente multiniveau connue][Consent-Multi-Tier-Known-Client] 
 
-Un cas similaire se produit si les différents niveaux d’une application sont enregistrés dans différents clients.  Prenons par exemple le cas de la création d’une application cliente native qui appelle l’API Office 365 Exchange Online.  Pour développer l’application native, et pour que l’application native s’exécute ensuite sur un client, le principal du service Exchange Online doit être présent.  Dans ce cas, l’utilisateur doit acheter Exchange Online afin de créer le principal du service sur son client.  Dans le cas d’une API générée par une organisation autre que Microsoft, le développeur de l’API doit fournir à ses utilisateurs un moyen pour permettre à leur application de donner son consentement pour un client, par exemple une page web qui gère ce consentement à l’aide des mécanismes décrits dans cet article.  Une fois que le principal du service est créé dans le client, l’application native peut obtenir des jetons pour l’API.
+**Plusieurs niveaux dans plusieurs clients**
 
-Le diagramme ci-dessous décrit le processus de consentement pour une application multiniveau enregistrée dans différents clients :
+Un cas similaire se produit si les différents niveaux d’une application sont enregistrés dans différents clients.  Prenons par exemple le cas de la création d’une application cliente native qui appelle l’API Office 365 Exchange Online.  Pour développer l’application native, et pour que l’application native s’exécute ensuite sur un client, le principal du service Exchange Online doit être présent.  Dans ce cas, le développeur et l’utilisateur doivent acheter Exchange Online afin de créer le principal du service sur leurs clients.  
+
+Dans le cas d’une API générée par une organisation autre que Microsoft, le développeur de l’API doit fournir un moyen à ses clients de donner leur consentement à l’application sur leurs clients. La conception recommandée est que le développeur tiers génère l’API de sorte à pouvoir également fonctionner comme un client web pour implémenter l’abonnement :
+
+1. Suivez les sections précédentes pour vous assurer que l’API implémente les exigences de code/d’inscription d’application mutualisée
+2. Outre l’exposition des rôles/étendues de l’API, vérifiez que l’inscription inclut l’autorisation Azure AD « Se connecter et lire le profil utilisateur » (fournie par défaut)
+3. Implémentez une page de connexion/inscription dans le client web, en suivant le guide [Consentement de l’administrateur](#admin-consent) abordé précédemment 
+4. Une fois que l’utilisateur donne son consentement à l’application, les liens du principal de service et de la délégation de consentement sont créés dans son client, et l’application native peut obtenir des jetons pour l’API
+
+Le diagramme suivant décrit le processus de consentement pour une application multiniveau enregistrée dans différents clients :
 
 ![Consentement pour une application multiniveau avec différentes tierces parties][Consent-Multi-Tier-Multi-Party] 
 
@@ -178,7 +190,7 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 * [Étendues des autorisations de l’API Graph Microsoft][MSFT-Graph-permision-scopes]
 * [Étendues des autorisations de l’API Graph Azure AD][AAD-Graph-Perm-Scopes]
 
-Utilisez la section de commentaires ci-dessous pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
+Utilisez la section Commentaires suivante pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
