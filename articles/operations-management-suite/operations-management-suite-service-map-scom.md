@@ -1,6 +1,6 @@
 ---
 title: "Intégration de Service Map avec System Center Operations Manager | Microsoft Docs"
-description: "Carte de service est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services.  Cet article fournit des informations sur l’utilisation de Service Map pour créer automatiquement des diagrammes d’application distribuée dans SCOM."
+description: "Carte de service est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article décrit l’utilisation de Service Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,109 +14,121 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 0b710c338be3a2c2fde6bba43173f7c5f480e357
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 
-# <a name="service-map-integration-with-system-center-operations-manager-integration"></a>Intégration de Service Map avec System Center Operations Manager
+# <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
   > [!NOTE]
   > Cette fonctionnalité est disponible en version préliminaire privée et ne doit donc pas être utilisée sur les systèmes de production.
   > 
   
-Operations Management Suite (OMS) Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent.  Pour plus d’informations, consultez la [documentation de Service Map](operations-management-suite-service-map.md).
+Operations Management Suite Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Service Map vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. Pour plus d’informations, consultez la [documentation de Service Map](operations-management-suite-service-map.md).
 
-Avec cette intégration entre Service Map et System Center Operations Manager (SCOM), vous pouvez créer automatiquement des diagrammes d’application distribuée dans SCOM basés sur des cartes de dépendance dynamique dans Service Map.
+Avec cette intégration entre Service Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Service Map.
 
 ## <a name="prerequisites"></a>Composants requis
-1.    Un groupe d’administration SCOM gérant un ensemble de serveurs.
-2.    Un espace de travail OMS avec la solution Service Map activée.
-3.    Un ensemble de serveurs (au moins un) gérés par SCOM et envoyant des données à Service Map.  Les serveurs Windows et Linux sont pris en charge.
-4.    Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail OMS.  [Plus d'informations sur la création d’un principal de service](#creating-a-service-principal).
+* Un groupe d’administration d’Operations Manager qui gère un ensemble de serveurs.
+* Un espace de travail Operations Management Suite avec la solution Service Map activée.
+* Un ensemble de serveurs (au moins un) gérés par Operations Manager et envoyant des données à Service Map. Les serveurs Windows et Linux sont pris en charge.
+* Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Operations Management Suite. Pour plus d’informations, consultez l’article [Créer un principal du service](#creating-a-service-principal).
 
-## <a name="installing-service-map-management-pack"></a>Installation du pack d’administration de Service Map
-L’intégration entre SCOM et Service Map est activée en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb).  Le groupe contient les packs d’administration suivants :
-* Microsoft ServiceMap - Vues de l’application
-* Microsoft System Center ServiceMap - Interne
-* Microsoft System Center ServiceMap - Valeurs de remplacement
-* Microsoft System Center ServiceMap
+## <a name="install-the-service-map-management-pack"></a>Installation du pack d’administration de Service Map
+Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Le groupe contient les packs d’administration suivants :
+* Microsoft Service Map - Vues de l’application
+* Microsoft System Center Service Map - Interne
+* Microsoft System Center Service Map - Valeurs de remplacement
+* Microsoft System Center Service Map
 
-## <a name="configuring-the-service-map-integration"></a>Configuration de l’intégration de Service Map
-1. Après avoir installé le pack d’administration ServiceMap, vous trouverez un nouveau nœud, Service Map, dans le volet Administration d’Operations Management Suite.
-2. Cliquez sur « Ajouter un espace de travail » dans le volet de vue d’ensemble de Service Map pour ouvrir l’Assistant Configuration.
+## <a name="configure-the-service-map-integration"></a>Configuration de l’intégration de Service Map
+Après avoir installé le pack d’administration Service Map, vous trouverez un nouveau nœud, **Service Map**, dans le volet **Administration** **d’Operations Management Suite**. 
 
-    ![SCOM - Assistant Configuration](media/oms-service-map/scom-configuration.png)
+Pour configurer l’intégration de Service Map, procédez comme suit :
 
-3. La première étape de l’Assistant est la configuration de la connexion qui vous permet d’entrer les informations pour votre principal de service Azure. Entrez l’ID ou le nom du client, l’ID d’application (aussi appelé nom d’utilisateur ou ID client) et le mot de passe du principal de service.  [Plus d'informations sur la création d’un principal de service](#creating-a-service-principal).
+1. Cliquez sur **Ajouter un espace de travail** dans le volet de **vue d’ensemble de Service Map** pour ouvrir l’Assistant Configuration.  
 
-    ![SCOM - Configurer le nom du principal de service](media/oms-service-map/scom-config-spn.png)
+    ![Vue d’ensemble de Service Map](media/oms-service-map/scom-configuration.png)
 
-4. L’étape suivante consiste à sélectionner l’abonnement Azure, le groupe de ressources Azure (celui contenant l’espace de travail OMS) et l’espace de travail OMS.
+2. Dans la fenêtre **Configuration des connexions**, entrez l’ID ou le nom du client, l’ID d’application (aussi appelé nom d’utilisateur ou ID client) et le mot de passe du principal de service, puis cliquez sur **Suivant**. Pour plus d’informations, consultez l’article [Créer un principal du service](#creating-a-service-principal).
 
-    ![SCOM - Configurer l’espace de travail](media/oms-service-map/scom-config-workspace.png)
+    ![Fenêtre Configuration des connexions](media/oms-service-map/scom-config-spn.png)
 
-5. L’étape suivante consiste à configurer le groupe de serveurs Service Map avec les serveurs que vous souhaitez synchroniser entre SCOM et Service Map.  Cliquez sur le bouton Ajouter/Supprimer des serveurs… . Pour l’intégration visant à créer un diagramme d’application distribuée pour un serveur, celui-ci doit : 1) être géré par SCOM, 2) être géré par Service Map et 3) être répertorié dans le groupe de serveurs Service Map.
+3. Dans la fenêtre **Sélection d’un abonnement**, sélectionnez l’abonnement Azure, le groupe de ressources Azure (celui qui contient l’espace de travail Operations Management Suite) et l’espace de travail Operations Management Suite, puis cliquez sur **Suivant**.
 
-    ![SCOM - Configurer le groupe](media/oms-service-map/scom-config-group.png)
+    ![Espace de travail de configuration d’Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
-6. Facultatif : sélectionnez le pool de ressources du serveur d’administration pour communiquer avec OMS et cliquez sur « Ajouter un espace de travail ».
+4. Dans la fenêtre **Sélection du serveur**, vous configurez le groupe de serveurs Service Map avec les serveurs que vous voulez synchroniser entre Operations Manager et Service Map. Cliquez sur **Ajouter/Supprimer des serveurs**.   
+    
+    Pour que l’intégration crée un diagramme d’application distribuée pour un serveur, le serveur doit être :
 
-    ![SCOM - Configurer le pool de ressources](media/oms-service-map/scom-config-pool.png)
+    * Géré par Operations Manager.
+    * Géré par Service Map.
+    * Répertorié dans le groupe de serveurs Service Map.
 
-7. La configuration et l’inscription de l’espace de travail OMS prendra une minute. Une fois la configuration effectuée, SCOM lance la première synchronisation de Service Map à partir d’OMS.
+    ![Groupe de configuration d’Operations Manager](media/oms-service-map/scom-config-group.png)
 
-    ![SCOM - Configurer le pool de ressources](media/oms-service-map/scom-config-success.png)
+5. Facultatif : sélectionnez le pool de ressources du serveur d’administration pour communiquer avec Operations Management Suite et cliquez sur **Ajouter un espace de travail**.
 
-**Remarque :** l’intervalle de synchronisation par défaut est défini sur 60 minutes. Les utilisateurs peuvent configurer des valeurs de remplacement afin de modifier l’intervalle de synchronisation. Les utilisateurs peuvent également ajouter des serveurs au groupe de serveurs Service Map manuellement via le volet Création (volet Création --> Groupes, puis rechercher « Groupe de serveurs Service Map »). Les mappages de serveur de ces serveurs seront synchronisés lors de la prochaine synchronisation (selon l’intervalle de synchronisation configuré).
+    ![Pool de ressources de configuration d’Operations Manager](media/oms-service-map/scom-config-pool.png)
 
-## <a name="monitoring-service-map"></a>Surveillance de Service Map
-Une fois l’espace de travail OMS connecté, un nouveau dossier Service Map s’affiche dans le volet Surveillance de la console SCOM.
-![SCOM - Surveillance](media/oms-service-map/scom-monitoring.png)
+    La configuration et l’inscription de l’espace de travail Operations Management Suite peuvent prendre plusieurs minutes. Une fois qu’il est configuré, Operations Manager lance la première synchronisation de Service Map à partir d’Operations Management Suite.
+
+    ![Pool de ressources de configuration d’Operations Manager](media/oms-service-map/scom-config-success.png)
+
+    >[!NOTE]
+    >L’intervalle de synchronisation par défaut est défini sur 60 minutes. Vous pouvez configurer des valeurs de remplacement afin de modifier l’intervalle de synchronisation. Vous pouvez également ajouter manuellement des serveurs au groupe de serveurs Service Map, via le panneau **Création**. Pour ce faire, sélectionnez **Groupes**, puis recherchez **Groupe de serveurs Service Map**. Les mappages de serveur de ces serveurs sont synchronisés lors de la prochaine synchronisation, selon l’intervalle de synchronisation configuré.
+
+## <a name="monitor-service-map"></a>Surveillance de Service Map
+Une fois l’espace de travail Operations Management Suite connecté, un nouveau dossier, Service Map, s’affiche dans le panneau **Analyse** de la console Operations Manager.
+
+![Panneau Analyse d’Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 Le dossier Service Map possède trois nœuds :
-### <a name="active-alerts"></a>Alertes actives :
-Il affiche toutes les alertes actives sur les communications entre SCOM et la solution Service Map dans OMS.
+* **Alertes actives** : répertorie toutes les alertes actives sur la communication entre Operations Manager et la solution Service Map dans Operations Management Suite.
 
-**Remarque :** il ne s’agit pas d’alertes OMS exposées dans SCOM.
-### <a name="servers"></a>Serveurs :
-Il indique la liste des serveurs analysés configurés pour la synchronisation à partir de Service Map.
+    >[!NOTE]
+    >Ces alertes ne correspondent pas aux alertes Operations Management Suite qui sont signalées dans Operations Manager.
 
-![SCOM - Serveurs de surveillance](media/oms-service-map/scom-monitoring-servers.png)
+* **Serveurs** : répertorie les serveurs analysés configurés pour la synchronisation à partir de Service Map.
 
-### <a name="server-dependency-views"></a>Vues de dépendance du serveur :
-Cette vue affiche la liste de tous les serveurs synchronisés à partir de Service Map. Les utilisateurs peuvent cliquer sur n’importe quel serveur pour afficher son diagramme d’application distribuée.
+    ![Panneau Analyse des serveurs d’Operations Manager](media/oms-service-map/scom-monitoring-servers.png)
 
-![Diagramme d’application distribuée SCOM](media/oms-service-map/scom-dad.png)
+* **Vues de dépendance au serveur** : répertorie tous les serveurs synchronisés à partir de Service Map. Vous pouvez cliquer sur n’importe quel serveur pour afficher son diagramme d’application distribuée.
 
-## <a name="editdelete-workspace"></a>Modifier/Supprimer un espace de travail :
-Les utilisateurs peuvent modifier ou supprimer l’espace de travail configuré via le volet de vue d’ensemble de Service Map (volet Administration--> Operations Management Suite --> Service Map).  Vous ne pouvez configurer qu’un seul espace de travail OMS pour l’instant.
+    ![Diagramme d’application distribuée Operations Manager](media/oms-service-map/scom-dad.png)
 
-![SCOM - Modifier l’espace de travail](media/oms-service-map/scom-edit-workspace.png)
+## <a name="edit-or-delete-the-workspace"></a>Modification ou suppression de l’espace de travail
+Vous pouvez modifier ou supprimer l’espace de travail configuré via le volet de **vue d’ensemble de Service Map** (volet **Administration** > **Operations Management Suite** > **Service Map**). Vous ne pouvez configurer qu’un seul espace de travail Operations Management Suite pour l’instant.
 
-## <a name="configuring-rules-and-overrides"></a>Configuration des règles et des valeurs de remplacement :
-Une règle **_Microsoft.SystemCenter.ServiceMapImport.Rule**_ est créée pour extraire régulièrement des informations de Service Map.  Les utilisateurs peuvent configurer des valeurs de remplacement de cette règle pour modifier l’intervalle de synchronisation.
-Volet Création--> Règles --> Microsoft.SystemCenter.ServiceMapImport.Rule
+![Volet de modification de l’espace de travail d’Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
-![SCOM - Valeurs de remplacement](media/oms-service-map/scom-overrides.png)
-* **Enabled** : activer/désactiver les mises à jour automatiques. 
-* **IntervalSeconds** : intervalle entre les mises à jour.  Valeur par défaut : 1 heure. Les utilisateurs peuvent modifier la valeur ici s’ils souhaitent synchroniser les mappages de serveurs plus régulièrement.
-* **TimeoutSeconds** : durée avant expiration de la demande. 
-* **TimeWindowMinutes** : étendue de la requête pour les données.  Valeur par défaut : fenêtre de 60 minutes. La valeur maximale est 1 heure (valeur maximale autorisée par Service Map).
+## <a name="configure-rules-and-overrides"></a>Configuration des règles et des valeurs de remplacement
+Une règle _Microsoft.SystemCenter.ServiceMapImport.Rule_ est créée pour extraire régulièrement des informations de Service Map. Pour modifier les intervalles de synchronisation, vous pouvez configurer des valeurs de remplacement pour la règle (volet **Création** > **Règles** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
-## <a name="known-issueslimitations"></a>Problèmes connus/Limitations :
-Dans la conception actuelle :
-1. Bien que les utilisateurs puissent ajouter des serveurs au « Groupe de serveurs Service Map » manuellement via le volet Création, les mappages de ces serveurs seront synchronisés à partir de Service Map uniquement lors du prochain cycle de synchronisation (60 minutes par défaut. Les utilisateurs peuvent modifier l’intervalle de synchronisation). 
-2. Les utilisateurs peuvent se connecter à un seul espace de travail OMS.
+![Fenêtre des propriétés des valeurs de remplacement Operations Manager](media/oms-service-map/scom-overrides.png)
 
-## <a name="creating-a-service-principal"></a>Création d’un principal de service
-Les liens suivants vous permettent d’accéder à la documentation officielle Azure présentant trois manières différentes de créer un principal de service.
-* [Créer un principal de service avec PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Créer un principal de service avec l’interface de ligne de commande Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Créer un principal de service avec le portail Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* **Enabled** : activer ou désactiver les mises à jour automatiques. 
+* **IntervalMinutes** : réinitialiser la durée entre les mises à jour. L’intervalle par défaut est égal à une heure. Si vous voulez synchroniser les mappages de serveurs plus régulièrement, vous pouvez modifier la valeur.
+* **TimeoutSeconds** : réinitialiser la durée avant l’expiration de la demande. 
+* **TimeWindowMinutes** : réinitialiser la fenêtre de temps pour l’interrogation des données. Valeur par défaut : fenêtre de 60 minutes. La valeur maximale autorisée par Service Map est de 60 minutes.
+
+## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
+
+La conception actuelle présente les problèmes et les limitations suivants :
+* Bien que vous puissiez ajouter des serveurs au Groupe de serveurs Service Map manuellement via le volet **Création**, les mappages de ces serveurs sont synchronisés à partir de Service Map uniquement lors du prochain cycle de synchronisation. Le paramètre par défaut est de 60 minutes, mais vous pouvez le modifier. 
+* Vous ne pouvez vous connecter qu’à un seul espace de travail Operations Management Suite.
+
+## <a name="create-a-service-principal"></a>Créer un principal du service
+Pour obtenir une documentation Azure officielle sur la création d’un principal de service, consultez :
+* [Création d’un principal de service à l’aide de PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Création d’un principal de service à l’aide d’Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Création d’un principal de service à l’aide du portail Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
 ### <a name="feedback"></a>Commentaires
-Avez-vous des commentaires à nous transmettre à propos de la carte de service ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), vous permet de nous suggérer des fonctionnalités ou de voter pour les suggestions en cours.
+Avez-vous des commentaires à nous transmettre à propos de la carte de service ou de sa documentation ? Consultez notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) qui vous permet de nous suggérer des fonctionnalités ou de voter pour les suggestions en cours.
 
