@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 70830309c33d4a94fc1eb5abb85cba26c8623f88
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f004408910aecc380e20f7da54dbd155d179aaa5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Utilisation du stockage de tables Azure à partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Cette rubrique décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de Table Azure dans une application Node.js.
@@ -68,7 +68,7 @@ var azure = require('azure-storage');
 ## <a name="set-up-an-azure-storage-connection"></a>Configurer une connexion Azure Storage
 Le module Azure lit les variables d’environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Création d’une table
 Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js**:
@@ -451,15 +451,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez les ressources suivantes.
 
-* [Blog de l’équipe Stockage Azure][Azure Storage Team Blog].
-* Référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+* [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) sur GitHub.
 * [Centre de développement Node.js](/develop/nodejs/)
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[OData.org]: http://www.odata.org/
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Application web Node.js avec le service de Table Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
-
+* [Création et déploiement d’une application Node.js sur un site web Azure](../app-service-web/app-service-web-get-started-nodejs.md)
