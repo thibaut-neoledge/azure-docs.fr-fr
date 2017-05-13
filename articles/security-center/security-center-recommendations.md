@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2017
+ms.date: 05/09/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9663535cc301ecd2c26c1cf318dbf9420758e245
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -111,7 +111,7 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 
 Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation et suivez les instructions pour savoir comment appliquer une recommandation.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.

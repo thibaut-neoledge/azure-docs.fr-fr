@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ La plupart des clients, qui exécutent un code de production sur Azure, conserve
 Pour obtenir des informations complètes et des didacticiels sur les techniques de haute disponibilité et de récupération d’urgence, consultez la page [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>2 et 3 niveaux à l’aide de machines virtuelles Azure et de Cloud Services
-Dans ce modèle d’application, vous déployez des applications à 2 ou 3 niveaux vers Azure en utilisant [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (rôles web et de travail - plateforme en tant que Service (PaaS)) et [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (infrastructure en tant que service (IaaS)). L’utilisation d’[Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) pour le niveau de présentation et/ou métier et SQL Server dans [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour le niveau de données est bénéfique pour la plupart des applications s’exécutant sur Azure. En effet, le fait d’avoir une instance de calcul en cours d’exécution sur Cloud Services facilite la gestion, le déploiement, la surveillance et la montée en puissance.
+Dans ce modèle d’application, vous déployez des applications à 2 ou 3 niveaux vers Azure en utilisant [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (rôles web et de travail - plateforme en tant que Service (PaaS)) et [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (infrastructure en tant que service (IaaS)). L’utilisation d’[Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) pour le niveau de présentation et/ou métier et SQL Server dans [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour le niveau de données est bénéfique pour la plupart des applications s’exécutant sur Azure. En effet, le fait d’avoir une instance de calcul en cours d’exécution sur Cloud Services facilite la gestion, le déploiement, la surveillance et la montée en puissance.
 
 Avec Cloud Services, Azure assure l’entretien de l’infrastructure : maintenance de routine, application des correctifs sur les systèmes d’exploitation et tentatives de récupération après échec matériel ou de service. Lorsque votre application a besoin d’une montée en puissance, des options de montée en puissance automatique et manuelle sont disponibles pour votre projet de service cloud en augmentant ou diminuant le nombre d’instances ou de machines virtuelles que votre application utilise. De plus, vous pouvez utiliser une version locale de Visual Studio pour déployer votre application dans un projet de service cloud dans Azure.
 
