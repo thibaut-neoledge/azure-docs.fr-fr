@@ -63,7 +63,7 @@
 ## [Blog sur la mise en réseau](https://azure.microsoft.com/blog/topics/networking/)
 ## [Études de cas](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md)
+## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Création d’un circuit ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Configuration de l’homologation privée pour votre circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
