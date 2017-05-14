@@ -13,12 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2dc1f8ae8e0a2986806445dc9852a54ceaaef5a4
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b0d57fcef9eda57309d27f214edd184a38a44481
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -86,7 +87,7 @@ Pour utiliser Microsoft Cognitive Toolkit avec le cluster Azure HDInsight Spark,
 
 3. Dans le bloc-notes Jupyter, cliquez sur **Charger** dans le coin supérieur droit, puis accédez à l’emplacement où vous avez cloné le référentiel GitHub.
 
-    ![Charger le bloc-notes Jupyter sur le cluster Azure HDInsight Spark](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit.md/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Charger le bloc-notes Jupyter sur le cluster Azure HDInsight Spark")
+    ![Charger le bloc-notes Jupyter sur le cluster Azure HDInsight Spark](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Charger le bloc-notes Jupyter sur le cluster Azure HDInsight Spark")
 
 4. Cliquez à nouveau sur **Charger**.
 

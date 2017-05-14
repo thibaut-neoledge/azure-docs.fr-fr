@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: da6c497e10d31dbc98703090a8f7699d0841faa8
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -83,11 +84,11 @@ Utilisez les étapes suivantes pour définir l’objectif de sauvegarde, défini
 Utilisez les étapes présentées dans l’article [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](backup-azure-arm-vms.md) pour déclencher le travail de sauvegarde.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuer les sauvegardes des machines virtuelles déjà sauvegardées avec le chiffrement activé  
-Si vous avez déjà des machines virtuelles en cours de sauvegarde dans un coffre Recovery Services et si le chiffrement a été activé pour un point ultérieur, vous devez accorder des autorisations au service de sauvegarde pour qu’il puisse accéder au coffre de clés et que les sauvegardes continuent. Vous pouvez fournir ces autorisations dans PowerShell à l’aide des étapes présentées dans la section **Sauvegarde des machines virtuelles Azure** de la [documentation PowerShell](backup-azure-vms-automation.md#backup-azure-vms). 
+Si vous avez déjà des machines virtuelles en cours de sauvegarde dans un coffre Recovery Services et si le chiffrement a été activé pour un point ultérieur, vous devez accorder des autorisations au service de sauvegarde pour qu’il puisse accéder au coffre de clés et que les sauvegardes continuent. Vous pouvez fournir ces autorisations dans PowerShell à l’aide des étapes présentées dans la section **Sauvegarde des machines virtuelles Azure** de la [documentation PowerShell](backup-azure-vms-automation.md). 
 
 ## <a name="restore-encrypted-vm"></a>Restaurer une machine virtuelle chiffrée
 Pour restaurer la machine virtuelle chiffrée, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Ensuite, vous pouvez utiliser l’une des options suivantes :
-* Suivez les étapes de PowerShell mentionnées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer une machine virtuelle complète à partir de disques restaurés. 
+* Suivez les étapes de PowerShell mentionnées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer une machine virtuelle complète à partir de disques restaurés.
 * OU, suivez les étapes mentionnées dans [Utiliser des modèles pour personnaliser la machine virtuelle de restauration](backup-azure-arm-restore-vms.md#use-templates-to-customize-restore-vm) pour créer des machines virtuelles à partir de disques restaurés. Les modèles peuvent uniquement être utilisés pour les points de restauration créés après le 26 avril 2017.
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
