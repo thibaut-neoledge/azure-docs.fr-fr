@@ -16,10 +16,11 @@ ms.date: 04/05/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-vmware-to-azure
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5c597e94f524a7ecbb9e4269adbbbd735a90aa14
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 88c0e4d02f13d3dcc8824ed1cba8fecd3c5cfa77
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -228,7 +229,7 @@ Pour plus d’informations sur les réseaux virtuels, consultez la [vue d’ense
 ## <a name="step-3-install-the-vmware-components"></a>Étape 3 : Installer les composants VMware
 Si vous souhaitez répliquer des machines VMware virtuelles, exécutez les étapes suivantes sur le serveur d’administration :
 
-1. [Téléchargez](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) et installez VMware vSphere PowerCLI 6.0.
+1. [Téléchargez](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) et installez VMware vSphere PowerCLI 6.0.
 2. Redémarrez le serveur.
 
 ## <a name="step-4-download-a-vault-registration-key"></a>Étape 4 : Générer une clé d’inscription du coffre
