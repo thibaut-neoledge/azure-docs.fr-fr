@@ -2,7 +2,7 @@
 
 Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Un *nom de domaine complet (FQDN)* inclut le nom de la zone, contrairement à un *nom relatif*. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
 
-Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif '@' est utilisé pour représenter des enregistrements apex.
+Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif « @ » est utilisé pour représenter des enregistrements apex.
 
 ### <a name="record-types"></a>Types d’enregistrements
 
