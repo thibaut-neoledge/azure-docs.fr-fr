@@ -166,6 +166,7 @@
 #### [Utiliser l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Ajouter des comptes de stockage](hdinsight-hadoop-add-storage.md)
 ### [Charger des données pour les travaux Hadoop](hdinsight-upload-data.md)
+### [Plusieurs clusters HDInsight avec Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Importer et exporter des données avec Sqoop](hdinsight-use-sqoop.md)
 #### [Connexion avec SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Exécuter à l’aide de cURL](hdinsight-hadoop-use-sqoop-curl.md)

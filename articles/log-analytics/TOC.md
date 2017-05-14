@@ -5,7 +5,6 @@
 # Prise en main
 ## [S’inscrire au service Log Analytics](log-analytics-get-started.md)
 ## [Gérer l’accès](log-analytics-manage-access.md)
-## [Proxy et pare-feu](log-analytics-proxy-firewall.md)
 ## [Données d'utilisation](log-analytics-usage.md)
 ## [FAQ sur Log Analytics](log-analytics-faq.md)
 ## [Fournisseurs de services](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Collecter les données
 ### Sources connectées
 #### [Agents Windows](log-analytics-windows-agents.md)
-#### [Agents Linux](log-analytics-linux-agents.md)
+#### [Agents Linux](log-analytics-agent-linux.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
 #### [Ressources Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Sources de données
 #### [Présentation des sources de données](log-analytics-data-sources.md)
 #### [Événements Windows](log-analytics-data-sources-windows-events.md)
+#### [Données JSON personnalisées](log-analytics-data-sources-json.md)
+#### [Données de performances collectées](log-analytics-data-sources-collectd.md)
+#### [Alertes Nagios et Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Compteurs de performances](log-analytics-data-sources-performance-counters.md)
+#### [Performances des applications Linux](log-analytics-data-sources-linux-applications.md)
 #### [Journaux IIS](log-analytics-data-sources-iis-logs.md)
 #### [Journaux personnalisés](log-analytics-data-sources-custom-logs.md)
 #### [Champs personnalisés](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Présentation de la recherche dans les journaux](log-analytics-log-searches.md)
 ### [Référence sur la recherche](log-analytics-search-reference.md)
 #### [Expressions régulières](log-analytics-log-searches-regex.md)
+### [Agir à partir des résultats de recherche](log-analytics-log-search-takeaction.md)
 ### [Groupes d’ordinateurs](log-analytics-computer-groups.md)
 ## Analyser des données
 ### [Tableaux de bord](log-analytics-dashboards.md)
