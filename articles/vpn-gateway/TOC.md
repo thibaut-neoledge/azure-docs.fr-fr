@@ -46,7 +46,9 @@
 ### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Créer des certificats auto-signés pour les connexions point à site](vpn-gateway-certificates-point-to-site.md)
+## Créer des certificats auto-signés pour les connexions point à site
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
