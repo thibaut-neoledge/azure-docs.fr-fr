@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe52ced5e4dc829b5d1421bf0edcd58cffcaad19
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -48,7 +49,7 @@ Vous devez fournir un nom de ressource unique pour tout type de ressource dispos
 
 <sup>1</sup> Les noms de compte de stockage doivent être en minuscules, comporter 24 caractères au maximum et ne pas comprendre de traits d’union.
 
-Si vous fournissez un paramètre pour un nom de ressource, vous devez fournir un nom unique lors du déploiement de la ressource. Vous pouvez éventuellement créer une variable qui utilise la fonction [uniqueString()](resource-group-template-functions.md#uniquestring) pour générer un nom. 
+Si vous fournissez un paramètre pour un nom de ressource, vous devez fournir un nom unique lors du déploiement de la ressource. Vous pouvez éventuellement créer une variable qui utilise la fonction [uniqueString()](resource-group-template-functions-string.md#uniquestring) pour générer un nom. 
 
 Vous pouvez également ajouter un préfixe ou un suffixe au résultat.**uniqueString**. La modification du nom unique peut vous aider à identifier plus facilement le type de ressource à partir du nom. Par exemple, vous pouvez générer un nom unique pour un compte de stockage avec la variable suivante :
 
@@ -174,7 +175,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 Les informations suivantes peuvent être utiles lorsque vous travaillez avec des variables :
 
 * Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
-* Vous ne pouvez pas utiliser la fonction [référence](resource-group-template-functions.md#reference) dans la section **variables** du modèle. La fonction **référence** dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction **référence** directement dans la section **ressources** ou **outputs** du modèle.
+* Vous ne pouvez pas utiliser la fonction [référence](resource-group-template-functions-resource.md#reference) dans la section **variables** du modèle. La fonction **référence** dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction **référence** directement dans la section **ressources** ou **outputs** du modèle.
 * Incluez des variables pour les noms de ressource qui doivent être uniques, comme indiqué dans [Noms de ressources](#resource-names).
 * Vous pouvez regrouper des variables dans des objets complexes. Utilisez le format **variable.subentry** pour référencer une valeur à partir d’un objet complexe. Le regroupement de variables peut vous aider à effectuer le suivi des variables liées. Il améliore également la lisibilité du modèle. Voici un exemple :
    
