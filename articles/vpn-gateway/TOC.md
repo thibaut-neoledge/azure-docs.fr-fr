@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md)
 ## [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md)
-## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md)
+## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Prise en main
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)

@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 05d5ae485f5a345ade59326ab77cb38127f06580
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c4c44cc0f1f55a46d797b78ab56f88ddcf3953e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Lorsque vous concevez l’infrastructure de votre application, vous devez égale
 
 Les équilibreurs de charge peuvent être utilisés devant chaque couche d’application pour fonctionner avec un groupe à haute disponibilité et assurer que le trafic peut être acheminé vers une instance en cours d’exécution. Sans équilibrage de charge, vos machines virtuelles peuvent continuer à s’exécuter dans l’ensemble des événements de maintenance planifiée et non planifiée, mais il se peut alors que vos utilisateurs finaux ne puissent pas les résoudre si la machine virtuelle principale n’est pas disponible à ce moment précis.
 
-Concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. La meilleure pratique en vigueur consiste à [utiliser des disques managés pour les machines virtuelles dans un groupe à haute disponibilité](../linux/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Si vous utilisez actuellement des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques managés](../linux/convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
+Concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. La meilleure pratique en vigueur consiste à [utiliser des disques managés pour les machines virtuelles dans un groupe à haute disponibilité](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Si vous utilisez actuellement des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques managés](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
