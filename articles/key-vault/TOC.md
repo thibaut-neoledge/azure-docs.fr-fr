@@ -24,7 +24,6 @@
 
 ## Automatisation
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Créer et gérer à l’aide de l’interface de ligne de commande](key-vault-manage-with-cli.md)
 ### [Créer et gérer à l’aide de CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Référence
