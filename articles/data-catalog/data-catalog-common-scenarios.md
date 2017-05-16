@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -65,9 +67,4 @@ Ce transfert continu de connaissances tribales fait partie du processus de déco
 Parfois ces experts en données font l’effort de documenter leurs connaissances en les partageant par courrier électronique ou via des documents Word sur un site d’équipe SharePoint. Bien que ce système puisse se révéler utile, il introduit également un nouveau problème de découverte : comment savoir quelles documentations existent et où les trouver...
 
 Azure Data Catalog agit comme une plateforme permettant de partager ces connaissances tribales et de les rendre facilement identifiables. Les experts en données peuvent annoter directement les ressources de données et même inclure des liens vers la documentation existante. Cela permet non seulement de capturer les connaissances, mais également d’inscrire l’accès aux connaissances dans le même processus que celui utilisé pour découvrir les sources de données. Ainsi, lorsqu’une personne utilise le catalogue pour découvrir une source de données, elle trouvera non seulement la source elle-même, mais également les connaissances de l’expert qui auparavant existaient uniquement dans la tête de ce dernier.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

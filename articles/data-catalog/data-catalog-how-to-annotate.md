@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,9 +70,4 @@ L’inscription d’une source de données avec Data Catalog favorise la détect
 
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) décrivant la procédure pas à pas d’annotation des sources de données.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
