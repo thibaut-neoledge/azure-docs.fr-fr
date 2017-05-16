@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -82,9 +84,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 ## <a name="see-also"></a>Voir aussi
 * [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md)  : cet article fournit une vue d’ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

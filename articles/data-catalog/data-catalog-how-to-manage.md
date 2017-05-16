@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
 ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,9 +75,4 @@ Les administrateurs de Data Catalog sont implicitement copropriétaires de toute
 
 ## <a name="summary"></a>Résumé
 Data Catalog repose sur un modèle de découverte de données et de métadonnées basé sur la notion de crowdsourcing, qui permet à tous les utilisateurs du catalogue de collaborer et découvrir des ressources. L’édition Standard de Data Catalog intègre des fonctionnalités de possession et de gestion permettant de restreindre la visibilité et l’utilisation de ressources de données spécifiques.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
