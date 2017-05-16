@@ -12,25 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cf652f1ba6b7d3aa0717a2e3a54000a4aebccc78
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Créer votre premier cluster Service Fabric sur Azure
-Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Ce guide de démarrage rapide vous aide à créer en quelques minutes seulement un cluster à cinq nœuds s’exécutant sur Windows ou Linux, via le [portail Azure](http://portal.azure.com).  
+Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Ce guide de démarrage rapide vous aide à créer en quelques minutes seulement un cluster à cinq nœuds s’exécutant sur Windows ou Linux, via [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) ou le [portail Azure](http://portal.azure.com).  
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+
+## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+
 Connectez-vous au Portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-the-cluster"></a>Création du cluster
+### <a name="create-the-cluster"></a>Création du cluster
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 2. Dans le panneau **Nouveau**, sélectionnez **Compute**, puis **Cluster Service Fabric** dans le panneau **Compute**.
@@ -66,19 +69,19 @@ Connectez-vous au Portail Azure à l’adresse [http://portal.azure.com](http://
 
     Vous pouvez voir la progression de la création dans les notifications. (Cliquez sur l’icône représentant une cloche près de la barre d’état dans l’angle supérieur droit de votre écran.) Si vous avez cliqué sur **Épingler au tableau d’accueil** pendant la création du cluster, **Déploiement du cluster Service Fabric** apparaît épinglé au **tableau d’accueil**.
 
-## <a name="view-cluster-status"></a>Afficher l’état du cluster
+### <a name="view-cluster-status"></a>Afficher l’état du cluster
 Une fois votre cluster créé, vous pouvez l’inspecter dans le panneau **Vue d’ensemble** du portail. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment le point de terminaison du cluster et un lien vers Service Fabric Explorer.
 
 ![État du cluster][cluster-status]
 
-## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
+### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un bon outil pour visualiser votre cluster et gérer les applications.  Service Fabric Explorer est un service qui s’exécute dans le cluster.  Accédez-y à l’aide d’un navigateur web en cliquant sur le lien **Service Fabric Explorer** de la page **Vue d’ensemble** du cluster sur le portail.  Vous pouvez également entrer l’adresse directement dans le navigateur : [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
 
 Le tableau de bord de cluster fournit une vue d’ensemble de votre cluster, y compris un résumé de l’intégrité de l’application et du nœud. L’affichage des nœuds montre la disposition physique du cluster. Vous pouvez identifier les applications ayant déployé du code sur un nœud donné.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-## <a name="connect-to-the-cluster-using-powershell"></a>Se connecter à un cluster à l’aide de PowerShell
+### <a name="connect-to-the-cluster-using-powershell"></a>Se connecter à un cluster à l’aide de PowerShell
 Vérifiez que le cluster est en cours d’exécution en vous connectant à l’aide de PowerShell.  Le module Service Fabric PowerShell est installé avec le [kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).  L’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) établit une connexion au cluster.   
 
 ```powershell
@@ -98,8 +101,8 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
                      _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
 ```
 
-## <a name="remove-the-cluster"></a>Supprimer le cluster
-Un cluster Service Fabric est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Pour supprimer complètement un cluster Service Fabric, vous devez également supprimer toutes les ressources qui le composent. Le plus simple pour supprimer le cluster et toutes ses ressources consiste à supprimer le groupe de ressources. Pour découvrir d’autres méthodes permettant de supprimer un cluster ou certaines des ressources d’un groupe de ressources (mais pas toutes), consultez [Supprimer un cluster](service-fabric-cluster-delete.md)
+### <a name="remove-the-cluster"></a>Supprimer le cluster
+Un cluster Service Fabric est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Pour supprimer complètement un cluster Service Fabric, vous devez également supprimer toutes les ressources qui le composent. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources. Pour découvrir d’autres méthodes permettant de supprimer un cluster ou certaines des ressources d’un groupe de ressources (mais pas toutes), consultez [Supprimer un cluster](service-fabric-cluster-delete.md)
 
 Supprimer un groupe de ressources dans le portail Azure :
 1. Accédez au cluster Service Fabric que vous souhaitez supprimer.
@@ -107,8 +110,122 @@ Supprimer un groupe de ressources dans le portail Azure :
 3. Sur la page des **éléments essentiels du groupe de ressources**, cliquez sur **Supprimer**, puis suivez les instructions de cette page pour procéder à la suppression du groupe de ressources.
     ![Supprimer le groupe de ressources][cluster-delete]
 
+
+## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Utilisation d’Azure Powershell pour déployer un cluster sécurisé
+
+
+1) Téléchargez le [module Azure PowerShell, version 4.0 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) sur votre ordinateur.
+
+2) Ouvrez une fenêtre Windows PowerShell, puis exécutez la commande suivante. 
+    
+```powershell
+
+Get-Command -Module AzureRM.ServiceFabric 
+```
+
+Le résultat ressemble à ce qui suit.
+
+![liste ps][ps-list]
+
+3) Connectez-vous à Azure et sélectionnez l’abonnement pour lequel vous souhaitez créer le cluster.
+
+```powershell
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+
+```
+
+4) Exécutez la commande suivante pour créer un cluster sécurisé. N’oubliez pas de personnaliser les paramètres. 
+
+
+````powershell
+
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+$RDPuser="vmadmin"
+$RGname="mycluster" # this is also the name of your cluster
+$clusterloc="SouthCentralUS"
+$subname="$RGname.$clusterloc.cloudapp.azure.com"
+$certfolder="c:\mycertificates\"
+$clustersize=1 # can take values 1, 3-99
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+
+````
+
+L’exécution de la commande peut durer 10 à 30 minutes au terme desquelles apparaît un résultat similaire à ce qui suit. Le résultat contient des informations sur le certificat, le Key Vault dans lequel il a été téléchargé et le dossier local dans lequel il est copié. 
+
+![Résultat PS][ps-out]
+
+5) Copiez l’intégralité du résultat et enregistrez-le dans un fichier texte pour pouvoir vous y référer. Prenez note des informations suivantes dans le résultat.
+ 
+
+- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+- **ClientConnectionEndpointPort** : 19000
+
+### <a name="install-the-certificate-on-your-local-machine"></a>Installation du certificat sur un ordinateur local
+  
+Pour vous connecter au cluster, vous devez installer le certificat dans le magasin personnel de l’utilisateur actuel. 
+
+Exécutez le PowerShell suivant :
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\mycertificates\the name of the cert.pfx `
+        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+```
+
+Vous êtes maintenant prêt à vous connecter à votre cluster sécurisé.
+
+### <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé 
+
+Exécutez la commande PowerShell suivante pour vous connecter à un cluster sécurisé. Les détails du certificat doivent correspondre à un certificat utilisé pour configurer le cluster. 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+
+L’exemple suivant montre les paramètres renseignés : 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+Exécutez la commande suivante pour vérifier que vous êtes connecté et que le cluster est intègre.
+
+```powershell
+
+Get-ServiceFabricClusterHealth
+
+```
+### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publication de vos applications sur votre cluster à partir de Visual Studio
+
+Maintenant que vous avez configuré un cluster Azure, vous pouvez y publier vos applications à partir de Visual Studio en vous aidant du document [Publier vers un cluster Azure](service-fabric-publish-app-remote-cluster.md). 
+
+### <a name="remove-the-cluster"></a>Supprimer le cluster
+Un cluster est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources. 
+
+```powershell
+
+Remove-AzureRmResourceGroup -Name $RGname -Force
+
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez configuré un cluster de développement autonome, essayez ce qui suit :
+Maintenant que vous avez configuré un cluster de développement, essayez ce qui suit :
 * [Créer un cluster sécurisé dans le portail](service-fabric-cluster-creation-via-portal.md)
 * [Créer un cluster à partir d’un modèle](service-fabric-cluster-creation-via-arm.md) 
 * [Déployer des applications à l’aide de PowerShell](service-fabric-deploy-remove-applications.md)
@@ -119,4 +236,6 @@ Maintenant que vous avez configuré un cluster de développement autonome, essay
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
+[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
+[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
 

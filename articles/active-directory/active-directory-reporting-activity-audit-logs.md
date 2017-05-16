@@ -1,6 +1,7 @@
 ---
-title: "Rapports d’activité d’audit dans le portail Azure Active Directory - version préliminaire | Microsoft Docs"
-description: "Présentation des rapports d’activité d’audit dans la version préliminaire du portail Azure Active Directory"
+
+title: "Rapports d’activité d’audit dans le portail Azure Active Directory | Microsoft Docs"
+description: "Présentation des rapports d’activité d’audit dans le portail Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Rapports d’activité d’audit dans le portail Azure Active Directory - version préliminaire
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
-Dans la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, la création de rapports vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer quel est l’état de votre environnement.
+Dans Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
 
-L’architecture de création de rapports dans Azure Active Directory comprend les composants suivants :
+L’architecture de création de rapports dans Azure AD comprend les composants suivants :
 
 - **Activité** 
     - **Activités de connexion** – Informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs

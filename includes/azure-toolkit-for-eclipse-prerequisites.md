@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Composants requis
 Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivants :
 
-* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Mars ou ultérieur. Vous pouvez le télécharger à l’adresse suivante : <http://www.eclipse.org/downloads/>.
+* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Mars ou version ultérieure. Vous pouvez le télécharger à l’adresse <http://www.eclipse.org/downloads/>.
 
-* Kit de développement Java (JDK) version 1.8 ou ultérieure.
+* Kit de développeur Java (JDK) version 1.8 ou ultérieure.
 
-* Systèmes d'exploitation - le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d'exploitation suivants :
+* Système d’exploitation. Le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d’exploitation suivants :
   
   * Windows 10, Windows 8 et 8.1, Windows 7
   * Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
-  * [Mac OS X](http://www.apple.com/osx) versions « Yosemite » et ultérieures
-  * [Ubuntu Linux](http://www.ubuntu.com) versions 14, 15, et 16
+  * [Mac OS X](http://www.apple.com/osx) versions « Yosemite » et ultérieures
+  * [Ubuntu Linux](http://www.ubuntu.com) versions 14, 15 et 16
 
-Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) sur Eclipse Marketplace.
+Pour plus d’informations, consultez la page du [Kit de ressources Azure pour Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) sur Eclipse Marketplace.
 
 <!--
 > [!IMPORTANT]
@@ -21,7 +21,7 @@ Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour 
 > * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
 > * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
-> Note that the Azure SDK is only required on Windows.
+> Note that the Azure SDK is required on Windows only.
 > 
 > 
 -->

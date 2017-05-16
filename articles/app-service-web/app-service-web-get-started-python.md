@@ -1,6 +1,6 @@
 ---
 title: "Créer votre première application web Python dans Azure en 5 minutes | Microsoft Docs"
-description: "Déployer votre premier Python Hello World dans l’application web App Service en quelques minutes."
+description: "Déployez votre premier Python Hello World dans l’application web App Service en quelques minutes."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Créer une application Python sur une application web
 
-Ce didacticiel de démarrage rapide vous guide dans le développement et le déploiement d’une application Python dans Azure. Nous allons exécuter l’application à l’aide d’un service Azure App, puis créer et configurer une nouvelle application web à l’aide de l’interface CLI Azure. Nous allons ensuite utiliser GIT pour déployer notre application Python sur Azure.
+Ce didacticiel de démarrage rapide vous guide dans le développement et le déploiement d’une application Python dans Azure. Nous allons exécuter l’application à l’aide d’un service Azure App, puis créer et configurer une nouvelle application web à l’aide de l’interface Azure CLI. Nous allons ensuite utiliser GIT pour déployer notre application Python sur Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. L’exécution des étapes ci-dessous ne devrait prendre que 5 minutes environ.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 
 Avant d’exécuter cet exemple, tenez compte des conditions préalables suivantes :
 
@@ -88,7 +89,7 @@ Pour les sites FTP et Git locaux, il est nécessaire de disposer d’un utilisa
 
 > [!NOTE]
 > Un utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web.
-> Les éléments `username` et `password` sont liés aux comptes. Par conséquent, ils sont différents des informations d’identification de votre abonnement Azure. **Ces informations d’identification ne doivent être créées qu’une seule fois**.
+> Le `username` et `password` sont liés aux comptes et sont par conséquent différents de vos informations d’identification de l’abonnement Azure. **Ces informations d’identification ne doivent être créées qu’une seule fois**.
 >
 
 Utilisez la commande [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) pour créer vos informations d’identification au niveau des comptes.
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Créez un plan Azure App Service
 
-Créez un plan Azure App Service basé sur Linux avec la commande [az appservice plan create](/cli/azure/appservice/plan#create).
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications.
@@ -119,7 +120,7 @@ Créez un plan Azure App Service basé sur Linux avec la commande [az appservic
 > * Référence (SKU) (gratuit, partagé, basique, standard, premium)
 >
 
-L’exemple suivant crée un plan App Service sur les Workers Linux nommés `quickStartPlan`en appliquant le niveau tarifaire **Gratuit**.
+L’exemple suivant crée un plan App Service nommé `quickStartPlan` en appliquant le niveau tarifaire **Gratuit**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -160,7 +161,7 @@ Dans la commande ci-dessous, indiquez le nom unique de votre propre application 
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-Une fois l’application web créée, Azure CLI affiche des informations similaires à celles de l’exemple suivant.
+Une fois l’application web créée, Azure CLI affiche des informations semblables à celles de l’exemple suivant.
 
 ```json
 {
@@ -193,20 +194,20 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-Nous avons maintenant créé une nouvelle application web vide dans Azure. Configurons maintenant notre application web pour utiliser Python et y déployer notre application.
+Nous avons maintenant créé une application web vide dans Azure. Configurons maintenant notre application web pour utiliser Python et y déployer notre application.
 
 ## <a name="configure-to-use-python"></a>Configurer l’utilisation de Python
 
 Utilisez la commande [az appservice web config update](/cli/azure/app-service/web/config#update) pour configurer l’application web pour utiliser la version de Python `3.4`.
 
 > [!TIP]
-> Définir la version de Python ainsi utilise un conteneur par défaut fourni par la plate-forme, si vous souhaitez utiliser votre propre conteneur reportez-vous à la référence de l’interface de ligne de commande pour la commande [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
+> Lorsque vous définissez la version de Python ainsi, vous utilisez un conteneur par défaut fourni par la plate-forme. Si vous souhaitez utiliser votre propre conteneur reportez-vous à la référence de l’interface de ligne de commande pour la commande [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
 
 ```azurecli
 az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
 ```
 
-## <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
+## <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
 
 Vous pouvez procéder au déploiement sur l’application web de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Visual Studio Team Services et Bitbucket.
 
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Cette fois, la page qui affiche le message Hello World est en cours d’exécution à l’aide de notre code Python qui s’exécute en tant qu’application web Azure App Service.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Mise à jour et déploiement du code
 
@@ -309,7 +310,7 @@ git push azure master
 
 Une fois le déploiement terminé, revenez à la fenêtre du navigateur ouverte dans le navigateur à l’étape de navigation vers l’application, puis cliquez sur Actualiser.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Gérer votre nouvelle application web Azure
 
@@ -319,13 +320,13 @@ Pour ce faire, connectez-vous au portail : [https://portal.azure.com](https://p
 
 Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-get-started-python/app-service-list.png)
 
 Vous accédez au _panneau_ de votre application web (une page du portail qui s’ouvre horizontalement).
 
 Par défaut, le panneau de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets figurant sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir.
 
-![Panneau App Service sur le portail Azure](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Panneau App Service sur le portail Azure](media/app-service-web-get-started-python/app-service-detail.png)
 
 Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous pouvez ajouter à votre application web. La liste suivante fournit quelques exemples des possibilités :
 
@@ -341,4 +342,6 @@ Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les [scripts CLI d’application web](app-service-cli-samples.md) créés au préalable.
+> [!div class="nextstepaction"]
+> [Parcourez des exemples de scripts CLI d’applications web](app-service-cli-samples.md)
+

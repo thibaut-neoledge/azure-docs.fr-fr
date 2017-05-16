@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery deployment planner
-Cet article présente le guide de l’utilisateur d’Azure Site Recovery portant sur les déploiements de production de VMware vers Azure.
+Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -36,7 +37,7 @@ L’outil fournit les informations suivantes :
 
 **Évaluation de la compatibilité**
 
-* Une évaluation de l’éligibilité de la machine virtuelle en fonction du nombre de disques, de la taille du disque, des E/S par seconde et de l’activité
+* Une évaluation de l’éligibilité de la machine virtuelle en fonction du nombre de disques, de la taille du disque, des E/S par seconde, de l’activité et du type de démarrage (EFI/BIOS)
 * La bande passante réseau estimée requise pour la réplication différentielle
 
 **Besoin de bande passante réseau et évaluation de RPO**
@@ -204,6 +205,10 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 | -StartDate | (Facultatif) La date et l’heure de début au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre *StartDate* doit être spécifié avec le paramètre *EndDate*. Si le paramètre StartDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -EndDate | (Facultatif) La date et l’heure de fin au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre *EndDate* doit être spécifié avec le paramètre *StartDate*. Si le paramètre EndDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -GrowthFactor | (Facultatif) Le facteur de croissance, exprimé en pourcentage. La valeur par défaut est 30 pour cent. |
+| -UseManagedDisks | (Facultatif) UseManagedDisks - Oui/Non. La valeur par défaut est Oui. Le nombre de machines virtuelles pouvant être placé sur un compte de stockage unique est calculé selon que le disque géré est sélectionné pour le basculement/test de basculement. |
+
+pour un positionnement de compte de stockage unique est calculé en prenant en compte le basculement/test de basculement des machines virtuelles effectué sur un disque géré au lieu d’un disque non managé. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 :générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
 ```
@@ -480,7 +485,7 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles. 
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles.
 
 **OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
 
@@ -517,7 +522,7 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles. 
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles.
 
 **OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
 
@@ -558,6 +563,15 @@ Pour mettre à jour Deployment planner, procédez comme suit :
 
 
 ## <a name="version-history"></a>Historique des versions
+
+### <a name="13"></a>1.3
+Mise à jour : 9 mai 2017
+
+La nouvelle fonctionnalité suivante est ajoutée :
+
+* Ajout de la prise en charge des disques gérés dans la génération de rapport. Le nombre de machines virtuelles pouvant être placé sur un compte de stockage unique est calculé selon que le disque géré est sélectionné pour le basculement/test de basculement.        
+
+
 ### <a name="12"></a>1.2
 Mise à jour : 7 avril 2017
 

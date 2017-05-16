@@ -1,6 +1,7 @@
 ---
-title: "Rapport de connexions risquées dans le portail Azure Active Directory - version préliminaire | Microsoft Docs"
-description: "En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory - version préliminaire"
+
+title: "Rapport de connexions risquées dans le portail Azure Active Directory | Microsoft Docs"
+description: "En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +11,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Rapport de connexions risquées dans le portail Azure Active Directory - version préliminaire
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
-Grâce aux fonctions de création de rapports sur la sécurité que propose la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
+Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
-Azure Active Directory détecte les actions suspectes liées aux comptes des utilisateurs. Pour chaque action détectée, un enregistrement appelé *événement à risque* est créé. Pour en savoir plus, voir [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Azure AD détecte les actions suspectes liées aux comptes des utilisateurs. Pour chaque action détectée, un enregistrement appelé *événement à risque* est créé. Pour en savoir plus, voir [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Les événements à risque détectés sont utilisés pour déterminer les valeurs suivantes :
 
@@ -31,9 +33,9 @@ Les événements à risque détectés sont utilisés pour déterminer les valeur
 
 - **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour en savoir plus, voir [Utilisateurs avec indicateur de risque](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-Dans le portail Azure, vous trouverez les rapports de sécurité dans le panneau **Azure Active Directory** dans la section **Sécurité**. 
+Dans le [portail Azure](https://portal.azure.com), vous trouverez les rapports de sécurité dans le panneau **Azure Active Directory** dans la section **Sécurité**. 
 
-![Connexions risquées](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base

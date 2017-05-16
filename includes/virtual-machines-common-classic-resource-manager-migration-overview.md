@@ -76,7 +76,9 @@ Les fonctionnalités non prises en charge actuellement sont les suivantes. Si vo
 | Calcul |Disques de machine virtuelle non associés. | Les objets BLOB VHD derrière ces disques seront migrés lors de la migration du compte de stockage |
 | Calcul |Images de machine virtuelle. | Les objets BLOB VHD derrière ces disques seront migrés lors de la migration du compte de stockage |
 | Réseau |Listes de contrôle d’accès de points de terminaison. | Supprimez les listes de contrôle d’accès des points de terminaison et réessayez la migration. |
-| Réseau |ExpressRoute avec liens d’autorisation (voir le Forum aux questions), Application Gateway | Supprimez la passerelle avant de commencer la migration, puis recréez-la une fois la migration terminée. |
+| Réseau |Réseau virtuel doté d’une passerelle ExpressRoute et d’une passerelle VPN  | Supprimez la passerelle VPN avant de commencer la migration, puis recréez la passerelle VPN une fois la migration terminée. En savoir plus sur la [migration ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Réseau |ExpressRoute avec des liens d’autorisation  | Supprimez le circuit ExpressRoute vers la connexion de réseau virtuel avant de commencer la migration, puis recréez la connexion une fois la migration terminée. En savoir plus sur la [migration ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Réseau |Application Gateway | Supprimez l’Application Gateway avant de commencer la migration, puis recréez l’Application Gateway une fois la migration terminée. |
 | Réseau |Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). | Migrez le réseau virtuel vers Resource Manager, puis homologuez-le. Apprenez-en plus sur l’[Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### <a name="unsupported-configurations"></a>Configurations non prises en charge
