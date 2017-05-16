@@ -10,8 +10,8 @@ sql-database-service-tiers.md
 | --- | :---: |
 | DTU max | 5 |
 | Taille de base de données maximale* |2 Go|
-| Stockage In-Memory OLTP maximal |N/A |
-| Nombre maximal d’ouvriers simultanés |30 |
+| Stockage In-Memory OLTP maximal |N/A  |
+| Nombre maximal d’ouvriers simultanés (demandes) |30 |
 | Nombre maximal de connexions simultanées |30 |
 | Nombre maximal de sessions simultanées |300 |
 |||
@@ -21,8 +21,8 @@ sql-database-service-tiers.md
 | --- |---:| ---:|---:|---:|---:|
 | DTU max | 10 | 20 | 50 | 100 |
 | Taille de base de données maximale* | 250 Go| 250 Go | 250 Go | 250 Go |
-| Stockage In-Memory OLTP maximal | N/A | N/A | N/A | N/A |
-| Nombre maximal d’ouvriers simultanés | 60 | 90 | 120 | 200 |
+| Stockage In-Memory OLTP maximal | N/A | N/A | N/A | N/A  |
+| Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
 | Nombre maximal de connexions simultanées | 60 | 90 | 120 | 200 |
 | Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
 ||||||
@@ -31,9 +31,9 @@ sql-database-service-tiers.md
 | **Niveau de performances** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | DTU max | 125 | 250 | 500 | 1 000 | 1 750 | 4000 |
-| Taille de base de données maximale* | 500 Go | 500 Go | 500 Go | 500 Go | 4 To* | 4 To* |
+| Taille de base de données maximale* | 500 Go | 500 Go | 500 Go | 500 Go | 4 To | 4 To |
 | Stockage In-Memory OLTP maximal | 1 Go | 2 Go | 4 Go | 8 Go | 14 Go | 32 Go |
-| Nombre maximal d’ouvriers simultanés | 200 | 400 | 800 | 1 600 | 2 400 | 6400 |
+| Nombre maximal d’ouvriers simultanés (demandes)| 200 | 400 | 800 | 1 600 | 2 400 | 6400 |
 | Nombre maximal de connexions simultanées | 200 | 400| 800| 1 600| 2 400| 6 400 |
 | Nombre maximal de sessions simultanées | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
@@ -44,7 +44,7 @@ sql-database-service-tiers.md
 | DTU max | 125 | 250 | 500 | 1 000 |
 | Taille de base de données maximale* | 500 Go | 500 Go | 500 Go | 500 Go |
 | Stockage In-Memory OLTP maximal | 1 Go | 2 Go | 4 Go | 8 Go |
-| Nombre maximal d’ouvriers simultanés | 200 | 400 | 800 | 1 600 |
+| Nombre maximal d’ouvriers simultanés (demandes)| 200 | 400 | 800 | 1 600 |
 | Nombre maximal de connexions simultanées | 200 | 400| 800| 1 600|
 | Nombre maximal de sessions simultanées | 30000| 30000| 30000| 30000|
 |||||||

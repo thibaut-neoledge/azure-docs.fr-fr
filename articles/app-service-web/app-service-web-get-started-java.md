@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ Vous aurez également besoin d’un abonnement Azure pour suivre les étapes de 
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Créer un projet web dynamique dans Eclipse
 
-Dans l’IDE Eclipse, cliquez sur **Fichier**, puis sur **Nouveau** et **Projet Web dynamique**.
+Dans Eclipse, sélectionnez le menu **Fichier**, **Nouveau**, puis **Projet web dynamique**.
 
-![Nouveau projet web dynamique](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-Lorsque la boîte de dialogue Projet Web dynamique s’affiche, nommez l’application **MyFirstJavaOnAzureWebApp**, puis cliquez sur **Terminer**.
+Dans la boîte de dialogue **Nouveau projet web dynamique**, nommez le projet **MyFirstJavaOnAzureWebApp**, puis sélectionnez **Terminer**.
    
 ![Boîte de dialogue Projet Web dynamique](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Lorsque votre nouvelle page s’ouvre dans Eclipse, remplacez la section `<body>
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Enregistrez les modifications apportées à la page.
-
-![Modification du code JSP](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Publier votre application web dans Azure
 
@@ -183,14 +180,12 @@ Commencez par modifier l’exemple de code JSP écrit précédemment pour que le
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Mise à jour du code JSP](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Après avoir enregistré les modifications apportées à la page, cliquez avec le bouton droit sur votre projet dans **l’Explorateur de projets** Eclipse, puis cliquez sur **Azure** et **Publish as Azure Web App** (Publier en tant qu’application web Azure).
+Après avoir enregistré les modifications apportées, cliquez avec le bouton droit sur votre projet dans **l’Explorateur de projets** Eclipse, puis cliquez sur **Azure** et **Publier en tant qu’application web Azure**.
 
 ![Publier l’application web mise à jour](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,15 +202,15 @@ Après avoir publié vos modifications, vous remarquerez que le titre de la page
 
 ![Accéder à l’application web](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Suppression de votre application web
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Pour supprimer une application web, vous pouvez utiliser **Azure Explorer**, qui fait partie du kit de ressources Azure. Si l’affichage **Azure Explorer** n’est pas visible dans Eclipse, procédez comme suit pour remédier à ce problème :
+Pour supprimer l’application web, utilisez **l’explorateur Azure** inclus dans le Kit de ressources Azure. Si l’affichage **Azure Explorer** n’est pas visible dans Eclipse, procédez comme suit pour remédier à ce problème :
 
 1. Cliquez sur **Fenêtre**, puis sur **Show View** (Affichage) et choisissez **Autres**.
 
-   ![Menu Show View (Affichage)](./media/app-service-web-get-started-java/show-azure-explorer-view-1.png)
+   ![Menu Affichage](./media/app-service-web-get-started-java/show-azure-explorer-view-1.png)
 
-2. Quand la boîte de dialogue **Show View** (Affichage) s’affiche, sélectionnez **Azure Explorer** et cliquez sur **OK**.
+2. Quand la boîte de dialogue **Affichage** apparaît, sélectionnez **Azure Explorer** et cliquez sur **OK**.
 
    ![Boîte de dialogue Show View (Affichage)](./media/app-service-web-get-started-java/show-azure-explorer-view-2.png)
 

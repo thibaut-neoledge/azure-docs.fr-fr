@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Ce démarrage rapide vous permet de déployer votre première application web AS
 
 ![Application web ASP.NET dans Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 
 Ce didacticiel montre comment utiliser Visual Studio 2017 pour générer et déployer une application web ASP.NET dans Azure. Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 
@@ -37,7 +38,7 @@ Ce didacticiel montre comment utiliser Visual Studio 2017 pour générer et d�
 
 ## <a name="create-an-aspnet-web-app"></a>Créez une application web ASP.NET
 
-Dans Visual Studio, créez un nouveau projet avec `Ctrl`+`Shift`+`N`.
+Dans Visual Studio, créez un projet avec `Ctrl`+`Shift`+`N`.
 
 Dans le dialogue **Nouveau projet**, cliquez sur **Visual C# > Web > ASP.NET Web Application (.NET Framework)**.
 
@@ -110,7 +111,7 @@ Dans la boîte de dialogue **Configurer plan App Service** configurez le nouveau
 
 Cliquez sur **OK**.
 
-![Créer un nouveau plan App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Créer un plan App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Créer et publier l’application web
 
@@ -165,11 +166,11 @@ Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de
 
 Vous accédez au _panneau_ de votre application web (une page du portail qui s’ouvre horizontalement). 
 
-Par défaut, le panneau de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets figurant sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir. 
+Par défaut, le panneau de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple).  
 
 ![Panneau App Service sur le portail Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous pouvez ajouter à votre application web. La liste suivante fournit quelques exemples des possibilités :
+Les onglets figurant sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir. La liste suivante fournit quelques exemples des possibilités :
 
 - Mapper un nom DNS personnalisé
 - Lier un certificat SSL personnalisé
@@ -193,5 +194,9 @@ Dans le panneau de confirmation, confirmez en tapant le nom de groupe de ressour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les [scripts PowerShell des applications web](app-service-powershell-samples.md) créés au préalable.
+> [!div class="nextstepaction"]
+> [Découvrez comment créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Parcourez des exemples de scripts PowerShell d’applications web](app-service-powershell-samples.md)
 

@@ -1,6 +1,7 @@
 ---
-title: "Création de rapports Azure Active Directory - version préliminaire | Microsoft Docs"
-description: "Répertorie les différents rapports disponibles pour la version préliminaire d’Azure Active Directory"
+
+title: "Création de rapports Azure Active Directory | Microsoft Docs"
+description: "Répertorie les différents rapports disponibles pour Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Création de rapports Azure Active Directory - version préliminaire
+# <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
 
 
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Dans la version préliminaire d’Azure Active Directory, la création de rapports vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer quel est l’état de votre environnement. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
+Dans Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour évaluer l’état de votre environnement.
 
 La création de rapports couvre principalement deux domaines :
 

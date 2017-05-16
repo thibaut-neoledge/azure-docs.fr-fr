@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
    ![Recommandations dans Azure Security Center][5]
 2. Sélectionnez une recommandation sur le panneau **Recommandations** pour visualiser plus d’informations et/ou prendre des mesures afin de résoudre le problème.
 
-### <a name="view-the-health-and-security-state-of-your-resources"></a>Afficher l’état d’intégrité et de sécurité de vos ressources
-1. Retournez au panneau **Centre de sécurité** . La vignette **Intégrité des ressources** contient des indicateurs de l’état de sécurité pour les machines virtuelles, la mise en réseau, les données et les applications.
+### <a name="view-the-security-state-of-your-resources"></a>Afficher l’état de sécurité de vos ressources
+1. Retournez au panneau **Centre de sécurité** . La section **Prévention** du tableau de bord contient des indicateurs de l’état de sécurité pour les machines virtuelles, la mise en réseau, les données et les applications.
 2. Sélectionnez **Compute** pour afficher plus d’informations. Le panneau **Compute** s’ouvre affichant trois onglets :
 
   - **Vue d’ensemble** : contient des recommandations relatives aux machines virtuelles et à la surveillance.

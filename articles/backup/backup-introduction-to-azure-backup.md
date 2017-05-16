@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Les machines virtuelles Stockage Premium peuvent être restaurées dans Stockage
 Azure Backup protège les machines virtuelles de disque géré. Les disques gérés vous libèrent de la gestion des comptes de stockage des machines virtuelles et simplifient considérablement l’approvisionnement des machines virtuelles.
 
 ### <a name="back-up-managed-disk-vms"></a>Sauvegarder des machines virtuelles de disque géré
-La sauvegarde des machines virtuelles sur des disques gérés est identique à la sauvegarde des machines virtuelles de Resource Manager. Dans le portail Azure, vous pouvez configurer le travail de sauvegarde directement à partir de la vue de la machine virtuelle ou de la vue du coffre Recovery Services. Vous pouvez sauvegarder des machines virtuelles sur des disques gérés par le biais des collections RestorePoint basées sur des disques gérés. La sauvegarde Azure Backup ne prend actuellement pas en charge la sauvegarde des machines virtuelles de disque géré chiffrées avec Azure Disk Encryption (ADE).
+La sauvegarde des machines virtuelles sur des disques gérés est identique à la sauvegarde des machines virtuelles de Resource Manager. Dans le portail Azure, vous pouvez configurer le travail de sauvegarde directement à partir de la vue de la machine virtuelle ou de la vue du coffre Recovery Services. Vous pouvez sauvegarder des machines virtuelles sur des disques gérés par le biais des collections RestorePoint basées sur des disques gérés. Azure Backup prend également en charge la sauvegarde des machines virtuelles de disque géré chiffrées avec Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Restaurer des machines virtuelles de disque géré
-La sauvegarde Azure Backup vous permet de restaurer une machine virtuelle complète avec des disques gérés ou de restaurer des disques gérés sur un compte de stockage Resource Manager. Azure gère les disques gérés pendant le processus de restauration. Vous (le client) gérez le compte de stockage créé dans le cadre du processus de restauration.
+La sauvegarde Azure Backup vous permet de restaurer une machine virtuelle complète avec des disques gérés ou de restaurer des disques gérés sur un compte de stockage Resource Manager. Azure gère les disques gérés pendant le processus de restauration. Vous (le client) gérez le compte de stockage créé dans le cadre du processus de restauration. Si vous restaurez des machines virtuelles chiffrées gérées, les clés et secrets correspondants doivent figurer dans le coffre de clés avant de procéder à la restauration.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quelles sont les fonctionnalités de chaque composant Azure Backup ?
 Les sections suivantes comportent des tableaux qui résument la disponibilité ou la prise en charge de diverses fonctionnalités dans chaque composant Azure Backup. Pour un support ou des détails supplémentaires, consultez les informations après chaque tableau.

@@ -1,6 +1,7 @@
 ---
-title: "Rapports d’activité de connexion dans le portail Azure Active Directory - version préliminaire | Microsoft Docs"
-description: "Présentation des rapports d’activité de connexion dans la version préliminaire du portail Azure Active Directory"
+
+title: "Rapports d’activité de connexion dans le portail Azure Active Directory | Microsoft Docs"
+description: "Présentation des rapports d’activité de connexion dans le portail Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Rapports d’activité de connexion dans le portail Azure Active Directory - version préliminaire
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
-Dans la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, la création de rapports vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer quel est l’état de votre environnement.
+Grâce à la fonction de création de rapports Azure Active Directory (Azure AD) dans le [portail Azure](https://portal.azure.com), vous pouvez obtenir les informations dont vous avez besoin pour évaluer l’état de votre environnement.
 
 L’architecture de création de rapports dans Azure Active Directory comprend les composants suivants :
 
@@ -44,7 +46,7 @@ Avec les informations fournies par le rapport sur les connexions des utilisateur
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
-La zone **Connexions** de la section Activité de **Azure Active** constitue votre premier point d’entrée pour toutes les activités de connexion. .
+La zone **Connexions** de la section Activité de **Azure Active** constitue votre premier point d’entrée pour toutes les activités de connexion.
 
 
 ![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/61.png "Activité de connexion")
