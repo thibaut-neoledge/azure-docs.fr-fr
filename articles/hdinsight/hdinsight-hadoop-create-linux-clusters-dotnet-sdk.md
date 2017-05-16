@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 8377c936e37b464c2d566f9482ebda63a1e374df
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 173869858ba7891fcea8a0207e9b192b81ae4840
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -41,10 +42,6 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un compte de stockage Azure**. Voir [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017**.
-
-### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Créer des clusters
 
@@ -374,6 +371,10 @@ static void Main(string[] args)
     System.Console.ReadLine();
 }
 ```
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous. 

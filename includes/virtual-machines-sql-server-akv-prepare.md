@@ -32,8 +32,3 @@ Lorsque vous arrivez à l’étape de création d’un coffre de clés, notez la
 
 L’URL du coffre de clés est affectée ultérieurement au paramètre **$akvURL** dans le script PowerShell pour activer l’intégration du coffre de clés Azure.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

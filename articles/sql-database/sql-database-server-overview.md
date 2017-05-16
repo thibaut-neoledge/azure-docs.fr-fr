@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
-ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 430af168e1bd19c15170996247bc7c7a62fe52d4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,10 +40,10 @@ Un serveur logique de base de données Azure :
 - Colocalise les ressources d’une région
 - Fournit un point de terminaison de connexion pour l’accès aux bases de données (<serverName>. database.windows.net)
 - Fournit l’accès aux métadonnées concernant l’accès aux ressources contenues via les DMV en vous connectant à une base de données MASTER 
-- Fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, audit, détection des menaces, etc.. 
+- Fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, audit, détection des menaces, etc. 
 - Est limité par un quota dans l’abonnement parent (six serveurs par abonnement - [voir les limites d’abonnement ici](../azure-subscription-service-limits.md))
-- Fournit l’étendue du quota de base de données et du quota DTU pour les ressources qu’il contient (par exemple, 45 000 DTU dans la V12)
-- Est la portée du contrôle de version pour les fonctionnalités activées sur les ressources qu’il contient (la version la plus récente est V12)
+- Fournit l’étendue du quota de base de données et du quota DTU pour les ressources qu’il contient (par exemple, 45 000 DTU)
+- Est la portée du contrôle de version pour les fonctionnalités activées sur les ressources qu’il contient 
 - Les connexions principales au niveau du serveur peuvent gérer toutes les bases de données sur un serveur
 - Peut contenir des connexions semblables à celles des instances de SQL Server en local qui ont accès à une ou plusieurs bases de données sur le serveur et qui peuvent se voir octroyer des droits d’administration limités. Pour plus d’informations, consultez [Connexions](sql-database-manage-logins.md).
 
@@ -55,7 +56,7 @@ Un serveur logique de base de données Azure :
 
 ## <a name="what-collations-are-supported"></a>Quels classements sont pris en charge ?
 
-Le classement par défaut utilisé par la base de données SQL Microsoft Azure (y compris la base de données MASTER) est **SQL_LATIN1_GENERAL_CP1_CI_AS**, où **LATIN1_GENERAL** correspond à l’anglais (États-Unis) et **CP1** à la page de code 1252. La propriété **CI** indique que le classement n’est pas sensible à la casse, et **AS** qu’il respecte les accents. Il est déconseillé de modifier le classement des bases de données V12 après sa création. Pour plus d’informations sur les classements, consultez [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+Le classement par défaut utilisé par la base de données SQL Microsoft Azure (y compris la base de données MASTER) est **SQL_LATIN1_GENERAL_CP1_CI_AS**, où **LATIN1_GENERAL** correspond à l’anglais (États-Unis) et **CP1** à la page de code 1252. La propriété **CI** indique que le classement n’est pas sensible à la casse, et **AS** qu’il respecte les accents. Il est déconseillé de modifier le classement après la création des bases de données. Pour plus d’informations sur les classements, consultez [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Quelles sont les exigences en matière d’affectation de noms pour les objets de base de données ?
 
@@ -68,8 +69,8 @@ Pour plus d’informations sur les fonctionnalités prises en charge, consultez 
 ## <a name="how-do-i-manage-a-logical-server"></a>Comment gérer un serveur logique ?
 
 Vous pouvez gérer les serveurs logiques Azure SQL Database à l’aide de plusieurs méthodes :
-- [Portail Azure](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [Portail Azure](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST](/rest/api/sql/)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -81,10 +82,5 @@ Vous pouvez gérer les serveurs logiques Azure SQL Database à l’aide de plusi
 - Pour plus d’informations sur les quotas de ressources spécifiques et les limitations basées sur votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
 - Pour une vue d’ensemble de la sécurité, consultez [Azure SQL Database Security Overview (Vue d’ensemble de la sécurité de Azure SQL Database)](sql-database-security-overview.md).
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

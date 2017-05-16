@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: eec8c82857ef9e2806c953ae996f9e7970e64392
-ms.openlocfilehash: 4d6bfebd9faa4e37de148539e7248f88e711bf43
-ms.lasthandoff: 02/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 74d33505b777925a19830d1eda2eca9776ecaf61
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -99,7 +100,7 @@ Si vos données de référence sont un jeu de données variant lentement, la pri
 3. Une tâche doit revenir en arrière à plusieurs reprises. Par conséquent, les objets blobs de données de référence ne doivent pas être modifiés ou supprimés.
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :

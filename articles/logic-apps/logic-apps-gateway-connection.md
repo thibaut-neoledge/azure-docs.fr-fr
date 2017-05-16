@@ -15,26 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3e9b95e6e9e84f8c2b615f43783d9fec5a2c09b6
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="connect-to-on-premises-data-from-logic-apps"></a>Connexion à des données locales à partir d’applications logiques
 
-Pour accéder à des données locales, vous pouvez configurer une connexion à une passerelle de données locale pour les connecteurs Azure Logic Apps pris en charge. La procédure suivante vous guidera tout au long de l’installation et de la configuration de la passerelle de données locale à utiliser avec vos applications logiques.
-La passerelle de données locale prend en charge les connexions de source de données suivantes :
+Pour accéder à des données locales, vous pouvez configurer une connexion à une passerelle de données locale pour les connecteurs Azure Logic Apps pris en charge. La procédure suivante vous guidera tout au long de l’installation et de la configuration de la passerelle de données locale à utiliser avec vos applications logiques. La passerelle de données locale prend en charge les connexions suivantes :
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   Système de fichiers
 *   Informix
 *   MQ
-*    Oracle Database 
+*   MySQL
+*   Oracle Database 
 *   Serveur d’applications SAP 
 *   Serveur de messagerie SAP
-*    SQL Server
+*   SharePoint pour le protocole HTTP uniquement, pas le protocole HTTPS
+*   SQL Server
+*   Teradata
 
 Pour plus d’informations sur ces connexions, consultez la [liste des connecteurs Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -42,7 +44,7 @@ Pour plus d’informations sur ces connexions, consultez la [liste des connecteu
 
 * Vous devez utiliser une adresse de messagerie professionnelle ou scolaire dans Azure pour associer la passerelle de données locale à votre compte (compte Azure Active Directory).
 
-* Si vous utilisez un compte Microsoft (par exemple, @outlook.com), vous pouvez utiliser votre compte Azure pour [créer une adresse de messagerie professionnelle ou scolaire](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+* Si vous utilisez un compte Microsoft (par exemple, @outlook.com), vous pouvez utiliser votre compte Azure pour [créer une adresse de messagerie professionnelle ou scolaire](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 * La passerelle de données locale doit être déjà [installée sur un ordinateur local](logic-apps-gateway-install.md).
 
@@ -59,7 +61,7 @@ Si vous ne l’avez pas encore fait, suivez ces étapes pour [installer la passe
 Une fois la passerelle installée, vous devez associer votre abonnement Azure à la passerelle.
 
 > [!IMPORTANT] 
-> Vérifiez que la ressource de passerelle est créée dans la même région Azure que votre application logique. Si vous ne la déployez pas dans la même région, elle ne sera pas accessible dans votre application logique. 
+> Vérifiez que la ressource de passerelle est créée dans la même région Azure que votre application logique. Si vous ne déployez pas la ressource de passerelle dans la même région, votre application logique ne peut pas accéder à la passerelle. 
 > 
 
 1. Connectez-vous à Azure en utilisant la même adresse de messagerie professionnelle ou scolaire que celle utilisée lors de l’installation de la passerelle.
@@ -85,10 +87,13 @@ Maintenant que votre abonnement Azure est associé à une instance de la passere
 
 Votre connexion est maintenant configurée pour être utilisée par votre application logique.
 
-## <a name="data-gateway-connection-modifications"></a>Modifications de la connexion à la passerelle de données
-Une fois que vous avez ajouté à votre application logique la connexion à la passerelle de données, il vous faudra peut-être la modifier pour en ajuster les paramètres. Cette connexion se trouve dans l’un des deux emplacements suivants :
-* Dans le panneau principal de l’application logique se trouve normalement un panneau de configuration pour les connexions d’API, dans la section Outils de développement. Choisissez d’afficher toutes les connexions API associées à l’application logique, dont l’une sera votre connexion à la passerelle de données. Sélectionnez-la, puis visualisez et modifiez les paramètres associés à la connexion.
-* En sélectionnant le panneau principal des connexions API, vous accédez à toutes les connexions API de l’abonnement. Votre connexion à la passerelle de données figure dans cette liste. Sélectionnez-la, puis visualisez et modifiez les paramètres qui lui sont associés.
+## <a name="edit-your-data-gateway-connection-settings"></a>Modifier vos paramètres de connexion à une passerelle de données
+
+Après avoir ajouté la connexion à la passerelle de données à votre application logique, il vous faudra peut-être la modifier pour en ajuster les paramètres. Cette connexion se trouve dans l’un des deux emplacements suivants :
+
+* Dans le panneau de l’application logique, sous **Outils de développement**, sélectionnez **Connexions d’API**. Cette liste affiche toutes les connexions d’API associées à votre application logique, y compris votre connexion à la passerelle de données. Pour afficher et modifier les paramètres de la connexion, sélectionnez cette dernière.
+
+* Dans le panneau principal Connexions d’API, vous pouvez trouver toutes les connexions d’API associées à votre abonnement Azure, y compris votre connexion à la passerelle de données. Pour afficher et modifier les paramètres de la connexion, sélectionnez cette dernière.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

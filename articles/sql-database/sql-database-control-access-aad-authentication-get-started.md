@@ -1,6 +1,6 @@
 ---
 title: "Authentification AAD : pare-feu de base de données SQL Azure, authentification, accès | Microsoft Docs"
-description: "Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utiliser SQL Server Management Studio et Transact-SQL pour travailler avec les règles de pare-feu au niveau du serveur et de la base de données, l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles qui accordent accès et contrôle sur les bases de données et les serveurs Azure SQL Database."
+description: "Dans ce guide de procédure, vous allez apprendre à utiliser SQL Server Management Studio et Transact-SQL pour travailler avec les règles de pare-feu au niveau du serveur et de la base de données, l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles qui accordent accès et contrôle sur les bases de données et les serveurs Azure SQL Database."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ca679a820eefc7acbb08eed6b8f809f46aacd3a3
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Authentification Azure AD, accès et règles de pare-feu au niveau de la base de données
-Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations aux bases de données et aux serveurs Azure SQL Database. Vous allez découvrir comment effectuer les actions suivantes :
+Dans ce guide de procédure, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations aux bases de données et aux serveurs Azure SQL Database. Vous allez découvrir comment effectuer les actions suivantes :
 
 - Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
 - Créer des connexions et des utilisateurs en fonction de l’authentification Azure Active Directory
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Stud
 - Créer des règles de pare-feu au niveau de la base de données pour les utilisateurs de la base de données
 - Créer des règles de pare-feu au niveau du serveur pour les administrateurs de serveur
 
-**Durée estimée** : ce didacticiel vous prendra environ 45 minutes (à condition que vous remplissiez déjà les conditions préalables).
+**Durée estimée** : ce guide de procédure prend environ 45 minutes (à condition que vous remplissiez déjà les conditions préalables).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -43,18 +43,18 @@ Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Stud
 
 * **SQL Server Management Studio**. Pour télécharger et installer la dernière version de SQL Server Management Studio (SSMS), consultez l’article [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Lorsque vous vous connectez à Azure SQL Database, utilisez toujours la dernière version de SSMS, car de nouvelles fonctionnalités sont continuellement publiées.
 
-* **Serveur de base et bases de données**. Pour installer et configurer un serveur et deux bases de données utilisés dans ce didacticiel, cliquez sur le bouton **Déployer sur Azure**. Lorsque vous cliquez sur le bouton, le panneau **Deploy from a template** (Déployer à partir d’un modèle) s’ouvre. Créez un groupe de ressources et indiquez le **mot de passe de connexion administrateur** pour le nouveau serveur qui sera créé :
+* **Bases de données et serveur de base**. Pour installer et configurer le serveur et les deux bases de données utilisés dans ce guide de procédure, cliquez sur le bouton **Déployer sur Azure**. Lorsque vous cliquez sur le bouton, le panneau **Deploy from a template** (Déployer à partir d’un modèle) s’ouvre. Créez un groupe de ressources et indiquez le **mot de passe de connexion administrateur** pour le serveur qui sera créé :
 
-   [![télécharger](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
+   [Télécharger![](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
-   > Vous n’êtes pas obligé de suivre le didacticiel associé à l’authentification SQL Server, à savoir : [Authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Toutefois, certains concepts abordés dans ce didacticiel ne sont pas mentionnés ici. Les procédures décrites dans ce didacticiel, qui porte sur les pare-feu de niveau serveur et base de données, ne sont pas obligatoires si vous avez effectué ce didacticiel connexe sur les mêmes machines (avec la même adresse IP). C’est pour cette raison qu’ils sont indiqués comme étant facultatifs. En outre, les captures d’écran de ce didacticiel supposent que vous avez effectué ce didacticiel connexe. 
+   > Vous n’êtes pas obligé de suivre le guide de procédure associé à l’authentification SQL Server, à savoir : [Authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Toutefois, certains concepts abordés dans ce guide de procédure ne sont pas mentionnés ici. Les procédures décrites dans ce guide, qui porte sur les pare-feu de niveau serveur et base de données, ne sont pas obligatoires si vous avez effectué ce guide de procédure connexe sur les mêmes machines (avec la même adresse IP). C’est pour cette raison qu’ils sont indiqués comme étant facultatifs. En outre, les captures d’écran de ce guide de procédure supposent que vous avez effectué ce guide de procédure connexe. 
    >
 
 * Vous avez créé et rempli un annuaire Azure Active Directory. Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
-> Ce didacticiel vous permet de vous familiariser avec le contenu des rubriques suivantes : [Accès à la base de données SQL et contrôle](sql-database-control-access.md), [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md), [Principaux](https://msdn.microsoft.com/library/ms181127.aspx), [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx), [Règles de pare-feu de base de données SQL](sql-database-firewall-configure.md) et [Authentification Azure Active Directory](sql-database-aad-authentication.md). 
+> Ce guide de procédure vous permet de vous familiariser avec le contenu des rubriques suivantes : [Accès à la base de données SQL et contrôle](sql-database-control-access.md), [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md), [Principaux](https://msdn.microsoft.com/library/ms181127.aspx), [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx), [Règles de pare-feu de base de données SQL](sql-database-firewall-configure.md) et [Authentification Azure Active Directory](sql-database-aad-authentication.md). 
 >  
 
 ## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Se connecter au portail Azure avec un compte Azure
@@ -64,14 +64,9 @@ Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Stud
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
 3. Dans la page **de connexion** , entrez les informations d’identification de votre abonnement.
    
-   ![de connexion](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
-
 ## <a name="provision-an-azure-active-directory-admin-for-your-sql-logical-server"></a>Configurer un administrateur Azure Active Directory pour votre serveur SQL logique
 
-Dans cette section du didacticiel, vous pouvez afficher des informations sur la configuration de la sécurité sur votre serveur logique dans le portail Azure.
+Dans cette section du guide de procédure, vous pouvez afficher des informations sur la configuration de la sécurité sur votre serveur logique dans le portail Azure.
 
 1. Ouvrez le panneau **SQL Server** de votre serveur logique et affichez les informations de la page **Vue d’ensemble**. Vous pouvez voir qu’aucun administrateur Azure Active Directory n’a été configuré.
 
@@ -90,7 +85,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur la 
    ![Enregistrement du compte d’administrateur AAD sélectionné](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Pour passer en revue les informations de connexion à ce serveur, accédez à [Gérer les serveurs](sql-database-manage-servers-portal.md). Pour cette série de didacticiels, le nom de serveur complet est « sqldbtutorialserver.database.windows.net ».
+> Pour passer en revue les informations de connexion à ce serveur, accédez à [Se connecter avec SSMS](sql-database-connect-query-ssms.md). Pour cette série de guides de procédures, le nom de serveur complet est « sqldbtutorialserver.database.windows.net ».
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Se connecter au serveur SQL Server à l’aide de SQL Server Management Studio (SSMS)
@@ -112,7 +107,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur la 
    ![Connexion réussie au serveur avec AAD](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
 ## <a name="view-the-server-admin-account-and-its-permissions"></a>Afficher le compte d’administrateur de serveur et ses autorisations 
-Dans cette section du didacticiel, vous pouvez afficher des informations sur le compte d’administrateur de serveur, ainsi que ses autorisations dans la base de données master et dans les bases de données utilisateur.
+Dans cette section du guide de procédure, vous pouvez afficher des informations sur le compte d’administrateur de serveur, ainsi que ses autorisations dans la base de données master et dans les bases de données utilisateur.
 
 1. Dans l’Explorateur d’objets, développez **Bases de données**, **Bases de données système**, **Master**, **Sécurité**, puis **Utilisateurs**. Vous pouvez voir qu’un compte d’utilisateur a été créé dans la base de données master pour l’administrateur Active Directory. Vous pouvez également constater qu’aucune connexion n’a été créée pour le compte d’utilisateur administrateur Active Directory.
 
@@ -193,10 +188,10 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
 ## <a name="create-a-new-user-in-the-adventureworkslt-database-with-select-permissions"></a>Créer un utilisateur dans la base de données AdventureWorksLT avec des autorisations SELECT
 
-Dans cette section du didacticiel, vous allez créer un compte d’utilisateur dans la base de données AdventureWorksLT, en fonction du nom principal d’un utilisateur Azure AD ou du nom d’affichage d’un groupe Azure AD, puis tester les autorisations de cet utilisateur en tant que membre du rôle public, accorder à cet utilisateur des autorisations SELECT, et tester à nouveau les autorisations de cet utilisateur.
+Dans cette section du guide de procédure, vous allez créer un compte d’utilisateur dans la base de données AdventureWorksLT, en fonction du nom principal d’un utilisateur Azure AD ou du nom d’affichage d’un groupe Azure AD, puis tester les autorisations de cet utilisateur en tant que membre du rôle public, accorder à cet utilisateur des autorisations SELECT, et tester à nouveau les autorisations de cet utilisateur.
 
 > [!NOTE]
-> Les utilisateurs au niveau de la base de données ([utilisateurs contenus](https://msdn.microsoft.com/library/ff929188.aspx)) augmentent la portabilité de votre base de données. Nous explorerons cette fonctionnalité dans d’autres didacticiels.
+> Les utilisateurs au niveau de la base de données ([utilisateurs contenus](https://msdn.microsoft.com/library/ff929188.aspx)) augmentent la portabilité de votre base de données. Nous explorerons cette fonctionnalité dans d’autres guides de procédures.
 >
 
 1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **AdventureWorksLT**, puis cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données AdventureWorksLT.
@@ -261,13 +256,13 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Créer une règle de pare-feu au niveau de la base de données pour des utilisateurs de la base de données AdventureWorksLT
 
 > [!NOTE]
-> Vous n’avez pas besoin de suivre cette procédure si vous avez suivi la procédure équivalente dans le didacticiel connexe pour l’authentification SQL Server, [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md) sur la même machine et avec la même adresse IP.
+> Vous n’avez pas besoin de suivre cette procédure si vous avez suivi la procédure équivalente dans le guide de procédure connexe pour l’authentification SQL Server, [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md) sur la même machine et avec la même adresse IP.
 >
 
-Dans cette section du didacticiel, vous tenterez de vous connecter à partir d’un ordinateur avec une adresse IP différente, en utilisant le nouveau compte d’utilisateur, puis de créer une règle de pare-feu au niveau de la base de données en tant qu’administrateur du serveur, puis de vous connecter à l’aide de cette nouvelle règle de pare-feu au niveau de la base de données. 
+Dans cette section du guide de procédure, vous tenterez de vous connecter à partir d’un ordinateur avec une adresse IP différente, en utilisant le nouveau compte d’utilisateur, puis de créer une règle de pare-feu au niveau de la base de données en tant qu’administrateur du serveur, puis de vous connecter à l’aide de cette nouvelle règle de pare-feu au niveau de la base de données. 
 
 > [!NOTE]
-> Les [règles de pare-feu au niveau de la base de données](sql-database-firewall-configure.md) augmentent la portabilité de votre base de données. Nous explorerons cette fonctionnalité dans d’autres didacticiels.
+> Les [règles de pare-feu au niveau de la base de données](sql-database-firewall-configure.md) augmentent la portabilité de votre base de données. Nous explorerons cette fonctionnalité dans d’autres guides de procédure.
 >
 
 1. Sur un autre ordinateur pour lequel vous n’avez pas déjà créé une règle de pare-feu au niveau du serveur, ouvrez SQL Server Management Studio.
@@ -280,7 +275,7 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
     
    ![Se connecter en tant qu’utilisateur aaduser1@microsoft.com sans règle firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
-3. Cliquez sur **Options** pour spécifier la base de données à laquelle vous souhaitez vous connecter, puis saisissez **AdventureWorksLT** dans la zone de liste déroulante **Se connecter à la base de données** de l’onglet **Propriétés de connexion**.
+3. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur** pour spécifier la base de données à laquelle vous souhaitez vous connecter, puis saisissez **AdventureWorksLT** dans la zone de liste déroulante **Se connecter à la base de données** de l’onglet **Propriétés de connexion**.
    
    ![Se connecter en tant qu’utilisateur aaduser1 sans règle firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 

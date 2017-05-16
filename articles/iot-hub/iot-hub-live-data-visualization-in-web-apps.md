@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f3bb01da7764e467963a47d3d5485679411c9167
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-azure-web-apps"></a>Visualiser des données de capteur en temps réel à partir d’Azure IoT Hub en utilisant Azure Web Apps
 
-![Connexion entre le capteur, l’appareil IoT, IoT Hub et l’application web Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -42,7 +43,7 @@ Dans cette leçon, vous allez apprendre à visualiser les données de capteur en
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
+- Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui répond aux exigences suivantes :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -57,16 +58,7 @@ Dans cette leçon, vous allez apprendre à visualiser les données de capteur en
 
    ![Créer une application web Azure](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Ajouter un groupe de consommateurs à votre instance IoT Hub
-
-Les groupes de consommateurs sont utilisés par les applications pour extraire des données de l’instance Azure IoT Hub. Dans cette leçon, vous créez un groupe de consommateurs que l’application web utilisera pour lire les données de votre instance IoT Hub.
-
-Pour ajouter un groupe de consommateurs à votre instance IoT Hub, procédez comme suit :
-
-1. Dans le [portail Azure](https://ms.portal.azure.com/), ouvrez votre instance IoT Hub.
-1. Cliquez sur **Points de terminaison** dans le volet de gauche, puis sélectionnez **Événements** dans le volet central, saisissez un nom sous **Groupes de consommateurs** (dans le volet de droite) et cliquez sur **Enregistrer**.
-
-   ![Créer un groupe de consommateurs dans Azure IoT Hub](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>Configurer l’application web pour lire des données à partir de votre IoT Hub
 
@@ -75,8 +67,8 @@ Pour ajouter un groupe de consommateurs à votre instance IoT Hub, procédez co
 
    | Clé                                   | Valeur                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtenu à partir de l’Explorateur IoT Hub                               |
-   | Azure.IoT.IoTHub.DeviceId             | Obtenu à partir de l’Explorateur IoT Hub                               |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtenu à partir de iothub-explorer                                |
+   | Azure.IoT.IoTHub.DeviceId             | Obtenu à partir de iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | Le nom du groupe de consommateurs que vous ajoutez à votre IoT hub  |
 
    ![Ajouter des paramètres à l’application web Azure avec des paires clé/valeur](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

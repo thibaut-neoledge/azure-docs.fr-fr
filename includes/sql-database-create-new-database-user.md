@@ -18,8 +18,3 @@ Ces étapes supposent que vous êtes connecté à la base de données SQL dans l
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

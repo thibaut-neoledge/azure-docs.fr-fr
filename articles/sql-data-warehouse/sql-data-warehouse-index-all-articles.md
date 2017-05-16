@@ -12,11 +12,13 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -34,7 +36,7 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | &nbsp; | Article | Texte mis à jour, extrait de code | Mis à jour quand |
 | ---:|:--- |:--- |:--- |
 | 2 |[Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- Pour le suivi des octets et des fichiers SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = ’CTAS : Load  cso . DimProduct  ’  OR r. label  = ’CTAS : Load  cso . FactOnlineSales  ’ GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
-| 3 |[Restauration SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Puis-je restaurer un entrepôt de données mis en suspens ?** Pour restaurer un entrepôt de données mis en suspens, vous devez d’abord le remettre en ligne. Une fois que l’entrepôt de données est à nouveau en ligne, vous pouvez choisir parmi les points de restauration sur une durée de sept jours. ** Restaurer sur une région géoredondante** Si vous utilisez le stockage géoredondant, vous pouvez restaurer l’entrepôt de données sur votre centre de données couplé dans une autre région géographique. L’entrepôt de données est restauré à partir de la dernière sauvegarde quotidienne. ** Chronologie de la restauration** : vous pouvez restaurer une base de données à un point de restauration des sept derniers jours. Les captures instantanées démarrent toutes les quatre à huit heures et sont disponibles pendant sept jours. Quand une capture instantanée a une ancienneté supérieure à sept jours, elle expire et son point de restauration n’est plus disponible. ** Coûts des restaurations** : les frais de stockage pour l’entrepôt de données restauré sont facturés au tarif du Stockage Premium Azure. Si vous mettez en suspens un entrepôt de données restauré, vous êtes facturé pour le stockage au tarif du Stockage Premium Azure. L’avantage de la mise en suspens est que vous n’êtes pas facturé |2016-09-29 |
+| 3 |[Restauration SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Puis-je restaurer un entrepôt de données mis en suspens ?** Pour ce faire, vous devez d’abord le remettre en ligne. Une fois que l’entrepôt de données est à nouveau en ligne, vous pouvez choisir parmi les points de restauration sur une durée de sept jours. ** Restaurer sur une région géoredondante** Si vous utilisez le stockage géoredondant, vous pouvez restaurer l’entrepôt de données sur votre centre de données couplé dans une autre région géographique. L’entrepôt de données est restauré à partir de la dernière sauvegarde quotidienne. ** Chronologie de la restauration** Vous pouvez restaurer une base de données à n’importe quel point de restauration de la période des sept derniers jours. Les captures instantanées démarrent toutes les quatre à huit heures et sont disponibles pendant sept jours. Quand une capture instantanée a une ancienneté supérieure à sept jours, elle expire et son point de restauration n’est plus disponible. ** Coûts des restaurations** Les frais de stockage pour l’entrepôt de données restauré sont facturés au tarif du Stockage Premium Azure. Si vous mettez en suspens un entrepôt de données restauré, vous êtes facturé pour le stockage au tarif du Stockage Premium Azure. L’avantage de la mise en suspens est que vous n’êtes pas facturé |2016-09-29 |
 
 ## <a name="get-started"></a>Prise en main
 | &nbsp; | Intitulé | Description |
@@ -158,15 +160,10 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 ## <a name="miscellaneous"></a>Divers
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 83 |[Installer Visual Studio 2015 et SSDT pour SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installer les outils de développement Visual Studio et SSDT pour Azure SQL Data Warehouse |
+| 83 |[Installer Visual Studio et SSDT pour SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installer les outils de développement Visual Studio et SSDT pour Azure SQL Data Warehouse |
 | 84 |[Détails relatifs à la migration vers Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md) |Instructions de migration d’un entrepôt SQL Data Warehouse existant vers le stockage Premium |
 | 85 |[Prise en main de la détection de menaces](sql-data-warehouse-security-threat-detection.md) |Prise en main de la détection de menaces |
 | 86 |[Limites de la capacité de SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |Valeurs maximales pour les connexions, les bases de données, les tables et les requêtes pour SQL Data Warehouse. |
 | 87 |[Résolution des problèmes d’Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) |Résolution des problèmes d’Azure SQL Data Warehouse. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

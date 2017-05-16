@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9702f179a65754be88646987f868385b02a9f2d7
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -868,20 +868,18 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 1. Ajoutez au dossier **inputfolder**les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de `2015-11-16T05:00:00Z` à `2015-11-16T10:00:00Z`. Dans la **vue de diagramme**, double-cliquez sur **InputDataset** et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
 2. Augmentez ou réduisez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement qui se produit sur Azure Batch. (Pour plus d’informations sur le paramètre **concurrency** , voir l’étape 4 : Créer et exécuter le pipeline.)
 3. Créez un pool avec une valeur **Maximum tasks per VM**(Nombre maximal de tâches par machine virtuelle) supérieure/inférieure. Mettez à jour le service lié Azure Batch dans la solution Data Factory pour utiliser le nouveau pool créé. (Pour plus d’informations sur le paramètre **Maximum tasks per VM** , voir l’étape 4 : Créer et exécuter le pipeline.)
-4. Créez un pool Azure Batch avec la fonctionnalité **autoscale** . La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente :
+4. Créez un pool Azure Batch avec la fonctionnalité **autoscale** . La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. 
 
-   Une machine virtuelle à la fois par tâche en attente (par exemple : cinq tâches en attente -> cinq machines virtuelles) :
-    
-    ```
-    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-    $TargetDedicated = max(pendingTaskSampleVector);
-    ```
+    Cet exemple de formule permet d’obtenir le comportement suivant : quand le pool est créé, il commence avec 1 machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. startingNumberOfVMs et maxNumberofVMs peuvent être ajustés selon vos besoins.
+ 
+    Formule de mise à l’échelle automatique :
 
-   Une machine virtuelle à la fois, quel que soit le nombre de tâches en attente :
-
-    ```
-    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-    $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ``` 
+    startingNumberOfVMs = 1;
+    maxNumberofVMs = 25;
+    pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+    pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+    $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
     ```
 
    Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md) .

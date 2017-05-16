@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78bb4826a8c487576a06b3fd3c9fab333be72ace
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -62,7 +63,7 @@ La commande suivante récupère le niveau actuel des métriques par heure et la 
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Comment activer Storage Metrics par programmation
 L’extrait de code C# suivant montre comment activer les métriques et la journalisation pour le service BLOB à l’aide de la bibliothèque cliente de stockage pour .NET :
@@ -215,3 +216,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Activation de la journalisation du stockage et accès aux données des journaux](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+

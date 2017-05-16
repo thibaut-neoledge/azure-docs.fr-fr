@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
@@ -102,7 +102,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres d’heure configurés.
 11. Configurez les paramètres de cloud de votre appareil. Dans le cadre de cette étape, vous allez effectuer la configuration de l’appareil local, puis inscrire l’appareil auprès de votre service StorSimple Device Manager.
     
-    1. Saisissez la **clé d’inscription de service** que vous avez obtenue à l’ [étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+    1. Saisissez la **clé d’inscription de service** que vous avez obtenue à l’ [étape 2 : Obtention de la clé d’inscription](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
     2. S’il s’agit du premier appareil que vous inscrivez auprès de ce service, la **clé de chiffrement des données du service** vous est présentée. Copiez-la et enregistrez-la en lieu sûr. Cette clé et la clé d’inscription du service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Device Manager. 
        
        S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la clé de chiffrement des données du service. Pour plus d’informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
@@ -134,7 +134,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
     3. Une clé AES de 256 bits est utilisée avec la clé définie par l’utilisateur pour le chiffrement. Spécifiez une clé de 32 caractères, puis entrez de nouveau la clé pour la confirmer. Enregistrez la clé dans une application de gestion de clés à des fins de référence ultérieure.
     
-    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**.
+    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Dans le panneau **Ajouter les informations d’identification d’un compte de stockage**, procédez comme suit : 

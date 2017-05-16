@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: a483e219c1e730e174baa0ffa8ba471b0724f0da
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9519719a63387cb8c341c72e262c2aeaacc3cd4a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -25,9 +26,9 @@ ms.openlocfilehash: a483e219c1e730e174baa0ffa8ba471b0724f0da
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
 
 ## <a name="what-are-dynamic-groups"></a>Qu'est-ce-que les groupes dynamiques ?
-La configuration dynamique de l’appartenance au groupe de sécurité pour Azure Active Directory (Azure AD) est disponible en version préliminaire publique dans le [portail Azure](https://portal.azure.com). Les administrateurs peuvent définir des règles pour remplir les groupes créés dans Azure Active Directory en fonction d'attributs utilisateur (par exemple, userType, département ou pays). Cela permet d'ajouter automatiquement des membres à un groupe de sécurité ou d'en supprimer en fonction des modifications apportées à leurs attributs. Ces groupes permettent d’accorder l’accès à des applications ou à des ressources cloud (telles que des sites et documents SharePoint), et d’attribuer des licences à des utilisateurs. En savoir plus sur les groupes dynamiques dans [Groupes dédiés dans Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
+La configuration dynamique de l’appartenance au groupe de sécurité pour Azure Active Directory (Azure AD) est disponible dans le [portail Azure](https://portal.azure.com). Les administrateurs peuvent définir des règles pour remplir les groupes créés dans Azure Active Directory en fonction d'attributs utilisateur (par exemple, userType, département ou pays). Cela permet d'ajouter automatiquement des membres à un groupe de sécurité ou d'en supprimer en fonction des modifications apportées à leurs attributs. Ces groupes permettent d’accorder l’accès à des applications ou à des ressources cloud (telles que des sites et documents SharePoint), et d’attribuer des licences à des utilisateurs. En savoir plus sur les groupes dynamiques dans [Groupes dédiés dans Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
 
-Avec un abonnement AAD Premium P1 ou P2, le portail Azure vous permet de créer maintenant des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes de la version préliminaire d’Azure Active Directory. Pour en savoir plus sur la création de règles avancées, consultez la rubrique [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans la version préliminaire d’Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
+Avec un abonnement AAD Premium P1 ou P2, le portail Azure vous permet désormais de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs pour des groupes Azure Active Directory. Pour en savoir plus sur la création de règles avancées, consultez la rubrique [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans la version préliminaire d’Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
 
 ## <a name="what-are-the-built-in-dynamic-groups"></a>Que sont les groupes dynamiques intégrés ?
 Le groupe dynamique **Tous les utilisateurs** permet à des administrateurs de locataires de créer un groupe contenant tous les utilisateurs dans le locataire en un seul clic. Par défaut, le groupe **Tous les utilisateurs** inclut tous les utilisateurs du répertoire, dont les invités et les utilisateurs externes.
@@ -58,9 +59,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
 * [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

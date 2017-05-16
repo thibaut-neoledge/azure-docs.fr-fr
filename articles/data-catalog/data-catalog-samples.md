@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +36,5 @@ Voici les exemples disponibles sur GitHub :
 * [Outil d’importation/exportation](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
   
   Exemple qui montre comment utiliser l’API REST Data Catalog pour extraire des ressources d’Azure Data Catalog et les sérialiser dans un fichier. Il montre aussi comment sélectionner un ensemble de ressources sérialisées au format JSON et les placer dans le catalogue. Cet exemple prend en charge l’exportation d’un sous-ensemble du catalogue à l’aide d’une requête de recherche.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 160560fcc3d586d2bbcba67d2f7c60cfed26f5c3
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 97d61099ef4109d8fc1d6078bdaeddd36ad7c648
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -35,12 +36,9 @@ ms.lasthandoff: 03/24/2017
 
 Cet article vous guide tout au long des étapes de création et de gestion d'une configuration de routage d'un circuit ExpressRoute à l'aide de PowerShell et du modèle de déploiement Azure Resource Manager.  Les étapes ci-dessous vous montrent également comment vérifier l’état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d’un circuit ExpressRoute. 
 
-**À propos des modèles de déploiement Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-* Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 

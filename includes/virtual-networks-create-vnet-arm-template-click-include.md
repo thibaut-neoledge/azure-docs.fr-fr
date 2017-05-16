@@ -22,8 +22,3 @@ Vous pouvez réutiliser les modèles ARM prédéfinis sur le référentiel GitHu
     
      ![Créer un réseau virtuel dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

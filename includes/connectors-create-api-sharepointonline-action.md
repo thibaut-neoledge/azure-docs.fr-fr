@@ -29,8 +29,3 @@ Pour configurer cette action, vous devez fournir les informations suivantes. Lor
 10. Enregistrez les modifications à votre flux de travail  
 11. Félicitations, vous avez maintenant une application logique entièrement fonctionnelle qui est déclenchée lorsqu’un nouvel élément est ajouté à une liste SharePoint Online. L’application crée alors un fichier à l’aide des propriétés du nouvel élément de liste.  Vous pouvez maintenant la tester en créant un nouvel élément dans la liste SharePoint. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,19 +14,20 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 98b02e8faa21e6d0e04d2f2c70bee6b8b018c010
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 34d075658514045e28d6a784c579528bb3eac376
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-python"></a>Utilisation du stockage de tables à partir de Python
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de Tables Azure. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Les scénarios traités incluent la création et la suppression d’une table, en plus de l’insertion et de l’interrogation d’entités dans une table.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de Tables Azure. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python](https://github.com/Azure/azure-storage-python). Les scénarios traités incluent la création et la suppression d’une table, en plus de l’insertion et de l’interrogation d’entités dans une table.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -163,18 +164,8 @@ table_service.delete_table('tasktable')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour en savoir plus.
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Centre de développement Python](/develop/python/)
 * [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
-* [Blog de l'équipe Azure Storage]
-* [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
-
-[Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-
+* [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python](https://github.com/Azure/azure-storage-python)

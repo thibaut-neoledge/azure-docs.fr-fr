@@ -16,8 +16,3 @@ Ajoutons un déclencheur.
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

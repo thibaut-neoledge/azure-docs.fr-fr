@@ -11,8 +11,3 @@ Dans la session Bureau à distance, téléchargez [KB2854082](http://support.mic
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

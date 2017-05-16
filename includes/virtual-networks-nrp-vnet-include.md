@@ -77,8 +77,3 @@ Exemple de réseau virtuel au format JSON :
 * Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) pour les réseaux virtuels.
 * Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) pour les sous-réseaux.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

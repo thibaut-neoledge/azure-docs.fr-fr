@@ -32,8 +32,3 @@ Non. Azure ne prend en charge qu’un seul enregistrement DNS inversé pour chaq
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Puis-je envoyer des courriers électroniques à des domaines externes à partir d’Azure Compute Services ?
 
 Non. [Les services Azure Compute Services ne prennent pas en charge l’envoi de messages à des domaines externes](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

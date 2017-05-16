@@ -21,8 +21,3 @@
 | Centre du Canada |Est du Canada |
 | Ouest des États-Unis 2 |Centre-Ouest des États-Unis |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

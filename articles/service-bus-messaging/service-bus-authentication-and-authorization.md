@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8e113a78519444fd1e0a9da89ec95aa0dccebb2b
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +47,7 @@ Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide
 La prise en charge de l’authentification SAS pour Service Bus est incluse dans le Kit de développement Azure .NET SDK versions 2.0 et ultérieures. SAP inclut l’assistance pour [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
 ## <a name="acs-authentication"></a>Authentification ACS
-L’authentification de service Bus via ACS est gérée via un espace de noms ACS compagnon « -sb ». Si vous souhaitez qu’un espace de noms ACS associé soit créé pour un espace de noms Service Bus, vous ne pouvez pas créer votre espace de noms Service Bus à l’aide du portail Azure Classic. Vous devez créer l’espace de noms à l’aide de l’applet de commande PowerShell [New-AzureSBNamespace](/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace). Par exemple :
+L’authentification de service Bus via ACS est gérée via un espace de noms ACS compagnon « -sb ». Si vous souhaitez qu’un espace de noms ACS associé soit créé pour un espace de noms Service Bus, vous ne pouvez pas créer votre espace de noms Service Bus à l’aide du portail Azure Classic. Vous devez créer l’espace de noms à l’aide de l’applet de commande PowerShell [New-AzureSBNamespace](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0). Par exemple :
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

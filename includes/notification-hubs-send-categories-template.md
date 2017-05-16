@@ -58,11 +58,6 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour
 <!-- URLs. -->
 [prise en main des Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [l’interface REST des Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Ajout de notifications push pour les applications mobiles]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java/PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [package NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

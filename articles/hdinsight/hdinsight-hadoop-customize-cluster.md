@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 96a7410ec90d31e565ea8338d908564c209c6a4f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 73eca14cef9de38ba50881932312c9a44d378cf3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -64,7 +65,7 @@ HDInsight propose plusieurs scripts pour installer les composants suivants sur d
 ## <a name="call-scripts-using-the-azure-portal"></a>Appel de scripts à l’aide du portail Azure
 **Dans le portail Azure**
 
-1. Démarrez la création d'un cluster comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
+1. Démarrez la création d'un cluster comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Dans Configuration facultative, sur le panneau **Actions de script**, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
     ![Utiliser Action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Utiliser Action de script pour personnaliser un cluster")
@@ -326,7 +327,7 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 

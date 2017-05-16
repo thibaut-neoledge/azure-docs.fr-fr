@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 0d909f6272cc9dcfd13bd9c18affa8d1e249efe4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/17/2017
 
 Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un [Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez [Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
 
-Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent déjà accéder à votre application via **https://*&lt;nom_application>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que**contoso.com**, **www.contoso.com**et**\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.   
+Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent déjà accéder à votre application par le biais de **https://*&lt;nom_application>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et **\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.   
 
 > [!NOTE]
 > Pour accéder à tout moment à l’aide des experts Azure, consultez les [forums Azure](https://azure.microsoft.com/support/forums/). Pour un support personnalisé, accédez à [Support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir de l’aide**.
@@ -44,7 +45,7 @@ Pour sécuriser une application disposant d’un nom de domaine personnalisé av
 Pour sécuriser votre nom de domaine personnalisé avec le protocole HTTPS, vous devez lier un certificat SSL personnalisé à ce domaine personnalisé dans Azure. Avant de lier un certificat personnalisé, vous devez effectuer les opérations suivantes :
 
 * **Configurer le domaine personnalisé** - App Service autorise uniquement l’ajout d’un certificat pour un nom de domaine déjà configuré dans votre application. Pour obtenir des instructions, consultez [Mapper un nom de domaine personnalisé à une application Azure](web-sites-custom-domain-name.md). 
-* **Monter en puissance vers le niveau De base ou version supérieure** Les plans App Service dans les niveaux de tarification inférieurs ne prennent pas en charge les certificats SSL personnalisés. Pour obtenir des instructions, consultez la page [Montée en puissance d’une application dans Azure](web-sites-scale.md). 
+* **Monter en puissance vers le niveau De base ou version supérieure** - Les plans App Service dans les niveaux de tarification inférieurs ne prennent pas en charge les certificats SSL personnalisés. Pour obtenir des instructions, consultez la page [Montée en puissance d’une application dans Azure](web-sites-scale.md). 
 * **Obtenir un certificat SSL** - Si vous n’en avez pas déjà un, vous devez l’obtenir auprès d’une [autorité de certification](http://en.wikipedia.org/wiki/Certificate_authority) (CA) approuvée. Le certificat doit répondre à toutes les exigences suivantes :
   
   * Il est signé par une autorité de certification approuvée (pas de serveurs d’autorité de certification privés).

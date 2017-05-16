@@ -4,7 +4,7 @@ description: "Cet article vous explique comment ajouter une passerelle de résea
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
@@ -13,31 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/17/2017
 ms.author: charwen
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8abcb506243d0cc86d3d65431cd40b3a6d08063c
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb6b5efc8ad4d40e1b0f41aad678eca6da9798d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager - Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
-Cet article vous montrera les étapes nécessaires pour ajouter, redimensionner et supprimer une passerelle de réseau virtuel pour un réseau virtuel existant. Les étapes de cette configuration sont spécifiquement adaptées aux réseaux virtuels qui ont été créés à l’aide du **modèle de déploiement Resource Manager** et qui seront utilisés dans une configuration ExpressRoute. 
+Cet article vous montre les étapes nécessaires pour ajouter, redimensionner et supprimer une passerelle de réseau virtuel pour un réseau virtuel existant. Les étapes de cette configuration sont spécifiquement adaptées aux réseaux virtuels qui ont été créés à l’aide du modèle de déploiement Resource Manager qui sera utilisé dans une configuration ExpressRoute. Pour plus d’informations sur les passerelles de réseau virtuel et les paramètres de configuration de passerelle pour ExpressRoute, consultez [À propos des passerelles de réseau virtuel pour ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
-**À propos des modèles de déploiement Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Avant tout chose
-Vérifiez que vous avez installé les applets de commande Azure PowerShell nécessaires pour cette configuration (1.0.2 ou ultérieure). Si vous n’avez pas installé les applets de commande, vous devez le faire avant de commencer les étapes de configuration. Pour plus d’informations sur l’installation d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Assurez-vous que vous avez installé les dernières applets de commande Azure PowerShell. Si vous n’avez pas installé les dernières applets de commande, vous devez le faire avant de commencer les étapes de configuration. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

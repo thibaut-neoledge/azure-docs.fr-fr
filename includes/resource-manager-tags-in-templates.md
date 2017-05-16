@@ -86,7 +86,3 @@ Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -60,7 +62,7 @@ Pour en savoir plus sur la création de clusters en local, voir [Création d’u
 
 ![Plateforme Service Fabric][Image1]
 
-## <a name="stateless-and-stateful-micrososervices-for-service-fabric"></a>Microservices avec et sans état pour Service Fabric
+## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservices avec et sans état pour Service Fabric
 Service Fabric permet de créer des applications composées de microservices. Les microservices sans état (tels que les passerelles de protocole et les proxys web) ne conservent pas un état mutable en dehors d’une demande du service et de sa réponse. Les rôles de travail Azure Cloud Services sont un exemple de service sans état. Les microservices avec état (tels que les comptes d’utilisateur, les bases de données, les appareils, les paniers d’achat et les files d’attente) conservent un état mutable faisant autorité au-delà de la demande et la réponse. Actuellement, les applications Internet sont constituées d’une combinaison de microservices avec et sans état.
 
 Pourquoi utiliser des microservices avec état et sans état ? Voici les deux principales raisons :
@@ -118,9 +120,4 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

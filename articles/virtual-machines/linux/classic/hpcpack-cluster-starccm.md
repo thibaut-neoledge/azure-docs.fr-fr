@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c83d39c87f789397116601e3e775a4f0ed3eac72
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 ## <a name="set-up-an-hpc-pack-cluster"></a>Configurer un cluster HPC Pack
 Téléchargez les scripts de déploiement IaaS de HPC Pack à partir du [Centre de téléchargement](https://www.microsoft.com/en-us/download/details.aspx?id=44949) et extrayez-les localement.
 
-Azure PowerShell doit être installé et configuré. Si le logiciel PowerShell n’est pas configuré sur votre ordinateur local, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell doit être installé et configuré. Si le logiciel PowerShell n’est pas configuré sur votre ordinateur local, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 Lors de la rédaction de cet article, les images Linux d’Azure Marketplace (qui contient les pilotes InfiniBand pour Azure) correspondent à SLES 12, CentOS 6.5 et CentOS 7.1. Cet article utilise SLES 12. Pour récupérer le nom de toutes les images Linux prenant en charge HPC dans le Marketplace, exécutez la commande PowerShell suivante :
 

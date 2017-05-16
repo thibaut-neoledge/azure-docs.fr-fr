@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: e9fd8855cf0c51df5f3ec4f80a733e778996fb82
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 15d3216ef5bb1d7ff312bd886837a3a7b0335afd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-php"></a>Utilisation du stockage de tables à partir de PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de tables Azure. Les exemples sont écrits en PHP et utilisent le [kit SDK Azure pour PHP][download]. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion, la suppression et l'interrogation d'entités dans une table**. Pour plus d'informations sur le service de Table Azure, consultez la section [Étapes suivantes](#next-steps) .
@@ -484,9 +484,9 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base du service Table Azure, consultez les liens suivants pour découvrir des tâches de stockage plus complexes.
 
-* Consultez le [blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 
-Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+* [Centre de développement PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://php.net/require_once

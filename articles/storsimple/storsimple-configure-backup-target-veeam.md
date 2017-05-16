@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
-ms.lasthandoff: 01/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d4a0dfbfab052e98e0dd641e8cab8fc143c2ff41
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -466,7 +467,7 @@ La section ci-après décrit comment créer un bref script pour déclencher et s
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Pour démarrer ou supprimer une capture instantanée cloud
 
-1. [Installez Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+1. [Installez Azure PowerShell](/powershell/azure/overview).
 2. [Téléchargez et importez les paramètres de publication et les informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx).
 3. Dans le Portail Azure Classic, obtenez le nom de la ressource et la [clé d’inscription pour votre service StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4. Sur le serveur qui exécute le script, exécutez PowerShell en tant qu’administrateur. Tapez la commande suivante :

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: fab0a7b7ef3fd54194d719f49537a98416107e8a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -41,8 +42,9 @@ Cet article vous guide tout au long des étapes de création et de gestion de la
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-* Vous devez installer la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour en savoir plus, voir [Prise en main des applets de commande PowerShell](/powershell/azureps-cmdlets-docs).  
+* Vous devez installer la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour en savoir plus, voir [Prise en main des applets de commande PowerShell](/powershell/azure/overview).  
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 

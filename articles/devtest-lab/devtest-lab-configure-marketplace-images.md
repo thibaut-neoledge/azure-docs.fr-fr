@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5606c538d7ee5afc6b2c3cfcfae0a6aca341c7f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0779371b10e64a12ef994c63ee0fba724be88c4a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configuration des paramètres d’image Azure Marketplace dans Azure DevTest Labs
-DevTest Labs prend en charge la création de machines virtuelles basées sur des images Azure Marketplace en fonction de la manière dont vous avez configuré des images Azure Marketplace à utiliser dans votre laboratoire. Cet article montre comment spécifier, le cas échéant, les images Azure Marketplace qui peuvent être utilisées lors de la création de machines virtuelles dans un laboratoire.
+DevTest Labs prend en charge la création de machines virtuelles basées sur des images Azure Marketplace en fonction de la manière dont vous avez configuré des images Azure Marketplace à utiliser dans votre laboratoire. Cet article montre comment spécifier, le cas échéant, les images Azure Marketplace qui peuvent être utilisées lors de la création de machines virtuelles dans un laboratoire. Cela garantit que votre équipe a accès uniquement aux images de la Place de marché dont elle a besoin. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Sélection des images Azure Marketplace autorisées lors de la création d’une machine virtuelle
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -49,10 +50,5 @@ DevTest Labs prend en charge la création de machines virtuelles basées sur des
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez configuré comment les images Azure Marketplace sont autorisées durant la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

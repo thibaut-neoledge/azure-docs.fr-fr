@@ -5,8 +5,3 @@ Dans ce scénario, vous allez créer une homologation entre deux réseaux virtue
 
 VNet Peering permet d’établir une connectivité complète entre tout l’espace d’adressage des réseaux virtuels homologués.    
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

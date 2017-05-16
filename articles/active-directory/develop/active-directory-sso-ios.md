@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/07/2017
 ms.author: xerners
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 7fcc00df80ef61f99f6044cd338cbdd16fde0117
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -63,7 +64,7 @@ Ces connexions présentent les avantages suivants :
 Ces connexions présentent les inconvénients suivants :
 
 * L’utilisateur ne peut pas profiter de l’authentification unique sur l’ensemble des applications utilisant Microsoft Identity, uniquement sur celles que votre application a configuré.
-* Votre application ne peut pas être utilisée avec des fonctionnalités commerciales plus avancées, comme l’accès conditionnel ; elle ne peut pas non plus utiliser la suite de produits Intune.
+* Votre application ne peut pas être utilisée avec des fonctionnalités commerciales plus avancées, comme l’accès conditionnel ; elle ne peut pas non plus utiliser la suite de produits Intune.
 * Votre application ne peut pas prendre en charge l’authentification par certificat des utilisateurs professionnels.
 
 Voici une représentation de la manière dont les Kits de développement logiciel (SDK) Microsoft Identity fonctionnent avec le stockage partagé de vos applications, pour l’activation de l’authentification unique :
@@ -83,26 +84,26 @@ Voici une représentation de la manière dont les Kits de développement logicie
 ```
 
 #### <a name="broker-assisted-logins"></a>Connexions assistées avec répartiteur
-Les connexions assistées avec répartiteur sont des expériences de connexion se produisant au sein de l’application de répartiteur, qui utilisent le stockage et la sécurité de ce composant pour partager l’ensemble des applications sur l’appareil qui applique la plateforme Microsoft Identity. Vos applications s’appuient sur le répartiteur pour connecter les utilisateurs. Sur iOS et Android, ces répartiteurs sont offerts via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère les appareils des utilisateurs. Comme exemple de ce type d’application, citons Azure Authenticator sur iOS. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ».
+Les connexions assistées avec répartiteur sont des expériences de connexion se produisant au sein de l’application de répartiteur, qui utilisent le stockage et la sécurité de ce composant pour partager l’ensemble des applications sur l’appareil qui applique la plateforme Microsoft Identity. Vos applications s’appuient sur le répartiteur pour connecter les utilisateurs. Sur iOS et Android, ces répartiteurs sont fournis via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère les appareils des utilisateurs. Comme exemple de ce type d’application, citons Microsoft Authenticator sur iOS. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ».
 L’expérience, qui varie en fonction des plateformes, peut parfois perturber les utilisateurs en cas de gestion inappropriée. Vous connaissez probablement davantage ce modèle si vous avez installé l’application Facebook et que vous utilisez Facebook Connect depuis une autre application. La plateforme Microsoft Identity utilise le même modèle.
 
-Sur iOS, une animation de transition s’affiche. Votre application est transmise à l’arrière-plan, tandis que les applications Azure Authenticator sont mises en avant-plan, ce qui permet à l’utilisateur de choisir son compte de connexion.  
+Sur iOS, une animation de transition s’affiche. Votre application est transmise à l’arrière-plan, tandis que les applications Microsoft Authenticator sont mises en avant-plan, ce qui permet à l’utilisateur de choisir son compte de connexion.  
 
 Sur Android et Windows, le sélecteur de compte s’affiche dans la partie supérieure de votre application ; l’utilisateur est ainsi moins perturbé.
 
 #### <a name="how-the-broker-gets-invoked"></a>Appel du répartiteur
-Si un répartiteur compatible, tel que l’application Azure Authenticator, est installé sur l’appareil, les Kits de développement logiciel (SDK) Microsoft Identity effectuent automatiquement pour vous l’opération d’appel du répartiteur lorsqu’un utilisateur souhaite se connecter à l’aide d’un compte de la plateforme Microsoft Identity. Il peut s’agir d’un compte personnel Microsoft, d’un compte professionnel ou scolaire, ou d’un compte que vous fournissez et hébergez dans Microsoft Azure à l’aide de nos produits B2C et B2B. 
+Si un répartiteur compatible, tel que l’application Microsoft Authenticator, est installé sur l’appareil, les Kits de développement logiciel (SDK) Microsoft Identity effectuent automatiquement pour vous l’opération d’appel du répartiteur lorsqu’un utilisateur souhaite se connecter à l’aide d’un compte de la plateforme Microsoft Identity. Il peut s’agir d’un compte personnel Microsoft, d’un compte professionnel ou scolaire, ou d’un compte que vous fournissez et hébergez dans Microsoft Azure à l’aide de nos produits B2C et B2B. 
 
  #### <a name="how-we-ensure-the-application-is-valid"></a>Comment s’assurer que l’application est valide
  
- Pour sécuriser les connexions assistées avec répartiteur, il est essentiel de s’assurer de l’identité de l’application appelant le répartiteur. iOS et Android ne fournissent pas d’identificateurs uniques qui sont valides uniquement pour une application donnée. Ainsi, des applications malveillantes peuvent « usurper » l’identité d’une application légitime en utilisant son identificateur et recevoir les jetons destinés à l’application légitime. Pour être sûrs de toujours communiquer avec la bonne application au moment de l’exécution, nous demandons au développeur de fournir un URI de redirection personnalisé lorsqu’il inscrit son application auprès de Microsoft. **Nous expliquons ci-dessous comment les développeurs doivent créer cet URI de redirection.** Cet URI de redirection personnalisé contient l’ID d’offre groupée de l’application et est garanti comme étant propre à l’application par l’App Store. Lorsqu’une application appelle le répartiteur, celui-ci demande au système d’exploitation iOS de lui fournir l’ID d’offre groupée qui a appelé le répartiteur. Le répartiteur fournit cet l’ID d’offre groupée à Microsoft dans le cadre de l’appel à notre système d’identité. Si l’ID d’offre groupée de l’application ne correspond pas à l’ID d’offre groupée fourni par le développeur au moment de l’inscription, nous refusons l’accès aux jetons de la ressource dont l’application a fait la demande. Cette vérification permet de s’assurer que seule l’application inscrite par le développeur reçoit les jetons.
+ Pour sécuriser les connexions assistées avec répartiteur, il est essentiel de s’assurer de l’identité de l’application appelant le répartiteur. iOS et Android ne fournissent pas d’identificateurs uniques valides uniquement pour une application donnée. Ainsi, des applications malveillantes peuvent « usurper » l’identité d’une application légitime en utilisant son identificateur et recevoir les jetons destinés à l’application légitime. Pour être sûrs de toujours communiquer avec la bonne application au moment de l’exécution, nous demandons aux développeurs de fournir un URI de redirection (redirectURI) personnalisé lorsqu’ils inscrivent leur application auprès de Microsoft. **Nous expliquons ci-dessous comment les développeurs doivent créer cet URI de redirection.** Cet URI de redirection personnalisé contient l’ID d’offre groupée de l’application et est garanti comme étant propre à l’application par l’App Store. Lorsqu’une application appelle le répartiteur, celui-ci demande au système d’exploitation iOS de lui fournir l’ID d’offre groupée qui a appelé le répartiteur. Le répartiteur fournit cet l’ID d’offre groupée à Microsoft dans le cadre de l’appel à notre système d’identité. Si l’ID d’offre groupée de l’application ne correspond pas à l’ID d’offre groupée fourni par le développeur au moment de l’inscription, nous refusons l’accès aux jetons de la ressource dont l’application a fait la demande. Cette vérification permet de s’assurer que seule l’application inscrite par le développeur reçoit les jetons.
 
 **Le développeur détermine si le kit de développement logiciel (SDK) appelle le répartiteur ou utilise un flux assisté sans répartiteur.** Toutefois, si le développeur choisit de ne pas avoir recours au flux assisté avec répartiteur, il ne peut pas utiliser les informations d’identification d’authentification unique déjà saisies par l’utilisateur sur l’appareil et il empêche toute utilisation de l’application avec des fonctions commerciales fournies par Microsoft à ses clients, comme l’accès conditionnel, les fonctionnalités de gestion Intune et l’authentification par certificat.
 
 Ces connexions présentent les avantages suivants :
 
 * L’utilisateur profite de l’authentification unique sur l’ensemble de ses applications, quel que soit le fournisseur.
-* Votre application peut utiliser des fonctionnalités commerciales plus avancées, comme l’accès conditionnel ou utiliser la suite de produits Intune.
+* Votre application peut utiliser des fonctionnalités commerciales plus avancées, comme l’accès conditionnel, ou la suite de produits Intune.
 * Votre application peut prendre en charge l’authentification par certificat des utilisateurs professionnels.
 * L’expérience de connexion est bien plus sécurisée, dans la mesure où les identités de l’application et de l’utilisateur sont vérifiées par l’application du répartiteur à l’aide d’algorithmes de sécurité et d’un chiffrement supplémentaires.
 

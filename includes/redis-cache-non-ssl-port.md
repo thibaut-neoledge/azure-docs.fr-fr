@@ -2,8 +2,3 @@ Pour activer le port non SSL, [naviguez](../articles/redis-cache/cache-configure
 
 ![Paramètres du cache Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

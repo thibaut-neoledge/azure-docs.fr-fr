@@ -61,8 +61,3 @@ La taille d'instance du plan d'hébergement (petite, moyenne ou grande).
 
 Le modèle définit les valeurs autorisées pour ce paramètre (0, 1 ou 2) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Les valeurs correspondent à une taille petite, moyenne et grande.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

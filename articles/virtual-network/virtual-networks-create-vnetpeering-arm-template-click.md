@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
-translationtype: Human Translation
-ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
-ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 86eec91025ae8ae553fa1f76a687e440784e7855
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/16/2017
 
 Pour créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager, suivez les étapes ci-dessous :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
    > [!NOTE]
    > L’applet de commande PowerShell pour la gestion de l’homologation de réseaux virtuels est fournie avec [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)

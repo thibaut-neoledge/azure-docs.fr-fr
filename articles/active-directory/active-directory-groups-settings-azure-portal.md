@@ -34,7 +34,7 @@ Cet article explique comment modifier les paramètres d’un groupe dans la vers
 
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
-5. Dans le panneau **Groupe - *NomGroupe***, sélectionnez **Propriétés**.
+5. Dans le panneau **Groupe -*NomGroupe***, sélectionnez **Propriétés**.
 
    ![Ouverture du panneau Propriétés](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Lorsque vous avez terminé la modification des propriétés du groupe, sélectionnez **Enregistrer**.    

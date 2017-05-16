@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
 
 
@@ -35,7 +36,7 @@ Vous pouvez l’activer depuis le portail Azure pour les services cloud et les b
 
 * Choisissez la métrique **scale by (mise à l’échelle par)** .
 
-![scale by (mise à l’échelle par)](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by (mise à l’échelle par)](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Jeux de mise à l’échelle de machine virtuelle
 Pour des machines virtuelles plus récentes créées avec Resource Manager (groupes identiques de machines virtuelles), vous pouvez effectuer cette configuration à l’aide de l’API REST, de modèles Resource Manager, de PowerShell et de l’interface de ligne de commande (CLI). Aucune interface de portail n’est disponible pour l’instant.
@@ -126,5 +127,4 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | oldCapacity |yes |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
 | newCapacity |yes |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
 | properties |Non |facultatif. Jeu de paires < clé, valeur > (par exemple, Dictionary < String, String >). Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, vous pouvez entrer des clés et des valeurs transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au webhook sortant consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête). |
-
 

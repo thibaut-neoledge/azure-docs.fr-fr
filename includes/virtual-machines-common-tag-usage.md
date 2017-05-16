@@ -18,8 +18,3 @@ Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la c
 
 En analysant ces balises ainsi que leur utilisation, les organisations sont en mesure de mieux comprendre leurs données de consommation.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

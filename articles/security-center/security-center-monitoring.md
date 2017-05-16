@@ -4,7 +4,7 @@ description: "Cet article a pour but de vous aider à vous familiariser avec les
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ Cet article a pour but de vous aider à utiliser les fonctionnalités de surveil
 Nous pensons souvent que la surveillance consiste à veiller et à attendre qu’un événement se produise pour y répondre. Ici, la surveillance de la sécurité fait référence à une stratégie proactive qui audite vos ressources afin d’identifier les systèmes qui ne répondent pas aux normes organisationnelles ou aux meilleures pratiques.
 
 ## <a name="monitoring-security-health"></a>Surveillance de l’intégrité de la sécurité
-Une fois que vous avez activé les [stratégies de sécurité](security-center-policies.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles. Les informations sur la configuration du réseau sont instantanément disponibles. L’affichage des informations concernant la configuration des machines virtuelles (telles que l’état des mises à jour de sécurité ou la configuration du système d’exploitation) peut prendre une heure ou plus. Vous pouvez visualiser l’état de sécurité de vos ressources et les problèmes éventuels dans le panneau **Intégrité de la sécurité des ressources**. Vous pouvez également afficher une liste de ces problèmes dans le panneau **Recommandations** .
+Une fois que vous avez activé les [stratégies de sécurité](security-center-policies.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles. Les informations sur la configuration du réseau sont instantanément disponibles. L’affichage des informations concernant la configuration des machines virtuelles (telles que l’état des mises à jour de sécurité ou la configuration du système d’exploitation) peut prendre une heure ou plus. Vous pouvez visualiser l’état de sécurité de vos ressources et les problèmes éventuels dans la section **Prévention**. Vous pouvez également afficher une liste de ces problèmes dans la mosaïque **Recommandations** .
 
 Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-La mosaïque **Intégrité de la sécurité des ressources** vous permet de surveiller l’état de sécurité de vos ressources. L’exemple suivant représente des problèmes de niveau de gravité élevé ou moyen, qui nécessitent une attention particulière. Les stratégies de sécurité qui sont activées ont un impact sur les types de contrôles surveillés.
+Dans la section **Prévention**, vous pouvez surveiller l’état de sécurité de vos ressources. Dans l’exemple suivant, vous pouvez voir dans la vignette de chaque ressource (Compute, Mise en réseau, Stockage et données et Application) le nombre total de problèmes qui ont été identifiés.
 
-![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Si Azure Security Center identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](/virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
 
 ### <a name="monitor-compute"></a>Suivre les calculs
-Lorsque vous cliquez sur **Calcul** dans la vignette **Intégrité de la sécurité des ressources**, le panneau **Calcul** qui s’ouvre affiche trois onglets :
+Lorsque vous cliquez sur la mosaïque **Compute**, le panneau **Compute** qui s’ouvre affiche trois onglets :
 
 - **Vue d’ensemble** : recommandations relatives aux machines virtuelles et à la surveillance.
 - **Machines virtuelles** : liste de toutes les machines virtuelles et informations relatives à l’intégrité de leur sécurité.
@@ -119,7 +119,7 @@ Pour voir une explication plus normative concernant cette recommandation, clique
 ![Recommandations de services cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Surveillance des réseaux virtuels
-Lorsque vous cliquez sur **Mise en réseau** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Mise en réseau** s’ouvre et affiche des informations détaillées, comme illustré dans la capture d’écran suivante :
+Lorsque vous cliquez sur la mosaïque **Mise en réseau**, le panneau **Mise en réseau** s’ouvre et affiche des informations détaillées, comme illustré dans la capture d’écran suivante :
 
 ![Panneau Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ Dans cette topologie, le premier niveau se décompose comme suit : [réseaux vi
 
 La partie inférieure de ce panneau regroupe les recommandations pour cette machine virtuelle, similaires celles décrites ci-dessus. Vous pouvez cliquer sur une recommandation pour en savoir plus, ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
-### <a name="monitor-data"></a>Surveiller des données
+### <a name="monitor-storage--data"></a>Analyse de Stockage et données
 
-Lorsque vous cliquez sur **SQL & Data (SQL et données)** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre avec des recommandations pour SQL et Stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez [Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center)](security-center-enable-encryption-for-storage-account.md).
+Lorsque vous cliquez sur **Stockage et données** dans la section **Prévention**, le panneau **Ressources de données** s’ouvre avec des recommandations pour SQL et le stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez [Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center)](security-center-enable-encryption-for-storage-account.md).
 
-![Ressources de données](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Ressources de données](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 Sous **Recommandations SQL**, vous pouvez cliquer sur une recommandation et obtenir des informations sur les actions permettant de résoudre un problème. L’exemple suivant montre le détail de la recommandation **Database Auditing & Threat detection on SQL databases (Audit de base de données et détection des menaces sur les bases de données SQL)**.
 

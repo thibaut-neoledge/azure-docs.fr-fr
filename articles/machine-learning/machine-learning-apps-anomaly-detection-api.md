@@ -110,8 +110,8 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Sorties |
 | --- | --- | --- | --- | --- |
-| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté,&0; dans le cas contraire) |
-| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté,&0; dans le cas contraire) | |
+| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
+| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
 | Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |tscore : nombre flottant représentant le résultat d’anomalies pour une tendance |
 | Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
 
@@ -138,9 +138,9 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | TSpike |Indicateur binaire signalant si un pic est détecté par le détecteur TSpike |
 | ZSpike |Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike |
 | rpscore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau bidirectionnel |
-| rpalert |Valeur de&1;/0 indiquant s’il y a une anomalie de changement de niveau bidirectionnel vers le haut en fonction de la sensibilité d’entrée |
+| rpalert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau bidirectionnel vers le haut en fonction de la sensibilité d’entrée |
 | tscore |Nombre flottant représentant le résultat d’anomalies pour une tendance positive |
-| talert |Valeur de&1;/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
+| talert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 L’API ScoreWithSeasonality est utilisée pour la détection des anomalies dans les séries chronologiques qui présentent des schémas saisonniers. Cette API est utile pour détecter les écarts dans les schémas saisonniers.  
@@ -182,11 +182,11 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | TSpike |Indicateur binaire signalant si un pic est détecté par le détecteur TSpike |
 | ZSpike |Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike |
 | BiLevelChangeScore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau |
-| BiLevelChangeAlert |Valeur&1;/0 indiquant s’il y a une anomalie de changement de niveau en fonction de la sensibilité d’entrée |
+| BiLevelChangeAlert |Valeur 1/0 indiquant s’il y a une anomalie de changement de niveau en fonction de la sensibilité d’entrée |
 | PosTrendScore |Nombre flottant représentant le résultat d’anomalies pour une tendance positive |
-| PosTrendAlert |Valeur de&1;/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
+| PosTrendAlert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
 | NegTrendScore |Nombre flottant représentant le résultat d’anomalies pour une tendance négative |
-| NegTrendAlert |Valeur de&1;/0 indiquant s’il y a une anomalie de tendance négative en fonction de la sensibilité d’entrée |
+| NegTrendAlert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance négative en fonction de la sensibilité d’entrée |
 
 [1]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png

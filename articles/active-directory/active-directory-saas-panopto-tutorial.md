@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 41e04425a291c9f89bc58341c6bad22ad1bdb8ef
-ms.openlocfilehash: 90f962fbd19f125cfb609e439f157c4822acfce4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 078a2ea0db006cf976f89a55c65a536a7b9f04aa
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Didacticiel : Intégration d’Azure Active Directory à Panopto
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Panopto. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Panopto. 
+
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
 * Un locataire Panopto
@@ -31,13 +34,13 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et Panopto
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour Panopto
-2. Configuration de l'authentification unique
+2. Configuration de l’authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-panopto-tutorial/IC777665.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-panopto"></a>Activation de l’intégration d’application pour Panopto
+## <a name="enable-the-application-integration-for-panopto"></a>Activer l’intégration d’applications pour Panopto
 Cette section décrit l’activation de l’intégration d’application pour Panopto.
 
 **Pour activer l’intégration d’application pour Panopto, procédez comme suit :**
@@ -66,10 +69,11 @@ Cette section décrit l’activation de l’intégration d’application pour Pa
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Panopto avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. 
+
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+**Pour configurer l’authentification unique, suivez les étapes ci-dessous :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **Panopto**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
@@ -111,21 +115,21 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
  ![Enregistrer](./media/active-directory-saas-panopto-tutorial/IC777673.png "enregistrer")
 9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurer l’authentification unique")
+  ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Aucun élément d’action ne vous permet de configurer l’approvisionnement des utilisateurs dans Panopto.  
 Lorsqu’un utilisateur tente de se connecter à Panopto à l’aide du panneau d’accès, Panopto vérifie si cet utilisateur existe.  
 
 Si aucun compte d’utilisateur n’est disponible, Panopto le crée automatiquement.
 
-> [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Panopto, pour approvisionner des comptes utilisateur AAD.
-> 
+>[!NOTE]
+>Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Panopto, pour approvisionner des comptes utilisateur AAD.
+>
+>
 
-
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à Panopto, procédez comme suit :**
@@ -139,10 +143,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
    ![Oui](./media/active-directory-saas-panopto-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

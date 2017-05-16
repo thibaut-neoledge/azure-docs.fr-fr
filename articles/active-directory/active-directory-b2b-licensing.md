@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 64af2509036d035c5802f4b1985c3f986b685545
-ms.openlocfilehash: 2b677e684021a873c0bc4db751d8e60d9eaa6f9d
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/13/2017
 
 
 ---
 
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guide d’attribution de licences pour Azure Active Directory B2B Collaboration
 
-Azure Active Directory (Azure AD) B2B Collaboration met à disposition des utilisateurs invités dans le client Azure AD un ensemble sélectionné de fonctionnalités Azure AD existantes. Par conséquent, les utilisateurs invités d’Azure AD B2B Collaboration disposeront d’une licence par le biais des licences Azure AD. Cette licence s’aligne sur les niveaux de licence Gratuit, De base et Premium P1/P2 existants comme indiqué ici : https://azure.microsoft.com/en-us/pricing/details/active-directory/.
+Azure Active Directory (Azure AD) B2B Collaboration met à disposition des utilisateurs invités dans le client Azure AD un ensemble sélectionné de fonctionnalités Azure AD existantes. Par conséquent, les utilisateurs invités d’Azure AD B2B Collaboration disposeront d’une licence par le biais des licences Azure AD. Cette licence s’aligne sur les niveaux de licence Gratuit, De base et Premium P1/P2 existants comme indiqué ici : https://azure.microsoft.com/pricing/details/active-directory/.
 
 L’invitation d’utilisateurs B2B et leur attribution à une application dans Azure AD n’entraînent aucun frais. En outre, les utilisateurs B2B bénéficient gratuitement de 10 applications maximales par utilisateur invité et de 3 rapports de base, conformément au niveau « Gratuit » d’Azure AD.
 Les fonctionnalités Azure AD payantes, étendues aux utilisateurs B2B à l’aide de la fonctionnalité de collaboration B2B, devront disposer d’une licence par le biais de licences Azure AD payantes (De base, Premium P1 ou Premium P2, selon les fonctionnalités qui seront utilisées). Le client à l’origine de l’invitation obtiendra 5 droits d’utilisateur B2B avec chaque licence Azure AD payante. Autrement dit, chaque licence Azure AD payante qui fournit les droits d’utilisation des fonctionnalités payantes Azure AD à un utilisateur employé dans un client, fournit également désormais les droits d’utilisation de ces mêmes fonctionnalités à 5 autres utilisateurs B2B invités dans le client.
@@ -46,11 +47,26 @@ Le client qui possède le client à l’origine de l’invitation doit détermin
 - Chaque utilisateur invité obtient les droits de l’édition gratuite d’Azure AD si aucune licence Azure AD payante n’existe dans le client.
 - Si un utilisateur B2B Collaboration dispose d’une licence Azure AD payante en tant qu’employé de son organisation, il n’utilisera pas l’une des licences B2B Collaboration du client à l’origine de l’invitation.
 
+## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>Discussion approfondie : quelles sont les considérations relatives aux licences lorsque nous ajoutons des utilisateurs à partir d’un conglomérat en tant que « membres » à l’aide de vos API ?
+Un utilisateur invité B2B est invité à partir d’une organisation partenaire pour travailler avec l’organisation hôte. En règle générale, aucun autre cas n’est considéré comme B2B, même s’il utilise des fonctionnalités B2B. Nous allons examiner deux cas en particulier :
+
+1. Si un hôte invite un employé à l’aide d’une adresse client
+  1. Cela n’est pas conforme à nos stratégies de gestion des licences et n’est actuellement pas recommandée.
+
+2. Si une organisation hôte ajoute un utilisateur à partir d’un autre conglomérat
+  1. Dans ce cas, l’utilisateur est invité à l’aide des API B2B, mais il ne s’agit généralement pas de B2B. Dans l’idéal, ces organisations doivent inviter les utilisateurs des autres organisations en tant que membres (notre API le permet). Dans ce cas, les licences doivent être assignées à ces membres pour leur permettre d’accéder aux ressources de l’organisation à l’origine de l’invitation.
+
+  2. Certaines organisations utilisent une autre stratégie et ajoutent les utilisateurs de l’autre organisation comme « Invité ». Il existe deux cas :
+      * Le conglomérat utilise déjà Azure AD et les utilisateurs invités sont concédés sous une licence de l’autre organisation : dans ce cas, les utilisateurs invités n’ont pas besoin de suivre la formule 1 à 5 présentée précédemment dans ce document. 
+
+      * Le conglomérat n’utilise pas Azure AD ou ne dispose pas des licences adéquates : dans ce cas, suivez la formule 1 à 5 présentée précédemment dans ce document.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
 * [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 * [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)

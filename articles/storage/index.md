@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f1827b183f6f2d878cfdf96eca2d0aea091aa310
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: af6bc7cc4245208d2dc92a9b248aa4686cf42272
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -54,24 +55,6 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                     </div>
                     <div class="cardText">
                         <h3>Bibliothèque vidéo Stockage Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/storage/storage-getting-started-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Bien démarrer avec Stockage</h3>
                     </div>
                 </div>
             </div>
@@ -126,6 +109,7 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET : objets blob, files d’attente, tables et fichiers</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.JS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p>
                         <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
                         <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
                         <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
@@ -145,7 +129,7 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                         <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Objets blob, files d’attente, tables et fichiers</a></p>
                         <p><a href="/rest/api/storagerp">Fournisseur de ressources</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/Export</a></p>
-                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Données de stockage API REST</a></p>
+                        <p><a href="/rest/api/storageservices">Données de stockage API REST</a></p>
                    </div>
                 </div>
             </div>

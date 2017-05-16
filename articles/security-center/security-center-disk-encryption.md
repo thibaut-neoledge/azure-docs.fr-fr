@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Il existe de nombreuses méthodes permettant d’obtenir la configuration requis
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Installation et configuration d'Azure PowerShell
-Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) décrit toutes les étapes à suivre pour configurer votre ordinateur avec Azure PowerShell. L’approche la plus simple consiste à installer Web PI, selon la procédure décrite dans la suite de cet article. Même si vous disposez déjà d’Azure PowerShell, nous vous recommandons de le réinstaller avec la méthode Web PI afin d’avoir la garantie d’utiliser la version la plus récente d’Azure PowerShell.
+Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) décrit toutes les étapes à suivre pour configurer votre ordinateur avec Azure PowerShell. L’approche la plus simple consiste à installer Web PI, selon la procédure décrite dans la suite de cet article. Même si vous disposez déjà d’Azure PowerShell, nous vous recommandons de le réinstaller avec la méthode Web PI afin d’avoir la garantie d’utiliser la version la plus récente d’Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Récupérer et exécuter le script de configuration d’Azure Disk Encryption
 Le script de configuration d’Azure Disk Encryption permet de configurer toutes les conditions préalables requises pour le chiffrement de vos machines virtuelles Azure.
@@ -97,7 +97,7 @@ Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 5. Identifiez l’abonnement auquel est associée votre machine virtuelle et repérez son emplacement. Accédez à [https://portal.azure.com](ttps://portal.azure.com) et connectez-vous.  À gauche de la page, cliquez sur **Machines virtuelles**. Vous obtenez une liste de vos machines virtuelles ainsi que des abonnements auxquels elles sont rattachées.
 
    ![Machines virtuelles](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
-6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId <ID_de_votre_abonement>** (remplacez **<ID_de_votre_abonement>** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
+6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId <ID_de_votre_abonement>** (remplacez  **<ID_de_votre_abonement>** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
 7. Vous êtes maintenant prêt à exécuter le script. Cliquez sur le bouton **Exécuter le script** ou appuyez sur la touche **F5** du clavier.
 
    ![Exécution du script PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)

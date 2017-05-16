@@ -39,8 +39,3 @@
     | 8 |Boîtier EBOD |
     | 9 |PDU |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

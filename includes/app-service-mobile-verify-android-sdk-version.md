@@ -15,8 +15,3 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 3. Dans l’Explorateur de projets d’Android Studio, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis, dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Project Build Target** est identique à celle de **targetSdkVersion**.
 
 Dans Android Studio, le fichier manifeste ne permet plus de spécifier le Kit de développement (SDK) cible et la version minimale du Kit de développement logiciel (SDK), contrairement à Eclipse.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

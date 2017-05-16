@@ -24,8 +24,3 @@
    
    * Activer **Notifications Push** dans Cibles > Nom de cible > Fonctionnalités.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

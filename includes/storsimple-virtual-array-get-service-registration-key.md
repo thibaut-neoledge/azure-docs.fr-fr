@@ -5,7 +5,3 @@
 2.  Dans le panneau qui s’ouvre, cliquez sur **Gérer&gt;** **Clés**.
 
 3.  Cliquez sur l’icône de copie pour copier la clé d’enregistrement du service et l’enregistrer pour une utilisation ultérieure.
-
-<!--HONumber=Nov16_HO4-->
-
-

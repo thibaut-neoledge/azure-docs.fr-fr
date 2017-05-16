@@ -12,7 +12,6 @@
 ## [Configuration requise](expressroute-prerequisites.md)
 ## [Flux de travail](expressroute-workflows.md)
 ## [Configuration requise du routage](expressroute-routing.md)
-## [Configuration requise NAT](expressroute-nat.md)
 ## [Configuration requise QoS](expressroute-qos.md)
 ## [À propos de la migration des circuits d’un déploiement classique vers Resource Manager](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Meilleures pratiques
 ### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
-## [Optimiser le routage](expressroute-optimize-routing.md)
+### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
+### [NAT pour ExpressRoute](expressroute-routing-nat.md)
 
 ## Résolution des problèmes
 ### [Vérification de la connectivité ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Obtention de tables ARP (classique)](expressroute-troubleshooting-arp-classic.md)
 
 # Référence
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classique)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -63,7 +63,7 @@
 ## [Blog sur la mise en réseau](https://azure.microsoft.com/blog/topics/networking/)
 ## [Études de cas](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md)
+## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Création d’un circuit ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Configuration de l’homologation privée pour votre circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)

@@ -1,196 +1,316 @@
 ---
-title: "Appeler, déclencher ou imbriquer des applications logiques via des points de terminaison HTTP - Azure Logic Apps | Microsoft Docs"
-description: "Ajouter et configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows pour des applications logiques dans Azure"
+title: "Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP - Azure Logic Apps | Microsoft Docs"
+description: "Configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows pour Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+keywords: workflows, points de terminaison HTTP
 author: jeffhollan
 manager: anneta
 editor: 
+documentationcenter: 
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-ms.date: 10/18/2016
-ms.author: jehollan
+ms.date: 03/31/2017
+ms.author: jehollan; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 8c4cb0aefcd7241b17c6afcf33496c1fc2e6f675
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
+ms.lasthandoff: 04/03/2017
 
 ---
 
-# <a name="add-http-endpoints-to-call-trigger-or-nest-logic-app-workflows"></a>Ajouter et configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows pour des applications logiques
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques
 
-Les applications logiques peuvent exposer en mode natif les points de terminaison HTTP synchrone en tant que déclencheurs afin que vous puissiez appeler vos applications logiques. Vous pouvez également utiliser un modèle de points de terminaison appelables pour appeler des applications logiques sous forme de workflows imbriqués en ajoutant l’action **Choisir un workflow Logic Apps** à votre application logique.
+Vous pouvez exposer en mode natif les points de terminaison HTTP synchrones en tant que déclencheurs sur des applications logiques, afin que vous puissiez déclencher ou appeler vos applications logiques via une URL. Vous pouvez également imbriquer des workflows dans vos applications logiques à l’aide d’un modèle de points de terminaison pouvant être appelés.
 
-Vous pouvez utiliser ces déclencheurs pour la réception des requêtes :
+Pour créer des points de terminaison HTTP, vous pouvez ajouter ces déclencheurs afin que vos applications logiques puissent recevoir des requêtes entrantes :
 
-* Demande
-* ApiConnectionWebhook
-* HttpWebhook
+* [Requête](../connectors/connectors-native-reqres.md)
 
-Cette rubrique utilise le déclencheur **Requête** comme exemple, mais tous les principes s’appliquent de façon identique aux autres types de déclencheurs.
+* [Déclencheur ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#api-connection)
 
-## <a name="add-a-trigger-to-your-logic-app-definition"></a>Ajouter un déclencheur à votre définition d’application logique
+* [Déclencheur HTTPWebhook](../connectors/connectors-native-http.md)
 
-1. Dans le concepteur d’application logique, ajoutez un déclencheur qui peut recevoir des requêtes entrantes à votre définition d’application logique. Par exemple, ajoutez le déclencheur **Requête** à votre application logique.
+   > [!NOTE]
+   > Bien que nos exemples utilisent le déclencheur de **requête**, vous pouvez utiliser l’un des déclencheurs HTTP répertoriés, et tous les principes s’appliquent de la même façon aux autres types de déclencheurs.
 
-2.    Sous **Schéma JSON du corps de la requête**, vous pouvez entrer un schéma JSON pour la charge utile que vous pensez recevoir. Si vous n’avez pas un schéma prêt, vous pouvez choisir **Utiliser l’exemple de charge utile pour générer le schéma** pour générer un schéma JSON à partir d’un exemple de charge utile.
+## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurer un point de terminaison HTTP pour votre application logique
 
-    Le concepteur utilise ce schéma pour générer des jetons qui vous permettent d’utiliser, d’analyser et de passer des données à partir du déclencheur manuel via votre workflow.
+Pour créer un point de terminaison HTTP, ajoutez un déclencheur qui peut recevoir des requêtes entrantes.
 
-    ![Ajouter l’action de la requête][2]
+1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). Accédez à votre application logique et ouvrez le Concepteur d’application logique.
 
-2.    Après avoir enregistré votre définition d’application logique, sous **HTTP POST pour cette URL**, vous obtenez une URL de rappel générée, comme dans cet exemple :
+2. Ajoutez un déclencheur qui permet à votre application logique de recevoir des requêtes entrantes. Par exemple, ajoutez le déclencheur **Requête** à votre application logique.
 
-    ``` text
-    https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
+3.  Sous **Schéma JSON du corps de la requête**, vous pouvez éventuellement entrer un schéma JSON pour la charge utile (données) que le déclencheur est susceptible de recevoir.
+
+    Le concepteur utilise ce schéma pour générer des jetons que votre application logique peut utiliser pour consommer, analyser et transmettre des données à partir du déclencheur via votre workflow. 
+    Cliquez sur le lien renvoyant à la section [Jetons générés à partir de schémas JSON pour votre application logique](#generated-tokens) pour en savoir plus.
+
+    Pour cet exemple, entrez le schéma affiché dans le concepteur :
+
+    ```json
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    }
     ```
+
+    ![Ajouter l’action de la requête][1]
+
+    > [!TIP]
+    > 
+    > Vous pouvez générer un schéma pour un exemple de charge utile JSON à partir d’un outil tel que [jsonschema.net](http://jsonschema.net/), ou dans le déclencheur de **requête** en choisissant **Utiliser l’exemple de charge utile pour générer le schéma**. 
+    > Entrez votre exemple de charge utile et choisissez **Terminé**.
+
+    Par exemple, cet exemple de charge utile :
+
+    ```json
+    {
+       "address": "21 2nd Street, New York, New York"
+    }
+    ```
+
+    génère ce schéma :
+
+    ```json
+    }
+       "type": "object",
+       "properties": {
+          "address": {
+             "type": "string" 
+          }
+       }
+    }
+    ```
+
+4.  Enregistrez votre application logique. Sous **POST HTTP pour cette URL**, vous devez maintenant rechercher une URL de rappel générée, comme dans cet exemple :
+
+    ![URL de rappel générée pour le point de terminaison](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
     Cette URL contient une clé de signature d’accès partagé (SAP) dans les paramètres de requête utilisés pour l’authentification. 
-    Vous pouvez également obtenir ce point de terminaison auprès du portail Azure :
+    Vous pouvez également obtenir l’URL de point de terminaison HTTP à partir de la vue d’ensemble de votre application logique dans le portail Azure. Sous **Historique du déclencheur**, sélectionnez votre déclencheur :
 
-    ![Point de terminaison de l’URL][1]
+    ![Obtenir l’URL de point de terminaison HTTP à partir du portail Azure][2]
 
-    Vous pouvez aussi appeler :
+    Ou vous pouvez obtenir l’URL en appelant :
 
-    ``` text
-    POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+    ```
+    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
     ```
 
-### <a name="change-the-http-method-for-your-trigger"></a>Modifier la méthode HTTP pour votre déclencheur
+## <a name="change-the-http-method-for-your-trigger"></a>Modifier la méthode HTTP pour votre déclencheur
 
-Par défaut, le déclencheur Requête attend une requête HTTP POST. Pour configurer une autre méthode HTTP, choisissez **Afficher les options avancées**.
+Par défaut, le déclencheur de **requête** attend une requête HTTP POST, mais vous pouvez utiliser une méthode HTTP différente. 
 
 > [!NOTE]
-> Un seul type de méthode est autorisé.
+> Vous pouvez spécifier un seul type de méthode.
 
-### <a name="customize-the-relative-trigger-url"></a>Personnaliser l’URL relative du déclencheur
+1. Sur votre déclencheur de **requête**, choisissez **Afficher les options avancées**.
 
-Vous pouvez également personnaliser le chemin relatif de l’URL de la requête pour qu’elle accepte des paramètres.
+2. Ouvrez la liste **Méthode**. Dans cet exemple, sélectionnez **GET** pour pouvoir tester ultérieurement l’URL de votre point de terminaison HTTP.
 
-1. Sur le déclencheur **Requête**, choisissez **Afficher les options avancées**. Sous **Chemin relatif**, entrez `customer/{customerId}`.
+    > [!NOTE]
+    > Vous pouvez sélectionner n’importe quelle autre méthode HTTP, ou spécifier une méthode personnalisée pour votre propre application logique.
 
-    ![Déclencheur d’URL relative](./media/logic-apps-http-endpoint/relativeurl.png)
+    ![Changer de méthode HTTP](./media/logic-apps-http-endpoint/change-method.png)
 
-2.    Pour utiliser le paramètre, mettez à jour l’action **Réponse**.
+## <a name="accept-parameters-through-your-http-endpoint-url"></a>Accepter les paramètres via votre URL de point de terminaison HTTP
 
-    *    Vous voyez normalement apparaître `customerId` dans le sélecteur de jetons.
-    *    Pour retourner `Hello {customerId}`, mettez à jour le corps de l’action **Réponse**.
+Lorsque vous souhaitez que votre URL de point de terminaison HTTP accepte des paramètres, personnalisez le chemin d’accès relatif de votre déclencheur.
 
-    ![Réponse d’URL relative](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+1. Sur votre déclencheur de **requête**, choisissez **Afficher les options avancées**. 
 
-3. Enregistrez votre application logique. L’URL de la requête est mise à jour avec le chemin relatif.
+2. Sous **Méthode**, spécifiez la méthode HTTP que vous souhaitez que votre requête utilise. Dans cet exemple, sélectionnez la méthode **GET**, si vous ne l’avez pas déjà fait, pour pouvoir tester l’URL de votre point de terminaison HTTP.
 
-4. Copiez la nouvelle URL de la requête et collez-la dans une nouvelle fenêtre de navigateur. Remplacez `{customerId}` par `123`, puis appuyez sur Entrée.
+      > [!NOTE]
+      > Lorsque vous spécifiez un chemin d’accès relatif pour votre déclencheur, vous devez également spécifier explicitement une méthode HTTP pour votre déclencheur.
 
-    Ce texte doit être retourné :`Your customer Id is 123`
+3. Sous **Chemin d’accès relatif**, spécifiez le chemin d’accès relatif du paramètre que votre URL doit accepter, par exemple `customers/{customerID}`.
 
-### <a name="security-for-the-trigger-url"></a>Sécurité pour l’URL du déclencheur
+    ![Spécifier la méthode HTTP et le chemin d’accès relatif pour le paramètre](./media/logic-apps-http-endpoint/relativeurl.png)
 
-Les URL de rappel de l’application logique Logic Apps sont générées de façon sécurisée via une signature d’accès partagé. La signature est passée directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Elle est générée via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Sauf si quelqu’un a accès à la clé secrète de l’application logique, il ne peut pas générer une signature valide.
+4. Pour utiliser le paramètre, ajoutez une action **Response** à votre application logique. (Sous votre déclencheur, choisissez **Nouvelle étape** > **Ajouter une action** > **Response**) 
 
-## <a name="call-your-logic-app-triggers-endpoint"></a>Appeler le point de terminaison du déclencheur de votre application logique
+5. Pour la valeur **Corps** de votre réponse, incluez le jeton pour le paramètre que vous avez spécifié dans le chemin d’accès relatif de votre déclencheur.
 
-Une fois que vous avez créé le point de terminaison pour votre déclencheur, vous pouvez déclencher votre application logique via un `POST` vers l’URL complète. Vous pouvez inclure plus d’en-têtes ainsi que du contenu dans le corps. Si le type de contenu est `application/json` , vous pouvez référencer des propriétés depuis l’intérieur de la requête. Dans le cas contraire, il est considéré comme une unité binaire unique qui peut être passée à d’autres API, mais qui ne peut pas faire l’objet d’un référencement interne au workflow sans conversion du contenu. Par exemple, si vous passez le contenu `application/xml`, vous pouvez utiliser `@xpath()` pour une extraction XPath, ou `@json()` pour effectuer la conversion de XML vers JSON. Découvrez plus en détail comment [utiliser les types de contenu](../logic-apps/logic-apps-content-type.md).
+    Par exemple, pour renvoyer `Hello {customerID}`, mettez à jour la valeur **Corps** de votre réponse avec `Hello {customerID token}`. 
+    La liste de contenu dynamique doit apparaître et afficher le jeton `customerID` 
+    à sélectionner.
 
-Vous pouvez aussi spécifier un schéma JSON dans la définition. Ce schéma entraîne la génération de jetons par le concepteur. Vous pouvez ensuite passer ces jetons dans des étapes. L’exemple suivant permet de rendre les jetons `title` et `name` disponibles dans le concepteur :
+    ![Ajouter un paramètre au corps de la réponse](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-```
+    Votre valeur **Corps** doit ressembler à cet exemple :
+
+    ![Corps de la réponse avec le paramètre](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+
+6. Enregistrez votre application logique. 
+
+    Votre URL de point de terminaison HTTP inclut désormais le chemin d’accès relatif, par exemple : 
+
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+
+7. Pour tester votre point de terminaison HTTP, copiez et collez l’URL mise à jour dans une autre fenêtre de navigateur, mais remplacez `{customerID}` par `123456`, puis appuyez sur ENTRÉE.
+
+    Votre navigateur doit afficher le texte suivant : 
+
+    `Hello 123456`
+
+<a name="generated-tokens"></a>
+### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Jetons générés à partir de schémas JSON pour votre application logique
+
+Lorsque vous fournissez un schéma JSON dans votre déclencheur de **requête**, le Concepteur d’application logique génère des jetons pour les propriétés de ce schéma. Vous pouvez ensuite utiliser ces jetons pour transmettre des données au workflow de votre application logique.
+
+Pour cet exemple, si vous ajoutez les propriétés `title` et `name` à votre schéma JSON, leurs jetons sont désormais disponibles pour être utilisés dans les étapes ultérieures du workflow. 
+
+Voici le schéma JSON complet :
+
+```json
 {
-    "properties":{
-        "title": {
-            "type": "string"
-        },
-        "name": {
-            "type": "string"
-        }
-    },
-    "required": [
-        "title",
-        "name"
-    ],
-    "type": "object"
+   "type": "object",
+   "properties": {
+      "address": {
+         "type": "string"
+      },
+      "title": {
+         "type": "string"
+      },
+      "name": {
+         "type": "string"
+      }
+   },
+   "required": [
+      "address",
+      "title",
+      "name"
+   ]
 }
 ```
 
-## <a name="reference-the-content-from-the-incoming-request"></a>Référencer le contenu depuis la requête entrante
+## <a name="create-nested-workflows-for-logic-apps"></a>Créer des workflows imbriqués pour les applications logiques
 
-La fonction `@triggerOutputs()` génère une sortie du contenu de la requête entrante. Le résultat ressemble à ceci :
+Vous pouvez imbriquer des workflows dans votre application logique en ajoutant d’autres applications logiques qui peuvent recevoir des requêtes. Pour inclure ces applications logiques, ajoutez l’action **Azure Logic Apps - Choisir un workflow Logic Apps** à votre déclencheur. Vous pouvez ensuite choisir entre des applications logiques éligibles.
 
-```
+![Ajouter une autre application logique](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+
+## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Appeler ou déclencher des applications logiques via des points de terminaison HTTP
+
+Une fois que vous avez créé votre point de terminaison HTTP, vous pouvez déclencher votre application logique via une méthode `POST` vers l’URL complète. Les applications logiques ont une prise en charge intégrée pour les points de terminaison à accès direct.
+
+## <a name="reference-content-from-an-incoming-request"></a>Référencer le contenu à partir d’une requête entrante
+
+Si le type de contenu est `application/json`, vous pouvez référencer des propriétés à partir de la requête entrante. Sinon, le contenu est traité comme une seule unité binaire que vous pouvez transmettre à d’autres API. Vous ne pouvez pas référencer ce contenu dans le workflow sans convertir ce contenu. Par exemple, si vous transmettez le contenu `application/xml`, vous pouvez utiliser `@xpath()` pour une extraction XPath, ou `@json()` pour effectuer la conversion de XML vers JSON. Découvrez plus en détail comment [utiliser les types de contenu](../logic-apps/logic-apps-content-type.md).
+
+Pour obtenir la sortie à partir d’une requête entrante, vous pouvez utiliser la fonction `@triggerOutputs()`. La sortie peut ressembler à cet exemple :
+
+```json
 {
-    "headers" : {
+    "headers": {
         "content-type" : "application/json"
     },
-    "body" : {
-        "myprop" : "a value"
+    "body": {
+        "myProperty" : "property value"
     }
 }
 ```
 
 Pour accéder à la propriété `body`, vous pouvez utiliser le raccourci `@triggerBody()`. 
 
-## <a name="respond-to-the-request"></a>Répondre à la requête
+## <a name="respond-to-requests"></a>Répondre aux requêtes
 
-Pour certaines requêtes qui démarrent une application logique, vous pouvez répondre à l’appelant avec du contenu. Pour construire le code d’état, le corps et les en-têtes de votre réponse, vous pouvez utiliser un type d’action appelé **Réponse**. Cependant, si aucune **Réponse** n’est incluse, le point de terminaison de l’application logique répond *immédiatement* avec **202 - Accepté**.
+Vous souhaitez peut-être répondre à certaines requêtes qui démarrent une application logique en renvoyant du contenu à l’appelant. Pour créer le code d’état, l’en-tête et le corps de votre réponse, vous pouvez utiliser l’action **Response**. Cette action peut apparaître n’importe où dans votre application logique, et pas seulement à la fin de votre workflow.
 
-![Action de réponse HTTP][3]
+> [!NOTE] 
+> Si votre application logique n’inclut pas d’action **Response**, le point de terminaison HTTP répond *immédiatement* avec un état **202 - Accepté**. En outre, pour que la requête d’origine obtienne la réponse, toutes les étapes nécessaires pour la réponse doivent être terminées avant la [limite du délai d’expiration de la requête](./logic-apps-limits-and-config.md), sauf si vous appelez le workflow en tant qu’application logique imbriquée. Si aucune réponse n’est produite avant cette limite, la requête entrante expire et reçoit la réponse HTTP **408 - Dépassement du délai d’expiration par le client**. Pour les applications logiques imbriquées, l’application logique parente continue à attendre une réponse jusqu’à ce qu’elle se termine, quelle que soit la durée de l’opération.
 
-``` json
-"Response": {
-        "conditions": [],
-        "inputs": {
-            "body": {
-                "name": "@{triggerBody()['name']}", 
-                    "title": "@{triggerBody()['title']}"
-            },
-            "headers": {
-                "content-type": "application/json"
-            },
-            "statusCode": 200
-        },
-        "type": "Response"
-}
-```
+### <a name="construct-the-response"></a>Construire la réponse
+
+Vous pouvez inclure plusieurs en-têtes et n’importe quel type de contenu dans le corps de la réponse. Dans notre exemple de réponse, l’en-tête spécifie que la réponse a le type de contenu `application/json`. et que le corps contient `title` et `name`, selon le schéma JSON mis à jour précédemment pour le déclencheur de **requête**.
+
+![Action HTTP Response][3]
 
 Les réponses ont ces propriétés :
 
 | Propriété | Description |
 | --- | --- |
-| statusCode |Code d’état HTTP pour répondre à la requête entrante. Ce code peut être tout code d’état valide commençant par 2xx, 4xx ou 5xx. Cependant, les codes d’état 3xx ne sont pas autorisés. |
-| body |Un objet corps peut être une chaîne, un objet JSON ou même du contenu binaire référencé à partir d’une étape précédente. |
-| headers |Vous pouvez définir un nombre quelconque d’en-têtes à inclure dans la réponse. |
+| statusCode |Indique le code d’état HTTP pour répondre à la requête entrante. Ce code peut être tout code d’état valide commençant par 2xx, 4xx ou 5xx. Cependant, les codes d’état 3xx ne sont pas autorisés. |
+| headers |Définit un nombre quelconque d’en-têtes à inclure dans la réponse. |
+| body |Indique un objet corps qui peut être une chaîne, un objet JSON ou même du contenu binaire référencé à partir d’une étape précédente. |
 
-Dans votre application logique, toutes les étapes nécessaires à la réponse doivent être effectuées dans les *60 secondes* pour que la requête d’origine obtienne la réponse, * sauf si vous appelez le workflow comme application logique imbriquée*. Si aucune réponse n’est produite dans les 60 secondes, la requête entrante dépasse le délai d’expiration et reçoit une réponse HTTP **408 - Dépassement du délai d’expiration par le client**. Pour les applications logiques imbriquées, l’application logique parente continue à attendre une réponse jusqu’à ce qu’elle se termine, quelle que soit la durée de l’opération.
+Voici à quoi ressemble désormais le schéma JSON pour l’action **Response** :
 
-## <a name="advanced-endpoint-configuration"></a>Configuration avancée du point de terminaison
+``` json
+"Response": {
+   "inputs": {
+      "body": {
+         "title": "@{triggerBody()?['title']}",
+         "name": "@{triggerBody()?['name']}"
+      },
+      "headers": {
+           "content-type": "application/json"
+      },
+      "statusCode": 200
+   },
+   "runAfter": {},
+   "type": "Response"
+}
+```
 
-Les applications logiques incluent la prise en charge du point de terminaison d’accès direct et utilisent toujours la méthode `POST` pour démarrer l’exécution de l’application logique. Auparavant, l’application API **Écouteur HTTP** prenait déjà en charge la modification des segments d’URL et de la méthode HTTP. Vous pouvez même renforcer la sécurité ou configurer un domaine personnalisé en l’ajoutant à l’hôte d’application API (l’application web hébergeant l’application API). 
+> [!TIP]
+> Pour afficher la définition JSON complète de votre application logique, choisissez **mode Code** dans le Concepteur d’application logique.
 
-Cette fonctionnalité est disponible via **Gestion des API** :
+## <a name="q--a"></a>Questions et réponses
 
-* [Modification de la méthode de la requête](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
-* [Modification des segments d’URL de la requête](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* Configurez vos domaines de gestion des API sous l’onglet **Configurer** du portail Azure Classic.
-* Configurez une stratégie pour rechercher l’authentification de base.
+#### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de la sécurité de l’URL ?
 
-## <a name="summary-of-migration-from-2014-12-01-preview"></a>Résumé de la migration à partir de 2014-12-01-preview
+R : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure via une signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
-| 2014-12-01-preview | 2016-06-01 |
+#### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus poussée ?
+
+R : Oui, les points de terminaison HTTP prennent en charge une configuration plus avancée via [**Gestion des API**](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
+
+* [Modification de la méthode de la requête](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
+* [Modification des segments d’URL de la requête](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
+* Configuration de vos domaines Gestion des API dans le [portail Azure](https://portal.azure.com/ "portail Azure")
+* Configuration d’une stratégie pour vérifier l’authentification de base
+
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Qu’est-ce qui a changé suite à la migration du schéma depuis la version préliminaire du 1er décembre 2014 ?
+
+R : Voici un résumé des modifications apportées :
+
+| Version préliminaire du 1er décembre 2014 | 1er juin 2016 |
 | --- | --- |
 | Cliquez sur l’application API **Écouteur HTTP** |Cliquez sur **Déclenchement manuel** (aucune application API nécessaire) |
-| Paramètre d’écouteur HTTP «*Envoie une réponse automatiquement*» |Incluez ou non une action **Réponse** dans la définition du workflow |
-| Configurer l’authentification de base ou OAuth |via la gestion des API |
-| Configurer la méthode HTTP |via la gestion des API |
-| Configurer le chemin d’accès relatif |via la gestion des API |
-| Référencer le corps entrant par le biais de `@triggerOutputs().body.Content` |Référencer par le biais de `@triggerOutputs().body` |
+| Paramètre d’écouteur HTTP «*Envoie une réponse automatiquement*» |Incluez ou non une action **Response** dans la définition du workflow |
+| Configurez l’authentification de base ou OAuth |via la gestion des API |
+| Configurer la méthode HTTP |Sous **Afficher les options avancées**, choisissez une méthode HTTP |
+| Configurer le chemin d’accès relatif |Sous **Afficher les options avancées**, ajoutez un chemin d’accès relatif |
+| Référencez le corps entrant par le biais de `@triggerOutputs().body.Content` |Référencez via `@triggerOutputs().body` |
 | **Envoyer une réponse HTTP** sur l’écouteur HTTP |Cliquez sur **Répondre à la requête HTTP** (aucune application API nécessaire) |
 
-[1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[2]: ./media/logic-apps-http-endpoint/manualtrigger.png
+## <a name="get-help"></a>Obtenir de l’aide
+
+Pour poser des questions ou y répondre et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Azure Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Créer des définitions d’application logique](./logic-apps-author-definitions.md)
+* [Gérer les erreurs et exceptions](./logic-apps-exception-handling.md)
+
+[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
+[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
 

@@ -17,8 +17,3 @@
 4. Lorsque vous y êtes invité, indiquez le chemin d’accès au dossier partagé sur le réseau qui contient les fichiers du correctif logiciel.
 5. Vous êtes invité à confirmer l’opération. Saisissez **O** pour poursuivre l’installation du correctif logiciel.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

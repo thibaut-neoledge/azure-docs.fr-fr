@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
-ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ Si vous avez déjà installé **Tâche de base de données élastique** via le p
 
 ## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Installez la dernière version via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell. Installez la dernière version via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 * [utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d’informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Téléchargez et importez le package Tâches de bases de données élastiques PowerShell

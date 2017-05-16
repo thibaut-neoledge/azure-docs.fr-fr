@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/04/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3ab6d21263ee2f4082cae8d772e715ed04d7d7c0
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 70c7e2334336be78d26784815fb988ce1d22eb12
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -41,20 +41,20 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour connaître la procédure de création pas à pas d’un pipeline avec une activité de copie, voir [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
 
 1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont créées automatiquement pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir d’une base de données SQL Server locale, consultez la section [Exemples JSON](#json-examples) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir d’une base de données SQL Server locale, consultez la section [Exemples JSON](#json-examples) de cet article. 
 
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques à SQL Server : 
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
-Dans les exemples, vous avez utilisé un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
+Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
@@ -80,7 +80,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de l’appl
     "name": "MyOnPremisesSQLDB",
     "properties":
     {
-        "type": "OnPremisesSqlLinkedService",
+        "type": "OnPremisesSqlServer",
         "typeProperties": {
             "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
             "gatewayName": "<gateway name>"
@@ -97,7 +97,7 @@ Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les
      "Name": " MyOnPremisesSQLDB",
      "Properties":
      {
-         "type": "OnPremisesSqlLinkedService",
+         "type": "OnPremisesSqlServer",
          "typeProperties": {
              "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
              "username": "<domain\\username>",
@@ -135,7 +135,7 @@ Lorsqu’une source dans une activité de copie est de type **SqlSource**, les p
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
 | SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. Peut faire référence à plusieurs tables de la base de données référencée par le jeu de données d’entrée. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. |Non |
-| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non |
+| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 
 Si **sqlReaderQuery** est spécifié pour la SqlSource, l'activité de copie exécute cette requête dans la source Azure SQL Database pour obtenir les données.
@@ -630,7 +630,7 @@ Pour en savoir plus sur le mappage de colonnes du jeu de données source à des 
 ## <a name="repeatable-copy"></a>Copie renouvelée
 Lors de la copie de données sur une base de données SQL Server, l’activité de copie ajoute des données à la table de récepteur par défaut. Pour effectuer une opération UPSERT à la place, consultez l’article [Écriture renouvelée sur SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
 
-Lorsque vous copiez des données à partir de magasins de données relationnelles, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin que la tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Lorsque vous copiez des données à partir de magasins de données relationnels, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Appel d’une procédure stockée pour un récepteur SQL
 L’article [Appeler une procédure stockée pour un récepteur SQL dans l’activité de copie](data-factory-invoke-stored-procedure-from-copy-activity.md) illustre l’appel d’une procédure stockée à partir d’un récepteur SQL dans l’activité de copie d’un pipeline.

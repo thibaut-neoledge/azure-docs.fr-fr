@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/08/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -129,7 +129,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
     }]
 
 
-À présent, imaginez que nous ayons besoin de remettre en forme le résultat JSON. Cette requête projette un nouvel objet JSON avec&2; champs sélectionnés, Name et City, où le nom de la ville de l'adresse est identique à celui de l'État. Dans ce cas, « NY, NY » correspond.
+À présent, imaginez que nous ayons besoin de remettre en forme le résultat JSON. Cette requête projette un nouvel objet JSON avec 2 champs sélectionnés, Name et City, où le nom de la ville de l'adresse est identique à celui de l'État. Dans ce cas, « NY, NY » correspond.
 
 **Requête**    
 
@@ -182,7 +182,7 @@ C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de Docum
 * Indexer les documents sans requérir un schéma : Le sous-système d’indexation ne requiert pas d’informations de schéma ou n’établit pas d’hypothèse sur les schémas des documents. 
 * Prendre en charge des requêtes hiérarchiques et relationnelles enrichies et efficaces : L’index prend en charge le langage de requête DocumentDB de manière efficace, notamment la prise en charge des projections hiérarchiques et relationnelles.
 * Prendre en charge des requêtes cohérentes en dépit de volumes soutenus d’écritures : Dans le cas des charges de travail à débits d’écriture élevés avec des requêtes cohérentes, l’index est mis à jour de manière incrémentielle, efficacement et en ligne, en dépit de volumes soutenus d’écritures. La mise à jour d'index cohérente est cruciale pour servir les requêtes en respectant le niveau de cohérence défini par l'utilisateur pour le service du document.
-* Prendre en charge l’infrastructure mutualisée : Étant donné le modèle basé sur la réservation pour la gouvernance des ressources sur les locataires, les mises à jour d’index sont effectuées dans le budget des ressources système (processeur, mémoire, opérations d’E/S par seconde) allouées par réplica. 
+* Prendre en charge l’infrastructure multilocataire : Étant donné le modèle basé sur la réservation pour la gouvernance des ressources sur les locataires, les mises à jour d’index sont effectuées dans le budget des ressources système (processeur, mémoire, opérations d’E/S par seconde) allouées par réplica. 
 * Efficacité du stockage : Pour des raisons économiques, la surcharge de stockage sur disque de l’index est limitée et prévisible. Ceci est très important, car DocumentDB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d'index et les performances des requêtes.  
 
 Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la syntaxe SQL de DocumentDB.
@@ -656,7 +656,7 @@ La projection prend également en charge les expressions JSON, comme le montre l
     }]
 
 
-Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et, comme aucune clé n’est fournie, nous utilisons des noms de variable d’argument implicites commençant par `$1`. Par exemple, cette requête renvoie&2; variables d’argument implicites, étiquetées `$1` and `$2`.
+Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et, comme aucune clé n’est fournie, nous utilisons des noms de variable d’argument implicites commençant par `$1`. Par exemple, cette requête renvoie 2 variables d’argument implicites, étiquetées `$1` and `$2`.
 
 **Requête**
 
@@ -1769,6 +1769,7 @@ Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inc
 * **Where** : les filtres sont traduits en SQL WHERE et prennent en charge la traduction entre && , || et ! vers les opérateurs SQL
 * **SelectMany**: autorise le déroulement de tableaux vers la clause SQL JOIN. Peut être utilisé pour associer/imbriquer des expressions afin de filtrer les éléments de tableau
 * **OrderBy et OrderByDescending** : se traduit par ORDER BY dans l’ordre croissant/décroissant
+* Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’agrégation, et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
 * **CompareTo**: se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes car ils ne sont pas comparables dans .NET
 * **Take**: se traduit par SQL TOP pour limiter les résultats provenant d'une requête
 * **Math Functions**: prend en charge la traduction de .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan et Truncate vers les fonctions SQL intégrées équivalentes.
@@ -1777,11 +1778,6 @@ Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inc
 * **Geospatial Extension Functions**: prend en charge la traduction des méthodes stub Distance, Within, IsValid et IsValidDetailed vers les fonctions SQL intégrées équivalentes.
 * **User Defined Function Extension Function**: prend en charge la traduction de la méthode stub UserDefinedFunctionProvider.Invoke vers la fonction définie par l’utilisateur correspondante.
 * **Miscellaneous**: prend en charge la traduction des opérateurs conditionnels et coalesce. Peut traduire Contains en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
-
-> [!NOTE]
-> Les opérateurs d’agrégation **COUNT, SUM, MIN, MAX et AVG** ne sont pas pris en charge pour le moment, mais ils seront disponibles dans les versions ultérieures du Kit de développement logiciel (SDK).  
-> 
-> 
 
 ### <a name="sql-query-operators"></a>Opérateurs de requête SQL
 Voici certains exemples illustrant comment certains des opérateurs de requête LINQ standard sont traduits en requêtes DocumentDB.
@@ -1975,7 +1971,7 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
 
 
 ## <a id="ExecutingSqlQueries"></a>Exécution de requêtes SQL
-DocumentDB expose les ressources via une API REST qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, DocumentDB offre des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le Kit de développement logiciel (SDK) .NET prend en charge l'interrogation LINQ en plus du SQL.
+DocumentDB expose les ressources via une API REST qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, DocumentDB offre des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le kit SDK .NET prend en charge l'interrogation LINQ en plus du SQL.
 
 Les exemples suivants montrent comment créer une requête et la soumettre par rapport à un compte de base de données DocumentDB.
 
@@ -2197,7 +2193,7 @@ Le prochain exemple illustre des jointures, exprimées via l'opérateur LINQ Sel
 
 
 
-Le client .NET effectue une itération automatique à travers l'ensemble des pages des résultats de la requête dans les blocs foreach, comme indiqué précédemment. Les options de requête présentées dans la section sur l’API REST sont également disponibles dans le Kit de développement logiciel (SDK) .NET à l’aide des classes `FeedOptions` and `FeedResponse` dans la méthode CreateDocumentQuery. Vous pouvez aussi contrôler le nombre de pages en utilisant le paramètre `MaxItemCount` . 
+Le client .NET effectue une itération automatique à travers l'ensemble des pages des résultats de la requête dans les blocs foreach, comme indiqué précédemment. Les options de requête présentées dans la section sur l’API REST sont également disponibles dans le Kit de développement logiciel (SDK) .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode CreateDocumentQuery. Vous pouvez aussi contrôler le nombre de pages en utilisant le paramètre `MaxItemCount` . 
 
 Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête. Dans le cas les collections partitionnées, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (bien que DocumentDB puisse extraire automatiquement cet élément du texte de la requête), et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions. 
 

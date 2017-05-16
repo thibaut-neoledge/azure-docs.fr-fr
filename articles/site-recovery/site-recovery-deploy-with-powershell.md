@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
-translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,9 +78,9 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 * Un réseau Azure auquel les machines virtuelles répliquées peuvent se connecter après le basculement. Vous sélectionnerez ce réseau au moment du basculement. Le réseau doit être dans la même région que votre abonnement Azure Site Recovery.
 
 ### <a name="powershell-prerequisites"></a>Conditions préalables pour PowerShell
-Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
+Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](/powershell/azure/overview).
 
-Pour obtenir des conseils sur l'utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Pour obtenir des conseils sur l'utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Étape 1 : Définition de l’abonnement
 Dans PowerShell, exécutez ces applets de commande :
@@ -383,7 +384,7 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
         $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Suivi de l'activité
+## <a name=monitor></a> Suivi de l'activité
 Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre la fin du traitement entre les tâches.
 
     Do
@@ -404,5 +405,5 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Découvrez plus](https://msdn.microsoft.com/library/dn850420.aspx) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
+[Découvrez plus](/powershell/azure/overview) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
 

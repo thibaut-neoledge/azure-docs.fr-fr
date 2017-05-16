@@ -4,7 +4,7 @@ description: "Automatisez la configuration d’Application Insights pour recevoi
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
-ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
-ms.lasthandoff: 02/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +40,7 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
 * Utilisez-le pour installer Microsoft Azure PowerShell.
 
 ## <a name="connect-to-azure"></a>Connexion à Azure
-Démarrez Azure PowerShell et [connectez-vous à votre abonnement](/powershell/azureps-cmdlets-docs):
+Démarrez Azure PowerShell et [connectez-vous à votre abonnement](/powershell/azure/overview):
 
 ```PowerShell
 

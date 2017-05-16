@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +78,7 @@ La configuration requise pour l’exécution des commandes PowerShell de cet exe
 
 * Un abonnement Azure.
 * Un réseau virtuel configuré. Pour plus d’informations sur les réseaux virtuels, voir l’article [Présentation du réseau virtuel](virtual-networks-overview.md) .
-* La dernière version d’Azure PowerShell téléchargée et installée. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* La dernière version d’Azure PowerShell téléchargée et installée. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 Pour créer une machine virtuelle avec plusieurs cartes réseau, effectuez les étapes suivantes en entrant chaque commande dans une même session PowerShell :
 

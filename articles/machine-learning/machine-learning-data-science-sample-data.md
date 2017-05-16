@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0683be564a88ef54882e8d882d196851ecac243d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,8 @@ Le **menu** ci-dessous dirige vers les rubriques qui expliquent comment échanti
 
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="why-sample-data"></a>Pourquoi échantillonner des données ?
+**Pourquoi échantillonner des données ?**
+
 Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 

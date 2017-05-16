@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 60abdc490cefc7362ca6ed0dec7dbfd53984201f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -77,9 +79,4 @@ Pour plus d’informations, consultez [Configuration des stratégies d’authent
 
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

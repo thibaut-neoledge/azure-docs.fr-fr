@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
-ms.openlocfilehash: 68474b24519a46db71fe59b5d0574cc4700efccb
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fa59bae2b824e6b75e120ab2b61027746ee1ea78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ord
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
-Vous pouvez vérifier si le nouveau nœud est ajouté en exécutant l’applet de commande [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode).
+Vous pouvez vérifier si le nouveau nœud est ajouté en exécutant l’applet de commande [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
 
 ## <a name="remove-nodes-from-your-cluster"></a>Supprimer des nœuds de votre cluster

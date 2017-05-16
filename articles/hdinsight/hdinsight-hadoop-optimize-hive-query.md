@@ -1,10 +1,10 @@
 ---
-title: "Optimisation de vos requêtes Hive pour une accélération de l’exécution de HDInsight | Microsoft Docs"
+title: "Optimisation des requêtes Hive dans Azure HDInsight | Microsoft Docs"
 description: "Apprenez à optimiser vos requêtes pour Hadoop dans HDInsight"
 services: hdinsight
 documentationcenter: 
-author: rashimg
-manager: mwinkle
+author: mumian
+manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
@@ -14,82 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/28/2015
-ms.author: rashimg
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5054865a4321bb5d2c188e485b033b16f49cb525
-ms.lasthandoff: 12/08/2016
+ms.date: 04/26/2016
+ms.author: jgao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 7d269a5805da405e4e5f7a3caf5a58fa454b9abb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="optimize-hive-queries-for-hadoop-in-hdinsight"></a>Optimisation des requêtes Hive pour Hadoop dans HDInsight
+# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimisation des requêtes Hive dans Azure HDInsight
+
 Par défaut, les clusters Hadoop ne sont pas optimisés pour les performances. Cet article présente quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
 ## <a name="scale-out-worker-nodes"></a>Montée en charge des nœuds de travail
+
 L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploiter l’exécution de mappeurs et de raccords de réduction en parallèle. Il existe deux manières d’accroître la montée en charge dans HDInsight :
 
-* Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme.  Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
+* Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-* Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Consultez l’illustration ci-dessous.
-  ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+* Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre :
+
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="enable-tez"></a>Activation de Tez
+
 [Apache Tez](http://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce :
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez est plus rapide pour les raisons suivantes :
 
-* Il exécute un graphique orienté acyclique en tant que tâche unique. Dans le moteur MapReduce, le graphique orienté acyclique exprimé requiert que chaque ensemble de mappeurs soit suivi par un ensemble de raccords de réduction. Cela provoque la préparation de plusieurs tâches MapReduce pour chaque requête Hive. Tez n’a pas de telles contraintes et peut traiter un graphique orienté acyclique comme une tâche unique, ce qui réduit la surcharge de démarrage de tâche.
+* **Il exécute un graphe orienté acyclique (DAG) en tant que tâche unique dans le moteur MapReduce**. Le DAG requiert que chaque ensemble de mappeurs soit suivi par un ensemble de raccords de réduction. Cela provoque la préparation de plusieurs tâches MapReduce pour chaque requête Hive. Tez n’a pas de telles contraintes et peut traiter un graphique orienté acyclique comme une tâche unique, ce qui réduit la surcharge de démarrage de tâche.
 * **Il évite les écritures inutiles**. Lorsque plusieurs tâches sont préparées pour la même requête Hive dans le moteur MapReduce, la sortie de chacune d’elles est écrite vers HDFS pour les données intermédiaires. Comme Tez réduit le nombre de tâches de chaque requête Hive, il est possible d’éviter de telles écritures inutiles.
 * **Il réduit les délais de démarrage**. Tez peut réduire davantage le délai de démarrage en réduisant le nombre de mappeurs nécessaires au démarrage tout en améliorant l’optimisation tout au long du processus.
 * **Il réutilise les conteneurs**. Dès que possible, Tez peut réutiliser les conteneurs pour réduire la latence provoquée par le nombre de conteneurs au démarrage.
-* **Il utilise des techniques d’optimisation continue** Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue permettant d’améliorer le plan lors du démarrage.
+* **Il utilise des techniques d’optimisation continue**. Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue permettant d’améliorer le plan lors du démarrage.
 
-Pour plus d’informations sur ces concepts, cliquez [ici](http://hortonworks.com/hadoop/tez/)
+Pour plus d’informations sur ces concepts, consultez [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 Vous pouvez activer n’importe quelle requête Hive pour Tez en faisant précéder la requête du paramètre ci-dessous :
 
     set hive.execution.engine=tez;
 
-Pour les clusters HDInsight basés sur Windows, Tez doit être activé lors de l'approvisionnement. Voici un exemple de script PowerShell Azure pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
+Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-    $clusterName = "[HDInsightClusterName]"
-    $location = "[AzureDataCenter]" #i.e. West US
-    $dataNodes = 32 # number of worker nodes in the cluster
-
-    $defaultStorageAccountName = "[DefaultStorageAccountName]"
-    $defaultStorageContainerName = "[DefaultBlobContainerName]"
-    $defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
-
-    $hdiUserName = "[HTTPUserName]"
-    $hdiPassword = "[HTTPUserPassword]"
-
-    $hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
-    $hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
-
-    $hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-    $hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
-
-    New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
-    Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
-    Add-AzureHDInsightConfigValues -Hive $hiveConfig |
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
-
-
-> [!NOTE]
-> Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
-> 
-> 
 
 ## <a name="hive-partitioning"></a>Partitionnement Hive
-Les opérations d’E/S constituent le principal goulot d’étranglement des performances pour l’exécution de requêtes Hive. Il est possible d’améliorer les performances en réduisant la quantité de données à lire. Par défaut, les requêtes Hive analysent l’ensemble des tables Hive. Cela est très utile pour les requêtes telles que les analyses de tables, mais cela crée une surcharge inutile pour les requêtes analysant seulement une petite quantité de données (par exemple, les requêtes avec filtrage). Le partitionnement Hive permet aux requêtes Hive d’accéder uniquement à la quantité de données nécessaire dans les tables Hive.
+
+Les opérations d’E/S constituent le principal goulot d’étranglement des performances pour l’exécution de requêtes Hive. Il est possible d’améliorer les performances en réduisant la quantité de données à lire. Par défaut, les requêtes Hive analysent l’ensemble des tables Hive. Cela est très utile pour les requêtes telles que les analyses de tables. Cependant, ce comportement crée une surcharge inutile pour les requêtes analysant seulement une petite quantité de données (par exemple, les requêtes avec filtrage). Le partitionnement Hive permet aux requêtes Hive d’accéder uniquement à la quantité de données nécessaire dans les tables Hive.
 
 Le partitionnement Hive est implémenté en réorganisant les données brutes en nouveaux répertoires où chaque partition a son propre répertoire, comme défini par l’utilisateur. Le schéma suivant illustre le partitionnement d’une table Hive selon la colonne *Année*. Un nouveau répertoire est créé pour chaque année.
 
@@ -97,8 +74,8 @@ Le partitionnement Hive est implémenté en réorganisant les données brutes en
 
 Considérations relatives au partitionnement :
 
-* **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
-* **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
+* **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner quelques partitions. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
+* **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) entraîne de nombreuses partitions. Le sur-partitionnement communique un stress important au cluster namenode, car ce dernier doit gérer de grandes quantités de répertoires.
 * **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
 Pour créer une table de partition, utilisez la clause *Partitioned By* :
@@ -115,7 +92,7 @@ Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
 Lorsque la table partitionnée est créée, vous pouvez créer un partitionnement statique ou dynamique.
 
-* **Partitionnement statique** signifie que vous avez déjà partagé des données dans des répertoires appropriés et que vous pouvez demander des partitions Hive manuellement en fonction de l’emplacement du répertoire. Cela est illustré dans l’extrait de code ci-dessous.
+* **Partitionnement statique** signifie que vous avez déjà partagé des données dans des répertoires appropriés et que vous pouvez demander des partitions Hive manuellement en fonction de l’emplacement du répertoire. L’extrait de code suivant est un exemple.
   
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
@@ -124,7 +101,7 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
   
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
         LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
-* **Partitionnement dynamique** signifie que vous voulez que Hive crée automatiquement des partitions pour vous. Étant donné que nous avons déjà créé la table de partitionnement à partir de la table intermédiaire, il nous suffit d’insérer des données dans la table partitionnée comme indiqué ci-dessous :
+* **Partitionnement dynamique** signifie que vous voulez que Hive crée automatiquement des partitions pour vous. Étant donné que nous avons déjà créé la table de partitionnement à partir de la table intermédiaire, il nous suffit d’insérer des données dans la table partitionnée :
   
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -186,7 +163,8 @@ Ensuite, vous devez insérer des données dans la table ORC à partir de la tabl
 Vous pouvez en savoir plus sur le format ORC [ici](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorisation
-La vectorisation permet à Hive de traiter un lot de 1024 lignes simultanément, au lieu d’une ligne à la fois. Cela signifie que les opérations simples sont effectuées plus rapidement, car elles requièrent moins d’exécution de code interne .
+
+La vectorisation permet à Hive de traiter un lot de 1024 lignes simultanément, au lieu d’une ligne à la fois. Cela signifie que les opérations simples sont effectuées plus rapidement, car elles requièrent moins d’exécution de code interne.
 
 Pour activer la vectorisation, faites précéder vos requêtes Hive par le paramètre suivant :
 
@@ -199,9 +177,9 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 
 * **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
 * **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Augmentation des raccords de réduction**
+* **Augmentez les raccords de réduction**.
 
-## <a id="nextsteps"></a> Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
 * [Utilisation d’Apache Hive dans HDInsight](hdinsight-use-hive.md)

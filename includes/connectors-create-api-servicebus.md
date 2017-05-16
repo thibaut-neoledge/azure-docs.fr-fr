@@ -14,8 +14,3 @@ Pour autoriser votre application logique à se connecter à votre compte Service
 4. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique.  
     ![Image de connexion à Service Bus 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

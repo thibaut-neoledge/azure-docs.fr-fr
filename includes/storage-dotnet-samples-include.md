@@ -14,7 +14,3 @@ Voici la liste de tous nos exemples de référentiel pour la bibliothèque clien
 * [Import Export Job Management through REST API (Gestion des travaux d’importation/exportation via l’API REST)](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
 * [MyDriving - An Azure IOT and Mobile Sample Application (MyDriving : Exemple d’application mobile et Azure IoT)](https://azure.microsoft.com/resources/samples/mydriving/)
 * [Storage Java Client Library Samples (Exemples de bibliothèque cliente de stockage .NET)](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Jan17_HO3-->
-
-

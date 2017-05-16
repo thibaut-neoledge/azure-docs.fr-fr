@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,7 +105,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>Déployer le modèle ARM à l'aide de PowerShell
 Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, suivez les instructions fournies dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour l’installer et le configurer.
+1. Si vous n’avez jamais utilisé Azure PowerShell, suivez les instructions fournies dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour l’installer et le configurer.
 2. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **`New-AzureRmResourceGroup`** .
 
     ```powershell

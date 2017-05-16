@@ -22,8 +22,3 @@
    
    Le statut du service sera alors **Actif**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -106,14 +107,68 @@ Si vous utilisez la configuration rapide, un compte à utiliser pour la synchron
 
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### <a name="azure-ad-connect-sync-service-accounts"></a>Comptes de service de synchronisation d'Azure AD Connect
+Si vous utilisez des paramètres personnalisés, vous devez créer le compte vous-même avant de commencer l’installation.
+
+### <a name="azure-ad-connect-sync-service-account"></a>Compte de service de synchronisation d'Azure AD Connect
+Le service de synchronisation peut s’exécuter sous des comptes différents. Il peut s’exécuter sous un **Compte de service virtuel** (VSA), un **Compte de service géré de groupe** (gMSA/sMSA), ou un compte d’utilisateur normal. Les options prises en charge ont été modifiées avec la version d’avril 2017 de Connect, lorsque vous effectuez une nouvelle installation. Si vous mettez à niveau depuis une version antérieure d’Azure AD Connect, ces options supplémentaires ne sont pas disponibles.
+
+| Type de compte | Option d’installation | Description |
+| --- | --- | --- |
+| [Compte de service virtuel](#virtual-service-account) | Rapide et personnalisée, avril 2017 et versions ultérieures | Il s’agit de l’option utilisée pour toutes les installations rapides, à l’exception des installations sur un contrôleur de domaine. Pour l’installation personnalisée, il s’agit de l’option par défaut, sauf si une autre option est utilisée. |
+| [Compte de service géré de groupe](#group-managed-service-account) | Installation personnalisée, avril 2017 et versions ultérieures | Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service géré de groupe. |
+| [Compte d’utilisateur](#user-account) | Rapide et personnalisée, avril 2017 et versions ultérieures | Un compte d’utilisateur avec le préfixe AAD_ est créé uniquement lors de l’installation sur Windows Server 2008 ou sur un contrôleur de domaine. |
+| [Compte d’utilisateur](#user-account) | Installation rapide et personnalisée, mars 2017 et versions antérieures | Un compte local avec le préfixe AAD_ est créé pendant l’installation. Lorsque vous utilisez l’installation personnalisée, vous pouvez spécifier un autre compte. |
+
+Si vous utilisez Connect avec une version de mars 2017 ou antérieure, vous ne devez pas réinitialiser le mot de passe du compte de service, sinon Windows détruit les clés de chiffrement pour des raisons de sécurité. Vous ne pouvez pas modifier le compte sur un autre compte sans réinstaller Azure AD Connect. Si vous mettez à niveau vers la version d’avril 2017 ou une version ultérieure, il est possible de modifier le mot de passe du compte de service, mais vous ne pouvez pas modifier le compte utilisé.
+
+> [!Important]
+> Vous pouvez uniquement définir le compte de service lors de la première installation. Il n’est pas possible de modifier le compte de service une fois l’installation terminée.
+
+Il s’agit d’un tableau avec les options par défaut, recommandées et prises en charge pour le compte de service de synchronisation.
+
+Légende :
+
+- Le texte **Gras** indique l’option par défaut et, dans la plupart des cas, l’option recommandée.
+- Le texte *Italique* indique l’option recommandée lorsqu’il ne s’agit pas de l’option par défaut.
+- 2008 - Option par défaut lors de l’installation sur Windows Server 2008
+- Non gras - Option prise en charge
+- Compte local - Compte d’utilisateur local sur le serveur
+- Compte de domaine - Compte d’utilisateur de domaine
+- sMSA - [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA - [Compte de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx)
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personnalisée | SQL à distance</br>Personnalisée |
+| --- | --- | --- | --- |
+| **Machine de groupe de travail/autonome** | Non pris en charge | **VSA**</br>Compte local (2008)</br>Compte local |  Non pris en charge |
+| **ordinateur joint à un domaine** | **VSA**</br>Compte local (2008) | **VSA**</br>Compte local (2008)</br>Compte local</br>Compte du domaine</br>sMSA, gMSA | **gMSA**</br>Compte du domaine |
+| **Contrôleur de domaine** | **Compte du domaine** | *gMSA*</br>**Compte du domaine**</br>sMSA| *gMSA*</br>**Compte du domaine**|
+
+#### <a name="virtual-service-account"></a>Compte de service virtuel
+Un compte de service virtuel est un type spécial de compte qui ne dispose pas d’un mot de passe et qui est géré par Windows.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+VSA est destiné à être utilisé dans les scénarios où le moteur de synchronisation et SQL sont sur le même serveur. Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un [compte de service géré de groupe](#managed-service-account) à la place.
+
+Cette fonctionnalité nécessite Windows Server 2008 R2 ou version ultérieure. Si vous installez Azure AD Connect sur Windows Server 2008, l’installation bascule sur l’utilisation d’un [compte d’utilisateur](#user-account) à la place.
+
+#### <a name="group-managed-service-account"></a>Compte de service géré de groupe
+Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service géré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx).
+
+Pour utiliser cette option, sur la page [Installer les composants requis](active-directory-aadconnect-get-started-custom.md#install-required-components), sélectionnez **Utiliser un compte de service existant**, puis sélectionnez **Compte de service administré**.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+Il est également possible d’utiliser un [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur la machine locale, il n’existe aucun avantage pratique à les utiliser à la place du compte de service virtuel par défaut.
+
+Cette fonctionnalité nécessite Windows Server 2012 ou version ultérieure. Si vous devez utiliser un ancien système d’exploitation et SQL à distance, vous devez utiliser un [compte d’utilisateur](#user-account).
+
+#### <a name="user-account"></a>Compte d’utilisateur
 Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui nécessite une authentification, le compte de service **AAD_** doit se trouver dans le domaine.
 
 ![Compte de service de synchronisation](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 Le compte est créé avec un mot de passe long et complexe qui n’expire pas.
 
-Ce compte permet de stocker les mots de passe des autres comptes de manière sécurisée. Ces autres mots de passe de compte sont stockés dans la base de données. Les clés privées pour les clés de chiffrement sont protégées par le chiffrement à clé secrète des services de chiffrement avec l’API de protection des données (DPAPI) Windows. Vous ne devez pas réinitialiser le mot de passe du compte de service, sinon Windows détruit les clés de chiffrement pour des raisons de sécurité.
+Ce compte permet de stocker les mots de passe des autres comptes de manière sécurisée. Ces autres mots de passe de compte sont stockés dans la base de données. Les clés privées pour les clés de chiffrement sont protégées par le chiffrement à clé secrète des services de chiffrement avec l’API de protection des données (DPAPI) Windows.
 
 Si vous utilisez un serveur SQL Server complet, le compte de service est le propriétaire de la base de données créée pour le moteur de synchronisation. Le service ne fonctionne pas comme prévu avec d’autres autorisations. Une connexion SQL est également créée.
 
@@ -132,10 +187,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

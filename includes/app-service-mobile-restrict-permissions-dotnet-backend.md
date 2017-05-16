@@ -18,8 +18,3 @@ Par défaut, les API d’un serveur principal Mobile Apps peuvent être appelée
         table.access = 'authenticated';
 
     Pour plus d’informations, consultez la section [Procédure : exiger une authentification pour l’accès aux tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Pour savoir comment télécharger le projet de code de démarrage rapide de votre site, consultez [Procédure : télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
-
-
-<!--HONumber=Feb17_HO1-->
-
-

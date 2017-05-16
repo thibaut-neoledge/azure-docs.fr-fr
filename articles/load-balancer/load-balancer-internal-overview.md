@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -72,6 +72,10 @@ Un autre scénario pour le système cœur de métier est d'avoir un VPN de site 
 ![Équilibrage de charge interne utilisant le VPN de site à site](./media/load-balancer-internal-overview/IC744150.png)
 
 Figure 4 : trafic du réseau local acheminé vers le point de terminaison d’équilibrage de charge interne (ILB)
+
+## <a name="limitations"></a>Limitations
+
+Les configurations d’équilibrage de charge internes ne prennent pas en charge SNAT. Dans le cadre de ce document, SNAT fait référence à la traduction d’adresses réseau sources en masquant des ports.  Cela s’applique aux scénarios où une machine virtuelle dans un pool d’équilibrage de charge doit atteindre l’adresse PI frontale de son équilibreur de charge interne respectif. Ce scénario n’est pas pris en charge pour l’équilibreur de charge interne. Des problèmes de connexion surviennent lorsque le flux est à charge équilibrée pour la machine virtuelle à l’origine du flux. Vous devez utiliser un équilibreur de charge de type proxy pour de tels scénarios.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

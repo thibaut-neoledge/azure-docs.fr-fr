@@ -9,8 +9,3 @@
 * [Paramètres de configuration personnalisés pour les environnements App Service, y compris les paramètres de compatibilité PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hébergement haute densité d’applications avec les environnements App Service](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

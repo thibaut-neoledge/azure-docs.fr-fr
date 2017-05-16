@@ -5,8 +5,3 @@ Le tableau suivant répertorie les combinaisons de téléchargement et de captur
 | Windows gén. |N<sup>1</sup> |O |N<sup>3</sup> |O |
 | Windows spéc. |O |N<sup>2</sup> |O |N<sup>4</sup> |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

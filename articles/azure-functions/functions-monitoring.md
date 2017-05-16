@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -100,7 +101,7 @@ La commande suivante diffusera les fichiers journaux de votre Function App vers 
 
 ### <a name="monitoring-function-app-log-files-with-powershell"></a>Analyse des fichiers journaux Function App avec PowerShell
 
-Pour commencer, [installez et configurez Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour commencer, [installez et configurez Azure PowerShell](/powershell/azure/overview).
 
 Ajoutez votre compte Azure en exécutant la commande suivante :
 

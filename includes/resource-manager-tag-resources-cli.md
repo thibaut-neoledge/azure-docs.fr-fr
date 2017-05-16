@@ -86,8 +86,3 @@ Vous pouvez visualiser les balises existantes dans votre abonnement avec la comm
 ```azurecli
 azure tag list
 ```
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
-ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/28/2017
 * Gestion de vos éléments multimédias sur plusieurs comptes de stockage.
 * Mais aussi, mise à l'échelle de Media Services pour traiter de grandes quantités de contenu (car actuellement un compte de stockage unique est limité à un maximum de 500 To). 
 
-Cette rubrique montre comment associer plusieurs comptes de stockage à un compte Media Services à l’aide des [API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) et de [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). Elle montre également comment spécifier différents comptes de stockage lors de la création d'éléments multimédias à l'aide du Kit de développement logiciel (SDK) Media Services. 
+Cette rubrique montre comment associer plusieurs comptes de stockage à un compte Media Services à l’aide des [API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) et de [PowerShell](/powershell/module/azurerm.media). Elle montre également comment spécifier différents comptes de stockage lors de la création d'éléments multimédias à l'aide du Kit de développement logiciel (SDK) Media Services. 
 
 ## <a name="considerations"></a>Considérations
 Quand vous associez plusieurs comptes de stockage à votre compte Media Services, tenez compte des points suivants :
@@ -39,11 +40,11 @@ Quand vous associez plusieurs comptes de stockage à votre compte Media Services
 
 Autres points à considérer :
 
-Media Services utilise la valeur de la propriété **IAssetFile.Name** durant la génération d’URL pour le contenu de diffusion en streaming (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier.
+Media Services utilise la valeur de la propriété **IAssetFile.Name** durant la génération d’URL pour le contenu de diffusion en streaming (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier.
 
 ## <a name="to-attach-storage-accounts"></a>Pour associer des comptes de stockage  
 
-Pour associer des comptes de stockage à votre compte AMS, utilisez les [API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) et [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), comme dans l’exemple suivant.
+Pour associer des comptes de stockage à votre compte AMS, utilisez les [API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) et [PowerShell](/powershell/module/azurerm.media), comme dans l’exemple suivant.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

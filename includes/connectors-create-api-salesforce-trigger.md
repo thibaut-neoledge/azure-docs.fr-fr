@@ -16,8 +16,3 @@ Dans cette procédure pas à pas, vous allez apprendre à utiliser le déclenche
 
 À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le flux de travail lorsqu’un nouvel élément est créé dans Salesforce.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

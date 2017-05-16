@@ -29,12 +29,13 @@
 ### [Assistant Data Factory Copy](data-factory-azure-copy-wizard.md)
 #### [Charger 1 To en 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Guide des performances et réglages](data-factory-copy-activity-performance.md)
+### [Sécurité](data-factory-data-movement-security-considerations.md)
 ### Connecteurs
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Stockage Blob Azure](data-factory-azure-blob-connector.md)
+#### [Azure Cosmos DB](data-factory-azure-documentdb-connector.md)
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
-#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
 #### [Azure Search](data-factory-azure-search-connector.md)
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
@@ -91,7 +92,7 @@
 ### [Résoudre les problèmes liés à l’aide de la passerelle de gestion des données](data-factory-troubleshoot-gateway-issues.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)

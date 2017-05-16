@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 7ce5ba3c1a844104b4c14c73e05843becd69eb5f
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53cb04a042288fe9ad0c3945717c8d7121912752
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Ce didacticiel part du principe que vous disposez de :
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Approvisionnement d’un **serveur SQL Server sur une machine virtuelle Azure**. Pour obtenir des instructions, consultez [Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Déplacement des données à partir d’un fichier plat source vers SQL Server sur une machine virtuelle Azure
 Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les méthodes suivantes permettent de les copier dans l’instance SQL Server VM on Azure :

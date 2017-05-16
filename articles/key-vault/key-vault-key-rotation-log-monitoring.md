@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ Une fois votre coffre de clés (Key Vault) créé, vous pouvez commencer à l’
 Cet article présente un exemple d’utilisation d’Azure Key Vault pour stocker un secret, dans notre exemple une clé de compte de stockage Azure à laquelle une application accède. Il vous propose également une démonstration d’implémentation d’une rotation planifiée de cette clé de compte de stockage. Pour finir, il vous présente, par le biais d’une démonstration, comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
 
 > [!NOTE]
-> Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour plus d’informations, consultez [Prise en main d’Azure Key Vault](key-vault-get-started.md). Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli.md).
+> Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour plus d’informations, consultez [Prise en main d’Azure Key Vault](key-vault-get-started.md). Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli2.md).
 >
 >
 

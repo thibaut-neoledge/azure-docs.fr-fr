@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 158c5dc06f83e16633d3c2fbb4eb27d3e8af030c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -42,7 +43,7 @@ Cet article explique comment utiliser un nom de domaine personnalisé acheté di
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Ajout d'un enregistrement DNS pour votre domaine personnalisé
 Pour associer votre domaine personnalisé à une application web dans App Service, vous devez ajouter une nouvelle entrée pour ce domaine dans la table DNS en utilisant les outils fournis par GoDaddy. Pour trouver les outils DNS pour GoDaddy.com, procédez comme suit.
 
-1. Connectez-vous à votre compte GoDaddy.com et sélectionnez **My Account**, puis **Manage my domains**. Enfin dans le menu déroulant, sélectionnez le nom de domaine à utiliser avec votre application web Azure, puis sélectionnez **Manage DNS**.
+1. Connectez-vous à votre compte GoDaddy.com et sélectionnez **My Account**, puis **Manage my domains**. Dans le menu déroulant, sélectionnez le nom de domaine à utiliser avec votre application web Azure, puis sélectionnez **Manage DNS** (Gérer DNS).
    
     ![page des domaines personnalisés de GoDaddy](./media/web-sites-godaddy-custom-domain-name/godaddy-customdomain.png)
 2. Dans la page **Domain details**, faites défiler jusqu’à l’onglet **DNS Zone File**. Il s'agit de la section qui vous permet d'ajouter et de modifier des enregistrements DNS pour votre nom de domaine.
@@ -65,7 +66,7 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
    
     ![ajouter un enregistrement de zone](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
    
-   * Lorsque vous ajoutez un enregistrement (hôte A) (**A (host) record**) , vous devez attribuer au champ **Host** la valeur **@** (correspondant au nom de domaine racine, par exemple **contoso.com**), la valeur * (caractère générique correspondant à plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple, **www**.). Dans le champ **Points to**, indiquez l’adresse IP de votre application web Azure.
+   * Lorsque vous ajoutez un **enregistrement A (host)**, vous devez attribuer au champ **Hôte** la valeur **@** (correspondant au nom de domaine racine, par exemple **contoso.com**), la valeur * (caractère générique correspondant à plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple, **www**). Dans le champ **Pointe sur**, indiquez l’adresse IP de votre application web Azure.
    * Quand vous ajoutez un **CNAME (alias) record**, vous devez définir le champ **Host** en fonction du sous-domaine à utiliser. Par exemple, **www**. Dans le champ **Points to**, indiquez le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurewebsites.net**.
 4. Cliquez sur **Ajouter**.
 5. Sélectionnez **TXT** comme type d’enregistrement, puis spécifiez une valeur **Host** de **@** et une valeur **Points to** de **&lt;yourwebappname&gt;.azurewebsites.net**.

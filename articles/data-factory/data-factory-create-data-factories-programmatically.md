@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +28,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 ## <a name="prerequisites"></a>Configuration requise
 * Visual Studio 2012, 2013 ou 2015
 * Téléchargez et installez le [Kit SDK Azure .NET](http://azure.microsoft.com/downloads/).
-* Ajoutez une application client native à Azure Active Directory. Pour connaître les étapes permettant d’ajouter l’application, consultez [Intégration d’applications dans Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Notez les valeurs **CLIENT ID** et **REDIRECT URI** dans la page **CONFIGURE**.
+* Ajoutez une application client native à Azure Active Directory. Pour connaître les étapes permettant d’ajouter l’application, consultez [Intégration d’applications dans Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Notez les valeurs **CLIENT ID** et **REDIRECT URI** dans la page **CONFIGURE**. Pour des instructions détaillées, consultez [Didacticiel sur l’activité de copie avec l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 * Obtenez votre **ID d’abonnement** et votre **ID de locataire** Azure. Consultez [Obtenir les ID d’abonnement et client Azure](#get-azure-subscription-and-tenant-ids) pour obtenir des instructions.
 * Téléchargez et installez les packages NuGet pour Azure Data Factory. Les instructions sont fournies dans la procédure pas à pas.
 
@@ -99,7 +99,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
     ```
 
    > [!NOTE]
-   > Remplacez **resourcegroupname** par le nom de votre groupe de ressources Azure. Vous pouvez créer un groupe de ressources à l’aide du cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) .
+   > Remplacez **resourcegroupname** par le nom de votre groupe de ressources Azure. Vous pouvez créer un groupe de ressources à l’aide du cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
 7. Ajoutez à la méthode **Main** le code suivant, qui crée une **fabrique de données**.
 
     ```csharp
@@ -364,7 +364,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. Dans l’Explorateur de solutions, développez le projet (**DataFactoryAPITestApp**), cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case pour l’assembly `System.Configuration` et cliquez sur **OK**.
+14. Dans l’Explorateur de solutions, développez le projet **DataFactoryAPITestApp**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case pour l’assembly `System.Configuration` et cliquez sur **OK**.
 15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**.
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 
@@ -445,7 +445,7 @@ Voici comment créer l’application Active Directory (le principal du service) 
 Notez l’ID d’application et le mot de passe (clé secrète client) et utilisez-les dans la procédure.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Obtenir les ID d’abonnement et client Azure
-Si vous n’avez pas la dernière version d’Azure PowerShell sur votre ordinateur, suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Si vous n’avez pas la dernière version d’Azure PowerShell sur votre ordinateur, suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante
 2. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.

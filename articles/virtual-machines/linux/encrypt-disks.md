@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 814f6c9df0dea145e27a2bf5cc43649bc88e070a
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 62122105288d9d625079c385edb9760be31071dd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -123,10 +124,10 @@ Le processus de chiffrement d’une machine virtuelle est le suivant :
 ## <a name="encryption-process"></a>Processus de chiffrement
 Le chiffrement de disque s’appuie sur les composants supplémentaires suivants :
 
-* **Coffre de clés Azure** - permet de sauvegarder les clés de chiffrement et les clés secrètes utilisées pour le processus de chiffrement/déchiffrement de disque. 
+* **Coffre de clés Azure** - permet de sauvegarder les clés de chiffrement et les clés secrètes utilisées pour le processus de chiffrement/déchiffrement de disque.
   * Le cas échéant, vous pouvez utiliser un coffre de clés Azure existant. Vous n’êtes pas obligé de dédier un coffre de clés au chiffrement des disques.
   * Pour séparer les limites administratives et la visibilité de la clé, vous pouvez créer un coffre de clés dédié.
-* **Azure Active Directory** - gère l’échange sécurisé des clés de chiffrement requises et l’authentification des actions demandées. 
+* **Azure Active Directory** - gère l’échange sécurisé des clés de chiffrement requises et l’authentification des actions demandées.
   * Vous pouvez généralement utiliser une instance Azure Active Directory existante pour héberger votre application.
   * Le principal du service fournit un mécanisme sécurisé pour demander et émettre les bonnes clés de chiffrement. Vous ne développez pas de réelle application qui s’intègre à Azure Active Directory.
 
@@ -149,7 +150,7 @@ Vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/insta
 
 Dans les exemples de commandes, remplacez tous les exemples de paramètres par vos propres noms, emplacement et valeurs de clés. Les exemples suivants utilisent une convention de type `myResourceGroup`, `myKey`, `myVM`, etc.
 
-La première étape consiste à créer un coffre de clés Azure pour y stocker les clés de chiffrement. Un coffre de clés Azure peut stocker des clés, des clés secrètes ou des mots de passe vous permettant de les implémenter en toute sécurité dans vos applications et services. Pour le chiffrement de disque virtuel, vous utilisez le coffre de clés afin de stocker une clé de chiffrement pour chiffrer ou déchiffrer vos disques virtuels. 
+La première étape consiste à créer un coffre de clés Azure pour y stocker les clés de chiffrement. Un coffre de clés Azure peut stocker des clés, des clés secrètes ou des mots de passe vous permettant de les implémenter en toute sécurité dans vos applications et services. Pour le chiffrement de disque virtuel, vous utilisez le coffre de clés afin de stocker une clé de chiffrement pour chiffrer ou déchiffrer vos disques virtuels.
 
 Activez le fournisseur Azure Key Vault au sein de votre abonnement Azure avec [az provider register](/cli/azure/provider#register) puis créez un groupe de ressources avec [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `WestUS` :
 
@@ -166,7 +167,7 @@ az keyvault create --name $keyvault_name --resource-group myResourceGroup \
   --location WestUS --enabled-for-disk-encryption True
 ```
 
-Vous pouvez stocker des clés de chiffrement à l’aide d’une protection logicielle ou HSM (modèle de sécurité matériel). L’utilisation d’une protection HSM nécessite un coffre de clés Premium. Contrairement à l’utilisation d’un coffre de clés standard qui stocke les clés protégées par logiciel, la création d’un coffre de clés Premium entraîne des frais. Pour créer un coffre de clés Premium, ajoutez `--sku Premium` à la commande de l’étape précédente. L’exemple suivant utilise des clés protégées par logiciel puisque nous avons créé un coffre de clés standard. 
+Vous pouvez stocker des clés de chiffrement à l’aide d’une protection logicielle ou HSM (modèle de sécurité matériel). L’utilisation d’une protection HSM nécessite un coffre de clés Premium. Contrairement à l’utilisation d’un coffre de clés standard qui stocke les clés protégées par logiciel, la création d’un coffre de clés Premium entraîne des frais. Pour créer un coffre de clés Premium, ajoutez `--sku Premium` à la commande de l’étape précédente. L’exemple suivant utilise des clés protégées par logiciel puisque nous avons créé un coffre de clés standard.
 
 Pour les deux modèles de protection, la plateforme Azure doit être autorisée à demander les clés de chiffrement lorsque la machine virtuelle démarre pour déchiffrer les disques virtuels. Créez une clé de chiffrement dans le coffre Key Vault avec [az keyvault key create](/cli/azure/keyvault/key#create). L’exemple qui suit permet de créer une clé nommée `myKey` :
 
@@ -278,7 +279,6 @@ az vm encryption enable --resource-group myResourceGroup --name myVM \
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la gestion du coffre de clés Azure, y compris la suppression des clés de chiffrement et des coffres, consultez [Gérer le coffre de clés à l’aide de l’interface de ligne de commande](../../key-vault/key-vault-manage-with-cli.md).
+* Pour plus d’informations sur la gestion du coffre de clés Azure, y compris la suppression des clés de chiffrement et des coffres, consultez [Gérer le coffre de clés à l’aide de l’interface de ligne de commande](../../key-vault/key-vault-manage-with-cli2.md).
 * Pour plus d’informations sur le chiffrement de disque, notamment la préparation d’une machine virtuelle personnalisée chiffrée à télécharger vers Azure, consultez [Chiffrement de disque Azure](../../security/azure-security-disk-encryption.md).
-
 

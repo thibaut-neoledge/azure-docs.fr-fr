@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -59,7 +60,7 @@ Lorsque vous détectez des problèmes dans les données, des **étapes de traite
 * **Nettoyage des données :**compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.
 * **Transformation des données :**normaliser les données pour réduire le volume et le bruit.
 * **Réduction des données :**échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
-* **Discrétisation des données : **convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
+* **Discrétisation des données :**convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
 * **Nettoyage du texte :**supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
 
 Les sections suivantes décrivent certaines de ces étapes de traitement des données.
@@ -68,7 +69,7 @@ Les sections suivantes décrivent certaines de ces étapes de traitement des don
 Si vous avez des valeurs manquantes, la première chose à faire est d’en identifier l’origine. Les méthodes les plus courantes de traitement des valeurs manquantes sont les suivantes :
 
 * **Suppression :**supprimer les enregistrements ayant des valeurs manquantes.
-* **Remplacement par une valeur factice : **remplacer des valeurs manquantes par une valeur factice : par exemple, *inconnu* pour les valeurs catégorielles ou 0 pour les valeurs numériques.
+* **Remplacement par une valeur factice :**remplacer des valeurs manquantes par une valeur factice : par exemple, *inconnu* pour les valeurs catégorielles ou 0 pour les valeurs numériques.
 * **Remplacement par la moyenne :**si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
 * **Remplacement par l’élément le plus fréquent :**si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
 * **Remplacement par la valeur de régression :**remplacer les valeurs manquantes par des valeurs de régression.  
@@ -102,10 +103,5 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 > *Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 15c47d6641e6f5198f88dbe83980f098510916f8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6f4e6629b6058eec292f13e236eba8a91679d5b4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -42,7 +43,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
-| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
+| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
 | **Amérique du Sud** |Sud du Brésil |São Paulo |
 | **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
 | **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour |
@@ -56,7 +57,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud du gouvernement des États-Unis** |Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
+| **Cloud du gouvernement des États-Unis** |Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **Chine** |Chine du Nord, Chine orientale |Beijing, Shanghai |
 | **Allemagne** |Allemagne centrale, Allemagne de l’est |Berlin, Francfort |
 
@@ -125,7 +126,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365** | **Emplacements** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Pris en charge |Pris en charge |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Chicago, Dallas, New York, Seattle+, Silicon Valley, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Chicago, New York+, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge | Pris en charge | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Pris en charge |Pris en charge |Chicago, Dallas, New York, Washington DC |

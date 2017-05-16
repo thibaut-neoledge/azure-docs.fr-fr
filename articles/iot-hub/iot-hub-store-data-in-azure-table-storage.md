@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Enregistrer les messages IoT Hub qui contiennent des informations telles que des données de capteur à un stockage de table Azure
+
+![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,7 +41,7 @@ Vous allez découvrir comment créer un compte de stockage Azure et une applicat
 
 ## <a name="what-you-will-need"></a>Éléments requis
 
-- Avoir suivi le didacticiel [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), qui vous permettra de disposer des éléments requis suivants :
+- Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui répond aux exigences suivantes :
   - Un abonnement Azure actif.
   - Un Azure IoT Hub associé à votre abonnement.
   - Une application fonctionnelle qui envoie des messages à votre Azure IoT Hub.
@@ -127,29 +130,15 @@ IoT Hub expose un point de terminaison intégré compatible avec Event Hub pour 
       ![Ajouter un stockage de table à votre application Function App dans le portail Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. Entrez les informations nécessaires.
 
+      **Nom du paramètre de table** : utilisez `outputTable` pour le nom, qui sera utilisé dans le code d’Azure Functions.
+      
       **Nom de la table** : utilisez `deviceData` pour le nom.
 
-      **Connexion au compte de stockage** : cliquez sur **Nouveau** et sélectionnez votre compte de stockage.
+      **Connexion au compte de stockage** : cliquez sur **Nouveau** et sélectionnez ou entrez votre compte de stockage.
    1. Cliquez sur **Save**.
 1. Sous **Déclencheurs**, cliquez sur **Azure Event Hub (myEventHubTrigger)**.
 1. Sous **Groupe de consommateurs du hub d’événements**, entrez le nom du groupe de consommateurs créé précédemment, puis cliquez sur **Enregistrer**.
 1. Cliquez sur **Développer**, puis sur **Afficher les fichiers**.
-1. Cliquez sur **Ajouter** pour ajouter un nouveau fichier nommé `package.json`, collez les informations suivantes, puis cliquez sur **nregistrer**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Remplacez le code de `index.js` par le code suivant, puis cliquez sur **Enregistrer**.
 
    ```javascript
@@ -157,34 +146,20 @@ IoT Hub expose un point de terminaison intégré compatible avec Event Hub pour 
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Cliquez sur **Function app settings**(Paramètres Function App) > **Ouvrir la console de développement**.
-
-   Vous devriez vous trouver dans le dossier `wwwroot` de l’application Function App.
-1. Accédez au dossier de la fonction en exécutant la commande suivante :
-
-   ```bash
-   cd <your function name>
-   ```
-1. Installez le package npm en exécutant la commande suivante :
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > L’installation peut prendre un certain temps.
 
 L’application Function App est maintenant créée. Elle stocke les messages reçus par votre IoT Hub dans votre stockage de table Azure.
 
@@ -205,3 +180,4 @@ L’application Function App est maintenant créée. Elle stocke les messages re
 Vous avez créé votre compte de stockage Azure et votre application Azure Function App pour stocker les messages que votre IoT Hub reçoit dans votre stockage de table Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

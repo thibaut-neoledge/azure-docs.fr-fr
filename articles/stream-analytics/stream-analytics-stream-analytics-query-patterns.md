@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
-ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 976e765a906896c236497d074ca2a8c5fb1f1c53
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -503,7 +503,7 @@ Par exemple, générer, toutes les 5 secondes, un événement qui indique le po
 **Explication**: cette requête génère des événements toutes les 5 secondes et indique le dernier événement précédemment reçu. [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que la requête remonte pour rechercher le dernier événement (300 secondes, dans cet exemple).
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

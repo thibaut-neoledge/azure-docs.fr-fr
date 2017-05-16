@@ -14,17 +14,21 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Intégration d’Azure AD dans une application Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/Android), qui vous permettra de devenir opérationnel avec Azure AD en quelques minutes seulement. Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code. Une fois que vous aurez terminé, vous disposerez d’une application simple capable d’authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation.
+>
+>
 
 Si vous développez une application de bureau, Azure Active Directory (Azure AD) facilite l’authentification de vos utilisateurs en utilisant leurs comptes Active Directory locaux. Il permet également à votre application d’utiliser en toute sécurité une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
 
@@ -35,11 +39,6 @@ Pour les clients Android qui doivent accéder à des ressources protégées, Az
 * déconnexion des utilisateurs.
 
 Pour commencer, vous avez besoin d’un client Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
-
-> [!TIP]
-> Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/Android), qui vous permettra de devenir opérationnel avec Azure AD en quelques minutes seulement. Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code. Une fois que vous aurez terminé, vous disposerez d’une application simple capable d’authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation.
->
->
 
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Étape 1 : Téléchargement et exécution de l’exemple de serveur TODO d’API REST Node.js
 L’exemple TODO d’API REST Node.js est écrit spécifiquement pour fonctionner avec notre exemple existant pour la création d’une API REST To-Do à client unique pour Azure AD. Il s’agit d’un composant requis pour le démarrage rapide.

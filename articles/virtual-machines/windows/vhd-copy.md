@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1e897d98f561b24eafb95dfb620c3b5c7622ba0a
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +32,8 @@ Cet article vous montre comment utiliser l’outil AzCopy pour créer une copie 
 ## <a name="before-you-begin"></a>Avant de commencer
 Veillez à :
 
-* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Plus de services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
-* Installer Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) (ou une version ultérieure).
+* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Plus de services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Installer Azure [PowerShell 1.0](/powershell/azure/overview) (ou une version ultérieure).
 * Télécharger et installer [l’outil AzCopy](../../storage/storage-use-azcopy.md). 
 
 ## <a name="deallocate-the-vm"></a>Libérer la machine virtuelle

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: b818d5083f1436035185b1b0d7990b5a36716da4
-ms.openlocfilehash: 1fca09ad0c9e1bc72109910cd0dcaf186d6a7c3d
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 960fb84c309b18c7f9741bb60b52cfcc3753a07d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -76,13 +77,33 @@ Outre la basculement,les machines virtuelles Hyper-V protégées à l’aide de 
 Le déclenchement d’un basculement implique les étapes suivantes :
 
 1. Vérification des conditions requises : cette étape permet de vérifier que toutes les conditions requises pour le basculement sont satisfaites.
-1. Basculement : cette étape consiste à traiter les données et à les préparer pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernière** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
+1. Basculement : cette étape consiste à traiter les données et à les préparer pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
 1. Démarrer : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
 
 > [!WARNING]
 > **N’annulez pas un basculement en cours** : avant le démarrage d’un basculement, la réplication de la machine virtuelle est arrêtée. Si vous **annulez** un travail en cours, le basculement s’arrête, mais la réplication de la machine virtuelle ne démarre pas. Il n’est plus possible ensuite de démarrer à nouveau la réplication. 
 >
 > 
+
+## <a name="time-taken-for-failover-to-azure"></a>Durée du basculement vers Azure
+
+Dans certains cas, le basculement des machines virtuelles nécessite une étape supplémentaire intermédiaire qui dure généralement de 8 à 10 minutes. Il s’agit des cas suivants :
+
+* Machines virtuelles VMware utilisant une version antérieure à la 9.8 pour le service de mobilité
+* Serveurs physiques 
+* Machines virtuelles VMware Linux
+* Machines virtuelles Hyper-V protégées en tant que serveurs physiques
+* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
+
+Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible. 
+
+
 
 
 

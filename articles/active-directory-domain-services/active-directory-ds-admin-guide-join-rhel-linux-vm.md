@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: d36b4c1391dad88603ad823055e11c0a4a329c3c
-ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 69f1850bfed90392e9a4695e2443ffaa6bfc746d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -62,7 +62,7 @@ Pour approvisionner une machine virtuelle RHEL 7 à l’aide du portail Azure, p
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Connexion à distance à la machine virtuelle Linux qui vient d’être configurée
 La machine virtuelle RHEL 7.2 a été configurée dans Azure. La tâche suivante consiste à se connecter à distance à cette machine virtuelle.
 
-**connecter à la machine virtuelle RHEL 7.2** , suivez les instructions de l’article [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**connecter à la machine virtuelle RHEL 7.2** , suivez les instructions de l’article [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Les étapes restantes indiquées partent du principe que vous utilisez le client SSH PuTTY pour vous connecter à la machine virtuelle RHEL. Pour voir en savoir plus, consultez la page [Téléchargement PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -133,7 +133,7 @@ Vous devez voir apparaître un message signalant que l’ordinateur a bien été
 ## <a name="verify-domain-join"></a>Vérifier la jonction de domaine
 Vous pouvez vérifier rapidement si l’ordinateur a bien été joint au domaine géré. Connectez-vous à la machine virtuelle RHEL qui vient d’être jointe au domaine via SSH et un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
-1. Sur votre terminal PuTTY, saisissez la commande suivante pour vous connecter à la machine virtuelle RHEL qui vient d’être jointe au domaine, à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple, 'bob@CONTOSO100.COM' dans ce cas).
+1. Sur votre terminal PuTTY, saisissez la commande suivante pour vous connecter à la machine virtuelle RHEL qui vient d’être jointe au domaine, à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO100.COM »).
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 2. Sur votre terminal PuTTY, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.
@@ -153,7 +153,7 @@ Reportez-vous à l’article relatif à la [résolution des problèmes de joncti
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos (Installation de Kerberos)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide (Red Hat Enterprise Linux 7 - Guide d’intégration à Windows)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 

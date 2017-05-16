@@ -14,8 +14,3 @@ Nous allons ici utiliser le déclencheur **Service Bus - Réception d’un messa
 
 À ce stade, votre application logique a été configurée avec un déclencheur. Lorsqu’un nouvel élément est reçu dans la file d’attente que vous avez sélectionnée, le déclencheur lance une série d'autres déclencheurs et actions dans le flux de travail.    
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

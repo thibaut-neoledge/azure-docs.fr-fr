@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 350aa79cf1f41084c33e16b6fcf2ada971b22626
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,9 +74,9 @@ Mes ressources Azure qui prennent en charge [Azure Monitor](../monitoring-and-di
 * Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Activer les diagnostics avec PowerShell
-Vous devez disposer de la version de novembre 2016 (v2.3.0) ou d’une version ultérieure d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Vous devez disposer de la version de novembre 2016 (v2.3.0) ou d’une version ultérieure d’[Azure PowerShell](/powershell/azure/overview).
 
-L’exemple PowerShell suivant montre comment utiliser [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) pour activer les diagnostics sur un groupe de sécurité réseau. La même approche fonctionne pour toutes les ressources prises en charge : définissez `$resourceId` sur l’ID de la ressource pour laquelle vous souhaitez activer les diagnostics.
+L’exemple PowerShell suivant montre comment utiliser [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) pour activer les diagnostics sur un groupe de sécurité réseau. La même approche fonctionne pour toutes les ressources prises en charge : définissez `$resourceId` sur l’ID de la ressource pour laquelle vous souhaitez activer les diagnostics.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

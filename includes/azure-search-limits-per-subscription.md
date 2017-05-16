@@ -15,8 +15,3 @@ Les limites de service maximales peuvent être augmentées sur demande. S’il v
 
 <sup>4</sup> Le niveau « De base » présente une partition fixe. À ce niveau, des unités de recherche supplémentaires sont utilisées pour allouer davantage de réplicas pour les charges de travail de requête accrues.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: "Modifier les paramètres de Fabric Transport dans les microservices Azure | Microsoft Docs"
-description: "Découvrez comment configurer les paramètres de communication d’Azure Service Fabric Actor."
+description: "Découvrez comment configurer les paramètres de communication d’un intervenant Azure Service Fabric."
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
@@ -12,44 +12,52 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
-ms.author: suchia
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 6041541903d4d90710817149be50e05e31fd88f1
+ms.date: 04/20/2017
+ms.author: suchiagicha
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/29/2017
 
 
 ---
-# <a name="configuring-fabrictransport-settings-for-reliable-actors"></a>Configuration des paramètres de FabricTransport pour Reliable Actors
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configuration des paramètres de FabricTransport pour Reliable Actors
 
-Voici la liste des paramètres que l’utilisateur peut configurer [FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+Voici les paramètres que vous pouvez configurer :
+- C# : [FabricTransportRemotingSettings](
+https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+- Java : [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Vous pouvez modifier la configuration par défaut de FabricTransport des manières suivantes.
 
-1.  À l’aide de l’attribut d’assembly - [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute).
+## <a name="assembly-attribute"></a>Attribut d’assembly
 
-  Cet attribut doit être appliqué sur le client Actor et l’assembly du service Actor.
-  L’exemple suivant montre comment modifier la valeur par défaut des paramètres de délai d’expiration des opérations de FabricTransport.
+L’attribut [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) doit être appliqué au niveau des assemblys du client et du service de l’intervenant.
+
+L’exemple suivant montre comment modifier la valeur par défaut des paramètres de FabricTransport OperationTimeout :
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Le deuxième exemple modifie les valeurs par défaut de FabricTransport MaxMessageSize et OperationTimeoutInSeconds
+   Le deuxième exemple modifie les valeurs par défaut de FabricTransport MaxMessageSize et OperationTimeoutInSeconds.
 
-    ```csharp
+  ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-    ```
+   ```
 
-2. À l’aide du [package de configuration](service-fabric-application-model.md), vous pouvez :
+## <a name="config-package"></a>Package de configuration
 
-  * Configurer les paramètres de FabricTransport pour le service Actor
+Vous pouvez utiliser un [package de configuration](service-fabric-application-model.md) pour modifier la configuration par défaut.
 
-    Ajoutez une section TransportSettings dans le fichier settings.xml.
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurer les paramètres de FabricTransport pour le service de l’intervenant
 
-    * SectionName : par défaut, le code de l’acteur cherche SectionName en tant que « &lt;ActorName&gt;TransportSettings. » S’il est introuvable, il recherche sectionName en tant que « TransportSettings ».
+Ajoutez une section TransportSettings dans le fichier settings.xml.
+
+Par défaut, le code de l’intervenant cherche SectionName en tant que « &lt;ActorName&gt;TransportSettings ». S’il est introuvable, il recherche SectionName en tant que « TransportSettings ».
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -58,6 +66,7 @@ Vous pouvez modifier la configuration par défaut de FabricTransport des manièr
        <Parameter Name="SecurityCredentialsType" Value="X509" />
        <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
        <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+       <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
        <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
        <Parameter Name="CertificateStoreName" Value="My" />
        <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -65,19 +74,20 @@ Vous pouvez modifier la configuration par défaut de FabricTransport des manièr
    </Section>
   ```
 
-  * Configurer les paramètres de FabricTransport pour l’assembly du client Actor
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configurer les paramètres de FabricTransport pour l’assembly du client de l’intervenant
 
-    Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier xml « &lt;Nom de l’exe du client&gt; ».settings.xml au même endroit que le .exe du client. Ajoutez ensuite une section TransportSettings à ce fichier. SectionName doit être « TransportSettings ».
+Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier « &lt;Nom de l’exe du client&gt;.settings.xml » au même endroit que le fichier .exe du client. Ajoutez ensuite une section TransportSettings à ce fichier. SectionName doit être « TransportSettings ».
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Section Name="TransportSettings">
       <Parameter Name="SecurityCredentialsType" Value="X509" />
-       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
+      <Parameter Name="OperationTimeoutInSeconds" Value="300" />
       <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-      <Parameter Name="CertificateFindValue" Value="78 12 20 5a 39 d2 23 76 da a0 37 f0 5a ed e3 60 1a 7e 64 bf" />
-       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
+      <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+      <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+      <Parameter Name="OperationTimeoutInSeconds" Value="300" />
       <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
       <Parameter Name="CertificateStoreName" Value="My" />
       <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -86,8 +96,63 @@ Vous pouvez modifier la configuration par défaut de FabricTransport des manièr
   </Settings>
    ```
 
+  * Configurer les paramètres FabricTransport pour sécuriser le service d’acteur/client avec un certificat secondaire.
+  Les informations du certificat secondaire peuvent être ajoutées en ajoutant le paramètre CertificateFindValuebySecondary.
+  Voici l’exemple pour l’écouteur TransportSettings.
 
+    ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
+     Voici l’exemple pour le client TransportSettings.
 
-<!--HONumber=Jan17_HO4-->
+    ```xml
+   <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
+    * Configurer les paramètres FabricTransport pour sécuriser le service d’acteur/client avec un nom de l’objet.
+    Vous devez définir findType sur FindBySubjectName, ajouter les valeurs CertificateIssuerThumbprints et CertificateRemoteCommonNames.
+  Voici l’exemple pour l’écouteur TransportSettings.
 
+     ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Alice" />
+    <Parameter Name="CertificateIssuerThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Bob" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+    ```
+  Voici l’exemple pour le client TransportSettings.
+
+    ```xml
+     <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
 

@@ -11,24 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 04/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: c887adaae811972efd7fcea86eaa67a899f3f4c2
-ms.openlocfilehash: 542dd7df7e0b887298522f29cb597f1df73709cb
-ms.lasthandoff: 02/27/2017
-
+ROBOTS: NOINDEX
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/21/2017
 
 ---
 # <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Transition vers les proxys d’application Azure AD à partir de Microsoft Forefront
 
-Cet article décrit comment passer des solutions Microsoft Forefront Threat Management Gateway (TMG) et United Access Gateway (UAG) aux proxys d’application Azure Active Directory (Azure AD) : proxy d’application web et proxy d’application Azure AD.
+Cet article décrit comment passer des solutions Microsoft Forefront Threat Management Gateway (TMG) et United Access Gateway (UAG) au proxy d’application Azure AD.
 
-> [!NOTE]
-> Le proxy d’application Azure AD est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure AD. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-
-
-Pour plus d’informations sur la transition de Forefront TMG et UAG vers les nouveaux proxys d’application, vous pouvez [télécharger un livre blanc connexe de Microsoft](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx).
+Pour plus d’informations sur la transition de Forefront TMG et UAG vers le proxy d’application, vous pouvez [consulter le livre blanc connexe de Microsoft](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
 
 ## <a name="functionality-details-for-the-conversion"></a>Informations sur la fonctionnalité pour la conversion
 

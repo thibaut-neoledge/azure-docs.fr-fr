@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
    
     ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Changer de mode de cluster
+## <a name="cleaning-up-the-local-cluster-optional"></a>Nettoyage du cluster local (facultatif)
+Avant de conclure, il est important de se rappeler que le cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
+
+1. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
+2. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster uniquement si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Déploiement de votre application sur un cluster Azure
+Maintenant que vous avez déployé votre application localement, vous pouvez déployer cette même application vers Azure. Le document [Créer votre premier cluster Service Fabric sur Azure](service-fabric-get-started-azure-cluster.md) décrit les étapes à l’aide d’Azure PowerShell ou du portail.
+
+Une fois que vous avez configuré un cluster Azure, vous pouvez publier cette application à partir de Visual Studio vers Azure en suivant l’article [Publier vers un cluster Azure](service-fabric-publish-app-remote-cluster.md).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Changement de mode de cluster de votre cluster de développement local
 Par défaut, le cluster de développement local est configuré pour s’exécuter en tant que cluster à cinq nœuds, ce qui se révèle utile pour déboguer les services déployés sur plusieurs nœuds. Toutefois, le déploiement d’une application sur le cluster de développement à cinq nœuds peut prendre un certain temps. Si vous souhaitez itérer des modifications de code rapidement, sans exécuter votre application sur cinq nœuds, basculez le cluster de développement en mode un nœud. Pour exécuter votre code sur un cluster à un nœud, cliquez avec le bouton droit sur le gestionnaire de cluster local dans la barre d’état système, puis sélectionnez **Switch Cluster Mode -> 1 Node** (Changer de mode de cluster -> 1 nœud).  
 
 ![Changer de mode de cluster][switch-cluster-mode]
@@ -136,11 +148,7 @@ Vous pouvez également modifier le mode de cluster en utilisant PowerShell :
    
     ![Résultat de configuration du cluster][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Nettoyage
-Avant de conclure, il est important de se rappeler que le cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
 
-1. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
-2. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster uniquement si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à créer un [cluster dans Azure](service-fabric-cluster-creation-via-portal.md) ou un [cluster autonome sur Windows](service-fabric-cluster-creation-for-windows-server.md).

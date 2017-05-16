@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 8db864801042170fcad947d5b40220eea9c1c307
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
+ms.lasthandoff: 04/18/2017
 
 ---
 
-## <a name="receive-events-from-azure-event-hubs-using-apache-storm"></a>Recevoir des événements d’Azure Event Hubs avec Apache Storm
-[Apache Storm](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
+[Apache Storm](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Azure Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
 Pour plus d’informations sur les modèles de réception Event Hubs, consultez la page [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
@@ -230,13 +231,13 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
     }
     ```
 
-    Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l’instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
+    Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l’instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 <!-- Links -->
@@ -247,8 +248,4 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 <!-- Images -->
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
-
-
-<!--HONumber=Feb17_HO1-->
-
 

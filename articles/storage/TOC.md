@@ -4,7 +4,6 @@
 
 # Prise en main
 
-## [Guide de démarrage rapide](storage-getting-started-guide.md)
 ## [Créer un compte de stockage](storage-create-storage-account.md)
 
 ## Stockage d’objets blob
@@ -12,8 +11,8 @@
 ### [Java](storage-java-how-to-use-blob-storage.md)
 ### [Node.JS](storage-nodejs-how-to-use-blob-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-blobs.md)
-### [Python](storage-python-how-to-use-blob-storage.md)
 ### [PHP](storage-php-how-to-use-blobs.md)
+### [Python](storage-python-how-to-use-blob-storage.md)
 ### [Ruby](storage-ruby-how-to-use-blob-storage.md)
 ### [iOS](storage-ios-how-to-use-blob-storage.md)
 ### [Xamarin](storage-xamarin-blob-storage.md)
@@ -23,17 +22,18 @@
 ### [Java](storage-java-how-to-use-queue-storage.md)
 ### [Node.JS](storage-nodejs-how-to-use-queues.md)
 ### [C++](storage-c-plus-plus-how-to-use-queues.md)
-### [Python](storage-python-how-to-use-queue-storage.md)
 ### [PHP](storage-php-how-to-use-queues.md)
+### [Python](storage-python-how-to-use-queue-storage.md)
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ## Stockage de tables
 ### [.NET](storage-dotnet-how-to-use-tables.md)
+### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.JS](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
-### [Python](storage-python-how-to-use-table-storage.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
+### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## Stockage de fichiers
@@ -55,8 +55,10 @@
 ## [Créer un compte de stockage](storage-create-storage-account.md)
 ## Utiliser des objets blob
 ### [Présentation du service](https://msdn.microsoft.com/library/dd179376.aspx)
+### [Recherche dans le Stockage Blob avec la Recherche Azure](../search/search-blob-storage-integration.md)
 ### [Niveaux à chaud et utiles](storage-blob-storage-tiers.md)
 ### [Domaines personnalisés](storage-custom-domain-name.md)
+### [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPs](storage-https-custom-domain-cdn.md) 
 ### [Accès anonyme aux objets BLOB](storage-manage-access-to-resources.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 ## Files d’attente
@@ -166,7 +168,7 @@
 #### [Sauvegarde des manifestes de lecteur](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostic et récupération des erreurs pour les travaux Import/Export](storage-import-export-diagnostics-and-error-recovery.md)
 # Référence
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Interface de ligne de commande Azure](/cli/azure/storage)
 ## .NET
 ### [Gestionnaire de ressources](/dotnet/api/microsoft.azure.management.storage)
@@ -175,12 +177,13 @@
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [PHP](http://azure.github.io/azure-storage-php/)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices)
 ### [Fournisseur de ressources](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 
@@ -218,6 +221,6 @@
 ### [Java](https://github.com/Azure/azure-storage-java)
 ### [C++](https://github.com/Azure/azure-storage-cpp)
 ### [PHP](https://github.com/Azure/azure-storage-php)
-### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
+### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [iOS](https://github.com/Azure/azure-storage-ios)

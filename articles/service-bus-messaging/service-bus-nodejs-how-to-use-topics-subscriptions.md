@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 24375a7c56cdad59363803ef3aae724977961b44
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -65,7 +66,7 @@ Le module Azure lit les variables d’environnement AZURE\_SERVICEBUS\_NAMESPACE
 
 Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
 
-Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic][Azure classic portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
+Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic] [portail Azure Classic] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js** , après l'instruction relative à l'importation du module Azure :
@@ -289,10 +290,10 @@ Service Bus intègre des fonctionnalités destinées à faciliter la récupérat
 
 De même, il faut savoir qu’un message verrouillé dans un abonnement est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
+Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé *Au moins une fois*, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure Classic][Azure classic portal] ou par programme.
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme.
 L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
 
 ```javascript
@@ -321,10 +322,10 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 * Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Azure SDK for Node] sur GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Azure portal]: https://portal.azure.com
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Création et déploiement d’une application Node.js dans un site web Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md

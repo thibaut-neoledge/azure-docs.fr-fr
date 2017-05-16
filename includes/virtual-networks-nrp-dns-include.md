@@ -82,8 +82,3 @@ Lisez la [documentation API REST pour les zones DNS ](https://msdn.microsoft.com
 
 Lisez la [documentation API REST pour les jeux d'enregistrements DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) pour plus d'informations.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

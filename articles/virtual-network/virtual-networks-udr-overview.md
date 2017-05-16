@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ La figure ci-dessous montre un exemple d’itinéraires définis par l’utilisa
 ![Itinéraires système dans Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Les itinéraires définis par l’utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d’itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d’Internet, par exemple. En outre, l’équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d’où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements. 
+> Les itinéraires définis par l’utilisateur sont appliqués au trafic qui quitte un sous-réseau à partir de n’importe quelle ressource (par exemple, des interfaces réseau associées aux machines virtuelles) dans le sous-réseau. Vous ne pouvez pas créer d’itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d’Internet, par exemple. L’équipement vers lequel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d’où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements. 
 > 
 > 
 

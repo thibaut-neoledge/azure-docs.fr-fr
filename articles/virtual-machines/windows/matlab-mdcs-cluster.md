@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3b946c9c482015483c929127ff3b42b6059f5e52
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Grâce aux machines virtuelles Azure, vous pouvez créer des clusters MATLAB Dis
 
 ## <a name="prerequisites"></a>Conditions préalables
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour communiquer avec Azure et le cluster MATLAB Distributed Computing Server après le déploiement.
-* **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer Azure PowerShell sur votre ordinateur client.
+* **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer Azure PowerShell sur votre ordinateur client.
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de grande taille ou plusieurs clusters MATLAB Distributed Computing Server. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 * **Licences MATLAB, Parallel Computing Toolbox et MATLAB Distributed Computing Server** : les scripts reposent sur l’hypothèse que le gestionnaire [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) est utilisé pour toutes les licences.  

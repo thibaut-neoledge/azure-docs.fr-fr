@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,8 +34,8 @@ Azure Data Lake Store est un service de stockage cloud compatible HDFS qui offre
 
 Data Lake Store est perçu par HDInsight comme un système de fichiers HDFS compatible. Vous pouvez donc utiliser le bolt Storm-HDFS pour y écrire. Lorsque vous utilisez Azure Data Lake à partir de HDInsight, vous pouvez utiliser un schéma de fichier à partir de `adl://`.
 
-* Si Data Lake Storage est le stockage principal pour le cluster, utilisez `adl:///`. Il s’agit de la racine du stockage du cluster dans Azure Data Lake. Cela peut mener à un chemin d’accès de type /clusters/CLUSTERNAME dans votre compte Data Lake Storage.
-* Si Data Lake Storage est le stockage secondaire pour le cluster, utilisez `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Cette URI spécifie le compte Data Lake Storage dans lequel les données sont écrites. Les données sont écrites en commençant à la racine de Data Lake Store.
+* Si Data Lake Store est le stockage principal pour le cluster, utilisez `adl:///`. Il s’agit de la racine du stockage du cluster dans Azure Data Lake. Cela peut mener à un chemin d’accès de type /clusters/CLUSTERNAME dans votre compte Data Lake Store.
+* Si Data Lake Store est un stockage supplémentaire pour le cluster, utilisez `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Cet URI spécifie le compte Data Lake Store dans lequel les données sont écrites. Les données sont écrites en commençant à la racine de Data Lake Store.
 
     > [!NOTE]
     > Vous pouvez également utiliser ce format d’URI pour enregistrer des données dans le compte Data Lake Store qui contient le stockage principal de votre cluster. Cela vous permet d’enregistrer les données en dehors du chemin d’accès au répertoire contenant HDInsight.

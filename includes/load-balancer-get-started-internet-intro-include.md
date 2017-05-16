@@ -5,8 +5,3 @@ Vous pouvez configurer un équilibrage de charge pour :
 * équilibrer la charge du trafic Internet entrant sur les machines virtuelles. L’équilibrage de charge auquel nous faisons référence dans ce scénario est un [équilibrage de charge accessible sur Internet](../articles/load-balancer/load-balancer-internet-overview.md).
 * Il équilibre le trafic entre des machines virtuelles dans un réseau virtuel (VNet), entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. L’équilibreur de charge auquel nous faisons référence dans ce scénario est un [Équilibreur de charge interne (ILB)](../articles/load-balancer/load-balancer-internal-overview.md);
 * transférer du trafic externe vers une instance spécifique de machine virtuelle.
-
-
-<!--HONumber=Nov16_HO2-->
-
-

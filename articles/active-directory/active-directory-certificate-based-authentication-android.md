@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 04/12/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
-ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0e2bbb2a94986ca93035aa553db0f9b54af635d5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,6 +45,8 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 | Outlook |![Vérification][1] |
 | Yammer |![Vérification][1] |
 | Skype Entreprise |![Vérification][1] |
+| Application Azure Information Protection |![Vérification][1] |
+
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre
 
@@ -63,7 +66,7 @@ Azure Active Directory ajoute ces déclarations au jeton d’actualisation si el
 La meilleure pratique consiste à mettre à jour les pages d’erreur ADFS avec des instructions sur l’obtention d’un certificat utilisateur.  
 Pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
 
-Certaines applications Office (avec l’authentification moderne activée) envoient « *prompt=login* » à Azure AD dans leur demande. Par défaut, Azure AD traduit cela dans la demande aux services ADFS en « *wauth=usernamepassworduri* » (demande aux services ADFS d’effectuer l’authentification U/P) et « *wfresh=0* » (demande aux services ADFS d’ignorer l’état d’authentification unique et d’effectuer une nouvelle authentification). Si vous souhaitez activer l’authentification par certificat pour ces applications, vous devez modifier le comportement par défaut d’Azure AD. Définissez simplement « *PromptLoginBehavior* » dans vos paramètres de domaine fédéré sur « *Désactivé* ». Vous pouvez utiliser l’applet de commande [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) pour effectuer cette tâche :
+Certaines applications Office (avec l’authentification moderne activée) envoient « *prompt=login* » à Azure AD dans leur demande. Par défaut, Azure AD traduit cela dans la demande aux services ADFS en « *wauth=usernamepassworduri* » (demande aux services ADFS d’effectuer l’authentification U/P) et « *wfresh=0* » (demande aux services ADFS d’ignorer l’état d’authentification unique et d’effectuer une nouvelle authentification). Si vous souhaitez activer l’authentification par certificat pour ces applications, vous devez modifier le comportement par défaut d’Azure AD. Définissez simplement « *PromptLoginBehavior* » dans vos paramètres de domaine fédéré sur « *Désactivé* ». Vous pouvez utiliser l’applet de commande [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) pour effectuer cette tâche :
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 03/06/2017
+wms.date: 04/26/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service
 
-[Azure SQL Database](sql-database-technical-overview.md) propose quatre niveaux de service : **De base**, **Standard**, **Premium** et **Premium RS**. Chaque niveau de service est associé à plusieurs niveaux de performances pour gérer différentes charges de travail. Plus un niveau de performances est élevé, plus le nombre de ressources dont vous disposez est étendu afin de générer un meilleur débit. Vous pouvez modifier les niveaux de service et de performances de manière dynamique sans aucun temps d’arrêt. Les niveaux de service De base, Standard, Premium et Premium RS proposent tous un contrat de niveau de service garantissant un temps d’activité de 99,99 %. Par ailleurs, ils offrent des options de continuité d’activité flexibles, des fonctionnalités de gestion de la sécurité et une facturation à l’heure. Le niveau Premium RS fournit les mêmes niveaux de performances, fonctionnalités de sécurité et fonctionnalités de continuité de l’activité que le niveau Premium, avec un SLA (contrat de niveau de service) réduit.
+[Azure SQL Database](sql-database-technical-overview.md) propose quatre niveaux de service : **De base**, **Standard**, **Premium** et **Premium RS**. Chaque niveau de service est associé à plusieurs niveaux de performances pour gérer différentes charges de travail. Plus un niveau de performances est élevé, plus le nombre de ressources dont vous disposez est étendu afin de générer un meilleur débit. Vous pouvez modifier les niveaux de service et de performances de manière dynamique sans aucun temps d’arrêt. Les niveaux de service De base, Standard et Premium proposent tous un contrat SLA garantissant un temps d’activité de 99,99 %. Par ailleurs, ils offrent des options de continuité d’activité flexibles, des fonctionnalités de gestion de la sécurité et une facturation à l’heure. Le niveau Premium RS fournit les mêmes niveaux de performances, fonctionnalités de sécurité et fonctionnalités de continuité de l’activité que le niveau Premium, avec un SLA (contrat de niveau de service) réduit.
 
 > [!IMPORTANT]
 > Les bases de données Premium RS s’exécutent avec un nombre inférieur de copies redondantes par rapport aux bases de données Premium ou Standard. Par conséquent, en cas d’échec d’un service, vous devrez peut-être restaurer votre base de données à partir d’une sauvegarde avec un délai allant jusqu’à 5 minutes.
@@ -44,18 +45,18 @@ Le tableau suivant fournit des exemples de niveaux adaptés à différentes char
 | **Premium RS** | Conçu pour les charges de travail intensives en E/S qui ne nécessitent pas de garanties de disponibilité maximale. Parmi les exemples, on peut citer les charges de travail hautes performances ou une charge de travail analytique où la base de données n’est pas le système d’enregistrement. |
 |||
 
-Tout d’abord, vous devez décider si vous souhaitez exécuter une base de données unique avec une quantité définie de ressources dédiées ou si vous souhaitez partager un pool de ressources dans un groupe de bases de données. Consultez les [considérations relatives aux pools élastiques](sql-database-elastic-pool-guidance.md). Pour choisir un niveau de service, commencez par déterminer les fonctionnalités de base de données minimales dont vous avez besoin :
+Tout d’abord, vous devez décider si vous souhaitez exécuter une base de données unique avec une quantité définie de ressources dédiées ou si vous souhaitez partager un pool de ressources dans un groupe de bases de données. Consultez les [considérations relatives aux pools élastiques](sql-database-elastic-pool.md). Pour choisir un niveau de service, commencez par déterminer les fonctionnalités de base de données minimales dont vous avez besoin :
 
 | **Fonctionnalités de niveau de service** | **De base** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Taille maximale de base de données individuelle | 2 Go | 250 Go | 4 To*  | 500 Go  |
-| Stockage total maximum dans un pool élastique | 117 Go | 1200 Go | 750 Go | 750 Go |
-| Nombre maximal de bases de données par pool | 400  | 400 | 50 | 50 |
+| Taille maximale de la base de données unique | 2 Go | 250 Go | 4 To*  | 500 Go  |
+| Taille maximale de la base de données dans un pool élastique | 156 Go | 2,9 To | 500 Go | 500 Go |
+| Nombre maximal de bases de données par pool | 500  | 500 | 100 | 100 |
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 35 jours | 35 jours |
 ||||||
 
 > [!IMPORTANT]
-> Les clients utilisant les niveaux de performances P11 et P15 peuvent utiliser jusqu’à 4 To de stockage inclus sans frais supplémentaires. Cette option de 4 To est actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Pour connaître les limitations actuelles, consultez [Limitations 4 To actuelles](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Les options de stockage supplémentaire sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada. Consultez l’article [Limitations 4 To actuelles](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
 >
 
 Une fois que vous avez déterminé le niveau de service minimal, vous êtes prêt à déterminer le niveau de performances (nombre de DTU) requis pour la base de données. Les niveaux de performances S2 et S3 standard constituent souvent un bon point de départ. Dans le cas des bases de données présentant des exigences élevées en termes de processeur ou d’E/S, les niveaux de performances Premium sont bien adaptés. Le niveau Premium offre davantage de ressources processeur et 10 fois plus d’E/S au départ que le niveau de performances Standard le plus élevé.
@@ -90,7 +91,7 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Niveaux de service d’un pool élastique et performances dans les eDTU.
 
-Les pools permettent aux bases de données de partager et de consommer des ressources eDTU sans qu’il soit nécessaire d’affecter un niveau de performances propre à chaque base de données dans le pool. Par exemple, une base de données unique dans un pool standard peut être offerte avec de 0 eDTUe au nombre d’eDTU maximal défini lors de la configuration du pool. Les pools permettent à plusieurs bases de données avec différentes charges de travail d’utiliser efficacement les ressources eDTU disponibles pour l’ensemble du pool. Consultez l’article [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md) .
+Les pools permettent aux bases de données de partager et de consommer des ressources eDTU sans qu’il soit nécessaire d’affecter un niveau de performances propre à chaque base de données dans le pool. Par exemple, une base de données unique dans un pool standard peut être offerte avec de 0 eDTUe au nombre d’eDTU maximal défini lors de la configuration du pool. Les pools permettent à plusieurs bases de données avec différentes charges de travail d’utiliser efficacement les ressources eDTU disponibles pour l’ensemble du pool. Consultez l’article [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool.md) .
 
 Le tableau suivant décrit les caractéristiques des niveaux de service de pool.
 
@@ -144,7 +145,7 @@ Lors de la création ou de la mise à niveau d’une base de données P11/P15 da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez en détail les [pools élastiques](sql-database-elastic-pool-guidance.md) et les [considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md).
+* Découvrez en détail les [pools élastiques](sql-database-elastic-pool.md) et les [considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool.md).
 * Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
 * Maintenant que vous êtes au fait des différents niveaux disponibles pour le service Base de données SQL, essayez-les à l’aide d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) et découvrez [comment créer votre première base de données SQL](sql-database-get-started-portal.md).
 * Dans le cas des scénarios de migration, utilisez l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire. 

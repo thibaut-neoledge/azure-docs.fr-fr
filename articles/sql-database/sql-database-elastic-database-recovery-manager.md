@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c34af1d0c1df88d13ba82fdef7ca9b33a2e55784
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Dans un environnement de base de données partitionnée, il existe un seul clien
 
 Le GSM et le LSM peuvent devenir désynchronisés pour les raisons suivantes :
 
-1. La suppression d'un partitionnement dont on pense que la plage n'est plus utilisée ou l'attribution d'un nouveau nom au partitionnement. La suppression d’une partition  se traduit par un **mappage de partition orphelin**. De même, une base de données renommée peut causer un mappage de partition orphelin. En fonction de l'objectif de la modification, il peut être nécessaire de supprimer la partition ou de mettre à jour l'emplacement de partition. Pour récupérer une base de données supprimée, consultez [Restauration d’une base de données supprimée.](sql-database-restore-deleted-database-portal.md).
+1. La suppression d'un partitionnement dont on pense que la plage n'est plus utilisée ou l'attribution d'un nouveau nom au partitionnement. La suppression d’une partition  se traduit par un **mappage de partition orphelin**. De même, une base de données renommée peut causer un mappage de partition orphelin. En fonction de l'objectif de la modification, il peut être nécessaire de supprimer la partition ou de mettre à jour l'emplacement de partition. Pour récupérer une base de données supprimée, consultez [Restauration d’une base de données supprimée](sql-database-recovery-using-backups.md).
 2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur et le nom de la base de données du gestionnaire de partitions dans l'application, puis mettre à jour les détails de mappage de partition pour toutes les partitions d'un mappage de partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Pour en savoir plus sur les options de récupération d’une base de données en cas de panne du centre de données, consultez les rubriques sur la [continuité des activités](sql-database-business-continuity.md) et la [récupération d’urgence](sql-database-disaster-recovery.md).
 3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure. Pour en savoir plus sur la récupération jusqu`à une date et heure avec les sauvegardes, consultez [Récupération avec des sauvegardes](sql-database-recovery-using-backups.md).
 
@@ -77,7 +78,7 @@ Cet exemple supprime les partitions du mappage de partition.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-Le mappage indique l'emplacement de la partition dans GSM avant la suppression de la partition. Étant donné que la partition a été supprimée, on suppose que c’est intentionnel et la plage de clés de partitionnement n’est plus en cours d’utilisation. Sinon, vous pouvez exécuter une restauration à un moment donné. pour récupérer la partition à partir d’un point dans le temps ultérieur. (Dans ce cas, consultez la section suivante pour détecter les incohérences de partition.) Pour effectuer une récupération, consultez la rubrique sur la [récupération jusqu`à une date et heure](sql-database-point-in-time-restore-portal.md).
+La carte de partitions reflète l’emplacement de la partition dans GSM avant sa suppression. Étant donné que la partition a été supprimée, on suppose que c’est intentionnel et la plage de clés de partitionnement n’est plus en cours d’utilisation. Sinon, vous pouvez exécuter une restauration à un moment donné. pour récupérer la partition à partir d’un point dans le temps ultérieur. (Dans ce cas, consultez la section suivante pour détecter les incohérences de partition.) Pour effectuer une récupération, consultez la rubrique sur la [récupération jusqu`à une date et heure](sql-database-recovery-using-backups.md).
 
 Si la suppression de base de données est intentionnelle, l’opération de nettoyage administratif final consiste à supprimer l’entrée de la partition dans le gestionnaire de table de partition. L’application évite ainsi d’écrire par inadvertance des informations pour une plage non prévue.
 
@@ -124,7 +125,7 @@ Cet exemple ajoute une partition dans le mappage de la partition venant d'être 
    ```
 
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Mise à jour des emplacements de partition après un basculement géographique (restauration) des partitions
-En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou  un emplacement, ou un  point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données dans le mappage de partition et la valeur de la clé de partitionnement est la cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée. 
+En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou  un emplacement, ou un  point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données de la carte de partitions et la valeur de la clé de partitionnement cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée. 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Le basculement géographique et la restauration sont des opérations généralement gérées par un administrateur de cloud de l'application en utilisant intentionnellement l'une des fonctionnalités de continuité d'activité des bases de données SQL Azure. La planification de la continuité des activités requiert des processus, des procédures et des mesures garantissant que les opérations de l’entreprise peuvent continuer sans interruption. Les méthodes disponibles en tant que partie de la classe RecoveryManager doivent être utilisées dans ce flux de travail pour s’assurer que le GSM et LSM sont actualisés en fonction de l’opération de récupération exécutée. Il existe cinq opérations de base pour s’assurer que GSM et LSM reflètent bien les informations précises après un événement de basculement. Le code d’application servant à exécuter ces opérations peut être intégré dans des outils et de flux de travail existants. 

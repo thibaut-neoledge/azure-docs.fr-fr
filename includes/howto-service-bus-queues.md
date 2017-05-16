@@ -12,8 +12,3 @@ Les files d’attente Service Bus sont une technologie à usage généraliste po
 L’utilisation de files d’attente vous permet de mettre à l’échelle vos applications plus facilement, et permet une résilience supérieure dans votre architecture.
 
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

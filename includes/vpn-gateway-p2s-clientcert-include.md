@@ -1,0 +1,12 @@
+Chaque ordinateur client qui se connecte à un réseau virtuel avec une connexion de point à site doit avoir un certificat client installé. Le certificat client est généré à partir du certificat racine et installé sur chaque ordinateur client. Si aucun certificat client valide n’est installé et que le client essaie de se connecter au réseau virtuel, l’authentification échoue.
+
+Vous pouvez soit générer un certificat unique pour chaque client, soir utiliser le même certificat pour plusieurs clients. Le fait de générer des certificats clients uniques vous offre la possibilité de révoquer un seul certificat. Dans le cas contraire, si plusieurs clients utilisent le même certificat client et que vous devez révoquer ce dernier, vous devrez générer et installer de nouveaux certificats pour tous les clients qui utilisent ce certificat pour s’authentifier.
+
+Vous pouvez générer des certificats clients à l’aide des méthodes suivantes :
+
+- **Certificat d’entreprise :**
+
+  - Si vous utilisez une solution de certificat d’entreprise, générez un certificat client avec le format de valeur de nom commun « name@yourdomain.com », plutôt que le format « nom_domaine\nom_utilisateur ».
+  - Assurez-vous que le certificat client repose sur le modèle de certificat « Utilisateur » qui indique « Authentification client » comme premier élément dans la liste d’usages, plutôt que la mention « Ouverture de session par carte à puce » ou autre. Vous pouvez vérifier le certificat en double-cliquant sur le certificat client et en affichant *Détails > Utilisation avancée de la clé*.
+
+- **Certificat racine auto-signé :** si vous générez un certificat client à partir d’un certificat racine auto-signé à l’aide des instructions de l’article [Créer un certificat auto-signé pour les connexions de point à site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert), il est automatiquement installé sur l’ordinateur que vous avez utilisé pour le générer. Si vous souhaitez installer un certificat client sur un autre ordinateur client, vous devez l’exporter. Suivez les instructions de l’article pour [exporter le certificat](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

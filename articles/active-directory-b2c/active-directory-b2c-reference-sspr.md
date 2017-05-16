@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -45,10 +47,5 @@ Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stra
 > Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

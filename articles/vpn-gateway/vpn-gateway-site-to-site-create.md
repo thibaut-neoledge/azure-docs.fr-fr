@@ -13,34 +13,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Classic
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Classic
 
-Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Ce type de connexion requiert un périphérique VPN local auquel est affectée une IP publique, et qui ne se situe pas derrière un NAT. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
-
-![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement et du portail classiques. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Vous pouvez également créer cette configuration pour le modèle de déploiement Resource Manager en sélectionnant une autre option dans la liste suivante :
+Cet article vous explique comment utiliser le portail Classic pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement classique. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Classic - Portail Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
+> 
 >
->
+
+![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+
+Une connexion de passerelle VPN de site à site permet de connecter votre réseau local à un réseau virtuel Azure via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur les passerelles VPN, consultez l’article [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 #### <a name="additional-configurations"></a>Configurations supplémentaires
-Si vous souhaitez connecter des réseaux virtuels, consultez [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](virtual-networks-configure-vnet-to-vnet-connection.md). Si vous souhaitez ajouter une connexion de site à site à un réseau virtuel qui possède déjà une connexion, consultez [Connecter plusieurs sites locaux à un réseau virtuel](vpn-gateway-multi-site.md).
 
+Si vous souhaitez connecter des réseaux virtuels, consultez [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](virtual-networks-configure-vnet-to-vnet-connection.md). Si vous souhaitez ajouter une connexion de site à site à un réseau virtuel qui possède déjà une connexion, consultez [Connecter plusieurs sites locaux à un réseau virtuel](vpn-gateway-multi-site.md).
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -70,7 +72,7 @@ Saisissez les informations ci-dessous, puis cliquez sur la flèche Suivant situ�
 * **Réseau local**: un réseau local représente votre emplacement physique local. Vous pouvez sélectionner un réseau local que vous avez précédemment créé, ou vous pouvez créer un nouveau réseau local. Toutefois, si vous choisissez d’utiliser un réseau local que vous avez précédemment créé, accédez à la page de configuration **Réseaux locaux** et vérifiez que l’adresse IP (adresse IPv4 publique) de l’appareil VPN est exacte.
 
 ## <a name="Connectivity"></a>Page de connectivité de site à site
-Si vous créez un nouveau réseau local, vous verrez la page **Connectivité site à site** . Si vous souhaitez utiliser un réseau local que vous avez précédemment créé, cette page n’apparaîtra pas dans l’Assistant ; vous pouvez alors passer à la section suivante.
+Si vous créez un nouveau réseau local, la page **Connectivité site à site** s’affiche. Si vous souhaitez utiliser un réseau local que vous avez précédemment créé, cette page n’apparaîtra pas dans l’Assistant ; vous pouvez alors passer à la section suivante.
 
 Entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
 
@@ -90,7 +92,7 @@ Entrez les informations suivantes, puis cliquez sur la coche située dans le coi
 * **Ajouter un sous-réseau**: inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
 * **Ajouter un sous-réseau de passerelle**: cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel et est nécessaire pour cette configuration.
 
-Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du Portail Azure Classic. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
+Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du portail Azure Classic. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 

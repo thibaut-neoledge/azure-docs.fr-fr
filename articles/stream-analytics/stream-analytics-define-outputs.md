@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -318,7 +319,7 @@ La liste ci-dessous présente les noms et les descriptions des propriétés pour
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :

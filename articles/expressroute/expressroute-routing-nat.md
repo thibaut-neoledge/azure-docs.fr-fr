@@ -1,5 +1,5 @@
 ---
-title: Configuration de routage requise pour ExpressRoute | Microsoft Docs
+title: NAT pour Azure ExpressRoute | Microsoft Docs
 description: "Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
+# <a name="nat-for-expressroute"></a>NAT pour ExpressRoute
+
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes. 
 
 Pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité, reportez-vous à l’article [Circuits et domaines de routage](expressroute-circuit-peerings.md).
@@ -31,10 +34,12 @@ Pour obtenir une description des sessions de routage qui doivent être configur�
 > 
 
 ## <a name="ip-addresses-used-for-peerings"></a>Adresses IP utilisées pour les homologations
+
 Vous devez réserver quelques blocs d’adresses IP pour configurer le routage entre votre réseau et les routeurs Microsoft Enterprise Edge (MSEE). Cette section fournit une liste des conditions requises et décrit les règles relatives à la façon dont ces adresses IP doivent être acquises et utilisées.
 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Adresses IP utilisées pour l’homologation privée Azure
-Pour configurer les homologations, vous pouvez utiliser des adresses IP privées ou publiques. La plage d'adresses utilisée pour configurer des routages ne doit pas chevaucher les plages d'adresses utilisées pour créer des réseaux virtuels dans Azure. 
+
+Pour configurer les homologations, vous pouvez utiliser des adresses IP privées ou publiques. La plage d’adresses utilisée pour configurer des routages ne doit pas chevaucher les plages d’adresses utilisées pour créer des réseaux virtuels dans Azure. 
 
 * Vous devez réserver un sous-réseau /29 ou deux sous-réseaux /30 pour les interfaces de routage.
 * Les sous-réseaux utilisés pour le routage peuvent être des adresses IP privées ou publiques.
@@ -44,10 +49,11 @@ Pour configurer les homologations, vous pouvez utiliser des adresses IP privées
   * Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilise la deuxième adresse IP du sous-réseau /30 pour configurer une session BGP.
   * Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.  
 
-#### <a name="example-for-private-peering"></a>Exemple pour l'homologation privée
-Si vous choisissez d’utiliser un sous-réseau a.b.c.d/29 pour configurer l’homologation, il sera scindé en deux sous-réseaux /30. Dans l'exemple ci-dessous, nous examinerons l’utilisation du sous-réseau a.b.c.d/29. 
+#### <a name="example-for-private-peering"></a>Exemple pour l’homologation privée
 
-a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft via les API d’approvisionnement. Vous utiliserez a.b.c.d+1 comme l'IP VRF pour le PE principal et Microsoft utilisera a.b.c.d+2 comme IP VRF pour le MSEE principal. Vous allez utiliser a.b.c.d+5 comme l'IP VRF pour le PE secondaire et Microsoft utilisera a.b.c.d+6 IP VRF pour le MSEE secondaire.
+Si vous choisissez d’utiliser un sous-réseau a.b.c.d/29 pour configurer l’homologation, il sera scindé en deux sous-réseaux /30. Dans l’exemple ci-dessous, nous examinerons l’utilisation du sous-réseau a.b.c.d/29. 
+
+a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft via les API d’approvisionnement. Vous utiliserez a.b.c.d+1 comme l’IP VRF pour le PE principal et Microsoft utilisera a.b.c.d+2 comme IP VRF pour le MSEE principal. Vous allez utiliser a.b.c.d+5 comme l’IP VRF pour le PE secondaire et Microsoft utilisera a.b.c.d+6 IP VRF pour le MSEE secondaire.
 
 Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
 
@@ -55,6 +61,7 @@ Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologa
 * 192.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
 
 ### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Adresses IP utilisées pour les homologations publiques Azure et Microsoft
+
 Vous devez utiliser des adresses IP publiques que vous possédez pour configurer les sessions BGP. Microsoft doit être en mesure de vérifier la propriété des adresses IP via les Registres Internet de routage régional (RIR) et les Registres Internet de routage (IRR). 
 
 * Vous devez utiliser un sous-réseau unique /29 ou deux sous-réseaux /30 afin de configurer l’homologation BGP pour chaque homologation par circuit ExpressRoute (si vous en avez plusieurs). 
@@ -64,14 +71,18 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
   * Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.
 
 ## <a name="public-ip-address-requirement"></a>Spécification d’adresse IP publique
+
 ### <a name="private-peering"></a>Homologation privée
+
 Vous pouvez choisir d’utiliser des adresses IPv4 publiques ou privées pour l’homologation privée. Nous fournissons une isolation de bout en bout du trafic. Ainsi, le chevauchement des adresses avec d’autres clients n’est pas possible dans le cas de l’homologation privée. Ces adresses ne sont pas publiées sur Internet. 
 
 ### <a name="public-peering"></a>Homologation publique
-Le chemin d'homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. La connectivité aux services Microsoft Azure sur l'homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Vous devez utiliser des adresses IP publiques pour le trafic destiné au réseau Microsoft.
+
+Le chemin d’homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. La connectivité aux services Microsoft Azure sur l’homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Vous devez utiliser des adresses IP publiques pour le trafic destiné au réseau Microsoft.
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
-Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
+
+Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d’homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres répertoriés ci-dessous.
 
@@ -89,25 +100,30 @@ Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre
 > 
 
 ## <a name="dynamic-route-exchange"></a>Échange de routage dynamique
-L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L'authentification des sessions BGP n'est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
+
+L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L’authentification des sessions BGP n’est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 ## <a name="autonomous-system-numbers"></a>Numéros système autonomes
+
 Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
 
-Il n'existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
+Il n’existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agrégation de routages et limites de préfixes
-Nous prenons en charge jusqu'à 4 000 préfixes qui nous sont proposés via l'homologation privée Azure. Ce chiffre peut être augmenté jusqu’à 10 000 préfixes si le module complémentaire ExpressRoute premium est activé. Nous acceptons jusqu'à 200 préfixes par session BGP pour les homologations publiques Azure et Microsoft. 
 
-La session BGP s’arrêtera si le nombre de préfixes dépasse la limite. Nous accepterons les routages par défaut uniquement sur le lien d'homologation privée. Le fournisseur doit filtrer les adresses IP de routage et privées par défaut (RFC 1918) des chemins d’homologation publique Azure et Microsoft. 
+Nous prenons en charge jusqu’à 4 000 préfixes qui nous sont proposés via l’homologation privée Azure. Ce chiffre peut être augmenté jusqu’à 10 000 préfixes si le module complémentaire ExpressRoute premium est activé. Nous acceptons jusqu’à 200 préfixes par session BGP pour les homologations publiques Azure et Microsoft. 
+
+La session BGP s’arrêtera si le nombre de préfixes dépasse la limite. Nous accepterons les routages par défaut uniquement sur le lien d’homologation privée. Le fournisseur doit filtrer les adresses IP de routage et privées par défaut (RFC 1918) des chemins d’homologation publique Azure et Microsoft. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Routage de transit et routage entre régions
+
 ExpressRoute ne peut pas être configuré comme des routeurs de transit. Vous devez vous appuyer sur votre fournisseur de connectivité pour les services de routage de transit.
 
 ## <a name="advertising-default-routes"></a>Publication des routages par défaut
-Les routages par défaut sont autorisés uniquement sur les sessions d'homologation privées Azure. Dans ce cas, nous acheminerons tout le trafic des réseaux virtuels associés vers votre réseau. La publication de routages par défaut dans l'homologation privée entraîne le blocage du chemin Internet à partir d’Azure. Vous devez compter sur votre matériel edge d'entreprise afin d’acheminer le trafic depuis et vers Internet pour les services hébergés dans Azure. 
 
- Pour activer la connectivité avec d'autres services Azure et services d'infrastructure, vous devez vous assurer qu'un des éléments suivants est en place :
+Les routages par défaut sont autorisés uniquement sur les sessions d’homologation privées Azure. Dans ce cas, nous acheminerons tout le trafic des réseaux virtuels associés vers votre réseau. La publication de routages par défaut dans l’homologation privée entraîne le blocage du chemin Internet à partir d’Azure. Vous devez compter sur votre matériel edge d’entreprise afin d’acheminer le trafic depuis et vers Internet pour les services hébergés dans Azure. 
+
+ Pour activer la connectivité avec d’autres services Azure et services d’infrastructure, vous devez vous assurer qu’un des éléments suivants est en place :
 
 * L’homologation publique Azure est activée pour acheminer le trafic vers les points de terminaison publics
 * Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l’utilisateur.
@@ -118,6 +134,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
 > 
 
 ## <a name="support-for-bgp-communities-preview"></a>Prise en charge des communautés BGP (version préliminaire)
+
 Cette section fournit une vue d'ensemble de l'utilisation des communautés BGP avec ExpressRoute. Microsoft publiera des routages sur les chemins d’homologation publiques et Microsoft avec des routages marqués à l’aide des valeurs de communauté appropriées. La logique de cette procédure et les détails concernant les valeurs de la communauté sont décrits ci-dessous. Cependant, Microsoft ignorera toutes les valeurs de communauté marquées pour des itinéraires qui lui sont proposés.
 
 Si vous vous connectez à Microsoft via ExpressRoute dans n’importe quel emplacement d’homologation d’une région géopolitique, vous aurez accès à tous les services de cloud Microsoft de toutes les régions situées dans les limites géopolitiques. 
@@ -147,9 +164,9 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 | Sud du Brésil |12076:51014 | |
 | **Europe** | | |
 | Europe du Nord |12076:51003 | |
-| Europe de l'Ouest |12076:51002 | |
+| Europe de l’Ouest |12076:51002 | |
 | **Asie-Pacifique** | | |
-| Est de l'Asie |12076:51010 | |
+| Est de l’Asie |12076:51010 | |
 | Asie du Sud-Est |12076:51011 | |
 | **Japon** | | |
 | Est du Japon |12076:51012 | |
@@ -158,7 +175,7 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 | Est de l’Australie |12076:51015 | |
 | Sud-est de l’Australie |12076:51016 | |
 | **Inde** | | |
-| Sud de l'Inde |12076:51019 | |
+| Sud de l’Inde |12076:51019 | |
 | Inde-Ouest |12076:51018 | |
 | Inde-Centre |12076:51017 | |
 
@@ -185,15 +202,11 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Configurez votre connexion ExpressRoute.
   
   * [Créer et modifier un circuit ExpressRoute à l’aide du modèle de déploiement classique](expressroute-howto-circuit-classic.md) ou [Créer et modifier un circuit ExpressRoute à l’aide d’Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
   * [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

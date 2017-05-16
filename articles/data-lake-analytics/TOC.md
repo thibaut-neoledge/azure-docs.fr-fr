@@ -15,11 +15,14 @@
 
 # Procédures
 ## Développement
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Concepts de base de U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Catalogue U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Paramètres U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Fonctions de fenêtre U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Opérateurs U-SQL définis par l’utilisateur](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Extensions Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
-### [Fonctions cognitives U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Extensions U-SQL R](data-lake-analytics-u-sql-r-extensions.md)
+### [Extensions cognitives de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Créer des solutions
 ### [Analyser les journaux des sites web](data-lake-analytics-analyze-weblogs.md)
@@ -40,7 +43,7 @@
 ### [Utiliser la vue d’exécution du vertex](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

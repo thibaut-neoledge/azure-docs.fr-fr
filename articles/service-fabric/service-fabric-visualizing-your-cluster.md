@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -88,7 +89,7 @@ Le tableau suivant répertorie les actions disponibles pour chaque entité :
 | Nœud | Désactiver (redémarrage) | Déplace en toute sécurité tous les services en mémoire d’un nœud et ferme les services persistants. Généralement utilisé quand les processus hôtes ou la machine ont besoin d’être redémarrés. | |
 | Nœud | Désactiver (suppression de données) | Ferme en toute sécurité tous les services en cours d’exécution sur le nœud après avoir généré suffisamment de réplicas de réserve. Généralement utilisé quand un nœud (ou au moins son stockage) est définitivement mis hors service. | |
 | Nœud | Supprimer l’état du nœud | Supprime la connaissance des réplicas d’un nœud du cluster. Généralement utilisé quand un nœud déjà défaillant est considéré comme irrécupérable. | |
-| Nœud | Redémarrer | Simulez une panne de nœud en redémarrant le nœud. Plus d’informations [ici](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
+| Nœud | Redémarrer | Simulez une panne de nœud en redémarrant le nœud. Plus d’informations [ici](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
 
 Étant donné que de nombreuses actions sont irréversibles, vous devrez peut-être confirmer votre intention pour pouvoir effectuer l’action.
 

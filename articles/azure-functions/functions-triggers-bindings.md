@@ -3,7 +3,7 @@ title: "Utiliser des déclencheurs et des liaisons dans Azure Functions | Micros
 description: "Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter l’exécution de votre code aux événements en ligne et aux services cloud."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,125 +14,288 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: chrande
+ms.date: 04/14/2017
+ms.author: donnam
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
-# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions 
-Cette rubrique montre comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter votre code à divers déclencheurs, services Azure et autres services cloud. Elle comprend certaines des fonctionnalités avancées de liaison, ainsi que la syntaxe prise en charge par tous les types de liaisons.  
-
-Pour plus d’informations sur l’utilisation d’un type spécifique de déclencheur ou liaison, consultez une des rubriques de référence suivantes :
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Minuteur](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
-| [Base de données de documents](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [File d’attente de stockage](functions-bindings-storage-queue.md) |  [Table de stockage](functions-bindings-storage-table.md) |  
-| [Hubs d'événements](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-Ces articles supposent que vous ayez lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md), ainsi que les articles de référence pour les développeurs en [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md).
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
+Azure Functions vous permet d’écrire du code en réponse aux événements dans Azure et d’autres services, via des *déclencheurs* et *liaisons*. Cet article est une vue d’ensemble conceptuelle des déclencheurs et pour tous les langages de programmation pris en charge. Les fonctionnalités communes à toutes les liaisons sont décrites ici.
 
 ## <a name="overview"></a>Vue d'ensemble
-Les déclencheurs sont les réponses aux événements utilisées pour déclencher votre code personnalisé. Ils vous permettent de répondre aux événements sur la plateforme Azure et sur site. Les liaisons représentent les métadonnées nécessaires pour connecter votre code au déclencheur de votre choix ou aux données d’entrée ou de sortie associées. Le fichier *function.json* de chaque fonction contient tous les liaisons associées. Il n’existe aucune limite au nombre de liaisons d’entrée et de sortie d’une fonction. Toutefois, une seule liaison de déclencheur est prise en charge pour chaque fonction.  
 
-Pour mieux connaître les différentes liaisons que vous pouvez intégrer à votre application Azure Functions, consultez le tableau suivant.
+Les déclencheurs et les liaisons permettent de définir de manière déclarative la façon dont une fonction est appelée et les données avec lesquelles elle fonctionne. Un *déclencheur* définit la façon dont une fonction est appelée. Une fonction ne doit avoir qu’un seul déclencheur. Les déclencheurs sont associés à des données, généralement la charge utile qui a déclenché la fonction. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+Les *liaisons* d’entrée et de sortie fournissent un moyen déclaratif de se connecter à des données à partir de votre code. Comme pour les déclencheurs, vous spécifiez des chaînes de connexion et d’autres propriétés dans votre configuration des fonctions. Les liaisons sont facultatives et une fonction peut avoir plusieurs liaisons d’entrée et de sortie. 
 
-Pour mieux comprendre les déclencheurs et les liaisons en général, supposons que vous souhaitez exécuter du code pour traiter un nouvel élément déposé dans une file d’attente de Stockage Azure. Azure Functions fournit un déclencheur de file d’attente Azure pour le prendre en charge. Vous aurez besoin des informations suivantes pour contrôler la file d’attente :
+À l’aide de déclencheurs et de liaisons, vous pouvez écrire du code qui est plus générique et qui ne code pas en dur les détails des services avec lesquels il interagit. Les données provenant deq services deviennent simplement des valeurs d’entrée pour votre code de fonction. Pour exporter des données vers un autre service (comme la création d’une nouvelle ligne dans le stockage de table Azure), utilisez la valeur de retour de la méthode. Autrement, si vous avez besoin de plusieurs valeurs de sortie, utilisez un objet d’assistance. Les déclencheurs et les liaisons ont une propriété **Nom**, qui est un identificateur que vous utilisez dans votre code pour accéder à la liaison.
 
-* le compte de stockage où se trouve la file d’attente ;
-* le nom de la file d’attente ;
-* un nom de variable que votre code pourra utiliser pour faire référence au nouvel élément déposé dans la file d’attente.  
+Vous pouvez configurer des déclencheurs et liaisons dans l’onglet **Intégrer** du portail Azure Functions. En coulisses, l’interface utilisateur modifie un fichier appelé *function.json* dans le répertoire de la fonction. Vous pouvez modifier ce fichier en choisissant l’**Éditeur avancé**.
 
-Une liaison de déclencheurs de file d’attente contient ces informations pour une fonction Azure. Voici un exemple de fichier *function.json* contenant une liaison de déclencheurs de file d’attente. 
+Le tableau suivant montre les déclencheurs et liaisons qui sont pris en charge avec Azure Functions. 
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Votre code peut envoyer différents types de sorties selon de la manière dont est traité le nouvel élément de file d’attente. Par exemple, si vous souhaitez écrire un nouvel enregistrement dans une table de Stockage Azure,  vous pouvez créer une liaison de sortie vers une table de stockage Azure. Voici un exemple de fichier *function.json* qui inclut une liaison de sortie de table de stockage utilisable avec un déclencheur de file d’attente. 
+### <a name="example-queue-trigger-and-table-output-binding"></a>Exemple : déclencheur de file d’attente et liaison de sortie de table
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
+Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur File d’attente Azure et d’une liaison de sortie Table. 
 
-La fonction C# suivante répond à l’ajout d’un nouvel élément dans la file d’attente et écrit une nouvelle entrée d’utilisateur dans une table de Stockage Azure.
+Un déclencheur de file d’attente nécessite les informations suivantes dans l’onglet **Intégrer** :
+
+* Le nom du paramètre d’application qui contient la chaîne de connexion de compte de stockage pour la file d’attente
+* Le nom de la file d’attente
+* L’identificateur dans votre code pour lire le contenu du message de la file d’attente, tel que `order`.
+
+Pour écrire dans Stockage Table Azure, utilisez une liaison de sortie avec les informations suivantes :
+
+* Le nom du paramètre d’application qui contient la chaîne de connexion de compte de stockage pour la table
+* Le nom de la table
+* L’identificateur dans votre code pour créer des éléments de sortie ou la valeur de retour de la fonction.
+
+Les liaisons utilisent des paramètres d’application pour les chaînes de connexion afin d’appliquer la meilleure pratique qui consiste à ce que *function.json* ne contient aucun secret de service.
+
+Utilisez ensuite les identificateurs que vous avez fournis pour intégrer Stockage Azure dans votre code.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-Pour voir d’autres exemples de code et des informations plus précises sur les types de Stockage Azure pris en charge, consultez [Déclencheurs et liaisons Azure Functions pour le Stockage Azure](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-Pour utiliser les fonctionnalités de liaison plus avancées du Portail Azure, cliquez sur l’option **Éditeur avancé** dans l’onglet **Intégrer** de votre fonction. L’éditeur avancé vous permet de modifier le fichier *function.json* directement sur le portail.
+    context.done(null, order);
+};
 
-## <a name="random-guids"></a>GUID aléatoires
-Azure Functions fournit une syntaxe permettant de générer des GUID aléatoires avec vos liaisons. La syntaxe de liaison suivante écrit la sortie dans un nouvel objet BLOB avec un nom unique dans un conteneur de stockage : 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Voici le *function.json* qui correspond au code précédent. Veuillez noter que la même configuration peut être utilisée, quelle que soit la langue de l’implémentation de la fonction.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+Pour afficher et modifier le contenu de *function.json* dans le portail Azure, cliquez sur l’option **Éditeur avancé** dans l’onglet **Intégrer** de votre fonction.
+
+Pour plus d’exemples de code et de détails sur l’intégration avec Stockage Azure, consultez [Déclencheurs et liaisons Azure Functions pour Stockage Azure](functions-bindings-storage.md).
+
+### <a name="binding-direction"></a>Sens de la liaison
+
+Tous les déclencheurs et liaisons ont une propriété `direction` :
+
+- Pour les déclencheurs, le sens est toujours `in`
+- Les liaisons d’entrée et de sortie utilisent `in` et `out`
+- Certaines liaisons prennent en charge un sens spécial `inout`. Si vous utilisez `inout`, seule l’option **Éditeur avancé** est disponible dans l’onglet **Intégrer**.
+
+## <a name="using-the-function-return-type-to-return-a-single-output"></a>Utilisation du type de retour de fonction pour retourner une seule sortie
+
+L’exemple précédent montre comment utiliser la valeur de retour de fonction pour fournir la sortie à une liaison, ce qui nécessite d’utiliser le paramètre de nom spécial `$return`. (Cela n’est pris en charge que dans les langages qui ont une valeur de retour, tels que C#, JavaScript et F#.) Si une fonction comporte plusieurs liaisons de sortie, utilisez `$return` pour une seule des liaisons de sortie. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Les exemples ci-dessous montrent comment les types de retour sont utilisés avec des liaisons de sortie dans C#, JavaScript et F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## <a name="resolving-app-settings"></a>Résolution des paramètres de l’application
+En tant que meilleure pratique, les chaînes de connexion et les secrets doivent être gérés avec des paramètres de l’application, plutôt qu’avec des fichiers de configuration. Cela limite l’accès à ces secrets et permet de stocker *function.json* en toute sécurité dans un référentiel de contrôle de code source public.
+
+Les paramètres de l’application sont également utiles lorsque vous souhaitez modifier la configuration en fonction de l’environnement. Par exemple, dans un environnement de test, vous pourriez vouloir surveiller une autre file d’attente ou un autre conteneur Stockage Blob.
+
+Les paramètres de l’application sont résolus à chaque fois qu’une valeur est placée entre des signes de pourcentage, comme `%MyAppSetting%`. Veuillez noter que la propriété `connection` des déclencheurs et liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application. 
+
+L’exemple suivant est un déclencheur de file d’attente qui utilise un paramètre d’application `%input-queue-name%` pour définir la file d’attente sur laquelle effectuer le déclenchement.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## <a name="trigger-metadata-properties"></a>Propriétés de métadonnées de déclencheur
+
+En plus de la charge utile de données fournie par un déclencheur (par exemple, le message de file d’attente qui a déclenché une fonction), plusieurs déclencheurs fournissent des valeurs de métadonnées supplémentaires. Ces valeurs peuvent être utilisées comme paramètres d’entrée dans C# et F# ou comme propriétés sur l’objet `context.bindings` dans JavaScript. 
+
+Par exemple, un déclencheur de file d’attente prend en charge les propriétés suivantes :
+
+* QueueTrigger - déclenchant le contenu du message si une chaîne valide
+* DequeueCount
+* ExpirationTime
+* ID
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans la rubrique de référence correspondante. La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
+
+Par exemple, étant donné que les déclencheurs d’objet blob connaissent des retards, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#storage-blob-trigger). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Les propriétés de métadonnées provenant d’un déclencheur peuvent également être utilisées dans une *expression de liaison* pour une autre liaison, comme décrit dans la section suivante.
+
+## <a name="binding-expressions-and-patterns"></a>Modèles et expressions de liaison
+
+Les *expressions de liaison* sont l’une des fonctionnalités les plus puissantes des déclencheurs et liaisons. Au sein de votre liaison, vous pouvez définir des modèles d’expression qui peuvent ensuite être utilisés dans d’autres liaisons ou votre code. Des métadonnées de déclencheur peuvent également être utilisées dans les expressions de liaison, comme indiqué dans l’exemple présenté dans la section précédente.
+
+Par exemple, imaginons que vous vouliez redimensionner des images d’un conteneur Stockage Blob donné, et ce de manière similaire au modèle **Redimensionnement d’image** de la page **Nouvelle fonction**. Accédez à **Nouvelle fonction** -> Langage **C#** -> Scénario **Exemples** -> **ImageResizer-CSharp**. 
+
+Voici la définition *function.json* :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Veuillez noter que le paramètre `filename` est utilisé aussi bien dans la définition du déclencheur d’objet blob que dans la liaison de sortie d’objet blob. Ce paramètre peut également être utilisé dans le code de fonction.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### <a name="random-guids"></a>GUID aléatoires
+Azure Functions fournit une syntaxe pratique pour générer des GUID dans vos liaisons, via l’expression de liaison `{rand-guid}`. L’exemple suivant l’utilise pour générer un nom d’objet blob unique : 
 
 ```json
 {
@@ -143,248 +306,91 @@ Azure Functions fournit une syntaxe permettant de générer des GUID aléatoires
 }
 ```
 
+## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Lier aux propriétés d’entrée personnalisées dans une expression de liaison
 
-## <a name="returning-a-single-output"></a>Renvoi d’une seule sortie
-Dans le cas où le code de votre fonction retourne une sortie unique, vous pouvez utiliser une liaison de sortie nommée `$return` pour conserver une signature de fonction plus naturelle dans votre code. Cette spécificité n’est utilisable qu’avec les langages qui prennent en charge une valeur de retour (C#, Node.js, F#). La liaison serait similaire à la liaison de sortie blob suivante, utilisée avec un déclencheur de file d’attente.
+Les expressions de liaison peuvent également référencer des propriétés définies dans la charge utile du déclencheur. Par exemple, vous souhaiterez peut-être effectuer une liaison dynamique vers un fichier Stockage Blob à partir d’un nom de fichier fourni dans un webhook.
+
+Par exemple, le *function.json* suivant utilise une propriété appelée `BlobName` provenant de la charge utile du déclencheur :
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson",
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-Le code C# suivant retourne la sortie plus naturellement sans utiliser de paramètre `out` dans la signature de fonction.
+Pour y parvenir dans C# et F #, vous devez définir un objet POCO qui définit les champs qui seront désérialisés dans la charge utile du déclencheur.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Exemple async :
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-Cette approche est illustrée comme suit avec Node.js :
+Dans JavaScript, la désérialisation JSON est effectuée automatiquement et vous pouvez directement utiliser les propriétés.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-}
-```
-
-Vous trouverez ci-dessous un exemple de F# :
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-Cette méthode peut également être utilisée dans le cas de paramètres de sortie multiples, en désignant une sortie unique avec `$return`.
-
-## <a name="resolving-app-settings"></a>Résolution des paramètres de l’application
-Il est recommandé de stocker les informations sensibles dans le cadre de l’environnement d’exécution à l’aide des paramètres d’application. En conservant les informations sensibles hors des fichiers de configuration de votre application, vous limitez leur exposition lorsqu’un référentiel public est utilisé pour stocker les fichiers d’application.  
-
-L’environnement d’exécution d’Azure Functions résout les paramètres d’application en valeurs lorsque le nom de paramètre d’application est placé entre des signes de pourcentage : `%your app setting%`. La [liaison Twilio](functions-bindings-twilio.md) suivante utilise un paramètre d’application nommé `TWILIO_ACCT_PHONE` pour le champ `from` de la liaison. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## <a name="parameter-binding"></a>Liaison de paramètres
-Au lieu de définir une configuration statique pour les propriétés de votre liaison de sortie, vous pouvez configurer des paramètres liés de façon dynamique aux données qui appartiennent à la liaison d’entrée de votre déclencheur. Imaginez un scénario où les nouvelles commandes sont traitées à l’aide d’une file d’attente de Stockage Azure. Chaque nouvel élément de file d’attente est une chaîne JSON contenant au moins les propriétés suivantes :
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-Vous pouvez par exemple envoyer au client un SMS avec votre compte Twilio pour l’informer que la commande a bien été reçue.  Vous pouvez configurer ainsi les champs `body` et `to` de votre liaison de sortie Twilio pour qu’elle soit liée dynamiquement aux `name` et `mobileNumber` qui faisaient partie de l’entrée.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Le code de votre fonction n’a plus qu’à initialiser le paramètre de sortie de la façon suivante. Pendant l’exécution, les propriétés de sortie seront liées aux données d’entrée souhaitées.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js :
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Liaison avancée lors de l’exécution (liaison impérative)
-
-Le modèle de liaison d’entrée et de sortie standard utilisant *function.json* est nommé liaison [*déclarative*](https://en.wikipedia.org/wiki/Declarative_programming). La liaison est définie par la déclaration JSON. Toutefois, vous pouvez utiliser une liaison [impérative](https://en.wikipedia.org/wiki/Imperative_programming). Avec ce modèle, vous pouvez effectuer une liaison avec n’importe quel nombre de liaisons d’entrée et de sortie prises en charge à la volée dans le code de votre fonction.
-Vous aurez peut-être besoin d’une liaison impérative pour les cas où le calcul du chemin de liaison ou d’autres entrées doit se produire au moment de l’exécution dans votre fonction et non au moment de la conception. 
-
-Définissez une liaison impérative comme suit :
-
-- **N’incluez pas** d’entrée dans *function.json* pour les liaisons impératives souhaitées.
-- Transmettez un paramètre d’entrée [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Utilisez le modèle en C# suivant pour effectuer la liaison de données.
-
-```cs
-using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-{
-    ...
-}
-```
-
-où `BindingTypeAttribute` est l’attribut .NET qui définit votre liaison et `T` est le type d’entrée ou de sortie pris en charge par ce type de liaison. `T` ne peut pas être un type de paramètre `out` (comme `out JObject`). Par exemple, la liaison de sortie de la table Mobile Apps prend en charge [six types de sortie](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mais vous pouvez utiliser uniquement [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) pour `T`.
-    
-L’exemple de code suivant crée une [liaison de sortie d’objet blob de stockage](functions-bindings-storage-blob.md#storage-blob-output-binding) avec un chemin d’objet blob défini au moment de l’exécution, puis écrit une chaîne vers l’objet blob.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-    {
-        writer.Write("Hello World!!");
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
     }
-}
-```
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) définit la liaison d’entrée ou de sortie de [l’objet blob de stockage](functions-bindings-storage-blob.md), et [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) est un type de liaison de sortie pris en charge.
-Le code tel quel obtient le paramètre d’application par défaut pour la chaîne de connexion de compte de stockage (c’est-à-dire `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Par exemple,
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    var attributes = new Attribute[]
-    {    
-        new BlobAttribute("samples-output/path"),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
+    else {
+        context.res = {
+            status: 404
+        };
     }
+    context.done();
 }
 ```
-
-Le tableau suivant présente l’attribut .NET à utiliser pour chaque type de liaison, ainsi que le package auquel il convient de faire référence.
-
-> [!div class="mx-codeBreakAll"]
-| Liaison | Attribut | Ajouter la référence |
-|------|------|------|
-| Base de données de documents | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| File d’attente de stockage | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Objet blob de stockage | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Table de stockage | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les ressources suivantes :
+Pour plus d’informations sur une liaison spécifique, consultez les articles suivants :
 
-* [Test d’une fonction](functions-test-a-function.md)
-* [Mettre à l’échelle une fonction](functions-scale.md)
-
+- [HTTP et webhooks](functions-bindings-http-webhook.md)
+- [Minuteur](functions-bindings-timer.md)
+- [Stockage de files d’attente](functions-bindings-storage-queue.md)
+- [Stockage d’objets blob](functions-bindings-storage-blob.md)
+- [Stockage Table](functions-bindings-storage-table.md)
+- [Concentrateur d’événements](functions-bindings-event-hubs.md)
+- [Service Bus](functions-bindings-service-bus.md)
+- [Base de données de documents](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Notification Hubs](functions-bindings-notification-hubs.md)
+- [Mobile Apps](functions-bindings-mobile-apps.md)
+- [Fichier externe](functions-bindings-external-file.md)
 

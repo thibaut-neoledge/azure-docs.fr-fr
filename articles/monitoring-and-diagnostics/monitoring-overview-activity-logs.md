@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,9 +47,9 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 ![Journal d’activité Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Créez une alerte via e-mail ou webhook qui déclenche un événement de journal d’activité.](insights-auditlog-to-webhook-email.md)
+* [Créez une alerte qui déclenche un événement de journal d’activité.](monitoring-activity-log-alerts.md)
 * [Diffusez-le en continu vers un **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
-* Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](monitoring-archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **profils de journal**.
 * Interrogez-le et affichez-le dans le **portail Azure**.
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
@@ -80,11 +80,10 @@ Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le
 
     ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Dans le panneau qui s’affiche, vous pouvez sélectionner :  
-
-   * les régions pour lesquelles vous souhaitez exporter des événements
-   * le compte de stockage pour lequel vous souhaitez enregistrer les événements
-   * le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage. Un paramètre de 0 jour conserve les journaux indéfiniment.
-   * l’espace de noms Service Bus dans lequel vous souhaitez qu’un hub d’événements soit créé pour diffuser ces événements.
+  * les régions pour lesquelles vous souhaitez exporter des événements
+  * le compte de stockage pour lequel vous souhaitez enregistrer les événements
+  * le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage. Un paramètre de 0 jour conserve les journaux indéfiniment.
+  * l’espace de noms Service Bus dans lequel vous souhaitez qu’un hub d’événements soit créé pour diffuser ces événements.
 
      ![Panneau Exporter le journal d’activité](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Cliquez sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont immédiatement appliqués à votre abonnement.

@@ -13,8 +13,3 @@
 >
 > Vous pouvez réactiver les extensions sur le portail Azure ou PowerShell, une fois le rôle mis à jour déployé.
 >
-
-
-<!--HONumber=Jan17_HO3-->
-
-

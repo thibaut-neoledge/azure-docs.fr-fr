@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Différences entre Service Fabric sur Linux (version préliminaire) et Windows (mise à la disposition générale)
 
-Étant donné que Service Fabric sur Linux est une version préliminaire, certaines fonctionnalités sont prises en charge sur Windows, mais pas sur Linux. Les ensembles de fonctionnalités seront identiques lors de la mise à disposition générale de Service Fabric sur Linux.
+Étant donné que Service Fabric sur Linux est une version préliminaire, certaines fonctionnalités sont prises en charge sur Windows, mais pas encore sur Linux. Les ensembles de fonctionnalités seront identiques lors de la mise à disposition générale de Service Fabric sur Linux.
 
 * Les collections fiables (et les services avec état fiable) ne sont pas pris en charge sur Linux.
 * ReverseProxy n’est pas disponible sur Linux.
@@ -38,7 +39,7 @@ ms.lasthandoff: 03/29/2017
 >[!NOTE]
 >La redirection de console n’est pas prise en charge dans les clusters de production, même sur Windows.
 
-Les outils de développement sont différents avec VisualStudio, Powershell, VSTS et ETW utilisés sur Windows, et Yeoman, Eclipse, Jenkins et LTTng utilisés sur Linux.
+Les outils de développement sont également différents entre Windows et Linux. VisualStudio, Powershell, VSTS et ETW sont utilisés sur Windows, tandis que Yeoman, Eclipse, Jenkins et LTTng sont utilisés sur Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Applets de commande PowerShell ne fonctionnant pas sur un cluster Linux Service Fabric
 

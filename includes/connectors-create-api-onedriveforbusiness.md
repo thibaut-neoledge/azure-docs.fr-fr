@@ -14,8 +14,3 @@ Pour autoriser votre application logique à se connecter à votre compte OneDriv
 4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

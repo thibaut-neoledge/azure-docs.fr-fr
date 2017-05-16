@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d234dd87919f4906628014156708489bd1efab6c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -153,7 +154,7 @@ Par ailleurs, si vous utilisez les API de listage segmenté, mais que vous stock
 ## <a name="lazy-listing"></a>Listage paresseux
 Même si le listage vorace peut poser des problèmes, il est utile s’il n’y a pas trop d’objets dans le conteneur.
 
-Si vous faites aussi appel à des Kits de développement logiciel (SDK) C# ou Oracle Java, vous devez connaître le modèle de programmation « énumérable », qui offre un mode de listage « paresseux », qui ne va chercher certaines données périphériques que s’il y est contraint. En C++, le modèle basé sur un itérateur offre une approche similaire.
+Si vous faites aussi appel à des SDK C# ou Oracle Java, vous devez connaître le modèle de programmation « énumérable », qui offre un mode de listage « paresseux », qui ne va chercher certaines données périphériques que s’il y est contraint. En C++, le modèle basé sur un itérateur offre une approche similaire.
 
 Une API de listage paresseux type, utilisant **list_blobs** en guise d’exemple, se présente comme ceci :
 
@@ -202,10 +203,5 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 * [Documentation sur les API de la bibliothèque cliente Azure Storage pour C++.](http://azure.github.io/azure-storage-cpp/)
 * [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

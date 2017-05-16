@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +46,7 @@ Cet article vous guide dans les étapes de création d’un circuit Azure Expres
 Veillez à consulter les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.  
 
 ### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Étape 2. Installez les dernières versions des modules PowerShell Azure Service Management (SM)
-Suivez les instructions de [Prise en main des applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs) pour obtenir les procédures pas à pas de configuration de votre ordinateur pour l’utilisation des modules Azure PowerShell.
+Suivez les instructions de [Prise en main des applets de commande Azure PowerShell](/powershell/azure/overview) pour obtenir les procédures pas à pas de configuration de votre ordinateur pour l’utilisation des modules Azure PowerShell.
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Étape 3. Connectez-vous à votre compte Azure et sélectionnez un abonnement
 1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :

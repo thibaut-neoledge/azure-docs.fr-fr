@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 38e8320c09c5aa870018081a29911611f09a3e3a
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 31cdfdcb5c0e5a1c467b871dca72a8a1da58a00e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ Dans cet article, vous utilisez un modèle Azure Resource Manager pour créer vo
 
 ## <a name="prerequisites"></a>Composants requis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
-* Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
+* Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
 * Consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel
@@ -142,7 +143,6 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFGe
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
                     "clusterSize": 1,
-                    "version": "3.2",
                     "timeToLive": "00:05:00",
                     "osType": "windows",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
@@ -420,7 +420,6 @@ Consultez l’article [Services liés de calcul](data-factory-compute-linked-ser
           "type": "HDInsightOnDemand",
           "typeProperties": {
             "clusterSize": 1,
-            "version": "3.2",
             "timeToLive": "00:05:00",
             "osType": "windows",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"

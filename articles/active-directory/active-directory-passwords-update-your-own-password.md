@@ -1,8 +1,8 @@
 ---
 title: "Réinitialisation de votre mot de passe Azure AD | Microsoft Docs"
-description: "Utilisez la fonction de réinitialisation de mot de passe en libre-service pour récupérer l’accès à votre compte"
+description: "Utilisez la fonction de réinitialisation de mot de passe en libre-service pour récupérer l’accès à votre compte professionnel ou scolaire."
 services: active-directory
-keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD, SSPR"
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
@@ -11,89 +11,105 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 19a17951b40dcad26c846a45ee786ab5339e59b8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="help-i-forgot-my-password"></a>J’ai oublié mon mot de passe
+# <a name="help-i-forgot-my-azure-ad-password"></a>J’ai oublié mon mot de passe Azure AD
 
-Ne vous affolez pas !
+Si vous avez oublié votre mot de passe, si vous ne l’avez jamais reçu du personnel informatique,si l’accès à votre compte a été bloqué, ou si vous souhaitez le modifier, nous pouvons vous aider.
 
-Si les scénarios suivants s’appliquent à vous, nous pouvons vous aider.
+## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire
 
-* Vous ne savez pas comment accéder à votre compte et avez oublié votre mot de passe.
-* Aucun mot de passe ne vous a été affecté et votre administrateur vous a invité à consulter cette page.
+Pour accéder à votre compte professionnel ou scolaire, suivez les étapes suivantes afin d’accéder au service de réinitialisation de mot de passe en libre-service Azure AD, que nous appelons également SSPR.
 
-## <a name="unlock-my-account"></a>Déverrouillage de mon compte
+1. Depuis n’importe quelle page de connexion professionnelle ou scolaire, cliquez sur le lien**Vous ne pouvez pas accéder à votre compte ?** puis cliquez sur **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/).
 
-Si vous consultez cette page pour déverrouiller votre compte, suivez les étapes ci-dessous. Si vous voyez apparaître la mention **Choisir un nouveau mot de passe** à l’étape 6 ci-dessous, cela signifie que vous pouvez déverrouiller votre mot de passe, ou le modifier afin de le déverrouiller.
-
-## <a name="reset-my-password"></a>Réinitialiser mon mot de passe
-
-Pour pouvoir accéder à nouveau à votre compte, procédez comme suit.
-1. Depuis une page de connexion professionnelle ou scolaire, cliquez sur le **lien Vous ne pouvez pas accéder à votre compte ?** et sur **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/).
+   > [!NOTE]
+   > Si vous tentez de récupérer un compte personnel comme hotmail.com ou outlook.com, essayez l’option [suggestions trouvées dans cet article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+   >
 
     ![Vous ne pouvez pas accéder à votre compte ?][Login]
 
-2. Saisissez **l’ID utilisateur** associé à votre compte professionnel ou scolaire, prouvez que vous n’êtes pas un robot en répondant au test CAPTCHA et en saisissant le texte qui vous est présenté, puis cliquez sur **Suivant**.
+2. Entrez votre **identifiant utilisateur** professionnel ou scolaire, prouvez que vous n’êtes pas un robot en notant les caractères visibles à l’écran, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si l’administrateur n’a pas activé cette fonctionnalité, le lien « Contactez l’administrateur » s’affiche à cette étape, afin de permettre à l’administrateur de vous aider par e-mail, ou via son portail web.
+   > Si le personnel informatique n’a pas activé cette fonctionnalité, un lien « Contactez votre administrateur » s’affiche afin que le personnel puisse vous aider, par e-mail ou via leur propre portail web.
    >
 
-3. Selon la façon dont l’administrateur a configuré le système, vous verrez apparaître une ou plusieurs des options suivantes :
-    * **Envoyer un courrier électronique sur mon adresse de messagerie secondaire** : envoie un e-mail avec un code à 6 chiffres à votre autre adresse e-mail ou à votre adresse e-mail d’authentification (au choix).
-    * **Envoyer un SMS à mon téléphone mobile** : envoie un code à 6 chiffres à votre téléphone mobile ou à votre téléphone d’authentification (au choix).
-    * **Appeler mon téléphone mobile** : appelle votre téléphone mobile ou votre téléphone d’authentification (au choix). Appuyez sur la touche # pour vérifier l’appel.
-    * **Appeler mon téléphone de bureau** : appelle votre téléphone de bureau. Appuyez sur la touche # pour vérifier l’appel.
-    * **Répondre à mes questions de sécurité** : affiche vos questions de sécurité préenregistrées pour vous permettre de répondre.
-4. Remplissez les champs requis en indiquant les réponses au test et cliquez sur **Suivant**.
+3. Selon la façon dont votre personnel informatique a configuré la fonction SSPR, vous verrez apparaître une ou plusieurs des options ci-après. Vous ou votre personnel informatique avez déjà rempli certaines de ces informations avant d’utiliser l’article [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md).
 
-    ![Vérifier vos données d’authentification][Verification]
+   * **Envoyer un e-mail sur mon adresse de messagerie de secours**
+   * **Envoyer un SMS sur mon téléphone portable**
+   * **Effectuer un appel sur mon téléphone portable**
+   * **Effectuer un appel sur mon téléphone professionnel**
+   * **Répondre à ma question de sécurité**
 
-5. Votre administrateur peut avoir besoin d’une étape de vérification supplémentaire ; vous devrez peut-être répéter l’étape 4 en sélectionnant une autre option.
-6. Sur la page **Choisir un nouveau mot de passe**, saisissez un nouveau mot de passe répondant aux exigences de l’entreprise et confirmez votre choix, puis cliquez sur **Terminer**.
+   Choisissez une option, répondez correctement et cliquez sur **Suivant**.
 
-    ![Modifier votre mot de passe][Change]
+   ![Vérifier vos données d’authentification][Verification]
 
-7. Lorsque vous voyez apparaître le message **Votre mot de passe a été réinitialisé**, cela signifie que vous pouvez vous connecter avec votre nouveau mot de passe.
+4. Votre personnel informatique pourra avoir besoin de plus d’éléments de vérification, vous devrez sans doute répéter l’étape 3 en sélectionnant une option différente.
+5. Sur la page **Choisir un nouveau mot de passe**, entrez un nouveau mot de passe, confirmez votre choix, puis cliquez sur **Terminer**. Nous vous conseillons de choisir un mot de passe comprenant 8 à 16 caractères, et incluant des majuscules, des minuscules, des nombres et des caractères spéciaux.
+
+   > [!NOTE]
+   > Si vous souhaitez déverrouiller votre compte, choisissez à ce stade uniquement l’option déverrouiller, ou modifier votre mot de passe et déverrouiller.
+   >
+
+6. Lorsque vous voyez apparaître le message **Votre mot de passe a été réinitialisé**, cela signifie que vous pouvez vous connecter avec votre nouveau mot de passe.
 
     ![Votre mot de passe a été réinitialisé][Complete]
 
-Après avoir utilisé cette méthode pour déverrouiller ou réinitialiser votre mot de passe, vous pouvez recevoir un e-mail signalant que la procédure est terminée, qui peut provenir d’un compte tel que « Microsoft pour le compte de votre organisation ici ». Si vous recevez ce type de message et n’avez pas utilisé la fonction de réinitialisation du mot de passe en libre-service pour récupérer l’accès à votre compte, contactez l’administrateur.
+Vous devriez maintenant pouvoir accéder à votre compte. Le cas échéant, contactez le personnel informatique de votre organisation pour plus d’aide.
+
+Vous pouvez recevoir un courrier de confirmation provenant d’un compte comme « Microsoft de la part de \<votre organisation> ». Si vous recevez ce type de message et que vous n’avez pas utilisé la fonction de réinitialisation du mot de passe en libre-service pour récupérer l’accès à votre compte, contactez le personnel informatique de votre entreprise.
 
 ## <a name="change-my-password"></a>Modifier mon mot de passe
 
-Si vous connaissez déjà votre mot de passe et devez le modifier, essayez les étapes qui suivent.
+Si vous connaissez déjà votre mot de passe et souhaitez le modifier, suivez les étapes suivantes afin de modifier votre mot de passe.
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>Modifier votre mot de passe à partir du portail Office 365
 
-1. Cliquez sur votre profil, dans le coin supérieur droit de la fenêtre, puis sélectionnez **Afficher le compte**.
-2. **Sécurité et confidentialité**
-3. **Mot de passe**
-4. Saisissez votre ancien mot de passe, puis indiquez un nouveau mot de passe et confirmez-le.
-5. **Envoyer**
+Utilisez cette méthode si vous accédez généralement à vos applications à l’aide du portail Office
+
+1. Connectez-vous à votre [compte Office 365](https://www.office.com) à l’aide de votre mot de passe existant.
+2. Sur votre profil, cliquez dans le coin supérieur droit de la fenêtre, puis cliquez sur **Afficher le compte**
+3. Cliquez sur **Sécurité et confidentialité** > **Mot de passe**
+4. Saisissez votre ancien mot de passe, indiquez un nouveau mot de passe et confirmez-le, puis cliquez sur **Soumettre**
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>Modifier votre mot de passe à partir du volet d’accès Azure
 
+Utilisez cette méthode si vous accédez généralement à vos applications à partir du portail d’accès Azure
+
 1. Connectez-vous au [portail d’accès Azure](https://myapps.microsoft.com/) en utilisant votre mot de passe existant.
-2. Cliquez sur votre profil, dans le coin supérieur droit de la fenêtre, puis sélectionnez **Profil**.
-3. **Modifier le mot de passe**
-4. Saisissez votre ancien mot de passe, puis indiquez un nouveau mot de passe et confirmez-le.
-5. **Envoyer**
+2. Sur votre profil, cliquez dans le coin supérieur droit de la fenêtre, puis cliquez sur **Profil**
+3. Cliquez sur **Modifier le mot de passe**
+4. Saisissez votre ancien mot de passe, indiquez un nouveau mot de passe et confirmez-le, puis cliquez sur **Soumettre**
+
+## <a name="common-problems-and-their-solutions"></a>Problèmes courants et leurs solutions
+
+ Voici quelques cas d'erreur courants et leurs solutions :
+
+| Cas d’erreur| Quelle erreur voyez-vous ?| Solution |
+| --- | --- | --- |
+| J’obtiens une page « Veuillez contacter votre administrateur » après avoir entré mon identifiant utilisateur. | Veuillez contacter votre administrateur. <br> <br> Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br> <br> Vous devez contacter votre équipe informatique pour une aide supplémentaire. | Ce message s’affiche parce que votre service informatique gère votre mot de passe dans votre environnement local et ne vous autorise pas à réinitialiser votre mot de passe à partir du lien Votre compte n’est pas accessible. <br> <br> Pour réinitialiser votre mot de passe, contactez directement votre service informatique pour obtenir de l'aide et informez-le que vous voulez réinitialiser votre mot de passe à partir d'Office 365 pour qu'il puisse activer cette fonctionnalité pour vous.|
+| J'obtiens une erreur « Votre compte n'est pas activé pour la réinitialisation de mot de passe » après avoir entré mon identifiant utilisateur. | Votre compte n’est pas activé pour la réinitialisation du mot de passe <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Vous voyez ce message parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre organisation à partir du lien Votre compte n’est pas accessible ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, cliquez sur le lien Contacter un administrateur afin d’envoyer un courrier au service informatique de votre société : informez-le que vous voulez réinitialiser votre mot de passe à partir d’Office 365 pour qu’il puisse activer cette fonctionnalité pour vous. |
+| J'obtiens une erreur « Impossible de vérifier votre compte » après avoir entré mon identifiant utilisateur. | Impossible de vérifier votre compte <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Vous voyez ce message parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à http://aka.ms/ssprsetup une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, cliquez sur le lien Contacter un administrateur pour envoyer un courrier au service informatique de votre société. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Page relative à la procédure d’inscription pour utiliser la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 * [Page relative à l’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup)
 * [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
+* [Connexion impossible à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Page de connexion Vous ne pouvez pas accéder à votre compte ?"
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Vérifier vos données d’authentification"

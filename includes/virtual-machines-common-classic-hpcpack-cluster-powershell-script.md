@@ -55,8 +55,3 @@ L’exemple suivant crée un cluster HPC Pack à l’aide du fichier de configur
 ## <a name="configuration-file"></a>Fichier de configuration
 Le fichier de configuration pour le script de déploiement est un fichier XML. Le fichier de schéma HPCIaaSClusterConfig.xsd se trouve dans le dossier de script de déploiement du HPC Pack IaaS. **IaaSClusterConfig** est l’élément racine du fichier de configuration qui contient les éléments enfants décrits en détail dans le fichier Manual.rtf dans le dossier de script de déploiement.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

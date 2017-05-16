@@ -1,6 +1,6 @@
 ---
-title: Authentification Active Directory et Resource Manager | Microsoft Docs
-description: "Guide de développement portant sur l’authentification avec l’API Azure Resource Manager et Active Directory pour intégrer une application dans d’autres abonnements Azure."
+title: Authentification Azure Active Directory et Resource Manager | Microsoft Docs
+description: "Guide de développement portant sur l’authentification avec l’API Azure Resource Manager et Azure Active Directory pour intégrer une application dans d’autres abonnements Azure."
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: de1355a8dc4b0099dca3efc2109ccfb9facf7269
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -71,7 +72,7 @@ Gérez vos abonnements connectés :
 ## <a name="register-application"></a>Inscription de l’application
 Avant de commencer l’écriture du code, inscrivez votre application web à Azure Active Directory (AD). L’inscription de l’application entraîne la création d’une identité centrale pour votre application dans Azure AD. Elle contient des informations de base sur votre application, par exemple l’ID du client OAuth, les URL de réponse et les informations d’identification que votre application utilise pour s’authentifier et accéder aux API d’Azure Resource Manager. L’inscription de l’application enregistre également les différentes autorisations dont votre application a besoin pour accéder aux API Microsoft pour le compte de l’utilisateur.
 
-Votre application ayant accès à plusieurs abonnements, vous devez la configurer comme une application mutualisée. Pour passer la validation, indiquez le domaine associé à votre annuaire Active Directory. Pour afficher les domaines associés à votre annuaire Active Directory, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com). Sélectionnez votre annuaire Active Directory, puis **Domaines**.
+Votre application ayant accès à plusieurs abonnements, vous devez la configurer comme une application mutualisée. Pour passer la validation, indiquez le domaine associé à votre annuaire Azure Active Directory. Pour afficher les domaines associés à votre annuaire Azure Active Directory, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com). Sélectionnez votre annuaire Azure Active Directory, puis **Domaines**.
 
 L’exemple suivant montre comment inscrire l’application à l’aide d’Azure PowerShell. Pour que cette commande fonctionne, vous devez disposer de la version la plus récente (août 2016) d’Azure PowerShell.
 
@@ -93,7 +94,7 @@ Azure AD prend également en charge les informations d’identification des cert
 Pour plus d’informations sur la création d’une application Active Directory avec un certificat, consultez [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obtention de l’ID du client à partir de l’ID d’abonnement
-Pour demander un jeton permettant d’appeler Resource Manager, votre application doit connaître l’ID du client Azure AD qui héberge l’abonnement Azure. Vos utilisateurs connaissent sûrement leurs ID d’abonnement, mais pas nécessairement leurs ID de client Active Directory. Pour obtenir l’ID de client d’un utilisateur, demandez-lui l’ID d’abonnement. Indiquez cet ID d’abonnement lors de l’envoi d’une demande sur l’abonnement :
+Pour demander un jeton permettant d’appeler Resource Manager, votre application doit connaître l’ID du client Azure AD qui héberge l’abonnement Azure. Vos utilisateurs connaissent sûrement leurs ID d’abonnement, mais pas nécessairement leurs ID de client Azure Active Directory. Pour obtenir l’ID de client d’un utilisateur, demandez-lui l’ID d’abonnement. Indiquez cet ID d’abonnement lors de l’envoi d’une demande sur l’abonnement :
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 

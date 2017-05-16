@@ -15,8 +15,3 @@ Crée le plan de service pour l'hébergement de l'application web. Vous fourniss
       }
     },
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -11,8 +11,3 @@ La liste ci-dessous répertorie certains autres didacticiels, que vous pouvez co
 
 Dans la section suivante du didacticiel, vous allez apprendre à utiliser l’ [interface de Notification Hub REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) pour envoyer le message de notification directement dans votre application. Tous les appareils inscrits reçoivent la notification envoyée par n’importe quel appareil.  
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

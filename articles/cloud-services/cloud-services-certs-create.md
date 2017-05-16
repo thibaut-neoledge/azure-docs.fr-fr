@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -58,8 +59,10 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
 * Certificat X.509.
 * Contient une clé privée.
 * Créé pour l’échange de clés (fichier .pfx).
-* Le nom du sujet doit correspondre au domaine servant à accéder au service cloud. 
+* Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
+
     > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
+
 * Chiffrement à 2 048 bits au minimum.
 * **Certificat de service uniquement**: le certificat côté client doit résider dans le magasin de certificats *personnel* .
 
@@ -77,8 +80,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > Pour utiliser le certificat avec une adresse IP au lieu d’un domaine, utilisez l’adresse IP dans le paramètre -DnsName.
-> 
-> 
+
 
 Si vous souhaitez utiliser ce [certificat avec le portail de gestion](../azure-api-management-certs.md), exportez-le vers un fichier **.cer** :
 
@@ -98,11 +100,6 @@ Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-cr
 ## <a name="next-steps"></a>Étapes suivantes
 [Chargez votre certificat de service sur le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou sur le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
-Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
-
-> [!NOTE]
-> Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
-> 
-> 
+Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic. Le portail Azure n’utilise pas de certificats de gestion pour l’authentification.
 
 

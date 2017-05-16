@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +49,7 @@ Il n'existe aucune restriction concernant la longueur du préfixe IP NAT publié
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Configuration NAT requise pour l'homologation Microsoft
-Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prévoit la prise en charge de la connectivité bidirectionnelle sur l'homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. Avant d’arriver sur votre réseau, le trafic provenant des services de cloud Microsoft doit être configuré en SNAT. L'illustration suivante indique de façon sommaire comment configurer un NAT pour l’homologation Microsoft.
+Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prévoit la prise en charge de la connectivité bidirectionnelle sur l'homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. Le trafic provenant des services de cloud Microsoft doit être configuré en SNAT dans votre session Internet pour éviter un [routage asymétrique](expressroute-asymmetric-routing.md). L'illustration suivante indique de façon sommaire comment configurer un NAT pour l’homologation Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -63,7 +64,9 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafic en provenance de Microsoft et destiné à votre réseau
 * Certains scénarios exigent que Microsoft initie la connectivité aux points de terminaison de service hébergés au sein de votre réseau. Un exemple typique de ce scénario est la connectivité avec des serveurs ADFS hébergés sur votre réseau à partir d'Office 365. Dans ce cas, vous devez transférer les préfixes appropriés de votre réseau vers l'homologation Microsoft. 
-* Vous devez configurer en SNAT le trafic destiné aux adresses IP au sein de votre réseau à partir de Microsoft. 
+* Vous devez configurer en SNAT le trafic Microsoft dans votre session Internet pour les points de terminaison de service au sein de votre réseau pour éviter un [routage asymétrique](expressroute-asymmetric-routing.md). Les requêtes et **réponses** avec une adresse IP de destination correspondant à un itinéraire reçu via ExpressRoute est toujours envoyé via ExpressRoute. Un routage asymétrique se produit si la requête est reçue via Internet avec la réponse envoyée via ExpressRoute. La configuration en SNAT du trafic Microsoft entrant dans la session Internet force le trafic de réponse vers Internet, résolvant ainsi le problème.
+
+![Routage asymétrique avec ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Reportez-vous aux conditions requises pour le [routage](expressroute-routing.md) et la [qualité de service](expressroute-qos.md).

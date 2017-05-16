@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
-ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
@@ -44,6 +44,8 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Pourquoi l’authentification échoue-t-elle lors d’une tentative de clonage d’un référentiel GIT ?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Le service Gestion des API est-il compatible avec Azure ExpressRoute ?](#does-api-management-work-with-azure-expressroute)
+* [Pourquoi exigeons-nous un sous-réseau dédié dans les réseaux virtuels de type Resource Manager lorsque le service Gestion des API est déployé dans ceux-ci ?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [Quelle est la taille minimale de sous-réseau requise lors du déploiement du service Gestion des API dans un réseau virtuel ?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -114,8 +116,8 @@ Les [requêtes SOAP directes](http://blogs.msdn.microsoft.com/apimanagement/2016
 Pour les niveaux Standard et Premium, l’adresse IP publique (VIP, adresse IP virtuelle) du client de gestion des API est statique pour la durée de vie du client, avec néanmoins quelques exceptions. L’adresse IP est modifiée dans les cas suivants :
 
 * Le service est supprimé, puis recréé.
-* L’abonnement au service est suspendu (par exemple pour non-paiement), puis réactivé.
-* Vous ajoutez ou supprimez le réseau virtuel Azure (vous pouvez utiliser le réseau virtuel uniquement au niveau Premium).
+* L’abonnement au service est [suspendu](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [fait l’objet d’un avertissement ](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)(par exemple pour non-paiement), puis réactivé.
+* Vous ajoutez ou supprimez le réseau virtuel Azure (vous pouvez utiliser le réseau virtuel uniquement au niveau Premium et Développeur).
 
 Pour les déploiements multirégion, l’adresse régionale change si la région est libérée, puis réactivée (vous pouvez utiliser le déploiement multirégion uniquement au niveau Premium).
 
@@ -144,6 +146,13 @@ Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si v
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>Le service Gestion des API est-il compatible avec Azure ExpressRoute ?
 Oui. Le service Gestion des API est compatible avec Azure ExpressRoute.
+
+### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Pourquoi exigeons-nous un sous-réseau dédié dans les réseaux virtuels de type Resource Manager lorsque le service Gestion des API est déployé dans ceux-ci ?
+Nous exigeons un sous-réseau dédié pour le service Gestion des API parce qu’il repose sur le modèle de déploiement Classic (couche PAAS V1). Alors que nous pouvons effectuer le déploiement dans un réseau virtuel Resource Manager (couche V2), il y a des conséquences à cela. Le modèle de déploiement Classic dans Azure n’est pas fortement couplé au modèle Resource Manager, donc si vous créez une ressource dans la couche V2, la couche V1 n’en a pas connaissance et des problèmes peuvent survenir, tels que la tentative d’utilisation d’une adresse IP par le service Gestion des API, alors que cette adresse IP est déjà allouée à une carte réseau (créée sur V2).
+Pour en savoir plus sur la différence entre les modèles Classic et Resource Manager dans Azure, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Quelle est la taille minimale de sous-réseau requise lors du déploiement du service Gestion des API dans un réseau virtuel ?
+La taille minimale de sous-réseau requise pour déployer le service Gestion des API est [/29](../virtual-network/virtual-networks-faq.md#configuration), qui est la taille minimale de sous-réseau qu’Azure prend en charge.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?
 Oui. Pour savoir comment procéder, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).

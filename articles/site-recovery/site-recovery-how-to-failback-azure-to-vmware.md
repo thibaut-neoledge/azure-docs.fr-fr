@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
+
+> [!div class="op_single_selector"]
+> * [Machines VMware / machines physiques d’Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Machines virtuelles Hyper-V d’Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
+
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure sur le site local. Suivez les instructions de cet article pour restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure, en suivant le didacticiel [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
+
+> [!WARNING]
+> Si vous avez [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas effectuer de restauration automatique après cela.
+
+> [!NOTE]
+> Si vous avez effectué un basculement vers des machines virtuelles VMware, vous ne pouvez pas effectuer de restauration automatique vers un hôte Hyper-v.
 
 ## <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
 Voici comment fonctionne la restauration automatique. Une fois que vous avez procédé au basculement vers Azure, vous pouvez effectuer une restauration automatique sur votre site local en quelques étapes :
@@ -30,7 +43,7 @@ Voici comment fonctionne la restauration automatique. Une fois que vous avez pro
 1. [Reprotégez](site-recovery-how-to-reprotect.md) les machines virtuelles sur Azure afin qu’elles commencent à se répliquer sur les machines virtuelles VMware dans votre site local. Dans le cadre de ce processus, vous devez également :
     1. Configurer un serveur cible maître local : Windows pour les machines virtuelles Windows et [Linux](site-recovery-how-to-install-linux-master-target.md) pour les machines virtuelles Linux.
     2. Configurer un [serveur de processus](site-recovery-vmware-setup-azure-ps-resource-manager.md).
-    3. Lancer la [reprotection](site-recovery-how-to-reprotect.md).
+    3. Lancer la [reprotection](site-recovery-how-to-reprotect.md). Cette action éteint la machine virtuelle locale et synchronise les données de la machine virtuelle Azure avec les disques locaux.
 5. Une fois que vos machines virtuelles Azure sont répliquées sur votre site local, déclenchez un basculement d’Azure vers le site local.
 
 Une fois vos données restaurées automatiquement, reprotégez les machines virtuelles locales sur lesquelles vous avez effectué la restauration automatique pour qu’elles se répliquent vers Azure.
@@ -41,6 +54,9 @@ Pour une vue d’ensemble, regardez la vidéo suivante sur la procédure de basc
 ### <a name="fail-back-to-the-original-or-alternate-location"></a>Restaurer automatiquement sur l’emplacement d’origine ou un autre emplacement
 
 Si vous avez basculé une machine virtuelle VMware, vous pouvez procéder à une restauration automatique sur la même machine virtuelle source si elle existe toujours. Dans ce scénario, seules les modifications sont restaurées automatiquement. Ce scénario est appelé restauration dans l’emplacement d’origine. Si la machine virtuelle locale n’existe pas, la solution consiste à utiliser un autre emplacement.
+
+> [!NOTE]
+> Vous pouvez uniquement procéder à une restauration automatique vers le serveur vCenter et le serveur de configuration d’origine. Vous ne pouvez pas déployer un nouveau serveur de configuration et procéder à une restauration automatique au moyen de celui-ci. En outre, vous ne pouvez pas ajouter un nouveau serveur vCenter au serveur de configuration existant et procéder à une restauration automatique vers le nouveau serveur vCenter.
 
 #### <a name="original-location-recovery"></a>Récupération à l’emplacement d’origine
 
@@ -74,7 +90,7 @@ Avant toute chose, effectuez la reprotection afin que les machines virtuelles so
 ## <a name="steps-to-fail-back"></a>Procédure de restauration automatique
 
 > [!IMPORTANT]
-Avant de lancer la restauration automatique, vous devez avoir finalisé la reprotection des machines virtuelles. Celles-ci doivent être protégées et leur intégrité doit être correcte (**OK**). Pour reprotéger les machines virtuelles, consultez la section sur la [reprotection](site-recovery-how-to-reprotect.md).
+> Avant de lancer la restauration automatique, vous devez avoir finalisé la reprotection des machines virtuelles. Celles-ci doivent être protégées et leur intégrité doit être correcte (**OK**). Pour reprotéger les machines virtuelles, consultez la section sur la [reprotection](site-recovery-how-to-reprotect.md).
 
 1. Dans la page des éléments répliqués, sélectionnez la machine virtuelle, cliquez dessus avec le bouton droit et sélectionnez **Unplanned Failover (Basculement imprévu)**.
 2. Dans **Confirm Failover (Confirmer le basculement)**, vérifiez le sens du basculement (à partir d’Azure) et sélectionnez le point de récupération à utiliser pour le basculement (le plus récent ou le dernier point de cohérence d’application). Un point de cohérence d’application se situe derrière le point le plus récent et entraîne une perte de données.
@@ -93,6 +109,12 @@ Vous ne pouvez pas restaurer une machine virtuelle, tant qu’elle n’a pas un 
 
 Si vous sélectionnez le point de récupération cohérent d’application, la restauration automatique d’une machine virtuelle s’effectue à son dernier point de récupération cohérent d’application disponible. Dans le cas d’un plan de récupération avec un groupe de réplication, chaque groupe de réplication est rétabli à son point de récupération disponible commun.
 Notez que les points de récupération cohérents d’application peuvent se trouver dans le passé et qu’une perte de données est susceptible de se produire.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>Que se passe-t-il au niveau des outils VMware après une restauration automatique ?
+
+Pendant le basculement vers Azure, les outils VMware ne peuvent pas s’exécuter sur la machine virtuelle Azure. Dans le cas d’une machine virtuelle Windows, ASR désactive les outils VMware pendant le basculement. Dans le cas d’une machine virtuelle Linux, ASR désinstalle les outils VMware pendant le basculement. 
+
+Lors du basculement de la machine virtuelle Windows, les outils VMware sont réactivés au moment de la restauration automatique. De même, pour une machine virtuelle Linux, les outils VMware sont réinstallés sur la machine pendant le basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

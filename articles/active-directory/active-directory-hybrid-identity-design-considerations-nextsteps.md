@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f64ced0a708516c12110bb6bbf3a70a438ddcbb5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
+ms.openlocfilehash: ba0d31a8f718cc5577fe779061db2144d4295cbb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -48,10 +50,5 @@ L'analyse des ressources suivantes fournit souvent les dernières actualités et
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

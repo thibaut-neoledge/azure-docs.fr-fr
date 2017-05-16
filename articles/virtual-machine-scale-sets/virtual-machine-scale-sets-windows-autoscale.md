@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ Cet article décrit comment déployer les ressources et extensions suivantes :
 Pour plus d’informations sur les ressources Azure Manager, consultez [Déploiement Azure Resource Manager et déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="step-1-install-azure-powershell"></a>Étape 1 : installer Azure PowerShell
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell en sélectionnant votre abonnement et en vous connectant à Azure, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell en sélectionnant votre abonnement et en vous connectant à Azure, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>Étape 2 : créer un groupe de ressources et un compte de stockage
 1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Utilisez [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) pour créer un groupe de ressources nommé **vmsstestrg1**.

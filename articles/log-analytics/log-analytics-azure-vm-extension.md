@@ -4,7 +4,7 @@ description: "Pour les machines virtuelles Windows et Linux s’exécutant dans 
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -36,7 +37,7 @@ En savoir plus sur les [extensions de machine virtuelle Azure](../virtual-machin
 Lorsque vous utilisez une collecte basée sur agent pour les données de journal, vous devez configurer des [sources de données dans Log Analytics](log-analytics-data-sources.md) afin de spécifier les journaux et les métriques à collecter.
 
 > [!IMPORTANT]
-> Si vous configurez Log Analytics pour indexer les données de journal à l’aide des [diagnostics Azure](log-analytics-azure-storage.md), et configurez l’agent pour collecter les mêmes journaux, les journaux sont collectés deux fois. Vous êtes facturé pour les deux sources de données. Si l’agent est installé, vous devriez collecter les données de journal uniquement à l’aide de l’agent. Ne configurez pas Log Analytics pour collecter les données de journal à partir des diagnostics Azure.
+> Si vous configurez Log Analytics pour indexer les données de journal à l’aide des [diagnostics Azure](log-analytics-azure-storage.md), et configurez l’agent pour collecter les mêmes journaux, les journaux sont collectés deux fois. Vous êtes facturé pour les deux sources de données. Si l’agent est installé, collectez les données de journal uniquement à l’aide de l’agent. Ne configurez pas Log Analytics pour collecter les données de journal à partir des diagnostics Azure.
 >
 >
 
@@ -74,7 +75,7 @@ Il existe différentes commandes pour les machines virtuelles Azure Classic et A
 
 Pour les machines virtuelles Azure Classic, utilisez l’exemple PowerShell suivant :
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -90,9 +91,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+Pour les machines virtuelles Linux Resource Manager utilisant l’interface de ligne de commande suivante
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 Pour les machines virtuelles Azure Resource Manager, utilisez l’exemple PowerShell suivant :
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -122,8 +128,9 @@ $location = $vm.Location
 
 ```
 
+
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Déployer l’extension de machine virtuelle à l’aide d’un modèle
-Azure Resource Manager vous permet de créer un modèle simple (au format JSON) définissant le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long de son cycle de vie, et avoir ainsi l’assurance que vos ressources sont déployées dans un état cohérent.
+Azure Resource Manager vous permet de créer un modèle (au format JSON) définissant le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long de son cycle de vie, et avoir ainsi l’assurance que vos ressources sont déployées dans un état cohérent.
 
 En incluant l’agent Log Analytics dans votre modèle Resource Manager, vous êtes certain que chaque machine virtuelle est préconfigurée pour envoyer des rapports à votre espace de travail Log Analytics.
 
@@ -135,7 +142,7 @@ Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une m
 * Section d’extension de ressources Microsoft.EnterpriseCloud.Monitoring
 * Sorties pour rechercher workspaceId et workspaceSharedKey
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -362,12 +369,12 @@ Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une m
 
 Vous pouvez déployer un modèle à l’aide de la commande PowerShell suivante :
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
 ## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Dépannage de l’extension de machine virtuelle Log Analytics
-Vous recevrez généralement un message émis par le portail Azure ou par Azure Powershell en cas de problème.
+Vous recevez généralement un message émis par le portail Azure ou par Azure PowerShell en cas de problème.
 
 1. Connectez-vous au [portail Azure](http://portal.azure.com).
 2. Recherchez la machine virtuelle et accédez aux détails de cette dernière.
@@ -394,10 +401,10 @@ Si l’extension d’agent de machine virtuelle *Microsoft Monitoring Agent* ne 
 3. Examinez les fichiers de journaux d’extension de machine virtuelle Microsoft Monitoring Agent dans `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
 4. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
 5. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.
-6. Affichez l’état de Microsoft Monitoring Agent en tapant ce qui suit dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Affichez l’état de Microsoft Monitoring Agent en tapant la commande suivante dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
 7. Examinez les fichiers journaux d’installation de Microsoft Monitoring Agent dans `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
-Pour plus d’informations, voir [Résolution des problèmes des extensions Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour plus d’informations, consultez [Résolution des problèmes des extensions Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="troubleshooting-linux-virtual-machines"></a>Résolution des problèmes des machines virtuelles Linux
 Si l’extension d’agent de machine virtuelle *Agent OMS pour Linux* ne s’installe pas ou ne génère pas de rapports, vous pouvez procéder comme suit pour résoudre le problème.
@@ -408,7 +415,7 @@ Si l’extension d’agent de machine virtuelle *Agent OMS pour Linux* ne s’in
 2. Pour d’autres états défectueux, examinez les fichiers journaux de l’extension de machine virtuelle Agent OMS pour Linux dans `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` et `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Si l’état de l’extension est intègre, mais que les données ne sont pas chargées, examinez les fichiers journaux de l’Agent OMS pour Linux dans `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
-Pour plus d’informations, voir [Résolution des problèmes des extensions Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour plus d’informations, consultez [Résolution des problèmes des extensions Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Configurez les [sources de données dans Log Analytics](log-analytics-data-sources.md) pour spécifier les journaux et les métriques à collecter.

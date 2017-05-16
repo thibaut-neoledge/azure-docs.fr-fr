@@ -17,8 +17,3 @@ Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un
 7. Pour **Port privé**, spécifiez le port d’écoute de SQL Server, par défaut **1433**.
 8. Cliquez sur **OK** pour créer le point de terminaison.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

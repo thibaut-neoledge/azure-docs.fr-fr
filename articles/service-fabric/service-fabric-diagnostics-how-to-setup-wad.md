@@ -3,7 +3,7 @@ title: Collecte des journaux avec Azure Diagnostics | Documents Microsoft
 description: "Cet article décrit la procédure de configuration d’Azure Diagnostics pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
-ms.author: toddabel
-translationtype: Human Translation
-ms.sourcegitcommit: 1b4599848f44a7200f13bd6ddf4e82e96a75e069
-ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
+ms.author: dekapur
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7c3311800af27016b7f993b375055bbc65d9a727
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,9 +38,9 @@ Les outils suivants sont utilisés pour exécuter certaines opérations décrite
 
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (page en lien avec Azure Cloud Services, mais qui contient des informations et des exemples pertinents)
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Applets de commande Azure Resource Manager](https://github.com/projectkudu/ARMClient)
-* [Modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Sources de journaux que vous pourriez vouloir collecter
 * **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW (Event Tracing for Windows) et EventSource standard. Il existe plusieurs types de journaux :
@@ -193,7 +195,7 @@ Mettez ensuite à jour la section `VirtualMachineProfile` du fichier template.js
 
 Après avoir modifié le fichier template.json comme décrit, republiez le modèle Resource Manager. Si le modèle a été exporté, exécutez le fichier deploy.ps1 pour republier le modèle. Après le déploiement, assurez-vous que **ProvisioningState** présente la valeur **Succeeded**.
 
-## <a name="update-diagnostics-to-collection-health-and-load-events"></a>Mettre à jour les diagnostics pour collecter les événements d’intégrité et de charge
+## <a name="update-diagnostics-to-collect-health-and-load-events"></a>Mettre à jour les diagnostics pour collecter les événements d’intégrité et de charge
 
 Depuis la version 5.4 de Service Fabric, il est possible de collecter les événements liés aux mesures d’intégrité et de charge. Ces événements reflètent les événements générés par le système ou votre code à l’aide d’API de création de rapports d’intégrité ou de charge comme [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Cela permet non seulement de consolider et de visualiser l’intégrité du système dans le temps, mais aussi de générer des alertes en fonction de certains événements d’intégrité et de charge. Pour afficher ces événements dans la visionneuse d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000008 » à la liste des fournisseurs ETW.
 
@@ -229,18 +231,13 @@ Par exemple, si votre source d’événements est nommée My-Eventsource, ajoute
         }
 ```
 
-Pour collecter des compteurs de performances ou des journaux d’événements, modifiez le modèle Resource Manager en utilisant les exemples fournis dans [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Republiez ensuite le modèle Resource Manager.
+Pour collecter des compteurs de performances ou des journaux d’événements, modifiez le modèle Resource Manager en utilisant les exemples fournis dans [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Republiez ensuite le modèle Resource Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes, vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## <a name="related-articles"></a>Articles connexes
-* [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide de l’extension Diagnostics](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide de l’extension Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Solution Service Fabric dans Log Analytics](../log-analytics/log-analytics-service-fabric.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

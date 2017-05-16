@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6dd2433bf744dd207375e92fd6f24b14cd3f828c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +57,7 @@ Azure dispose de deux portails :
 Certaines fonctionnalités et ressources peuvent uniquement être créées et configurées dans un portail ou dans l'autre. Certaines ressources ou fonctionnalités ne peuvent pas (encore) être créées ou configurées dans les deux portails, et peuvent uniquement être configurées avec PowerShell, l'interface de ligne de commande ou les deux. La documentation de chaque ressource Azure précise avec quelle méthode elle peut être créée. 
 
 ## <a name="powershell"></a>PowerShell
-Avec [PowerShell](/powershell/azureps-cmdlets-docs) vous pouvez utiliser une ligne de commande ou créer des scripts pour créer et configurer des ressources Azure à partir d'un ordinateur Windows.  Les ressources Azure individuelles ont des [applets de commande Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), des [applets de commande Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx), ou les deux.  Certaines fonctionnalités et ressources peuvent uniquement être créées et/ou configurées à l’aide de PowerShell ou de l’interface de ligne de commande. Selon la ressource, lors de l'utilisation des applets de commande PowerShell Resource Manager, vous avez deux options pour créer et configurer des ressources Azure :
+Avec [PowerShell](/powershell/azureps-cmdlets-docs) vous pouvez utiliser une ligne de commande ou créer des scripts pour créer et configurer des ressources Azure à partir d'un ordinateur Windows.  Les ressources Azure individuelles ont des [applets de commande Resource Manager](/powershell/azure/overview), des [applets de commande Service Management](/powershell/azure/overview?view=azuresmps-3.7.0), ou les deux.  Certaines fonctionnalités et ressources peuvent uniquement être créées et/ou configurées à l’aide de PowerShell ou de l’interface de ligne de commande. Selon la ressource, lors de l'utilisation des applets de commande PowerShell Resource Manager, vous avez deux options pour créer et configurer des ressources Azure :
 
 * **Applets de commande PowerShell uniquement :** vous pouvez créer et configurer chaque ressource Azure individuellement à l'aide des applets de commande de chaque ressource. Vous pouvez le faire à partir d'une ligne de commande ou en incluant plusieurs commandes dans un script PowerShell que vous pouvez stocker et versionner.
 * **Applets de commande PowerShell avec un modèle Azure Resource Manager :** vous pouvez utiliser PowerShell pour créer des ressources Azure à l’aide d’un modèle Azure Resource Manager. Les modèles peuvent être enregistrés et gérés. Pour en savoir plus, lisez l’article [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). Plusieurs [modèles Azure Quickstart](https://azure.microsoft.com/documentation/templates/) existent pour les solutions courantes. Ils peuvent également être téléchargés et modifiés.

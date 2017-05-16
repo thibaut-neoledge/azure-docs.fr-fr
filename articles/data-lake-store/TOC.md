@@ -30,6 +30,7 @@
 ### [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 ### [Authentification de service à service](data-lake-store-authenticate-using-active-directory.md)
 ### [Authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Chiffrement](data-lake-store-encryption.md)
 
 ## Performances
 ### [Recommandations en matière d’optimisation des performances pour Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
@@ -58,7 +59,7 @@
 ### [Planifier la haute disponibilité](data-lake-store-troubleshooting-guidance.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)

@@ -27,8 +27,3 @@ Vous pouvez déplacer une machine virtuelle et les ressources associées vers un
    
     ![Capture d’écran du panneau Déplacer des ressources.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

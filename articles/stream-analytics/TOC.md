@@ -32,23 +32,33 @@
 
 ## Gérer
 ### [Fiabilité des travaux](stream-analytics-job-reliability.md)
-### [Surveiller des travaux](stream-analytics-monitoring.md)
-### [Journaux de diagnostic](stream-analytics-job-diagnostic-logs.md)
 ### [Surveiller les travaux par programmation](stream-analytics-monitor-jobs.md)
 ### [Surveiller les travaux avec PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Mettre à l’échelle pour augmenter le débit](stream-analytics-scale-jobs.md)
 ### [Mettre à l’échelle pour les fonctions Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Remplacer les informations d’identification des entrées/sorties](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Résolution des problèmes
+### [Guide de résolution des problèmes](stream-analytics-troubleshooting-guide.md)
+### [Surveiller des travaux](stream-analytics-monitoring.md)
+### [Panneau Resource Health](stream-analytics-resource-health.md)
+### [Diagramme de travail et mesures](stream-analytics-job-diagram-with-metrics.md)
+### [Requêtes de test](stream-analytics-test-query.md)
+### [Exemples de données d’entrée](stream-analytics-sample-data-input.md)
+### [Débogage de SELECT INTO](stream-analytics-select-into.md)
+### [Gestion de commande d’événement](stream-analytics-out-of-order-and-late-events.md)
+### [Limites du lecteur Event Hub](stream-analytics-event-hub-consumer-groups.md)
+### [Optimiser les unités de streaming](stream-analytics-streaming-unit-consumption.md)
+### [Journaux de diagnostics](stream-analytics-job-diagnostic-logs.md)
+
 ## Automatisation
 ### [PowerShell en un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Langage de requête](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # les ressources
 ## [Notes de publication](stream-analytics-release-notes.md)

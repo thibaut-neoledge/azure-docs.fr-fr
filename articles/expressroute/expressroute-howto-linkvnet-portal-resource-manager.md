@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b3c0cca9a6d5171b1248b0f463cbbb26641fc5f2
-ms.openlocfilehash: a1a689dbfc35107b52f9b84f74ac8bfac0727a0e
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -33,22 +33,18 @@ ms.lasthandoff: 02/10/2017
 
 Cet article vous aide à lier des réseaux virtuels à des circuits Azure ExpressRoute en utilisant le modèle de déploiement Resource Manager et le portail Azure. Les réseaux virtuels peuvent appartenir au même abonnement ou faire partie d’un autre abonnement.
 
-**À propos des modèles de déploiement Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-* Veillez à consulter les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
+## <a name="before-you-begin"></a>Avant de commencer
+* Avant de commencer la configuration, examinez les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md).
 * Vous devez disposer d’un circuit ExpressRoute actif.
   
-  * Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de service de connectivité.
+  * Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) et faites-le activer par votre fournisseur de service de connectivité.
   * Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Pour obtenir des instructions sur le routage, consultez l’article [Configurer le routage](expressroute-howto-routing-portal-resource-manager.md) .
   * Vérifiez que l’homologation privée Azure est être configurée, et que l’homologation BGP entre votre réseau et Microsoft est être opérationnelle pour pouvoir activer la connectivité de bout en bout.
-  * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour créer une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (seulement les étapes 1 à 5).
+  * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour [créer une passerelle de réseau virtuel pour ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Une passerelle de réseau virtuel pour ExpressRoute utilise le type de passerelle « ExpressRoute », pas de VPN.
 
 * Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute standard. Tous les réseaux virtuels doivent figurer dans la même région géopolitique lors de l’utilisation d’un circuit ExpressRoute standard. 
-
 * Vous pouvez lier un réseau virtuel à l’extérieur de la zone géopolitique du circuit ExpressRoute ou lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute si vous avez activé le module complémentaire Premium d’ExpressRoute. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
+* Vous pouvez [visualiser une vidéo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Connecter un réseau virtuel du même abonnement à un circuit
 
@@ -87,14 +83,15 @@ Vous pouvez partager un circuit ExpressRoute entre plusieurs abonnements. La fig
     > 
     >
 
-### <a name="administration"></a>Administration
-Le « propriétaire du circuit » est l’utilisateur avec pouvoir autorisé de la ressource de circuit ExpressRoute. Le propriétaire du circuit peut créer des autorisations utilisables par les « utilisateurs du circuit ». Les utilisateurs du circuit sont les propriétaires des passerelles de réseau virtuel (qui ne figurent pas dans le même abonnement que le circuit ExpressRoute). Les utilisateurs du circuit peuvent échanger des autorisations (une seule autorisation par réseau virtuel).
+### <a name="administration---circuit-owners-and-circuit-users"></a>Administration - propriétaires de circuit et utilisateurs de circuit
+
+Le « propriétaire du circuit » est l’utilisateur avec pouvoir autorisé de la ressource de circuit ExpressRoute. Le propriétaire du circuit peut créer des autorisations utilisables par les « utilisateurs du circuit ». Les utilisateurs du circuit sont les propriétaires des passerelles de réseau virtuel qui ne figurent pas dans le même abonnement que le circuit ExpressRoute. Les utilisateurs du circuit peuvent échanger des autorisations (une seule autorisation par réseau virtuel).
 
 Le propriétaire du circuit a le pouvoir de modifier et de révoquer les autorisations à tout moment. La révocation d’une autorisation entraîne la suppression de toutes les connexions de l’abonnement dont l’accès a été révoqué.
 
 ### <a name="circuit-owner-operations"></a>Opérations du propriétaire du circuit
 
-#### <a name="creating-an-authorization"></a>Création d’une autorisation
+**Création d’une autorisation de connexion**
 
 Le propriétaire du circuit crée une autorisation. Cela entraîne la création d'une clé d'autorisation qui peut être utilisée par un utilisateur du circuit pour se connecter à ses passerelles de réseau virtuel vers un circuit ExpressRoute. Une autorisation n’est valide que pour une seule connexion.
 
@@ -106,19 +103,15 @@ Le propriétaire du circuit crée une autorisation. Cela entraîne la création 
 
     ![Clé d’autorisation](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
-#### <a name="deleting-authorizations"></a>Suppression des autorisations
+**Suppression d’une autorisation de connexion**
 
 Vous pouvez supprimer une connexion en sélectionnant l’icône **Supprimer** dans le panneau de votre connexion.
 
 ### <a name="circuit-user-operations"></a>Opérations de l’utilisateur du circuit
 
-   > [!NOTE]
-   > L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’autorisation du propriétaire du circuit. 
+L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’autorisation du propriétaire du circuit. 
 
-#### <a name="redeeming-connection-authorizations"></a>Utilisation des autorisations de connexion
-
-
-Renseignez les détails, puis cliquez sur **OK** sous l’onglet De base.
+**Réclamation d’une autorisation de connexion**
 
 1.    Cliquez sur le bouton **+Nouveau**.
 
@@ -143,7 +136,8 @@ Renseignez les détails, puis cliquez sur **OK** sous l’onglet De base.
 
 7. Passez en revue les informations contenues dans le panneau **Résumé**, puis cliquez sur **OK**.
 
-#### <a name="releasing-connection-authorizations"></a>Libération des autorisations de connexion
+
+**Libération d’une autorisation de connexion**
 
 Vous pouvez libérer une autorisation en supprimant la connexion qui lie le circuit ExpressRoute et le réseau virtuel.
 

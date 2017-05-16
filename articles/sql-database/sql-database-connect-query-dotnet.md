@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,11 +34,13 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 
 ## <a name="install-net"></a>Installer .NET
 
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de .NET et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec .NET, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **C#** , puis sélectionnez votre système d’exploitation.
+
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework et .NET Core**
 
 Visual Studio 2017 Community est un IDE complet, extensible et gratuit qui permet de créer des applications modernes pour Android, iOS et Windows, ainsi que des applications web et de base de données et des services cloud. Vous pouvez soit installer le composant .NET Framework complet, soit installer uniquement .NET Core. Les extraits de code du guide de démarrage rapide fonctionnent dans les deux cas. Si vous disposez déjà de Visual Studio sur votre ordinateur, ignorez les étapes suivantes.
 
-1. Téléchargez le [programme d’installation](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Téléchargez le [programme d’installation de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Exécutez le programme d’installation et suivez que les invites.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -66,7 +69,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Récupérez la chaîne de connexion dans le portail Azure. Cette chaîne de connexion vous permet de vous connecter à la base de données SQL Azure.
+Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
@@ -96,7 +99,8 @@ Lorsque vous utilisez .NET Core, ajoutez System.Data.SqlClient au fichier ***cs
 1. Dans votre environnement de développement, ouvrez un fichier de code vide.
 2. Ajoutez ```using System.Data.SqlClient``` à votre fichier de code ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Utilisez [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) avec une instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) pour rechercher des données dans votre base de données Azure SQL Database. Ajoutez les valeurs appropriées pour votre serveur.
+3. Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de la commande [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) avec une instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +156,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Insertion des données
 
-Utilisez [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) pour ajouter des données dans votre base de données Azure SQL.
+Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la commande [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx). Ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
 
 ```csharp
 using System;
@@ -207,7 +211,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Mettre à jour des données
 
-Utilisez [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) pour mettre à jour des données dans votre base de données Azure SQL Database.
+Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de la commande [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx). Ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
 
 ```csharp
 using System;
@@ -257,7 +261,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Suppression de données
 
-Utilisez [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) pour supprimer des données de votre base de données Azure SQL Database.
+Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de la commande [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) avec une instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx). Ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
 
 ```csharp
 using System;
@@ -305,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Documentation .NET](https://docs.microsoft.com/dotnet/).
+- [Se connecter et lancer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
+- [Se connecter et lancer des requêtes avec code Visual Studio](sql-database-connect-query-vscode.md).
 
-- Pour accéder à la documentation .NET, consultez la rubrique [Documentation .NET](https://docs.microsoft.com/dotnet/).
-- Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de PHP, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 

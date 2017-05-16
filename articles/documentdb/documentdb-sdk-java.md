@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 03/16/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6e558d2b651b9c50bafa5814a18ad360f7beb2f0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -52,15 +53,15 @@ ms.lasthandoff: 03/25/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="a-name11001100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb1100"></a><a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Activation de la prise en charge de la collection partitionnée avec au minimum 2 500 RU/seconde et des incréments d’évolution de 100 RU/seconde.
 * Correction d’un bogue dans l’assembly natif, qui pouvait entraîner des exceptions NullRef pour certaines requêtes.
 
-### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
 * Correction d’un bogue dans la configuration du moteur de requête qui peut provoquer des exceptions pour les requêtes en mode de passerelle.
 * Correction de quelques bogues dans le conteneur de session qui peut provoquer une exception « Ressource propriétaire introuvable » pour les demandes dès la création de la collection.
 
-### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
 * Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](documentdb-sql-query.md#Aggregates).
 * Ajout de la prise en charge de la modification de flux.
 * Ajout de la prise en charge des informations relatives aux quotas de collections via RequestOptions.setPopulateQuotaInfo.
@@ -70,7 +71,7 @@ ms.lasthandoff: 03/25/2017
 * Correction d’un bogue susceptible d’entraîner l’exception NullReferenceException dans HttpContext lorsque le taux de demandes est élevé.
 * Amélioration des performances du mode DirectHttps.
 
-### <a name="a-name194194httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb194"></a><a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
 * Ajout de la prise en charge simple d’un proxy basé sur les instances d’un client avec l’API ConnectionPolicy.setProxy().
 * Ajout de l’API DocumentClient.close() permettant de fermer correctement l’instance DocumentClient.
 * Amélioration des performances de requête en mode de connectivité directe en dérivant le plan de requête à partir de l’assembly natif au lieu de la passerelle.
@@ -78,22 +79,22 @@ ms.lasthandoff: 03/25/2017
 * Journalisation refactorisée pour utiliser SLF4J.
 * Correction de quelques autres bogues dans un lecteur de cohérence.
 
-### <a name="a-name193193httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb193"></a><a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Correction d’un bogue dans la gestion des connexions pour éviter les fuites de connexion en mode de connectivité directe.
 * Correction d’un bogue dans la requête TOP des exceptions NullReference peuvent être levées.
 * Amélioration des performances avec la réduction du nombre d’appels réseau pour les caches internes.
 * Ajout d’un code d’état, d’un ID d’activité et d’un URI de requête dans DocumentClientException pour une meilleure résolution des problèmes.
 
-### <a name="a-name192192httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb192"></a><a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Résolution d’un problème de gestion des connexions pour plus de stabilité.
 
-### <a name="a-name191191httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb191"></a><a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 * Ajout de la prise en charge du niveau de cohérence BoundedStaleness.
 * Ajout de la prise en charge de la connectivité directe pour les opérations CRUD pour les collections partitionnées.
 * Correction d’un bogue dans l’interrogation d’une base de données avec SQL.
 * Correction d’un bogue dans le cache de session où le jeton de session peut être défini de manière incorrecte.
 
-### <a name="a-name190190httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb190"></a><a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
+### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Ajout de la prise en charge des requêtes parallèles sur plusieurs partitions.
 * Ajout de la prise en charge des requêtes TOP/ORDER BY pour les collections partitionnées.
 * Ajout de la prise en charge de la cohérence forte.
@@ -103,46 +104,46 @@ ms.lasthandoff: 03/25/2017
 * Ajout des types de données Polygone et LineString lors de la spécification de la stratégie d’indexation de collection pour les requêtes spatiales à délimitation géographique.
 * Résolution des problèmes liés à Java Doc pour Java 1.8.
 
-### <a name="a-name181181httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb181"></a><a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 * Correction d’un bogue dans PartitionKeyDefinitionMap pour la mise en cache de collections de partitions uniques, sans aucune extraction supplémentaire des demandes de clés de partition.
 * Correction d’un bogue pour l’absence de nouvelle tentative en cas de valeur de clé de partition incorrecte.
 
-### <a name="a-name180180httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb180"></a><a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Ajout de la prise en charge des comptes de base de données de plusieurs régions.
 * Ajout de la prise en charge d’une nouvelle tentative automatique sur les requêtes limitées avec options de personnalisation du nombre maximum de tentatives et du délai d’attente maximum entre deux tentatives.  Voir RetryOptions et ConnectionPolicy.getRetryOptions().
 * Propriété IPartitionResolver déconseillée basée sur un code de partitionnement personnalisé. Utilisez des collections partitionnées pour bénéficier d’un niveau de stockage et de débit supérieur.
 
-### <a name="a-name171171httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb171"></a><a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * Ajout de la prise en charge d’une stratégie de nouvelle tentative pour la limitation.  
 
-### <a name="a-name170170httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb170"></a><a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Ajout de la prise en charge de la durée de vie (TTL) pour les documents.
 
-### <a name="a-name160160httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb160"></a><a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md).
 
-### <a name="a-name151151httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb151"></a><a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * Correction d’un bogue dans HashPartitionResolver pour générer des valeurs de hachage en little-endian dans un souci de cohérence avec les autres kits de développement logiciel.
 
-### <a name="a-name150150httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb150"></a><a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Ajoutez des programmes de résolution de partitions par hachage et par spécification de plages de valeurs pour vous aider lors du partitionnement des applications sur plusieurs partitions.
 
-### <a name="a-name140140httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb140"></a><a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Implémentation de l’opération Upsert. Nouvelles méthodes upsertXXX ajoutées pour prendre en charge la fonctionnalité Upsert.
 * Implémenter l'ID en fonction du routage. Aucune modification d'API publique, toutes les modifications en interne.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Version ignorée pour aligner le numéro de version avec les autres Kits de développement logiciel (SDK)
 
-### <a name="a-name120120httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb120"></a><a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Prise en charge de l'index géospatial
 * Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \, ou se terminer par un espace.
 * Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
-### <a name="a-name110110httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb110"></a><a name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Implémente la stratégie d'indexation V2
 
-### <a name="a-name100100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb100"></a><a name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit SDK GA
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression

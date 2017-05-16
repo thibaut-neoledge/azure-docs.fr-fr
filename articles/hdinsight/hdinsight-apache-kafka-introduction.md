@@ -8,15 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 28d213fa23d480635fd4376e22ff54a5e6374350
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: a3ceca6cd0f470a5cd6849c345867f094b870a85
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Présentation d’Apache Kafka sur HDInsight (version préliminaire)
@@ -59,13 +61,8 @@ Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDIns
 
 * [Utilisation de MirrorMaker pour créer un réplica de Kafka sur HDInsight](hdinsight-apache-kafka-mirroring.md)
 
-* [Utilisation d’Apache Storm avec Kafka sur HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md) (Utilisation d’Apache Storm avec Kafka sur HDInsight)
 
-* [Utilisation d’Apache Spark avec Kafka sur HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Utilisation d’Apache Spark avec Kafka sur HDInsight)
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md) (Se connecter à Kafka via un réseau virtuel Azure)

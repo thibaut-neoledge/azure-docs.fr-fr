@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -125,7 +126,7 @@ Apache Storm sur HDInsight permet aux clients de déployer et de surveiller un c
 Stream Analytics est facturé par volume de données traitées et par nombre d’unités de diffusion en continu (par heure d’exécution du travail) requis.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Des informations de tarification supplémentaires sont disponibles ici.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Des informations de tarification supplémentaires sont disponibles ici.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -133,7 +134,7 @@ Stream Analytics est facturé par volume de données traitées et par nombre d�
 Pour Apache Storm sur HDInsight, l’unité d’achat est basée sur le cluster et facturée en fonction de la durée d’exécution du cluster, indépendamment des travaux déployés.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Des informations de tarification supplémentaires sont disponibles ici.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Des informations de tarification supplémentaires sont disponibles ici.</a>
                 </p>
             </td>
         </tr>

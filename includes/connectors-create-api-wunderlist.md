@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte Wunderl
 5. Enfin, cliquez sur le bouton **Autoriser**.  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

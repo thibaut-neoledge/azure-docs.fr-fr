@@ -14,8 +14,3 @@
    > Le secret d’application et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces valeurs avec quiconque et ne les distribuez pas avec votre application.
    >
    >
-
-
-<!--HONumber=Dec16_HO2-->
-
-

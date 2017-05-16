@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -44,7 +44,7 @@ La structure de base d’un fichier solution de gestion est identique à un [mod
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -144,6 +144,7 @@ Vous trouverez ci-dessous un exemple d’entité de paramètre pour une solution
                 "category": "Schedule"
             }
         }
+    }
 
 
 Faites référence aux valeurs de paramètre dans d’autres éléments de la solution avec la syntaxe **parameters('nom du paramètre')**.  Par exemple, pour accéder au nom de l’espace de travail, utilisez **parameters('workspaceName')**.

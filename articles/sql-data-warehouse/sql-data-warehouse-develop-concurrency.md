@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1abac24447f709690c42add7c383394443ef957c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: dd8c1b07262fc375678262a7617699c1f69c6090
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
-Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion de charge de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail mutualisées.
+Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion de charge de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail multilocataires.
 
 ## <a name="concurrency-limits"></a>Limites de concurrence
 SQL Data Warehouse autorise jusqu’à 1024 connexions simultanées. Les 1024 connexions peuvent soumettre des requêtes simultanément. Toutefois, pour optimiser le débit, SQL Data Warehouse peut mettre certaines requêtes en file d’attente pour s’assurer que chaque requête reçoit une allocation de mémoire minimale. La mise en file d’attente se produit lors de l’exécution de la requête. La mise en file d’attente lorsque les limites de concurrence sont atteintes permet à SQL Data Warehouse d’augmenter le débit total en veillant à ce que les requêtes actives puissent accéder aux ressources de mémoire essentielles.  
@@ -269,7 +271,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```
    
    > [!NOTE]
-   > Il est judicieux de créer un utilisateur dans la base de données master pour les utilisateurs d’Azure SQL Data Warehouse. La création d’un utilisateur dans la base de données master permet à un utilisateur de se connecter à l’aide d’outils tels que SSMS sans spécifier un nom de base de données.  Elle permet également d’utiliser l’Explorateur d’objets pour afficher toutes les bases de données sur un serveur SQL Server.  Pour plus d’informations sur la création et la gestion des utilisateurs, consultez [Sécuriser une base de données dans SQL Data Warehouse][Sécuriser une base de données dans SQL Data Warehouse].
+   > Il est judicieux de créer un utilisateur dans la base de données master pour les utilisateurs d’Azure SQL Data Warehouse. La création d’un utilisateur dans la base de données master permet à un utilisateur de se connecter à l’aide d’outils tels que SSMS sans spécifier un nom de base de données.  Elle permet également d’utiliser l’Explorateur d’objets pour afficher toutes les bases de données sur un serveur SQL Server.  Pour plus d’informations sur la création et la gestion des utilisateurs, consultez [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
 2. **Créer un utilisateur SQL Data Warehouse** : ouvrez une connexion à la base de données **SQL Data Warehouse** et exécutez la commande suivante.
@@ -406,22 +408,17 @@ FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse][Sécuriser une base de données dans SQL Data Warehouse]. Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment].
+Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment].
 
 <!--Image references-->
 
 <!--Article references-->
-[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Reconstruire des index pour améliorer la qualité de segment]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Gestion des bases de données et des connexions dans Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

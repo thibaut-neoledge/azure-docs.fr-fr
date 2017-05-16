@@ -17,8 +17,3 @@ Pour autoriser votre application logique à se connecter à votre compte Office 
 4. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique :   
     ![étape de création de la connexion à Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

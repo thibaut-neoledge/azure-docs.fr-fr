@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -205,6 +205,7 @@ La sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour
 | Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 et derniers Service Packs |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 et derniers Service Packs |64 bits |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 et derniers Service Packs |64 bits |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 et derniers Service Packs |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 et derniers Service Packs |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 et derniers Service Packs |64 bits |Essential |

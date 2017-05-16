@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 14c708405ea73bb7bc81863bdcf51a056447a296
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: aeca154d2eb801ca69502adaeabfd5afca1f66e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -218,7 +219,7 @@ Utilisez un outil tel que [l’explorateur de stockage Azure](https://azurestora
 ![Détection des fraudes : événements frauduleux affichés en temps réel](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

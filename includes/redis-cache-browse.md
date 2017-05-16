@@ -12,8 +12,3 @@ Vous pouvez afficher et configurer votre cache à partir du panneau **Cache Red
 
 ![Tous les paramètres de Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

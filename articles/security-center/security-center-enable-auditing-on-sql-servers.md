@@ -1,6 +1,6 @@
 ---
-title: "Activation de l’audit sur les serveurs SQL dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous explique comment implémenter la recommandation de l’Azure Security Center **Activer l’audit sur les serveurs SQL**."
+title: "Activer l’audit et la détection des menaces sur les serveurs SQL dans Azure Security Center | Microsoft Docs"
+description: "Ce document vous explique comment implémenter la recommandation d’Azure Security Center **Activer l’audit et la détection des menaces sur les serveurs SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/30/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 660b537aef8d175a478ff93d60b8391d55fc92ad
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="enable-auditing-on-sql-servers-in-azure-security-center"></a>Activation de l’audit sur les serveurs SQL dans le Centre de sécurité Azure
-Le Centre de sécurité Azure vous recommande d’activer l’audit sur toutes les bases de données de vos serveurs SQL Azure, si ce n’est déjà fait. L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
+# <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Activer l’audit et la détection des menaces sur les serveurs SQL dans Azure Security Center
+Azure Security Center vous recommande d’activer l’audit et la détection des menaces pour toutes les bases de données sur vos serveurs SQL Azure si l’audit n’est pas déjà activé. L’audit et la détection des menaces peuvent vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données, et à découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
 
 Une fois que vous avez activé l’audit, vous pouvez configurer les paramètres Threat Detection et les adresses électroniques pour recevoir des alertes de sécurité. Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. Cela vous permet de détecter et de répondre aux menaces potentielles à mesure qu’elles surviennent.
 
@@ -34,20 +34,19 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-1. Dans le panneau **Recommandations**, sélectionnez **Activer l’audit sur les serveurs SQL**.  Cette opération ouvre le panneau **Activer l’audit sur les serveurs SQL** .
+1. Dans le panneau **Recommandations**, sélectionnez **Activer l’audit et la détection des menaces sur les serveurs SQL**.  Ceci ouvre le panneau **Activer l’audit et la détection des menaces sur les serveurs SQL**.
 
    ![Activer l’audit sur les serveurs SQL][1]
-2. Sélectionnez un serveur SQL sur laquel activer l’audit. Cette opération ouvre le panneau **Paramètres d’audit** .
+2. Sélectionnez un serveur SQL sur lequel activer l’audit et la détection des menaces. Ceci opération ouvre le panneau **Audit et détection des menaces**.
 
-   ![Paramètres d’audit][2]
-3. Sur le panneau **Paramètres d’audit**, sélectionnez **ON** sous **Auditing**.
+3. Dans le panneau **Audit et détection des menaces**, sélectionnez **ACTIVÉ** sous **Audit**.
 
-   ![Activer l’audit des paramètres][3]
+   ![Activer l’audit des paramètres][2]
 4. Suivez les étapes de la rubrique [Audit de base de données SQL dans le portail Azure](../sql-database/sql-database-auditing-portal.md) pour configurer l’emplacement de stockage de vos journaux d’audit. Le compte de stockage de l’abonnement pour la collecte de données est le compte de stockage par défaut.
 5. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
 ## <a name="see-also"></a>Voir aussi
-Cet article vous a montré comment implémenter la recommandation de Security Center « Activer l’audit sur les serveurs SQL ». Pour en savoir plus sur la sécurisation de votre base de données SQL, consultez les rubriques suivantes :
+Cet article vous a montré comment implémenter la recommandation de Security Center « Activer l’audit et la détection des menaces sur les serveurs SQL ». Pour en savoir plus sur la sécurisation de votre base de données SQL, consultez les rubriques suivantes :
 
 * [Sécurisation de votre base de données SQL](../sql-database/sql-database-security-overview.md)
 
@@ -63,6 +62,5 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
-[2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
-[3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
+[2]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 

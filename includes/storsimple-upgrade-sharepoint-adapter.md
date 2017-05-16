@@ -31,8 +31,3 @@
    > 
 2. Installation du nouvel adaptateur StorSimple pour SharePoint. Le nouvel adaptateur reconnaît automatiquement les bases de données de contenu précédemment activées ou désactivées pour RBS et utilise les paramètres précédents.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

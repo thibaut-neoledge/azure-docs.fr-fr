@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +45,7 @@ Bien que cet exemple utilise le port TCP 3389, les étapes suivantes permettent
 ## <a name="detailed-troubleshooting-steps"></a>Étapes de dépannage détaillées
 Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, procédez comme suit :
 
-1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec l’utilisation d’Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec l’utilisation d’Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 2. Entrez la commande suivante pour renvoyer toutes les règles du groupe de sécurité réseau appliquées à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1* :
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -197,10 +198,5 @@ Lors de la résolution de problèmes de connectivité, considérez les points su
 * Si vous avez des réseaux virtuels homologues, par défaut, la balise VIRTUAL_NETWORK s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés à la connectivité d’homologation de réseau virtuel, vous pouvez consulter ces préfixes dans la liste **ExpandedAddressPrefix** . 
 * Les règles de sécurité effectives sont affichées uniquement s’il existe un groupe de sécurité réseau associé à la carte réseau et au sous-réseau de la machine virtuelle. 
 * Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une adresse IP publique est affectée à votre machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants. Si la machine virtuelle a une adresse IP publique, l’application de groupes de sécurité réseau à la carte réseau ou au sous-réseau est vivement recommandée.  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,3 @@
    
     ![Exécution de la machine virtuelle](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

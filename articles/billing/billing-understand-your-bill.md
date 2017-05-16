@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 04/07/2017
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 29a6290a19186d5bc8a07d87617b47d21529d6b7
-ms.openlocfilehash: 2e99332e2a2b023c00669b3ad5ea07f0c791a805
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +29,7 @@ Le coût des abonnements Microsoft Azure varie selon la formule tarifaire. Certa
 
 Jusqu’à 24 heures d’utilisation à la fin de la période de facturation précédente peuvent s’afficher dans votre facture en cours. Les frais répertoriés sur les relevés de facturation pour les clients internationaux sont uniquement fournis à titre d’estimation. Les banques appliquent des coûts différents selon les taux de conversion.
 
-## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a>Comprendre votre facture (.pdf)
+## <a name="pdf"></a>Comprendre votre facture (.pdf)
 La facture fournit un résumé de vos frais. Elle est disponible au téléchargement au format PDF (.pdf) à partir du [portail](https://portal.azure.com). Pour plus d’informations, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). 
 
 Les sections suivantes répertorient la plupart des conditions que vous voyez sur votre facture, ainsi qu’une description pour chacune d’entre elles.
@@ -76,10 +77,10 @@ Le tableau suivant décrit les instructions de vente et de paiement indiquées s
 
 | Terme | Description |
 | --- | --- |
-| Vendu à |Ce champ est prérempli avec l'adresse du profil du compte. Pour modifier ce champ, consultez [Comment modifier les informations de profil de votre compte Azure comme l’e-mail de contact, l’adresse et le numéro de téléphone](billing-how-to-change-azure-account-profile.md). |
-| Instructions de paiement |Endroit où doivent être envoyés les chèques, les virements bancaires ou les contrôles instantanés si votre mode de paiement est la facture. Pour plus d’informations, consultez [Facturation Azure - Procédure](https://azure.microsoft.com/pricing/invoicing/) |
+| Vendu à | Adresse de profil qui se trouve sur le compte. Pour modifier l’adresse, consultez [Comment modifier les informations de profil de votre compte Azure comme l’e-mail de contact, l’adresse et le numéro de téléphone](billing-how-to-change-azure-account-profile.md). |
+| Instructions de paiement | Si vous payez à réception d’une facture, ces instructions vous indiquent où doivent être envoyés les chèques, les virements bancaires ou les contrôles instantanés. Pour plus d’informations, consultez [Facturation Azure - Procédure](https://azure.microsoft.com/pricing/invoicing/) |
 
-## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Comprendre les coûts d’utilisation détaillés (.csv)
+## <a name="csv"></a> Comprendre les coûts d’utilisation détaillés (.csv)
 Le fichier d’utilisation montre la quantité de ressource utilisée pendant la période de facturation en cours. Il est disponible au format .csv, que vous pouvez ouvrir dans une application de feuille de calcul. Si deux versions sont disponibles, téléchargez la version 2. C’est le format de fichier le plus récent. Pour plus d’informations, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
 
 Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement, moins les éventuels crédits ou remises. Vous êtes facturé pour votre utilisation du mois passé.  
@@ -101,9 +102,9 @@ La partie supérieure du fichier contient les services que vous avez utilisés a
 |Quantité consommée |Quantité de ressource utilisée au cours de la période de facturation. |
 |Quantité incluse |Montant de la ressource inclus gratuitement dans votre période de facturation actuelle. |
 |Quantité de dépassement |Affiche la différence entre la quantité consommée et la quantité incluse. Ce montant vous est facturé. Pour les offres de paiement à l’utilisation n’incluant aucun montant, ce total est identique à la quantité consommée. |
-|Au sein de l'engagement |Affiche les frais de ressource déduits du montant de votre engagement associé à votre offre de 6 ou 12 mois. Les frais de ressources sont soustraits dans l’ordre chronologique. |
+|Au sein de l'engagement |Affiche les frais liés aux ressources déduits du montant de votre engagement associé à votre offre de 6 ou 12 mois. Les frais de ressources sont soustraits dans l’ordre chronologique. |
 |Devise |Devise utilisée pour votre période de facturation en cours. |
-|Dépassement |Affiche les frais de ressource qui excèdent le montant de votre engagement associé à votre offre de 6 ou 12 mois. |
+|Dépassement |Affiche les frais liés aux ressources qui excèdent le montant de votre engagement associé à votre offre de 6 ou 12 mois. |
 |Taux d'engagement |Affiche le taux d’engagement basé sur le montant total de votre engagement associé à votre offre de 6 ou 12 mois. |
 |Tarif |Montant qui vous est facturé par unité facturable. |
 |Valeur |Affiche le résultat de la multiplication de la colonne Quantité de dépassement par la colonne Taux. Si la quantité consommée ne dépasse pas la quantité incluse, aucun frais n’apparaît dans cette colonne. |
@@ -116,7 +117,7 @@ La section Utilisation quotidienne du fichier montre les détails d’utilisatio
 | --- | --- |
 |Date d'utilisation |Date à laquelle la ressource a été utilisée. |
 |Catégorie du compteur |Identifie le service de niveau supérieur dont cette utilisation relève. |
-|ID du compteur |Identificateur du compteur facturé. Cet identificateur permet d’établir le prix de l’utilisation de la facturation. |
+|ID du compteur |Identificateur de compteur facturé pour l’établissement du prix de l’utilisation de la facturation. |
 |Sous-catégorie du compteur |Définit le type de service Azure pouvant affecter le tarif. |
 |Nom du compteur |Identifie l'unité de mesure de la ressource consommée. |
 |Région du compteur|Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement. |
@@ -132,8 +133,6 @@ La section Utilisation quotidienne du fichier montre les détails d’utilisatio
 |Informations sur le service 2 |Champ hérité capturant les métadonnées facultatives propres au service. |
 
 ## <a name="tips-for-cost-management"></a>Conseils pour la gestion des coûts
-Il est judicieux de contrôler vos coûts de façon proactive :
-
 - Estimez les coûts à l’aide de la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/), de la [calculatrice du coût total de possession](https://aka.ms/azure-tco-calculator), et lorsque vous ajoutez un service
 - [Définition des alertes de facturation](billing-set-up-alerts.md)
 - [Passez en revue régulièrement votre utilisation et vos coûts dans le portail Azure](billing-getting-started.md#costs)
@@ -141,23 +140,18 @@ Il est judicieux de contrôler vos coûts de façon proactive :
 Pour en savoir plus, consultez [Getting started with Azure billing and cost management (Prise en main de la facturation et de la gestion des coûts Azure)](billing-getting-started.md).
 
 ## <a name="how-do-i-make-a-payment"></a>Comment effectuer un paiement ?
-Si vous avez configuré une carte de crédit ou une carte bancaire comme mode de paiement, le paiement est effectué automatiquement. Si votre configuration spécifie un [mode de paiement par facture](https://azure.microsoft.com/pricing/invoicing/), envoyez votre paiement à l’endroit indiqué au bas de votre facture. Pour plus d’informations, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si vous avez configuré une carte de crédit ou une carte bancaire comme mode de paiement, le paiement est effectué automatiquement. Si vous utilisez un [mode de paiement par facture](https://azure.microsoft.com/pricing/invoicing/), envoyez votre paiement à l’endroit indiqué au bas de votre facture. Pour plus d’informations, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Comment vérifier le statut d’un paiement effectué par carte de crédit ?
 [Créer un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour demander l’état de votre paiement. 
 
 ## <a name="what-about-marketplace-orders-or-external-service-charges"></a>Qu’en est-il des commandes Marketplace ou des frais de service externes ?
-Les services externes étaient auparavant appelés commandes Marketplace. Les services externes sont fournis par des fournisseurs de services indépendants, mais sont intégrés dans l’écosystème Azure. Pour en savoir plus, consultez [Présentation de vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
+Les services externes étaient auparavant appelés commandes Marketplace. Les services externes sont fournis par des fournisseurs de services indépendants, mais sont intégrés dans Azure. Pour en savoir plus, consultez [Présentation de vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique. 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
  
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## <a name="overview"></a>Vue d'ensemble
-[À propos des machines virtuelles](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[À propos des machines virtuelles](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -40,7 +41,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 ## <a name="environment-setup"></a>Configuration de l’environnement
 [Compte gratuit](https://azure.microsoft.com/free/)
 
-[Installation d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Installation d'Azure PowerShell](/powershell/azure/overview)
 
 [Installation de l’interface de ligne de commande Azure](../cli-install-nodejs.md)
 
@@ -152,7 +153,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [API .NET de gestion de service](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Documentation de référence sur l’applet de commande PowerShell de gestion des services Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Documentation de référence sur l’applet de commande PowerShell de gestion des services Azure](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

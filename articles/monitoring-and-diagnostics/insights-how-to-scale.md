@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,10 +36,8 @@ Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser égal
 
 ## <a name="scaling-manually"></a>Mise à l'échelle manuelle
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis accédez à la ressource que vous souhaitez mettre à l'échelle, telle qu'un **plan App Service**.
-2. La vignette **Mettre à l’échelle** dans **Opérations** vous indiquera l'état de la mise à l'échelle : **Désactivé** lorsque vous effectuez une mise à l’échelle manuelle, **Activé** lorsque vous effectuez une mise à l’échelle via une ou plusieurs mesures de performances.
-   
-    ![Vignette Mettre à l’échelle](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Lorsque vous cliquez sur cette vignette, le panneau **Mettre à l'échelle** s'affiche. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau Mettre à l'échelle.
+2. Cliquez sur **Paramètres > Monter en charge (plan App Service).**
+3. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau **Mise à l'échelle**.
    
     ![Volet Scale](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 * [Surveillance des performances d'une application](../application-insights/app-insights-azure-web-apps.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et du journal d’activité](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

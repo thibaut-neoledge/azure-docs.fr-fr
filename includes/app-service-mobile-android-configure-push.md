@@ -7,8 +7,3 @@ Votre service est désormais configuré pour fonctionner avec Firebase Cloud Mes
 <!-- URLs. -->
 
 <!-- images -->
-
-
-<!--HONumber=Feb17_HO1-->
-
-

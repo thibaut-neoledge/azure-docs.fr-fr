@@ -2,7 +2,7 @@
 
 Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Un *nom de domaine complet (FQDN)* inclut le nom de la zone, contrairement à un *nom relatif*. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
 
-Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif '@' est utilisé pour représenter des enregistrements apex.
+Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif « @ » est utilisé pour représenter des enregistrements apex.
 
 ### <a name="record-types"></a>Types d’enregistrements
 
@@ -22,7 +22,3 @@ Le DNS Azure gère l’ensemble des enregistrements DNS à l’aide de *jeux d
 Par exemple, supposons que vous avez déjà créé un enregistrement A nommé « www » dans la zone « contoso.com », qui pointe vers l’adresse IP « 134.170.185.46 » (le premier enregistrement ci-dessus).  Pour créer le deuxième enregistrement, vous devez l’ajouter au jeu d’enregistrements existant, au lieu de créer un autre jeu.
 
 Les types d’enregistrements SOA et CNAME font exception. Comme les normes DNS n’autorisent pas que plusieurs enregistrements portent le même nom pour ces types, ces jeux d’enregistrements ne peuvent contenir qu’un seul enregistrement.
-
-<!--HONumber=Feb17_HO3-->
-
-

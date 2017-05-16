@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f4a79413bc5e660504b4b6b48fcf496fb0f08ade
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -39,7 +39,7 @@ Cette présentation décrit le fonctionnement de la mise à l’échelle avec SQ
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Fonctionnement des opérations de gestion du calcul dans SQL Data Warehouse
 L’architecture de SQL Data Warehouse consiste en un nœud de contrôle, des nœuds de calcul et la couche de stockage, le tout réparti sur 60 distributions. 
 
-Lors d’une session active normale dans SQL Data Warehouse, le nœud principal du système gère les métadonnées. C’est lui qui contient l’optimiseur de requête distribuée. Sous ce nœud principal, se trouvent les nœuds de calcul et la couche de stockage. Pour une instance de 400 DWU, votre système possède un nœud principal, quatre nœuds de calcul et la couche de stockage, soit 60 distributions. 
+Au cours d’une session active normale dans SQL Data Warehouse, le nœud principal du système gère les métadonnées et contient l’optimiseur de requête distribuée. Sous ce nœud principal, se trouvent les nœuds de calcul et la couche de stockage. Pour une instance de 400 DWU, votre système possède un nœud principal, quatre nœuds de calcul et la couche de stockage, soit 60 distributions. 
 
 Lorsque vous entreprenez une mise à l’échelle ou que vous interrompez l’opération, le système supprime tout d’abord toutes les requêtes entrantes, puis restaure les transactions pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée. Pour une opération de montée en puissance, le système configure le nombre de nœuds de calcul souhaité, puis commence le rattachement des nœuds de calcul à la couche de stockage. Pour une opération de descente en puissance, les nœuds inutiles sont rendus disponibles et les nœuds de calcul restants sont rattachés au nombre de distributions approprié. Pour une opération de mise en pause, tous les nœuds de calcul sont rendus disponibles et le système entreprend diverses opérations sur les métadonnées afin de garantir la stabilité du système final.
 
@@ -171,7 +171,7 @@ La mise à l’échelle de la base de données requiert les autorisations décri
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants pour mieux comprendre certains concepts supplémentaires essentiels en matière de performances :
 
-* [Gestion de l’accès concurrentiel et des charges de travail][Workload and concurrency management]
+* [Gestion des charges de travail et d’accès concurrentiel][Workload and concurrency management]
 * [Vue d’ensemble de conception de table][Table design overview]
 * [Distribution de tables][Table distribution]
 * [Indexation de table][Table indexing]

@@ -23,8 +23,3 @@
    | 5 |PDU |
 4. Activez le système en mettant en marche les commutateurs d'alimentation des deux PCM.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

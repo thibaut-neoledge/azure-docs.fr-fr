@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dae5491962b22453c517da35539ce09463d8802d
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c852374b6f6ca58d807631fdfcc8e42abf99b673
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -188,7 +189,7 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
     }
 }
 ````
-Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Store à l’aide d’Azure Data Factory).
+Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Store à l’aide d’Azure Data Factory).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstruire les fichiers de données dans Azure Data Lake Store
 Nous avons commencé avec un fichier de 319 Go, que nous avons scindé en fichiers de plus petite taille afin de pouvoir le transférer à l’aide du service Azure Import/Export. Les données se trouvant désormais dans Azure Data Lake Store, nous pouvons reconstruire le fichier à sa taille d’origine. Pour ce faire, vous pouvez utiliser l’applet de commande Azure PowerShell suivante.

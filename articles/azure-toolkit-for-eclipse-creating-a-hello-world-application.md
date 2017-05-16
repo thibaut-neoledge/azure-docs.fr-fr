@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7a74df9bfcf75b00af5aaf21e9f74610712ab47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 9b31f0faeb6ee7b5e7b8fe3a1f2827133d6188e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,36 +39,52 @@ L’application sera semblable à ce qui suit :
 ## <a name="to-create-a-hello-world-application"></a>Pour créer une application Hello World
 Tout d’abord, nous allons commencer par créer un projet Java.
 
-* Démarrez Eclipse, puis, dans le menu, cliquez successivement sur **File (Fichier)**, **New (Nouveau)** et **Projet web dynamique (Dynamic Web Project)**. (Si vous ne voyez pas **Dynamic Web Project** (Projet web dynamique) répertorié en tant que projet disponible après avoir cliqué sur **File** (Fichier), **New** (Nouveau), procédez comme suit : cliquez sur **File** (Fichier), cliquez sur **New** (Nouveau), sur **Project** (Projet), développez **Web**, puis cliquez sur **Dynamic Web Project** (Projet web dynamique) et sur **Next** (Suivant).)
-* Pour l’exemple de ce didacticiel, nommez le projet **MyHelloWorld**. Assurez-vous de bien utiliser ce nom, car les étapes suivantes de ce didacticiel partent du principe que votre fichier WAR se nomme MyHelloWorld. Votre écran se présente comme suit :  ![][ic589576]
-* Cliquez sur **Terminer**.
-* Dans la vue Explorateur de projets d’Eclipse, développez **MyHelloWorld**. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New (Nouveau)**, puis sur **JSP File (Fichier JSP)**.
-* Dans la boîte de dialogue **New JSP File** (Nouveau fichier JSP), nommez le fichier **index.jsp**. Conservez **MyHelloWorld/WebContent** comme dossier parent, tel qu’illustré ci-dessous :   ![][ic659262]
-* Dans la boîte de dialogue **Select JSP Template** (Sélectionner un modèle JSP), sélectionnez **New JSP File (html)** (Nouveau fichier JSP (html)) pour les besoins de ce didacticiel, puis cliquez sur **Finish** (Terminer).
-* Quand le fichier index.jsp s’ouvre dans Eclipse, ajoutez un texte pour afficher dynamiquement **Hello World!** dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit se présenter de la façon suivante :
-  ```
-    <body>
-    <b><% out.println("Hello World!"); %></b>
-    </body>
-  ```
-* Enregistrez index.jsp.
+1. Démarrez Eclipse, puis, dans le menu, cliquez successivement sur **File (Fichier)**, **New (Nouveau)** et **Projet web dynamique (Dynamic Web Project)**. (Si vous ne voyez pas **Dynamic Web Project** (Projet web dynamique) répertorié en tant que projet disponible après avoir cliqué sur **File** (Fichier), **New** (Nouveau), procédez comme suit : cliquez sur **File** (Fichier), cliquez sur **New** (Nouveau), sur **Project** (Projet), développez **Web**, puis cliquez sur **Dynamic Web Project** (Projet web dynamique) et sur **Next** (Suivant).)
+
+1. Pour l’exemple de ce didacticiel, nommez le projet **MyHelloWorld**. Assurez-vous de bien utiliser ce nom, car les étapes suivantes de ce didacticiel partent du principe que votre fichier WAR se nomme MyHelloWorld. Votre écran se présente comme suit :
+
+   ![][ic589576]
+
+1. Cliquez sur **Terminer**.
+
+1. Dans la vue Explorateur de projets d’Eclipse, développez **MyHelloWorld**. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New (Nouveau)**, puis sur **JSP File (Fichier JSP)**.
+
+1. Dans la boîte de dialogue **New JSP File** (Nouveau fichier JSP), nommez le fichier **index.jsp**. Conservez **MyHelloWorld/WebContent** comme dossier parent, tel qu’illustré ci-dessous :
+
+   ![][ic659262]
+
+1. Dans la boîte de dialogue **Select JSP Template** (Sélectionner un modèle JSP), sélectionnez **New JSP File (html)** (Nouveau fichier JSP (html)) pour les besoins de ce didacticiel, puis cliquez sur **Finish** (Terminer).
+
+1. Quand le fichier index.jsp s’ouvre dans Eclipse, ajoutez un texte pour afficher dynamiquement **Hello World!** dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit se présenter de la façon suivante :
+   ```
+   <body>
+   <b><% out.println("Hello World!"); %></b>
+   </body>
+   ```
+1. Enregistrez index.jsp.
 
 ## <a name="to-deploy-your-application-to-azure-the-quick-and-simple-way"></a>Méthode simple et rapide pour déployer votre application sur Azure
 Dès qu’une application web Java est prête à être testée, vous pouvez utiliser le raccourci suivant pour l’essayer directement dans le cloud Azure.
 
 1. Dans l’Explorateur de projets d’Eclipse, cliquez sur **MyHelloWorld**.
-2. Dans la barre d’outils Eclipse, cliquez sur le bouton déroulant **Publish** (Publier), puis cliquez sur **Publish As Azure Cloud Service**
-    ![][publishDropdownButton] (Publier en tant que service Cloud Azure)
+
+2. Dans la barre d’outils Eclipse, cliquez sur le bouton déroulant **Publier**, puis cliquez sur **Publish As Azure Cloud Service** (Publier en tant que service Cloud Azure)
+
+   ![][publishDropdownButton]
+
 3. Si vous publiez cette application sur Azure pour la première fois et que vous n’avez pas créé de projet de déploiement Azure pour cette application auparavant, un projet de déploiement Azure est créé automatiquement pour vous. L’invite suivante doit s’afficher. Elle répertorie également le package JDK et le serveur d’applications qui seront déployés automatiquement pour exécuter votre application.
-    ![][ic789598]
+
+   ![][ic789598]
    
-    Cette approche rapide permet de tester rapidement et facilement votre application dans Azure sans avoir à configurer un serveur ou un JDK spécifiques différents des valeurs par défaut. Si les valeurs par défaut vous conviennent, vous pouvez cliquer sur **OK** pour passer aux étapes suivantes.
-    Toutefois, si vous souhaitez modifier le JDK ou le serveur d’applications à utiliser pour votre application, vous pouvez le faire ultérieurement en modifiant le projet de déploiement Azure qui a été créé automatiquement pour vous. Vous pouvez également cliquer sur **Cancel** (Annuler) et lire la section **À propos des projets de déploiement Azure** de ce didacticiel.
+   Cette approche rapide permet de tester rapidement et facilement votre application dans Azure sans avoir à configurer un serveur ou un JDK spécifiques différents des valeurs par défaut. Si les valeurs par défaut vous conviennent, vous pouvez cliquer sur **OK** pour passer aux étapes suivantes.
+   Toutefois, si vous souhaitez modifier le JDK ou le serveur d’applications à utiliser pour votre application, vous pouvez le faire ultérieurement en modifiant le projet de déploiement Azure qui a été créé automatiquement pour vous. Vous pouvez également cliquer sur **Cancel** (Annuler) et lire la section **À propos des projets de déploiement Azure** de ce didacticiel.
+
 4. Dans la boîte de dialogue **Publier sur Azure** :
+
    1. Si la liste **Abonnement** ne comporte pas encore d’abonnements, procédez comme suit pour importer vos informations d’abonnement :
       1. Cliquez sur **Importer à partir du fichier PUBLISH-SETTINGS**.
       2. Dans la boîte de dialogue **Importer les informations d’abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n’êtes pas encore connecté à votre compte Azure, vous y êtes maintenant invité. Vous êtes ensuite invité à enregistrer un fichier de paramètres de publication Azure. Enregistrez-le sur votre ordinateur local.
-      3. Toujours dans la boîte de dialogue **Importation des informations d’abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres de publication que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**. Votre écran doit ressembler à l’écran suivant :  ![][ic644267]
+      3. Toujours dans la boîte de dialogue **Importation des informations d’abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres de publication que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**. Votre écran doit ressembler à l’écran suivant : ![][ic644267]
       4. Cliquez sur **OK**.
    2. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser pour le déploiement.
    3. Dans **Compte de stockage**, sélectionnez le compte de stockage que vous souhaitez utiliser ou cliquez sur **Nouveau** pour en créer un.
@@ -74,15 +92,18 @@ Dès qu’une application web Java est prête à être testée, vous pouvez util
    5. Dans **Système d’exploitation cible**, sélectionnez la version du système d’exploitation que vous souhaitez utiliser pour le déploiement.
    6. Dans **Environnement cible**, pour les besoins de ce didacticiel, sélectionnez **Intermédiaire**. (Lorsque vous êtes prêt à procéder au déploiement sur votre site de production, vous devez modifier ce paramètre et le définir sur **Production**.)
    7. Facultatif : vérifiez que la case **Remplacer le déploiement précédent** est cochée si vous souhaitez que votre nouveau déploiement remplace automatiquement le déploiement précédent. Si vous activez cette option, vous ne rencontrerez pas de problèmes « Conflit (409) » lors de la publication vers le même emplacement.
-       La boîte de dialogue **Publier sur Azure** contient une section **Accès à distance**. Par défaut, l’accès à distance n’est pas activé, et nous ne l’activerons pas pour cet exemple. Pour activer l’accès à distance, vous devez entrez un nom d’utilisateur et un mot de passe à utiliser lors de la connexion à distance. Pour plus d’informations sur l’accès à distance, consultez la page [Activation de l’accès à distance pour les déploiements Azure dans Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
-       La boîte de dialogue **Publier sur Azure** apparaît, semblable à ce qui suit :  ![][ic719488]
+      La boîte de dialogue **Publier sur Azure** contient une section **Accès à distance**. Par défaut, l’accès à distance n’est pas activé, et nous ne l’activerons pas pour cet exemple. Pour activer l’accès à distance, vous devez entrez un nom d’utilisateur et un mot de passe à utiliser lors de la connexion à distance. Pour plus d’informations sur l’accès à distance, consultez la page [Activation de l’accès à distance pour les déploiements Azure dans Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
+      La boîte de dialogue **Publier sur Azure** apparaît, semblable à ce qui suit : ![][ic719488]
+
 5. Cliquez sur **Publier** pour publier dans l’environnement intermédiaire.
-    Lorsque vous êtes invité à effectuer une génération complète, cliquez sur **Oui**. La première génération peut prendre plusieurs minutes.
-    Un **journal des activités Azure** s’affiche dans la section des vues Eclipse avec onglets.
-    ![][ic719489]
-    Vous pouvez utiliser ce journal, ainsi que la vue **Console** pour afficher la progression de votre déploiement. Vous pouvez également vous connecter au [portail de gestion Azure][Azure Management Portal] et utiliser la section **Services Cloud** pour surveiller l’état.
+
+   Lorsque vous êtes invité à effectuer une génération complète, cliquez sur **Oui**. La première génération peut prendre plusieurs minutes.
+   Un **journal des activités Azure** s’affiche dans la section des vues Eclipse avec onglets.
+   ![][ic719489] Vous pouvez utiliser ce journal, ainsi que la vue **Console** pour afficher la progression de votre déploiement. Vous pouvez également vous connecter au [portail de gestion Azure][Azure Management Portal] et utiliser la section **Services Cloud** pour surveiller l’état.
+
 6. Si votre déploiement est effectué avec succès, le **journal des activités Azure** indique l’état **Publié**. Cliquez sur **Publié**, comme illustré dans l’image suivante pour ouvrir une instance de votre déploiement dans le navigateur.
-    ![][ic719490]
+
+   ![][ic719490]
 
 Comme ce déploiement a été effectué vers un environnement intermédiaire, le nom DNS a la forme http://&lt;*guid*&gt;.cloudapp.net, et l’URL contient le nom DNS plus un suffixe correspondant à votre application. Par exemple, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (La partie **MyHelloWorld** est sensible à la casse.) Vous pouvez également afficher le nom DNS si vous cliquez sur le nom du déploiement dans le portail de gestion de la plateforme Azure (dans la partie Cloud Services du portail de gestion).
 
@@ -98,7 +119,7 @@ Pour déployer une ou plusieurs applications Java sur Azure, il est nécessaire 
 
 Outre les informations sur vos applications, un projet de déploiement Azure contient également des informations sur les autres composants clés de votre déploiement, particulièrement, le conteneur de serveur d’applications dans lequel exécuter votre application web, et l’environnement d’exécution Java dans lequel l’exécuter. Azure prend en charge une large sélection d’environnements d’exécution Java et de serveurs d’applications Java parmi lesquels vous pouvez choisir.
 
-Même si l’exemple utilisé ici est considérablement simplifié à des fins pédagogiques, un projet de déploiement Azure peut également contenir d’autres informations de configuration importantes, qui vous permettent de créer des services cloud complexes, évolutifs, hautement disponibles, multiniveaux avec vos applications. Vous pouvez activer l’**affinité de session (« sessions rémanentes »)**, la **mise en cache rapide**, le **débogage à distance**, le **déchargement SSL**, le **routage de pare-feu/port**, l’**accès à distance** et plusieurs autres fonctionnalités puissantes.
+Même si l’exemple utilisé ici est considérablement simplifié à des fins pédagogiques, un projet de déploiement Azure peut également contenir d’autres informations de configuration importantes, qui vous permettent de créer des services cloud complexes, évolutifs, hautement disponibles, multiniveaux avec vos applications. Vous pouvez activer l’**affinité de session (« sessions rémanentes »)**, la **mise en cache rapide**, le **déchargement SSL**, le **routage de pare-feu/port**, l’**accès à distance** et plusieurs autres fonctionnalités puissantes.
 
 Si vous avez terminé la section précédente de ce didacticiel (« Méthode simple et rapide pour déployer votre application sur Azure »), vous voyez maintenant un nouveau projet de déploiement Azure dans l’Explorateur de projets, généré automatiquement et nommé « **MyHelloWorld_onAzure** ».
 
@@ -111,13 +132,17 @@ Que vous utilisiez un projet de déploiement Azure déjà existant ou que vous e
 Pour modifier le JDK, le serveur d’applications ou la liste des applications dans un projet de déploiement Azure existant :
 
 1. Développez le nœud du projet (par exemple, **MyHelloWorld_onAzure**) dans l’Explorateur de projets
+
 2. Cliquez avec le bouton droit sur **WorkerRole1**
+
 3. Développez le sous-menu **Azure** dans le menu contextuel.
+
 4. Cliquez sur **Configuration du serveur**
 
 Que vous ayez démarré cette procédure de configuration du serveur en modifiant un projet de déploiement Azure existant comme indiqué ci-dessus ou en en créant un depuis le début, les mêmes types de boîte de dialogue s’affichent et vous permettent de configurer vos composants JDK, serveur et application. Pour découvrir comment modifier les paramètres dans ces boîtes de dialogue, par exemple pour modifier le JDK, le serveur d’applications, et pour ajouter ou supprimer des applications dans un déploiement, consultez l’article [Propriétés de configuration de serveur][Server configuration properties].
 
 ## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Windows uniquement : Pour déployer votre application vers l’émulateur de calcul
+
 > [!NOTE]
 > L’émulateur Azure est disponible uniquement sur Windows. Ignorez cette section si vous utilisez un autre système d’exploitation.
 > 
@@ -126,13 +151,21 @@ Que vous ayez démarré cette procédure de configuration du serveur en modifian
 Si vous avez créé un projet de déploiement Azure, en suivant la procédure décrite plus haut, c’est-à-dire implicitement en publiant votre application sur Azure, le JDK et les serveurs d’applications ont été configurés pour le cloud, mais pas pour l’émulation locale. Pour préparer votre projet pour les tests dans l’émulateur local, procédez comme suit :
 
 1. Dans l’Explorateur de projets d’Eclipse, cliquez sur **MyHelloWorld_onAzure**.
+
 2. Cliquez avec le bouton droit sur **WorkerRole1**.
+
 3. Développez le sous-menu **Azure** dans le menu contextuel.
+
 4. Cliquez sur **Configuration du serveur**.
+
 5. Dans l’onglet **JDK** , vérifiez si le kit de ressources a préconfiguré un JDK local par défaut pour vous. Si tel n’est pas le cas ou si vous souhaitez modifier les valeurs par défaut, vérifiez que la case **Utiliser le JDK à partir de ce chemin d’accès pour un test local** est cochée et que l’emplacement d’installation du JDK que vous souhaitez utiliser est spécifié. Si vous souhaitez le modifier, cliquez sur le bouton **Parcourir** , puis sélectionnez l’emplacement du répertoire du JDK à utiliser à l’aide du contrôle de navigation.
+
 6. Cliquez sur l’onglet **Serveur** .
+
 7. Dans la zone de texte **Chemin d’accès du serveur local** située au bas de la boîte de dialogue, entrez le chemin d’accès d’un serveur installé localement, qui correspond au type et au numéro de version principale du serveur sélectionné en haut de la boîte de dialogue au-dessous de la case à cocher **Déployer un serveur de ce type**. Pour utiliser un autre type ou une autre version principale du serveur d’applications, modifiez d’abord la sélection sous cette case à cocher.
+
 8. Cliquez sur **OK**.
+
 9. Dans la barre d’outils Eclipse, cliquez sur le bouton **Exécuter dans l’émulateur Azure** ![][ic710879]. Si le bouton **Exécuter dans l’émulateur Azure** n’est pas activé, vérifiez que **MyHelloWorld_onAzure** est sélectionné dans l’Explorateur de projets d’Eclipse, et assurez-vous que l’Explorateur de projets d’Eclipse est bien la fenêtre active. Ce faisant, une génération complète de votre projet est démarrée, puis votre application web Java est lancée dans l’émulateur de calcul. (Notez qu’en fonction des caractéristiques des performances de votre ordinateur, la première génération peut prendre de quelques secondes à quelques minutes, mais les générations suivantes seront plus rapides.) À l’issue de l’étape de la première génération, vous êtes invité par le contrôle de compte d’utilisateur (UAC) Windows à autoriser cette commande à apporter des modifications sur votre ordinateur. Cliquez sur **Oui**.
 
 > [!IMPORTANT]
@@ -141,7 +174,10 @@ Si vous avez créé un projet de déploiement Azure, en suivant la procédure d�
 > 
 
 1. Examinez la sortie de l’interface utilisateur de l’émulateur de calcul pour déterminer si votre projet comporte des problèmes. En fonction du contenu de votre déploiement, le démarrage complet de votre application dans l’émulateur de calcul peut prendre quelques minutes.
-2. Démarrez votre navigateur et utilisez l’URL `http://localhost:8080/MyHelloWorld` comme adresse (la partie `MyHelloWorld` de l’URL respecte la casse). Votre application MyHelloWorld (sortie du fichier index.jsp) doit ressembler à l’image suivante :  ![][ic589579]
+
+2. Démarrez votre navigateur et utilisez l’URL `http://localhost:8080/MyHelloWorld` comme adresse (la partie `MyHelloWorld` de l’URL respecte la casse). Votre application MyHelloWorld (sortie du fichier index.jsp) doit ressembler à l’image suivante :
+
+   ![][ic589579]
 
 Lorsque vous êtes prêt à arrêter l’exécution de votre application dans l’émulateur de calcul, dans la barre d’outils Eclipse, cliquez sur le bouton **Réinitialiser l’émulateur Azure** ![][ic710880].
 
@@ -194,9 +230,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

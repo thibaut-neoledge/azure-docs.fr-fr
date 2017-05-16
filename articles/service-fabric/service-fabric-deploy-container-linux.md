@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric et déploiement de conteneurs sous Linux | Microsoft Docs"
-description: "Présentation de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs Docker. Cet article décrit les fonctionnalités que Service Fabric offre pour les conteneurs et explique comment déployer une image de conteneur Docker dans un cluster."
+description: "Présentation de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs Linux. Cet article décrit les fonctionnalités que Service Fabric offre pour les conteneurs et explique comment déployer une image de conteneur Linux dans un cluster."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/26/2017
 
 
 ---
-# <a name="deploy-a-docker-container-to-service-fabric"></a>Déployer un conteneur Docker sur Service Fabric
+# <a name="deploy-a-linux-container-to-service-fabric"></a>Déployer un conteneur Linux sur Service Fabric
 > [!div class="op_single_selector"]
 > * [Déployer un conteneur Windows](service-fabric-deploy-container.md)
-> * [Déployer un conteneur Docker](service-fabric-deploy-container-linux.md)
+> * [Déployer un conteneur Linux](service-fabric-deploy-container-linux.md)
 >
 >
 

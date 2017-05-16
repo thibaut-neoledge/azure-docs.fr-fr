@@ -12,15 +12,19 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
-ms.lasthandoff: 03/25/2017
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 88c0e4d02f13d3dcc8824ed1cba8fecd3c5cfa77
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
+
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery"></a>Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [Le portail Azure](site-recovery-vmware-to-azure.md)
@@ -225,7 +229,7 @@ Pour plus d’informations sur les réseaux virtuels, consultez la [vue d’ense
 ## <a name="step-3-install-the-vmware-components"></a>Étape 3 : Installer les composants VMware
 Si vous souhaitez répliquer des machines VMware virtuelles, exécutez les étapes suivantes sur le serveur d’administration :
 
-1. [Téléchargez](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) et installez VMware vSphere PowerCLI 6.0.
+1. [Téléchargez](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) et installez VMware vSphere PowerCLI 6.0.
 2. Redémarrez le serveur.
 
 ## <a name="step-4-download-a-vault-registration-key"></a>Étape 4 : Générer une clé d’inscription du coffre
@@ -389,7 +393,7 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 1. Accédez à **Éléments protégés** > **Groupe de protection**, puis cliquez sur l’icône pour ajouter un groupe de protection.
 
     ![Créer un groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups1.png)
-2. Dans la page **Spécifier les paramètres de groupe de protection**, spécifiez un nom pour le groupe. Dans la liste déroulante **De**, sélectionnez le serveur de configuration sur lequel vous souhaitez créer le groupe. La **cible** est Microsoft Azure.
+2. Dans la page **Spécifier les paramètres de groupe de protection**, spécifiez un nom pour le groupe. Dans la liste déroulante **De**, sélectionnez le serveur de configuration sur lequel vous souhaitez créer le groupe. La **cible**  est Microsoft Azure.
 
     ![Paramètres du groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups2.png)
 3. Dans la page **Spécifier les paramètres de réplication**, configurez les paramètres de réplication qui seront utilisés pour toutes les machines du groupe.
@@ -579,7 +583,7 @@ Vous pouvez aussi contrôler l’état de la protection dans **Éléments proté
 3. Vous pouvez modifier les paramètres suivants :
 
    * **Nom de machine virtuelle Azure**: il s’agit du nom attribué à la machine dans Azure après le basculement. Le nom doit satisfaire aux exigences Azure.
-   * **Taille de machine virtuelle Azure** : le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible. Pour plus d’informations sur les tailles et les cartes, consultez les [tableaux des tailles](../virtual-machines/virtual-machines-linux-sizes.md). Notez les points suivants :
+   * **Taille de machine virtuelle Azure** : le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible. Pour plus d’informations sur les tailles et les cartes, consultez les [tableaux des tailles](../virtual-machines/linux/sizes.md). Notez les points suivants :
 
      * Lorsque vous modifiez la taille d’une machine virtuelle et que vous enregistrez les paramètres, le nombre de cartes réseau change à la prochaine ouverture de l’onglet **Configurer**. Le nombre minimal de cartes réseau sur les machines virtuelles cibles est égal au nombre minimal de cartes réseau sur une machine virtuelle source. Le nombre maximal de cartes réseau est déterminé par la taille de la machine virtuelle.
        * Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présentera le même nombre de cartes que la source.
@@ -709,7 +713,7 @@ Le serveur de traitement peut découvrir automatiquement les machines virtuelles
 | --- | --- | --- |
 | Rôle Azure_Site_Recovery |Détection de machine virtuelle VMware |Attribuez ces privilèges au serveur v-Center :<br/><br/>Banque de données : Allouer de l’espace, Parcourir la banque de données, Opérations de fichier de bas niveau, Supprimer le fichier, Mettre à jour les fichiers de machine virtuelle<br/><br/>Réseau : Attribution de réseau<br/><br/>Ressources : Affecter une machine virtuelle à une liste de ressources partagées, Migrer une machine virtuelle hors tension, Migrer une machine virtuelle sous tension<br/><br/>Tâches : Créer une tâche, Mettre à jour une tâche<br/><br/>Machine virtuelle > Configuration<br/><br/>Machine virtuelle > Interagir > Répondre à la question, Connexion d’appareil, Configurer un support de CD, Configurer une disquette, Mettre hors tension, Mettre sous tension, Installation des outils VMware<br/><br/>Machine virtuelle > Stock > Créer, Inscrire, Désinscrire<br/><br/>Machine virtuelle > Approvisionnement > Autoriser le téléchargement de machines virtuelles, Autoriser le chargement de fichiers de machine virtuelle<br/><br/>Machine virtuelle > Instantanés > Supprimer les instantanés |
 | Rôle d’utilisateur vCenter |Découverte/Basculement de machine virtuelle VMware sans arrêt de la machine virtuelle source |Attribuez ces privilèges au serveur v-Center :<br/><br/>Objet de centre de données > Propager vers l’objet enfant, rôle = lecture seule <br/><br/>L’utilisateur est affecté au niveau du centre de données et a donc accès à tous les objets du centre de données. Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’option **Propager vers l’objet enfant** aux objets enfants (hôtes ESX, banques de données, machines virtuelles et réseaux). |
-| Rôle d’utilisateur vCenter |Basculement et restauration automatique |Attribuez ces privilèges au serveur v-Center :<br/><br/>Objet de centre de données -> Propager vers l’objet enfant, rôle = Azure_Site_Recovery<br/><br/>L’utilisateur est affecté au niveau du centre de données et a donc accès à tous les objets dans le centre de données.  Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’option **Propager vers l’objet enfant** à l’objet enfant (hôtes ESX, banques de données, machines virtuelles et réseaux). |
+| Rôle d’utilisateur vCenter |Basculement et restauration automatique |Attribuez ces privilèges au serveur v-Center :<br/><br/>Objet de centre de données -> Propager vers l’objet enfant, rôle = Azure_Site_Recovery<br/><br/>L’utilisateur est affecté au niveau du centre de données et a donc accès à tous les objets dans le centre de données.  Si vous voulez restreindre l’accès, affectez le rôle **Aucun accès** avec l’option **Propager vers l’objet enfant** à l’objet enfant (hôtes ESX, banques de données, machines virtuelles et réseaux). |
 
 ## <a name="third-party-software-notices-and-information"></a>Informations et remarques relatives aux logiciels tiers
 <!--Do Not Translate or Localize-->

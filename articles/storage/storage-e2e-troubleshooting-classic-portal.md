@@ -13,10 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3d85823b5f5a2476745564d0663ea4560b75489a
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bd76adbc250658f6d8e7dc13413b9554a9ee8236
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,9 +105,9 @@ Pour configurer la journalisation et les métriques pour votre compte de stockag
 
 **Via PowerShell**
 
-Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-1. Utilisez l'applet de commande [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) pour ajouter votre compte d'utilisateur Azure dans la fenêtre PowerShell :
+1. Utilisez l'applet de commande [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) pour ajouter votre compte d'utilisateur Azure dans la fenêtre PowerShell :
 
     ```powershell
      Add-AzureAccount

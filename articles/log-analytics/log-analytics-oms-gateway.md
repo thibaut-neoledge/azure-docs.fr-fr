@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/20/2017
 ms.author: magoedte;banders
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 93d653c4e70dd058cf0408d821724a175256c918
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -27,9 +27,10 @@ Ce document décrit comment vos ordinateurs gérés par OMS et contrôlés par S
 
 La passerelle OMS prend en charge :
 
-1. Runbooks Workers hybrides Azure Automation  
-2. Les ordinateurs Windows avec Microsoft Monitoring Agent directement connecté à un espace de travail OMS
-3. System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3 ou le groupe d’administration Operations Manager 2016 intégré dans OMS.  
+* Runbooks Workers hybrides Azure Automation  
+* Les ordinateurs Windows avec Microsoft Monitoring Agent directement connecté à un espace de travail OMS
+* Les ordinateurs Linux avec Agent OMS pour Linux directement connecté à un espace de travail OMS  
+* System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3 ou le groupe d’administration Operations Manager 2016 intégré dans OMS.  
 
 Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, par exemple des appareils de point de vente ou des serveurs prenant en charge des services informatiques, mais que vous devez les connecter à OMS pour les gérer et les surveiller, ils peuvent être configurés pour communiquer directement avec la passerelle OMS pour recevoir la configuration et transférer des données en leur nom.  Si ces ordinateurs sont configurés avec l’agent OMS pour se connecter directement à un espace de travail OMS, tous les ordinateurs communiqueront avec la passerelle OMS.  La passerelle transfère directement les données des agents à OMS. Elle n’analyse aucune des données en transit.
 
@@ -53,7 +54,8 @@ Le diagramme suivant illustre le flux de données entre un groupe d’administra
 
 Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerelle OMS, cet ordinateur doit disposer des éléments suivants :
 
-* Système d’exploitation Windows 10, Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2
+* Windows 10, Windows 8.1, Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 * .NET Framework 4.5
 * Au minimum un processeur 4 cœurs et 8 Go de mémoire 
 
@@ -230,18 +232,18 @@ Les applets de commande peuvent vous aider à effectuer des tâches qui sont né
 
 Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a pas été importé. L’erreur peut se produire lorsque PowerShell ne trouve pas le module. Vous pouvez le trouver dans le dossier d’installation de la passerelle : *C:\Program File\Microsoft OMS Gateway\PowerShell.*
 
-| **Applet de commande** | **Paramètres** | **Description** | **Exemples** |
-| --- | --- | --- | --- |
-| `Set-OMSGatewayConfig` |Clé (obligatoire) <br> Valeur |Modifie la configuration du service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
-| `Get-OMSGatewayConfig` |Clé |Récupère la configuration du service |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |Adresse <br> Nom d’utilisateur <br> Mot de passe |Définit l’adresse (et les informations d’identification) du proxy de relais (en amont) |1. Définir un proxy de réponse et les informations d’identification : `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. Définir un proxy de réponse n’ayant pas besoin d’authentification : `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. Désactivez le paramètre de proxy de réponse, pour indiquer qu’il n’est pas nécessaire : `Set-OMSGatewayRelayProxy -Address ""` |
-| `Get-OMSGatewayRelayProxy` | |Récupère l’adresse du proxy de relais (en amont) |`Get-OMSGatewayRelayProxy` |
-| `Add-OMSGatewayAllowedHost` |Hôte (obligatoire) |Ajoute l’hôte à la liste d’éléments autorisés |`Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHost` |Hôte (obligatoire) |Supprime l’hôte de la liste d’éléments autorisés |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |Récupère l’hôte actuellement autorisé (uniquement l’hôte autorisé configuré localement, pas les hôtes autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Ajoute l’objet du certificat client à la liste d’éléments autorisés |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Remove-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Supprime l’objet du certificat client de la liste d’éléments autorisés |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |Récupère les objets de certificat client actuellement autorisés (uniquement les objets configurés localement, pas les objets autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedClientCertificate` |
+| **Applet de commande** | **Paramètres** | **Description** | **Exemple** |
+| --- | --- | --- | --- |  
+| `Get-OMSGatewayConfig` |Clé |Récupère la configuration du service |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |Clé (obligatoire) <br> Valeur |Modifie la configuration du service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |Récupère l’adresse du proxy de relais (en amont) |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |Adresse<br> Nom d’utilisateur<br> Mot de passe |Définit l’adresse (et les informations d’identification) du proxy de relais (en amont) |1. Définir un proxy relais et des informations d’identification :<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Définir un proxy relais n’exigeant pas d’authentification : `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Effacer le paramètre de proxy relais :<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Récupère l’hôte actuellement autorisé (uniquement l’hôte autorisé configuré localement, pas les hôtes autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedHost` | 
+| `Add-OMSGatewayAllowedHost` |Hôte (obligatoire) |Ajoute l’hôte à la liste d’éléments autorisés |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |Hôte (obligatoire) |Supprime l’hôte de la liste d’éléments autorisés |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Ajoute l’objet du certificat client à la liste d’éléments autorisés |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Supprime l’objet du certificat client de la liste d’éléments autorisés |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Récupère les objets de certificat client actuellement autorisés (uniquement les objets configurés localement, pas les objets autorisés téléchargés automatiquement) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>résolution des problèmes
 Pour collecter des événements journalisés par la passerelle, vous devez également avoir installé l’agent OMS.<br><br> ![Observateur d’événements – Journal de la passerelle OMS](./media/log-analytics-oms-gateway/event-viewer.png)

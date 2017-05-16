@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 43f18fb3ce873eef5c2d96a89ab41fc6efc443d8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -97,6 +98,10 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
   * Augmentation de 4 000 à 10 000 routages des limites de routage pour les homologations publiques et privées Azure.
   * Connectivité globale des services. Un circuit ExpressRoute créé dans une région quelconque (à l'exclusion des clouds nationaux) a accès aux ressources de n'importe quelle autre région dans le monde. Par exemple, un réseau virtuel créé en l'Europe occidentale est accessible via un circuit ExpressRoute configuré dans la Silicon Valley.
   * Augmentation de 10 à une limite supérieure du nombre de liens de réseaux virtuels par circuit ExpressRoute, selon la bande passante du circuit.
+
+## <a name="faq"></a>Forum Aux Questions
+
+Pour les questions fréquemment posées sur ExpressRoute, consultez le [Forum aux questions ExpressRoute](expressroute-faqs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

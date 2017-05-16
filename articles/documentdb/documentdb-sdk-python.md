@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4c83bcbf3e5849afd15060947ef5f0faab17ce19
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,51 +52,59 @@ ms.lasthandoff: 03/07/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
-### <a name="a-name201201httpspypipythonorgpypipydocumentdb201"></a><a name="2.0.1"/>[2.0.1](https://pypi.python.org/pypi/pydocumentdb/2.0.1)
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
+* Ajout d’une option permettant de désactiver la vérification SSL pendant son exécution sur l’émulateur DocumentDB.
+* Suppression de la restriction du module de demandes dépendantes qui devait correspondre exactement à la version 2.10.0.
+* Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
+* Ajout de la prise en charge de l’activation de la journalisation de script pendant l’exécution de la procédure stockée.
+* Version de l’API REST passée à « 2017-01-19 » à l’occasion de cette publication.
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Modifications éditoriales apportées aux commentaires de documentation.
 
-### <a name="a-name200200httpspypipythonorgpypipydocumentdb200"></a><a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Ajout de la prise en charge de Python 3.5.
 * Ajout de la prise en charge du regroupement de connexions à l’aide d’un module de demandes.
 * Ajout de la prise en charge de la cohérence de session.
 * Ajout de la prise en charge des requêtes TOP/ORDERBY pour les collections partitionnées.
 
-### <a name="a-name190190httpspypipythonorgpypipydocumentdb190"></a><a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
+### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, DocumentDB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est retourné, conformément au temps retryAfter spécifié dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. DocumentDB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
 * DocumentDB retourne maintenant x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms comme en-têtes de réponse dans chaque requête afin d’indiquer le nombre limite de nouvelles tentatives et le cumul de temps d’attente observé par la requête entre les nouvelles tentatives.
 * Suppression de la classe RetryPolicy et de la propriété correspondante (retry_policy) exposées sur la classe document_client, et introduction d’une classe RetryOptions qui expose la propriété RetryOptions sur la classe ConnectionPolicy pouvant être utilisée pour substituer certaines des options de nouvelle tentative par défaut.
 
-### <a name="a-name180180httpspypipythonorgpypipydocumentdb180"></a><a name="1.8.0"/>[1.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
+### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Ajout de la prise en charge des comptes de base de données de plusieurs régions.
 
-### <a name="a-name170170httpspypipythonorgpypipydocumentdb170"></a><a name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Ajout de la fonctionnalité de durée de vie (TTL) pour les documents.
 
-### <a name="a-name161161httpspypipythonorgpypipydocumentdb161"></a><a name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
 * Résolution des bogues liés au partitionnement côté serveur pour autoriser des caractères spéciaux dans le chemin d’accès à la clé de partition.
 
-### <a name="a-name160160httpspypipythonorgpypipydocumentdb160"></a><a name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
 
-### <a name="a-name150150httpspypipythonorgpypipydocumentdb150"></a><a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Ajoutez des programmes de résolution de partitions par hachage et par spécification de plages de valeurs pour vous aider lors du partitionnement des applications sur plusieurs partitions.
 
-### <a name="a-name142142httpspypipythonorgpypipydocumentdb142"></a><a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
+### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
 * Implémentation de l’opération Upsert. Nouvelles méthodes UpsertXXX ajoutées pour prendre en charge la fonctionnalité Upsert.
 * Implémenter l'ID en fonction du routage. Aucune modification d'API publique, toutes les modifications en interne.
 
-### <a name="a-name120120httpspypipythonorgpypipydocumentdb120"></a><a name="1.2.0"/>[1.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Prise en charge de l'index géospatial.
 * Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \, ou se terminer par un espace.
 * Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
-### <a name="a-name110110httpspypipythonorgpypipydocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Implémente la stratégie d’indexation V2.
 
-### <a name="a-name101101httpspypipythonorgpypipydocumentdb101"></a><a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Prend en charge la connexion proxy.
 
-### <a name="a-name100100httpspypipythonorgpypipydocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit de développement logiciel (SDK) GA
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
@@ -114,6 +123,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |1er mai 2017 |--- |
 | [2.0.1](#2.0.1) |30 octobre 2016 |--- |
 | [2.0.0](#2.0.0) |29 septembre 2016 |--- |
 | [1.9.0](#1.9.0) |7 juillet 2016 |--- |

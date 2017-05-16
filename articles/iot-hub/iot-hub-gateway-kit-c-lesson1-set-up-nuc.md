@@ -16,20 +16,21 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurer l’Intel NUC comme passerelle IoT
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
 - Configurez l’Intel NUC comme passerelle IoT.
 - Installez le package du kit de développement logiciel (SDK) Gateway Azure IoT sur l’Intel NUC.
 - Exécutez un exemple d’application « hello_world » sur l’Intel NUC pour vérifier le bon fonctionnement de la passerelle.
-    
+
   > Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Contenu
@@ -97,9 +98,12 @@ Pour installer le package, procédez comme suit.
 1. Ajoutez le référentiel cloud IoT en exécutant les commandes suivantes dans une fenêtre de terminal :
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+   smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
+
+   > Entrez « o » quand il vous est demandé si vous voulez « inclure ce canal ? »
 
    La commande `rpm` importe la clé rpm. La commande `smart channel` ajoute le canal rpm au gestionnaire de package intelligent (Smart Package Manager). Avant d’exécuter la commande `smart update`, vous verrez une sortie similaire à celle ci-dessous.
 
@@ -119,14 +123,14 @@ Pour installer le package, procédez comme suit.
 
    `packagegroup-cloud-azure` est le nom du package. La commande `smart install` permet d’installer le package.
 
-
     > Exécutez la commande suivante si vous recevez l’erreur « public key not available » (Clé publique non disponible).
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
-   
+    > Redémarrez l’ordinateur Intel NUC si vous voyez cette erreur : « aucun package ne fournit util-linux-dev »
+
    Une fois le package installé, l’Intel NUC est prêt à fonctionner en tant que passerelle.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » du Kit de développement logiciel (SDK) Gateway Azure IoT
@@ -145,7 +149,7 @@ Laissez l’application Hello World s’exécuter pendant quelques minutes, puis
 
 > Vous pouvez ignorer les erreurs « invalid argument handle(NULL) » (Descripteur d’argument non valide (NULL)) qui s’affichent après que vous avez appuyé sur Entrée.
 
-Vous pouvez vérifier que la passerelle a été correctement exécutée en ouvrant le fichier log.txt qui se trouve maintenant dans votre dossier hello_world : ![Vue du répertoire de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
+Vous pouvez vérifier que la passerelle a été correctement exécutée en ouvrant le fichier log.txt qui se trouve maintenant dans votre dossier hello_world : ![Vue du répertoire de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
 
 Ouvrez le fichier log.txt en utilisant la commande suivante :
 
@@ -163,5 +167,6 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 Félicitations ! Vous avez terminé la configuration d’Intel NUC comme passerelle. Vous pouvez maintenant passer à la leçon suivante afin de configurer un ordinateur hôte, de créer un Azure IoT Hub et d’inscrire votre unité logique Azure IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Préparer votre ordinateur hôte et Azure IoT Hub](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Utiliser une passerelle IoT pour connecter un appareil à Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+
 

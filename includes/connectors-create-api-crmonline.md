@@ -16,8 +16,3 @@ Pour autoriser votre application logique à se connecter à votre compte CRM Onl
 4. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique :  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

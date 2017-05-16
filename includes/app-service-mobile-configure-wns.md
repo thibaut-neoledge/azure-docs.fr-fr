@@ -5,8 +5,3 @@
     ![Définition de la clé WNS dans le portail](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 Votre serveur principal est désormais configuré pour utiliser WNS afin d’envoyer des notifications Push.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

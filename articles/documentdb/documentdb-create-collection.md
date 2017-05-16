@@ -12,19 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Guide pratique pour créer une base de données et une collection DocumentDB à l’aide du portail Azure
 Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte DocumentDB](documentdb-create-account.md), une base de données, une collection et des documents. Cette rubrique montre comment créer une collection DocumentDB dans le portail Azure.
 
-Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce qu’une collection DocumentDB ?](#what-is-a-documentdb-collection)
+Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce qu’une collection DocumentDB ?](#what-is-a-documentdb-collection).
+
+Deux méthodes permettent de créer une collection dans le portail, à l’aide du bouton Ajouter une collection ou à l’aide de l’[Explorateur de données (version préliminaire)](#data-explorer).
+
+## <a name="create-a-colletion-using-add-collection-button"></a>Créer une collection à l’aide du bouton Ajouter une collection
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans la barre de lancement, cliquez sur **DocumentDB (NoSQL)**, puis, dans le panneau **DocumentDB (NoSQL)**, sélectionnez le compte auquel ajouter une collection. Si vous n'avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
 
@@ -54,6 +59,14 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 10. **Facultatif :** pour modifier le débit de la collection dans le portail, cliquez sur **Mettre à l’échelle** dans le menu Ressource.
 
     ![Capture d’écran du menu Ressource, avec sélection de l’option Mettre à l’échelle](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## <a name="create-a-collection-by-using-data-explorer-preview"></a>Créer une collection à l’aide de l’Explorateur de données (version préliminaire)
+
+L’autre méthode pour créer une collection dans le portail consiste à utiliser l’Explorateur de données. Pour ouvrir l’Explorateur de données, cliquez sur **Explorateur de données (version préliminaire)** dans la barre de navigation du portail, puis cliquez sur le bouton **Nouvelle collection**, comme illustré dans la capture d’écran suivante.
+
+ ![Capture d’écran montrant le bouton Nouvelle collection dans le portail](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## <a name="what-is-a-documentdb-collection"></a>Qu’est-ce qu’une collection DocumentDB ?
 Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Une collection est une entité facturable, où le [coût](documentdb-performance-levels.md) est déterminé par le débit approvisionné de la collection. Les collections peuvent couvrir une ou plusieurs partitions/serveurs et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit quasi-illimités.

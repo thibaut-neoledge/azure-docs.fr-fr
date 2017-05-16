@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/08/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 52f6d4f3e68e5eb120ee499827cc8549b8e547fd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 ---
 
@@ -24,47 +26,57 @@ ms.openlocfilehash: 52f6d4f3e68e5eb120ee499827cc8549b8e547fd
 
 La fonction Web Apps d’Azure App Service fournit déjà des fonctionnalités de routage du trafic par basculement et tourniquet pour les sites web d’un centre de données, indépendamment du mode de site Web. Azure Traffic Manager vous permet de spécifier le routage du trafic par basculement et tourniquet pour des sites web et des services cloud de différents centres de données. La première étape nécessaire pour fournir cette fonctionnalité consiste à ajouter le point de terminaison de service cloud ou de site web à Traffic Manager.
 
-> [!NOTE]
-> Cet article explique comment utiliser le Portail Classic. Le Portail Azure Classic prend uniquement en charge la création et l’affectation de services cloud et d’applications web en tant que points de terminaison. Le nouveau [Portail Azure](https://portal.azure.com) est l’interface privilégiée.
-
 Vous pouvez également désactiver des points de terminaison individuels qui font partie d'un profil Traffic Manager. Quand un point de terminaison est désactivé, il fait toujours partie du profil, mais celui-ci se comporte comme si ce n'était pas le cas. Cette action s’avère utile pour supprimer temporairement un point de terminaison en mode de maintenance ou redéployé. Une fois le point de terminaison à nouveau en fonction, il peut être activé.
 
 > [!NOTE]
 > La désactivation d'un point de terminaison n'a aucun lien avec son état de déploiement dans Azure. Un point de terminaison sain reste en fonction et peut recevoir du trafic même quand il est désactivé dans Traffic Manager. En outre, le fait de désactiver un point de terminaison dans un profil n'affecte pas son statut dans un autre profil.
 
-## <a name="to-add-a-cloud-service-or-website-endpoint"></a>Pour ajouter un point de terminaison de service cloud ou de site web
+## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Pour ajouter un point de terminaison de service cloud ou App Service à un profil Traffic Manager
 
-1. Dans le volet Traffic Manager du Portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier. Pour ouvrir la page Paramètres, cliquez sur la flèche à droite du nom de profil.
-2. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui font déjà partie de votre configuration.
-3. En bas de la page, cliquez sur **Ajouter** pour accéder à la page **Ajouter des points de terminaison de service**. Par défaut, la page répertorie les services cloud sous **Points de terminaison de service**.
-4. Pour les services cloud, procédez comme suit : dans la liste, sélectionnez ceux qui vous intéressent pour les ajouter en tant que points de terminaison de ce profil. L'effacement du nom de service cloud le supprime de la liste des points de terminaison.
-5. Pour les sites web, cliquez sur la liste déroulante **Type de service**, puis sélectionnez **Application web**.
-6. Dans la liste, sélectionnez les sites web pour les ajouter en tant que points de terminaison pour ce profil. L'effacement du nom de site web le supprime de la liste des points de terminaison. Vous ne pouvez sélectionner qu’un seul site web par centre de données Azure (également appelé région). Une fois que vous avez sélectionné le premier site Web, vous ne pouvez plus sélectionner les autres sites Web du même centre de données. Notez également que seuls les sites web standard sont répertoriés.
-7. Après avoir sélectionné les points de terminaison pour ce profil, cliquez sur la coche dans le coin inférieur droit pour enregistrer vos modifications.
+1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier et cliquez sur le profil Traffic Manager dans les résultats affichés.
+3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**.
+4. Dans le panneau **Points de terminaison** qui s’affiche, cliquez sur **Ajouter**.
+5. Dans le panneau **Ajouter le point de terminaison**, procédez comme suit :
+    1. Sous **Type**, cliquez sur **Point de terminaison Azure**.
+    2. Entrez un **Nom** pour ce point de terminaison.
+    3. Pour **Type de ressource cible**, dans la liste déroulante, choisissez le type de ressource approprié.
+    4. Pour **Ressource cible**, dans la liste déroulante, choisissez la ressource cible appropriée pour afficher le listage des ressources sous le même abonnement dans le **panneau Ressources**. Dans le panneau **Ressources** qui s’affiche, choisissez le service que vous souhaitez ajouter en tant que premier point de terminaison.
+    5. Pour **Priorité**, sélectionnez **1**. Ainsi, tout le trafic est dirigé vers ce point de terminaison, s’il est intègre.
+    6. Vérifiez que la case **Ajouter comme désactivé** est désélectionnée.
+    7. Cliquez sur **OK**
+6.    Répétez les étapes 4 et 5 pour ajouter le prochain point de terminaison Azure. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
+7.    Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
 
 > [!NOTE]
 > Après ajout ou suppression d’un point de terminaison dans un profil selon la méthode de routage du trafic par *Basculement*, la liste de priorité des basculements peut ne pas être ordonnée comme vous le souhaitez. Vous pouvez ajuster l’ordre de la liste de priorité des basculements sur la page Configuration. Pour plus d’informations, consultez la rubrique [Configurer le routage du trafic par basculement](traffic-manager-configure-failover-routing-method.md).
 
 ## <a name="to-disable-an-endpoint"></a>Pour désactiver un point de terminaison
 
-1. Dans le volet Traffic Manager du Portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier. Pour ouvrir la page Paramètres, cliquez sur la flèche à droite du nom de profil.
-2. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui sont inclus dans votre configuration.
-3. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis sur **Désactiver** en bas de la page.
-4. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
+1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
+3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
+4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Désactivé**, puis cliquez sur **Enregistrer**.
+6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
 ## <a name="to-enable-an-endpoint"></a>Pour activer un point de terminaison
 
-1. Dans le volet Traffic Manager du Portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier. Pour ouvrir la page Paramètres, cliquez sur la flèche à droite du nom de profil.
-2. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui sont inclus dans votre configuration.
-3. Cliquez sur le point de terminaison que vous souhaitez activer, puis sur **Activer** au bas de la page.
-4. Les clients sont dirigés vers le point de terminaison activé, comme l’impose le profil.
+1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
+3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
+4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
+6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
-## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>Pour supprimer un point de terminaison de service cloud ou de site web
+## <a name="to-delete-an-endpoint"></a>Pour supprimer un point de terminaison
 
-1. Dans le volet Traffic Manager du Portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier. Pour ouvrir la page Paramètres, cliquez sur la flèche à droite du nom de profil.
-2. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui font déjà partie de votre configuration.
-3. Dans la page Points de terminaison, cliquez sur le nom du point de terminaison que vous souhaitez supprimer du profil.
-4. En bas de la page, cliquez sur **Supprimer**.
+1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
+3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
+4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -73,10 +85,5 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

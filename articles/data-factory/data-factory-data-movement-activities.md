@@ -13,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 05/11/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e9215bdd02c9d1b595f65997840926080d6d7d01
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -188,7 +189,7 @@ Vous pouvez spécifier plus d’un jeu de données d’entrée pour l’activit�
 Consultez [Guide des performances et de l’optimisation de l’activité de copie](data-factory-copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes manières d’optimiser les performances de l’activité de copie.
 
 ## <a name="scheduling-and-sequential-copy"></a>Planification et copie séquentielle
-Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d’informations sur le fonctionnement de la planification et de l’exécution dans Data Factory. Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Consultez la section [Copier de manière séquentielle](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
+Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d’informations sur le fonctionnement de la planification et de l’exécution dans Data Factory. Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Consultez la section [Copier de manière séquentielle](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="type-conversions"></a>Conversions des types
 Les magasins de données ont différents types de systèmes natifs. L’activité de copie convertit automatiquement des types source en types récepteur selon l’approche en 2 étapes suivante :

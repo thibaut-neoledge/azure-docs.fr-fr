@@ -29,8 +29,3 @@ Cette section vous guide lors de la configuration d’un environnement de déplo
     ![Boîte de dialogue Ajouter un service connecté](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. Dans la boîte de dialogue **Stockage Azure**, sélectionnez le compte de stockage Azure que vous souhaitez utiliser, puis cliquez sur **Ajouter**.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

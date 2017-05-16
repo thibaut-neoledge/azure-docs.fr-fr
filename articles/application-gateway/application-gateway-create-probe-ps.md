@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b54fe5267d87a41eb9e81d5d1dc9b1b16c5c5e88
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,250 +30,147 @@ ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’application existante à l’aide de PowerShell. Les sondes personnalisées sont utiles pour les applications qui ont une page de contrôle d’intégrité spécifique ou pour les applications qui ne fournissent pas de réponse correcte dans l’application web par défaut.
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du [modèle de déploiement classique](application-gateway-create-probe-classic-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-### <a name="step-1"></a>Étape 1
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>Créer une passerelle d’application avec une sonde personnalisée
 
-Utilisez `Login-AzureRmAccount` pour l’authentification.
+### <a name="sign-in-and-create-resource-group"></a>Se connecter et créer un groupe de ressources
 
-```powershell
-Login-AzureRmAccount
-```
+1. Utilisez `Login-AzureRmAccount` pour l’authentification.
 
-### <a name="step-2"></a>Étape 2 :
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-Vérifiez les abonnements associés au compte.
+1. Obtenez les abonnements associés au compte.
 
-```powershell
-Get-AzureRmSubscription
-```
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-### <a name="step-3"></a>Étape 3
+1. Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
+  ```
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+1. Créez un groupe de ressources. Vous pouvez ignorer cette étape si vous disposez d’un groupe de ressources existant.
 
-### <a name="step-4"></a>Étape 4
-
-Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant).
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-```
+  ```powershell
+  New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
+  ```
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Celui-ci est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
 
-Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé **appgw-RG**, ainsi que l’emplacement **West US**.
+Dans l’exemple précédent, nous avons créé un groupe de ressources appelé **appgw-RG** à l’emplacement **West US**.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
+### <a name="create-a-virtual-network-and-a-subnet"></a>Créer un réseau virtuel et un sous-réseau
 
-Les étapes suivantes créent un réseau virtuel et un sous-réseau pour la passerelle d'application.
-
-### <a name="step-1"></a>Étape 1 :
-
-Attribuez la plage d'adresses 10.0.0.0/24 à une variable de sous-réseau à utiliser pour créer un réseau virtuel.
+L’exemple suivant crée un réseau virtuel et un sous-réseau pour la passerelle d’application. La passerelle d’application a besoin d’utiliser son propre sous-réseau. C’est pourquoi le sous-réseau créé pour la passerelle d’application doit être plus petit que l’espace d’adressage du réseau virtuel de façon à permettre la création et l’utilisation d’autres sous-réseaux.
 
 ```powershell
+# Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
 
-### <a name="step-2"></a>Étape 2 :
+# Create a virtual network named appgwvnet in resource group appgw-rg for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
+$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Créez un réseau virtuel nommé **appgwvnet** dans le groupe de ressources **appgw-rg** pour la région « West US » à l’aide du préfixe 10.0.0.0/16 avec le sous-réseau 10.0.0.0/24.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>Étape 3
-
-Attribuez une variable de sous-réseau pour les prochaines étapes de création d'une passerelle d'application.
-
-```powershell
+# Assign a subnet variable for the next steps, which create an application gateway.
 $subnet = $vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
+### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
 
-Créez une ressource IP publique **publicIP01** dans le groupe de ressources **appgw-rg** pour la région « West US ».
+Créez une ressource IP publique **publicIP01** dans le groupe de ressources **appgw-rg** pour la région « West US ». Cet exemple utilise une adresse IP publique comme adresse IP frontale de la passerelle d’application.  Sachant que la passerelle d’application exige que l’adresse IP publique possède un nom DNS créé dynamiquement, `-DomainNameLabel` ne peut pas être spécifié pendant la création de l’adresse IP publique.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location "West US" -AllocationMethod Dynamic
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway-configuration-object-with-a-custom-probe"></a>Création d'un objet de configuration de passerelle Application Gateway avec une sonde personnalisée
+### <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-Avant de créer la passerelle Application Gateway, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
+Avant de créer la passerelle Application Gateway, vous devez installer tous les éléments de configuration. L’exemple suivant crée les éléments de configuration nécessaires à une ressource de passerelle d’application.
 
-### <a name="step-1"></a>Étape 1
-
-Créez une configuration IP de passerelle Application Gateway nommée **gatewayIP01**. Lorsque la passerelle Application Gateway démarre, elle sélectionne une adresse IP à partir du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilise une adresse IP unique.
+| **Composant** | **Description** |
+|---|---|
+| **Configuration IP de la passerelle** | Configuration IP d’une passerelle d’application.|
+| **Pool back-end** | Pool d’adresses IP, noms de domaine complets ou cartes d’interface réseau pour les serveurs d’applications qui hébergent l’application web.|
+| **Sonde d’intégrité** | Sonde personnalisée utilisée pour surveiller l’état des membres du pool back-end.|
+| **Paramètres HTTP** | Collection de paramètres comprenant le port, le protocole, l’affinité basée sur les cookies, la sonde et le délai d’expiration.  Ces paramètres déterminent la façon dont le trafic est acheminé vers les membres du pool back-end.|
+| **Port frontal** | Port sur lequel la passerelle d’application écoute le trafic.|
+| **Écouteur** | Combinaison d’un protocole, d’une configuration d’adresses IP frontales et d’un port frontal. C’est ce qui écoute les demandes entrantes.
+|**Règle**| Route le trafic vers le back-end approprié en fonction des paramètres HTTP.|
 
 ```powershell
+# Creates a application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-```
 
-### <a name="step-2"></a>Étape 2 :
-
-Configurez le pool d’adresses IP principal nommé **pool01** avec les adresses IP **134.170.185.46, 134.170.188.221 et 134.170.185.50**. Ces valeurs correspondent aux adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
-
-```powershell
+#Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-```
 
-### <a name="step-3"></a>Étape 3
+# Creates a probe that will check health at http://contoso.com/path/path.htm
+$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-La sonde personnalisée est configurée pendant cette opération.
-
-Les paramètres utilisés sont :
-
-* **Intervalle** : configure les vérifications d’intervalle de sonde en secondes.
-* **Délai d’expiration** : définit le délai d’expiration d’un contrôle de réponse HTTP.
-* **Nom d’hôte et chemin d’accès** : chemin d’accès complet à l’URL qui est appelé par la passerelle Application Gateway pour déterminer l’état de l’instance. Par exemple : avec un site web **http://contoso.com/**, la sonde personnalisée peut être configurée pour **http://contoso.com/path/custompath.htm** afin que les contrôles de sonde renvoient une réponse HTTP réussie.
-* **Seuil de défaillance sur le plan de l’intégrité** : le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme **défectueuse**.
-
-```powershell
-$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-```
-
-### <a name="step-4"></a>Étape 4
-
-Configurez le paramètre de passerelle Application Gateway **poolsetting01** pour le trafic du pool principal. Cette étape comporte également une configuration du délai d'expiration de la réponse du pool principal à une requête de passerelle Application Gateway. Lorsqu'une réponse du serveur principal atteint une limite d'expiration, la passerelle Application Gateway annule la demande. Cette valeur est différente du délai d’expiration d’analyse qui s’applique uniquement à la réponse du serveur principal aux contrôles d’analyse.
-
-```powershell
+# Creates the backend http settings to be used. This component references the $probe created in the previous command.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
-```
 
-### <a name="step-5"></a>Étape 5
-
-Configurez le port IP frontal nommé **frontendport01** pour le point de terminaison IP public.
-
-```powershell
+# Creates a frontend port for the application gateway to listen on port 80 that will be used by the listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01 -Port 80
-```
 
-### <a name="step-6"></a>Étape 6
-
-Créez la configuration IP frontale nommée **fipconfig01** et associez l’adresse IP publique à cette configuration.
-
-```powershell
+# Creates a frontend IP configuration. This associates the $publicip variable defined previously with the front-end IP that will be used by the listener.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-```
 
-### <a name="step-7"></a>Étape 7
-
-Créez l’écouteur nommé **listener01** et associez le port frontal à la configuration IP frontale.
-
-```powershell
+# Creates the listener. The listener is a combination of protocol and the frontend IP configuration $fipconfig and frontend port $fp created in previous steps.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-```
 
-### <a name="step-8"></a>Étape 8
-
-Créez la règle d’acheminement d’équilibrage de charge nommée **rule01** qui configure le comportement d’équilibrage de charge.
-
-```powershell
+# Creates the rule that routes traffic to the backend pools.  In this example we create a basic rule that uses the previous defined http settings and backend address pool.  It also associates the listener to the rule
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-9"></a>Étape 9
-
-Configurez la taille d'instance de la passerelle Application Gateway.
-
-```powershell
+# Sets the SKU of the application gateway, in this example we create a small standard application gateway with 2 instances.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+
+# The final step creates the application gateway with all the previously defined components.
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-> [!NOTE]
-> La valeur par défaut du paramètre **InstanceCount** est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre **GatewaySize** est Medium. Vous pouvez choisir entre **Standard_Small**, **Standard_Medium** et **Standard_Large**. 
+## <a name="add-a-probe-to-an-existing-application-gateway"></a>Ajouter une sonde à une passerelle d’application existante
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
-
-Créez une passerelle Application Gateway avec tous les éléments de configuration à partir de la procédure ci-dessus. Dans notre exemple, la passerelle Application Gateway est appelée **appgwtest**.
+L’extrait de code suivant ajoute une sonde à une passerelle d’application existante.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
-```
-
-## <a name="add-a-probe-to-an-existing-application-gateway"></a>Ajoute une sonde à une passerelle d’application existante
-
-Quatre étapes permettent d’ajouter une sonde personnalisée à une passerelle d’application existante.
-
-### <a name="step-1"></a>Étape 1
-
-Charger la ressource de passerelle Application Gateway dans une variable PowerShell avec `Get-AzureRmApplicationGateway`.
-
-```powershell
+# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
 
-### <a name="step-2"></a>Étape 2 :
+# Create the probe object that will check health at http://contoso.com/path/path.htm
+$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-Ajouter une sonde à la configuration de passerelle existante.
+# Set the backend HTTP settings to use the new probe
+$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
-```powershell
-$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-```
-
-Dans l’exemple, la sonde personnalisée est configurée pour vérifier l’URL du chemin d’accès contoso.com/path/custompath.htm toutes les 30 secondes. Un seuil de délai d'expiration de 120 secondes est configuré avec un maximum de 8 demandes d'analyse ayant échoué.
-
-### <a name="step-3"></a>Étape 3
-
-Ajouter la sonde au pool principal en définissant la configuration et le délai d’expiration avec `Set-AzureRmApplicationGatewayBackendHttpSettings`.
-
-```powershell
-    $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
-```
-
-### <a name="step-4"></a>Étape 4
-
-Enregistrer la configuration sur la passerelle Application Gateway avec `Set-AzureRmApplicationGateway`.
-
-```powershell
+# Save the application gateway with the configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
 ## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Supprimer une sonde d’une passerelle d’application existante
 
-Voici les opérations qui permettent de supprimer une sonde personnalisée d’une passerelle application.
-
-### <a name="step-1"></a>Étape 1
-
-Charger la ressource de passerelle Application Gateway dans une variable PowerShell avec `Get-AzureRmApplicationGateway`.
+L’extrait de code suivant supprime une sonde au niveau d’une passerelle d’application existante.
 
 ```powershell
+# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
 
-### <a name="step-2"></a>Étape 2 :
-
-Supprimer la configuration de sonde de la passerelle Application Gateway avec `Remove-AzureRmApplicationGatewayProbeConfig`.
-
-```powershell
+# Remove the probe from the application gateway configuration object
 $getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
-```
 
-### <a name="step-3"></a>Étape 3
+# Set the backend HTTP settings to remove the reference to the probe. The backend http settings now use the default probe
+$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
-Mettre à jour la configuration du pool principal pour supprimer la sonde et le paramètre de délai en utilisant `Set-AzureRmApplicationGatewayBackendHttpSettings`.
-
-```powershell
-    $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
-```
-
-### <a name="step-4"></a>Étape 4
-
-Enregistrer la configuration sur la passerelle Application Gateway avec `Set-AzureRmApplicationGateway`. 
-
-```powershell
+# Save the application gateway with the configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
@@ -308,10 +207,5 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez à configurer le déchargement SSL en consultant [Configurer le déchargement SSL](application-gateway-ssl-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

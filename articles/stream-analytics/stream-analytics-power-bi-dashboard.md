@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 3dbc49d35def6d7b12ade529d1dd1156dee9d75b
-ms.openlocfilehash: 09c54f8cce119c1cbe6a08e969236612447d9e17
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 278f73d9ee3f64727b34b3674cd38eaf5301e675
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -177,7 +178,7 @@ De même, si un travail tente de démarrer après l’expiration du jeton, une e
 Une fois que l’autorisation a été actualisée avec Power BI, une alerte verte apparaît dans la zone d’autorisation pour indiquer que le problème a été résolu.
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

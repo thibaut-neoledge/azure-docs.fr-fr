@@ -51,7 +51,7 @@ Collez l’extrait de code XML suivant dans votre fichier Manifest.xml entre les
 
 Cela définit l’icône qui s’affiche à la fois dans le système et des notifications in-app. Facultative pour les notifications in-app, cette opération est toutefois obligatoire pour les notifications système. Android rejettera les notifications système avec des icônes non valides.
 
-Assurez-vous d’utiliser une icône qui existe dans l’un des dossiers **drawable``engagement_close.png`` (comme **). **mipmap** n’est pas pris en charge.
+Assurez-vous d’utiliser une icône qui existe dans l’un des dossiers **drawable``engagement_close.png`` (comme** ). **mipmap** n’est pas pris en charge.
 
 > [!NOTE]
 > Vous ne devez pas utiliser l’icône du **Lanceur** . Elle a une résolution différente et se trouve généralement dans les dossiers mipmap, que nous ne prenons pas en charge.
@@ -91,9 +91,4 @@ Pour les applications réelles, vous pouvez utiliser une icône adaptée aux not
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

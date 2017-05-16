@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+ms.date: 04/19/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 03d38dbce86711395a967cf8bad440fd50a38631
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: a022e7fc34cac85cb26cc6ca86a6941b1ccbfb95
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/28/2017
 Azure SQL Database propose quatre [niveaux de service](sql-database-service-tiers.md) : De base, Standard, Premium et Premium RS. Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
 
 > [!NOTE]
-> Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
+> Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
 >
 >
 
@@ -58,7 +58,7 @@ Chaque niveau de service et de performance est associé à différentes limites 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Les clients utilisant les niveaux de performances P11 et P15 peuvent utiliser jusqu’à 4 To de stockage inclus sans frais supplémentaires. Cette option de 4 To est actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada.
+> Les clients utilisant les niveaux de performances P11 et P15 peuvent utiliser jusqu’à 4 To de stockage inclus sans frais supplémentaires. Cette option de 4 To est actuellement disponible dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Centre du Canada et Est du Canada.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Stockage OLTP In-Memory maximum
@@ -145,7 +145,7 @@ D’après les données, cette base de données présente actuellement une charg
 
 D’autres types d’applications peuvent interpréter différemment le même graphique. Par exemple, si une application essaie de traiter les données de paie chaque jour et obtient le même graphique, ce genre de modèle de « traitement par lot » peut convenir dans un niveau de performances P1. Le niveau de performances P1 possède 100 DTU, contre 200 DTU pour le niveau de performances P2. Le niveau de performances P1 fournit donc la moitié des performances du niveau de performances P2. Par conséquent, 50 % d’utilisation de l’UC au niveau P2 correspond à 100 % d’utilisation de l’UC au niveau de performance P1. Si l’application n’a pas de délai d’expiration, le fait qu’une tâche volumineuse s’exécute en 2 h ou 2 h 30 peut ne pas avoir d’importance à condition qu’elle soit effectuée le jour même. Une application de cette catégorie peut probablement utiliser un niveau de performances P1. Vous pouvez tirer parti du fait qu’il y a des périodes pendant la journée où l’utilisation des ressources est moindre, ce qui signifie que toute période de pointe peut déborder sur l’un des creux plus tard dans la journée. Le niveau de performances P1 peut convenir pour une application de ce type (et permettre de réaliser des économies) tant que les tâches peuvent se terminer à temps chaque jour.
 
-La SQL Database Azure expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard et Premium, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
+La SQL Database Azure expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard, Premium et Premium RS, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
 
 > [!NOTE]
 > Vous devez être connecté à la base de données **master** de votre serveur SQL Database logique pour interroger **sys.resource_stats** dans les exemples suivants.
@@ -435,5 +435,5 @@ Certaines applications de base de données contiennent des charges de travail à
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les niveaux de service, consultez la section [Options et performances de la base de données SQL](sql-database-service-tiers.md)
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
-* Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
+* Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool.md)
 

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/28/2016
+ms.date: 05/01/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 6a37e9e786a4e399c49cb77758a23793790888c9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 9998c6ac27b9dc06b71edb4531aebeeb53fefcce
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="configure-an-internal-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuration d’un équilibreur de charge interne pour un groupe de disponibilité AlwaysOn dans Azure
-Cette rubrique explique la procédure de création d’un équilibreur de charge interne pour un groupe de disponibilité AlwaysOn SQL Server dans des machines virtuelles Azure en cours d’exécution dans le modèle Resource Manager. Un groupe de disponibilité nécessite un équilibreur de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chaque région a besoin d’un équilibreur de charge.
+Cette rubrique explique comment créer un équilibreur de charge interne pour un groupe de disponibilité SQL Server Always On dans des machines virtuelles Azure s’exécutant avec Azure Resource Manager. Un groupe de disponibilité nécessite un équilibreur de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chaque région a besoin d’un équilibreur de charge.
 
-Pour effectuer cette tâche, vous devez disposer d’un groupe de disponibilité SQL Server déployé sur des machines virtuelles Azure dans le modèle Resource Manager. Les deux machines virtuelles SQL Server doivent appartenir au même groupe à haute disponibilité. Vous pouvez utiliser le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pour créer automatiquement le groupe de disponibilité dans Azure Resource Manager. Ce modèle crée automatiquement l’équilibrage de charge interne. 
+Pour mener à bien cette tâche, vous devez avoir déployé un groupe de disponibilité SQL Server sur des machines virtuelles Azure avec Resource Manager. Les deux machines virtuelles SQL Server doivent appartenir au même groupe à haute disponibilité. Vous pouvez utiliser le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pour créer automatiquement le groupe de disponibilité dans Azure Resource Manager. Ce modèle crée automatiquement l’équilibrage de charge interne. 
 
 Si vous préférez, vous pouvez [configurer manuellement un groupe de disponibilité](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -153,53 +155,6 @@ Dans cette étape, vous créez manuellement l'écouteur du groupe de disponibili
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-<!---------------------------
-* Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
-* Open Failover Cluster Manager.
-* Select the **Networks** node, and note the cluster network name. This name will be used in the `$ClusterNetworkName` variable in the PowerShell script.
-* Expand the cluster name, and then click **Roles**.
-* In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
-* In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
-  
-  > [!NOTE]
-  > The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
-  > 
-  > 
-* Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
-* Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. Enable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
-* On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script.
-  
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-  
-        Import-Module FailoverClusters
-  
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-* Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
-  
-  > [!NOTE]
-  > If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the cluster network name, cluster IP resource name, and load balancer IP address from the first resource group. The second time use the cluster network name, cluster IP resource name, and load balancer IP address from the second resource group.
-  > 
-  > 
-
-Now the cluster has an availability group listener resource.
-
-### 2. Bring the listener online
-With the availability group listener resource configured, you can bring the listener online so that applications can connect to databases in the availability group with the listener.
-
-* Navigate back to Failover Cluster Manager. Expand **Roles** and then highlight your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**.
-* Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**.
-* Right-click the listener name and click **Bring Online**.
-* Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
-* Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
-* Launch SQL Server Management Studio and connect to the primary replica.
-* Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
-* You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
-* In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
-
-------------------------------->
-
 ### <a name="verify-the-configuration-of-the-listener"></a>Vérifiez la configuration de l’écouteur
 
 Si les ressources de cluster et les dépendances sont correctement configurées, vous devez être en mesure de voir l’écouteur dans les studios de gestion SQL Server. Procédez comme suit pour définir le port d’écoute :
@@ -207,9 +162,9 @@ Si les ressources de cluster et les dépendances sont correctement configurées,
 1. Lancez SQL Server Management Studio et connectez-vous au réplica principal.
 2. Accédez à **Haute disponibilité AlwaysOn** | **Groupes de disponibilité** | **Écouteurs de groupe de disponibilité**. 
 1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur l’écouteur, puis cliquez sur **Propriétés**.
-1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur de groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut :&1433;), puis cliquez sur **OK**.
+1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur de groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
 
-Vous avez maintenant un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure en mode Resource Manager. 
+Vous disposez maintenant d’un groupe de disponibilité dans des machines virtuelles Azure s’exécutant en mode Resource Manager. 
 
 ## <a name="test-the-connection-to-the-listener"></a>Tester la connexion à l’écouteur
 Pour tester la connexion :
@@ -221,13 +176,75 @@ Pour tester la connexion :
 
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal. 
 
-## <a name="guidelines-and-limitations"></a>Instructions et limitations
-Notez les instructions suivantes concernant l’écouteur de groupe de disponibilité dans Azure utilisant l’équilibrage de charge interne :
+## <a name="create-an-ip-address---for-an-additional-availability-group"></a>Créer une adresse IP pour un groupe de disponibilité supplémentaire
 
-* Le service cloud ne prend en charge qu’un écouteur de groupe de disponibilité interne, car l’écouteur est configuré sur le seul équilibreur de charge interne. Toutefois, il est possible de créer plusieurs écouteurs externes. 
-* Avec un équilibreur de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
+Chaque groupe de disponibilité utilise un écouteur distinct. Chaque écouteur possède sa propre adresse IP. Le même équilibreur de charge doit être utilisé pour conserver l’adresse IP des écouteurs supplémentaires. Après avoir créé un groupe de disponibilité, ajoutez l’adresse IP à l’équilibreur de charge, puis configurez l’écouteur.
 
+Pour ajouter une adresse IP à un équilibreur de charge par le biais du portail Azure, effectuez les étapes suivantes :
 
-<!--HONumber=Jan17_HO2-->
+1. Dans le portail Azure, ouvrez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur ce dernier. 
+2. Sous **PARAMÈTRES**, cliquez sur **Pool d’adresses IP frontales**. Cliquez sur **+ Ajouter**. 
+3. Sous **Ajouter une adresse IP frontale**, attribuez un nom au serveur frontal. 
+4. Vérifiez que le **réseau virtuel** et le **sous-réseau** sont identiques aux instances SQL Server.
+5. Définissez l’adresse IP de l’écouteur. 
+   
+   >[!TIP]
+   >Vous pouvez la définir en tant qu’adresse IP statique et taper une adresse qui n’est actuellement pas utilisée dans le sous-réseau. Vous pouvez aussi la définir en tant qu’adresse IP dynamique et enregistrer le nouveau pool d’adresses IP frontales. Dans ce dernier cas, le portail Azure affecte automatiquement une adresse IP disponible au pool. Vous pouvez alors rouvrir le pool d’adresses IP frontales et changer l’affectation en statique. 
 
+   Enregistrez l’adresse IP de l’écouteur. 
+
+6. Ajoutez une sonde d’intégrité. Utilisez les paramètres suivants :
+
+   |Paramètre |Valeur
+   |:-----|:----
+   |**Nom** |Nom destiné à identifier la sonde.
+   |**Protocole** |TCP
+   |**Port** |Port TCP non utilisé. Doit être disponible sur toutes les machines virtuelles. Ne peut pas être utilisé à d’autres fins. Deux écouteurs distincts ne peuvent pas utiliser un même port de sonde. 
+   |**Intervalle** |Laps de temps entre les différentes tentatives de la sonde. Utilisez la valeur par défaut (5).
+   |**Seuil de défaillance sur le plan de l’intégrité** |Nombre de seuils consécutifs qui doivent échouer avant qu’une machine virtuelle soit considérée comme défectueuse.
+
+   Cliquez sur **OK** pour enregistrer la sonde. 
+
+7. Créez une nouvelle règle d’équilibrage de charge. Cliquez sur **Règles d’équilibrage de charge**, puis sur **+ Ajouter**.
+8. Configurez la nouvelle règle d’équilibrage de charge avec les paramètres suivants :
+
+   |Paramètre |Valeur
+   |:-----|:----
+   |**Nom** |Nom destiné à identifier la règle d’équilibrage de charge. 
+   |**Adresse IP du serveur frontal** |Choisissez l’adresse IP que vous avez créée. 
+   |**Protocole** |TCP
+   |**Port** |Utilisez le port utilisé par les instances SQL Server. Une instance par défaut utilise le port 1433, à moins que vous l’ayez changé. 
+   |**Port principal** |Utilisez la même valeur que **Port**.
+   |**Pool back-end** |Pool qui contient les machines virtuelles dotées des instances SQL Server. 
+   |**Sonde d’intégrité** |Choisissez la sonde que vous avez créée.
+   |**Persistance de session** |Aucun
+   |**Délai d’inactivité (minutes).** |Valeur par défaut (4)
+   |**Adresse IP flottante (retour direct du serveur)** | Activé
+
+### <a name="configure-the-availability-group-go-use-the-new-ip-address"></a>Configurer le groupe de disponibilité pour qu’il utilise la nouvelle adresse IP
+
+Pour terminer la configuration du cluster, répétez les étapes que vous avez suivies pour créer le premier groupe de disponibilité. Autrement dit, configurez le [cluster pour qu’il utilise la nouvelle adresse IP](#configure-the-cluster-to-use-the-load-balancer-ip-address). 
+
+Après avoir ajouté une adresse IP pour l’écouteur, vous pouvez configurer le groupe de disponibilité supplémentaire. 
+
+1. Vérifiez que le port de sonde de la nouvelle adresse IP est ouvert sur les deux machines virtuelles SQL Server. 
+
+2. [Dans Cluster Manager, ajoutez le point d’accès client](#addcap).
+
+3. [Configurez la ressource IP du groupe de disponibilité](#congroup).
+
+   >[!IMPORTANT]
+   >Au moment de créer l’adresse IP, utilisez l’adresse IP que vous avez ajoutée à l’équilibreur de charge.  
+
+4. [Créez une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client](#dependencyGroup).
+
+5. [Créez une dépendance entre la ressource du point d’accès client et l’adresse IP](#listname).
+ 
+5. [Définissez les paramètres de cluster dans PowerShell](#setparam).
+
+Une fois que vous avez configuré le groupe de disponibilité pour qu’il utilise la nouvelle adresse IP, configurez la connexion à l’écouteur. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Configurer un groupe de disponibilité SQL Server Always On sur des machines virtuelles Azure dans différentes régions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 

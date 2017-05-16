@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Pour automatiser l’installation, vous pouvez ignorer l’invite de contrat de licence en définissant vos sélections debconf pour les packages Service Fabric. Les deux commandes suivantes peuvent être exécutées
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Exécutez le script de configuration du Kit de développement logiciel (SDK).
 
     ```bash
@@ -203,6 +211,11 @@ Pour mettre à jour vers la dernière version du kit de développement logiciel 
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> La mise à jour des packages ci-dessus peut entraîner l’arrêt de votre cluster de développement local. Redémarrez votre cluster local après une mise à niveau en suivant les instructions de cette page
+>
+>
 
 Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.  Si des étapes supplémentaires sont nécessaires pour la mise à jour, elles seront spécifiées dans les notes de publication. 
 

@@ -82,8 +82,3 @@
    
     Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

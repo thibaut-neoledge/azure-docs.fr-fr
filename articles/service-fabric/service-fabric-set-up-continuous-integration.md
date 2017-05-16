@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,14 +106,14 @@ Une définition de version Team Services décrit un flux de travail qui se compo
     1. Sélectionnez **Nouveau point de terminaison du service**, puis **Azure Service Fabric** dans le menu.
     2. Sélectionnez le type d’authentification utilisé par le cluster que cible ce point de terminaison.
     3. Donnez un nom à votre connexion dans le champ **Nom de la connexion** .  En général, le nom du cluster est utilisé.
-    4. Définissez l’URL du point de terminaison de connexion client dans le champ **Point de terminaison de cluster** .  Exemple : https://contoso.westus.cloudapp.azure.com:19000.
+    4. Définissez l’URL du point de terminaison de connexion client dans le champ **Point de terminaison de cluster** .  Exemple : tcp://contoso.westus.cloudapp.azure.com:19000.
     5. En ce qui concerne les informations d’identification d’Azure Active Directory, définissez les informations à utiliser pour vous connecter au cluster dans les champs **Nom d’utilisateur** et **Mot de passe**.
     6. Pour l’authentification basée sur un certificat, définissez l’encodage Base64 du fichier de certificat client dans le champ **Certificat client** .  Consultez l’aide contextuelle sur ce champ pour en savoir plus sur la façon d’obtenir cette valeur.  Si votre certificat est protégé par mot de passe, définissez ce dernier dans le champ **Mot de passe** .
     7. Confirmez vos modifications en cliquant sur **OK**. Après avoir de nouveau accédé à votre définition de version, cliquez sur l’icône Actualiser figurant dans le champ **Cluster Connection** (Connexion au cluster) pour afficher le point de terminaison que vous venez d’ajouter.
 12. Enregistrez la définition de version.
 
 > [!NOTE]
-> Comptes Microsoft (par exemple, @hotmail.com ou @outlook.com) ne sont pas pris en charge pour l’authentification Azure Active Directory.
+> Les comptes Microsoft (par exemple, @hotmail.com ou @outlook.com ne sont pas pris en charge pour l’authentification Azure Active Directory.
 > 
 > 
 
@@ -130,10 +132,5 @@ Pour en savoir plus sur l’intégration continue avec les applications de Servi
 * [Page d’accueil de la documentation relative à Team Services](https://www.visualstudio.com/docs/overview)
 * [Page relative à la gestion des builds dans Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Page relative à la gestion des versions dans Team Services](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

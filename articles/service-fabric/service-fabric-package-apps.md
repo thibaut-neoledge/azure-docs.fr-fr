@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -54,7 +54,7 @@ Les dossiers sont nommés d'après les attributs **Name** de chaque élément co
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
 
-Pour plus d’informations sur la façon de configurer **SetupEntryPoint** consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
+Pour plus d’informations sur la façon de configurer **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
 
 ## <a name="configure"></a>Configuration 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
@@ -64,7 +64,7 @@ Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Ex
 
 ![Empaquetage d'une application avec Visual Studio][vs-package-command]
 
-Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie** . Notez que l'étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
+Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie**. L’étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Développer un package par ligne de commande
 Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot : voici ce que Visual Studio exécute pour obtenir le même résultat.
@@ -74,7 +74,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## <a name="test-the-package"></a>Test du package
-Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) .
+Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 Cette commande vérifie la présence de problèmes liés à l’analyse du manifeste, ainsi que toutes les références. Cette commande vérifie uniquement l’exactitude structurelle des répertoires et des fichiers du package.
 Elle ne vérifie pas le code ou les données du contenu du package, mais uniquement si tous les fichiers nécessaires sont présents.
 
@@ -111,7 +111,7 @@ True
 PS D:\temp>
 ```
 
-Si des [paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) sont définis pour votre application, vous pouvez les transmettre dans [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) pour assurer une validation correcte.
+Si des [paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) sont définis pour votre application, vous pouvez les transmettre dans [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) pour assurer une validation correcte.
 
 Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre la chaîne de connexion du magasin d’images. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
 
@@ -124,9 +124,9 @@ Le [chargement du package d’application](service-fabric-deploy-remove-applicat
 Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
 La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet. 
 
-Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
+Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
 
-La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) sans l’indicateur `SkipCopy`. Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont requis pour de nombreuses opérations internes (comme le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations).
+La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sans l’indicateur `SkipCopy`. Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont requis pour de nombreuses opérations internes (comme le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations).
 La compression des manifestes rendrait ces opérations inefficaces.
 
 ```
@@ -162,15 +162,16 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Vous pouvez également compresser et copier le package en une seule fois avec la commande [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage).
+Vous pouvez également compresser et copier le package en une seule fois avec la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps).
 Si le package est volumineux, prévoyez un délai d’expiration suffisamment long pour que la compression du package et le chargement dans le cluster aient le temps de se terminer.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
 En interne, Service Fabric calcule les sommes de contrôle des packages d’application à des fins de validation. Lorsque la compression est utilisée, les sommes de contrôle sont calculées dans les versions compressées de chaque package.
-Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour le même package, vous devez modifier la version du manifeste de l’application pour éviter la non-concordance des sommes de contrôle.
-De même, si vous avez chargé une version compressée du package, vous devez mettre à jour la version du manifeste de l’application pour utiliser un package non compressé.
+Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour le même package, vous devez modifier les versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. Si les packages sont identiques, au lieu de changer de version, vous pouvez utiliser [l’approvisionnement différé](service-fabric-application-upgrade-advanced.md). Vous n’avez pas à inclure le package inchangé avec cette option, il suffit de le référencer dans le manifeste de service.
+
+De même, si vous avez chargé une version compressée du package et que vous souhaitez utiliser un package non compressé, vous devez mettre à jour les versions pour éviter la non-concordance des sommes de contrôle.
 
 Le package est maintenant empaqueté correctement, validé et compressé (si nécessaire). Il est donc prêt pour le [déploiement](service-fabric-deploy-remove-applications.md) dans un ou plusieurs clusters Service Fabric.
 

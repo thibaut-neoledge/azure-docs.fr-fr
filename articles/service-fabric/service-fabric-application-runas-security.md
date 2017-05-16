@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ Avec Azure Service Fabric, vous pouvez sécuriser les applications en cours d’
 
 Par défaut, les applications Service Fabric s’exécutent sous le compte qui exécute le processus Fabric.exe. Service Fabric permet également d’exécuter des applications sous un compte utilisateur ou système local spécifié dans le manifeste de l’application. Les types de comptes système locaux pris en charge sont **LocalUser**, **NetworkService**, **LocalService** et **LocalSystem**.
 
- Lorsque vous exécutez Service Fabric sur Windows Server dans votre centre de données à l’aide du programme d’installation autonome, vous pouvez utiliser des comptes de domaine Active Directory.
+ Lorsque vous exécutez Service Fabric sur Windows Server dans votre centre de données à l’aide du programme d’installation autonome, vous pouvez utiliser des comptes de domaine Active Directory, y compris des comptes de service géré de groupe.
 
 Vous pouvez définir et créer des groupes d’utilisateurs de manière à pouvoir ajouter à chaque groupe un ou plusieurs utilisateurs qui seront gérés ensemble. Cela est utile lorsqu’il existe plusieurs utilisateurs pour des points d’entrée de service différents et qu’ils doivent disposer de certains privilèges courants disponibles au niveau du groupe.
 
@@ -290,7 +291,44 @@ Vous devez déployer la clé privée du certificat pour déchiffrer le mot de pa
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>Utilisez un compte de service géré de groupe.
+Pour une instance de Service Fabric installée sur Windows Server par le biais du programme d’installation autonome, vous pouvez exécuter le service en tant que compte de service géré de groupe (gMSA, group Managed Service Account). Remarque : il s’agit d’Active Directory en local au sein de votre domaine et non avec Azure Active Directory (Azure AD). Si vous utilisez un compte gMSA, il n’existe aucun mot de passe ou mot de passe chiffré stocké dans le `Application Manifest`.
 
+L’exemple suivant montre comment créer un compte gMSA nommé *svc-Test$*, comment déployer ce compte de service géré sur les nœuds de cluster et comment configurer le principal de l’utilisateur.
+
+##### <a name="prerequisites"></a>Composants requis.
+- Le domaine a besoin d’une clé racine KDS.
+- Le domaine doit être au niveau fonctionnel de Windows Server 2012 ou version ultérieure.
+
+##### <a name="example"></a>Exemple
+1. Avoir un administrateur de domaine Active Directory qui crée un compte de service géré de groupe à l’aide de la cmdlet `New-ADServiceAccount` et garantit que le `PrincipalsAllowedToRetrieveManagedPassword` inclut tous les nœuds du cluster Service Fabric. Notez que `AccountName`, `DnsHostName` et `ServicePrincipalName` doivent être uniques.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. Sur chacun des nœuds de cluster Service Fabric (par exemple `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), installez et testez le compte gMSA.
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. Configurez le principal de l’utilisateur et la stratégie RunAsPolicy pour faire référence à l’utilisateur.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Affectation d’une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS
 Si vous appliquez une stratégie RunAs à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une stratégie **SecurityAccessPolicy** pour vous assurer que les ports affectés à ces points de terminaison sont bien au format ACL pour le compte utilisateur RunAs sous lequel le service est exécuté. Sinon, **http.sys** n’a pas accès au service et les appels en provenance du client échouent. L’exemple suivant applique le compte Customer3 au point de terminaison **ServiceEndpointName**, ce qui lui attribue des droits d’accès complets.

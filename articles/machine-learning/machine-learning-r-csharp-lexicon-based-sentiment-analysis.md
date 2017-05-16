@@ -1,23 +1,11 @@
 ---
-title: "(obsolète) Analyse des sentiments basée sur un lexique - Azure | Microsoft Docs"
-description: "(obsolète) Analyse des sentiments basée sur un lexique"
-services: machine-learning
-documentationcenter: 
-author: pengxia
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 912f41af-966c-4d79-a413-6f9fc02823df
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: pengxia
+
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: https://gallery.cortanaintelligence.com/
 translationtype: Human Translation
-ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
-ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 9c7b8e4378cbc19255e60aa177207afe3d552087
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -161,10 +149,5 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

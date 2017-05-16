@@ -29,6 +29,7 @@
 ### [Surveiller les ressources](cdn-resource-health.md)
 ### [Remplacer le comportement à l’aide de règles](cdn-rules-engine.md)
 ### [Obtenir des alertes en temps réel](cdn-real-time-alerts.md)
+### [Assistance HTTP/2](cdn-http2.md)
 
 ## Analyser
 ### [Analyser les modes d’utilisation](cdn-analyze-usage-patterns.md)
@@ -45,7 +46,7 @@
 ### [Compression de fichiers](cdn-troubleshoot-compression.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
@@ -61,8 +62,3 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

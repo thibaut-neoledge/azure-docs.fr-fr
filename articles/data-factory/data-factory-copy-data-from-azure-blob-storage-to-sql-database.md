@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
-ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -32,8 +32,6 @@ ms.lasthandoff: 02/22/2017
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
->
->
 
 Dans ce didacticiel, vous allez créer une fabrique de données avec un pipeline afin de copier des données entre Blob Storage et la base de données SQL.
 
@@ -87,13 +85,13 @@ Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **AC
 ## <a name="prepare-blob-storage-and-sql-database"></a>Préparer Blob Storage et la Base de données SQL
 À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :  
 
-1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStarted** sur votre disque dur.
+1. Lancez le Bloc-notes. Copiez le texte suivant puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStarted** sur votre disque dur.
 
     ```
     John, Doe
     Jane, Doe
     ```
-2. Utilisez des outils tels que [l’Explorateur de stockage Azure](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
+2. Utilisez des outils tels que [l’Explorateur de stockage Azure](http://storageexplorer.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
 
     ![Azure Storage Explorer. Copie de données Blob Storage vers une base de données SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.  
@@ -114,6 +112,7 @@ Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **AC
 
     Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
 
+## <a name="create-a-data-factory"></a>Créer une fabrique de données
 Vous avez terminé les étapes préalables requises. Créez une fabrique de données à l’aide de l’une des manières suivantes. Cliquez sur l’une des options de la liste déroulante en haut ou sur les liens suivants pour suivre le didacticiel.     
 
 * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -128,3 +127,4 @@ Vous avez terminé les étapes préalables requises. Créez une fabrique de donn
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, voir [Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
+

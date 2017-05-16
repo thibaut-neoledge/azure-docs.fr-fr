@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: e1aeb2708e829480b0e4a520f6f9ee08894bfaf9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -154,8 +155,8 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
+* [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 <!-- Images. -->
@@ -163,9 +164,8 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 

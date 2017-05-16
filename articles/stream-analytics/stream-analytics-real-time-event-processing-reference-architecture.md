@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6c284591dc408fefab28d8448c5a4811f3f66e6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8d2449f84ca0caf85e22a91e14f04ea3c329be03
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -51,7 +53,7 @@ Microsoft Azure fournit un catalogue étendu de technologies d’analyse compat
 **Téléchargement :** [Traitement d’événements en temps réel avec Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
@@ -59,10 +61,5 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

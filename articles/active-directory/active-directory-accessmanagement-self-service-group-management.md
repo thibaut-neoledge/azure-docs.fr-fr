@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/3/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
 ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -49,9 +51,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +71,7 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
    |  **Configuration de la machine virtuelle** |<p>Sélectionnez <b>Installer l'agent de la machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p> |
 2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Pour ces étapes, consultez [Association d'un disque de données à une machine virtuelle Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 3. Après votre première connexion à la machine virtuelle, ouvrez **Gestionnaire de serveur** > **Services de fichiers et de stockage** pour créer un volume sur ce disque à l'aide de NTFS.
-4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azureps-cmdlets-docs) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
+4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azure/overview) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 Set-AzureStaticVNetIP -IPAddress 10.0.0.4 Update-AzureVM
 
@@ -96,7 +97,7 @@ Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une con
 
 Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Prise en main des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) et le [Guide de référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Prise en main des cmdlets Azure](/powershell/azure/overview) et le [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -105,8 +106,8 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Cmdlets de gestion Azure](https://msdn.microsoft.com/library/azure/jj152841)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Cmdlets de gestion Azure](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png

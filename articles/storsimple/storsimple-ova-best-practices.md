@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 05/01/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -27,13 +28,13 @@ Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée
 
 Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
 
-Nous vous recommandons une révision périodique des bonnes pratiques afin de garantir que votre périphérique est toujours en conformité lorsque des modifications sont apportées au flux des opérations ou au flux d’installation. Si vous rencontrez des problèmes lors de l’implémentation de ces bonnes pratiques sur votre baie virtuelle, [contactez le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance.
+Nous vous recommandons une révision périodique des bonnes pratiques afin de garantir que votre périphérique est toujours en conformité lorsque des modifications sont apportées au flux des opérations ou au flux d’installation. Si vous rencontrez des problèmes lors de l’implémentation de ces bonnes pratiques sur votre baie virtuelle, [contactez le support Microsoft](storsimple-virtual-array-log-support-ticket.md) pour obtenir une assistance.
 
 ## <a name="configuration-best-practices"></a>Bonnes pratiques de configuration
 Ces bonnes pratiques couvrent les instructions à suivre lors de la configuration initiale et du déploiement des baies virtuelles. Elles incluent les bonnes pratiques relatives à l’approvisionnement de la machine virtuelle, aux paramètres de stratégie de groupe, au dimensionnement, au paramétrage de la mise en réseau, à la configuration des comptes de stockage et à la création de partages et de volumes pour la baie virtuelle. 
 
 ### <a name="provisioning"></a>Approvisionnement
-StorSimple Virtual Array est une machine virtuelle mise en service sur l’hyperviseur (Hyper-V ou VMware) de votre serveur hôte. Lors de l’approvisionnement de la machine virtuelle, assurez-vous que votre hôte est en mesure de dédier des ressources suffisantes. Pour plus d’informations, consultez la page [ressources minimales requises](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) pour mettre en service une baie. 
+StorSimple Virtual Array est une machine virtuelle mise en service sur l’hyperviseur (Hyper-V ou VMware) de votre serveur hôte. Lors de l’approvisionnement de la machine virtuelle, assurez-vous que votre hôte est en mesure de dédier des ressources suffisantes. Pour plus d’informations, consultez la page [ressources minimales requises](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) pour mettre en service une baie.
 
 Implémentez les bonnes pratiques suivantes lors de l’approvisionnement de la baie virtuelle :
 
@@ -61,13 +62,13 @@ En fonction des facteurs précédents, les exigences de dimensionnement peuvent 
 Les exemples suivants illustrent la façon de dimensionner une baie virtuelle selon vos besoins.
 
 #### <a name="example-1"></a>Exemple 1 :
-Sur votre baie virtuelle, vous souhaitez être en mesure de 
+Sur votre baie virtuelle, vous souhaitez être en mesure de
 
 * configurer un partage ou un volume hiérarchisé de 2 To ;
 * configurer un partage ou un volume hiérarchisé de 1 To ;
 * configurer un partage ou un volume épinglé localement de 300 Go.
 
-Pour les partages ou volumes précédents, calculons l’espace nécessaire au niveau local. 
+Pour les partages ou volumes précédents, calculons l’espace nécessaire au niveau local.
 
 Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale serait égale à 12 % de la taille du partage/volume. Pour le volume/partage épinglé localement, la réservation locale représente 10 % de la taille du volume/partage épinglé localement (en plus de la taille approvisionnée). Dans cet exemple, vous avez besoin
 
@@ -86,11 +87,10 @@ En tenant compte de la croissance inattendue et de nouvelles restaurations, vous
 
 > [!NOTE]
 > Nous vous recommandons également de configurer dynamiquement le disque local. Cette recommandation est due au fait que l’espace de restauration est nécessaire uniquement lorsque vous souhaitez restaurer des données datant de plus de cinq jours. La récupération au niveau de l’élément vous permet de restaurer les données des cinq derniers jours sans nécessiter d’espace supplémentaire pour la restauration.
-> 
-> 
+
 
 #### <a name="example-2"></a>Exemple 2 :
-Sur votre baie virtuelle, vous souhaitez être en mesure de 
+Sur votre baie virtuelle, vous souhaitez être en mesure de
 
 * configurer un volume hiérarchisé de 2 To ;
 * configurer un volume épinglé localement de 300 Go.
@@ -102,9 +102,9 @@ En tenant compte des 12 % de réservation de l’espace local pour les partages/
 
 L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go.
 
-L’espace local minimal requis pour la restauration est de 330 Go. 
+L’espace local minimal requis pour la restauration est de 330 Go.
 
-15 % de votre disque total sont utilisés pour stocker les instantanés, si bien que seuls 85 % sont disponibles. Ainsi, la taille du disque est de (900&ast;(1/0,85)) = 1,06 To ~ 1,25 To (en arrondissant au quartile le plus proche) 
+15 % de votre disque total sont utilisés pour stocker les instantanés, si bien que seuls 85 % sont disponibles. Ainsi, la taille du disque est de (900&ast;(1/0,85)) = 1,06 To ~ 1,25 To (en arrondissant au quartile le plus proche)
 
 En tenant compte d’une éventuelle croissance inattendue, vous pouvez configurer un disque local de 1,25 - 1,5 To.
 
@@ -115,29 +115,29 @@ Si votre baie virtuelle est jointe à un domaine, des objets GPO peuvent lui êt
 
 Par conséquent, nous vous recommandons de :
 
-* vous assurer que votre baie virtuelle figure dans sa propre unité d’organisation (UO) pour Active Directory ; 
+* vous assurer que votre baie virtuelle figure dans sa propre unité d’organisation (UO) pour Active Directory ;
 * vous assurer qu’aucun objet de stratégie de groupe (GPO) n’est appliqué à votre baie virtuelle. Vous pouvez bloquer l’héritage pour vous assurer que la baie virtuelle (nœud enfant) n’hérite pas automatiquement des objets de stratégie de groupe du parent. Pour plus d'informations, consultez la page [Bloquer l’héritage](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### <a name="networking"></a>Mise en réseau
-La configuration réseau de votre baie virtuelle s’effectue via l’interface utilisateur web locale. Une interface réseau virtuelle est activée via l’hyperviseur dans lequel la baie virtuelle est mise en service. Utilisez la page [Paramètres réseau](storsimple-ova-deploy3-fs-setup.md) pour configurer l’adresse IP, le sous-réseau et la passerelle de l’interface réseau virtuelle.  Vous pouvez également configurer les serveurs DNS principal et secondaire, les paramètres de temps et les paramètres proxy facultatifs de votre appareil. La plus grande partie de la configuration réseau correspond à une installation unique. Examinez la [configuration requise de mise en réseau pour StorSimple](storsimple-ova-system-requirements.md#networking-requirements) avant de déployer la baie virtuelle.
+La configuration réseau de votre baie virtuelle s’effectue via l’interface utilisateur web locale. Une interface réseau virtuelle est activée via l’hyperviseur dans lequel la baie virtuelle est mise en service. Utilisez la page [Paramètres réseau](storsimple-virtual-array-deploy3-fs-setup.md) pour configurer l’adresse IP, le sous-réseau et la passerelle de l’interface réseau virtuelle.  Vous pouvez également configurer les serveurs DNS principal et secondaire, les paramètres de temps et les paramètres proxy facultatifs de votre appareil. La plus grande partie de la configuration réseau correspond à une installation unique. Examinez la [configuration requise de mise en réseau pour StorSimple](storsimple-ova-system-requirements.md#networking-requirements) avant de déployer la baie virtuelle.
 
 Lorsque vous déployez une baie virtuelle, nous vous recommandons d’appliquer les bonnes pratiques suivantes :
 
-* Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus). 
+* Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus).
   
   * La bande passante Internet requise varie selon les caractéristiques de votre charge de travail et le taux de modification des données.
-  * La modification des données qui peut être gérée est directement proportionnelle à la bande passante Internet. Par exemple, lorsque vous effectuez une sauvegarde, une bande passante de 5 Mbits/s peut prendre en charge une modification des données d’environ 18 Go en 8 heures. Avec une bande passante quatre fois supérieure (20 Mbits/s), vous pouvez gérer une modification des données quatre fois supérieure (72 Go). 
+  * La modification des données qui peut être gérée est directement proportionnelle à la bande passante Internet. Par exemple, lorsque vous effectuez une sauvegarde, une bande passante de 5 Mbits/s peut prendre en charge une modification des données d’environ 18 Go en 8 heures. Avec une bande passante quatre fois supérieure (20 Mbits/s), vous pouvez gérer une modification des données quatre fois supérieure (72 Go).
 * Vérifiez que la connectivité Internet est disponible en permanence. Des connexions Internet sporadiques ou non fiables pour les appareils peuvent entraîner une perte d’accès aux données dans le cloud et peuvent aboutir à une configuration non prise en charge.
-* Si vous envisagez de déployer votre appareil en tant que serveur iSCSI : 
+* Si vous envisagez de déployer votre appareil en tant que serveur iSCSI :
   
-  * Nous vous recommandons de désactiver l’option **Obtenir automatiquement une adresse IP** (DHCP). 
+  * Nous vous recommandons de désactiver l’option **Obtenir automatiquement une adresse IP** (DHCP).
   * Configurez des adresses IP statiques. Vous devez configurer un serveur DNS principal et un serveur DNS secondaire.
   * Si vous définissez plusieurs interfaces réseau sur votre baie virtuelle, seule la première interface réseau (par défaut, il s’agit d’ **Ethernet**) peut atteindre le cloud. Pour contrôler le type de trafic, vous pouvez créer plusieurs interfaces réseau virtuelles sur votre baie virtuelle (configurée comme un serveur iSCSI) et les connecter aux différents sous-réseaux.
-* Pour limiter uniquement la bande passante cloud (utilisée par la baie virtuelle), configurez la limitation sur le routeur ou le pare-feu. Si vous définissez la limitation dans votre hyperviseur, il limite tous les protocoles, y compris iSCSI et SMB, et non pas simplement la bande passante cloud. 
+* Pour limiter uniquement la bande passante cloud (utilisée par la baie virtuelle), configurez la limitation sur le routeur ou le pare-feu. Si vous définissez la limitation dans votre hyperviseur, il limite tous les protocoles, y compris iSCSI et SMB, et non pas simplement la bande passante cloud.
 * Assurez-vous que la synchronisation date/heure des hyperviseurs est activée. Si vous utilisez Hyper-V, sélectionnez votre baie virtuelle dans le Gestionnaire Hyper-V, accédez à **Paramètres &gt; Services d’intégration** et assurez-vous que l’option **Synchronisation date/heure** est activée.
 
 ### <a name="storage-accounts"></a>Comptes de stockage
-Une baie virtuelle StorSimple Virtual Array peut être associée à un compte de stockage unique. Ce compte de stockage peut être un compte de stockage généré automatiquement, un compte figurant dans le même abonnement que le service, ou un compte de stockage associé à un autre abonnement. Pour plus d'informations, découvrez comment [gérer des comptes de stockage pour votre baie virtuelle](storsimple-ova-manage-storage-accounts.md).
+Une baie virtuelle StorSimple Virtual Array peut être associée à un compte de stockage unique. Ce compte de stockage peut être un compte de stockage généré automatiquement, un compte figurant dans le même abonnement que le service, ou un compte de stockage associé à un autre abonnement. Pour plus d'informations, découvrez comment [gérer des comptes de stockage pour votre baie virtuelle](storsimple-virtual-array-manage-storage-accounts.md).
 
 Utilisez les recommandations suivantes pour les comptes de stockage associés à votre baie virtuelle.
 
@@ -161,7 +161,7 @@ Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnemen
 * Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Il ne sera pas possible de développer le volume par la suite.
 * Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
 * Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif de prendre des mesures correctives, en supprimant par exemple les données du volume (l’expansion des volumes n’est pas prise en charge actuellement).
-* Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO. 
+* Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO.
 
 #### <a name="volumeshare-type"></a>Type de volume/partage
 StorSimple prend en charge deux types de volume/partage en fonction de l’utilisation : épinglés localement et hiérarchisés. Les volumes/partages épinglés localement sont alloués statiquement tandis que les volumes/partages hiérarchisés sont alloués dynamiquement. 
@@ -190,7 +190,7 @@ Lorsque vous configurez les volumes iSCSI sur votre baie virtuelle StorSimple Vi
 Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour les volumes StorSimple :
 
 * Associez toujours au moins un ACR à un volume.
-* Définissez plusieurs ACR uniquement dans un environnement en cluster.
+
 * Lorsque vous attribuez plusieurs ACR à un volume, veillez à ce que ce volume ne soit pas exposé de façon à ce que plusieurs hôtes non-cluster puissent y accéder simultanément. Si vous avez affecté plusieurs ACR à un volume, un message d’avertissement s’affiche pour vous inviter à vérifier votre configuration.
 
 ### <a name="data-security-and-encryption"></a>Chiffrement et sécurité des données
@@ -205,7 +205,7 @@ Votre baie virtuelle StorSimple Virtual Array a des fonctionnalités de chiffrem
 Les bonnes pratiques opérationnelles sont des instructions à suivre lors de la gestion ou de l’exploitation quotidienne de la baie virtuelle. Elles couvrent des tâches de gestion spécifiques telles que la réalisation de sauvegardes, la restauration à partir d’un jeu de sauvegarde, la réalisation d’un basculement, la désactivation et la suppression de la baie, l’analyse de l’intégrité et de l’utilisation du système, et l’exécution d’analyses antivirus sur votre baie virtuelle.
 
 ### <a name="backups"></a>Sauvegardes
-Les données figurant sur votre baie virtuelle sont sauvegardées dans le cloud de deux manières, via une sauvegarde quotidienne par défaut automatisée de l’ensemble de l’appareil commençant à 22h30 et via une sauvegarde manuelle à la demande. Par défaut, l’appareil crée automatiquement des instantanés cloud quotidiens de toutes les données résidant sur ce dernier. Pour plus d’informations, consultez la page [Sauvegarder votre StorSimple Virtual Array](storsimple-ova-backup.md).
+Les données figurant sur votre baie virtuelle sont sauvegardées dans le cloud de deux manières, via une sauvegarde quotidienne par défaut automatisée de l’ensemble de l’appareil commençant à 22h30 et via une sauvegarde manuelle à la demande. Par défaut, l’appareil crée automatiquement des instantanés cloud quotidiens de toutes les données résidant sur ce dernier. Pour plus d’informations, consultez la page [Sauvegarder votre StorSimple Virtual Array](storsimple-virtual-array-backup.md).
 
 Il est impossible de modifier la fréquence et la rétention associées aux sauvegardes par défaut, mais vous pouvez configurer l’heure à laquelle les sauvegardes quotidiennes sont lancées chaque jour. Lorsque vous configurez l’heure de début des sauvegardes automatisées, nous vous recommandons de procéder comme suit :
 
@@ -213,7 +213,7 @@ Il est impossible de modifier la fréquence et la rétention associées aux sauv
 * Lancez une sauvegarde manuelle à la demande lorsque vous envisagez d’effectuer un basculement de l’appareil ou avant la fenêtre de maintenance, pour protéger les données figurant sur votre baie virtuelle.
 
 ### <a name="restore"></a>Restauration
-Vous pouvez restaurer à partir d’un jeu de sauvegarde de deux manières : restaurez vers un autre volume ou partage, ou effectuez une récupération au niveau de l’élément (disponible uniquement sur une baie virtuelle configurée en tant que serveur de fichiers). La récupération au niveau de l’élément vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Pour plus d’informations, consultez la page [Restaurer à partir d’une sauvegarde](storsimple-ova-restore.md).
+Vous pouvez restaurer à partir d’un jeu de sauvegarde de deux manières : restaurez vers un autre volume ou partage, ou effectuez une récupération au niveau de l’élément (disponible uniquement sur une baie virtuelle configurée en tant que serveur de fichiers). La récupération au niveau de l’élément vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Pour plus d’informations, consultez la page [Restaurer à partir d’une sauvegarde](storsimple-virtual-array-clone.md).
 
 Lorsque vous effectuez une restauration, gardez à l’esprit les instructions suivantes :
 
@@ -225,7 +225,7 @@ Lorsque vous effectuez une restauration, gardez à l’esprit les instructions s
 ### <a name="failover-and-disaster-recovery"></a>Basculement et récupération d'urgence
 Un basculement de l’appareil vous permet de migrer vos données à partir d’un appareil *source* dans le centre de données vers un autre appareil *cible* situé à un emplacement géographique identique ou différent. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
-Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez basculer uniquement vers une autre baie virtuelle gérée par le même service StorSimple Manager. Un basculement vers un appareil de gamme 8000 ou vers une baie gérée par un autre service StorSimple Manager (que celui de l’appareil source) n’est pas autorisé. Pour en savoir plus sur les considérations relatives au basculement, consultez la page [Configuration requise pour le basculement d’appareil](storsimple-ova-failover-dr.md).
+Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez basculer uniquement vers une autre baie virtuelle gérée par le même service StorSimple Manager. Un basculement vers un appareil de gamme 8000 ou vers une baie gérée par un autre service StorSimple Manager (que celui de l’appareil source) n’est pas autorisé. Pour en savoir plus sur les considérations relatives au basculement, consultez la page [Configuration requise pour le basculement d’appareil](storsimple-virtual-array-failover-dr.md).
 
 Lorsque vous effectuez un basculement pour votre baie virtuelle, gardez à l’esprit les éléments suivants :
 
@@ -239,7 +239,7 @@ Lorsque vous effectuez un basculement pour votre baie virtuelle, gardez à l’e
   * Le basculement a été effectué, après quoi l’appareil source a été supprimé, mais l’appareil cible a des problèmes et vous ne pouvez pas accéder aux données. Les données sont toujours sûres dans le cloud et il est aisé de les récupérer en créant une autre baie virtuelle, puis en l’utilisant comme appareil cible pour la récupération d’urgence.
 
 ### <a name="deactivate"></a>Désactivation
-Quand vous désactivez un StorSimple Virtual Array, vous interrompez la connexion entre l’appareil et le service StorSimple Manager correspondant. La désactivation est une opération **définitive** et ne peut pas être annulée. Un appareil désactivé ne peut pas être de nouveau enregistré auprès du service StorSimple Manager. Pour plus d’informations, consultez la page [Désactiver et supprimer votre baie virtuelle StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
+Quand vous désactivez un StorSimple Virtual Array, vous interrompez la connexion entre l’appareil et le service StorSimple Manager correspondant. La désactivation est une opération **définitive** et ne peut pas être annulée. Un appareil désactivé ne peut pas être de nouveau enregistré auprès du service StorSimple Manager. Pour plus d’informations, consultez la page [Désactiver et supprimer votre baie virtuelle StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Tenez compte des bonnes pratiques suivantes lors de la désactivation de votre baie virtuelle :
 
@@ -250,7 +250,7 @@ Tenez compte des bonnes pratiques suivantes lors de la désactivation de votre b
 ### <a name="monitoring"></a>Surveillance
 Pour vous assurer que votre baie virtuelle StorSimple Virtual Array est en permanence dans un état sain, vous devez surveiller la baie et vérifier que vous recevez des informations à partir du système, y compris les alertes. Pour surveiller l’intégrité globale de la baie virtuelle, mettez en œuvre les bonnes pratiques suivantes :
 
-* Configurez la surveillance pour effectuer le suivi de l’utilisation du disque de données de votre baie virtuelle, ainsi que du disque du système d’exploitation. Si vous exécutez Hyper-V, vous pouvez utiliser une combinaison de System Center Virtual Machine Manager (SCVMM) et de System Center Operations Manager (SCOM) pour surveiller vos hôtes de virtualisation.   
+* Configurez la surveillance pour effectuer le suivi de l’utilisation du disque de données de votre baie virtuelle, ainsi que du disque du système d’exploitation. Si vous exécutez Hyper-V, vous pouvez utiliser une combinaison de System Center Virtual Machine Manager (SCVMM) et de System Center Operations Manager (SCOM) pour surveiller vos hôtes de virtualisation.
 * Configurez les notifications par courrier électronique sur votre baie virtuelle pour envoyer des alertes à certains niveaux d’utilisation.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Applications d’analyse antivirus et de recherche d’index
@@ -285,6 +285,6 @@ Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre e
 * Plusieurs baies virtuelles (lorsqu’elles sont configurées en tant que serveur de fichiers ou serveur iSCSI) peuvent être déployées dans un espace de noms de système de fichiers distribué. Pour des instructions détaillées, consultez la page [Guide de déploiement d’une solution d’espace de noms de système de fichiers distribué avec stockage cloud hybride](https://www.microsoft.com/download/details.aspx?id=45507). La réplication du système de fichiers distribué n’est actuellement pas recommandée avec la baie virtuelle. 
 
 ## <a name="see-also"></a>Voir aussi
-Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) par le biais du service StorSimple Manager.
+Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) par le biais du service StorSimple Manager.
 
 

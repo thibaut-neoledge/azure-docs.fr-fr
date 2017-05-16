@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a0959a5484111ee5426204e15434300cb6a438
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 66f4e43670ffe9c62e026eb1b56eea035a199d05
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -92,7 +93,7 @@ Entrée – Hub d’événements avec 8 partitions de sortie – Hub d’évén
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Cette requête a une clé de regroupement. Il est donc nécessaire que la même clé soit traitée par la même instance de requête. Nous pouvons utiliser la même stratégie que dans la requête précédente. La requête comporte plusieurs étapes. Dans chaque étape, **Partition By** est-il égal à **PartitionId** ? Oui, donc tout va bien. Pour la sortie, nous devons définir **PartitionKey** sur **PartitionId** comme nous l’avons vu plus haut. Nous pouvons aussi voir qu’elle a le même nombre de partitions que l’entrée. Cette topologie est massivement parallèle.
+Cette requête a une clé de regroupement. Il est donc nécessaire que la même clé soit traitée par la même instance de requête. Nous pouvons utiliser la même stratégie que dans la requête précédente. La requête comporte plusieurs étapes. Dans chaque étape, **Partition By** est-il égal à ** PartitionId** ? Oui, donc tout va bien. Pour la sortie, nous devons définir **PartitionKey** sur **PartitionId** comme nous l’avons vu plus haut. Nous pouvons aussi voir qu’elle a le même nombre de partitions que l’entrée. Cette topologie est massivement parallèle.
 
 ## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>Exemples de scénarios qui n’impliquent pas un parallélisme massif
 ### <a name="mismatched-partition-count"></a>Nombre de partitions d’entrée et nombre de partitions de sortie qui ne correspondent pas
@@ -320,7 +321,7 @@ Voici les résultats avec l'augmentation du nombre d'unités de diffusion en con
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

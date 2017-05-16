@@ -9,7 +9,6 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +16,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -45,7 +44,6 @@ Les noms de service Azure doivent être globalement uniques. Les noms suivants s
 | --- | --- |
 | Réseau virtuel Azure AD |contosoaadvnet |
 | Groupe de ressources du réseau virtuel Azure AD |contosoaadrg |
-| Machine virtuelle Azure AD |contosoaadadmin. Cette machine virtuelle est utilisée pour configurer la zone de l’unité d’organisation et du DNS renversé. |
 | Annuaire Azure AD |contosoaaddirectory |
 | Nom de domaine Azure AD |contoso (contoso.onmicrosoft.com) |
 | Réseau virtuel HDInsight |contosohdivnet |
@@ -62,12 +60,9 @@ Ce didacticiel vous indique la procédure de configuration d’un cluster HDInsi
 ## <a name="procedures"></a>Procédures
 1. Créez un réseau virtuel Azure pour votre instance Azure AD.  
 2. Créez et configurez Azure AD et Azure AD AS.
-3. Ajoutez une machine virtuelle au réseau virtuel Classic pour la création d’unité d’organisation. 
-4. Créez une unité d’organisation pour Azure AD AS.
-5. Créez un réseau virtuel HDInsight dans le mode Resource Management Azure.
-6. Configurez les zones DNS inversé pour l’instance Azure AD AS.
-7. Homologuez les deux réseaux virtuels.
-8. Créez un cluster HDInsight.
+3. Créez un réseau virtuel HDInsight dans le mode Resource Management Azure.
+4. Homologuez les deux réseaux virtuels.
+5. Créez un cluster HDInsight.
 
 > [!NOTE]
 > Ce didacticiel part du principe que vous ne possédez pas d’instance Azure AD. Si vous en possédez un, vous pouvez passer la section de l’étape 2.
@@ -131,7 +126,7 @@ Si vous préférez utiliser une instance Azure AD existante, vous pouvez passe
 4. Saisissez **Nom d’utilisateur**, puis cliquez sur **Suivant**. 
 5. Configurez le profil utilisateur ; dans **Rôle**, sélectionnez **Administrateur global**, puis cliquez sur **Suivant**.  Le rôle d’administrateur global est requis pour la création des unités d’organisation.
 6. Cliquez sur **Créer** pour récupérer un mot de passe temporaire.
-7. Faites une copie du mot de passe, puis cliquez sur **Terminé**. Plus loin dans ce didacticiel, vous utiliserez cet utilisateur administrateur global afin de vous connecter à la machine virtuelle administrateur, pour la création d’une unité d’organisation et la configuration du DNS inversé.
+7. Faites une copie du mot de passe, puis cliquez sur **Terminé**. Plus loin dans ce didacticiel, vous utiliserez cet utilisateur administrateur général pour créer le cluster HDInsight.
 
 Suivez la même procédure pour créer deux utilisateurs supplémentaires avec le rôle **Utilisateur**, hiveuser1 et hiveuser2. Les utilisateurs suivants seront utilisés dans [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
 
@@ -172,7 +167,7 @@ Si vous utilisez votre propre domaine, vous devez synchroniser le mot de passe. 
 
 **Pour configurer LDAPS pour l’instance Azure AD**
 
-1. Récupérez un certificat SSL signé par une autorité signataire pour votre domaine. Les certificats auto-signés ne peuvent pas être utilisés. Si vous ne pouvez pas obtenir de certificat SSL, veuillez contacter hdipreview@microsoft.com pour solliciter une exception.
+1. Récupérez un certificat SSL signé par une autorité signataire pour votre domaine. Si vous souhaitez utiliser un certificat auto-signé, veuillez contacter hdipreview@microsoft.com pour solliciter une exception.
 2. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory** > **contosoaaddirectory**. 
 3. Cliquez sur **Configurer** dans le menu supérieur.
 4. Faites défiler jusqu’à **services de domaine**.
@@ -186,91 +181,6 @@ Si vous utilisez votre propre domaine, vous devez synchroniser le mot de passe. 
 > 
 
 Pour plus d’informations, consultez [Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## <a name="configure-an-organizational-unit-and-reverse-dns"></a>Configurer une unité d’organisation et le DNS inversé
-Dans cette section, vous ajoutez une machine virtuelle au réseau virtuel Azure AD et installez vos outils administratifs sur cette machine virtuelle de manière à pouvoir configurer une unité d’organisation et le DNS inversé. La recherche de DNS inversé est requise pour l’authentification Kerberos.
-
-**Pour créer une machine virtuelle dans le réseau virtuel**
-
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau** > **Compute** > **Machine virtuelle** > **Depuis la galerie**.
-2. Sélectionnez une image, puis cliquez sur **Suivant**.  Si vous ne savez pas laquelle utiliser, sélectionnez l’élément par défaut, **Windows Server 2012 R2 Datacenter**.
-3. Entrez ou sélectionnez les valeurs suivantes :
-   
-   * Nom de la machine virtuelle : **contosoaadadmin**
-   * Niveau : **De base**
-   * Nouveau nom d’utilisateur : (saisissez un nom d’utilisateur)
-   * Mot de passe : (saisissez un mot de passe)
-     
-     Notez que le nom d’utilisateur et le mot de passe sont associés à l’administrateur local.
-4. Cliquez sur **Suivant**
-5. Dans **Région/Réseau virtuel**, sélectionnez le nouveau réseau virtuel créé lors de l’étape précédente (contosoaadvnet), puis cliquez sur **Suivant**.
-6. Cliquez sur **Terminé**.
-
-**Pour établir une connexion RDP vers la machine virtuelle**
-
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Machines virtuelles** > **contosoaadadmin**.
-2. Cliquez sur **Tableau de bord** dans le menu du haut.
-3. Cliquez sur **Se connecter** dans la partie inférieure de la page.
-4. Suivez les instructions et utilisez le nom d’utilisateur et le mot de passe de l’administrateur local pour vous connecter.
-
-**Pour joindre la machine virtuelle au domaine Azure AD**
-
-1. Dans la session RDP, cliquez sur **Démarrer**, puis cliquez sur **Gestionnaire de serveur**.
-2. Dans le volet gauche, cliquez sur **Serveur local**.
-3. Dans le groupe de travail, cliquez sur **Groupe de travail**.
-4. Cliquez sur **Modifier**.
-5. Cliquez sur **Domaine**, saisissez **contoso.onmicrosoft.com**, puis cliquez sur **OK**.
-6. Saisissez les informations d’identification de l’utilisateur du domaine, puis cliquez sur **OK**.
-7. Cliquez sur **OK**.
-8. Cliquez sur **OK** afin de confirmer le redémarrage de l’ordinateur.
-9. Cliquez sur **Fermer**.
-10. Cliquez sur **Redémarrer maintenant**.
-
-Pour plus d’informations, consultez [Joindre une machine virtuelle Windows Server à un domaine géré](../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md).
-
-**Pour installer les outils d’administration Active Directory et les outils DNS**
-
-1. Établissez une connexion RDP vers **contosoaadadmin** à l’aide du compte utilisateur Azure AD.
-2. Cliquez sur **Démarrer**, puis sur **Gestionnaire de serveur**.
-3. Cliquez sur **Tableau de bord** dans le menu de gauche.
-4. Cliquez sur **Gérer**, puis sur **Ajoutez des rôles et des fonctionnalités**.
-5. Cliquez sur **Next**.
-6. Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.
-7. Sélectionnez la machine virtuelle actuelle dans le pool de serveurs, puis cliquez sur **Suivant**.
-8. Cliquez sur **Suivant** pour ignorer les rôles.
-9. Développez **Outils d’administration de serveur distant**, développez **Outils d’administration de rôles**, sélectionnez **Outils AD DS et AD LDS** et **Outils du serveur DNS**, puis cliquez sur **Suivant**. 
-10. Cliquez sur **Suivant**
-11. Cliquez sur **Installer**.
-
-Pour plus d’informations, consultez la section [Installer les Outils d’administration Azure Directory sur la machine virtuelle](../active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
-
-**Pour configurer le DNS inversé**
-
-1. Établissez une connexion RDP vers contosoaadadmin à l’aide du compte utilisateur Azure AD.
-2. Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **DNS**. 
-3. Cliquez sur **Non** pour ignorer l’ajout de ContosoAADAdmin.
-4. Sélectionnez **L’ordinateur suivant**, saisissez l’adresse IP du premier serveur DNS configuré précédemment, puis cliquez sur **OK**.  Vous devriez voir que le contrôleur de domaine/DNS est ajouté au volet de gauche.
-5. Développez le serveur contrôleur de domaine/DNS, cliquez avec le bouton droit sur **Zones de recherche inversée**, puis cliquez sur **Nouvelle zone**. L’Assistant Nouvelle Zone s’ouvre.
-6. Cliquez sur **Suivant**.
-7. Sélectionnez **Zone principale**, puis cliquez sur **Suivant**.
-8. Sélectionnez **To all DNS servers running on domain controllers in this domain (À tous les serveurs DNS exécutés sur les contrôleurs de domaine de ce domaine)**, puis cliquez sur **Suivant**.
-9. Sélectionnez **Zone de recherche inversée IPv4**, puis cliquez sur **Suivant**.
-10. Dans **ID réseau**, saisissez le préfixe de la plage de réseau virtuel HDInsight, puis cliquez sur **Suivant**. La section suivante vous explique la création du réseau virtuel HDInsight.
-11. Cliquez sur **Suivant**.
-12. Cliquez sur **Suivant**.
-13. Cliquez sur **Terminer**.
-
-L’unité d’organisation créée par la suite sera utilisée lors de la création du cluster HDInsight. Les utilisateurs et les comptes d’ordinateurs du système Hadoop seront placés dans cette unité d’organisation.
-
-**Créer une UO sur un domaine géré par les services de domaine Azure Active Directory**
-
-1. Établissez une connexion RDP à **contosoaadadmin** à l’aide du compte de domaine du groupe **AAD DC Administrators**.
-2. Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **Centre d’administration Active Directory**.
-3. Cliquez sur le nom de domaine du volet de gauche. Par exemple, contoso.
-4. Cliquez sur **Nouveau** sous le nom de domaine du volet **Tâche**, puis sur **Unité d’organisation**.
-5. Saisissez un nom, par exemple **HDInsightOU**, puis cliquez sur **OK**. 
-
-Pour plus d’informations, consultez [Créer une UO sur un domaine géré par les services de domaine Azure Active Directory](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Créer un réseau virtuel Resource Manager pour le cluster HDInsight
 Dans cette section, vous allez créer un réseau virtuel Azure Resource Manager qui sera utilisé pour le cluster HDInsight. Pour plus d’informations sur la création d’un réseau virtuel Azure à l’aide d’autres méthodes, consultez la section [Créez un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
@@ -354,11 +264,11 @@ Dans cette section, vous créez un cluster Hadoop Linux dans HDInsight à l’
        * **Paramètres du domaine** : 
          
          * **Nom du domaine** : contoso.onmicrosoft.com
-         * **Mot de passe utilisateur du domaine** :saisissez un nom d’utilisateur du domaine. Ce domaine doit présenter les privilèges suivants : joignez les machines aux domaines et placez-les dans l’unité d’organisation configurée précédemment ; créez les principaux du service au sein de l’unité d’organisation configurée précédemment ; créez les entrées du DNS inversé. Cet utilisateur de domaine devient l’administrateur de ce cluster HDInsight joint à un domaine.
+         * **Mot de passe utilisateur du domaine** :saisissez un nom d’utilisateur du domaine. Ce domaine doit présenter les privilèges suivants : joignez les machines aux domaines et placez-les dans l’unité d’organisation spécifiée durant la création du cluster ; créez les principaux du service au sein de l’unité d’organisation spécifiée durant la création du cluster ; créez les entrées du DNS inversé. Cet utilisateur de domaine devient l’administrateur de ce cluster HDInsight joint à un domaine.
          * **Mot de passe du domaine** : entrez le mot de passe de l’utilisateur du domaine.
-         * **Unité d’organisation** : saisissez le nom unique de l’unité d’organisation configurée précédemment. Par exemple : UO = HDInsightOU, CD = contoso, CD = onmicrosoft, CD = com
+         * **Unité d’organisation** : saisissez le nom unique de l’unité d’organisation que vous souhaitez utiliser avec le cluster HDInsight. Par exemple : UO = HDInsightOU, CD = contoso, CD = onmicrosoft, CD = com. Si cette unité d’organisation n’existe pas, le cluster HDInsight tente de la créer. Assurez-vous que l’unité d’organisation est déjà présente ou que le compte de domaine dispose des autorisations nécessaires pour en créer une. Si vous utilisez le compte de domaine qui fait partie des administrateurs AADDC, il dispose déjà des autorisations nécessaires pour créer l’unité d’organisation.
          * **URL LDAPS** : ldaps://contoso.onmicrosoft.com:636
-         * **Access user group (Accéder au groupe d’utilisateurs)** : spécifiez le groupe de sécurité dont vous souhaitez synchroniser les utilisateurs au cluster. Par exemple, HiveUsers.
+         * **Accéder au groupe d’utilisateurs** : spécifiez le groupe de sécurité dont vous souhaitez synchroniser les utilisateurs avec le cluster. Par exemple, HiveUsers.
            
            Pour enregistrer les modifications, cliquez sur **Sélectionner**.
            
@@ -393,19 +303,18 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
    * **Sous-réseau du réseau virtuel** : /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
    * **Nom de domaine** : contoso.onmicrosoft.com
    * **Organization Unit DN (Nom de domaine de l’unité d’organisation)** : UO = HDInsightOU,CD = contoso, CD = onmicrosoft, CD = com
-   * **Cluster Users Group D Ns**: "\"NC = HiveUsers, UO = AADDC Users,CD =<DomainName>, CD = onmicrosoft,CD = com\""
+   * **Nom de domaine du groupe d’utilisateurs du cluster** : [\"HiveUsers\"]
    * **LDAPUrls** : ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (saisissez le nom d’utilisateur de l’administrateur du domaine)
    * **DomainAdminPassword** : (saisissez le mot de passe utilisateur de l’administrateur du domaine)
-   * **J’accepte les termes et conditions mentionnés ci-dessus **: (vérification)
+   * **J’accepte les termes et conditions mentionnés ci-dessus**: (vérification)
    * **Épingler au tableau de bord** : (vérification)
 3. Cliquez sur **Achat**. Vous verrez une nouvelle vignette intitulée **Déploiement du déploiement de modèle**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 
 Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Pour obtenir des instructions sur la suppression d’un cluster, consultez [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour configurer un cluster HDInsight joint à un domaine avec Azure PowerShell, consultez [Configuration de clusters HDInsight joints à un domaine avec Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour utiliser SSH et vous connecter aux clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 

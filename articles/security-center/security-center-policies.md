@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -66,7 +67,7 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
    >
 9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Cliquez sur **Stratégie de prévention** pour afficher des options similaires à celles de la capture d’écran suivante :
 
-    ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Le tableau ci-dessous explique à quoi sert chaque option :
 
@@ -82,6 +83,7 @@ Le tableau ci-dessous explique à quoi sert chaque option :
 | Audit SQL et détection des menaces |Recommande l’activation de l’audit de l’accès à Azure SQL Database à des fins de conformité, mais également de détection avancée des menaces et d’examen. |
 | Chiffrement transparent des données SQL |Recommande l’activation du chiffrement au repos pour votre base de données Azure SQL Database, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Même si vos données font l’objet d’une violation de sécurité, elles ne seront pas lisibles. |
 | Évaluation des vulnérabilités |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
+| Chiffrement du stockage |Cette fonctionnalité est actuellement disponible pour les objets blob et fichiers Azure. Notez qu’après l’activation du chiffrement de service de stockage, seules les nouvelles données seront chiffrées et tous les fichiers existants dans ce compte de stockage resteront non chiffrés. |
 
 Après avoir configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
 

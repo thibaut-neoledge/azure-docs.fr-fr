@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -119,7 +120,7 @@ Le [portail Azure](https://portal.azure.com) fournit une interface utilisateur q
 Vous pouvez également utiliser Azure PowerShell pour créer et gérer des partages de fichiers.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Installation des applets de commande PowerShell pour Azure Storage
-Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des instructions sur l’installation et le point d’installation.
+Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour des instructions sur l’installation et le point d’installation.
 
 > [!NOTE]
 > Il est recommandé de télécharger et d’installer le dernier module Azure PowerShell ou d’effectuer une mise à niveau vers celui-ci.

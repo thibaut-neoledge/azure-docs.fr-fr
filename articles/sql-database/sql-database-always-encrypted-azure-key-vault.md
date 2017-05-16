@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 * [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) , version 13.0.700.242 ou ultérieure.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou version ultérieure (sur l’ordinateur client).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs), version 1.0 ou ultérieure. Tapez **(Get-Module azure -ListAvailable).Version** pour voir la version de PowerShell que vous exécutez.
+* [Azure PowerShell](/powershell/azure/overview), version 1.0 ou ultérieure. Tapez **(Get-Module azure -ListAvailable).Version** pour voir la version de PowerShell que vous exécutez.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Autoriser votre application cliente à accéder au service SQL Database
 Vous devez autoriser votre application cliente à accéder au service SQL Database en configurant l’authentification requise et en obtenant le *ClientId* et le *Secret* dont vous aurez besoin pour authentifier votre application dans le code suivant.

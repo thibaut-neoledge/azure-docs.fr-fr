@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 5bb67803be0c9cb2fa21545eaee1d26b85bae3c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 31582a87354bf915f058090add02d837f835a77c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -68,13 +70,15 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
 * [Kit de ressources Azure pour Eclipse]
-  * *Installation du kit de ressources Azure pour Eclipse*
-  * [Créer une application web « Hello World » pour Azure dans Eclipse]
   * [Nouveautés du kit de ressources Azure pour Eclipse]
+  * *Installation du kit de ressources Azure pour Eclipse*
+  * [Azure Sign In Instructions for the Azure Toolkit for Eclipse] (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
+  * [Créer une application web « Hello World » pour Azure dans Eclipse]
 * [Kit de ressources Azure pour IntelliJ]
-  * [Installation du kit de ressources Azure pour IntelliJ]
-  * [Créer une application web « Hello World » pour Azure dans IntelliJ]
   * [Nouveautés du Kit de ressources Azure pour IntelliJ]
+  * [Installation du kit de ressources Azure pour IntelliJ]
+  * [Azure Sign In Instructions for the Azure Toolkit for IntelliJ] (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
+  * [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
@@ -86,6 +90,8 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
+[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
 [Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
@@ -101,9 +107,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

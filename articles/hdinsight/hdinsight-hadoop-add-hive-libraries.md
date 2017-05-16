@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bf15644cbf3a640bb706292c17cddbefa0574605
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Hive personnalisées lors de la création de votre cluster HDInsight
@@ -34,8 +35,8 @@ Lors de la création du cluster, le script énumère les fichiers, les copie sur
 > [!NOTE]
 > L’utilisation de l’action de script dans cet article rend les bibliothèques disponibles dans les scénarios suivants :
 >
-> * **HDInsight basé sur Linux** : lorsque vous utilisez la **ligne de commande Hive**, **WebHCat** et **HiveServer2**.
-> * **HDInsight basé sur Windows** : lorsque vous utilisez la **ligne de commande Hive** et **WebHCat**.
+> * **HDInsight basé sur Linux** : lorsque vous utilisez un client Hive, **WebHCat** et **HiveServer2**.
+> * **HDInsight basé sur Windows** : lorsque vous utilisez le client Hive et **WebHCat**.
 
 ## <a name="the-script"></a>Le script
 
@@ -76,7 +77,7 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
 
-   * **URI du script**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **URI du script** : https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: cochez cette option.
 

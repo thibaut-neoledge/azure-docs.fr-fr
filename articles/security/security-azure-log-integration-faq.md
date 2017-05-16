@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +25,11 @@ ms.lasthandoff: 03/17/2017
 Ce forum aux questions (FAQ) répond aux questions sur l’intégration des journaux Azure, un service qui vous permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Le logiciel d’intégration des journaux Azure est-il disponible ?
-Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Azure. 
+Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Azure.
+
+## <a name="where-is-azure-log-integration-available"></a>Où l’intégration des journaux Azure est-elle disponible ?
+
+Elle est actuellement disponible dans les versions commerciales d’Azure et dans Azure Government, mais n’est pas disponible en Chine ni en Allemagne.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
 Exécutez la commande **azlog source list**.
@@ -82,7 +86,7 @@ Consultez l'article :
 Consultez la rubrique [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Comment puis-je modifier les données collectées avec les diagnostics de la machine virtuelle ?
-Consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour plus d’informations sur la manière d’obtenir, modifier et définir les diagnostics Azure dans une configuration Windows *(WAD)* . Voici un exemple :
+Consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour plus d’informations sur la manière d’obtenir, modifier et définir les diagnostics Azure dans une configuration Windows *(WAD)* . Voici un exemple :
 
 ### <a name="get-the-wad-config"></a>Obtention de la configuration de WAD
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -107,7 +111,7 @@ L’exemple suivant est une configuration où seuls l’ID d’événement 4624 
 
 Après avoir apporté les modifications, vérifiez le compte de stockage pour vous assurer que les événements corrects sont collectés.
 
-Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) et sélectionnez le service « Intégration des journaux » pour demander un support.
+Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support technique](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) et sélectionnez le service **Intégration des journaux** pour votre demande.
 
 
 <!--Image references-->

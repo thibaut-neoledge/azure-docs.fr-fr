@@ -17,8 +17,3 @@ Une fois la configuration et l'inscription terminées, l’appareil est mis en l
 
 ![Étape en ligne de l’appareil virtuel StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md)
 ## [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md)
-## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md)
+## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Prise en main
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
@@ -37,21 +37,25 @@
 ### [PowerShell (classique)](vpn-gateway-multi-site.md)
 ## [Configurer BGP pour une passerelle VPN](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configurer les connexions haut actif-actif](vpn-gateway-activeactive-rm-powershell.md)
-## [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Modifier les paramètres de la passerelle réseau locale
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
 ## Supprimer une passerelle VPN
 ### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Créer des certificats racine auto-signés pour les connexions P2S](vpn-gateway-certificates-point-to-site.md)
+## Créer des certificats auto-signés pour les connexions point à site
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (classique)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (classique)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj154113)
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)

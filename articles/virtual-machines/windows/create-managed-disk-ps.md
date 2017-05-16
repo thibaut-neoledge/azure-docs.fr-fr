@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 51dbf591138434f1639dd6d4e93758927cff6d33
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0a6e034da0445e94178e04cecc3ce09d86d2d29a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +34,7 @@ Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière vers
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="create-a-managed-disk-from-a-vhd-in-an-azure-storage-account"></a>Créer un disque géré à partir d’un disque dur virtuel dans un compte de stockage Azure
@@ -81,3 +82,4 @@ Le disque utilisé dans cet exemple fait 128 Go, mais vous devrez choisir une ta
     
 ## <a name="next-steps"></a>Étapes suivantes    
 - Si vous disposez déjà d’une machine virtuelle, vous pouvez y [attacher un disque de données](attach-disk-portal.md).
+

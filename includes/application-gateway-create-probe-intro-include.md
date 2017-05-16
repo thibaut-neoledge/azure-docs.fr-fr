@@ -2,8 +2,3 @@ Des sondes personnalisé vous permet d'avoir un contrôle plus granulaire sur l'
 
 Cet article vous aidera à créer une passerelle d'application avec une sonde personnalisée ou à ajouter une sonde personnalisée à une passerelle d'application existante. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

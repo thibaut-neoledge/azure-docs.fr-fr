@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: getting-started
-ms.date: 2/14/2017
+ms.date: 4/4/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9a0e7a9aadf6ca12915635408653a37241dbb321
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 8a903cd870f01f9ca6224efd1386b68c63e3aa98
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Déploiement d’une application de mise à l’échelle à l’aide d’un modèle
 
-Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Ce didacticiel se base sur [Déploiement d’un jeu de mise à l’échelle simple](virtual-machine-scale-sets-mvss-start.md) et décrit comment déployer une application de mise à l’échelle automatique simple sur un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager.
+Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Ce didacticiel se base sur [Déploiement d’un jeu de mise à l’échelle simple](virtual-machine-scale-sets-mvss-start.md) et décrit comment déployer une application de mise à l’échelle automatique simple sur un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager.  Vous pouvez également configurer la mise à l’échelle automatique en utilisant PowerShell, CLI ou le portail. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>Deux modèles de démarrage rapide
 Lorsque vous déployez un jeu de mise à l’échelle, vous pouvez installer de nouveaux logiciels sur une image de plateforme à l’aide d’une [extension de machine virtuelle](../virtual-machines/virtual-machines-windows-extensions-features.md). Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure, comme le déploiement d’une application. Deux modèles différents sont fournis dans [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) et montrent comment déployer une application de mise à l’échelle automatique sur un jeu de mise à l’échelle à l’aide des extensions de machine virtuelle.

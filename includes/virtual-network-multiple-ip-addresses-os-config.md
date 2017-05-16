@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
+## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
 Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle :
 
@@ -32,7 +32,7 @@ Pour être sûr de pouvoir vous connecter à Internet à partir de votre configu
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Vous pouvez uniquement effectuer un test Ping de la connexion Internet si l’adresse IP privée que vous utilisez ci-dessus est associée à une adresse IP publique.
+>Pour les configurations IP secondaires, vous pouvez uniquement exécuter une commande ping sur Internet si une adresse IP publique est associée à la configuration. Pour les configurations IP principales, une adresse IP publique n’est pas requise pour exécuter une commande ping sur Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ Pour être sûr de pouvoir vous connecter à Internet à partir de votre configu
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Vous pouvez uniquement effectuer un test Ping de la connexion Internet si l’adresse IP privée que vous utilisez ci-dessus est associée à une adresse IP publique.
+>Pour les configurations IP secondaires, vous pouvez uniquement exécuter une commande ping sur Internet si une adresse IP publique est associée à la configuration. Pour les configurations IP principales, une adresse IP publique n’est pas requise pour exécuter une commande ping sur Internet.
 
 Pour les machines virtuelles Linux, lorsque vous tentez de valider la connectivité sortante à partir d’une carte réseau secondaire, il se peut que vous deviez ajouter des itinéraires appropriés. Pour ce faire, de nombreuses options s’offrent à vous. Reportez-vous à la documentation appropriée pour votre distribution Linux. Voici une méthode pour effectuer cette opération :
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
     - **10.0.0.1** par votre passerelle par défaut
     - **eth2** le nom de votre carte réseau secondaire
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/19/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e0cd1eb986e137e1e8877286b2efe9a6924da931
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d5e13e6a96828e7c303e4d870ee170b90a0c4308
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -30,20 +31,20 @@ Vous pouvez copier des données à partir de tout magasin de données source pri
 > La passerelle de gestion des données version 2.1 et versions supérieures prend en charge la copie de données à partir de magasins de données sur site/Azure IaaS vers Azure DocumentDB et vice versa.
 
 ## <a name="supported-versions"></a>Versions prises en charge
-Ce connecteur DocumentDB prend en charge la copie de données vers/à partir d’une collection partitionnée et d’une collection à partition unique DocumentDB. [DocDB pour MongoDB](../documentdb/documentdb-protocol-mongodb.md) n’est pas pris en charge.
+Ce connecteur DocumentDB prend en charge la copie de données vers/à partir d’une collection partitionnée et d’une collection à partition unique DocumentDB. [DocDB pour MongoDB](../documentdb/documentdb-protocol-mongodb.md) n’est pas pris en charge. Pour copier des données en l’état dans des/à partir de fichiers JSON ou une autre collection DocumentDB, consultez [Importation/exportation de documents JSON](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis Azure DocumentDB à l’aide de différents outils/API.
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser l’**Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Voir [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
 
-Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
+Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
 
 1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
 Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir de Azure DocumentDB, consultez la section [Exemples JSON](#json-examples) de cet article. 
 
@@ -115,6 +116,17 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : `Name.First` dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est `.` (point). |Caractère utilisé pour séparer les niveaux d’imbrication. <br/><br/>La valeur par défaut est `.` (point). |
 | writeBatchSize |Nombre de requêtes parallèles auprès du service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données à partir de DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de demandes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). |Entier  |Non (valeur par défaut : 5) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer. |intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). |Non |
+
+## <a name="importexport-json-documents"></a>Importation/exportation de documents JSON
+À l’aide de ce connecteur DocumentDB, vous pouvez facilement :
+
+* Importer des documents JSON à partir de différentes sources dans DocumentDB, y compris Blob Azure, Azure Data Lake, un système de fichiers local ou d’autres banques basées sur fichier prises en charge par Azure Data Factory.
+* Exporter des documents JSON à partir d’une collection DocumentDB vers différentes banques basées sur fichier.
+* Migrer des données entre deux collections DocumentDB en l’état.
+
+Pour obtenir une copie de ce type, indépendante du schéma : 
+* Lorsque vous utilisez l’Assistant Copie, cochez l’option **« Exporter en l’état dans des fichiers JSON ou une collection DocumentDB »**.
+* Lorsque vous utilisez l’édition JSON, ne spécifiez pas la section « structure » dans le ou les jeux de données DocumentDB ni la propriété « nestingSeparator » dans la source/le récepteur DocumentDB dans l’activité de copie. Pour importer à partir de/exporter dans des fichiers JSON, dans le jeu de données du magasin de fichiers, spécifiez le type de format « JsonFormat », configurez « filePattern » et ignorez les paramètres de format rest. Consultez la section [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format) pour plus de détails.
 
 ## <a name="json-examples"></a>Exemples JSON
 Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis le Stockage Blob Azure et Azure DocumentDB. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
@@ -450,15 +462,6 @@ Alors, la sortie JSON dans DocumentDB sera :
 }
 ```
 DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l’utilisateur de désigner la hiérarchie via **nestingSeparator**, qui est « . » dans cet exemple. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table.
-
-## <a name="importexport-json-documents"></a>Importation/exportation de documents JSON
-À l’aide de ce connecteur DocumentDB, vous pouvez facilement :
-
-* Importer des documents JSON à partir de différentes sources dans DocumentDB, y compris Blob Azure, Azure Data Lake, un système de fichiers local ou d’autres banques basées sur fichier prises en charge par Azure Data Factory.
-* Exporter des documents JSON à partir d’une collection DocumentDB vers différentes banques basées sur fichier.
-* Migrer des données entre deux collections DocumentDB en l’état.
-
-Pour obtenir une copie de ce type, indépendante du schéma, ne spécifiez pas la section « structure » dans le jeu de données d’entrée ni la propriété « nestingSeparator » dans la source/le récepteur DocumentDB dans l’activité de copie. Consultez la section relative à la spécification du format dans la rubrique consacrée aux informations de configuration du format JSON pour le connecteur basé sur fichier correspondant.
 
 ## <a name="appendix"></a>Annexe
 1. **Question :**

@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b0454ad51a2d0edecb6f7e7748ec3b74eeefa1da
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -25,7 +27,7 @@ ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
 
 Le service Proxy d’application Azure Active Directory vous aide à améliorer la productivité en publiant des applications locales afin que les employés travaillant à distance puissent également y accéder. Dans le portail Azure, vous pouvez également configurer l’authentification unique auprès de ces applications. Maintenant, vos utilisateurs doivent seulement s’authentifier auprès d’Azure AD et ils peuvent accéder à votre application d’entreprise sans se reconnecter.
 
-Dans cet article, nous allons utiliser l’exemple d’une application basée sur un mot de passe pour montrer comment le stockage du mot de passe fournit une expérience d’authentification unique simple. 
+Dans cet article, nous utilisons l’exemple d’une application basée sur un mot de passe pour montrer comment le stockage du mot de passe fournit une expérience d’authentification unique simple. 
 
 Vous devez avoir déjà publié et testé votre application avec le proxy d’application. Sinon, suivez les étapes de la rubrique [Publier des applications avec le proxy d’application Azure AD - Version préliminaire publique](application-proxy-publish-azure-portal.md) avant de revenir ici. 
 
@@ -35,7 +37,7 @@ Ou, si vous n’êtes pas familiarisé avec le proxy d’application, consultez 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
-3. Dans la liste, sélectionnez l’application pour laquelle vous voulez configurer l’authentification unique. Si vous avez un grand nombre d’applications, vous pouvez utiliser la zone de recherche pour les filtrer et accéder à celle qui vous intéresse.  
+3. Dans la liste, sélectionnez l’application pour laquelle vous voulez configurer l’authentification unique. Si vous disposez de nombreuses applications, vous pouvez utiliser la zone de recherche pour rechercher l’application correcte par filtrage.  
 4. Sous la section Gérer, sélectionnez **Authentification unique**.
 
    ![Sélectionner l’authentification unique](./media/application-proxy-sso-azure-portal/select-sso.png)
@@ -58,9 +60,4 @@ Accédez au [site Mes apps](https://myapps.microsoft.com) et sélectionnez l’a
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte Microso
 3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![Étape de création de connexion à MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

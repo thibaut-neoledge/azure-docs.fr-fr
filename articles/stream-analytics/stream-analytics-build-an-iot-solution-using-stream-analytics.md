@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 637473db37985a4a89ddb19e02eebc377902c942
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 ## <a name="prerequisites"></a>Composants requis
 Pour suivre ce didacticiel, vous avez besoin des composants suivants :
 
-* La version la plus récente d’ [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* La version la plus récente d’ [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 ou la version gratuite de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Des privilèges d’administrateur sur l’ordinateur
@@ -138,7 +139,7 @@ Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes l
 
 Téléchargez et enregistrez le dossier et les fichiers de support [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) .
 
-Ouvrez une fenêtre **Microsoft Azure PowerShell***en tant qu’administrateur*. Si vous ne disposez pas encore d’Azure PowerShell, suivez les instructions de la section [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) pour l’installer.
+Ouvrez une fenêtre **Microsoft Azure PowerShell***en tant qu’administrateur*. Si vous ne disposez pas encore d’Azure PowerShell, suivez les instructions de la section [Installer et configurer Azure PowerShell](/powershell/azure/overview) pour l’installer.
 
 Étant donné que Windows bloque automatiquement les fichiers .exe, .dll et .ps1, vous devez définir la stratégie d’exécution avant d’exécuter le script. Assurez-vous que la fenêtre Azure PowerShell s’exécute *en tant qu’administrateur*. Exécutez l’applet de commande **Set-ExecutionPolicy unrestricted**. Quand vous y êtes invité, tapez **O**.
 
@@ -255,7 +256,7 @@ Toutefois, si vous êtes intéressé par les détails de l’implémentation, le
 6. La Source est **Event Hub**.
 7. L’**Espace de noms Service Bus** doit être le premier TollData dans la liste déroulante.
 8. Le **Nom du hub d’événements** doit être défini sur **entrée**.
-9. Le **Nom de la stratégie du hub d’événements* est* *RootManageSharedAccessKey** (valeur par défaut).
+9. Le **Nom de la stratégie du hub d’événements* est **RootManageSharedAccessKey** (valeur par défaut).
 10. Sélectionnez **JSON** pour l’option **Format de sérialisation de l’événement**, et **UTF8** pour **Encodage**.
    
     Vos paramètres ressemblent à ceci :

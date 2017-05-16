@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 01/13/2017
+ms.date: 04/21/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 52dcb10495c564c5d8058b9c786b4cd331b6ae18
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -34,7 +35,10 @@ Cet article vous guidera dans la création d’un [index](https://docs.microsoft
 
 Avant de suivre ce guide et de passer à la création d’un index, vous devez avoir déjà [créé un service Azure Search](search-create-service-portal.md).
 
-Notez que tous les exemples de code de cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto). Vous pouvez également consulter le [kit de développement logiciel (SDK) .NET Azure Search](search-howto-dotnet-sdk.md) pour une description plus détaillée de l’exemple de code.
+>
+>
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifier la clé API d’administration de votre service Azure Search
 Maintenant que vous avez configuré un service Azure Search, vous être presque prêt à émettre des requêtes sur le système d’extrémité de votre service à l’aide du kit de développement logiciel (SDK) .NET. Tout d'abord, vous devez obtenir l’une des clés API d'administration générées pour le service Search que vous avez configuré. Le kit de développement logiciel (SDK) .NET envoie la clé API à chaque demande à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
@@ -89,6 +93,9 @@ Il est important de ne perdre de vue ni votre expérience de recherche ni vos be
 Dans notre exemple, nous avons nommé notre index « hotels » et nous avons défini nos champs à l’aide d’une classe de modèle. Chaque propriété de la classe de modèle comporte des attributs qui déterminent les comportements liés à la recherche du champ d’index correspondant. La classe de modèle est définie comme suit :
 
 ```csharp
+// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+// It ensures that Pascal-case property names in the model class are mapped to camel-case
+// field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
@@ -130,8 +137,6 @@ public partial class Hotel
 
     [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
-
-    // ToString() method omitted for brevity...
 }
 ```
 
@@ -178,10 +183,5 @@ serviceClient.Indexes.Delete("hotels");
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

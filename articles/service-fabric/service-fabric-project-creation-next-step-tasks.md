@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/01/2016
+ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4b2424e5efe3392b08e58ceb05ec63f15c7ad32
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 8208a1a41388a8cc36f3702bd0cad2bb82e16403
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -49,21 +50,23 @@ Le projet d’acteur fournit des méthodes pour la définition et l’obtention 
 ### <a name="stateless-web-api"></a>API web sans état
 Le projet d’API web sans état fournit un service web de base que vous pouvez utiliser pour ouvrir votre application à des clients externes. Pour plus d’informations sur la structure du projet, consultez [Prise en main : services de l’API Web Service Fabric avec auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md).
 
+
 ### <a name="aspnet-core"></a>ASP.NET Core
-Le Kit de développement logiciel (SDK) Service Fabric fournit le même ensemble de modèles ASP.NET Core que ceux disponibles pour les projets ASP.NET Core autonomes : vide, [Web API][aspnet-webapi] et [Web Application][aspnet-webapp].
+Le Kit de développement logiciel (SDK) Service Fabric fournit le même ensemble de modèles ASP.NET Core que ceux disponibles pour les projets ASP.NET Core autonomes : vide, [Web API][aspnet-webapi] et [Application web][aspnet-webapp].
+
+### <a name="guest-executables-and-guest-containers"></a>Exécutables invités et conteneurs d’invités
+
+Un « invité » Service Fabric est un service qui n’est pas généré avec les modèles de programmation de la plateforme. Vous pouvez empaqueter les fichiers binaires d’un invité [directement dans le package d’application](service-fabric-deploy-existing-app.md) ou [au moyen d’une image conteneur](service-fabric-deploy-container.md). Dans les deux cas, Visual Studio crée les artefacts nécessaires dans le dossier **ApplicationPackageRoot** du projet d’application. Visual Studio ne crée pas de projet de service, car le code existe déjà ailleurs. Si vous souhaitez gérer vos projets invités en même temps que le projet d’application Service Fabric, vous pouvez les ajouter à la même solution Visual Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 ### <a name="create-an-azure-cluster"></a>Création d’un cluster Azure
 Le SDK Service Fabric fournit un cluster local pour le développement et les tests. Pour créer un cluster dans Azure, consultez [Configuration d’un cluster Service Fabric à partir du portail Azure][create-cluster-in-portal].
 
-### <a name="try-deploying-to-azure-for-free-with-party-clusters"></a>Essayer gratuitement de déployer des applications vers Azure grâce au service Party Clusters
-Si vous souhaitez essayer de déployer et de gérer vos applications dans Azure sans configurer vos propres clusters, vous pouvez utiliser le [service Party Clusters](http://aka.ms/tryservicefabric)gratuit.
-
 ### <a name="publish-your-application-to-azure"></a>Publication de votre application dans Azure
-Vous pouvez publier votre application directement à partir de Visual Studio vers un cluster Azure. Pour en savoir plus, consultez [Publication de votre application dans Azure][publish-app-to-azure].
+Vous pouvez publier votre application directement à partir de Visual Studio vers un cluster Azure. Pour en savoir plus, consultez [Publication de votre application sur Azure][publish-app-to-azure].
 
 ### <a name="use-service-fabric-explorer-to-visualize-your-cluster"></a>Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer
-L’outil Service Fabric Explorer offre un moyen facile de visualiser votre cluster, notamment les applications déployées et la disposition physique. Pour en savoir plus, consultez [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer][visualize-with-sfx].
+L’outil Service Fabric Explorer offre un moyen facile de visualiser votre cluster, notamment les applications déployées et la disposition physique. Pour en savoir plus, consultez [Visualisation de votre cluster à l’aide de Service Fabric Explorer][visualize-with-sfx].
 
 ### <a name="version-and-upgrade-your-services"></a>Contrôle de la version et mise à niveau de vos services
 Service Fabric permet une gestion de version indépendante et la mise à niveau de services indépendants dans une application. Pour en savoir plus, consultez [Gestion de version et mise à niveau de vos services][app-upgrade-tutorial].
@@ -81,9 +84,4 @@ Pour savoir comment configurer un processus d’intégration continue pour votre
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

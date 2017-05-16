@@ -14,16 +14,17 @@ ms.topic: article
 ms.workload: required
 ms.date: 03/27/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local
 > [!div class="op_single_selector"]
-> * [Machines VMware / machines physiques d’Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Machines VMware / machines physiques d’Azure](site-recovery-how-to-failback-azure-to-vmware.md)
 > * [Machines virtuelles Hyper-V d’Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure à partir d’Azure vers le site local. Suivez ces instructions lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows ou Linux après avoir protégé à nouveau vos machines en suivant cette [référence](site-recovery-how-to-reprotect.md).

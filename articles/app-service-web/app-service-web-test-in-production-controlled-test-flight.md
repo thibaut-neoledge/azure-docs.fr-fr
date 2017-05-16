@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e652218e6579ef430a5dc49f77a26a7d97b8b966
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -355,6 +356,6 @@ Azure App Service facilite le test en production des applications destinées aux
 * [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - Validateur JSON](http://jsonlint.com/)
 * [Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 > * [Portail Azure](application-gateway-create-url-route-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 
-Le routage basé sur le chemin d’URL vous permet d’associer des itinéraires basés sur le chemin d’URL de la requête Http. Il vérifie s’il existe un itinéraire vers un pool principal configuré pour les listes d’URL dans la passerelle Application Gateway et envoie le trafic réseau vers le pool principal défini. Une utilisation courante du routage basé sur l’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
+Le routage basé sur le chemin d’URL vous permet d’associer des itinéraires basés sur le chemin d’URL de la requête Http. Il vérifie s’il existe une route vers un pool principal configuré pour les listes d’URL dans la passerelle Application Gateway et envoie le trafic réseau vers le pool principal défini. Une utilisation courante du routage basé sur l’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
 
-Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle Application Gateway comporte deux types de règle : une règle de base et des règles basées sur le chemin. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux alors que les règles basées sur le chemin, en plus de la distribution de tourniquet, prennent également en compte le modèle de chemin de l’URL de demande lors du choix du pool principal.
+Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle d’application a deux types de règles : des règles de base et des règles basées sur un chemin. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux, tandis que les règles basées sur un chemin, en plus de la distribution en tourniquet, prennent également en compte le modèle de chemin de l’URL de demande lors du choix du pool back-end approprié.
 
 ## <a name="scenario"></a>Scénario
 
@@ -38,7 +39,7 @@ Le scénario suppose que vous avez déjà suivi la procédure de [Création d’
 
 ![itinéraire d’URL][scenario]
 
-## <a name="a-namecreateruleacreate-the-path-based-rule"></a><a name="createrule"></a>Créer la règle basée sur le chemin
+## <a name="createrule"></a>Créer la règle basée sur le chemin
 
 Une règle basée sur le chemin requiert son propre écouteur. Avant de créer la règle, vérifiez que vous disposez d’un écouteur.
 
@@ -79,6 +80,8 @@ L’ajout d’une règle basée sur le chemin à une passerelle Application Gate
 
 ![ajouter des règles supplémentaires basés sur le chemin][3]
 
+Ceci configure une route basée sur un chemin. Il est important de comprendre que les demandes ne sont pas réécrites : au fil de l’arrivée des demandes, la passerelle d’application examine la demande et, en fonction du modèle d’URL, envoie la demande au back-end approprié.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure Application Gateway, consultez [Configuration du déchargement SSL](application-gateway-ssl-portal.md)
@@ -87,9 +90,4 @@ Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

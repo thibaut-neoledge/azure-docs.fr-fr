@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ac67a1a67c3a11fde98242519266fcd3ab4f60cb
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -95,6 +95,7 @@ Dans cette section, vous allez créer une application console .NET qui crée une
 > 
 > 
 
+<a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Recevoir des messages appareil-à-cloud
 Dans cette section, vous allez créer une application console .NET qui lit les messages des appareils vers le cloud dans l’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Azure Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages appareil-à-cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Pour découvrir comment traiter les messages appareil-à-cloud à grande échelle, reportez-vous au didacticiel [Traitement des messages appareil-à-cloud][lnk-process-d2c-tutorial]. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements][lnk-eventhubs-tutorial]. (Ce didacticiel s’applique aux points de terminaison compatibles Event Hub IoT Hub).
 
@@ -178,20 +179,24 @@ Dans cette section, vous allez créer une application console .NET qui simule un
    
         private static async void SendDeviceToCloudMessagesAsync()
         {
-            double avgWindSpeed = 10; // m/s
+            double minTemperature = 20;
+            double minHumidity = 60;
             Random rand = new Random();
    
             while (true)
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                double currentTemperature = minTemperature + rand.NextDouble() * 15;
+                double currentHumidity = minHumidity + rand.NextDouble() * 20;
    
                 var telemetryDataPoint = new
                 {
                     deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
+                    temperature = currentTemperature,
+                    humidity = currentHumidity
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
    
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
@@ -200,7 +205,7 @@ Dans cette section, vous allez créer une application console .NET qui simule un
             }
         }
    
-    Cette méthode envoie un nouveau message Appareil vers cloud toutes les secondes. Le message contient un objet JSON sérialisé avec l’ID de l’appareil et un nombre généré de manière aléatoire pour simuler un anémomètre.
+    Cette méthode envoie un nouveau message Appareil vers cloud toutes les secondes. Ce message contient un objet JSON sérialisé avec l’ID de l’appareil et des nombres générés de manière aléatoire pour simuler un thermomètre et un capteur d’humidité.
 7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
         Console.WriteLine("Simulated device\n");

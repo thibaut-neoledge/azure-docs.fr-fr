@@ -58,8 +58,3 @@ Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant d
 
 Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [Qu’est-ce qu’une liste de contrôle d’accès réseau ?](../articles/virtual-network/virtual-networks-acl.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

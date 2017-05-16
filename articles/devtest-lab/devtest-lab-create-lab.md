@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -37,12 +38,14 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 4. Dans le panneau **Créer un laboratoire de test et développement** :
    
    1. Entrez un **Nom de laboratoire** pour le nouveau laboratoire.
-   2. Sélectionnez l’ **abonnement** à associer au laboratoire.
+   2. Sélectionnez **l’abonnement** à associer au laboratoire.
    3. Sélectionnez un **Emplacement** dans lequel stocker le laboratoire.
    4. Sélectionnez **Arrêt automatique** pour spécifier si vous souhaitez activer l’arrêt automatique de toutes les machines virtuelles du laboratoire et en définir les paramètres. 
-   5. Sélectionnez **Créer**.
-      
-      ![Créer un panneau de laboratoire](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Sélectionnez **Épingler au tableau de bord** si vous souhaitez faire apparaître un raccourci vers le laboratoire sur le tableau de bord du portail.
+   6. Sélectionnez **Options d’automatisation** pour obtenir des modèles Azure Resource Manager pour l’automatisation de la configuration. 
+   7. Sélectionnez **Créer**.
+    
+    ![Créer un panneau de laboratoire](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ Une fois que vous avez créé votre laboratoire, voici quelques étapes à prend
 * [Créer un modèle de laboratoire](devtest-lab-create-template.md).
 * [Créer des artefacts personnalisés pour vos machines virtuelles](devtest-lab-artifact-author.md).
 * [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

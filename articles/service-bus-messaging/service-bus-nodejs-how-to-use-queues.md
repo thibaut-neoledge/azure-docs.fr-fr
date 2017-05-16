@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: a28be325d17bfbe2c5e22bf43e6143e520d6e39f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -67,7 +68,7 @@ Le module Azure lit les variables d’environnement AZURE\_SERVICEBUS\_NAMESPACE
 
 Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
 
-Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic][Azure classic portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
+Pour un exemple de configuration des variables d’environnement dans le [portail Azure][Azure portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Création d’une file d’attente
 L’objet **ServiceBusService** permet d’utiliser des files d’attente Service Bus. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
@@ -175,7 +176,7 @@ Service Bus intègre des fonctionnalités destinées à faciliter la récupérat
 
 De même, il faut savoir qu’un message verrouillé dans une file d’attente est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
+Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé *Au moins une fois*, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les files d’attente, consultez les ressources suivantes :
@@ -185,7 +186,7 @@ Pour en savoir plus sur les files d’attente, consultez les ressources suivante
 * [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

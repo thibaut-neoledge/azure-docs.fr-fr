@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7fad506f2b85404c0b8a2c52ca0d630efdd21387
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d8a586834034460932516e352560b570141d9cda
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Lorsque vous concevez l’infrastructure de votre application, vous devez égale
 
 Les équilibreurs de charge peuvent être utilisés devant chaque couche d’application pour fonctionner avec un groupe à haute disponibilité et assurer que le trafic peut être acheminé vers une instance en cours d’exécution. Sans équilibrage de charge, vos machines virtuelles peuvent continuer à s’exécuter dans l’ensemble des événements de maintenance planifiée et non planifiée, mais il se peut alors que vos utilisateurs finaux ne puissent pas les résoudre si la machine virtuelle principale n’est pas disponible à ce moment précis.
 
-Lorsque vous utilisez des disques non managés, concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. Il est recommandé d’utiliser un compte de stockage séparé pour chaque machine virtuelle dans un groupe à haute disponibilité. Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage. Les [limites](../../storage/storage-scalability-targets.md) du compte de stockage doivent être prises en compte lorsque vous ajoutez plusieurs disques durs virtuels à un compte de stockage. Pour les [disques managés Azure](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), la répartition des disques sous-jacents est effectuée automatiquement.
+Concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. La meilleure pratique en vigueur consiste à [utiliser des disques managés pour les machines virtuelles dans un groupe à haute disponibilité](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Si vous utilisez actuellement des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques managés](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -89,7 +89,19 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |Autres |
 | **Navigateur Edge**: liste de lecture |sync |sync |Interne |
 | **Navigateur Edge**: favoris |sync |sync |Interne |
-| **Navigateur Edge**: tous les autres paramètres Edge |X |X | |
+| **Navigateur Edge** : sites les plus consultés <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : URL entrées <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : afficher le bouton Accueil <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : bloquer les fenêtres publicitaires <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : me demander ce qu’il faut faire avec chaque téléchargement <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : proposer d’enregistrer les mots de passe <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : envoyer les demandes Ne pas me suivre <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : enregistrer les entrées des formulaires <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : afficher les suggestions de recherche et de site au fil de la frappe <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : préférences pour les cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : permettre aux sites d’enregistrer les licences des médias protégés sur mon appareil <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : paramètre du lecteur d’écran <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Contraste élevé**: activé ou désactivé |sync |X |options d’ergonomie |
 | **Contraste élevé**: paramètres du thème |sync |X |options d’ergonomie |
 | **Internet Explorer**: ouvrir les onglets (URL et titre) |sync |sync |Internet Explorer |
@@ -158,6 +170,9 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Frappe**: les touches émettent des sons pendant la frappe |sync |backup |language |
 | **Frappe**: données de personnalisation pour le clavier tactile |sync |backup |language |
 | **Wi-Fi**: profils Wi-Fi (WPA uniquement) |sync |sync |Mot de passe |
+
+###### <a name="footnote-1"></a>Note de bas de page 1
+Version minimale du système d’exploitation prise en charge : Windows Creators Update (Build 15063). 
 
 ## <a name="related-topics"></a>Rubriques connexes
 * [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

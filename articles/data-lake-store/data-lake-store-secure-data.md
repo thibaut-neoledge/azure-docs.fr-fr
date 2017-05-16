@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
 ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -72,7 +74,7 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
 
 7. Votre groupe de sécurité ou utilisateur a désormais accès au compte Azure Data Lake Store. Si vous souhaitez fournir un accès à des utilisateurs en particulier, vous pouvez les ajouter au groupe de sécurité. De même, si vous souhaitez révoquer l'accès d'un utilisateur, vous pouvez le supprimer du groupe de sécurité. Vous pouvez également affecter plusieurs groupes de sécurité à un compte. 
 
-## <a name="a-namefilepermissionsaassign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Azure Data Lake Store
+## <a name="filepermissions"></a>Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Azure Data Lake Store
 En affectant des groupes de sécurité ou des utilisateurs au système de fichiers Azure Data Lake, vous définissez un contrôle d'accès aux données stockées dans Azure Data Lake Store.
 
 1. Dans le panneau de votre compte Data Lake Store, cliquez sur **Explorateur de données**.
@@ -146,10 +148,5 @@ Quand vous supprimez des ACL de groupes de sécurité du système de fichiers Az
 * [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 * [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 * [Accéder aux journaux de diagnostic de Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

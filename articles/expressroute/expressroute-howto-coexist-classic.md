@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7e866a218c003390e0281f1adce7c0d843d006c0
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 594dee64f49e83949403fc85903ec66f9cf0d996
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -82,7 +82,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 ## <a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
 2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
     Lorsque vous créez votre schéma, veillez à utiliser les valeurs suivantes :
@@ -195,7 +195,7 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 > 
 > 
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
 2. Supprimez la passerelle VPN ExpressRoute ou de site à site existante. Utilisez l’applet de commande suivante en remplaçant les valeurs par les vôtres.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET

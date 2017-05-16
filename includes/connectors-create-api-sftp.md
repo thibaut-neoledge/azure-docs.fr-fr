@@ -12,8 +12,3 @@ Pour autoriser votre application logique à se connecter à votre compte SFTP, p
 3. Notez que la connexion a été créée et que vous pouvez désormais poursuivre la procédure dans votre application logique :   
    ![Image de connexion SFTP en ligne 3](./media/connectors-create-api-sftp/sftp-3.png) 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

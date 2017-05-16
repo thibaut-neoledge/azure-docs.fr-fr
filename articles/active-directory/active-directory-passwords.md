@@ -1,225 +1,98 @@
 ---
-title: "Réinitialisation de mot de passe Azure Active Directory | Microsoft Docs"
-description: "Description des fonctionnalités de gestion des mots de passe dans Azure AD, y compris la réinitialisation, la modification, les rapports de gestion et l’écriture différée vers votre annuaire Active Directory local."
+
+title: "Azure AD : vue d’ensemble de la réinitialisation de mot de passe en libre-service Azure AD | Microsoft Docs"
+description: "En quoi la réinitialisation de mot de passe en libre-service d’Azure AD peut-elle être utile à votre organisation ?"
 services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
-ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
+ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 05/05/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 1ab61e90d86be5c2ffa89db8e8cd7fe96d4d12f6
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 57d7017050128cf1116caf4e1934782e121498a2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="azure-active-directory-password-reset-for-it-administrators"></a>Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques
-> [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
->
->
+# <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
 
-Le libre-service a toujours été l’objectif principal des services informatiques du monde entier dans le but de réduire les coûts et de faciliter le travail.  En effet, le marché est inondé de produits qui vous permettent de gérer vos groupes locaux, mots de passe ou profils utilisateur dans le cloud ou localement. Azure Active Directory (Azure AD) se différencie des autres offres en fournissant des fonctionnalités libre-service performantes et faciles à utiliser.
+« Libre-service » est un terme qui est actuellement très employé dans un grand nombre de services informatiques du monde entier, avec toutefois des significations différentes. Le marché regorge de produits permettant de gérer les groupes locaux, les mots de passe ou les profils utilisateur dans le cloud ou en local.
 
-**gestion des mots de passe Azure AD** est un ensemble de fonctionnalités qui permettent à vos utilisateurs de gérer les mots de passe à partir de n'importe quel appareil, à tout moment, en tout lieu, tout en respectant les stratégies de sécurité que vous définissez.
+La réinitialisation de mot de passe libre-service (SSPR) Azure Active Directory (Azure AD) se distingue par sa facilité d’utilisation et de déploiement. La réinitialisation de mot de passe libre-service Azure AD intègre un ensemble de fonctionnalités qui offrent les avantages suivants :
 
-## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINISTRATEURS : découvrez comment commencer la réinitialisation d’un mot de passe Azure AD
-Si vous êtes un administrateur qui souhaite activer la réinitialisation du mot de passe Azure AD, ou simplement en savoir plus sur elle, démarrez avec les liens ci-dessous pour accéder à ce qui vous intéresse.
+* Possibilité pour les utilisateurs de gérer leur propre mot de passe
+  * Depuis n’importe quel appareil
+  * De n’importe quel endroit
+  * Quel que soit le moment
+* Possibilité de préserver la conformité avec les stratégies que vous définissez en qualité d’administrateur
 
-| Rubrique |  |
-| --- | --- |
-| Scénarios pris en charge |[Quelles sont les possibilités offertes par la réinitialisation de mot de passe Azure AD ?](#what-is-possible-with-azure-ad-password-reset) |
-| Pourquoi l'utiliser ? |[Pourquoi utiliser la réinitialisation de mot de passe Azure AD ?](#why-use-azure-ad-password-reset) |
-| Tarification et disponibilité |[Tarification et disponibilité](#pricing-and-availability) |
-| Activer la réinitialisation du mot de passe |[Activer le mot de passe réinitialisé pour vos utilisateurs](#enable-password-reset-for-your-users) |
-| Personnaliser le mode de fonctionnement |[Personnaliser le comportement de réinitialisation du mot de passe](#customize-password-reset-behavior) |
-| Déployer à mes utilisateurs |[Configurer vos utilisateurs pour utiliser la réinitialisation du mot de passe](#configure-your-users-to-use-password-reset) |
-| Afficher des rapports |[Afficher l'activité de réinitialisation du mot de passe avec des rapports intégrés](#view-password-reset-activity-with-integrated-reports) |
-| Réinitialiser le mot de passe de l’utilisateur |[Gérer les mots de passe de vos utilisateurs](#manage-your-users-passwords) |
-| Définir les stratégies de mot de passe de mon organisation |[Définir des stratégies de mot de passe](#set-password-policies) |
-| Résoudre un problème |[Résoudre un problème](#troubleshoot-a-problem) |
-| Forum Aux Questions |[Lire un Forum Aux Questions](#read-a-faq) |
-| Détails techniques |[Comprendre les détails techniques](#understand-the-technical-details) |
-| Nouvelles fonctionnalités |[Mises à jour de service récentes](#recent-service-updates) |
-| Liens vers d'autres documents |[Liens vers la documentation de réinitialisation du mot de passe](#links-to-password-reset-documentation) |
+Si vous êtes prêt, vous pouvez commencer à utiliser Azure AD SSPR en vous aidant de notre [guide de démarrage rapide](active-directory-passwords-getting-started.md) et permettre ainsi à vos utilisateurs de réinitialiser rapidement leur propre mot de passe.
 
-### <a name="what-is-possible-with-azure-ad-password-reset"></a>Quelles sont les possibilités offertes par la réinitialisation de mot de passe Azure AD ?
-Voici quelques opérations que vous pouvez effectuer avec les fonctionnalités de gestion des mots de passe Azure AD.
+## <a name="what-is-possible"></a>Ce qui est possible
 
-* **modification des mots de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de modifier leurs mots de passe expirés ou non expirés sans appeler un administrateur ou le support technique pour obtenir de l’aide.
-* **réinitialisation du mot de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de réinitialiser leurs mots de passe automatiquement sans appeler un administrateur ou le support technique pour obtenir de l’aide. La réinitialisation du mot de passe libre-service nécessite Azure AD Premium ou Basic. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory.
-* **réinitialisation du mot de passe initiée par l’administrateur** permet à un administrateur de réinitialiser le mot de passe d’un utilisateur final ou d’un autre administrateur depuis le [portail de gestion Azure](https://manage.windowsazure.com).
-* **rapports d'activité de gestion des mots de passe** donnent aux administrateurs un aperçu de l’activité d’inscription et de réinitialisation des mots de passe dans leur organisation.
-* **écriture différée de mot de passe** permet la gestion des mots de passe locaux depuis le cloud afin que tous les scénarios mentionnés ci-dessus puissent être exécutés par ou pour des utilisateurs fédérés ou synchronisés par mot de passe. L'écriture différée de mot de passe nécessite Azure AD Premium. Pour plus d'informations, consultez la page Prise en main d’Azure AD Premium.
+* **Modification des mots de passe en libre-service** : les utilisateurs finaux ou les administrateurs peuvent modifier leur mot de passe sans faire appel à un administrateur.
+* **Déverrouillage de compte en libre-service** : les utilisateurs finaux peuvent déverrouiller leur propre compte sans faire appel à l’aide d’un administrateur.
+* **Réinitialisation des mots de passe en libre-service** : les utilisateurs finaux ou les administrateurs peuvent réinitialiser automatiquement leur mot de passe sans faire appel à un administrateur. La réinitialisation de mot de passe en libre-service nécessite Azure AD Premium ou Basic - [Éditions d’Azure Active Directory](active-directory-editions.md).
+* **Réinitialisation de mot de passe initiée par l’administrateur** : permet à un administrateur de réinitialiser le mot de passe d’un utilisateur final ou d’un autre administrateur à partir du [portail Azure](https://docs.microsoft.com/azure/azure-portal-overview).
+* **Rapports d’activité de gestion des mots de passe** : donnent aux administrateurs un aperçu de l’activité d’inscription et de réinitialisation des mots de passe dans leur organisation - [Rapports de gestion](active-directory-passwords-reporting.md).
+* **Écriture différée de mot de passe** : autorise la gestion des mots de passe locaux à partir du cloud, si bien que tous les scénarios mentionnés ci-dessus peuvent être exécutés par ou pour des utilisateurs fédérés ou synchronisés par mot de passe. L’écriture différée de mot de passe nécessite [Azure AD Premium](active-directory-get-started-premium.md).
 
-### <a name="why-use-azure-ad-password-reset"></a>Pourquoi utiliser la réinitialisation de mot de passe Azure AD ?
-Voici quelques raisons pour lesquelles vous devez utiliser les fonctionnalités de gestion des mots de passe Azure AD.
+## <a name="why-choose-azure-ad-self-service-password-reset"></a>Pourquoi opter pour la réinitialisation de mot de passe en libre-service Azure AD
 
-* **Réduction des coûts** : la réinitialisation de mot de passe aidée par un support technique représente généralement 20 % des dépenses informatiques de l’organisation.
-* **Amélioration des expériences utilisateur** : les utilisateurs ne veulent pas appeler le support technique et passer une heure au téléphone chaque fois qu'ils oublient leur mot de passe.
-* **Réduction de la charge de travail du support technique** : la gestion des mots de passe est l’axe stratégique du support technique de la plupart des organisations.
-* **Activation de la mobilité** : les utilisateurs peuvent réinitialiser leur mot de passe où qu’ils soient.
+* **Réduction des coûts** : la réinitialisation de mot de passe assistée par le support technique représente généralement 20 % des dépenses d’un service informatique.
+* **Amélioration de l’expérience des utilisateurs finaux** et **diminution des besoins en support technique** : les utilisateurs finaux peuvent résoudre leurs propres problèmes de mot de passe en une seule fois sans avoir à faire appel au support technique ou à formuler une demande de support.
+* **Encouragement à la mobilité** : les utilisateurs peuvent réinitialiser leur mot de passe où qu’ils se trouvent.
 
-### <a name="pricing-and-availability"></a>Tarification et disponibilité
-La réinitialisation de mot de passe Azure AD est disponible dans 3 niveaux, selon l’abonnement que vous avez :
+## <a name="azure-ad-self-service-password-reset-availability"></a>Disponibilité de la réinitialisation de mot de passe en libre-service Azure AD
 
-* **Azure AD gratuit** - les administrateurs chargés uniquement du cloud peuvent réinitialiser leurs mots de passe.
-* **Azure AD de base ou n'importe quel abonnement O365 payé** - les clients utilisant uniquement le cloud et les administrateurs chargés uniquement du cloud peuvent réinitialiser leurs mots de passe.
-* **Azure AD Premium** - n'importe quel utilisateur ou administrateur, y compris les clients utilisant uniquement le cloud et les utilisateurs fédérés ou dont le mot de passe est synchronisé peuvent réinitialiser leurs mots de passe (nécessite [l'activation de l’écriture différée du mot de passe](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
+La réinitialisation de mot de passe libre-service Azure AD est disponible dans trois niveaux, selon votre abonnement.
 
-Pour plus d'informations sur la tarification de base ou sur Azure AD Premium, visitez la page [Détails de tarification Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .
+* **Azure AD Gratuit** : les administrateurs chargés uniquement du cloud peuvent réinitialiser leur propre mot de passe.
+* **Azure AD De base** ou tout **abonnement Office 365 payé** : les clients utilisant uniquement le cloud et les administrateurs chargés uniquement du cloud peuvent réinitialiser leur propre mot de passe.
+* **Azure AD Premium** : n’importe quel utilisateur ou administrateur, notamment les clients utilisant uniquement le cloud et les utilisateurs fédérés ou synchronisés par mot de passe, peuvent réinitialiser leur propre mot de passe. L’écriture différée doit être activée pour les mots de passe locaux.
 
-## <a name="enable-password-reset-for-your-users"></a>Activer le mot de passe réinitialisé pour vos utilisateurs
-| Rubrique |  |
-| --- | --- |
-| Comment activer la réinitialisation du mot de passe pour les utilisateurs du cloud ? |[Permettre aux utilisateurs de réinitialiser leurs mots de passe Active Directory Azure pour le cloud](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
-| Comment activer la réinitialisation du mot de passe et modifier des utilisateurs locaux ? |[Permettre aux utilisateurs de réinitialiser leurs mots de passe Active Directory Azure locaux](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
-| Comment appliquer la réinitialisation de mot de passe à un ensemble spécifique d'utilisateurs ? |[Restreindre la réinitialisation de mot de passe à certains utilisateurs](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
-| Comment tester la réinitialisation de mot de passe de cloud computing ? |[Réinitialiser votre mot de passe Azure AD en tant qu’utilisateur](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
-| Comment tester la réinitialisation de mot de passe local ? |[Réinitialiser votre mot de passe AD local en tant qu’utilisateur.](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
-| Comment désactiver ultérieurement la réinitialisation du mot de passe ? |[Paramètre : utilisateurs autorisés à réinitialiser leur mot de passe](active-directory-passwords-customize.md#users-enabled-for-password-reset) |
+## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Composants de la réinitialisation de mot de passe en libre-service Azure AD
 
-## <a name="customize-password-reset-behavior"></a>Personnaliser le comportement de réinitialisation du mot de passe
-| Rubrique |  |
-| --- | --- |
-| Comment modifier la liste des méthodes d'authentification prises en charge ? |[Paramètre : méthodes d'authentification accessibles aux utilisateurs](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
-| Comment modifier le nombre de méthodes d’authentification requis ? |[Paramètre : nombre de méthodes d’authentification requis](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
-| Comment configurer les questions de sécurité personnalisées ? |[Paramétrage : questions de sécurité personnalisées](active-directory-passwords-customize.md#custom-security-questions) |
-| Comment définir des questions de sécurité localisées prédéfinies ? |[Paramètre : questions de sécurité basées sur des informations](active-directory-passwords-customize.md#knowledge-based-security-questions) |
-| Comment modifier le nombre de questions de sécurité requis ? |[Paramètre : nombre de questions de sécurité pour l’enregistrement ou la réinitialisation](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
-| Comment personnaliser la façon dont un utilisateur contacte un administrateur ? |[Paramètre : personnaliser le lien « Contactez votre administrateur »](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
-| Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? |[Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? |[Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? |[Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? |[Paramètre : nom, marque et logo de la société ](active-directory-passwords-customize.md#password-management-look-and-feel) |
+La réinitialisation de mot de passe en libre-service dans Azure AD est constituée des composants suivants :
 
-## <a name="configure-your-users-to-use-password-reset"></a>Configurer vos utilisateurs pour utiliser la réinitialisation du mot de passe
-| Rubrique |  |
-| --- | --- |
-| Comment savoir si un compte est configuré pour la réinitialisation du mot de passe ? |[Quels sont les critères de configuration d'un compte pour la réinitialisation du mot de passe ?](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
-| Comment configurer mes utilisateurs pour la réinitialisation de mot de passe ? |[Manières de remplir les données d'authentification de réinitialisation de mot de passe pour vos utilisateurs](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
-| Comment télécharger manuellement des données pour mes utilisateurs ? |[Télécharger vous-même les données de réinitialisation de mot de passe](active-directory-passwords-best-practices.md#uploading-data-yourself) |
-| Comment utiliser PowerShell pour lire ou définir des données pour mes utilisateurs ? |[Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
-| Comment synchroniser localement les données de réinitialisation de mot de passe ? |[Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-| Comment utiliser une campagne par courrier électronique pour amener mes utilisateurs à s’inscrire à la réinitialisation du mot de passe et à l’utiliser ? |[Déploiement de réinitialisation de mot de passe par courrier électronique](active-directory-passwords-best-practices.md#email-based-rollout) |
-| Comment obliger mes utilisateurs à s’inscrire lorsqu’ils se connectent ? |[Inscription obligatoire lors de la réinitialisation de mot de passe](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
-| Comment obliger mes utilisateurs à confirmer périodiquement qu'ils sont bien inscrits ? |[Paramètre : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
-| Quelles sont les meilleures pratiques concernant la communication du mot de passe réinitialisé aux utilisateurs finaux ? |[Création de votre propre portail de mot de passe destiné à vos utilisateurs](active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
+* **Portail de configuration de la gestion des mots de passe** : vous permet de contrôler les options de gestion des mots de passe dans votre locataire via le portail Azure.
+* **Portail d’inscription à la réinitialisation de mot de passe** : permet aux utilisateurs de s’inscrire à la réinitialisation de mot de passe.
+* **Portail de réinitialisation de mot de passe** : permet aux utilisateurs de réinitialiser leur mot de passe à partir des tests définis par l’administrateur et des réponses qu’ils y ont apportées.
+* **Portail de changement de mot de passe utilisateur** : permet aux utilisateurs de changer leur propre mot de passe en entrant leur ancien mot de passe et en indiquant le nouveau.
+* **Rapports de gestion des mots de passe** : permettent aux administrateurs de consulter et d’analyser les rapports d’activité sur les mots de passe de leurs locataires dans le portail Azure.
+* **Écriture différée de mot de passe en local à l’aide d’Azure AD Connect** : vous permet d’activer la gestion des utilisateurs locaux, fédérés ou synchronisés par mot de passe à partir du cloud.
 
-## <a name="view-password-reset-activity-with-integrated-reports"></a>Afficher l'activité de réinitialisation du mot de passe avec des rapports intégrés
-| Rubrique |  |
-| --- | --- |
-| Où puis-je pour voir les rapports de réinitialisation de mots de passe ? |[Vue d’ensemble des rapports de gestion des mots de passe](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Où puis-je voir comment les utilisateurs utilisent un mot de passe réinitialisé dans mon organisation ? |[Visualiser l’activité de réinitialisation de mot de passe dans votre organisation](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
-| Où puis-je voir combien d'utilisateurs s’inscrivent et à quoi ? |[Afficher l'activité d'inscription à la réinitialisation de mot de passe](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
-| Comment obtenir des rapports de réinitialisation de mot de passe à partir d’une API ? |[Création d’une application Azure AD pour accéder à l’API de rapport](active-directory-reporting-api-getting-started.md) |
-| Quel type d’informations de rapport sur la réinitialisation de mot de passe fournit une API ? |[Événements de réinitialisation de mot de passe et d'enregistrement disponibles dans l'API de rapport](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
+## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Tarifs, contrat SLA, mises à jour et feuille de route Azure AD
 
-## <a name="manage-your-users-passwords"></a>Gérer les mots de passe de vos utilisateurs
-| Rubrique |  |
-| --- | --- |
-| Comment réinitialiser le mot de passe d'un utilisateur à partir du portail de gestion O365 ? |[Réinitialiser le mot de passe d'un utilisateur dans Office 365](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
-| Comment réinitialiser le mot de passe d'un utilisateur à l'aide de PowerShell ? |[Réinitialiser le mot de passe d'un utilisateur avec Set-MsolUserPassword](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
+Vous trouverez davantage de détails sur ces questions dans les pages suivantes :
 
-## <a name="set-password-policies"></a>Définir des stratégies de mot de passe
-| Rubrique |  |
-| --- | --- |
-| Comment définir la stratégie d'expiration du mot de passe d'une organisation à partir d'Office 365 ? |[Définir la stratégie d’expiration de mot de passe](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
-| Comment définir les mots de passe d'un utilisateur spécifique avec PowerShell pour qu'il n'expire jamais ? |[Définir le mot de passe d'un utilisateur individuel avec PowerShell pour qu'il n'expire jamais](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
-| Comment savoir si le mot de passe d'un utilisateur est défini avec PowerShell pour ne jamais expirer |[Vérifier l'état d'expiration du mot de passe d'un utilisateur individuel avec PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
-
-## <a name="troubleshoot-a-problem"></a>Résoudre un problème
-| Rubrique |  |
-| --- | --- |
-| Quelles informations dois-je fournir au support si j'ai besoin d'aide ? |[Informations à inclure lorsque vous avez besoin d’aide](active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
-| Comment résoudre un problème de réinitialisation de mot de passe ? |[Résolution des problèmes du portail de réinitialisation du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
-| Comment puis-je résoudre un problème d'écriture différée du mot de passe ? |[Résoudre les problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| Comment résoudre un problème de connectivité d'écriture différée du mot de passe ? |[Résoudre des problèmes de connectivité d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
-| Comment résoudre un problème de configuration de réinitialisation du mot de passe ? |[Résoudre un problème de configuration de réinitialisation de mot de passe dans le portail de gestion Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
-| Comment résoudre un problème de rapports sur une réinitialisation de mot de passe ? |[Résolution des problèmes de rapports de gestion de mot de passe dans le portail de gestion Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
-| Comment résoudre un problème d'inscription à la réinitialisation de mot de passe ? |[Résolution des problèmes du portail d’inscription à la réinitialisation de mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
-| Codes d’erreur du journal des événements Écriture différée de mot de passe |[Codes d’erreur du journal des événements Écriture différée de mot de passe](active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
-
-## <a name="read-a-faq"></a>Lire un Forum Aux Questions
-| Rubrique |  |
-| --- | --- |
-| Je souhaite lire un Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe |[Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe](active-directory-passwords-faq.md#password-reset-registration) |
-| Je souhaite lire un Forum aux Questions relatif à la réinitialisation du mot de passe |[Forum aux Questions relatif à la réinitialisation de mot de passe](active-directory-passwords-faq.md#password-reset) |
-| Je souhaite lire un Forum aux Questions relatif aux rapports de réinitialisation du mot de passe |[Forum aux Questions relatif aux rapports sur la gestion des mots de passe](active-directory-passwords-faq.md#password-management-reports) |
-| Je souhaite lire un Forum aux Questions relatif à l'écriture différée du mot de passe |[Forum aux Questions relatif à l'écriture différée du mot de passe](active-directory-passwords-faq.md#password-writeback) |
-
-## <a name="understand-the-technical-details"></a>Comprendre les détails techniques
-| Rubrique |  |
-| --- | --- |
-| Je souhaite en savoir plus sur l'écriture différée du mot de passe |[Vue d’ensemble de l’écriture différée de mot de passe](active-directory-passwords-learn-more.md#password-writeback-overview) |
-| Je souhaite en savoir plus sur le fonctionnement de l'écriture différée du mot de passe |[Comment fonctionne l’écriture différée du mot de passe ?](active-directory-passwords-learn-more.md#how-password-writeback-works) |
-| Je souhaite en savoir plus sur les scénarios sont pris en charge par l'écriture différée du mot de passe |[Scénarios pris en charge par l’écriture différée de mot de passe](active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
-| Je souhaite en savoir plus sur la sécurisation de l'écriture différée du mot de passe |[Modèle de sécurité de l’écriture différée de mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model) |
-| Je souhaite en savoir plus sur le fonctionnement du portail de réinitialisation du mot de passe |[Fonctionnement du portail de réinitialisation de mot de passe](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
-| Je souhaite en savoir plus sur les données utilisées par la réinitialisation de mot de passe |[Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-
-## <a name="recent-service-updates"></a>Mises à jour de service récentes
-#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Application de l’inscription de réinitialisation de mot de passe lors de la connexion aux applications Office 365 - novembre 2015
-* Maintenant, après avoir activé la fonctionnalité [inscription appliquée](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) , vos utilisateurs seront appelés à s'inscrire où qu'ils se trouvent, avec un compte professionnel ou scolaire.  Cela augmente considérablement la vitesse à laquelle de nombreuses organisations peuvent s'intégrer à la réinitialisation de mot de passe.  Grâce à cette nouvelle fonctionnalité, nous avons vu de grandes organisations s'intégrer en 2 semaines seulement !
-
-#### <a name="support-for-unlocking-on-premises-ad-accounts-without-resetting-a-password---november-2015"></a>Prise en charge du déverrouillage des comptes AD locaux sans réinitialisation de mot de passe - novembre 2015
-* Déverrouiller uniquement (sans réinitialiser) est actuellement une des principales occupations du support technique.  De fait, de nombreuses organisations consacrent jusqu'à 70 % de leur budget de réinitialisation de mot de passe à déverrouiller des comptes.  Pour répondre à cette demande, la réinitialisation de mot de passe Azure AD vous permet maintenant d’activer une fonctionnalité qui permettra à vos utilisateurs de déverrouiller des comptes AD locaux séparément de la réinitialisation de mot de passe.  Découvrez comment l’activer ici : [Paramètre : Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
-
-#### <a name="usability-updates-to-registration-page---october-2015"></a>Mises à jour de la convivialité de la page d’inscription - octobre 2015
-* Désormais, lorsqu'un utilisateur dispose déjà de données inscrites, il lui suffit de cliquer sur « looks good » pour mettre à jour les données sans avoir à renvoyer l’e-mail ou à passer un nouveau coup de fil.
-
-#### <a name="improved-reliability-of-password-writeback---september-2015"></a>Fiabilité améliorée de l’écriture différée du mot de passe - septembre 2015
-* Depuis la version de septembre d’Azure AD Connect, l’agent d’écriture différée du mot de passe tente d’établir de façon plus agressive de nouvelles connexions et propose des fonctionnalités de basculement supplémentaires plus robustes.
-
-#### <a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API pour la récupération des données des rapports sur la réinitialisation des mots de passe - août 2015
-* Désormais, les données des rapports de réinitialisation de mot de passe peuvent être récupérées directement à partir des [rapports Azure AD et des API d'événements](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
-
-#### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Prise en charge de la réinitialisation de mot de passe Azure AD pendant la jonction de domaine de cloud - août 2015
-* À présent, chaque utilisateur de cloud peut réinitialiser son mot de passe directement depuis l’écran de connexion de Windows 10 lors de l’étape de jonction de domaine.  Notez que cette fonctionnalité n’a pas encore été intégrée à l'écran de connexion Windows 10.
-
-#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Appliquer l’inscription de réinitialisation de mot de passe lors de la connexion à Azure et à des applications fédérées - juillet 2015
-* En plus de forcer l'inscription lors de la connexion à myapps.microsoft.com, nous prenons maintenant en charge l'inscription lors des connexions au portail de gestion Azure et à n’importe laquelle de vos applications fédérées à authentification unique
-
-#### <a name="security-question-localization-support---may-2015"></a>Prise en charge de la localisation de la question de sécurité - mai 2015
-* À présent, vous avez la possibilité de sélectionner des questions de sécurité prédéfinies localisées en langage O365 intégral lors de la configuration des questions de sécurité pour la réinitialisation de mot de passe.
-
-#### <a name="account-unlock-support-during-password-reset---june-2015"></a>Prise en charge du déverrouillage de compte lors de la réinitialisation de mot de passe - juin 2015
-* Si vous utilisez l'écriture différée du mot de passe et que vous réinitialisez votre mot de passe lorsque votre compte est verrouillé, nous déverrouillerons automatiquement votre compte Active Directory !
-
-#### <a name="branded-self-service-password-reset-sspr-registration---april-2015"></a>Inscription de réinitialisation de mot de passe en libre-service personnalisée - avril 2015
-* La page d’inscription à la réinitialisation des mots de passe est désormais personnalisée avec le logo de votre entreprise.
-
-#### <a name="security-questions---march-2015"></a>Questions de sécurité - mars 2015
-* Les questions de sécurité sont désormais mises à la disponibilité générale.
-
-#### <a name="account-unlock---march-2015"></a>Déverrouillage de compte - mars 2015
-* Les utilisateurs peuvent désormais déverrouiller leurs comptes lors de la réinitialisation du mot de passe.
-
-## <a name="coming-soon"></a>Bientôt disponible
-Vous trouverez ci-dessous certaines des remarquables fonctionnalités que nous développons actuellement.
-
-**Prise en charge du rappel invitant les utilisateurs à mettre à jour leurs données enregistrées lors de la connexion** - en cours
-
-* Nous pouvons aujourd’hui rappeler aux utilisateurs de mettre à jour leurs données enregistrées lors de l'accès à myapps.microsoft.com, et nous prévoyons d’étendre cette fonctionnalité à toutes les authentifications.
+* [**Détails concernant les tarifs d’Azure AD**](https://azure.microsoft.com/pricing/details/active-directory/)
+* [**Tarifs d’Office 365**](https://products.office.com/compare-all-microsoft-office-products?tab=2)
+* [**Contrats de niveau de service Azure**](https://azure.microsoft.com/support/legal/sla/)
+* [**Contrat SLA Microsoft Online Services**](http://go.microsoft.com/fwlink/?LinkID=272026&clcid=0x409)
+* [**Mises à jour Azure**](https://azure.microsoft.com/updates/)
+* [**Feuille de route Azure**](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
-* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
-* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
-* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
-* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
-* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
-* [**Forum Aux Questions**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
-* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
-* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
+Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
+
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
+* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
+* [**Données**](active-directory-passwords-data.md) : découvrez les données nécessaires à la gestion des mots de passe et comment elles sont utilisées.
+* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
+* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
+* [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
+* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez les rouages de cette fonctionnalité pour mieux en comprendre le fonctionnement.
+* [**Questions fréquentes (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Trouvez les réponses aux questions que vous vous posez régulièrement.
+* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que vous êtes susceptibles de rencontrer avec SSPR.
+
 

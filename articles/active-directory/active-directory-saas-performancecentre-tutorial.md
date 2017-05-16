@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3b1a347322e2307aadbd287cb2235e39e11f1e79
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Performance
 L’intégration de PerformanceCentre dans Azure AD vous offre les avantages suivants : 
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à PerformanceCentre. 
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à PerformanceCentre (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à PerformanceCentre via l’authentification unique avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,25 +38,25 @@ Pour configurer l’intégration d’Azure AD avec PerformanceCentre, vous avez 
 * Un abonnement Azure AD
 * Un abonnement PerformanceCentre pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 *  Ajout de PerformanceCentre à partir de la galerie 
 *  Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-performancecentre-from-the-gallery"></a>Ajout de PerformanceCentre à partir de la galerie
+## <a name="add-performancecentre-from-the-gallery"></a>Ajouter PerformanceCentre à partir de la galerie
 Pour configurer l’intégration de PerformanceCentre avec Azure AD, vous devez ajouter PerformanceCentre à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter PerformanceCentre à partir de la galerie, procédez comme suit :**
@@ -80,8 +81,8 @@ Pour configurer l’intégration de PerformanceCentre avec Azure AD, vous devez 
    
     ![Applications][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec PerformanceCentre avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec PerformanceCentre, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir qui est l’utilisateur PerformanceCentre équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur PerformanceCentre associé doit être établie.  
 
@@ -89,16 +90,16 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme va
 
 **Pour configurer et tester l’authentification unique Azure AD avec PerformanceCentre, vous avez besoin de suivre les indications des sections suivantes :**
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test PerformanceCentre](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans PerformanceCentre qui soit lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de configurer l’authentification unique dans votre application PerformanceCentre.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de la configurer dans votre application PerformanceCentre.
 
-**Pour configurer l’authentification unique Azure AD avec PerformanceCentre, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec PerformanceCentre, procédez comme suit :**
 
 1. Dans la page d’intégration d’applications **PerformanceCentre** du portail Azure AD Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
@@ -140,7 +141,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     
      ![Authentification unique Azure AD][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.  
 
 ![Créer un utilisateur Azure AD][20]
@@ -163,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
    1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
    2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   3. Cliquez sur **Next**.
+   3. Cliquez sur **Suivant**.
    
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
@@ -173,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    2. Dans la zone de texte **Last Name**, tapez **Simon**.
    3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   5. Cliquez sur **Suivant**.
+   5. Cliquez sur **Next**.
    
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -182,10 +183,10 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    1. Notez la valeur du **Nouveau mot de passe**.
-    2. Cliquez sur **Terminé**.   
+   1. Notez la valeur du **Nouveau mot de passe**.
+   2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-performancecentre-test-user"></a>Création d’un utilisateur de test PerformanceCentre
+### <a name="create-a-performancecentre-test-user"></a>Créer un utilisateur de test PerformanceCentre
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans PerformanceCentre.
 
 **Pour créer un utilisateur appelé Britta Simon dans PerformanceCentre, procédez comme suit :**
@@ -199,17 +200,18 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
     ![Create User][401]
    
    1. Entrez les attributs requis pour Britta Simon dans les zones de texte correspondantes.
-   > [!IMPORTANT]
-   > L’attribut de nom d’utilisateur de Britta dans PerformanceCentre doit être le même que le nom d’utilisateur dans Azure AD.
-   > 
-   > 
+
+    >[!IMPORTANT]
+    >L’attribut de nom d’utilisateur de Britta dans PerformanceCentre doit être le même que le nom d’utilisateur dans Azure AD.
+    > 
+    > 
  
    2. Sélectionnez **Client Administrator** pour **Choose Role**.
    3. Cliquez sur **Save**.   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à PerformanceCentre.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à PerformanceCentre.
 
 ![Affecter des utilisateurs][200] 
 
@@ -229,7 +231,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
 
 Lorsque vous cliquez sur la vignette PerformanceCentre dans le volet d’accès, vous devez être connecté automatiquement à votre application PerformanceCentre.
@@ -275,10 +277,5 @@ Lorsque vous cliquez sur la vignette PerformanceCentre dans le volet d’accès,
 [402]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_402.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

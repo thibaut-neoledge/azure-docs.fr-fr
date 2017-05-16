@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
-ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,10 +30,10 @@ Azure fournit un ensemble de solutions d’entrepôt de données et de stockage 
 * Chargement de données dans le **stockage des objets blob Azure** à **1,0 Gbit/s**
 * Chargement de données dans **Azure Data Lake Store** à **1,0 Gbit/s**
 
-Cet article explique :
+Cet article aborde les points suivants :
 
 * [chiffres de référence des performances](#performance-reference) pour les magasins de données source et récepteur pris en charge afin de vous aider à planifier votre projet.
-* Les fonctionnalités qui peuvent améliorer le débit de la copie dans différents scénarios, notamment la [copie parallèle](#parallel-copy), les [unités de déplacement de données cloud](#cloud-data-movement-units) et la [copie intermédiaire](#staged-copy) ;
+* fonctionnalités qui peuvent améliorer le débit de la copie dans différents scénarios, notamment les [unités de déplacement de données cloud](#cloud-data-movement-units), la [copie parallèle](#parallel-copy) et la [copie intermédiaire](#staged-copy) ;
 * [conseils de réglage des performances](#performance-tuning-steps) pour optimiser les performances et les facteurs clés qui peuvent affecter les performances de la copie.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Cet article explique :
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 8 pour l’exécution d’une activité de copie du cloud vers le cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
+> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 32, pour l’exécution d’une activité de copie de cloud à cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
 >
 >
 
@@ -84,6 +84,38 @@ Examinons un exemple de scénario. Dans l’exemple suivant, plusieurs tranches 
 Et ainsi de suite.
 
 Dans cet exemple, lorsque la valeur **concurrency** est définie sur 2, **l’exécution d’activité 1** et **l’exécution d’activité 2** copient les données de deux fenêtres d’activité **de façon simultanée** pour améliorer les performances de déplacement de données. Toutefois, si plusieurs fichiers sont associés à l’exécution d’activité 1, le service de déplacement de données copie les fichiers de la source vers la destination, un fichier à la fois.
+
+### <a name="cloud-data-movement-units"></a>Unités de déplacement de données cloud
+Une **unité de déplacement de données cloud** est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Une unité de déplacement de données peut être utilisée dans une opération de copie cloud-cloud, mais pas dans une copie hybride.
+
+Par défaut, Data Factory utilise une unité de déplacement de données cloud unique pour mener à bien une exécution d’activité de copie unique. Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
+
+> [!NOTE]
+> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
+>
+>
 
 ### <a name="parallelcopies"></a>parallelCopies
 Vous pouvez utiliser la propriété **parallelCopies** pour indiquer le parallélisme que vous voulez que l’activité de copie utilise. Vous pouvez penser cette propriété comme le nombre maximum de threads dans une activité de copie qui peut lire dans votre source ou écrire dans vos banques de données réceptrices en parallèle.
@@ -126,38 +158,6 @@ Points à noter :
 
 > [!NOTE]
 > Vous devez utiliser la passerelle de gestion des données 1.11 ou une version ultérieure pour utiliser la fonctionnalité **parallelCopies** lorsque vous effectuez une copie hybride.
->
->
-
-### <a name="cloud-data-movement-units"></a>Unités de déplacement de données cloud
-Une **unité de déplacement de données cloud** est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Une unité de déplacement de données peut être utilisée dans une opération de copie cloud-cloud, mais pas dans une copie hybride.
-
-Par défaut, Data Factory utilise une unité de déplacement de données cloud unique pour mener à bien une exécution d’activité de copie unique. Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4 et 8. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
-
-> [!NOTE]
-> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers d’une taille supérieure ou égale à 16 Mo individuellement à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
 >
 >
 
@@ -234,7 +234,7 @@ Vous êtes facturé en fonction de deux étapes : la durée de la copie et le ty
 ## <a name="performance-tuning-steps"></a>Procédure de réglage des performances
 Nous vous recommandons d’effectuer cette procédure pour régler les performances de votre service Data Factory avec l’activité de copie :
 
-1. **Établir une ligne de base**. Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Vous pouvez utiliser le [modèle de découpage](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) Data Factory pour limiter la quantité de données que vous utilisez.
+1. **Établir une ligne de base**. Pendant la phase de développement, testez votre pipeline en utilisant l’activité de copie sur un échantillon de données représentatif. Vous pouvez utiliser le [modèle de découpage](data-factory-scheduling-and-execution.md) Data Factory pour limiter la quantité de données que vous utilisez.
 
    Collectez les temps d’exécution et les caractéristiques de performances à l’aide de **l’application de surveillance et gestion**. Choisissez **Surveiller et gérer** sur votre page d’accueil Data Factory. Dans l’arborescence, sélectionnez le **jeu de données de sortie**. Dans la liste des **fenêtres d’activité** , sélectionnez l’exécution de l’activité de copie. **fenêtres d’activité** répertorient la durée de l’activité de copie et la taille des données qui sont copiées. Le débit est répertorié dans **l’Explorateur de fenêtres d’activité**. Pour en savoir plus sur l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md).
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5311274867de6e0d863ac532a5b3a31cf964351e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -177,7 +178,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
    Pour plus d'informations, consultez la page [Prise en main des applets de commande Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Pour plus d’informations sur l’installation et la configuration de PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   Pour plus d’informations sur l’installation et la configuration de PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Étape 4 : téléchargement du fichier .vhd
 Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n’importe où dans votre stockage d’objets blob. Voici certains termes que vous utiliserez quand vous téléchargerez le fichier :

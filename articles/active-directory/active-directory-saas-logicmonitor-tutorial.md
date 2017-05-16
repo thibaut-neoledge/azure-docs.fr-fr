@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d87f6068cef7630ca7d9e8929b43449d28d11f78
-ms.openlocfilehash: 9d9074c986c7210e7d7a345ad5d761ac781be3c1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d47cb9ae48034c73ccb20bd1872a6b50eebb27d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +37,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 ![Scénario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-logicmonitor"></a>Activation de l’intégration d’application pour LogicMonitor
+## <a name="enable-the-application-integration-for-logicmonitor"></a>Activer l’intégration d’applications pour LogicMonitor
 Cette section décrit l’activation de l’intégration d’application pour LogicMonitor.
 
 **Pour activer l’intégration d’application pour LogicMonitor, procédez comme suit :**
@@ -62,13 +62,13 @@ Cette section décrit l’activation de l’intégration d’application pour Lo
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur LogicMonitor avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
 **Pour configurer l’authentification unique, procédez comme suit :**
 
-1. Dans le portail Azure Classic, puis dans la page d’intégration d’application **LogicMonitor**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure Classic, puis dans la page d’intégration d’applications **LogicMonitor**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à LogicMonitor**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
@@ -99,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
    
    ![Configurer l’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurer l’authentification unique")
    
-## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionnés dans l’application LogicMonitorà l’aide de leurs noms d’utilisateur Azure Active Directory.
 
@@ -122,7 +122,7 @@ Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionn�
 >Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par LogicMonitor, pour approvisionner des comptes utilisateur Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à LogicMonitor, procédez comme suit :**

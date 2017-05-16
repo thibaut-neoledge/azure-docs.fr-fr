@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -180,9 +181,9 @@ a. Assurez-vous que l’attribut userPrincipalName utilise des caractères pris 
 #### <a name="related-articles"></a>Articles connexes
 * [Préparation de l’approvisionnement d’utilisateurs via la synchronisation d’annuaires sur Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Description
-Il s’agit d’un cas spécifique qui provoque une erreur de synchronisation **« DataValidationFailed »** lorsque le suffixe de l’attribut UserPrincipalName d’un utilisateur est modifié d’un domaine fédéré à un autre domaine fédéré.
+Il s’agit d’un cas spécifique qui provoque une erreur de synchronisation **« FederatedDomainChangeError »** lorsque le suffixe de l’attribut UserPrincipalName d’un utilisateur est modifié d’un domaine fédéré à un autre domaine fédéré.
 
 #### <a name="scenarios"></a>Scénarios
 Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié d’un domaine fédéré à un autre domaine fédéré en local. Par exemple, *UserPrincipalName = bob@contoso.com* a été remplacé par *UserPrincipalName = bob@fabrikam.com*.
@@ -191,7 +192,7 @@ Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié 
 1. Bob Smith, un compte pour Contoso.com, est ajouté en tant qu’un nouvel utilisateur dans Active Directory avec UserPrincipalName bob@contoso.com
 2. Bob passe à une autre division Contoso.com appelée Fabrikam.com et son UserPrincipalName est modifié en bob@fabrikam.com
 3. Les domaines contoso.com et fabrikam.com sont des domaines fédérés avec Azure Active Directory.
-4. L’attribut UserPrincipalName n’est pas mis à jour et cause une erreur de synchronisation « DataValidationFailed ».
+4. L’attribut UserPrincipalName n’est pas mis à jour et cause une erreur de synchronisation « FederatedDomainChangeError ».
 
 #### <a name="how-to-fix"></a>Procédure de résolution
 Si le suffixe UserPrincipalName d’un utilisateur a été mis en remplaçant bob@**contoso.com** par bob@**fabrikam.com**, où **contoso.com** et **fabrikam.com** sont des **domaines fédérés**, procédez comme suit pour corriger l’erreur de synchronisation.
@@ -212,10 +213,10 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Scénarios possibles
-1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
+1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats. Pour plus d’informations sur la gestion des erreurs LargeObject avec l’attribut userCertificate, consultez à l’article [Gérer les erreurs LargeObject provoquées par l’attribut userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
 2. L’attribut userSMIMECertificate de Bob stocke un trop grand nombre de certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
 3. L’attribut thumbnailPhoto de Bob défini dans Active Directory est trop volumineux pour être synchronisé dans Azure AD.
-4. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de&500; ProxyAddresses.
+4. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter trop de ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Procédure de résolution
 1. Assurez-vous que l’attribut à l’origine de l’erreur est dans la limite autorisée.

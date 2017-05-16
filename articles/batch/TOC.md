@@ -7,15 +7,19 @@
 ## [Création d’un compte Batch](batch-account-create-portal.md)
 ## [Didacticiel sur Batch pour .NET](batch-dotnet-get-started.md)
 ## [Didacticiel Python Batch](batch-python-tutorial.md)
+## [Didacticiel Batch Node.js](batch-nodejs-get-started.md)
 # Procédure
 ## Développement
 ### [Packages d’applications](batch-application-packages.md)
 ### [Mettre automatiquement à l’échelle les nœuds de calcul](batch-automatic-scaling.md)
-### [Authentification Azure AD](batch-aad-auth.md)
+### Authentification Azure AD
+#### [Azure AD avec service Batch](batch-aad-auth.md)
+#### [Azure AD avec gestion de lots](batch-aad-auth-management.md)
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)
+### [Machines virtuelles de faible priorité](batch-low-pri-vms.md)
 ### [Gérer les comptes Batch avec Batch Management .NET](batch-management-dotnet.md)
 ### [Conserver les résultats des tâches et des travaux](batch-task-output.md)
 ### [Exécuter des tâches MPI dans Batch](batch-mpi.md)
@@ -27,7 +31,7 @@
 ### [Interface de ligne de commande Azure](batch-cli-get-started.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Interface de ligne de commande Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

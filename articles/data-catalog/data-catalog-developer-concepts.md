@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9591d7e2dd743e44d228205163ad55cb47992283
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 361ad3a669370419e1080d3e4b3fc646f7a0a958
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -251,7 +253,7 @@ Azure Data Catalog utilise deux mécanismes d'autorisation :
 ### <a name="roles"></a>contrôleur
 Il existe trois rôles : **administrateur**, **propriétaire** et **collaborateur**.  Chaque rôle a une portée et des droits, lesquels sont résumés dans le tableau suivant.
 
-<table><tr><td><b>Rôle</b></td><td><b>Étendue</b></td><td><b>Droits</b></td></tr><tr><td>Administrateur</td><td>Catalogue (toutes les ressources/annotations dans le catalogue)</td><td>Lecture Suppression ViewRoles
+<table><tr><td><b>Rôle</b></td><td><b>Portée</b></td><td><b>Droits</b></td></tr><tr><td>Administrateur</td><td>Catalogue (toutes les ressources/annotations dans le catalogue)</td><td>Lecture Suppression ViewRoles
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propriétaire</td><td>Chaque ressource (élément racine)</td><td>Lecture Suppression ViewRoles
 
@@ -359,9 +361,4 @@ Le principal de sécurité spécial &lt;Everyone&gt; a l’objectId « 00000000
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

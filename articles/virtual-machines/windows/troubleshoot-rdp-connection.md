@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 82515c2ee27e4866a167619f193620786b72cedf
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -114,12 +115,12 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
 Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Résolution des problèmes à l’aide d’Azure PowerShell
-Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](/powershell/azure/overview).
 
 Les exemples suivants utilisent des variables telles que `myResourceGroup`, `myVM` et `myVMAccessExtension`. Remplacez ces noms de variables et les emplacements par vos propres valeurs.
 
 > [!NOTE]
-> Vous pouvez réinitialiser les informations d’identification de l’utilisateur et la configuration RDP en utilisant l’applet de commande PowerShell [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx). Dans les exemples suivants, `myVMAccessExtension` est un nom que vous spécifiez dans le cadre du processus. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Pour afficher le nom, examinez la section « Extensions » de la sortie.
+> Vous pouvez réinitialiser les informations d’identification de l’utilisateur et la configuration RDP en utilisant l’applet de commande PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension). Dans les exemples suivants, `myVMAccessExtension` est un nom que vous spécifiez dans le cadre du processus. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Pour afficher le nom, examinez la section « Extensions » de la sortie.
 > 
 > 
 

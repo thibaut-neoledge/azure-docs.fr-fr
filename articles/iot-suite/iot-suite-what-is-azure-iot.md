@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/25/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Suite
-Microsoft Azure IoT Suite est une solution d’entreprise qui permet une prise en main rapide grâce à un ensemble de solutions préconfigurées extensibles. Ces solutions sont conçues pour couvrir la plupart des scénarios IoT, tels que la [surveillance à distance][lnk-preconfigured-solutions] et la [maintenance prédictive][lnk-predictive-maintenance]. Ces solutions sont des implémentations de l’architecture de solution IoT décrite dans cet article.
+Microsoft Azure IoT Suite est une solution d’entreprise qui permet une prise en main rapide grâce à un ensemble de solutions préconfigurées extensibles. Ces solutions sont conçues pour couvrir la plupart des scénarios IoT comme la [surveillance à distance][lnk-preconfigured-solutions], la [maintenance prédictive][lnk-predictive-maintenance] et la [fabrique connectée][lnk-connected-factory]. Ces solutions sont des implémentations de l’architecture de solution IoT décrite dans cet article.
 
 Les solutions préconfigurées sont des solutions complètes fonctionnant de bout en bout qui incluent :
 
@@ -52,9 +54,4 @@ Explorez les ressources ci-après pour en savoir plus sur IoT Suite et sur les s
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

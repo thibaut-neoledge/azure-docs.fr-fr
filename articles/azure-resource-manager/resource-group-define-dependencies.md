@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -108,7 +109,7 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
 ```
 
 ## <a name="reference-function"></a>fonction de référence
-La [fonction de référence](resource-group-template-functions.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. Le format général est le suivant :
+La [fonction de référence](resource-group-template-functions-resource.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. Le format général est le suivant :
 
 ```json
 reference('resourceName').propertyPath
@@ -133,7 +134,7 @@ Dans l’exemple suivant, un point de terminaison CDN dépend explicitement du p
 
 Vous pouvez utiliser cet élément ou l’élément dependsOn pour spécifier les dépendances, mais il est inutile d’utiliser les deux pour la même ressource dépendante. Si possible, utilisez une référence implicite pour éviter d’ajouter une dépendance inutile.
 
-Pour plus d’informations, consultez la [fonction de référence](resource-group-template-functions.md#reference).
+Pour plus d’informations, consultez la [fonction de référence](resource-group-template-functions-resource.md#reference).
 
 ## <a name="recommendations-for-setting-dependencies"></a>Recommandations pour la définition des dépendances
 
@@ -150,8 +151,8 @@ Resource Manager identifie les dépendances circulaires lors de la validation du
 
 1. Machine virtuelle 1
 2. Machine virtuelle 2
-3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
-4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
+3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
+4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
 
 Pour plus d’informations sur l’évaluation de l’ordre de déploiement et la résolution des erreurs de dépendance, consultez [Vérifier la séquence de déploiement](resource-manager-common-deployment-errors.md#check-deployment-sequence).
 

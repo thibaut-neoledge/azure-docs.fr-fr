@@ -34,8 +34,3 @@ Les problèmes de connectivité réseau peuvent également entraîner des délai
 
 Pour plus de détails sur les problèmes de connectivité, consultez [Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires de Base de données SQL](../articles/sql-database/sql-database-connectivity-issues.md).
 
-
-
-<!---HONumber=Nov16_HO2-->
-
-

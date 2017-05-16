@@ -13,45 +13,42 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d6f4caebeeced1286f24dd5fcb4f5fc7d8591785
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: fea9796d8ca03351573f091dce41689743821cad
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
-Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Ce type de connexion requiert un périphérique VPN local auquel est affectée une IP publique, et qui ne se situe pas derrière un NAT. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
-
-![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
-
-Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager et du portail Azure. Vous pouvez également créer cette configuration à l’aide d’autres outils de déploiement ou pour le modèle de déploiement Classic en sélectionnant une option différente dans la liste suivante :
+Cet article vous explique comment utiliser le portail Azure pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Classic - Portail Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
->
+> 
 >
 
 
-#### <a name="additional-configurations"></a>Configurations supplémentaires
-Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md). Si vous souhaitez ajouter une connexion de site à site à un réseau virtuel qui possède déjà une connexion, consultez [Connecter plusieurs sites locaux à un réseau virtuel](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+Une connexion de passerelle VPN de site à site permet de connecter votre réseau local à un réseau virtuel Azure via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur les passerelles VPN, consultez l’article [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
+
+![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
-
-* Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
-* Si vous ne maîtrisez pas les espaces d’adressage IP situés dans votre réseau local, vous devez contacter une personne en mesure de vous aider. Les connexions de site à site ne peuvent avoir d’espaces d’adressage qui se chevauchent.
-* Une adresse IP publique exposée en externe pour votre appareil VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
-* Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial).
+* Assurez-vous de vouloir utiliser le modèle de déploiement Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
+* Une adresse IP IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+* Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter. 
 
 ### <a name="values"></a>Exemples de valeurs
 Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous servir des valeurs d’exemple suivantes :
@@ -84,26 +81,38 @@ Aucun DNS n’est nécessaire pour une connexion de site à site. Toutefois, si 
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>3. Créer un sous-réseau de passerelle
-Vous devez créer un sous-réseau de passerelle pour votre passerelle VPN. Le sous-réseau de passerelle contient les adresses IP qui sont utilisées par les services de passerelle VPN. Si possible, créez un sous-réseau de passerelle à l’aide d’un bloc CIDR de /28 ou /27. Vous disposerez ainsi de suffisamment d’adresses IP pour prendre en charge les possibles fonctionnalités de passerelle ultérieures.
+## <a name="gatewaysubnet"></a>3. Créer le sous-réseau de passerelle
+
+La passerelle de réseau virtuel utilise un sous-réseau de passerelle qui contient les adresses IP utilisées par les services de passerelle VPN. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Si vous le nommez autrement, la configuration de votre connexion échouera.
+
+La taille du sous-réseau de passerelle que vous spécifiez dépend de la configuration de la passerelle VPN que vous souhaitez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau plus vaste qui inclut un plus grand nombre d’adresses en sélectionnant /27 ou /28. En choisissant un sous-réseau de passerelle plus vaste, vous disposez de suffisamment d’adresses IP pour prendre en charge d’éventuelles configurations futures.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>4. Créer une passerelle de réseau virtuel
+
+## <a name="VNetGateway"></a>4. Créer la passerelle VPN
 
 [!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
 
-## <a name="LocalNetworkGateway"></a>5. Créer une passerelle de réseau local
-La passerelle de réseau local fait généralement référence à votre emplacement local. Les paramètres que vous spécifiez pour la passerelle du réseau local déterminent les espaces d’adressage qui sont routés vers votre périphérique VPN local.
+## <a name="LocalNetworkGateway"></a>5. Créer la passerelle de réseau local
+
+La passerelle de réseau local fait généralement référence à votre emplacement local. Donnez au site un nom auquel Azure pourra se référer, puis spécifiez l’adresse IP du périphérique VPN local vers lequel vous allez créer une connexion. Spécifiez également les préfixes d’adresses IP qui seront acheminés via la passerelle VPN vers le périphérique VPN. Les préfixes d’adresses que vous spécifiez sont les préfixes situés sur votre réseau local. Vous pouvez facilement mettre à jour ces préfixes si votre réseau local change.
 
 [!INCLUDE [vpn-gateway-add-lng-s2s-rm-portal](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
 ## <a name="VPNDevice"></a>6. Configuration de votre périphérique VPN
+
+Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Dans cette étape, vous configurez votre périphérique VPN. Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
+
+- Une clé partagée. Il s’agit de la clé partagée spécifiée lors de la création de la connexion VPN de site à site. Dans nos exemples, nous utilisons une clé partagée basique. Nous vous conseillons de générer une clé plus complexe.
+- L’adresse IP publique de votre passerelle de réseau virtuel. Vous pouvez afficher l’adresse IP publique à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande. Pour rechercher l’adresse IP publique de votre passerelle VPN à l’aide du portail Azure, accédez à **Passerelles de réseau virtuel**, puis cliquez sur le nom de votre passerelle.
+
+
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>7. Créer une connexion VPN de site à site.
+## <a name="CreateConnection"></a>7. Créer la connexion VPN
 
-Au cours de cette étape, vous allez créer la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local. Avant de commencer cette section, vérifiez que la création de votre passerelle de réseau virtuel et des passerelles de réseau local est terminée.
+Créez la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local.
 
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 
@@ -111,8 +120,9 @@ Au cours de cette étape, vous allez créer la connexion VPN de site à site ent
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
+
 ## <a name="next-steps"></a>Étapes suivantes
-*  Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+
 *  Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-
+*  Pour plus d’informations sur le tunneling forcé, consultez l’article [À propos du tunneling forcé](vpn-gateway-forced-tunneling-rm.md)
+*  Pour plus d’informations sur les connexions haut actif-actif, consultez [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](vpn-gateway-highlyavailable.md).

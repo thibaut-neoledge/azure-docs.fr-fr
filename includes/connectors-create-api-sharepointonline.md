@@ -20,8 +20,3 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 [3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
-
-
-<!--HONumber=Nov16_HO3-->
-
-

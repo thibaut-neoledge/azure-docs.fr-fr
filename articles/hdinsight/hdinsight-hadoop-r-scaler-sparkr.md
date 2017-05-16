@@ -1,5 +1,5 @@
 ---
-title: "Combinaison de ScaleR et SparkR avec Azure HDInsight | Microsoft Docs"
+title: "Utiliser ScaleR et SparkR avec Azure HDInsight | Microsoft Docs"
 description: "Utiliser ScaleR et SparkR avec R Server et HDInsight"
 services: hdinsight
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: bab5268c4aab2210e8ace2c3a1db23b34887c2ed
+ms.lasthandoff: 04/04/2017
 
 
 ---
 
-# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>Combiner l’utilisation de ScaleR et SparkR dans HDInsight
+# <a name="combining-scaler-and-sparkr-in-hdinsight"></a>Combinaison de ScaleR et de SparkR dans HDInsight
 
-Découvrez comment combiner l’utilisation de SparkR pour la manipulation des données sur Spark avec Microsoft R Server pour Analytics. Bien que les deux packages s’exécutent par-dessus le moteur d’exécution de Hadoop Spark pour tirer parti des dernières fonctionnalités de traitement distribué, ils sont exclus du partage de données en mémoire en exigeant leurs propres sessions Spark. Jusqu’à ce que ce problème soit résolu dans une prochaine version de R, Server, la solution de contournement consiste à mettre à jour les sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Comme vous le constaterez, ces deux conditions sont relativement faciles à remplir.
+Découvrez comment combiner les fonctionnalités de ScaleR pour la manipulation des données sur Spark avec Microsoft R Server pour l’analytique. Bien que les deux packages s’exécutent par-dessus le moteur d’exécution de Hadoop Spark pour tirer parti des dernières fonctionnalités de traitement distribué, ils sont exclus du partage de données en mémoire en exigeant leurs propres sessions Spark. Jusqu’à ce que ce problème soit résolu dans une prochaine version de R Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Comme vous le constaterez, ces deux conditions sont relativement faciles à remplir.
 
 Pour illustrer ces propos, nous utiliserons un exemple partagé initialement par Mario Inchiosa et Roni Burd lors de leur intervention dans le cadre de la conférence Strata 2016, également disponible via le webinaire [Création d’une plateforme de science des données évolutive avec R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). L’exemple utilise SparkR pour associer le jeu de données bien connu des retards d’arrivée des compagnies aériennes aux données météorologiques dans les aéroports de départ et d’arrivée, puis exploite le résultat obtenu comme entrée vers un modèle de régression logistique ScaleR pour la prédiction des retards d’arrivée des vols.
 

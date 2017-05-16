@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 9fb1d12f5895e27929b2698edbf8c207aa2ee377
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,7 +34,7 @@ Dans les deux cas, vous devez vérifier que la base de données source est compa
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
 
- Utilisez cette méthode si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer.
+ Utilisez cette méthode si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](sql-database-migrate-your-sql-server-database.md).
 
 La liste suivante contient le workflow général pour la migration d’une base de données SQL Server à l’aide de cette méthode.
 
@@ -45,7 +45,7 @@ La liste suivante contient le workflow général pour la migration d’une base 
 3. Faites une copie cohérente au niveau transactionnel de la base de données source à migrer et assurez-vous qu’aucune modification supplémentaire n’est apportée à cette dernière (ou vous pourrez appliquer les modifications requises manuellement une fois la migration terminée). Il existe de nombreuses méthodes pour suspendre une base de données, que ce soit en désactivant la connectivité des clients ou en créant un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
 5. [Exportez](sql-database-export.md) la copie de base de données vers un fichier BACPAC sur un lecteur local.
-6. [Importez](sql-database-import-sqlpackage.md) le fichier BACPAC en tant que nouvelle base de données SQL Azure à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
+6. [Importez](sql-database-import.md) le fichier BACPAC en tant que nouvelle base de données SQL Azure à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration 
 

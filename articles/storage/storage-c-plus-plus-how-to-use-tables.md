@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 3047ba6bb363e087bfdf767a32c92a503000f11e
-ms.openlocfilehash: c97343008b5af378ed9d441e242018849e2ab69a
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ab71da3b7cc77cfe6bf78caf358ddd0a4a10321b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-c"></a>Utilisation du stockage de table à partir de C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de table Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que **l’utilisation d’entités de table**.
@@ -452,10 +452,10 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ## <a name="next-steps"></a>Étapes suivantes
 Les bases du stockage des tables étant assimilées, voir les liens suivants pour en savoir plus sur Azure Storage :  
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Utilisation du stockage d’objets blob à partir de C++](storage-c-plus-plus-how-to-use-blobs.md)
 * [Utilisation du service de stockage de files d’attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 * [Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
 * [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 * [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-
 

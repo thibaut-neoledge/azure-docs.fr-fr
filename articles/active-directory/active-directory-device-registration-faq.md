@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3fbb35a059b77f5e918f54e0fefe472893d8a974
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Seuls les appareils suivants sont répertoriés sous les informations UTILISATEU
 
 **Q : Pourquoi ne puis-je pas voir tous les appareils inscrits auprès d’Azure Active Directory dans le portail Azure ?** 
 
-**R :** Actuellement, il n’existe aucun moyen d’afficher tous les appareils inscrits dans le portail Azure. Vous pouvez utiliser Azure PowerShell pour rechercher tous les appareils. Pour plus d’informations, consultez l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice).
+**R :** Actuellement, il n’existe aucun moyen d’afficher tous les appareils inscrits dans le portail Azure. Vous pouvez utiliser Azure PowerShell pour rechercher tous les appareils. Pour plus d’informations, consultez l’applet de commande [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 --- 
 

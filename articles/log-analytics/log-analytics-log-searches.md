@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
 ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/28/2017
 
 
@@ -248,7 +249,7 @@ La commande SELECT agit comme Select-Object dans PowerShell. Elle retourne des r
 3. Sélectionnez certains d’entre eux de façon explicite ; la requête devient alors `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![Recherche select](./media/log-analytics-log-searches/oms-search-select.png)
 
-Il s'agit d’une commande particulièrement utile lorsque vous souhaitez contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour votre exploration et qui, bien souvent, ne sont pas l’enregistrement complet. Elle est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais que leurs propriétés ne sont pas *toutes *communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
+Il s'agit d’une commande particulièrement utile lorsque vous souhaitez contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour votre exploration et qui, bien souvent, ne sont pas l’enregistrement complet. Elle est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais que leurs propriétés ne sont pas *toutes* communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
 
 ## <a name="use-the-measure-command"></a>Utilisation de la commande measure
 MEASURE est une des commandes les plus polyvalentes dans les recherches de Log Analytics. Elle vous permet d'appliquer des *fonctions* statistiques à vos données et de regrouper des résultats par champ donné. Il existe plusieurs fonctions statistiques qui prennent en charge Measure.

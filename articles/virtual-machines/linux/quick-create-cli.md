@@ -13,22 +13,23 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: d051382954db989ce4152602d249383e7b9dfa46
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux avec Azure CLI
 
-L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de la CLI Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu 16.04 LTS. Une fois le serveur déployé, nous nous connectons via SSH à la machine virtuelle afin d’installer NGINX. 
+L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide détaille l’utilisation de la CLI Azure pour le déploiement d’une machine virtuelle Azure exécutant Ubuntu Server. Une fois le serveur déployé, une connexion SSH est créée, et un serveur web NGINX est installé.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Assurez-vous également que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
@@ -42,17 +43,17 @@ az login
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
-L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westeurope`.
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). 
 
-L’exemple suivant crée une machine virtuelle nommée `myVM` et crée des clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
+L’exemple suivant crée une machine virtuelle nommée *myVM* et des clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -64,7 +65,7 @@ Lorsque la machine virtuelle a été créée, l’interface de ligne de commande
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -75,7 +76,7 @@ Lorsque la machine virtuelle a été créée, l’interface de ligne de commande
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web 
 
-Par défaut, seules les connexions SSH sont autorisées dans les machines virtuelles Linux déployées dans Azure. Si cet ordinateur virtuel doit être un serveur web, vous devez ouvrir le port 80 à partir d’Internet.  Une seule commande est requise pour ouvrir le port désiré.  
+Par défaut, seules les connexions SSH sont autorisées dans les machines virtuelles Linux déployées dans Azure. Si cet ordinateur virtuel doit être un serveur web, vous devez ouvrir le port 80 à partir d’Internet. Utilisez la commande [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port souhaité.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -83,7 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>Se connecter avec SSH à votre machine virtuelle
 
-Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle. Veillez à remplacer `<publicIpAddress>` par l’adresse IP publique correcte de votre machine virtuelle.  Dans l’exemple ci-dessus notre IP adresse était `40.68.254.142`.
+Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle. Veillez à remplacer *<publicIpAddress>* par l’adresse IP publique correcte de votre machine virtuelle.  Dans l’exemple ci-dessus, notre adresse IP était *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -105,14 +106,14 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Afficher la page d’accueil NGNIX
 
-Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Veillez à utiliser le `publicIpAddress` décrit ci-dessus pour vous rendre sur la page par défaut. 
+Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Veillez à utiliser la *publicIpAddress* indiquée ci-dessus pour vous rendre sur la page par défaut. 
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png) 
 
 
 ## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle
 
-Lorsque vous n’en avez plus besoin, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -120,7 +121,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel de création de machines virtuelles hautement disponibles](create-cli-complete.md)
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle simple ainsi qu’une règle de groupe de sécurité réseau, et installé un serveur web. Pour en savoir plus sur les machines virtuelles Azure, suivez le didacticiel pour les machines virtuelles Linux.
 
-[Découvrir des exemples de commande de déploiement de machine virtuelle](cli-samples.md)
+
+> [!div class="nextstepaction"]
+> [Didacticiels sur les machines virtuelles Azure Linux](./tutorial-manage-vm.md)
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +93,7 @@ Lors d’une prise en charge externe, vous disposez déjà d‘un répertoire g�
 
 En tant qu‘administrateur d‘un répertoire géré, vous ajoutez un domaine qui possède un répertoire non géré qui lui est associé.
 
-Supposons par exemple que vous êtes un administrateur informatique et que vous disposez déjà d‘un répertoire géré pour Contoso.com, un nom de domaine qui a été créé pour votre société. Vous découvrez que les utilisateurs de votre société ont réalisé une inscription en libre-service à une offre à l'aide du nom de domaine de messagerie user@contoso.co.uk,, qui est un autre nom de domaine appartenant à votre société. Ces utilisateurs possèdent actuellement des comptes dans un répertoire non géré pour contoso.co.uk.
+Supposons par exemple que vous êtes un administrateur informatique et que vous disposez déjà d‘un répertoire géré pour Contoso.com, un nom de domaine qui a été créé pour votre société. Vous découvrez que des utilisateurs de votre société se sont inscrits en libre-service à une offre en utilisant un nom de domaine de messagerie user@contoso.co.uk, qui est un autre nom de domaine appartenant à votre entreprise. Ces utilisateurs possèdent actuellement des comptes dans un répertoire non géré pour contoso.co.uk.
 
 Vous ne souhaitez pas gérer deux répertoires différents, alors vous fusionnez le répertoire non géré pour contoso.co.uk avec votre répertoire informatique géré existant pour contoso.com.
 
@@ -193,19 +195,14 @@ L‘organigramme suivant décrit les différentes combinaisons de paramètres et
 
 ![][1]
 
-Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, consultez [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, consultez [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="see-also"></a>Voir aussi
-* [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Guide de référence des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

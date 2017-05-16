@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -72,6 +73,14 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 **R :** Nous montons un partage SMB dans le répertoire \home\. Cela remplace tout le contenu qui s’y trouve.
 
+**Q :** Quel est le format de l’URL du serveur de registre privé ?
+
+**R :** Vous devez entrer l’URL de registre complète, y compris « http:// » ou « https:// ».
+
+**Q :** Quel est le format du nom d’image dans l’option de registre privé ?
+
+**R :** Vous devez ajouter le nom d’image complet, y compris l’URL de registre privé (par exemple : myacr.azurecr.io/dotnet:latest)
+
 **Q :** Je veux exposer plusieurs ports sur l’image de mon conteneur personnalisé. Est-ce possible ?
 
 **R :** Cela n’est actuellement pas pris en charge.
@@ -87,6 +96,10 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 **Q :** Mon conteneur personnalisé écoute un autre port que le port 80. Comment puis-je configurer mon application pour acheminer les demandes vers ce port ?
 
 **R :** Vous pouvez spécifier un paramètre d’application appelé **PORT** et lui attribuer la valeur du numéro de port attendu.
+
+**Q :** Dois-je implémenter HTTPS dans mon conteneur personnalisé ?
+
+**R :** Non, la plateforme gère l’annulation HTTPS au niveau des serveurs frontaux partagés.
 
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA
 

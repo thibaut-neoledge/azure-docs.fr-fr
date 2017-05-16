@@ -65,8 +65,3 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

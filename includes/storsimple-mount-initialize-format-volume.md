@@ -25,8 +25,3 @@ Pour visionner une vidéo qui montre comment monter, initialiser et formater un 
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-<!--HONumber=Nov16_HO2-->
-
-

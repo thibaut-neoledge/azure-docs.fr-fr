@@ -29,15 +29,19 @@
 ### [Définir un emplacement](resource-manager-template-location.md)
 ### [Assigner des balises](resource-manager-template-tags.md)
 ### [Définir un nom et un type de ressource enfant](resource-manager-template-child-resource.md)
+### [Mettre à jour une ressource](resource-manager-update.md)
+### [Utiliser des objets pour les paramètres](resource-manager-objects-as-parameters.md)
 ### [Partager l’état entre les modèles liés](best-practices-resource-manager-state.md)
 ### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
 ## Déployer
 ### PowerShell
 #### [Déployer un modèle](resource-group-template-deploy.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md)
+#### [Exporter un modèle et le redéployer](resource-manager-export-template-powershell.md)
 ### Interface de ligne de commande Azure
 #### [Déployer un modèle](resource-group-template-deploy-cli.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md)
+#### [Exporter un modèle et le redéployer](resource-manager-export-template-cli.md)
 ### [Portail](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -49,6 +53,7 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
+### [Créer des définitions d’interface utilisateur](managed-application-createuidefinition-overview.md)
 ## Contrôler l’accès
 ### [Créer un principal du service avec PowerShell](resource-group-authenticate-service-principal.md)
 ### [Créer un principal de service avec l’interface de ligne de commande Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +77,14 @@
 
 # Référence
 ## [Fonctions des modèles de gestionnaire des ressources Azure](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Fonctions de tableau et d’objet](resource-group-template-functions-array.md)
+### [Fonctions de comparaison](resource-group-template-functions-comparison.md)
+### [Fonctions de déploiement](resource-group-template-functions-deployment.md)
+### [Fonctions numériques](resource-group-template-functions-numeric.md)
+### [Fonctions de ressource](resource-group-template-functions-resource.md)
+### [Fonctions de chaîne](resource-group-template-functions-string.md)
+## [Fonctions de définition de l’interface utilisateur](managed-application-createuidefinition-functions.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

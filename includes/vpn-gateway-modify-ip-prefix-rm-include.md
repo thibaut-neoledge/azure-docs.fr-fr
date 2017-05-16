@@ -1,30 +1,26 @@
-### <a name="noconnection"></a>Ajout ou suppression de préfixes sans connexion de passerelle
-### <a name="to-add-additional-prefixes"></a>Pour ajouter des préfixes supplémentaires
+### <a name="noconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - sans connexion de passerelle
 
-Pour ajouter des préfixes d’adresses à une passerelle de réseau local que vous avez créée, mais qui ne dispose pas encore d’une connexion de passerelle, utilisez l’exemple ci-dessous. Veillez à remplacer les valeurs par les vôtres.
+- Pour ajouter des préfixes d’adresses :
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
-### <a name="to-remove-an-address-prefix"></a>Pour supprimer un préfixe d’adresse
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 
-Pour supprimer un préfixe d’adresse sur une passerelle réseau locale sans connexion VPN, utilisez l’exemple ci-dessous. Abandonnez les préfixes dont vous n'avez plus besoin. Dans cet exemple, le préfixe 20.0.0.0/24 (de l’exemple précédent) n’est plus nécessaire. Nous allons donc modifier la passerelle de réseau local et exclure ce préfixe.
+- Pour supprimer des préfixes d’adresses :<br>
+  Abandonnez les préfixes dont vous n'avez plus besoin. Dans cet exemple, le préfixe 20.0.0.0/24 (de l’exemple précédent) n’est plus nécessaire. Nous allons donc modifier la passerelle de réseau local et exclure ce préfixe.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+  ```
 
-### <a name="withconnection"></a>Ajout ou suppression de préfixes avec une connexion de passerelle existante
-Si vous avez créé votre connexion de passerelle et souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez effectuer les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN. Lors de la mise à jour de vos préfixes, vous devez d’abord supprimer la connexion, modifier les préfixes, puis créer une connexion. Dans les exemples ci-dessous, veillez à remplacer les valeurs par les vôtres.
+### <a name="withconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - avec une connexion de passerelle existante
 
-> [!IMPORTANT]
-> Ne supprimez pas la passerelle VPN. Si vous la supprimez, vous devrez reprendre toute la procédure de création et reconfigurer votre routeur local avec les nouveaux paramètres.
-> 
-> 
+Si vous disposez d’une connexion de passerelle et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez suivre les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN. Lorsque vous modifiez des préfixes d’adresses IP, vous n’avez pas besoin de supprimer la passerelle VPN. Vous devez uniquement supprimer la connexion.
+
 
 1. Supprimez la connexion.
 
@@ -53,7 +49,7 @@ Si vous avez créé votre connexion de passerelle et souhaitez ajouter ou suppri
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Créez la connexion. Notez que cet exemple utilise la variable $local que vous avez définie à l’étape précédente.
+  Créez la connexion. Cet exemple utilise la variable $local que vous avez définie à l’étape 2.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `

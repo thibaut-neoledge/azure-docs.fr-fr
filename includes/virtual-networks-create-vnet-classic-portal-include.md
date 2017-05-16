@@ -31,8 +31,3 @@ Pour créer un réseau virtuel selon le scénario ci-dessus, suivez les étapes 
     
     ![Nouveau réseau virtuel](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

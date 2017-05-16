@@ -21,8 +21,3 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
 5. Dans la zone **Mot de passe** , entrez le mot de passe de connexion que vous avez créé lors d'une tâche précédente.
 6. Cliquez sur **Connecter**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

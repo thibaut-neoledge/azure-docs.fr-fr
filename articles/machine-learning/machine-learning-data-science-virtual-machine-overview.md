@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
-ms.author: bradsev
+ms.date: 04/13/2017
+ms.author: gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
-ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Présentation de la machine virtuelle Science des données basée sur le cloud pour Linux et Windows
-La machine virtuelle Science des données est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée. Elle est disponible pour Windows Server 2012 ou sur des versions de Linux basées sur OpenLogic 7.2 CentOS. 
+La machine virtuelle Science des données (DSVM) est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée. Elle est disponible sur Windows Server 2012 et sur Linux. Nous vous proposons l’édition Linux de la DSVM sous Ubuntu 16.04 LTS ou sous des versions Linux basées sur OpenLogic 7.2 CentOS. 
 
 Cette rubrique explique ce que vous pouvez faire avec la machine virtuelle Science des données, présente les principaux scénarios d’utilisation de la machine Virtuelle, détaille les principales fonctionnalités disponibles dans les versions de Windows et Linux, et fournit des instructions sur la façon de commencer à les utiliser.
 
@@ -47,27 +47,77 @@ Les concours de science des données ou la modélisation et l’exploration de d
 ### <a name="short-term-experimentation-and-evaluation"></a>Expérimentation et évaluation à court terme
 La machine virtuelle Science des données peut être utilisée pour évaluer ou découvrir des outils tels que Microsoft R Server, SQL Server, Visual Studio, Jupyter, kits de ressources de formation approfondie / ML et de nouveaux outils populaires dans la communauté, avec un minimum d’efforts d’installation. Étant donné que la machine virtuelle Science des données peut être configurée rapidement, elle peut être appliquée dans d’autres scénarios d’utilisation à court terme comme la réplication d’expériences publiées, l’exécution de démonstrations, le suivi de procédures pas-à-pas dans des sessions en ligne ou des didacticiels de conférence.
 
-## <a name="whats-included-in-the-data-science-vm"></a>Qu’est-ce qui est inclus dans la machine virtuelle Science des données ?
-De nombreux outils de science des données populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft R Server ou de SQL Server 2016. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
+### <a name="deep-learning"></a>Apprentissage approfondi
+La machine virtuelle de Science des données peut être utilisée pour le modèle d’apprentissage, grâce à des algorithmes d’apprentissage approfondis sur le matériel basé sur les processeurs graphiques (GPU). La DSVM vous aide à utiliser le matériel basé sur GPU sur le cloud uniquement, selon les besoins, lorsque vous devez former des modèles importants ou que vous avez besoin de calculs haut débit qui peuvent profiter de la puissance du processeur graphique.  Sous Windows, nous proposons actuellement un [Kit d’apprentissage approfondi pour machine virtuelle de Science des données](http://aka.ms/dsvm/deeplearning), comme module complémentaire à la DSVM. Ce module complémentaire installe automatiquement les pilotes du processeur graphique (GPU), les infrastructures et la version du processeur graphique des algorithmes d’apprentissage approfondis, tout en créant votre instance de machine virtuelle. Sous Linux, l’apprentissage approfondi sur le processeur graphique n’est activé que sur la [machine virtuelle des sciences de données pour l’édition Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Vous pouvez déployer l’édition Ubuntu de la machine virtuelle de science des données sur une machine virtuelle Azure non basée sur le processeur graphique (GPU). Dans ce cas, toutes les infrastructures d’apprentissage approfondi passent en mode UC. L’édition Linux basée sur CentOS de la machine virtuelle de Science des données contient uniquement les versions CPU de certains des outils d’apprentissage approfondi (CNTK, Tensorflow, MXNet), mais les infrastructures et les pilotes du processeur graphique GPU ne sont pas préinstallés. 
 
-| **Édition Windows** | **Édition Linux** |
-| -- | --|
-| Microsoft R Open avec packages courants préinstallés | Microsoft R Open avec packages courants préinstallés |
-| Microsoft R Server Developer Edition avec algorithmes MicrosoftML et Microsoft R opérationnels  |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 avec packages courants préinstallés|
-| JuliaPro avec packages courants préinstallés | JuliaPro avec packages courants préinstallés |
-| Jupyter Notebook Server (R, Python, Julia) |JupyterHub : blocs-notes Jupyter multi-utilisateurs (R, Python, Julia) |
-| SQL Server 2016 SP1 Developer Edition : analyse en base de données évolutive avec les services R |PostgreSQL, SQuirreL SQL (outil de base de données), pilotes SQL Server et ligne de commande (bcp, sqlcmd) |
-|-  Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python et outils R pour Visual Studio (RTVS 0.5) </br>- R Studio Desktop|IDE et éditeurs </br> - Plug-in du kit de ressources Eclipse avec Azure </br> - Emacs (avec SSE, auctex) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Visual Studio Code|
-| Power BI Desktop |-- |
-| Outils d’apprentissage automatique </br> - Intégration à Azure Machine Learning </br> - Formation approfondie/AI Microsoft Cognitive Toolkit (CNTK 2.0) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) </br> - Mxnet (formation approfondie/AI) </br> - Tensorflow  |Outils d’apprentissage automatique </br> - Intégrations à Azure Machine Learning </br> - CNTK (formation approfondie/AI) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) </br> - Mxnet (formation approfondie/AI)|
-| Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence |Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence |
-| Outils pour le déplacement des données et la gestion des ressources Azure et Big Data : Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (pour DocumentDB), Microsoft Data Management Gateway |Outils pour le déplacement des données et la gestion des ressources Azure et Big Data : Azure Storage Explorer, CLI |
-| Git, plug-in Visual Studio Team Services |Git |
-| Port Windows des utilitaires de ligne de commande Linux/Unix les plus populaires accessible via GitBash/l’invite de commande |-- |
-| Weka | Weka |
-| Drill | Drill |
-| --| Spark local |
+## <a name="whats-included-in-the-data-science-vm"></a>Qu’est-ce qui est inclus dans la machine virtuelle Science des données ?
+De nombreux outils de science des données et d’apprentissage approfondi populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft R Server ou de SQL Server 2016. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
+
+
+| **Outil**                                                           | **Édition Windows** | **Édition Linux** |
+| :------------------------------------------------------------------ |:-------------------:|:------------------:|
+| [Microsoft R Open](https://mran.microsoft.com/open/) avec packages courants préinstallés   |O                      | O             |
+| [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition inclut : <br />  L’infrastructure R haute performance distribuée et parallèle &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) – nouveaux algorithmes ML de pointe de Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Opérationnalisation de R](https://msdn.microsoft.com/microsoft-r/operationalize/about)                                            |O                      | O <br/> (MicrosoftML n’est pas encore disponible)|
+| [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 avec packages populaires préinstallés    |O                      |O              |
+| [JuliaPro](https://juliacomputing.com/products/juliapro.html) avec packages populaires préinstallés                         |O                      |O              |
+| Bases de données relationnelles                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
+| Outils de base de données                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Pilotes ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (outil de requête), <br /> * bcp, sqlcmd <br /> * Pilotes ODBC/JDBC|
+| Analytiques en base de données évolutives avec services SQL Server R | O     |N              |
+| **[Serveur Bloc-notes Jupyter](http://jupyter.org/) avec noyaux suivants,**                                  | O     | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* R | O | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 et 3.5 | O | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | O | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | N | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | O (Ubuntu uniquement) |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | O |
+| JupyterHub (serveur de bloc-notes multi-utilisateur)| N | O |
+| **Outils de développement, éditeurs de code et EDI**| | |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2015 (Community Edition)](https://www.visualstudio.com/community/) > avec plug-in Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), et [R Tools for Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia IDE)](http://junolab.org/)| O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Vim et Emacs | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Git et GitBash | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | O | N |
+| PowerBI Desktop | O | N |
+| Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence | O | O |
+| **Outils de gestion et de déplacement de données** | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Explorateur de stockage Microsoft Azure | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Outil de migration de données DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Passerelle de gestion de données Microsoft](https://msdn.microsoft.com/library/dn879362.aspx) : déplace les données entre OnPrem et le cloud | O | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Utilitaires de ligne de commande Unix/Linux | O | O |
+| [Apache Drill](http://drill.apache.org) pour l’exploration des données | O | O |
+| **Outils Machine Learning** |||
+| &nbsp;&nbsp;&nbsp;&nbsp;* Intégration avec [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | O (Ubuntu uniquement) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | O (Ubuntu uniquement) |
+| **Outils d’apprentissage approfondi basés sur processeur graphique (GPU)** |Utilisez le [kit d’apprentissage approfondi pour machine virtuelle de science des données](http://aka.ms/dsvm/deeplearning) |Édition Ubuntu uniquement|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](http://cntk.ai) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Tensorflow](https://www.tensorflow.org/) | O | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | O | O|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe et Caffe2](https://github.com/caffe2/caffe2) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, Nvidia Driver](https://developer.nvidia.com/cuda-toolkit) | O | O |
+| **Plateforme Big Data (Devtest uniquement)**|||
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) autonome localité | N | O |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](http://hadoop.apache.org/) local (HDFS, YARN) | N | O |
+
+
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Prise en main de la machine virtuelle Science des données Windows
 * Créez une instance de la machine virtuelle sur Windows en accédant à [cette page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) et en sélectionnant le bouton vert **Créer une machine virtuelle**.
@@ -75,7 +125,9 @@ De nombreux outils de science des données populaires sont déjà installés et 
 * Pour découvrir et lancer les outils disponibles, cliquez sur le menu **Démarrer**.
 
 ## <a name="get-started-with-the-linux-data-science-vm"></a>Prise en main de la machine virtuelle Science des données Linux
-* Créez une instance de la machine virtuelle sur Linux (basée sur OpenLogic CentOS) en accédant à [cette page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) et en sélectionnant le bouton vert **Créer une machine virtuelle**.
+* Créer une instance de la machine virtuelle sous Linux
+  * Pour l’édition basée sur OpenLogic CentOS, accédez à [cette page](http://aka.ms/dsvm/centos) et cliquez sur **Télécharger maintenant**.
+  * Pour l’édition Ubuntu, accédez à [cette page](http://aka.ms/dsvm/ubuntu) et cliquez sur **Télécharger maintenant**.
 * Connectez-vous à la machine virtuelle à partir d’un client SSH, comme une commande Putty ou SSH, en utilisant les informations d’identification que vous avez spécifiées lorsque vous avez créé la machine virtuelle.
 * Dans l’invite de commandes, entrez dsvm-plus-info.
 * Pour un ordinateur de bureau graphique, téléchargez le client X2Go pour votre plateforme cliente [ici](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) et suivez les instructions dans le document de la machine virtuelle Science des données Linux [Approvisionnement d’une machine virtuelle de science des données Linux](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).

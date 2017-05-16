@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/22/2017
+ms.date: 05/01/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 56a55bc10c9cf16751c713da302dcd59362ab80f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Configurez les attributs avec les valeurs du panneau de votre cache sur le porta
 * **throwOnError** : true si vous voulez lever une exception en cas d’échec, ou false si vous souhaitez que l’opération échoue en silence. Pour contrôler un échec, vous pouvez vérifier la propriété statique Microsoft.Web.Redis.RedisSessionStateProvider.LastException. La valeur par défaut est true.
 * **retryTimeoutInMilliseconds** : intervalle, en millisecondes, au cours duquel interviennent les nouvelles tentatives d’exécution des opérations ayant échoué. La première nouvelle tentative intervient après 20 millisecondes. Les tentatives suivantes se produisent à chaque seconde jusqu’à l’expiration de l’intervalle retryTimeoutInMilliseconds. Une dernière tentative d’exécution est effectuée immédiatement après cet intervalle. Si le problème persiste, l’exception est renvoyée à l’appelant, en fonction du paramètre throwOnError. La valeur 0 par défaut signifie qu’aucune nouvelle tentative n’est effectuée.
 * **databaseId** : spécifie la base de données à utiliser pour les données de sortie du cache. Si ce champ n’est pas spécifié, la valeur 0 sera utilisée par défaut.
-* **applicationName** : les clés sont stockées dans redis sous `{<Application Name>_<Session ID>}_Data`. Ce schéma d’affectation permet à plusieurs applications de partager la même clé. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
+* **applicationName** : les clés sont stockées dans redis sous `{<Application Name>_<Session ID>}_Data`. Ce schéma d’affectation permet à plusieurs applications de partager la même instance Redis. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
 * **connectionTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre connectTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut connectTimeout 5000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 05/02/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Clés d’accès](#access-keys)
     * [Paramètres avancés](#advanced-settings)
     * [Redis Cache Advisor](#redis-cache-advisor)
-    * [Niveau de tarification](#pricing-tier)
+    * [Mettre à l'échelle](#scale)
     * [Taille du cluster Redis](#cluster-size)
     * [Persistance des données Redis](#redis-data-persistence)
     * [Planification de mises à jour](#schedule-updates)
@@ -100,7 +100,7 @@ La section **Paramètres** vous permet d’accéder aux paramètres suivants et 
 * [Clés d’accès](#access-keys)
 * [Paramètres avancés](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
-* [Niveau de tarification](#pricing-tier)
+* [Mettre à l'échelle](#scale)
 * [Taille du cluster Redis](#cluster-size)
 * [Persistance des données Redis](#redis-data-persistence)
 * [Planification de mises à jour](#schedule-updates)
@@ -190,11 +190,11 @@ Chaque niveau tarifaire est associé à des limites spécifiques concernant les 
 | Charge du serveur |[Graphiques d’utilisation - Charge du serveur Redis](cache-how-to-monitor.md#usage-charts) |
 | Utilisation de la mémoire |[Performance du cache - Taille](cache-faq.md#cache-performance) |
 
-Pour mettre à niveau votre cache, cliquez sur **Mettre à niveau maintenant** afin de modifier le [niveau tarifaire](#pricing-tier) et de mettre votre cache à l’échelle. Pour plus d’informations sur le choix d’un niveau tarifaire, voir la section [Que propose Cache Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Pour mettre à niveau votre cache, cliquez sur **Mettre à niveau maintenant** afin de modifier le niveau tarifaire et de [mettre à l’échelle](#scale) votre cache. Pour plus d’informations sur le choix d’un niveau tarifaire, voir la section [Que propose Cache Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### <a name="pricing-tier"></a>Niveau tarifaire
-Cliquez sur **Niveau de tarification** pour afficher ou modifier le niveau de tarification de votre cache. Pour plus d’informations sur la mise à l’échelle, voir [Mise à l’échelle du cache Redis Azure](cache-how-to-scale.md).
+### <a name="scale"></a>Scale
+Cliquez sur **Mise à l’échelle** pour afficher ou modifier le niveau tarifaire de votre cache. Pour plus d’informations sur la mise à l’échelle, voir [Mise à l’échelle du cache Redis Azure](cache-how-to-scale.md).
 
 ![Niveau de tarification de Cache Redis](./media/cache-configure/pricing-tier.png)
 
@@ -452,6 +452,13 @@ Pour plus d’informations sur les bases de données, consultez [Quelles sont le
   * P2 (13 Go - 130 Go) : jusqu’à 15 000 connexions
   * P3 (26 Go - 260 Go) : jusqu’à 30 000 connexions
   * P4 (53 Go - 530 Go) : jusqu’à 40 000 connexions
+
+> [!NOTE]
+> Si chaque taille de cache autorise *jusqu’à* un certain nombre de connexions, chaque connexion à Redis entraîne une surcharge. Un exemple d’une telle surcharge est l’utilisation du processeur et de la mémoire à la suite d’un chiffrement TLS/SSL. La limite maximale de connexions pour une taille de cache donnée suppose un cache peu chargé. Si la charge de la surcharge de connexion *plus* la charge des opérations de client dépasse la capacité du système, le cache peut rencontrer des problèmes de capacité, même si vous n’avez pas dépassé la limite de connexion pour la taille de cache actuelle.
+> 
+> 
+
+
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>Commandes Redis non prises en charge dans le Cache Redis Azure
 > [!IMPORTANT]

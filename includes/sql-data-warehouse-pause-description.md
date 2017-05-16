@@ -19,8 +19,3 @@ Lorsque vous suspendez une base de données :
 * Le stockage de données n’est pas affecté et vos données restent intactes. 
 * SQL Data Warehouse annule toutes les opérations en cours d’exécution ou en file d’attente.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

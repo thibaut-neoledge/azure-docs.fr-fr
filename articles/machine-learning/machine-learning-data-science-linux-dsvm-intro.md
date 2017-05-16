@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c041802cd86f9e8b07771413f867691d76b01abf
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b94b8b84ae2cf26a1680f816460cc86c4d79e885
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle de science des données Linux
-La machine virtuelle de science des données Linux est une machine virtuelle Azure fournie avec un ensemble d’outils préinstallés. Ces outils sont couramment utilisés pour faire de l’analytique des données et du Machine Learning. Les principaux composants logiciels inclus sont les suivants :
+La machine virtuelle pour la science des données pour Linux est une machine virtuelle Azure basée sur CentOS et fournie avec un ensemble d’outils préinstallés. Ces outils sont couramment utilisés pour faire de l’analytique des données et du Machine Learning. Les principaux composants logiciels inclus sont les suivants :
 
 * Microsoft R Server Developer Edition
 * Distribution Anaconda Python (versions 2.7 et 3.5), comprenant les bibliothèques courantes d’analyse des données
@@ -53,6 +54,9 @@ Les scientifiques de données utilisent différents outils pour effectuer ces t�
 La machine virtuelle de science des données Linux est là pour vous soulager en grande partie de cette charge. Utilisez-la pour démarrer rapidement votre projet d’analyse. Elle vous permet de travailler sur des tâches basées sur différents langages, notamment R, Python, SQL, Java et C++. Eclipse propose un environnement de développement intégré (IDE) qui vous permet de développer et de tester très simplement votre code. Le Kit de développement logiciel (SDK) Azure inclus dans la machine virtuelle vous permet de créer des applications à l’aide de divers services sous Linux disponibles sur la plateforme Microsoft Cloud. En outre, vous avez accès à d’autres langages tels que Ruby, Perl, PHP et node.js, déjà préinstallés.
 
 Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation matérielle Azure en fonction de la taille de la machine virtuelle approvisionnée avec l’image de machine virtuelle. Pour plus d’informations sur les frais de calcul, voir la [liste des machines virtuelles sur la Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
+Une image [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) est également disponible avec la plupart des mêmes outils que l’image CentOS et des infrastructures d’apprentissage approfondi. Une image [Windows](machine-learning-data-science-provision-vm.md) est également disponible.
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :

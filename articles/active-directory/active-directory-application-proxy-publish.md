@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 05/04/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
-ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -29,9 +31,7 @@ ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 Le service Proxy d’application Azure AD vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. À ce stade, vous devriez déjà avoir [activé le service Proxy d’application dans le Portail Azure Classic](active-directory-application-proxy-enable.md). Cet article vous guide tout au long de la procédure de publication d’applications exécutées sur votre réseau local et fournissant un accès à distance sécurisé hors de votre réseau. Après avoir terminé cet article, vous serez prêt à configurer l’application avec des exigences de sécurité ou des informations personnalisées.
 
 > [!NOTE]
-> Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-> 
-> 
+> Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md). Si vous souhaitez utiliser le proxy d’application, vous pouvez [publier des applications dans le portail Azure](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publier une application à l’aide de l’Assistant
 1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/)en tant qu’administrateur.
@@ -102,10 +102,5 @@ Pour supprimer une application, sélectionnez-la dans la liste, puis cliquez sur
 * [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 
 Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

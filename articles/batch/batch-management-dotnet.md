@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
+ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -173,7 +174,7 @@ Pour voir la bibliothèque Batch Management .NET en pratique, découvrez l’exe
 
 Avant de supprimer le compte Batch et le groupe de ressources qui viennent d’être créés, vous pouvez les afficher tous les deux dans le [Portail Azure][azure_portal] :
 
-Pour exécuter l’exemple d’application, vous devez tout d’abord l’inscrire auprès de votre locataire Azure AD sur le portail Azure et accorder des autorisations à l’API Azure Resource Manager. Suivez les étapes indiquées dans [Authentifier des applications Batch Management auprès d’Azure AD](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
+Pour exécuter l’exemple d’application, vous devez tout d’abord l’inscrire auprès de votre locataire Azure AD sur le portail Azure et accorder des autorisations à l’API Azure Resource Manager. Suivez les étapes indiquées dans [Authentifier des solutions de gestion Batch avec Active Directory](batch-aad-auth-management.md).
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Qu’est-ce qu’Azure Active Directory ?"

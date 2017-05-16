@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: add30a2b1b521bf1d1af49590ba4b71ab772e319
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a93c84435c1adab117961bceae0f7b49b2b2348a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -127,7 +128,7 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du cluster est [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité du cluster est [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 L’état du cluster indique cinq nœuds, l’application système et l’application fabric:/WordCount, configurés comme indiqué.
 
@@ -244,7 +245,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du nœud est [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité du nœud est [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 L’applet de commande suivante permet d’obtenir les données d’intégrité du nœud à l’aide des stratégies de contrôle d’intégrité par défaut :
 
 ```powershell
@@ -329,7 +330,7 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité de l’application est [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité de l’application est [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 L’applet de commande suivante renvoie les données d’intégrité de l’application **fabric:/WordCount** :
 
@@ -459,7 +460,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du service est [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité du service est [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 L’applet de commande suivante permet d’obtenir les données d’intégrité du service à l’aide des stratégies de contrôle d’intégrité par défaut :
 
@@ -547,7 +548,7 @@ PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionH
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité de la partition est [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité de la partition est [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 L’applet de commande suivante permet d’obtenir les données d’intégrité de l’ensemble des partitions du service **fabric:/WordCount/WordCountService** :
 
@@ -608,7 +609,7 @@ ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du réplica est [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité du réplica est [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 L’applet de commande suivante permet d’obtenir les données d’intégrité du réplica principal de l’ensemble des partitions du service :
 
@@ -652,7 +653,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité des applications déployées est [Get-ServiceFabricDeployedApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) . Pour connaître l’emplacement de déploiement d’une application, exécutez [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth) et visualisez les enfants de l’application déployée.
+L’applet de commande permettant d’obtenir les données d’intégrité des applications déployées est [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Pour connaître l’emplacement de déploiement d’une application, exécutez [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) et visualisez les enfants de l’application déployée.
 
 L’applet de commande suivante permet d’obtenir les données d’intégrité de l’application **fabric:/WordCount** déployée sur **_Node_2**.
 
@@ -705,7 +706,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du package de services déployé est [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) . Pour connaître l’emplacement de déploiement d’une application, exécutez l’applet [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth) et visualisez les applications déployées. Pour connaître les packages de services d’une application, consultez les enfants du package de services déployé dans la sortie de l’applet [Get-ServiceFabricDeployedApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth) .
+L’applet de commande permettant d’obtenir les données d’intégrité du package de services déployé est [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Pour connaître l’emplacement de déploiement d’une application, exécutez l’applet [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) et visualisez les applications déployées. Pour connaître les packages de services d’une application, consultez les enfants du package de services déployé dans la sortie de l’applet [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) .
 
 L’applet de commande suivante permet d’obtenir les données d’intégrité du package de services **WordCountServicePkg** de l’application **fabric:/WordCount** déployée sur **_Node_2**. L’entité présente des rapports **System.Hosting** indiquant la réussite de l’activation du package de services et du point d’entrée et la réussite de l’inscription du type de services.
 
@@ -837,7 +838,7 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-L’applet de commande permettant d’obtenir les données d’intégrité du cluster est [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+L’applet de commande permettant d’obtenir les données d’intégrité du cluster est [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Le code suivant obtient des nœuds uniquement s’ils présentent un état d’erreur, sauf pour un nœud spécifique, qui doit toujours être renvoyé.
 

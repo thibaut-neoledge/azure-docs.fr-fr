@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Vous pouvez utiliser PowerShell pour mettre à jour votre compte Automation exis
 Le script nécessite les éléments suivants :
 
 * Ce script peut uniquement être exécuté sur Windows 10 et sur Windows Server 2016 avec les modules Azure Resource Manager 2.01 et versions ultérieures. Il n’est pas pris en charge dans les versions antérieures de Windows.
-* Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations sur la version PowerShell 1.0, voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations sur la version PowerShell 1.0, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 * Un compte Automation, référencé en tant que valeur des paramètres *–AutomationAccountName* et *-ApplicationDisplayName* dans le script PowerShell suivant.
 
 Pour obtenir les valeurs des paramètres *SubscriptionID*, *ResourceGroup* et *AutomationAccountName*, qui sont des paramètres requis pour les scripts, procédez comme suit :
@@ -515,7 +515,7 @@ Vous pouvez utiliser l’exemple de code mis à jour suivant, extrait de l’exe
          }
     }
 
-Afin de faciliter le travail entre plusieurs abonnements, le script inclut deux lignes de code supplémentaires pour prendre en charge le référencement d’un contexte d’abonnement. La ressource variable *SubscriptionId* contient l’ID de l’abonnement. Après l’instruction d’applet de commande `Add-AzureRmAccount`, l’applet de commande [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) est indiqué avec le jeu de paramètres *-SubscriptionId*. Si le nom de la variable est trop générique, vous pouvez le modifier afin qu’il comprenne un préfixe ou utiliser une autre convention d’affectation de noms pour faciliter son identification. Vous pouvez également utiliser le jeu de paramètres *-SubscriptionName* au lieu de *-SubscriptionId* avec la ressource de variable correspondante.
+Afin de faciliter le travail entre plusieurs abonnements, le script inclut deux lignes de code supplémentaires pour prendre en charge le référencement d’un contexte d’abonnement. La ressource variable *SubscriptionId* contient l’ID de l’abonnement. Après l’instruction d’applet de commande `Add-AzureRmAccount`, l’applet de commande [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) est indiqué avec le jeu de paramètres *-SubscriptionId*. Si le nom de la variable est trop générique, vous pouvez le modifier afin qu’il comprenne un préfixe ou utiliser une autre convention d’affectation de noms pour faciliter son identification. Vous pouvez également utiliser le jeu de paramètres *-SubscriptionName* au lieu de *-SubscriptionId* avec la ressource de variable correspondante.
 
 L’applet de commande utilisée pour l’authentification dans le Runbook, `Add-AzureRmAccount`, utilise le jeu de paramètres *ServicePrincipalCertificate*. Elle effectue l’authentification à l’aide du certificat du principal du service, et non des informations d’identification de l’utilisateur.
 

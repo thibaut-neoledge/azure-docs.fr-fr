@@ -15,10 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +57,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de transaction de base de données autorisé de 45 000. |Réduisez la [DWU][DWU] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][request a quota increase]. |
 | Examen de l’utilisation de l’espace |Consultez [Tailles des tables][Table sizes] pour comprendre l’utilisation de l’espace de votre système. |
 | Aide concernant la gestion des tables |Consultez l’article [Vue d’ensemble des tables][Overview] pour obtenir de l’aide pour la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary]. |
-|La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Azure|Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Azure|Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>Polybase
 | Problème | Résolution : |

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -36,7 +37,7 @@ Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d�
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
 
-1. Les abonnements source et de destination doivent exister dans le même [client Active Directory](../active-directory/active-directory-howto-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
+1. Les abonnements source et de destination doivent exister dans le même [client Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
 
   Pour Azure PowerShell, utilisez :
 
@@ -50,7 +51,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Active Directory associé. 
+  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Azure Active Directory associé. 
 
   ![Modifier l’annuaire](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +68,7 @@ Vous pouvez déplacer la plupart des ressources via les opérations en libre-ser
 
 Appelez le support technique quand vous devez :
 
-* Déplacer vos ressources vers un nouveau compte Azure (et un locataire Active Directory).
+* Déplacer vos ressources vers un nouveau compte Azure (et un locataire Azure Active Directory).
 * Déplacer des ressources classiques, mais que vous rencontrez des problèmes avec les limitations.
 
 ## <a name="services-that-enable-move"></a>Services permettant le déplacement
@@ -75,6 +76,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 
 * API Management
 * Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
+* Application Insights
 * Automatisation
 * Batch
 * Bing Maps
@@ -124,7 +126,6 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
-* Application Insights
 * BizTalk Services
 * Service de conteneur
 * ExpressRoute
@@ -147,12 +148,12 @@ Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas d�
 * Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cette exigence signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service. 
 * Déplacer les applications vers un autre groupe de ressources, mais conserver tous les plans App Service dans le groupe de ressources d'origine.
 
-Si votre groupe de ressources d’origine inclut également une ressource Application Insights, vous ne pouvez pas déplacer cette ressource car Application Insights ne permet pas actuellement l’opération de déplacement. Si vous incluez la ressource Application Insights lors du déplacement d’applications App Service, l’opération de déplacement tout entière échoue. Toutefois, Application Insights et le plan App Service n’ont pas à résider dans le même groupe de ressources pour que l’application fonctionne correctement.
+Le plan App Service ne doit pas forcément résider dans le même groupe de ressources que l’application pour que l’application fonctionne correctement.
 
 Par exemple, si votre groupe de ressources contient :
 
-* **web-a**, qui est associé à **plan-a** et à **app-insights-a**
-* **web-b**, qui est associé à **plan-b** et à **app-insights-b**
+* **web-a**, qui est associé à **plan-a**
+* **web-b**, qui est associé à **plan-b**
 
 Vos options sont :
 
@@ -161,7 +162,7 @@ Vos options sont :
 * Déplacez **web-a**
 * Déplacez **web-b**
 
-Toutes les autres combinaisons impliquant le déplacement d’une ressource qui ne peut pas l’être (Application Insights) ou l’abandon d’un type de ressource qui ne peut pas l’être lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
+Toutes les autres combinaisons impliquent l’abandon d’un type de ressource qui ne peut pas être abandonné lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
 
 Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple :
 

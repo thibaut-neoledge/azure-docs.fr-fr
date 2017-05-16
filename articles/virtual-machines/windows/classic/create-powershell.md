@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d9b713460f98104017ae73ea27f30b0d8d1ca7ee
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +39,7 @@ Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerS
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Les utilisateurs avancés de PowerShell peuvent prendre les commandes et indiquer leurs propres valeurs pour les variables (lignes commençant par « $ »).
 
-Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Puis ouvrez une invite de commandes Windows PowerShell.
+Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . Puis ouvrez une invite de commandes Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Étape 1 : Ajouter votre compte
 1. À l’invite PowerShell, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**. 
@@ -122,7 +123,7 @@ Pour ajouter l’ordinateur Windows à un domaine Active Directory existant, vou
     $domacctdomain="<domain of the account that has permission to add the machine to the domain>"
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Pour connaître les autres options de préconfiguration disponibles pour les machines virtuelles Windows, consultez la syntaxe des jeux de paramètres **Windows** et **WindowsDomain** dans [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+Pour connaître les autres options de préconfiguration disponibles pour les machines virtuelles Windows, consultez la syntaxe des jeux de paramètres **Windows** et **WindowsDomain** dans [Add-AzureProvisioningConfig](/powershell/module/azure/add-azureprovisioningconfig).
 
 Vous pouvez éventuellement attribuer à la machine virtuelle une adresse IP spécifique, appelée DIP statique.
 

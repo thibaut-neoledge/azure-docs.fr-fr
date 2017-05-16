@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -407,6 +408,8 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
   
 -   **Workflow** \- Cette action représente un workflow imbriqué.  
 
+-   **Function** \- Cette action représente une fonction d’Azure.
+
 ### <a name="collection-actions"></a>Actions de collection
 
 -   **Scope** \- Cette action est un regroupement logique d’autres actions.
@@ -453,7 +456,7 @@ Par exemple, en cas d’échec temporaire, l’action suivante tente à nouveau 
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +661,28 @@ La sortie de l’action `query` est un tableau qui contient les éléments du ta
 |from|Oui|Tableau|Tableau source.|
 |où|Oui|String|Condition à appliquer à chaque élément du tableau source.|
 
+## <a name="select-action"></a>Action select
+
+L’action `select` permet de projeter chaque élément d’un tableau dans une nouvelle valeur.
+Par exemple, pour convertir un tableau de nombres en tableau d’objets, vous pouvez utiliser :
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+La sortie de l’action `select` est un tableau présentant la même cardinalité que le tableau d’entrée, chaque élément étant transformé comme défini par la propriété `select`. Si l’entrée est un tableau vide, la sortie est également un tableau vide.
+
+|Nom|Requis|Type|Description|
+|--------|------------|--------|---------------|
+|from|Oui|Tableau|Tableau source.|
+|select|Oui|Quelconque|Projection à appliquer à chaque élément du tableau source.|
+
 ## <a name="terminate-action"></a>Action terminate
 
 L’action terminate met fin à l’exécution de l’exécution du workflow, abandonnant les actions en cours et ignorant les actions restantes. Par exemple, pour mettre fin à une exécution qui présente l’état **Failed** (Échec), vous pouvez utiliser l’extrait de code suivant :
@@ -704,6 +729,71 @@ L’action compose vous permet de construire un objet arbitraire. La sortie de l
 > [!NOTE]
 > L’action **compose** peut être utilisée pour construire n’importe quelle sortie, y compris des objets, des tableaux et tout autre type pris en charge de façon native par les applications logiques, tel que XML et binaire.
 
+## <a name="table-action"></a>Action table
+
+L’action `table` permet de convertir un tableau d’éléments en table **CVS** ou **HTML**.
+
+Supposons que @triggerBody() est
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+Et que l’action est définie comme étant
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+Les éléments ci-dessus produisent le résultat
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>pommes</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
+
+Afin de personnaliser le tableau, vous pouvez spécifier explicitement les colonnes. Par exemple :
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+Les éléments ci-dessus produisent le résultat
+
+<table><thead><tr><th>produce id</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>"
+
+Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide.
+
+|Nom|Requis|Type|Description|
+|--------|------------|--------|---------------|
+|from|Oui|Tableau|Tableau source.|
+|format|Oui|String|Le format, soit **CVS** ou **HTML**.|
+|colonnes|Non|Tableau|Les colonnes. Permet de remplacer la forme par défaut de la table.|
+|column header|Non|String|En-tête de la colonne.|
+|column value|Oui|Chaîne|Valeur de la colonne.|
+
 ## <a name="workflow-action"></a>Action workflow   
 
 |Nom|Requis|Type|Description|  
@@ -741,6 +831,47 @@ L’action compose vous permet de construire un objet arbitraire. La sortie de l
 Un contrôle d’accès est effectué sur le workflow \(plus précisément, sur le déclencheur\), ce qui signifie que vous avez besoin d’un accès au workflow.  
   
 Les sorties de l’action `workflow` sont basées sur ce que vous avez défini pour l’action `response` dans le workflow enfant. Si vous n’avez pas défini d’action `response`, les sorties sont vides.  
+
+## <a name="function-action"></a>Action function   
+
+|Nom|Requis|Type|Description|  
+|--------|------------|--------|---------------|  
+|function id|Oui|String|ID de ressource de la fonction que vous souhaitez appeler.|  
+|statique|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
+|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Lorsque vous enregistrez l’application logique, certaines vérifications sont effectuées sur la fonction référencée :
+-   Vous devez avoir accès à la fonction.
+-   Seuls le déclencheur HTTP standard ou un déclencheur webhook JSON générique sont autorisés.
+-   Aucune route ne doit être définie.
+-   Seuls les niveaux d’autorisation « fonction » et « anonyme » sont autorisés.
+
+L’URL du déclencheur est récupéré, mis en cache et utilisé au runtime. Par conséquent, si une opération invalide l’URL en cache, l’action échoue au runtime. Pour contourner ce problème, enregistrez de nouveau l’application logique pour que l’application logique puisse de nouveau récupérer et mettre en cache l’URL du déclencheur.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Actions de collection (étendues et boucles)
 
@@ -897,3 +1028,4 @@ Si une condition est évaluée avec succès, elle est marquée comme `Succeeded`
 ## <a name="next-steps"></a>Étapes suivantes
 
 [API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows)
+

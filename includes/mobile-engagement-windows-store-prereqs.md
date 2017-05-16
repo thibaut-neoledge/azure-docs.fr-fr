@@ -16,8 +16,3 @@ Ce didacticiel requiert les éléments suivants :
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

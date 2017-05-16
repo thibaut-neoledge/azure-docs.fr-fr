@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -156,7 +157,7 @@ Pipeline 1 : dataset4->activity4->dataset5
 Si la propriété « external » est définie correctement, vérifiez que les données d’entrée se trouvent bien dans l’emplacement spécifié dans la définition du jeu de données d’entrée.
 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>Comment choisir une heure d’exécution autre que minuit pour une tranche qui est générée quotidiennement ?
-Utilisez la propriété **offset** pour spécifier l’heure à laquelle la tranche doit être générée. Pour plus d’informations sur cette propriété, consultez la section [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability) . Voici un exemple rapide :
+Utilisez la propriété **offset** pour spécifier l’heure à laquelle la tranche doit être générée. Pour plus d’informations sur cette propriété, consultez la section [Disponibilité du jeu de données](data-factory-create-datasets.md#dataset-availability) . Voici un exemple rapide :
 
 ```json
 "availability":
@@ -193,7 +194,7 @@ Vous pouvez également faire ce qui suit dans le portail Azure :
 6. Une valeur doit apparaître dans le champ **DURÉE** . Il s’agit du temps nécessaire pour traiter la tranche.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Comment arrêter une tranche en cours d'exécution ?
-Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) . Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
+Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
 
 Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul moyen est de supprimer le pipeline et de le recréer. Si vous choisissez de supprimer le pipeline, il est INUTILE de supprimer les tables et les services liés qu'il utilise.
 

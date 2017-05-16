@@ -7,8 +7,3 @@
 4. Désactivez l’interface réseau à laquelle est affectée une passerelle et enregistrez la nouvelle configuration. Les paramètres d’interface réseau étant conservés, le portail retrouve les paramètres d’origine quand vous réactivez cette interface réseau ultérieurement.
 5. Vous pouvez maintenant [utiliser le portail Azure Classic pour installer Update 1.2](#install-update-12-via-the-azure-classic-portal). Suivez les instructions à partir de l’étape 3 de cette procédure. Après avoir installé toutes les mises à jour, vous pouvez réactiver l’interface réseau que vous avez désactivée.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

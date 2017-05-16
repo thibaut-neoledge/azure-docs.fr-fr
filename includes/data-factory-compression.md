@@ -43,12 +43,7 @@ La section **compression** a deux propriétés :
 
 Lorsque vous spécifiez la propriété `compression` dans un jeu de données JSON d’entrée, le pipeline peut lire les données compressées à partir de la source. Lorsque vous spécifiez la propriété dans un jeu de données JSON de sortie, l’activité de copie peut écrire les données compressées dans la destination. Voici quelques exemples de scénarios :
 
-* Lire les données compressées GZIP à partir d’un objet blob Azure, les décompresser et écrire des données du résultat dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure d’entrée avec la propriété JSON `compression` `type` au format GZIP.
+* Lire les données compressées GZIP à partir d’un objet blob Azure, les décompresser et écrire des données du résultat dans une SQL Database Azure. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure d’entrée avec la propriété JSON `compression` `type` au format GZIP.
 * Lire les données d’un fichier de texte brut dans le système de fichiers local, les compresser en utilisant le format GZIP et écrire les données compressées dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure de sortie avec la propriété JSON `compression` `type` au format GZIP.
 * Lisez le fichier .zip à partir du serveur FTP, décompressez-le pour accéder aux fichiers qu’il contient et placez ces derniers dans Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données FTP d’entrée avec la propriété JSON `compression` `type` au format ZipDeflate.
 * Lire les données compressées au format GZIP à partir d’un objet blob Azure, les décompresser, les compresser en utilisant le format BZIP2 et écrire les données résultantes dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objet blob Azure d’entrée avec le paramètre `compression` `type` défini sur GZIP et le jeu de données de sortie avec le paramètre `compression` `type` défini sur BZIP2.   
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 05/04/2017
 ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
 ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -219,7 +220,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
             }
         }
     }     
-    ```     
+    ```       
    Notez les points suivants :
 
    * Le **type** est défini sur **SqlServerTable**.
@@ -396,9 +397,4 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle de gestion des données.
 * Consultez l’article [Copie de données d’un objet blob vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour en savoir plus sur l’utilisation de l’activité de copie pour déplacer des données d’une banque de données source vers une banque de données récepteur.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

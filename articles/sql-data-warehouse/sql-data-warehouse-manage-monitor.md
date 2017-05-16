@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3735d656429da1f1fe7569f640b272b099382032
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Suivi des connexions
-Toutes les connexions à SQL Data Warehouse sont enregistrées dans [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Cette DMV contient les 10 000 dernières connexions.  L’ID de session (session_id) est la clé principale. Elle est affectée de façon séquentielle pour chaque nouvelle connexion.
+Toutes les connexions à SQL Data Warehouse sont consignées dans [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Cette DMV contient les 10 000 dernières connexions.  L’ID de session (session_id) est la clé principale. Elle est affectée de façon séquentielle pour chaque nouvelle connexion.
 
 ```sql
 -- Other Active Connections
@@ -39,7 +41,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Surveillance de l’exécution des rêquetes
-Toutes les requêtes exécutées sur SQL Data Warehouse sont enregistrées dans [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Cette DMV contient les 10 000 dernières requêtes exécutées.  L’ID de requête (request_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette DMV.  L’ID de requête (request_id) est affecté de façon séquentielle pour chaque nouvelle requête et a le préfixe QID, qui signifie ID de requête.  En interrogeant cette DMV pour un ID de session (session_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
+Toutes les requêtes exécutées sur SQL Data Warehouse sont consignées dans [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Cette DMV contient les 10 000 dernières requêtes exécutées.  L’ID de requête (request_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette DMV.  L’ID de requête (request_id) est affecté de façon séquentielle pour chaque nouvelle requête et a le préfixe QID, qui signifie ID de requête.  En interrogeant cette DMV pour un ID de session (session_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
 
 > [!NOTE]
 > Les procédures stockées utilisent plusieurs ID de requête.  Les ID de requête sont affectés dans un ordre séquentiel. 
@@ -71,9 +73,9 @@ WHERE   [label] = 'My Query';
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Gestion de la concurrence et des charges de travail][Gestion de la concurrence et des charges de travail]. Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources][Examen des requêtes en attente de ressources] plus loin dans cet article.
+Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Gestion de la concurrence et des charges de travail][Concurrency and workload management]. Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
 
-Pour simplifier la recherche d’une requête dans la table sys.dm_pdw_exec_requests, utilisez [LABEL][LABEL] pour affecter à votre requête un commentaire qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
+Pour simplifier la recherche d’une requête dans la table sys.dm_pdw_exec_requests, utilisez [LABEL][LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -95,7 +97,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un plan complexe avec de nombreuses étapes DSQL ou une seule étape chronophage.  Si le plan comprend de nombreuses étapes avec plusieurs opérations de déplacement, envisagez d’optimiser vos distributions de table pour réduire le déplacement des données. L’article [Table distribution][Table distribution] explique pourquoi les données doivent être déplacées pour résoudre une requête et explique certaines stratégies de distribution permettant de réduire le déplacement des données.
+Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un plan complexe avec de nombreuses étapes DSQL ou une seule étape chronophage.  Si le plan comprend de nombreuses étapes avec plusieurs opérations de déplacement, envisagez d’optimiser vos distributions de table pour réduire le déplacement des données. L’article [Distribution des tables][Table distribution] explique pourquoi des données doivent être déplacées pour résoudre une requête et explique certaines stratégies de distribution permettant de réduire le déplacement des données.
 
 Pour examiner les détails d’une seule étape, vérifiez la colonne *operation_type* de l’étape de la requête longue et notez **l’index de l’étape** :
 
@@ -113,7 +115,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Lorsque l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
+Quand l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -173,18 +175,18 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues système][Vues système].
-Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].
+Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues système][System views].
+Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques pour SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Vues système]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Manage overview]: ./sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Gestion de la concurrence et des charges de travail]: ./sql-data-warehouse-develop-concurrency.md
-[Examen des requêtes en attente de ressources]: ./sql-data-warehouse-manage-monitor.md#waiting
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -195,9 +197,4 @@ Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures prati
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

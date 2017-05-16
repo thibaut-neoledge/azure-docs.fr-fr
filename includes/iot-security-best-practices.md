@@ -45,8 +45,3 @@ Les fonctionnalités des différents appareils IoT peuvent varier. Certains appa
 
 Certains appareils existants et limités n’ont peut-être pas été conçus spécifiquement pour un déploiement IoT. Il se peut qu’ils ne soient pas en mesure de chiffrer les données, de se connecter à Internet ou d’assurer un audit avancé. Dans ce cas, une passerelle de champ moderne et sécurisée peut agréger les données des appareils existants et offrir la sécurité requise pour connecter ces appareils à Internet. Les passerelles de champ peuvent assurer l’authentification sécurisée, la négociation de sessions chiffrées, la réception des commandes du cloud et beaucoup d’autres fonctionnalités de sécurité.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

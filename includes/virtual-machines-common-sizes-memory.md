@@ -68,7 +68,7 @@ bits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 ## <a name="dv2-series"></a>Série Dv2
 
-ACU : 21 - 250
+ACU : 210-250
 
 | Taille              | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Débit de disque local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

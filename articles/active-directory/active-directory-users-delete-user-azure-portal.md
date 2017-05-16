@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;jeffsta
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -42,9 +43,4 @@ Cet article explique comment supprimer un utilisateur d’un répertoire dans la
 * [Attribuer des rôles d’administrateur à un utilisateur dans la préversion d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Ajouter ou modifier les informations de profil pour un utilisateur dans la préversion d’Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Supprimer un utilisateur d’un répertoire dans la version préliminaire d’Azure Active Directory](active-directory-users-profile-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

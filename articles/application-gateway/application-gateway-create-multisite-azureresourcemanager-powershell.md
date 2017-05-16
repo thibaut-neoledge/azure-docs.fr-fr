@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: d46c87480fd198bf4f09e48f4d2ea838a350190c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -45,7 +47,7 @@ Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour
 * **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
 * **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
 * **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). Pour les passerelles Application Gateway activées pour plusieurs sites, le nom d’hôte et les indicateurs SNI sont également ajoutés.
-* **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
+* **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Les règles sont traitées dans l’ordre où elles sont répertoriées, et le trafic est orienté selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu.
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
@@ -281,10 +283,5 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment protéger vos sites web grâce au [Pare-feu d’applications web sur Application Gateway](application-gateway-webapplicationfirewall-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

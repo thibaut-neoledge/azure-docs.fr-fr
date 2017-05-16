@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 308c9f4d59f6c6981af74f4208c9963e3d0102dd
-ms.openlocfilehash: 6644afc1de68230ccca089529b32195c4c8ddfe7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e190cfdf6d7a9dee86ed7b9072dc51ca8c993d32
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 * Activation de l’intégration d’applications pour BambooHR
-* Configuration de l'authentification unique
+* Configuration de l’authentification unique (SSO)
 * Configuration de l'approvisionnement des utilisateurs
 * Affectation d’utilisateurs
 
@@ -95,7 +95,7 @@ Dans le cadre de cette procédure, vous devez créer un fichier de certificat co
    
    ![Authentification unique SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Authentification unique SAML")
    
-   1. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **SSO Login URL**.
+   1. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur de **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL de connexion d’authentification unique**.
    2. Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
    
       >[!TIP]
@@ -128,7 +128,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à BambooHR, vous devez
 >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par BambooHR pour approvisionner des comptes d’utilisateur Azure Active Directory. 
 > 
 
-## <a name="assig-users"></a>Affecter des utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
 **Pour affecter des utilisateurs à BambooHR, suivez les étapes ci-dessous :**

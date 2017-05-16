@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4a860f5aaa03ccfa73f1508548ca8b1344679c38
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,8 +41,8 @@ Les messages Appareil vers cloud respectent les recommandations de débit souten
 
 | Niveau | Débit soutenu | Vitesse de transmission soutenue |
 | --- | --- | --- |
-| S1 |Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) |Moyenne de 278 messages/minute par unité<br/>(400&000; messages/jour par unité) |
-| S2 |Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) |Moyenne de 4 167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
+| S1 |Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) |Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
+| S2 |Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) |Moyenne de 4167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
 | S3 |Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) |Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
 
 ## <a name="identity-registry-operation-throughput"></a>Débit des opérations de registre d’identité

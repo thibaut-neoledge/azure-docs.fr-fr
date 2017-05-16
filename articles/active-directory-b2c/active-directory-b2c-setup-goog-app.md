@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: dbc544ad4dbb651aeb24faf2f89074c7aa59cf2a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,10 +60,5 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **Google**, puis cliquez sur **OK**.
 6. Cliquez sur **Configurer ce fournisseur d’identité** , puis entrez l’ID client et la clé secrète client de l’application Google+ que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Google+.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

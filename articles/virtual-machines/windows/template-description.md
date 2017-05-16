@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2038ffd2651be7f8dc3653a58673f33e6f32d3db
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b011f51e7b5aa921c43c906fb36fa3020a2dc7e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -165,7 +166,7 @@ La version de l'API que vous spécifiez dans votre modèle affecte les propriét
 Utilisez ces opportunités pour obtenir les dernières versions de l'API :
 
 - API REST - [Répertorier tous les fournisseurs de ressources](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
+- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Paramètres et variables
@@ -461,3 +462,4 @@ Vous pouvez utiliser le même modèle pour créer des ressources ou pour mettre 
 - Créez votre propre modèle à l’aide de la rubrique [Création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Déployez le modèle que vous avez créé à l'aide de la rubrique [Créer une machine virtuelle Windows avec un modèle Resource Manager](ps-template.md).
 - Pour apprendre à gérer les machines virtuelles que vous avez créées, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](ps-manage.md).
+

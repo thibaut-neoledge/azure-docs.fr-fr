@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -99,20 +100,18 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 ## <a name="data-rate"></a>Débit de données
 Le volume d’envoi de données est limité de trois façons :
 
-* **Limite quotidienne.** La limite maximale est de 500 Go/jour. La valeur par défaut lors de la création d’une ressource Application Insights à partir de Visual Studio est faible (seulement 32,3 Mo/jour). Lors de la création d’une ressource Application Insights à partir du portail Azure, cette limite est définie à sa valeur maximale. Soyez prudent lorsque vous modifiez cette valeur car, si vous atteignez cette limite, vous risquez de perdre des données pour le reste de la journée. Pour modifier cette valeur, utilisez le panneau Limite quotidienne de volume, lié au panneau de gestion du volume de données.
-* **[Échantillonnage](app-insights-sampling.md).** Ce mécanisme peut réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques.
-* La **limitation** restreint le débit de données à 32 000 événements par seconde, avec une moyenne de 1 minute. 
+* **Échantillonnage :** ce mécanisme permet de réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. C’est le principal outil dont vous disposez pour ajuster la quantité de données. Découvrez plus en détail les [fonctionnalités d’échantillonnage](app-insights-sampling.md). 
+* **Limite quotidienne :** au moment de créer une ressource Application Insights à partir du portail Azure, cette limite est définie à 500 Go/jour. La valeur par défaut au moment de créer une ressource Application Insights à partir de Visual Studio est faible (seulement 32,3 Mo/jour) et vise uniquement à faciliter les tests. Dans ce cas, l’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. La limite maximale est de 500 Go/jour, à moins que vous en ayez demandé une plus élevée pour les besoins d’une application à fort trafic. Définissez la limite maximale avec précaution en partant du principe que vous ne devez **jamais atteindre la limite maximale**. Vous perdriez en effet le reste de données de la journée et ne pourriez pas surveiller votre application. Pour la modifier, servez-vous du panneau Limite quotidienne de volume, qui est lié au panneau Gestion du volume de données (voir ci-dessous). Notez que certains types d’abonnement disposent d’un crédit qui ne peut pas être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, le panneau Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.  
+* **Limitation :** ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute. 
 
 
 *Que se passe-t-il si mon application dépasse le taux limite ?*
 
-* Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Le Kit de développement logiciel (SDK) met les données en mémoire tampon et essaie ensuite de renvoyer, en diffusant un pic pendant plusieurs minutes. Si votre application envoie régulièrement des données au-delà du taux limite, certaines données sont supprimées. (les kits de développement logiciel (SDK) ASP.NET, Java et JavaScript essaient de renvoyer de cette manière ; les autres SDK suppriment parfois simplement les données limitées).
+* Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Le Kit de développement logiciel (SDK) met les données en mémoire tampon et essaie ensuite de renvoyer, en diffusant un pic pendant plusieurs minutes. Si votre application envoie régulièrement des données au-delà du taux limite, certaines données sont supprimées. (les kits de développement logiciel (SDK) ASP.NET, Java et JavaScript essaient de renvoyer de cette manière ; les autres SDK suppriment parfois simplement les données limitées). En cas de limitation, vous en êtes informé par un avertissement.
 
-En cas de limitation, vous en êtes informé par un avertissement.
+*Comment déterminer la quantité de données envoyées par mon application ?*
 
-*Comment savoir combien de points de données envoie mon application ?*
-
-* Ouvrez le panneau Tarification pour afficher le graphique Volume de données.
+* Ouvrez le panneau **Gestion du volume de données** pour afficher le graphique Volume de données quotidien. 
 * Ou dans Metrics Explorer, ajoutez un nouveau graphique et sélectionnez la mesure **Volume du point de données** . Basculez sur le regroupement et regroupez par **Type de données**.
 
 ## <a name="to-reduce-your-data-rate"></a>Pour réduire le débit de données
@@ -123,9 +122,16 @@ Voici quelques opérations possibles pour réduire le volume de données :
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Diviser vos données de télémétrie pour séparer les clés d’instrumentation. 
 * Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Pour finir, vous pouvez réduire la limite du volume quotidien qui restreint les données collectées, mais cela entraînera une perte de données pour le reste de la journée. Pour modifier cette valeur, ouvrez **Fonctionnalités + tarifs**, **Gestion des données**.
 
-    ![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Gestion du volume maximal quotidien de données
+
+Vous pouvez utiliser un plafond de volume quotidien pour limiter les données collectées, mais si cette limite est atteinte, vous perdrez toute la télémétrie envoyée par votre application pour le reste de la journée. Il est **déconseillé** de laisser votre application atteindre le plafond quotidien, car vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois que ce plafond est atteint. 
+
+Utilisez plutôt l’[échantillonnage](app-insights-sampling.md) pour ajuster le volume de données souhaité et utilisez le plafond quotidien uniquement en dernier recours, dans le cas où votre application commence à envoyer de beaucoup plus grands volumes de télémétrie de façon inattendue. 
+
+Pour modifier la limite, dans la section Configurer de votre ressource Application Insights, cliquez sur **Gestion du volume de données**, puis sur **Limite quotidienne**.
+
+![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>échantillonnage
 [Sampling](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. 

@@ -203,8 +203,3 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

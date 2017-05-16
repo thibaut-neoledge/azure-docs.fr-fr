@@ -17,9 +17,9 @@ ms.date: 02/14/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
-ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Aujourd'hui, de nombreuses personnes choisissent Hive et Pig par l’intermédia
 **Conditions préalables**:
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
+* **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 
     > [!IMPORTANT]

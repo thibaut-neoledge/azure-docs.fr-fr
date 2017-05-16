@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-Lorsque vous soumettez des demandes de recherche à Azure Search, vous pouvez spécifier plusieurs paramètres avec les mots que vous tapez dans la zone de recherche de votre application. Ces paramètres de requête vous permettent d’obtenir un contrôle plus étroit de l’expérience de recherche en texte intégral.
+Lorsque vous soumettez des demandes de recherche à Azure Search, vous pouvez spécifier plusieurs paramètres avec les mots que vous tapez dans la zone de recherche de votre application. Ces paramètres de requête vous permettent d’obtenir un contrôle plus étroit de [l’expérience de recherche en texte intégral](search-lucene-query-architecture.md).
 
 Vous trouverez ci-dessous une liste qui explique brièvement les utilisations courantes des paramètres de requête dans Azure Search. Pour une étude complète des paramètres de requête et de leur comportement, consultez les pages détaillées de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) et du [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -59,10 +61,5 @@ Pour plus d’informations sur la pagination des résultats de recherche, consul
 
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 Dans Azure Search, vous pouvez mettre facilement en évidence la partie exacte des résultats de recherche qui correspondent à la requête de recherche en utilisant les paramètres `highlight`, `highlightPreTag` et `highlightPostTag`. Vous pouvez spécifier les champs *utilisables dans une recherche* dont le texte correspondant à la requête doit être mis en évidence ainsi que les balises de chaîne exactes à ajouter au début et à la fin du texte correspondant retourné par le service Recherche Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

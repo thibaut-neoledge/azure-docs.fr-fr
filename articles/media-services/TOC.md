@@ -211,8 +211,8 @@
 ### [Logique de nouvelle tentative](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Référence
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (gestion des services)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [PowerShell (gestion des services)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media)
 

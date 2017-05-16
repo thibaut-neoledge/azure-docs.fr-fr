@@ -78,8 +78,3 @@ Chaque solution préconfigurée Azure IoT Suite crée des instances de services 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 * [**Blob Storage**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

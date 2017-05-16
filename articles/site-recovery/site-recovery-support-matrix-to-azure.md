@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,11 +33,11 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
 ## <a name="support-for-deployment-options"></a>Prise en charge des options de déploiement
 
-**Déploiement** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-**portail Azure** | Machines virtuelles VMware locales vers stockage Azure, avec Azure Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales (hors clouds de VMM) vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales (dans clouds de VMM) vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques.
-**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement. | Mode Maintenance uniquement.
-**PowerShell** | Non pris en charge pour le moment. | Pris en charge | Pris en charge
+**Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec / sans  Virtual Machine Manager)** |
+--- | --- | ---
+**Portail Azure** | Machines virtuelles VMware locales vers stockage Azure, avec Azure Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques.
+**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement.
+**PowerShell** | Non pris en charge pour le moment. | Pris en charge
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Prise en charge des serveurs de gestion du centre de données
@@ -50,15 +50,15 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 **Hyper-V (avec VMM)** | System Center Virtual Machine Manager 2016 et System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge. 
+  > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge.
 
 ### <a name="host-servers"></a>Serveurs hôtes
 
 **Déploiement** | **Support**
 --- | ---
 **Machine virtuelle VMware/serveur physique** | vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement) 
-**Hyper-V (sans VMM)** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour
-**Hyper-V (avec VMM)** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par System Center Virtual Machine Manager 2016.
+**Hyper-V (avec / sans Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour.<br></br>Si SCVMM est utilisé, les hôtes Windows Server 2016 doivent être gérés par SCVMM 2016.
+
 
   >[!Note]
   >Les sites Hyper-V qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge. La récupération vers un autre emplacement pour les machines virtuelles sur un hôte Windows Server 2016 n’est pas prise en charge pour le moment.
@@ -68,50 +68,67 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 Les machines virtuelles qui sont protégées doivent répondre aux [conditions requises pour Azure](#failed-over-azure-vm-requirements) lors de la réplication vers Azure.
 Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation répliqués dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est applicable pour toutes les charges de travail en cours d’exécution sur le système d’exploitation mentionné.
 
- **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | ---
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+ **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)** |
+--- | --- |
+Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+
+>[!IMPORTANT]
+>(Applicable aux serveurs physiques / VMware avec réplication vers Azure)
+>
+> Sur les serveurs Red Hat Enterprise Linux Server 7 + et CentOS 7 +, la version de noyau 3.10.0-514 est prise en charge à partir de la version 9.8 du service mobilité Azure Site Recovery.<br/><br/>
+> Les clients sur le noyau 3.10.0-514 avec une version du service mobilité inférieure à la version 9.8 doivent désactiver la réplication, mettre à jour et installer la version 9.8 du service mobilité et activer à nouveau la réplication.  
+
+## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systèmes de fichiers pris en charge et configurations de stockage invité sous Linux (serveurs physiques / VMware)
+
+Les systèmes de fichiers et le logiciel de configuration de stockage suivants sont pris en charge sur les serveurs Linux exécutés sur des serveurs VMware ou physiques :
+* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS (jusqu’à v4 uniquement)
+* Gestionnaire de volume : LVM2
+* Logiciel multichemin : Device Mapper
+
+Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.
 
 >[!Note]
->Prise en charge du stockage pour les versions Linux de système de fichiers (EXT3, ETX4, ReiserFS, XFS), logiciel Multipath - Mappeur d’appareil, gestionnaire de volume (LVM2) et serveurs physiques avec stockage de contrôleur HP CCISS ne sont *pas* pris en charge.
->Le système de fichiers ReiserFS n’est pris en charge que sur SUSE Linux Enterprise Server 11 SP3.
+> Sur les serveurs Linux, les répertoires suivants (s’ils sont configurés en tant que partitions / systèmes de fichiers séparés) doivent tous se trouver sur le même disque (le disque du système d’exploitation) sur le serveur source : / (racine), /boot, / usr, / usr/local, / var, /etc.<br/><br/>
+> Les fonctionnalités de XFS v5 telles que les sommes de contrôle des métadonnées ne sont actuellement pas prises en charge par ASR sur les systèmes de fichiers XFS. Assurez-vous que vos systèmes de fichiers XFS n’utilisent pas de fonctionnalités v5. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées. 
+>
+
 
 ## <a name="support-for-network-configuration"></a>Prise en charge de la configuration réseau
 Les tableaux suivants récapitulent la prise en charge de la configuration réseau dans différents scénarios de déploiement avec utilisation d’Azure Site Recovery pour répliquer vers Azure.
 
 ### <a name="host-network-configuration"></a>Configuration du réseau hôte
 
-**Configuration** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-Association de cartes réseau | Oui<br/><br/>Non pris en charge dans des machines physiques| Oui | Oui
-VLAN | Oui | Oui | Oui
-IPv4 | Oui | Oui | Oui
-IPv6 | Non | Non | Non
+**Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+--- | --- | ---
+Association de cartes réseau | Oui<br/><br/>Non pris en charge dans des machines physiques| Oui
+VLAN | Oui | Oui
+IPv4 | Oui | Oui
+IPv6 | Non | Non
 
 ### <a name="guest-vm-network-configuration"></a>Configuration du réseau de machines virtuelles invitées
 
-**Configuration** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-Association de cartes réseau | Non | Non | Non
-IPv4 | Oui | Oui | Oui
-IPv6 | Non | Non | Non
-Adresse IP statique (Windows) | Oui | Oui | Oui
-Adresse IP statique (Linux) | Non | Non | Non
-Plusieurs cartes réseau | Oui | Oui | Oui
+**Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+--- | --- | ---
+Association de cartes réseau | Non | Non
+IPv4 | Oui | Oui
+IPv6 | Non | Non
+Adresse IP statique (Windows) | Oui | Oui
+Adresse IP statique (Linux) | Non | Non
+Plusieurs cartes réseau | Oui | Oui
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuration de réseau des machines virtuelles Azure basculées
 
-**Mise en réseau Azure** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-ExpressRoute | Oui | Oui | Oui
-ILB | Oui | Oui | Oui
-ELB | Oui | Oui | Oui
-Traffic Manager | Oui | Oui | Oui
-Plusieurs cartes réseau | Oui | Oui | Oui
-Adresse IP réservée | Oui | Oui | Oui
-IPv4 | Oui | Oui | Oui
-Conserver l’adresse IP source | Oui | Oui | Oui
+**Mise en réseau Azure** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+--- | --- | ---
+ExpressRoute | Oui | Oui
+ILB | Oui | Oui
+ELB | Oui | Oui
+Traffic Manager | Oui | Oui
+Plusieurs cartes réseau | Oui | Oui
+Adresse IP réservée | Oui | Oui
+IPv4 | Oui | Oui
+Conserver l’adresse IP source | Oui | Oui
 
 
 ## <a name="support-for-storage"></a>Prise en charge du stockage
@@ -119,50 +136,51 @@ Les tableaux suivants récapitulent la prise en charge de la configuration du st
 
 ### <a name="host-storage-configuration"></a>Configuration du stockage hôte
 
-**Configuration** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
+**Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | N/A | N/A
-SMB 3.0 | N/A | Oui | Oui
-SAN (ISCSI) | Oui | Oui | Oui
-Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui | Oui
+NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | N/A
+SMB 3.0 | N/A | Oui
+SAN (ISCSI) | Oui | Oui
+Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Configuration du stockage sur serveur physique ou invité
 
-**Configuration** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-VMDK | Oui | N/A | N/A
-VHD/VHDX | N/A | Oui | Oui
-Machine virtuelle de 2e génération | N/A | Oui | Oui
-EFI/UEFI| Non | Oui | Oui
-Disque de cluster partagé | Oui pour VMware<br/><br/> N/A pour les serveurs physiques | Non | Non
-Disque chiffré | Non | Non | Non
-NFS | Non | N/A | N/A
-SMB 3.0 | Non | Non | Non
-RDM | Oui<br/><br/> N/A pour les serveurs physiques | N/A | N/A
-Disque > 1 To | Non | Non | Non
-Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui | Oui
-Espaces de stockage | Non | Oui | Oui
-Ajout/suppression de disque à chaud | Non | Non | Non
-Exclure le disque | Oui | Oui | Oui
-Chemins d’accès multiples (MPIO) | N/A | Oui | Oui
+**Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+--- | --- | ---
+VMDK | Oui | N/A
+VHD/VHDX | N/A | Oui
+Machine virtuelle de 2e génération | N/A | Oui
+EFI/UEFI| Non | Oui
+Disque de cluster partagé | Oui pour VMware<br/><br/> N/A pour les serveurs physiques | Non
+Disque chiffré | Non | Non
+NFS | Non | N/A
+SMB 3.0 | Non | Non
+RDM | Oui<br/><br/> N/A pour les serveurs physiques | N/A
+Disque > 1 To | Non | Non
+Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui
+Espaces de stockage | Non | Oui
+Ajout/suppression de disque à chaud | Non | Non
+Exclure le disque | Oui | Oui
+Chemins d’accès multiples (MPIO) | N/A | Oui
 
-**Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
---- | --- | --- | ---
-LRS | Oui | Oui | Oui
-GRS | Oui | Oui | Oui
-Stockage froid | Non | Non | Non
-Stockage chaud| Non | Non | Non
-Chiffrement au repos (SSE)| Oui | Oui | Oui
-Stockage Premium | Oui | Non | Non
-Service Import/Export | Non | Non | Non
+**Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+--- | --- | ---
+LRS | Oui | Oui
+GRS | Oui | Oui
+RA-GRS | Oui | Oui
+Stockage froid | Non | Non
+Stockage chaud| Non | Non
+Chiffrement au repos (SSE)| Oui | Oui
+Stockage Premium | Oui | Oui
+Service Import/Export | Non | Non
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Prise en charge de la configuration de calcul Azure
 
-**Fonctionnalité de calcul** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
+**Fonctionnalité de calcul** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | --- | ---
-Groupes à haute disponibilité | Non | Non | Non
-CONCENTRATEUR | Oui | Oui | Oui
+Groupes à haute disponibilité | Oui | Oui
+CONCENTRATEUR | Oui | Oui  
 
 ## <a name="failed-over-azure-vm-requirements"></a>Exigences de machine virtuelle Azure basculée
 

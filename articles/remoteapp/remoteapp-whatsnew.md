@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>Nouveautés d’Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp ne sera plus disponible à partir du 31 août 2017. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,7 +44,7 @@ Bonjour. Saviez-vous que l'équipe Azure RemoteApp publie des mises à jour mens
 De grands changements se sont produits en août. En voici les grandes lignes :
 
 * Vous pouvez désormais utiliser un réseau virtuel Azure avec une collection cloud ! Consultez les [instructions de création cloud](remoteapp-create-cloud-deployment.md) pour connaître la marche à suivre.
-* Il est désormais possible d’ajouter des applications au menu **Démarrer **pour le client Windows RemoteApp. Elles apparaissent ainsi dans la liste des applications et vous pouvez les épingler au menu **Démarrer **de Windows.
+* Il est désormais possible d’ajouter des applications au menu **Démarrer** pour le client Windows RemoteApp. Elles apparaissent ainsi dans la liste des applications et vous pouvez les épingler au menu **Démarrer** de Windows.
 * Nous avons ajouté une nouvelle image à la galerie de machines virtuelles Azure : Hôte de session Bureau à distance Windows Server avec Microsoft Office 365 ProPlus.
 * Nous avons corrigé le client Mac pour que les applications comportant des fenêtres modales arrêtent de se bloquer.
 * Nous avons créé un document sur la manière dont vous pouvez utiliser votre [abonnement Office 365 ProPlus](remoteapp-officesubscription.md) avec Azure RemoteApp.
@@ -87,10 +88,5 @@ Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’au
 
 ### <a name="help-us-help-you"></a>Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -81,6 +81,7 @@
 ### Utiliser des méthodes directes
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-direct-methods.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-direct-methods.md)
 ### Prise en main de la gestion d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-device-management-get-started.md)
@@ -105,6 +106,7 @@
 ### Configurer le chargement de fichiers
 #### [Utiliser le portail](iot-hub-configure-file-upload.md)
 #### [Utiliser PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Utiliser l’interface de ligne de commande 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Mesures d’utilisation](iot-hub-metrics.md)
 ### [Surveillance des opérations](iot-hub-operations-monitoring.md)

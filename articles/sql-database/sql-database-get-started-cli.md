@@ -17,9 +17,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 06b6830b28745b0f6574d7bca5cca7907db8ecb1
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: fb0cd3898703b9acf54d7ff70774bd090d39f0e5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -45,18 +45,18 @@ Définissez des variables à utiliser dans les scripts de ce démarrage rapide.
 
 ```azurecli
 # The data center and resource name for your resources
-resourcegroupname = myResourceGroup
-location = westeurope
+export resourcegroupname = myResourceGroup
+export location = westeurope
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
-servername = server-$RANDOM
+export servername = server-$RANDOM
 # Set an admin login and password for your database
-adminlogin = ServerAdmin
-password = ChangeYourAdminPassword1
+export adminlogin = ServerAdmin
+export password = ChangeYourAdminPassword1
 # The ip address range that you want to allow to access your DB
-startip = "0.0.0.0"
-endip = "0.0.0.1"
+export startip = "0.0.0.0"
+export endip = "0.0.0.1"
 # The database name
-databasename = mySampleDatabase
+export databasename = mySampleDatabase
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -99,7 +99,11 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, utilisez la commande suivante pour supprimer toutes les ressources créées par ce démarrage rapide.
+Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. 
+
+> [!TIP]
+> Si vous souhaitez continuer à utiliser d’autres démarrages rapides, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
+>
 
 ```azurecli
 az group delete --name $resourcegroupname
@@ -107,12 +111,15 @@ az group delete --name $resourcegroupname
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
-- Pour vous connecter et exécuter des requêtes avec Visual Studio Code, consultez la page [Se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-- Pour vous connecter et exécuter des requêtes avec .NET, consultez la page [Se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
-- Pour vous connecter et exécuter des requêtes avec PHP, consultez la page [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+Maintenant que vous disposez d’une base de données, vous pouvez vous connecter et interroger à l’aide de vos outils préférés. En savoir plus en choisissant votre outil ci-dessous :
+
+- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.JS](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
+
 

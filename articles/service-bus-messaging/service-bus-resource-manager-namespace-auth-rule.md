@@ -1,5 +1,5 @@
 ---
-title: "Créer une règle d’autorisation Azure Service Bus à l’aide d’un modèle | Microsoft Docs"
+title: "Créer une règle d’autorisation Service Bus à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
 description: "Créer une règle d’autorisation Service Bus pour l’espace de noms et la file d’attente à l’aide d’un modèle Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,18 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e62ff884e5e48f8cc542cd85a750fc857302c6b4
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Créer une règle d’autorisation Service Bus pour l’espace de noms et la file d’attente à l’aide d’un modèle Azure Resource Manager
+
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée une [règle d’autorisation](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) pour un espace de noms Service Bus et une file d’attente. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour plus d’informations sur la création de modèles, consultez l’article [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
+Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Pour obtenir le modèle complet, consultez le [modèle de règle d’autorisation d’espace de noms Service Bus][Service Bus auth rule template] sur GitHub.
 
@@ -35,20 +37,21 @@ Pour obtenir le modèle complet, consultez le [modèle de règle d’autorisatio
 > * [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 Avec ce modèle, vous allez déployer une règle d’autorisation Service Bus pour un espace de noms et une entité de messagerie (une file d’attente, dans le cas présent).
 
-Ce modèle utilise la [signature d’accès partagé (SAP)](service-bus-sas-overview.md) pour l’authentification. SAP permet aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton SAS que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
+Ce modèle utilise la [signature d’accès partagé (SAP)](service-bus-sas.md) pour l’authentification. SAP permet aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton SAS que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Paramètres
+
 Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez, ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
 Le modèle définit les paramètres suivants.
@@ -170,9 +173,4 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

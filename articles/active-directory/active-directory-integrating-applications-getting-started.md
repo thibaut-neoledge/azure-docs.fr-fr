@@ -1,9 +1,10 @@
 ---
+
 title: "Prise en main de l’intégration d’Azure AD avec les applications | Microsoft Docs"
 description: "Cet article est un guide de prise en main de l’intégration d’Azure Active Directory (AD) avec les applications locales et les applications cloud."
 services: active-directory
 documentationcenter: 
-author: ihenkel
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -12,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
-ms.author: inhenk
-translationtype: Human Translation
+ms.date: 05/04/2017
+ms.author: markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
 ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -91,10 +94,5 @@ Si vous souhaitez ajouter votre application personnalisée à la galerie d’app
 
 ## <a name="see-also"></a>Voir aussi
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

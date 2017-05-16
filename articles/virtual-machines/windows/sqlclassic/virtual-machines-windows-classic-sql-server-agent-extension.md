@@ -16,10 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/18/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 49dd3d64b8f6bc8e0dc40d40db909648f287a068
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Classic)
@@ -56,7 +57,7 @@ Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votr
 * SQL Server 2016
 
 ### <a name="azure-powershell"></a>Azure PowerShell :
-[Télécharger et configurer les commandes de la version la plus récente d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+[Télécharger et configurer les commandes de la version la plus récente d’Azure PowerShell](/powershell/azure/overview).
 
 Démarrez Windows PowerShell, puis connectez-le à votre abonnement Azure avec la commande **Add-AzureAccount** .
 

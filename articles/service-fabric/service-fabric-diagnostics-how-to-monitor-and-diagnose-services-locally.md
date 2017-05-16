@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 29dd21511b23e6dffdb1daf8b75ece28989c16e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -30,13 +31,13 @@ ms.lasthandoff: 01/24/2017
 
 L’analyse, la détection, le diagnostic et la résolution des problèmes permettent aux services de fonctionner avec une interruption minimale de l’expérience utilisateur. Bien que l’analyse et le diagnostic soient essentiels dans un environnement de production réel déployé, leur efficacité dépend de l’adoption d’un modèle semblable pendant le développement des services pour garantir leur fonctionnement lors du passage à une configuration réelle. Service Fabric facilite pour les développeurs de service l’implémentation de diagnostics qui peuvent fonctionner parfaitement aussi bien sur une configuration de développement d’ordinateur local unique que sur une configuration réelle de cluster de production.
 
-## <a name="the-benefits-of-event-tracing-for-windows"></a>Avantages du Suivi d’événements pour Windows
-[Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Les raisons sont les suivantes :
+## <a name="event-tracing-for-windows"></a>Suivi d’événements pour Windows
+[Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Voici quelques avantages liés à l’utilisation d’ETW :
 
 * **ETW est rapide.** Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
 * **Le suivi ETW fonctionne parfaitement dans des environnements de développement local ainsi que dans les configurations de cluster réel.** Cela signifie que vous n’êtes pas obligé de réécrire votre code de suivi quand vous êtes prêt à déployer votre code dans un cluster réel.
 * **Le code système de Service Fabric utilise également ETW pour le suivi interne.** Vous pouvez ainsi afficher les traces de votre application entrelacées avec celles du système Service Fabric. Vous pouvez également comprendre plus facilement les séquences et les relations entre votre code d’application et les événements du système sous-jacent.
-* **Les outils Visual Studio de Service Fabric prennent en charge l'affichage des événements ETW.**
+* **Les outils Visual Studio de Service Fabric prennent en charge l'affichage des événements ETW.** Les événements ETW apparaissent dans l’affichage des événements de diagnostic de Visual Studio une fois que Visual Studio est correctement configuré avec Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Afficher les événements système de Service Fabric dans Visual Studio
 Service Fabric émet des événements ETW pour aider les développeurs d’applications à comprendre ce qui se passe dans la plateforme. Si ce n’est pas déjà fait, continuez en suivant les étapes décrites dans [Création de votre première application dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Ces informations vous permettront de créer une application opérationnelle tout en observant les messages de trace dans la visionneuse d’événements de diagnostic.

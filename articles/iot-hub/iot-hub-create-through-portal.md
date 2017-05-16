@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -132,7 +133,7 @@ Cliquez sur **Itinéraires** pour gérer la façon dont IoT Hub distribue vos me
 
 ![][14]
 
-Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires***, saisissez les informations requises, puis cliquez sur **OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus sur la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver** sur **Désactiver**. Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
+Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires***, saisissez les informations requises, puis cliquez sur **OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus dans la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver** sur **Désactiver**. Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
 
 ![][15]
 

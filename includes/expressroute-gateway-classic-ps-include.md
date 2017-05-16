@@ -24,7 +24,3 @@ Il existe un certain nombre de [Références (SKU) de passerelle](../articles/ex
 Utilisez la commande suivante pour supprimer une passerelle.
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
-
-<!--HONumber=Nov16_HO3-->
-
-

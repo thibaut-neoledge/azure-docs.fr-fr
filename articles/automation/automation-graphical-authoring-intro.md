@@ -4,7 +4,7 @@ description: "La création de graphiques vous permet de créer des Runbooks pour
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/03/2016
+ms.date: 04/14/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8d408f6ac49ea376508e025c53b09434c2ea164a
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -198,7 +199,7 @@ Pour un lien de type pipeline, vous spécifiez une condition pour un seul objet,
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Pour un lien de type séquence, la condition est évaluée une seule fois, car un seul tableau contenant la sortie de tous les objets à partir de l'activité source est retourné.  C'est pour cette raison qu'un lien séquence ne peut pas être utilisé pour filtrer comme un lien pipeline ; il détermine simplement si l'activité suivante est exécutée ou non. Prenez par exemple l’ensemble des activités suivantes dans le Runbook de démarrage de machine virtuelle.<br> ![Lien conditionnel avec séquences](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
- Trois liens séquentiels différents vérifient que des valeurs ont bien été fournies aux deux paramètres d’entrée de Runbook représentant le nom de la machine virtuelle et le nom du groupe de ressources afin de déterminer l’action à entreprendre, à savoir démarrer une seule machine virtuelle, démarrer toutes les machines virtuelles du groupe de ressources ou démarrer toutes les machines virtuelles d’un abonnement.  Pour la liaison séquentielle entre Connect to Azure et Get single VM, voici la logique de la condition :
+Trois liens séquentiels différents vérifient que des valeurs ont bien été fournies aux deux paramètres d’entrée de Runbook représentant le nom de la machine virtuelle et le nom du groupe de ressources afin de déterminer l’action à entreprendre, à savoir démarrer une seule machine virtuelle, démarrer toutes les machines virtuelles du groupe de ressources ou démarrer toutes les machines virtuelles d’un abonnement.  Pour la liaison séquentielle entre Connect to Azure et Get single VM, voici la logique de la condition :
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -253,13 +254,13 @@ Vous pouvez définir des [points de contrôle](automation-powershell-workflow.md
 Les points de contrôle sont activés uniquement dans les Runbooks de workflow PowerShell graphique ; ils ne sont pas disponibles dans les Runbooks graphiques.  Si le Runbook utilise les applets de commande Azure, vous devez suivre toute activité soumise à des points de contrôle avec l’applet de commande Add-AzureRMAccount dans l’éventualité où le Runbook serait interrompu et redémarré sur un autre Worker à partir de ce point de contrôle. 
 
 ## <a name="authenticating-to-azure-resources"></a>Authentification auprès de ressources Azure
-Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure.  La nouvelle fonctionnalité [Compte d’identification](automation-sec-configure-azure-runas-account.md) (également appelée principal du service) est la méthode utilisée par défaut pour accéder aux ressources Azure Resource Manager dans votre abonnement à l’aide des Runbooks Automation.  Vous pouvez ajouter cette fonctionnalité à un Runbook graphique en ajoutant la ressource de connexion **AzureRunAsConnection**, qui utilise l’applet de commande PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) et l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) sur le canevas. Cette opération est illustrée dans l’exemple suivant.<br>![Activités d’authentification de l’identification](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure.  La fonctionnalité [Compte d’identification](automation-offering-get-started.md#automation-account) (également appelée principal de service) est la méthode utilisée par défaut pour accéder aux ressources Azure Resource Manager dans votre abonnement à l’aide des runbooks Automation.  Vous pouvez ajouter cette fonctionnalité à un runbook graphique en ajoutant la ressource de connexion **AzureRunAsConnection**, qui utilise l’applet de commande PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) et l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) sur le canevas. Cette opération est illustrée dans l’exemple suivant.<br>![Activités d’authentification de l’identification](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 L’activité Get Run As Connection (par exemple, Get-AutomationConnection), est configurée avec une source de données de valeur constante nommée AzureRunAsConnection.<br>![Configuration de la connexion d’identification](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
-L’activité suivante, Add-AzureRmAccount, ajoute le compte d’identification authentifié pour l’utiliser dans le Runbook.<br>
+L’activité suivante, Add-AzureRmAccount, ajoute le compte d’identification authentifié pour l’utiliser dans le runbook.<br>
 ![Jeu de paramètres Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
-Pour les paramètres **APPLICATIONID**, **CERTIFICATETHUMBPRINT** et **TENANTID**, vous devez spécifier le nom de la propriété du chemin d’accès du champ car l’activité génère un objet comportant plusieurs propriétés.  À défaut, la tentative d’authentification échouera lors de l’exécution du Runbook.  Vous devez au minimum renseigner ces informations pour authentifier votre Runbook auprès du compte d’identification.
+Pour les paramètres **APPLICATIONID**, **CERTIFICATETHUMBPRINT** et **TENANTID**, vous devez spécifier le nom de la propriété du chemin d’accès du champ car l’activité génère un objet comportant plusieurs propriétés.  À défaut, la tentative d’authentification échouera lors de l’exécution du runbook.  Vous devez au minimum renseigner ces informations pour authentifier votre runbook auprès du compte d’identification.
 
-Pour garantir une compatibilité descendante pour les abonnés qui ont créé un compte Automation à l’aide d’un [compte d’utilisateur Azure AD](automation-sec-configure-aduser-account.md) afin de gérer les ressources Azure Service Management (ASM) ou Azure Resource Manager, l’authentification s’effectue à l’aide de l’applet de commande Add-AzureAccount, en utilisant une [ressource d’identification](http://msdn.microsoft.com/library/dn940015.aspx) qui représente un utilisateur Active Directory ayant accès au compte Azure.
+Pour garantir une compatibilité descendante pour les abonnés qui ont créé un compte Automation à l’aide d’un [compte d’utilisateur Azure AD](automation-create-aduser-account.md) afin de gérer le déploiement Azure Classic ou pour les ressources Azure Resource Manager, le mode d’authentification est l’applet de commande Add-AzureAccount avec une [ressource d’informations d’identification](automation-credentials.md) qui représente un utilisateur Active Directory ayant accès au compte Azure.
 
 Vous pouvez ajouter cette fonctionnalité à un Runbook graphique en ajoutant une ressource d'informations d'identification au canevas, suivie d'une activité Add-AzureAccount.  Add-AzureAccount utilise l'activité d'informations d'identification pour son entrée.  Cette opération est illustrée dans l’exemple suivant.
 
@@ -381,10 +382,5 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 * Pour comprendre les mécanismes d’authentification à l’aide du compte d’identification Automation, consultez [Configurer un compte d’identification Azure](automation-sec-configure-azure-runas-account.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

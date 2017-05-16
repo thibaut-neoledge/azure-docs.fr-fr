@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/28/2017
+ms.date: 03/31/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 0925318a483d9a5e72015d33ee0868f41ae4bedd
-ms.openlocfilehash: 4d883d96a2a45f27e847c51c973d5ca7d0e267a8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 70b04cde5fe877355c1dea29c78df3dcb8277973
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,13 +31,13 @@ Commencez ici si vous ne connaissez pas encore la Recherche Azure. Consulter tou
 
 | Intitulé | Description | Date |
 |-------|-------------|------|
-| [Regardez cette vidéo d’introduction](https://channel9.msdn.com/Events/Connect/2016/138) | Introduction de&9; min&38; s aux fonctionnalités, à la création du service et aux requêtes. | Novembre 2016 |
+| [Regardez cette vidéo d’introduction](https://channel9.msdn.com/Events/Connect/2016/138) | Introduction de 9 min 38 s aux fonctionnalités, à la création du service et aux requêtes. | Novembre 2016 |
 | [Créer un service](search-get-started-portal.md) | Étapes de configuration de la Recherche Azure sur le portail. | Février 2017 |
 | [Interroger un index](search-get-started-portal.md) | Créez et interrogez un index à l’aide des exemples de données prédéfinis. Les outils proposés sur le portail représentent un moyen rapide d’en apprendre davantage sur les types de requêtes et les paramètres de recherche. | Février 2017 |
 | [Étape suivante :<br/> Code dans .NET](search-howto-dotnet-sdk.md) | La procédure pas à pas C# montre comment se connecter, indexer et interroger avec la bibliothèque .NET de la Recherche Azure. | Novembre 2016 |
 | [Étape suivante :<br/> Code dans REST](search-create-index-rest-api.md) | Passez en revue les appels REST et les charges utiles JSON pour créer un index de Recherche Azure sur n’importe quelle plateforme et n’importe quel langage de programmation. | Décembre 2016 |
 
-## <a name="practice"></a>Pratiquer
+## <a name="code-samples"></a>Exemples de code
 
 Exploration du code par l’intermédiaire d’exemples et de procédures pas à pas.
 
@@ -45,10 +45,19 @@ Exploration du code par l’intermédiaire d’exemples et de procédures pas à
 |-------|-------------|
 | [Prise en main de la bibliothèque cliente .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) | Application ASP.NET MVC 5 avec la bibliothèque cliente .NET. |
 | [Prise en main de l’API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) | Exemple de code de l’API REST. |
-| [Démonstration : site web des emplois à New York](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Source du site de démonstration en direct de la Recherche Azure sur des données portant sur les emplois à New York, avec ASP.NET MVC. |
-| [Démonstration : galerie d’art de la Tate](https://github.com/liamca/azure-search-tate-art-gallery/) | Sources du site de démonstration en direct de la Recherche Azure sur les données de la galerie d’art, indiquant le type de données Collections et les structures de données imbriquées, les facettes et les filtres, les noms des personnes et les miniatures.|
+| [Source : Démonstration du site web des emplois à New York](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Source du site de démonstration en direct de la Recherche Azure sur des données portant sur les emplois à New York, avec ASP.NET MVC. |
+| [Source : Démonstration de la Tate Art Gallery](https://github.com/liamca/azure-search-tate-art-gallery/) | Sources du site de démonstration en direct de la Recherche Azure sur les données de la galerie d’art, indiquant le type de données Collections et les structures de données imbriquées, les facettes et les filtres, les noms des personnes et les miniatures.|
 
 Vous trouverez d’autres exemples de code pour des scénarios et des combinaisons de fonctionnalités spécifiques dans : [**Exemples Azure > Recherche Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
+
+## <a name="online-demos"></a>Démonstrations en ligne
+Applications web entièrement fonctionnelles qui utilisent Recherche Azure pour l’expérience de recherche. Ces liens fournissent une expérience pratique de l’utilisation d’une application utilisant Recherche Azure.
+
+| Lien | Description |
+|-------|-------------|
+|[Démonstration du portail des emplois de la ville de New York (NYC) pour la Recherche Azure](http://aka.ms/azjobsdemo) | Site web ASP.NET en ligne qui illustre les fonctionnalités de Recherche Azure en utilisant des données issues de la NYC Open Data Initiative. Cette application utilise la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Vous pouvez modifier le code pour tester la [syntaxe Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
+|[Démonstration de la Tate Art Gallery](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | Un site web ASP.NET hébergé utilisant des exemples de données provenant de la Tate Art Gallery. Essayez dans un premier temps des termes de recherche comme « modern », « photo » et « portrait ».
+|[Site de démonstration de la Recherche Azure](https://searchsamples.azurewebsites.net/#/) | Ensemble d’applications de démonstration de la Recherche Azure. Testez des applications de recherche multimédia, recherche géographique et inventaire de produits à l'aide d'Azure Search. |
 
 ## <a name="courseware"></a>Didacticiel
 
@@ -58,14 +67,6 @@ Démonstrations multisessions et laboratoires pour la Recherche Azure.
 |------|-------------|------|
 [Création d’applications mobiles multiplateformes intelligentes avec Xamarin et la Recherche Azure](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Frappe continue, recherche en texte intégral et pagination, filtrage, recherche, ressources similaires, machine learning, évaluation et optimisation, analytique | Décembre 2016 |
 [Avec la Recherche Microsoft Azure](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Exploration plus ancienne mais toujours pertinente de la mise à l’échelle, la recherche géospatiale, l’analyse linguistique, la reconnaissance vocale Cortana | Mai 2015 | 
-
-## <a name="online-demos"></a>Démonstrations en ligne
-Applications web entièrement fonctionnelles qui utilisent la Recherche Azure comme expérience de recherche. 
-
-| Lien | Description |
-|-------|-------------|
-|[Démonstration du portail des emplois de la ville de New York (NYC) pour la Recherche Azure](http://aka.ms/azjobsdemo) | Site web ASP.NET en ligne qui illustre les fonctionnalités de Recherche Azure en utilisant des données issues de la NYC Open Data Initiative. Cette application utilise la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Vous pouvez modifier le code pour tester la [syntaxe Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
-|[Site de démonstration de la Recherche Azure](https://searchsamples.azurewebsites.net/#/) | Ensemble d’applications de démonstration de la Recherche Azure. Testez des applications de recherche multimédia, recherche géographique et inventaire de produits à l'aide d'Azure Search. |
 
 ## <a name="video-archive"></a>Vidéos archivées
 
@@ -95,9 +96,8 @@ Applications web entièrement fonctionnelles qui utilisent la Recherche Azure co
 | [Prise en main d'Azure Search dans NodeJS](search-get-started-nodejs.md) |Apprenez comment travailler avec Azure Search dans NodeJS. |
 | [Prise en main d'Azure Search dans Java](search-get-started-java.md) |Didacticiel destiné aux programmeurs Java qui utilisent Eclipse et un serveur Apache Tomcat pour générer et exécuter un exemple d’application intégrant Azure Search. |
 | [Fonctionnalités et scénarios Azure Search](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/) |Billet de blog qui reprend les principaux scénarios activés par la fonctionnalité actuelle. |
-| [Ajout de suggestions à vos applications de recherche](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Apprenez à implémenter des suggestions, communément appelées requêtes avec saisie semi-automatique. Cette démo couvre plusieurs sujets, y compris la création d’une application MVC&4; qui utilise le traitement des suggestions par Azure Search, l’utilisation de la bibliothèque Twitter typeahead.js pour créer un composant de suggestion automatique efficace dans JavaScript, et l’utilisation de la correspondance approximative pour vous permettre d’obtenir des suggestions même si l’utilisateur a mal orthographié le mot. |
+| [Ajout de suggestions à vos applications de recherche](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Apprenez à implémenter des suggestions, communément appelées requêtes avec saisie semi-automatique. Cette démo couvre plusieurs sujets, y compris la création d’une application MVC 4 qui utilise le traitement des suggestions par Azure Search, l’utilisation de la bibliothèque Twitter typeahead.js pour créer un composant de suggestion automatique efficace dans JavaScript, et l’utilisation de la correspondance approximative pour vous permettre d’obtenir des suggestions même si l’utilisateur a mal orthographié le mot. |
 | [Laboratoire virtuel TechNet : Création d'une application Microsoft Azure Search](http://go.microsoft.com/?linkid=9874663) |Laboratoire virtuel qui contient un environnement de développement, des outils, de la documentation et des données. Vous devez posséder un compte Azure, soit un abonnement d’évaluation soit votre abonnement Azure personnel, pour terminer l’atelier. |
 | [Synchroniser des données SQL Server avec Azure Search](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Billet de blog qui explique comment charger des données à partir des bases de données relationnelles SQL Server dans un index Azure Search. |
-| [Didacticiel sur l’API REST de gestion d’Azure Search](search-get-started-management-api.md) |Comment utiliser l’API REST de gestion pour approvisionner le service et gérer des clés api admin ou la requête. |
 
 

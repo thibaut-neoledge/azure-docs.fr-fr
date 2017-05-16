@@ -15,8 +15,3 @@ Si vous possédez plusieurs abonnements, utilisez l’applet de commande [**Set-
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

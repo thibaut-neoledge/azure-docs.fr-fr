@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,9 +41,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="append"></a>Append
-**Fonction :**<br>  Append(source, suffixe)
+**Fonction :**<br> Append(source, suffixe)
 
-**Description :**<br>  prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
@@ -53,9 +54,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br>  prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
 
 **Paramètres :**<br> 
 
@@ -67,7 +68,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="join"></a>Join
-**Fonction :**<br>  Join(séparateur, source1, source2, …)
+**Fonction :**<br> Join(séparateur, source1, source2, …)
 
 **Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
@@ -78,13 +79,13 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | Nom | Requis / Répétition | Type | Remarques |
 | --- | --- | --- | --- |
 | **separator** |Requis |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1 … sourceN ** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
+| **source1  … sourceN ** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
 
 - - -
 ### <a name="mid"></a>Mid
-**Fonction :**<br>  Mid(source, début, longueur)
+**Fonction :**<br> Mid(source, début, longueur)
 
-**Description :**<br>  retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -96,7 +97,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="not"></a>not
-**Fonction :**<br>  Not(source)
+**Fonction :**<br> Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
@@ -108,10 +109,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="replace"></a>Replace
-**Fonction :**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Fonction :**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
- Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
@@ -141,9 +142,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Fonction :**<br>  StripSpaces(source)
+**Fonction :**<br> StripSpaces(source)
 
-**Description :**<br>  supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -153,7 +154,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="switch"></a>Switch
-**Fonction :**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
 
@@ -169,14 +170,14 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
- Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Exemple d’entrée/sortie :** <br>
 
-* **ENTRÉE** (mail) : "john.doe@contoso.com"
+* **ENTRÉE** (e-mail) : "john.doe@contoso.com"
 * **SORTIE** : « john.doe »
 
 ### <a name="append-constant-suffix-to-user-name"></a>Ajouter un suffixe de constante à un nom d’utilisateur
@@ -188,7 +189,7 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 **Exemple d’entrée/sortie :** <br>
 
 * **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
-* **SORTIE** :  "John.Doe@contoso.com.test"
+* **SORTIE**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Générer des alias d’utilisateurs en concaténant des parties du prénom et du nom
 Vous devez générer un alias d’utilisateur en prenant les trois premières lettres du prénom de l’utilisateur et les cinq premières lettres de son nom de famille.
@@ -204,7 +205,7 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
- Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
+Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 
 **Expression :** <br>
 
@@ -217,7 +218,7 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
- Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 
@@ -236,10 +237,5 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

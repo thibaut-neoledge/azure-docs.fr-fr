@@ -14,7 +14,7 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
 Des instructions détaillées relatives à chacune de ces procédures sont fournies dans les sections suivantes. 
 
-#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>Récupérer le nom de la ressource réseau de cluster
+#### <a name="getnet"></a>Récupérer le nom de la ressource réseau de cluster
 
 1. Utilisez le protocole RDP pour vous connecter à la machine virtuelle Azure qui héberge le réplica principal. 
 
@@ -26,7 +26,7 @@ Des instructions détaillées relatives à chacune de ces procédures sont fourn
 
    ![Nom réseau du cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>Ajouter le point d’accès client
+#### <a name="addcap"></a>Ajouter le point d’accès client
 
 Le point d’accès client est le nom réseau que les applications utilisent pour se connecter aux bases de données dans un groupe de disponibilité. Créez le point d’accès client dans le Gestionnaire du cluster de basculement . 
 
@@ -42,7 +42,7 @@ Le point d’accès client est le nom réseau que les applications utilisent pou
    
    Pour terminer la création de l’écouteur, cliquez sur **Suivant** deux fois, puis cliquez sur **Terminer**. Ne mettez pas l'écouteur ou la ressource en ligne à ce stade.
    
-#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>Configurer la ressource IP du groupe de disponibilité
+#### <a name="congroup"></a>Configurer la ressource IP du groupe de disponibilité
 
 1. Cliquez sur l’onglet **Ressources**, puis développez le point d’accès client que vous avez créé. Le point d’accès client est hors connexion.
 
@@ -58,7 +58,7 @@ Le point d’accès client est le nom réseau que les applications utilisent pou
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
 
-#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>Créer une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client
+#### <a name = "dependencyGroup"></a>Créer une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client
 
 1. Dans le Gestionnaire du cluster de basculement, cliquez sur **Rôles**, puis sur votre groupe de disponibilité.
 
@@ -70,7 +70,7 @@ Le point d’accès client est le nom réseau que les applications utilisent pou
 
 1. Cliquez sur **OK**.
 
-#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>Créer une dépendance entre la ressource du point d’accès client et l’adresse IP
+#### <a name="listname"></a>Créer une dépendance entre la ressource du point d’accès client et l’adresse IP
 
 1. Dans le Gestionnaire du cluster de basculement, cliquez sur **Rôles**, puis sur votre groupe de disponibilité. 
 
@@ -84,7 +84,7 @@ Le point d’accès client est le nom réseau que les applications utilisent pou
 
 1. Cliquez avec le bouton droit sur l'écouteur, puis cliquez sur **Mettre en ligne**. 
 
-#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>Définir les paramètres de cluster dans PowerShell
+#### <a name="setparam"></a>Définir les paramètres de cluster dans PowerShell
 
 1. Copiez le script PowerShell suivant dans l’un de vos serveurs SQL Server. Mettez à jour les variables de votre environnement.     
    ```PowerShell
@@ -102,10 +102,5 @@ Le point d’accès client est le nom réseau que les applications utilisent pou
 
 > [!NOTE]
 > Si vos serveurs SQL se trouvent dans différentes régions, vous devez exécuter le script PowerShell à deux reprises. La première fois, utilisez `$ILBIP` et `$ProbePort` à partir de la première région. La seconde fois, utilisez `$ILBIP` et `$ProbePort` à partir de la seconde région. Le nom réseau du cluster et le nom de ressource IP du cluster sont identiques. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

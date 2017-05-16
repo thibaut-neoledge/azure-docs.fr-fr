@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 05/01/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: ff1013840c220c54a9120572d16946ab6c5c5b07
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: ab888881a841f5a9bf2d47aea946022e6603c585
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,7 +59,7 @@ Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existan
         }
     ],
 
-Comme indiqué dans l’exemple, vous pouvez éventuellement appeler une [action de script](hdinsight-hadoop-customize-cluster-linux.md) pour effectuer une configuration supplémentaire, telle que l’installation [d’Apache Hue](hdinsight-hadoop-hue-linux.md) dans le nœud de périmètre.
+Comme indiqué dans l’exemple, vous pouvez éventuellement appeler une [action de script](hdinsight-hadoop-customize-cluster-linux.md) pour effectuer une configuration supplémentaire, telle que l’installation [d’Apache Hue](hdinsight-hadoop-hue-linux.md) dans le nœud de périmètre. Le script d’action de script doit être publiquement accessible sur Internet.  Par exemple, si le script est stocké dans le stockage Azure, utilisez des conteneurs publics ou blobs publics.
 
 La taille de la machine virtuelle de nœud de périmètre doit respecter les exigences de taille de machine virtuelle du nœud Worker du cluster HDInsight. Pour connaître les tailles de machine virtuelle du nœud Worker recommandées, consultez [Créer des clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 

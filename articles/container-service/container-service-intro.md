@@ -74,6 +74,8 @@ Docker Swarm assure un clustering natif pour Docker. Étant donné que Docker Sw
 
 ![Azure Container Service configuré pour utiliser Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Les outils pris en charge pour la gestion des conteneurs sur un cluster Swarm incluent, sans s’y limiter, les suivants :
 
 * Dokku

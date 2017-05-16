@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0e71a840d4f503779131ee4a21fe6063d33185f1
-ms.openlocfilehash: cbefca2d45a332cd57cfea49dfeaa300426d5502
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -26,18 +26,14 @@ ms.lasthandoff: 02/24/2017
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitations d’Azure AD B2B Collaboration
 Azure Active Directory (Azure AD) B2B Collaboration subit actuellement les limitations décrites dans le présent article.
 
-## <a name="invitation-apis-are-in-preview"></a>Les API d’invitation sont en version préliminaire
-Nous visons pour demain la surface d’API. Toutefois, comme toutes les versions préliminaires, l’API est soumise au contrat d’espace de noms des versions préliminaires. L’API sera intégrée à une version numérotée lors de la publication de la version grand public (GA).
-
 ## <a name="possible-double-multi-factor-authentication"></a>Risque de redondance de l’authentification multifacteur
-Cette redondance peut se produire si votre partenaire a déjà mis en place une stratégie Azure Multi-Factor Authentication. L’authentification multifacteur pour les utilisateurs B2B Collaboration est exécutée et gérée dans l’organisation à l’origine de l’invitation. Cette authentification est souhaitable car elle couvre toutes les identités et vous permet de contrôler la force d’authentification de vos invités dans B2B Collaboration.
+Avec Azure AD B2B, vous pouvez appliquer l’authentification multifacteur à l’organisation source (l’organisation à l’origine de l’invitation). Les raisons de cette approche sont détaillées dans l’article [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md) (Accès conditionnel pour les utilisateurs de B2B Collaboration). Cela signifie que, si un partenaire a déjà configuré et appliqué l’authentification multifacteur, ses utilisateurs devront peut-être s’authentifier une fois dans leur organisation d’origine, puis de nouveau dans la vôtre.
 
-Toutefois, si un partenaire a déjà configuré et appliqué Multi-Factor Authentication, ses utilisateurs devront peut-être effectuer l’authentification une fois dans leur organisation d’origine, puis de nouveau dans les vôtres.
+Dans une prochaine version, nous prévoyons d’ajouter une stratégie vous permettant d’éviter de vous authentifier deux fois en choisissant de faire confiance à l’authentification multifacteur du partenaire.
 
-Dans une prochaine version, nous prévoyons de présenter une stratégie qui vous évitera le problème de double authentification en choisissant de faire confiance à l’authentification multi-facteur du partenaire.
 
 ## <a name="instant-on"></a>Activation instantanée
-Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent d’ordinaire dans une instance de répertoire et doivent être répliquées entre toutes les instances. Nous avons observé que le laps de temps limité nécessaire à l’exécution de la réplication peut entraîner des problèmes d’autorisation. Nous déployons tous les efforts nécessaires pour réduire ou éliminer ces problèmes avant la publication de notre version grand public. Vous risquez de rencontrer ces problèmes entre-temps, mais vous pouvez actualiser ou effectuer de nouvelles tentatives pour tenter de les résoudre.
+Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent d’ordinaire dans une instance de répertoire et doivent être répliquées entre toutes les instances. Un certain temps peut être nécessaire pour terminer la réplication. Parfois, lorsque l’objet est écrit ou mis à jour dans une instance du répertoire et quand l’appel pour récupérer cet objet est soumis à un équilibrage de charge vers une autre instance, cela peut entraîner des problèmes d’autorisation. Nous avons fait tout notre possible pour éliminer ou réduire ces latences de réplication, mais dans certains cas isolés, elles peuvent tout de même exister. Si cela se produit, actualisez ou recommencez. Si vous écrivez une application à l’aide de notre API, effectuer de nouvelles tentatives avec des temporisations peut être une pratique judicieuse et préventive pour atténuer ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

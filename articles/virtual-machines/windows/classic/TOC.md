@@ -9,7 +9,7 @@
 # Prise en main
 ## [Créer une machine virtuelle à l’aide du portail](tutorial.md)
 ## [Se connecter à une machine virtuelle](connect-logon.md)
-## [Installation d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Installation d'Azure PowerShell](/powershell/azure/overview)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
 
 # Procédures
@@ -88,7 +88,7 @@
 ## [Réinitialiser le mot de passe RDP](reset-rdp.md)
 
 # Référence
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

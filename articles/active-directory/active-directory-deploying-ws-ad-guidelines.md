@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Pour suivre cet article, le lecteur doit être familiarisé avec les concepts su
 * Déploiement, configuration et gestion des applications par partie de confiance (sites et services web) qui consomment des jetons Windows Server AD FS
 * Concepts généraux d’une machine virtuelle, notamment la procédure de configuration d’une machine virtuelle, de disques virtuels et de réseaux virtuels
 
-Ce document présente les conditions requises pour un scénario de déploiement hybride dans lequel les services Windows Server AD FS ou AD DS sont déployés en partie localement et en partie sur des machines virtuelles Azure. Il propose tout d’abord d’examiner les différences essentielles entre l’exécution de Windows Server AD DS et AD FS sur des machines virtuelles Azure et l’exécution des mêmes services en local, et décrit les choix importants susceptibles d’affecter la conception et le déploiement. Le reste du document décrit plus en détail les instructions qu’il convient de suivre pour chaque décision à prendre et explique comment appliquer les instructions à différents scénarios de déploiement.
+Ce document présente les conditions requises pour un scénario de déploiement hybride dans lequel les services Windows Server AD FS ou AD DS sont déployés en partie localement et en partie sur des machines virtuelles Azure. Il examine d’abord les différences essentielles entre l’exécution de Windows Server AD DS et AD FS sur des machines virtuelles Azure et l’exécution des mêmes services en local, et décrit les choix importants susceptibles d’affecter la conception et le déploiement. Le reste du document décrit plus en détail les instructions qu’il convient de suivre pour chaque décision à prendre et explique comment appliquer les instructions à différents scénarios de déploiement.
 
 Cet article n’aborde pas la configuration d’ [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), un service REST qui offre des fonctionnalités de contrôle d’accès et de gestion des identités pour les applications cloud. Azure Active Directory (Azure AD) et Windows Server AD DS sont toutefois conçus pour fonctionner conjointement afin de fournir une solution de gestion des identités et des accès pour les environnements informatiques hybrides et les applications modernes. Afin de mieux comprendre les différences et les relations entre Windows Server AD DS et Azure AD, tenez compte des remarques suivantes :
 
@@ -206,7 +207,7 @@ Cette option présente un inconvénient : vous devez configurer les ACL réseau
 
 Une autre option consiste à utiliser l’appliance [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) pour contrôler le trafic entre les serveurs proxy AD FS et les serveurs AD FS. Cette option est conforme aux meilleures pratiques en matière de sécurité et de haute disponibilité et nécessite moins d’efforts d’administration après la configuration initiale, car l’appliance Barracuda NG Firewall fournit un mode d’autorisation par liste d’approbation pour l’administration du pare-feu et peut être installée directement sur un réseau virtuel Azure. Cela permet de supprimer la nécessité de configurer les ACL réseau chaque fois qu’un nouveau serveur est ajouté au déploiement. Néanmoins, cette option ajoute un certain degré de complexité au déploiement initial et entraîne des coûts supplémentaires.
 
-Dans ce cas, deux réseaux virtuels sont déployés au lieu d’un seul. Nous les appellerons le réseau virtuel&1; et le réseau virtuel&2;. Le réseau virtuel&1; contient les proxys et le réseau virtuel&2; comprend les STS et la connexion réseau vers le réseau d’entreprise. Le réseau virtuel&1; est donc physiquement (bien que virtuellement) isolé du réseau virtuel&2; et du réseau d’entreprise. Le réseau virtuel&1; est ensuite connecté au réseau virtuel&2; via une technologie de tunneling spéciale appelée architecture de réseau d’information des télécommunications (Transport Independent Network Architecture, TINA). Le tunnel TINA est associé à chacun des réseaux virtuels à l’aide d’un pare-feu Barracuda NG (avec un pare-feu Barracuda sur chaque réseau virtuel).  Pour bénéficier d’une haute disponibilité, nous vous recommandons de déployer deux pare-feu Barracuda sur chaque réseau virtuel ; l’un actif, l’autre passif. Ils offrent des capacités de pare-feu très complètes qui nous permettent de reproduire le fonctionnement d’un réseau de périmètre local traditionnel dans Azure.
+Dans ce cas, deux réseaux virtuels sont déployés au lieu d’un seul. Nous les appellerons le réseau virtuel 1 et le réseau virtuel 2. Le réseau virtuel 1 contient les proxys et le réseau virtuel 2 comprend les STS et la connexion réseau vers le réseau d’entreprise. Le réseau virtuel 1 est donc physiquement (bien que virtuellement) isolé du réseau virtuel 2 et du réseau d’entreprise. Le réseau virtuel 1 est ensuite connecté au réseau virtuel 2 via une technologie de tunneling spéciale appelée architecture de réseau d’information des télécommunications (Transport Independent Network Architecture, TINA). Le tunnel TINA est associé à chacun des réseaux virtuels à l’aide d’un pare-feu Barracuda NG (avec un pare-feu Barracuda sur chaque réseau virtuel).  Pour bénéficier d’une haute disponibilité, nous vous recommandons de déployer deux pare-feu Barracuda sur chaque réseau virtuel ; l’un actif, l’autre passif. Ils offrent des capacités de pare-feu très complètes qui nous permettent de reproduire le fonctionnement d’un réseau de périmètre local traditionnel dans Azure.
 
 ![ADFS sur Azure avec pare-feu.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
@@ -394,7 +395,7 @@ Pour des raisons de performances et de tolérance de pannes, il est souhaitable 
 
 Les machines virtuelles inscrivent leur nom DNS automatiquement au démarrage ou lors d’une modification de nom.
 
-Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](https://msdn.microsoft.com/library/azure/jj152841) (Applets de commande de gestion Azure).
+Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](/powershell/module/azurerm.compute/#virtual_machines) (Applets de commande de gestion Azure).
 
 ### <a name="BKMK_DistributedDCs"></a>Contrôleurs de domaine géolocalisés
 Azure présente des avantages lors de l’hébergement de plusieurs contrôleurs de domaine sur différents réseaux virtuels :

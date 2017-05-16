@@ -15,8 +15,3 @@ Lorsque vous sélectionnez une référence SKU, tenez compte des éléments sui
 * Les configurations de passerelle VPN et ExpressRoute coexistants ne sont pas prises en charge par la référence SKU De base.
 * Les connexions VPN S2S en mode actif-actif avec des passerelles peuvent uniquement être configurées sur la référence SKU HighPerformance.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

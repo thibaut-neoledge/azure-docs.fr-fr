@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: ff26d568624a712cf86db962193c8f631065c004
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Obtention d’informations grâce aux rapports sur la gestion des mots de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 >
 >
 
@@ -202,16 +203,12 @@ Pour accéder aux rapports de gestion des mots de passe, procédez comme suit :
 4. Regardez sous la section **Journaux d’activité** .
 5. Sélectionnez le rapport **Activité de réinitialisation de mot de passe** ou **Activité d’inscription à la réinitialisation de mot de passe**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Visualiser l’activité d’inscription de réinitialisation de mot de passe dans le portail Classic
 Le rapport Activité d’inscription de réinitialisation de mot de passe montre toutes les inscriptions à la réinitialisation de mot de passe qui ont eu lieu dans votre organisation.  Une inscription à la réinitialisation de mot de passe est affichée dans ce rapport pour tout utilisateur qui a inscrit des informations d’authentification dans le portail d’inscription à la réinitialisation de mot de passe ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Période max** : 30 jours
 * **Nombre max de lignes** : 75 000
 * **Téléchargeable**: Oui, via un fichier CSV
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Description des colonnes du rapport
 La liste suivante décrit chacune des colonnes du rapport en détail :
@@ -234,8 +231,6 @@ Ce rapport montre toutes les tentatives de réinitialisation de mot de passe qui
 * **Période max** : 30 jours
 * **Nombre max de lignes** : 75 000
 * **Téléchargeable**: Oui, via un fichier CSV
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Description des colonnes du rapport
 La liste suivante décrit chacune des colonnes du rapport en détail :
@@ -300,7 +295,7 @@ Voici la liste des types de résultats que vous pouvez attendre lors de l’util
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-my-password).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
@@ -308,8 +303,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 * [**Forum Aux Questions**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
 * [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 * [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

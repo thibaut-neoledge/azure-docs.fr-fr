@@ -10,8 +10,3 @@
 6. Sélectionnez **Choisir une valeur** sur la droite, puis saisissez *ExtractMeFirst*. Dans cet exemple, ExtractMeFirst est une valeur qui doit se trouver dans un fichier trouvable par des personnes qui ont accès au dossier SFTP pour indiquer qu’il s’agit d’un fichier d’archive qui doit être extrait.  
    ![Image de condition SFTP 5](./media/connectors-create-api-sftp/condition-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

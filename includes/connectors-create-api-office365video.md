@@ -14,8 +14,3 @@ Pour autoriser votre application logique à se connecter à votre compte Office�
 4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
    ![étape de création de la connexion à Office 365 Video](./media/connectors-create-api-office365video/office365video-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

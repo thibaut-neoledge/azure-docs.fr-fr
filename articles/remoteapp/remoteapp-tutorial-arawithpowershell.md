@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 9134b5893413abbc49e2332651fb4a8b549ce559
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/31/2017
 - - -
 Téléchargez d’abord les applets de commande Azure PowerShell [ici](http://go.microsoft.com/?linkid=9811175); les applets de commande RemoteApp sont incluses. 
 
-Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Consultez [l’aide sur les applets de commande Azure RemoteApp](/powershell/module/azure?view=azuresmps-3.7.0).
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configuration des applets de commande Azure pour utiliser votre abonnement
 - - -
-Suivez [ce guide](/powershell/azureps-cmdlets-docs) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
+Suivez [ce guide](/powershell/azure/overview) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
 
 Vous pouvez utiliser ces étapes pour démarrer rapidement :
 

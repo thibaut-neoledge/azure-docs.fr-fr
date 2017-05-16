@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 079986e9457a4185bae273818fbc852307974638
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -68,7 +68,7 @@ Après avoir inscrit votre domaine personnalisé selon l’une des procédures m
 5. Accédez au site web de votre bureau d'enregistrement de domaines et recherchez la section de la création d'enregistrements DNS. Vous pourrez trouver ces informations dans une section telle que **Domain Name**, **DNS** ou **Name Server Management**.
 6. Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une page de paramètres avancés et recherchez les mots **CNAME**, **Alias** ou **Sous-domaines**.
 7. Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine **cdnverify** . Par exemple, le sous-domaine que vous spécifiez sera au format **cdnverify.www** ou **cdnverify.cdn**. Renseignez le nom d’hôte (c’est-à-dire votre point de terminaison CDN) au format **cdnverify.&lt;Nom_Point_Terminaison>.azureedge.net**. Votre mappage DNS doit ressembler à ceci :`cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
-8. Revenez au panneau **Ajouter un domaine personnalisé** , puis entrez votre domaine personnalisé, dont le sous-domaine, dans la boîte de dialogue. Par exemple, entrez le nom de domaine au format `www.contoso.com` ou `cdn.contoso.com`. Notez que, à cette étape, vous ne devez pas faire précéder le sous-domaine de **cdncverify**.  
+8. Revenez au panneau **Ajouter un domaine personnalisé** , puis entrez votre domaine personnalisé, dont le sous-domaine, dans la boîte de dialogue. Par exemple, entrez le nom de domaine au format `www.contoso.com` ou `cdn.contoso.com`. Notez qu'à cette étape, vous ne devez pas faire précéder le sous-domaine de **cdnverify**.  
    
     Azure vérifiera que l'enregistrement CNAME existe pour le nom de domaine cdnverify que vous avez entré.
 9. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre point de terminaison CDN. Après avoir attendu le temps nécessaire à la propagation des paramètres de domaine personnalisé aux nœuds de périmètre CDN (90 minutes pour le **CDN Azure fourni par Verizon**, 1-2 minutes pour le **CDN Azure fourni par Akamai**), retournez sur le site web de votre bureau d’enregistrement de domaines DNS et créez un autre enregistrement CNAME qui mappe votre sous-domaine à votre point de terminaison CDN. Par exemple, spécifiez le sous-domaine au format **www** ou **cdn**, ainsi que le nom d’hôte au format **&lt;Nom_Point_Terminaison>.azureedge.net**. Cette étape marque la fin de l'enregistrement de votre domaine personnalisé.

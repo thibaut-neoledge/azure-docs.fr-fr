@@ -15,8 +15,3 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
    
    ![Vérifier la définition de votre nouveau nom DNS](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

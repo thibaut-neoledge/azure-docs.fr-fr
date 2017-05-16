@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 1a3b78575b2b7f8d36178d41975690e984277a29
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 454957b439e327b08dcd6e7f4acee37963970458
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -24,6 +24,9 @@ ms.lasthandoff: 03/29/2017
 Cet article explique comment utiliser l'activité de copie d’Azure Data Factory pour déplacer des données d’un serveur SFTP local/cloud vers un magasin de données récepteur pris en charge. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et la liste de magasins de données pris en charge comme sources/récepteurs.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données d’un serveur SFTP vers d’autres magasins de données, mais pas l’inverse. Il prend en charge à la fois les serveurs SFTP locaux et cloud.
+
+> [!NOTE]
+> L’activité de copie ne supprime pas le fichier source une fois qu’il est copié sur la destination. Si vous devez supprimer le fichier source une fois qu’il est copié, créez une activité personnalisée pour supprimer le fichier et utilisez l’activité dans le pipeline. 
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scénarios et types d’authentification pris en charge
 Vous pouvez utiliser ce connecteur SFTP pour copier des données des **serveurs SFTP cloud et locaux**. Les types d’authentification **De base** et **SshPublicKey** sont pris en charge lors de la connexion au serveur SFTP.
@@ -35,7 +38,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. Pour obtenir des exemples JSON de copie de données depuis un serveur SFTP dans le stockage Blob Azure, consultez la section [Exemple JSON : copie de données depuis un serveur SFTP à un objet Blob Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) de cet article.
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. Pour obtenir des exemples JSON de copie de données depuis un serveur SFTP dans le stockage Blob Azure, consultez la section [Exemple JSON : copie de données depuis un serveur SFTP à un objet Blob Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) de cet article.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques du service lié FTP.
@@ -209,6 +212,8 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 
 [!INCLUDE [data-factory-file-system-source](../../includes/data-factory-file-system-source.md)]
 
+## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
+Pour plus d’informations, consultez l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ### <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemple JSON : copie de données depuis un serveur SFTP à un objet Blob Azure
 L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis la source SFTP vers Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.

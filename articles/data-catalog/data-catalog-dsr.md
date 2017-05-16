@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 03/14/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: b92db8dd81af0c58861644cc02ca9e56b6a6a832
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -417,6 +418,24 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique, en utili
     <tr>
       <td>Collection DocumentDB</td>
       <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Table ODBC générique</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Vue ODBC générique</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
@@ -918,6 +937,22 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
       <td>Collection</td>
       <td>
         <font size=2> protocol: document-db <br>authentification : {azure-access-key} <br>adresse : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;Collection &nbsp;&nbsp;&nbsp;&nbsp;</font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC générique</td>
+      <td>Conteneur</td>
+      <td>Base de données</td>
+      <td>
+        <font size=2> protocole : odbc <br>authentification : {base, windows} <br>adresse : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC générique</td>
+      <td>Table</td>
+      <td>Table, Vue</td>
+      <td>
+        <font size=2> protocole : odbc <br>authentification : {base, windows} <br>adresse : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
       </td>
     </tr>
     <tr>

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 Lors de la restauration automatique, il est recommandé de déployer le serveur de processus dans Azure s’il existe une latence élevée entre le réseau virtuel Azure et votre réseau local. Cet article explique comment installer, configurer et gérer les serveurs de processus en cours d’exécution dans Azure.
 
 > [!NOTE]
-> Consultez cet article si vous avez utilisé **Resource Manager** comme modèle de déploiement pour les machines virtuelles lors du basculement. Si vous avez utilisé le modèle de déploiement **Classic**, suivez les étapes de la rubrique [Guide pratique pour installer et configurer un serveur de processus de restauration automatique (Resource Manager).](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> Consultez cet article si vous avez utilisé le déploiement Classic comme modèle de déploiement pour les machines virtuelles lors du basculement. Si vous avez utilisé le modèle de déploiement Resource Manager, suivez les étapes de la rubrique [Guide pratique pour installer et configurer un serveur de processus de restauration automatique (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -60,9 +62,4 @@ Lors de la restauration automatique, il est recommandé de déployer le serveur 
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Désinscription du serveur de processus (en cours d’exécution dans Azure) d’un serveur de Configuration (en cours d’exécution en local)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

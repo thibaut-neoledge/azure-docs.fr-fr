@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0fb1e3fc87e3a3a93d42f9f2722696e0f9aae57
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +47,7 @@ Cet article explique comment créer un réseau virtuel dans le modèle de déplo
 
 Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit :
 
-1. Installez et configurez Azure PowerShell en suivant les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Installez et configurez Azure PowerShell en suivant les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 2. Si nécessaire, créez un groupe de ressources, comme indiqué ci-dessous. Dans le cadre de ce scénario, créez un groupe de ressources appelé *TestRG*. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 

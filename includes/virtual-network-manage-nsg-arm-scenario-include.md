@@ -16,8 +16,3 @@ La combinaison de ces règles crée un scénario de type DMZ, où le sous-résea
 
 Pour déployer le scénario décrit ci-dessus, suivez [ce lien](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail. Dans les instructions de l’exemple ci-dessous, le modèle a été utilisé pour déployer les noms de groupes de ressources **RG-NSG**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

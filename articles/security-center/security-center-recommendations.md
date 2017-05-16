@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 51a882d82793e5e284cfaeec9271ff3719385fcc
-ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9663535cc301ecd2c26c1cf318dbf9420758e245
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,7 +50,7 @@ Après la définition d’une stratégie de sécurité, le Centre de sécurité 
 
 Pour afficher les détails de chaque recommandation :
 
-1. Cliquez sur la **mosaïque Recommandations** dans le panneau **Centre de sécurité**. Le panneau **Recommandations** s’ouvre.
+Sélectionnez la mosaïque **Recommandations** dans le panneau **Security Center**. Le panneau **Recommandations** s’ouvre.
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
@@ -84,8 +86,8 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Recommande la résolution des défaillances de protection de point de terminaison. |
 | [Activer des groupes de sécurité réseau sur les sous-réseaux et ou les machines virtuelles](security-center-enable-network-security-groups.md) |Recommande l’activation des groupes de sécurité réseau sur les sous-réseaux ou les machines virtuelles. |
 | [Restreindre l’accès via un point de terminaison accessible sur Internet](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau. |
-| [Activer l’audit des serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Vous recommande d’activer l’audit pour les serveurs SQL Azure. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
-| [Activer l’audit des bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Vous recommande d’activer l’audit pour les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
+| [Activer l’audit et la détection des menaces dans les serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Recommande l’activation de l’audit et de la détection des menaces pour les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
+| [Activer l’audit et la détection des menaces dans les bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Recommande l’activation de l’audit et de la détection des menaces pour les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.) |
 | [Activer le chiffrement transparent des données des bases de données SQL](security-center-enable-transparent-data-encryption.md) |Recommande l’activation du chiffrement pour les bases de données SQL. (Service Azure SQL uniquement.) |
 | [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
 | [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
@@ -97,7 +99,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 
 Vous pouvez filtrer et ignorer les recommandations.
 
-1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
+1. Sélectionnez **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
     ![Filtrer les recommandations][2]
 2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Rejeté**.
@@ -109,7 +111,7 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 
 Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation et suivez les instructions pour savoir comment appliquer une recommandation.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
@@ -123,9 +125,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

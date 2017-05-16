@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -33,9 +34,6 @@ Le portail Azure est un outil web qui permet de gérer les services et les resso
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un navigateur Web moderne**. Le portail Azure utilise les langages HTML5 et Javascript. Il est possible qu’il ne fonctionne pas correctement sur les anciens navigateurs web.
-
-### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Créer des clusters
 Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle Azure Resource Manager, vous pouvez masquer de nombreux détails. Pour plus d’informations, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -91,6 +89,9 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
     Cliquez sur **Suivant**. 
 
+    > [!WARNING]
+    > L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
+
 5. Cliquez éventuellement sur **Applications** pour installer les applications qui fonctionnent avec les clusters HDInsight. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Pour plus d’informations, consultez [Installer des applications HDInsight](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
@@ -145,6 +146,10 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
 ## <a name="delete-the-cluster"></a>Suppression du cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :

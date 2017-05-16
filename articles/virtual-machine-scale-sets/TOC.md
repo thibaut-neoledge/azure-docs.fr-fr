@@ -44,7 +44,7 @@
 ### [FAQ sur le groupe identique](virtual-machine-scale-sets-faq.md)
 
 # Référence
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

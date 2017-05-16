@@ -18,8 +18,3 @@
 | **De point à site** |Pris en charge |Non pris en charge |
 | **Classic vers Gestionnaire de ressources** |Pris en charge |Non pris en charge |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -27,12 +27,12 @@ Pour recevoir une certification AppSource pour Azure AD, votre application doit 
 Si vous n’êtes pas familiarisé avec la connexion Azure AD ou le développement d’une application mutualisée :
 
 1. Commencez par lire la section [Navigateur vers les scénarios Web App dans les scénarios d’authentification pour Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].  
-2. Consultez ensuite les [guides de démarrage rapide d’application web][AAD-QuickStart-Web-Apps] Azure AD, qui montrent comment implémenter la connexion et qui incluent des exemples de code complémentaires. 
-   
+2. Consultez ensuite les [guides de démarrage rapide d’application web][AAD-QuickStart-Web-Apps] Azure AD, qui montrent comment implémenter la connexion et qui incluent des exemples de code complémentaires.
+
    > [!TIP]
    > Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/Web) qui vous permettra de devenir opérationnel avec Azure Active Directory en quelques minutes !  Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code.  Une fois terminé, vous disposerez d’une application simple capable d’authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation.
-   > 
-   > 
+   >
+   >
 3. Pour savoir comment implémenter un modèle de connexion mutualisée avec Azure AD, consultez [Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée][AAD-Howto-Multitenant-Overview]
 
 ## <a name="related-content"></a>Contenu connexe
@@ -45,18 +45,8 @@ Utilisez la section Commentaires Disqus disponible à la fin de cet article pour
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
 
 
 <!--Image references-->
-
-
-
-
-
-
-
-
-
-
 

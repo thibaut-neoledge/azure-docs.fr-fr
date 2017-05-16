@@ -1,6 +1,7 @@
 ---
-title: "Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory - version préliminaire | Microsoft Docs"
-description: "En savoir plus sur le rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory - version préliminaire"
+
+title: "Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory | Microsoft Docs"
+description: "En savoir plus sur le rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory - version préliminaire
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory
 
-Grâce aux fonctions de création de rapports sur la sécurité que propose la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
+Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
 Azure Active Directory détecte les actions suspectes liées aux comptes des utilisateurs. Pour chaque action détectée, un enregistrement appelé *événement à risque* est créé. Pour en savoir plus, voir [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 

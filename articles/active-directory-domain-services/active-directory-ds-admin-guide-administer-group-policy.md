@@ -91,7 +91,7 @@ Il existe deux objets de stratégie de groupe (GPO) intégrés : un pour le cont
 1. Dans la console **Gestion des stratégies de groupe**, cliquez pour développer les nœuds **Forest: contoso100.com** et **Domains** afin d’afficher les stratégies de groupe de votre domaine géré.
 
     ![Objets de stratégie de groupe (GPO) intégrés](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier... ** pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
+2. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier...** pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
 
     ![Modifier un GPO intégré](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 3. Vous pouvez maintenant utiliser la console **Éditeur de gestion de stratégie de groupe** pour modifier les GPO intégrés. Par exemple, la capture d’écran suivante illustre la personnalisation du GPO « Ordinateurs AADDC » intégré.

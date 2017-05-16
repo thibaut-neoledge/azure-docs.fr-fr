@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 0635120c4e16f3b8531039eee4c6651e7cdeca40
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -44,7 +45,7 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 
 **Problèmes du client Linux**
 
-* [Erreur d’E/S intermittente : Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
+* [Erreur d’E/S intermittente : Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#error112)
 * [Erreur de montage 115 lors de la tentative de montage Azure Files sur la machine virtuelle Linux](#error15)
 * [Partage de fichiers Azure monté sur la machine virtuelle Linux subissant une baisse des performances](#delayproblem)
 * [Erreur de montage (11) : ressource temporairement indisponible lors du montage sur le noyau Ubuntu 4.8+](#ubuntumounterror)
@@ -116,13 +117,13 @@ Ne créez ni n’ouvrez jamais un fichier d’E/S mises en cache qui demande un 
 Ce problème peut être provoqué par les conditions suivantes :
 
 ### <a name="cause-1"></a>Cause 1
-« Une erreur système 53 est survenue. L’accès est refusé. » Pour des raisons de sécurité, les connexions aux partages Azure Files sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages Azure Files. Le chiffrement du canal de communication n’est pas fourni si le système d’exploitation client de l’utilisateur ne prend pas en charge le chiffrement SMB. Cela est indiqué par le message d’erreur « Une erreur système 53 s’est produite. L’accès est refusé. » lorsqu’un utilisateur tente de monter un partage de fichiers en local ou à partir d’un autre centre de données. Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation incluant SMB 3.0, prenant en charge le chiffrement.
+« Une erreur système 53 est survenue. L’accès est refusé. » Pour des raisons de sécurité, les connexions aux partages Azure Files sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis la région Azure dans laquelle résident les partages Azure Files. Le chiffrement du canal de communication n’est pas fourni si le système d’exploitation client de l’utilisateur ne prend pas en charge le chiffrement SMB. Cela est indiqué par le message d’erreur « Une erreur système 53 s’est produite. L’accès est refusé. » lorsqu’un utilisateur tente de monter un partage de fichiers en local ou à partir d’un autre centre de données. Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation incluant SMB 3.0, prenant en charge le chiffrement.
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
-Se connecter à partir d’un client qui répond aux exigences de Windows 8, Windows Server 2012 ou les versions ultérieures, ou qui se connecte à partir d’une machine virtuelle se trouvant sur le même centre de données que le compte de stockage Azure utilisé pour le partage Azure Files.
+Se connecter à partir d’un client qui répond aux exigences de Windows 8, Windows Server 2012 ou les versions ultérieures, ou qui se connecte à partir d’une machine virtuelle se trouvant sur la même région Azure que le compte de stockage Azure utilisé pour le partage Azure Files.
 
 ### <a name="cause-2"></a>Cause 2
-Le message « Erreur système 53 » ou « Erreur système 67 » lorsque vous montez un partage Azure Files peut apparaître si les communications sortantes du port 445 vers le centre de données Azure Files sont bloquées. Cliquez [ici](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445.
+Le message « Erreur système 53 » ou « Erreur système 67 » lorsque vous montez un partage Azure Files peut apparaître si les communications sortantes du port 445 vers la région Azure Files sont bloquées. Cliquez [ici](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445.
 
 Comcast et certaines entreprises informatiques bloquent ce port. Pour comprendre s’il s’agit de la raison pour laquelle le message « Erreur système 53 » s’affiche, vous pouvez utiliser Portqry pour interroger le point de terminaison TCP:445. Si le point de terminaison TCP:445 est affiché comme filtré, le port TCP est bloqué. Voici un exemple de requête :
 
@@ -213,7 +214,7 @@ Pour copier un fichier sur le Stockage Fichier, vous devez d’abord le déchiff
 
 Toutefois, notez que la définition de la clé de Registre affecte toutes les opérations de copie sur les partages réseau.
 
-<a id="errorhold"></a>
+<a id="error112"></a>
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque quand vous exécutez des listes de commandes sur le point de montage
 ### <a name="cause"></a>Cause :
@@ -251,7 +252,7 @@ Si vous ne parvenez pas à accéder aux dernières versions du noyau, vous pouve
 Les distributions Linux ne prennent pas encore en charge la fonctionnalité de chiffrement dans SMB 3.0. Dans certaines distributions, l’utilisateur peut recevoir un message d’erreur « 115 » s’il essaie de monter Azure Files en utilisant SMB 3.0 en raison d’une fonctionnalité manquante.
 
 ### <a name="solution"></a>Solution
-Si le client SMB Linux utilisé ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Linux sur le même centre de données que le compte Stockage Fichier.
+Si le client SMB Linux utilisé ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Linux dans la même région Azure que le compte Stockage Fichier.
 
 <a id="delayproblem"></a>
 
@@ -261,15 +262,17 @@ La désactivation de la mise en cache peut entraîner une baisse des performance
 
 Dans certains scénarios, l’option de montage serverino peut entraîner l’exécution de stat par la commande ls sur chaque entrée de répertoire. Ce comportement entraîne une dégradation des performances lors de l’énumération d’un répertoire volumineux. Vous pouvez vérifier les options de montage dans l’entrée « /etc/fstab » :
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> <mount-point> cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Vous pouvez également vérifier si les options appropriées sont utilisées en exécutant simplement la commande **sudo mount | grep cifs**, puis en examinant sa sortie :
+Vous pouvez également vérifier si les options appropriées sont utilisées en exécutant simplement la commande `sudo mount | grep cifs` (voir exemple de sortie ci-dessous).
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
-(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
-dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> on <mount-point> type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,
+noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,
+mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
+Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
 
 <a id="ubuntumounterror"></a>
 ## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Erreur de montage (11) : ressource temporairement indisponible lors du montage sur le noyau Ubuntu 4.8+

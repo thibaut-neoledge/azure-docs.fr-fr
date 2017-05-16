@@ -1,23 +1,12 @@
 ---
-title: "(obsolète) Prévisions - Lissage exponentiel - Azure | Microsoft Docs"
-description: "(obsolète) Service web : prévisions - Lissage exponentiel"
-services: machine-learning
-documentationcenter: 
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: yijichen
+
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
-ms.openlocfilehash: c3fc7b8d7ba9faf79d80b55514ef09570e0d1655
+redirect_url: https://gallery.cortanaintelligence.com/
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 353dcae989dd313577fe88ba6757107abcd5f5c9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -146,10 +135,5 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

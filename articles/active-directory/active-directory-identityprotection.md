@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -70,6 +71,25 @@ Mais Azure Active Directory Identity Protection est bien plus qu’un outil de s
 * Stratégie pour atténuer les connexions à risque en bloquant les connexions ou en imposant des demandes d’authentification multifacteur.
 * Stratégie pour bloquer ou sécuriser les comptes d’utilisateurs à risque
 * Stratégie pour exiger que les utilisateurs s’inscrivent à l’authentification multifacteur
+
+
+
+## <a name="identity-protection-roles"></a>Rôles de protection des identités (Identity Protection)
+
+Pour équilibrer la charge des activités de gestion en ce qui concerne votre implémentation de la protection des identités, vous pouvez attribuer plusieurs rôles. Azure AD Identity Protection prend en charge 3 rôles d’annuaire :
+
+| Rôle                         | Peut                          | Ne peut pas
+| :--                          | ---                                |  ---   |
+| Administrateur général         | Accès complet à Identity Protection, Onboard Identity Protection| |
+| Administrateur de sécurité       | Accès complet à Identity Protection | Onboard Identity Protection, réinitialiser les mots de passe pour un utilisateur |
+| Lecteur de sécurité              | Accès en lecture seule à Identity Protection | Onboard Identity Protection, résoudre les utilisateurs, configurer les utilisateurs, réinitialiser les mots de passe |
+
+
+
+
+Pour plus d’informations, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
 
 ## <a name="detection"></a>Détection
 

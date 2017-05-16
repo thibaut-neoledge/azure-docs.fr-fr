@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 412063692e87fe71890f62bcc18b99b317a80986
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,9 +52,4 @@ La stratégie d’authentification globale permet d’activer séparément des m
  ![Stratégie d’authentification globale d’Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/library/dn486781.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

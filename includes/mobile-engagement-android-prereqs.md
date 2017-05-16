@@ -5,8 +5,3 @@ Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en ma
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

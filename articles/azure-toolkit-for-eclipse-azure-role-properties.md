@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +38,7 @@ Les rôles Azure proposent les pages de propriétés qui suivent.
 * [Propriétés de mise en cache](#caching_properties)
 * [Propriétés de certificats](#certificates_properties)
 * [Propriétés des composants](#components_properties)
-* [Propriétés de débogage](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [Propriétés des points de terminaison](#endpoints_properties)
 * [Propriétés des variables d’environnement](#environment_variables_properties)
 * [Propriétés d’équilibre de charge/affinité de session (appelées « sessions temporaires »)](#session_affinity_properties)
@@ -174,14 +176,14 @@ Les règles sont traitées dans l’ordre répertorié. Utilisez les boutons **M
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>Propriétés de débogage
-Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse, cliquez sur **Azure**, puis sur **Déboguer**. Dans cette boîte de dialogue, vous avez la possibilité d’activer ou de désactiver le débogage à distance, ainsi que de créer des configurations de débogage, comme indiqué dans l’image suivante.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-Pour plus d’informations sur le débogage, consultez [Débogage des applications Azure dans Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -206,13 +208,13 @@ Si vous souhaitez utiliser un numéro de port unique et non une plage de numéro
 
 Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrite dans le [résumé de package com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Pour voir comment les points de terminaison d’entrée d’instance peuvent être utilisés avec le débogage d’un déploiement à plusieurs instances, consultez [Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 Pour modifier un point de terminaison, sélectionnez-le puis cliquez sur le bouton **Modifier** situé dans la page de propriété **Points de terminaison**. Une boîte de dialogue vous permettant de modifier le nom du point de terminaison, le type et les ports public et privé. Appuyez sur **OK** pour enregistrer les valeurs de point de terminaison modifiées.
 
 Pour supprimer un point de terminaison, sélectionnez-le, puis cliquez sur le bouton **Supprimer** dans la page de propriété **Points de terminaison**, puis cliquez sur **Oui** pour confirmer la suppression.
 
-Pour configurer correctement certaines fonctionnalités (telles que la mise en cache, le débogage distant, l’affinité de session ou le déchargement SSL) activées par l’utilisateur sur un rôle, la boîte à outils peut configurer automatiquement des points de terminaison spéciaux qui seront répertoriés au même titre que les points de terminaison définis par l’utilisateur. La boîte à outils empêche l’utilisateur de modifier ou supprimer automatiquement des points de terminaison générés tant que la fonctionnalité associée est activée.
+Pour configurer correctement certaines fonctionnalités (telles que la mise en cache, l’affinité de session ou le déchargement SSL) activées par l’utilisateur sur un rôle, la boîte à outils peut configurer automatiquement des points de terminaison spéciaux qui seront répertoriés au même titre que les points de terminaison définis par l’utilisateur. La boîte à outils empêche l’utilisateur de modifier ou supprimer automatiquement des points de terminaison générés tant que la fonctionnalité associée est activée.
 
 <a name="environment_variables_properties"></a> 
 
@@ -457,9 +459,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 1952adece7e874ade97c2a8480455e1236bb74f1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
-Azure Service Bus utilise plusieurs courtiers de messages pour traiter les messages et plusieurs banques de messagerie pour stocker les messages. Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Service Bus permet également le *partitionnement* des files d’attente ou des rubriques entre plusieurs courtiers de messages et banques de messagerie. Cela signifie que le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Les rubriques et les files d’attente partitionnées peuvent contenir toutes les fonctionnalités avancées de Service Bus, comme la prise en charge des transactions et des sessions.
+Azure Service Bus utilise plusieurs courtiers de messages pour traiter les messages et plusieurs banques de messagerie pour stocker les messages. Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Service Bus permet également le *partitionnement* des files d’attente et des rubriques, ou des *entités de messagerie* entre plusieurs courtiers de messages et banques de messagerie. Cela signifie que le débit global d’une entité partitionnée n’est plus limité par les performances d’un seul courtier de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Les rubriques et les files d’attente partitionnées peuvent contenir toutes les fonctionnalités avancées de Service Bus, comme la prise en charge des transactions et des sessions.
 
 Pour plus d’informations sur les éléments internes de Service Bus, consultez l’article [Architecture de Service Bus][Service Bus architecture].
+
+Le partitionnement est activé par défaut lors de la création d’entités sur toutes les files d’attente et rubriques à la fois dans la messagerie Standard et Premium. Vous pouvez créer des entités de niveau de messagerie Standard sans partitionnement, mais les files d’attente et les rubriques dans un espace de noms Premium sont toujours partitionnées ; cette option ne peut pas être désactivée. 
+
+Il n’est pas possible de modifier l’option de partitionnement dans une file d’attente ou une rubrique existante dans les niveaux Standard ou Premium. Vous pouvez uniquement définir l’option lorsque vous créez l’entité.
 
 ## <a name="how-it-works"></a>Fonctionnement
 Chaque file d’attente ou rubrique partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente et géré par un courtier de messages différent. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. La sélection est effectuée au hasard par Service Bus ou à l’aide d’une clé de partition que l’expéditeur peut spécifier.
@@ -36,9 +41,19 @@ Il n’existe aucun coût supplémentaire lors de l’envoi d’un message à, o
 ## <a name="enable-partitioning"></a>Activation du partitionnement
 Pour utiliser des rubriques et des files d’attente partitionnées avec Azure Service Bus, utilisez le Kit de développement logiciel (SDK) Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
 
-Vous pouvez créer des files d’attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions, la taille maximale de la file d’attente est (5 \* 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal].
+### <a name="standard"></a>Standard
 
-Il existe plusieurs façons de créer une file d’attente ou une rubrique partitionnée. Lorsque vous créez la file d’attente ou la rubrique à partir de votre application, vous pouvez activer le partitionnement de la file d’attente ou de la rubrique en définissant respectivement la propriété [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] sur **true**. Ces propriétés doivent être définies au moment où la file d’attente ou la rubrique est créée. Il n’est pas possible de modifier ces propriétés sur une file d’attente ou une rubrique existante. Par exemple :
+Dans le niveau de messagerie Standard, vous pouvez créer des files d'attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 copies (16 partitions) de l’entité pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions, la taille maximale de la file d’attente est (5 \* 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal], dans le panneau **Aperçu** de cette entité.
+
+### <a name="premium"></a>Premium
+
+Dans un espace de noms de niveau Premium, vous pouvez créer des files d’attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4, 5, 10, 20, 40 ou 80 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé par défaut, Service Bus crée deux partitions par entité. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée sur le [portail Azure][Azure portal], dans le panneau **Aperçu** de cette entité.
+
+Pour plus d’informations sur le partitionnement dans la couche de messagerie Premium, consultez [Couches messagerie Service Bus Premium et Standard](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Créer une entité partitionnée
+
+Il existe plusieurs façons de créer une file d’attente ou une rubrique partitionnée. Lorsque vous créez la file d’attente ou la rubrique à partir de votre application, vous pouvez activer le partitionnement de la file d’attente ou de la rubrique en définissant respectivement la propriété [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] sur **true**. Ces propriétés doivent être définies au moment où la file d’attente ou la rubrique est créée. Comme indiqué précédemment, il n’est pas possible de modifier ces propriétés dans une file d’attente ou une rubrique existante. Par exemple :
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Vous pouvez également créer une file d’attente ou une rubrique partitionnée dans Visual Studio ou sur le [portail Azure][Azure portal]. Lorsque vous créez une file d’attente ou une rubrique dans le portail, définissez l’option **Activer le partitionnement** dans le volet **Paramètres généraux** de la fenêtre **Paramètres** de la file d’attente ou de la rubrique sur **true**. Dans Visual Studio, cochez la case **Activer le partitionnement** dans la boîte de dialogue **Nouvelle file d’attente** ou **Nouvelle rubrique**.
+Vous pouvez également créer une file d’attente ou une rubrique partitionnée dans Visual Studio ou sur le [portail Azure][Azure portal]. Lorsque vous créez une file d’attente ou une rubrique sur le portail, l’option **Activer le partitionnement** dans le panneau **Créer** de la file d’attente ou de la rubrique est activée par défaut. Vous pouvez uniquement désactiver cette option dans une entité de niveau Standard ; dans le niveau Premium, le partitionnement est toujours activé. Dans Visual Studio, cochez la case **Activer le partitionnement** dans la boîte de dialogue **Nouvelle file d’attente** ou **Nouvelle rubrique**.
 
 ## <a name="use-of-partition-keys"></a>Utilisation de clés de partition
 Lorsqu’un message est placé dans une file d’attente ou une rubrique partitionnée, Service Bus vérifie la présence d’une clé de partition. S'il en trouve une, il sélectionne le fragment basé sur cette clé. S'il ne trouve pas de clé de partition, il sélectionne le fragment basé sur un algorithme interne.
@@ -65,7 +80,9 @@ Selon le scénario, différentes propriétés de messages sont utilisées comme 
 **MessageId** : si la file d’attente ou la rubrique a la propriété [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] définie sur **true** et que les propriétés [BrokeredMessage.SessionId][BrokeredMessage.SessionId] ou [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] ne sont pas définies, la propriété [BrokeredMessage.MessageId][BrokeredMessage.MessageId] sert de clé de partition. (Notez que les bibliothèques Microsoft .NET et AMQP attribuent automatiquement un ID de message si l'application émettrice ne le fait pas.) Dans ce cas, toutes les copies du même message sont gérées par le même courtier de messages. Cela permet à Service Bus de détecter et d’éliminer les messages en double. Si la propriété [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] n’est pas définie sur **true**, Service Bus ne considère pas la propriété [MessageId][MessageId] comme clé de partition.
 
 ### <a name="not-using-a-partition-key"></a>Non utilisation d'une clé de partition
-En l’absence d’une clé de partition, Service Bus distribue les messages en tourniquet à tous les fragments de la file d’attente ou la rubrique partitionnée. Si le fragment choisi n'est pas disponible, Service Bus affecte le message à un fragment différent. De cette façon, l'opération d'envoi réussit malgré l'indisponibilité temporaire d'une banque de messagerie.
+En l’absence d’une clé de partition, Service Bus distribue les messages en tourniquet à tous les fragments de la file d’attente ou la rubrique partitionnée. Si le fragment choisi n'est pas disponible, Service Bus affecte le message à un fragment différent. De cette façon, l'opération d'envoi réussit malgré l'indisponibilité temporaire d'une banque de messagerie. Cependant, vous obtiendrez pas le classement garanti qui est fourni par une clé de partition.
+
+Pour une discussion plus approfondie sur le compromis entre la disponibilité (pas de clé de partition) et la cohérence (en utilisant une clé de partition), consultez [cet article](../event-hubs/event-hubs-availability-and-consistency.md). Ces informations s’appliquent également aux entités Service Bus partitionnées et aux partitions Event Hubs.
 
 Pour donner à Service Bus assez de temps pour placer le message en file d’attente dans un fragment différent, la valeur [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout] spécifiée par le client qui envoie le message doit être supérieure à 15 secondes. Il est recommandé de définir la propriété [OperationTimeout][OperationTimeout] sur la valeur par défaut de 60 secondes.
 
@@ -109,7 +126,7 @@ committableTransaction.Commit();
 Service Bus prend en charge le transfert automatique des messages à partir de, vers ou entre les entités partitionnées. Pour activer le transfert automatique des messages, définissez la propriété [QueueDescription.ForwardTo][QueueDescription.ForwardTo] de la file d’attente ou de l’abonnement source. Si le message spécifie une clé de partition ([SessionId][SessionId], [PartitionKey][PartitionKey] ou [MessageId][MessageId]), cette clé de partition est utilisée pour l’entité de destination.
 
 ## <a name="considerations-and-guidelines"></a>Considérations et recommandations
-* **Fonctionnalités de cohérence élevée** : si une entité utilise des fonctionnalités telles que des sessions, la détection des doublons ou un contrôle explicite de la clé de partitionnement, les opérations de messagerie sont toujours acheminées vers des fragments spécifiques. Si le trafic d’un des fragments est élevé ou si le magasin sous-jacent est défectueux, ces opérations échouent et la disponibilité s’en trouve réduite. En général, la cohérence reste plus importante que le nombre d’entités non partitionnées. Seul un sous-ensemble de trafic rencontre des problèmes, et non le trafic tout en entier.
+* **Fonctionnalités de cohérence élevée** : si une entité utilise des fonctionnalités telles que des sessions, la détection des doublons ou un contrôle explicite de la clé de partitionnement, les opérations de messagerie sont toujours acheminées vers des fragments spécifiques. Si le trafic d’un des fragments est élevé ou si le magasin sous-jacent est défectueux, ces opérations échouent et la disponibilité s’en trouve réduite. En général, la cohérence reste plus importante que le nombre d’entités non partitionnées. Seul un sous-ensemble de trafic rencontre des problèmes, et non le trafic tout en entier. Pour plus d’informations, consultez cette [discussion sur la disponibilité et la cohérence](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Gestion** : des opérations telles que la création, la mise à jour et la suppression doivent être exécutées sur tous les fragments de l’entité. Si un fragment est défectueux, cela peut entraîner l’échec de ces opérations. Pour l’opération Get, des informations telles que le nombre de messages doivent être agrégées à partir de tous les fragments. Si un fragment est défectueux, l’état de disponibilité de l’entité est signalé comme étant limité.
 * **Scénarios de messages à faible volume** : dans ce cas, notamment lorsque vous utilisez le protocole HTTP, vous devez peut-être effectuer plusieurs opérations de réception afin d’obtenir tous les messages. Pour les demandes de réception, le serveur frontal effectue une opération de réception sur tous les fragments et met en cache toutes les réponses reçues. Une demande de réception ultérieure sur la même connexion profiterait de cette mise en cache et on assisterait à une réduction des latences liées à la réception. Toutefois, si vous disposez de plusieurs connexions ou si vous utilisez HTTP, une nouvelle connexion est établie pour chaque demande. Par conséquent, l’accès au même nœud n’est pas garanti. Si tous les messages existants sont verrouillés et mis en cache sur un autre serveur frontal, l’opération de réception renvoie la valeur **null**. Les messages peuvent arriver à expiration et vous pouvez les recevoir à nouveau. La persistance du protocole HTTP est recommandée.
 * **Parcourir/Afficher l’aperçu des messages** : [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) ne retourne pas toujours le nombre de messages spécifié dans la propriété [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount).

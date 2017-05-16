@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 57383c11682342cb0a6446c79e603843a698fc8c
-ms.openlocfilehash: 835e1c494de59576fd8ac529240729cb33eaa50b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -43,7 +43,7 @@ Si vous créez une application web qui a simplement besoin de prendre en charge 
   * Pour les applications web, indiquez l’**URL de connexion**, c’est-à-dire l’URL de base de votre application, à laquelle les utilisateurs peuvent se connecter, par exemple `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`
-5. Une fois l’inscription terminée, Azure AD affecte un identificateur client unique à votre application, l’ID d’application. Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application. Selon que votre application est une application native ou web, vous verrez des options différentes d'ajout de fonctionnalités supplémentaires à votre application. Une fois votre application ajoutée, vous pouvez commencer la mise à jour de votre application pour permettre aux utilisateurs de se connecter, accéder à des API web dans d'autres applications ou configurer l'application mutualisée (ce qui permet à d'autres organisations d’accéder à votre application).
+5. Une fois l’inscription terminée, Azure AD affecte un identificateur client unique à votre application, l’ID d’application. Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application. Selon que votre application est une application native ou web, vous verrez des options différentes d'ajout de fonctionnalités supplémentaires à votre application. Une fois votre application ajoutée, vous pouvez commencer la mise à jour de votre application pour permettre aux utilisateurs de se connecter, accéder à des API web dans d'autres applications ou configurer l'application multilocataire (ce qui permet à d'autres organisations d’accéder à votre application).
 
 > [!NOTE]
 > Par défaut, l'inscription de l'application nouvellement créée est configurée pour autoriser les utilisateurs de votre répertoire à se connecter à votre application.
@@ -56,9 +56,9 @@ Une fois votre application inscrite avec Azure AD, il est possible qu’elle doi
 Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](active-directory-authentication-scenarios.md).
 
 ### <a name="overview-of-the-consent-framework"></a>Vue d’ensemble de l’infrastructure de consentement
-L’infrastructure de consentement d’Azure AD facilite le développement d’applications clientes web et natives mutualisées qui doivent accéder aux API web sécurisées par un locataire Azure AD autre que celui dans lequel l’application cliente est enregistrée. Ces API web comprennent l’API Microsoft Graph (pour l’accès à Azure Active Directory, à Intune et aux services d’Office 365) et d’autres API de services Microsoft, en plus de vos propres API web. L’infrastructure est basée sur le consentement d’un utilisateur ou d’un administrateur à l’inscription d’une application dans son répertoire, ce qui peut impliquer l’accès aux données du répertoire.
+L’infrastructure de consentement d’Azure AD facilite le développement d’applications clientes web et natives multilocataires qui doivent accéder aux API web sécurisées par un locataire Azure AD autre que celui dans lequel l’application cliente est enregistrée. Ces API web comprennent l’API Microsoft Graph (pour l’accès à Azure Active Directory, à Intune et aux services d’Office 365) et d’autres API de services Microsoft, en plus de vos propres API web. L’infrastructure est basée sur le consentement d’un utilisateur ou d’un administrateur à l’inscription d’une application dans son répertoire, ce qui peut impliquer l’accès aux données du répertoire.
 
-Par exemple, si une application cliente web doit lire les informations de calendrier de l’utilisateur à partir d’Office 365, cet utilisateur devra donner son consentement à l’application cliente. Une fois le consentement donné, l’application cliente sera en mesure d’appeler l’API Microsoft Graph au nom de l’utilisateur et d’utiliser les informations de calendrier en fonction des besoins. [L’API Microsoft Graph](https://graph.microsoft.io) permet d’accéder aux données d’Office 365 (comme les calendriers et les messages Exchange, les sites et les listes SharePoint, les documents OneDrive, les blocs-notes OneNote, les tâches Organiseur, les classeurs Excel, etc.), ainsi qu’aux utilisateurs et groupes d’Azure AD et à d’autres objets de données provenant d’autres services de cloud computing Microsoft. 
+Par exemple, si une application cliente web doit lire les informations de calendrier de l’utilisateur à partir d’Office 365, cet utilisateur devra donner son consentement à l’application cliente. Une fois le consentement donné, l’application cliente sera en mesure d’appeler l’API Microsoft Graph au nom de l’utilisateur et d’utiliser les informations de calendrier en fonction des besoins. [L’API Microsoft Graph](https://graph.microsoft.io) permet d’accéder aux données d’Office 365 (comme les calendriers et les messages Exchange, les sites et les listes SharePoint, les documents OneDrive, les blocs-notes OneNote, les tâches Organiseur, les classeurs Excel, etc.), ainsi qu’aux utilisateurs et groupes d’Azure AD, et à d’autres objets de données provenant d’autres services cloud Microsoft. 
 
 L'infrastructure de consentement est conçue sur OAuth 2.0 et ses différents flux, notamment l’octroi d’un code d’autorisation et d’informations d'identification du client, à l'aide de clients publics ou confidentiels. En utilisant OAuth 2.0, Azure AD permet de créer de nombreux types d'applications clientes, sur téléphone, tablette, serveur ou web, et d'accéder aux ressources requises.
 
@@ -176,19 +176,19 @@ Pour découvrir une description complète des étendues d’accès exposées par
 > 
 > 
 
-### <a name="configuring-multi-tenant-applications"></a>Configuration d'applications mutualisées
-Lorsque vous ajoutez une application à Azure AD, vous pouvez choisir de rendre votre application accessible uniquement aux utilisateurs de votre organisation. Vous pouvez également rendre votre application accessible aux utilisateurs d'organisations externes. Ces deux types d’applications sont appelés applications à client unique et applications mutualisées. Vous pouvez modifier la configuration d'une application à client unique pour en faire une application mutualisée, ce que cette section décrit ci-dessous.
+### <a name="configuring-multi-tenant-applications"></a>Configuration d'applications multilocataires
+Lorsque vous ajoutez une application à Azure AD, vous pouvez choisir de rendre votre application accessible uniquement aux utilisateurs de votre organisation. Vous pouvez également rendre votre application accessible aux utilisateurs d'organisations externes. Ces deux types d’applications sont appelés applications à locataire unique et applications multilocataires. Vous pouvez modifier la configuration d'une application à locataire unique pour en faire une application multilocataire, ce que cette section décrit ci-dessous.
 
-Il est important de noter les différences entre une application à client unique et une application mutualisée :  
+Il est important de noter les différences entre une application à locataire unique et une application multilocataire :  
 
-* Une application à client unique est prévue pour une utilisation dans une seule organisation. Il s’agit généralement d’une application métier écrite par un développeur de l’entreprise. Une application à client unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire.
-* Une application mutualisée est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) web généralement écrite par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire via l’infrastructure de consentement Azure AD. Notez que toutes les applications clientes natives sont mutualisées par défaut lorsqu’elles sont installées sur l’appareil du propriétaire de la ressource. Pour plus d’informations sur l’infrastructure de consentement, consultez la section Vue d’ensemble de l’infrastructure de consentement ci-dessus.
+* Une application à locataire unique est prévue pour une utilisation dans une seule organisation. Il s’agit généralement d’une application métier écrite par un développeur de l’entreprise. Une application à locataire unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire.
+* Une application multilocataire est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) web généralement écrite par un éditeur de logiciels indépendant. Les applications multilocataires doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire via l’infrastructure de consentement Azure AD. Notez que toutes les applications clientes natives sont multilocataires par défaut lorsqu’elles sont installées sur l’appareil du propriétaire de la ressource. Pour plus d’informations sur l’infrastructure de consentement, consultez la section Vue d’ensemble de l’infrastructure de consentement ci-dessus.
 
 #### <a name="enabling-external-users-to-grant-your-application-access-to-their-resources"></a>Permettre aux utilisateurs externes d’accorder à votre application l’accès à leurs ressources
 Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure.
 
 > [!NOTE]
-> Lorsque vous mutualisez une application, vous devez vous assurer que l’URI ID de votre application appartient à un domaine vérifié. En outre, l'URL de renvoi doit commencer par https://. Pour plus d’informations, voir [Objets principal du service et application](active-directory-application-objects.md).
+> Lorsque vous rendez une application multilocataire, vous devez vous assurer que l’URI ID de votre application appartient à un domaine vérifié. En outre, l'URL de renvoi doit commencer par https://. Pour plus d’informations, voir [Objets principal du service et application](active-directory-application-objects.md).
 > 
 > 
 
@@ -202,7 +202,7 @@ Pour autoriser les utilisateurs externes à accéder à votre application :
 Une fois que vous avez apporté les modifications ci-dessus, les utilisateurs et les administrateurs d’autres organisations pourront accorder à votre application l'accès à leur répertoire et à d'autres données.
 
 #### <a name="triggering-the-azure-ad-consent-framework-at-runtime"></a>Déclenchement de l’infrastructure de consentement Azure AD lors de l’exécution
-Pour utiliser l’infrastructure de consentement, les applications clientes mutualisées doivent en demander l’autorisation avec OAuth 2.0. Des [exemples de code](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) sont disponibles pour vous montrer comment une application web, une application native ou une application serveur/démon demande des codes d’autorisation et des jetons d’accès pour appeler des API web.
+Pour utiliser l’infrastructure de consentement, les applications clientes multilocataires doivent en demander l’autorisation avec OAuth 2.0. Des [exemples de code](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) sont disponibles pour vous montrer comment une application web, une application native ou une application serveur/démon demande des codes d’autorisation et des jetons d’accès pour appeler des API web.
 
 Votre application web peut peut-être offrir également une expérience d’inscription aux utilisateurs. Si vous offrez une expérience d’inscription, l’utilisateur devra cliquer sur un bouton d’inscription qui redirigera le navigateur vers le point de terminaison d’autorisation AD Azure OAuth2.0 ou un point de terminaison userinfo OpenID Connect. Ces points de terminaison permettent à l'application d’obtenir des informations sur le nouvel utilisateur en inspectant l'id_token. Après la phase d’inscription, l’utilisateur reçoit une invite de consentement similaire à celle illustrée ci-dessus dans la section Vue d’ensemble de l’infrastructure de consentement.
 
@@ -230,25 +230,25 @@ Cette section décrit comment supprimer une application de votre locataire Azure
 ### <a name="removing-an-application-authored-by-your-organization"></a>Suppression d’une application créée par votre organisation
 Il s’agit des applications qui s’affichent sous le filtre « Applications que ma société possède » sur la page principale « Applications » de votre locataire Azure AD. En termes techniques, il s’agit des applications que vous avez inscrites soit manuellement au moyen du portail Azure Classic, soit par un programme par le biais de PowerShell ou de l’API Graph. Plus précisément, ces applications sont représentées dans votre locataire par des objets Application et Principal du service. Pour plus d’informations, consultez [Objets principal du service et application](active-directory-application-objects.md) .
 
-#### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Pour supprimer une application à client unique de votre répertoire
+#### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Pour supprimer une application à locataire unique de votre répertoire
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
 3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
 4. Dans la page de l’application, cliquez sur **Supprimer**.
 5. Cliquez sur **Oui** dans le message de confirmation.
 
-#### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>Pour supprimer une application mutualisée de votre répertoire
+#### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>Pour supprimer une application multilocataire de votre répertoire
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
 3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
-4. Dans le panneau Paramètres, cliquez sur **Propriétés** et basculez le commutateur **Mutualisé** sur **Non**. Cela convertit votre application en une application à client unique, mais l’application reste toujours dans les organisations qui ont déjà donné leur consentement.
+4. Dans le panneau Paramètres, cliquez sur **Propriétés** et basculez le commutateur **Mutualisé** sur **Non**. Cela convertit votre application en une application à locataire unique, mais l’application reste toujours dans les organisations qui ont déjà donné leur consentement.
 5. Dans la page de l’application, cliquez sur le bouton **Supprimer**.
 6. Cliquez sur **Oui** dans le message de confirmation.
 
-### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Suppression d’une application mutualisée autorisée par une autre organisation
-Il s’agit d’un sous-ensemble des applications qui s’affichent sous le filtre « Applications que ma société utilise » sur la page principale « Applications » de votre locataire Azure AD, et en particulier celles qui ne figurent pas dans la liste « Applications que ma société possède ». En termes techniques, il s’agit d’applications mutualisées enregistrées pendant le processus de consentement. Ces applications sont représentées dans votre locataire par un objet Principal du service. Pour plus d’informations, consultez [Objets principal du service et application](active-directory-application-objects.md) .
+### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Suppression d’une application multilocataire autorisée par une autre organisation
+Il s’agit d’un sous-ensemble des applications qui s’affichent sous le filtre « Applications que ma société utilise » sur la page principale « Applications » de votre locataire Azure AD, et en particulier celles qui ne figurent pas dans la liste « Applications que ma société possède ». En termes techniques, il s’agit d’applications multilocataires enregistrées pendant le processus de consentement. Ces applications sont représentées dans votre locataire par un objet Principal du service. Pour plus d’informations, consultez [Objets principal du service et application](active-directory-application-objects.md) .
 
-Afin de pouvoir supprimer l’accès d’une application mutualisée à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit posséder un abonnement Azure pour supprimer l’accès via le portail Azure. L’administrateur de la société peut également utiliser la [Gestion d’Azure AD à l’aide de Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) pour supprimer l’accès.
+Afin de pouvoir supprimer l’accès d’une application multilocataires à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit posséder un abonnement Azure pour supprimer l’accès via le portail Azure. L’administrateur de la société peut également utiliser la [Gestion d’Azure AD à l’aide de Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) pour supprimer l’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez les [instructions de personnalisation pour applications intégrées](active-directory-branding-guidelines.md) afin d’obtenir des conseils sur l’aide visuelle pour votre application.

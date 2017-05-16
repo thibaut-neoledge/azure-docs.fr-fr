@@ -11,37 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
+ms.lasthandoff: 04/21/2017
 
 
 ---
 
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
-Cet article explique comment configurer le connecteur de proxy d’application Azure Active Directory (Azure AD) pour fonctionner avec des serveurs proxy sortants. Il est destiné aux clients avec des environnements réseau qui ont des proxys existants.
+Cet article explique comment configurer les connecteurs de proxy d’application Azure Active Directory (Azure AD) pour fonctionner avec des serveurs proxy sortants. Il est destiné aux clients avec des environnements réseau qui ont des proxys existants.
 
 Nous allons commencer par examiner les scénarios de déploiement principaux suivants :
 * Configurer des connecteurs pour contourner vos proxys sortants locaux.
 * Configurer des connecteurs pour utiliser un proxy sortant afin d’accéder au proxy d’application Azure AD.
 
-Pour en savoir plus sur le fonctionnement des connecteurs, voir [Offrir un accès à distance sécurisé aux applications locales](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
-
-## <a name="configure-your-connectors"></a>Configurer vos connecteurs
-
-Le service du connecteur principal utilise Azure Service Bus pour gérer certaines communications sous-jacentes pour le service de proxy d’application Azure AD. Service Bus apporte des exigences de configuration supplémentaires.
-
-Pour plus d’informations sur la résolution des problèmes de connectivité d’Azure AD, consultez [Guide pratique de résolution des problèmes de connectivité au proxy d’application Azure AD](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems).
+Pour plus d’informations sur le fonctionnement des connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md).
 
 ## <a name="configure-the-outbound-proxy"></a>Configuration du serveur proxy sortant
 
-Si vous avez un proxy sortant dans votre environnement, assurez-vous que le compte qui effectue l’installation est correctement configuré pour utiliser le proxy sortant. Étant donné que le programme d’installation s’exécute dans le contexte de l’utilisateur qui effectue l’installation, vous pouvez vérifier la configuration à l’aide de Microsoft Edge ou d’un autre navigateur Internet.
+Si votre environnement comporte un proxy sortant, utilisez un compte avec les autorisations appropriées pour le configurer. Étant donné que le programme d’installation s’exécute dans le contexte de l’utilisateur qui effectue l’installation, vous pouvez vérifier la configuration à l’aide de Microsoft Edge ou d’un autre navigateur Internet.
 
-Pour configurer les paramètres de proxy à l’aide de Microsoft Edge :
+Pour configurer les paramètres de proxy dans Microsoft Edge :
 
 1. Accédez à **Paramètres** > **Afficher les paramètres avancés** > **Ouvrir les paramètres de proxy** > **Configuration manuelle du proxy**.
 2. Définissez **Utiliser un serveur proxy** sur **Activé**, cochez la case **Ne pas utiliser le serveur proxy pour les adresses intranet locale**, puis modifiez l’adresse et le port pour refléter votre serveur proxy local.
@@ -51,72 +45,64 @@ Pour configurer les paramètres de proxy à l’aide de Microsoft Edge :
 
 ## <a name="bypass-outbound-proxies"></a>Proxys sortants de contournement
 
-Par défaut, les composants du système d’exploitation sous-jacent que le connecteur utilise pour effectuer des requêtes sortantes tentent automatiquement de localiser un serveur proxy sur le réseau. Ils utilisent Web Proxy Auto-Discovery (WPAD), si WPAD est activé dans l’environnement.
+Les connecteurs ont des composants de système d’exploitation sous-jacents qui effectuent des demandes sortantes. Ces composants tentent automatiquement de localiser un serveur de proxy sur le réseau. Ils utilisent Web Proxy Auto-Discovery (WPAD), si WPAD est activé dans l’environnement.
 
 Les composants du système d’exploitation tentent de localiser un serveur proxy en effectuant une recherche DNS pour wpad.domainsuffix. Si un DNS est renvoyé, une requête HTTP est alors effectuée sur l’adresse IP pour wpad.dat. Cette requête devient le script de configuration de proxy dans votre environnement. Le connecteur utilise ce script pour sélectionner un serveur proxy sortant. Toutefois, le trafic du connecteur peut ne pas toujours passer, en raison des paramètres de configuration supplémentaires nécessaires sur le serveur proxy.
 
-Dans la section suivante, nous abordons les étapes de configuration nécessaires sur le serveur proxy sortant pour que le trafic puisse passer. Mais tout d’abord, nous allons voir comment configurer le connecteur pour contourner votre proxy local pour vous assurer qu’il utilise une connexion directe aux services Azure. C’est ce que nous recommandons (si votre stratégie réseau le permet), car cela signifie que vous disposerez d’une configuration de moins à mettre à jour.
+Vous pouvez configurer le connecteur de sorte qu’il contourne votre proxy local pour vous assurer qu’il utilise une connexion directe aux services Azure. C’est ce que nous recommandons (si votre stratégie réseau le permet), car cela signifie que vous aurez une configuration de moins à mettre à jour.
 
-Pour désactiver l’utilisation d’un proxy sortant pour le connecteur, modifiez le fichier C:\Program Files\Microsoft AAD application Proxy Connector\ApplicationProxyConnectorService.exe.config et ajoutez la section [system.net] indiquée dans cet exemple de code :
-
-```xml
- <?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-<system.net>
-<defaultProxy enabled="false"></defaultProxy>
-</system.net>
- <runtime>
-<gcServer enabled="true"/>
-  </runtime>
-  <appSettings>
-<add key="TraceFilename" value="AadAppProxyConnector.log" />
-  </appSettings>
-</configuration>
-```
-Pour vous assurer que le connecteur du service de mise à jour contourne également le proxy, apportez une modification similaire au fichier ApplicationProxyConnectorUpdaterService.exe.config situé dans C:\Program Files\Microsoft AAD application Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
-
-Veillez à faire des copies des fichiers d’origine, au cas où vous devriez restaurer les fichiers par défaut.
-
-## <a name="use-the-outbound-proxy-server"></a>Utiliser le serveur proxy sortant
-
-Comme mentionné précédemment, certains environnements clients requièrent que tout le trafic sortant passe par un proxy sortant, sans exception. Par conséquent, le contournement du serveur proxy n’est pas une option.
-
-Vous pouvez configurer le trafic du connecteur pour passer par le serveur proxy sortant comme indiqué dans le diagramme suivant.
-
- ![Configuration du trafic de connecteur pour passer par un proxy sortant vers un proxy d’application Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
-
-Conséquence de la présence seule de trafic sortant, il est inutile de configurer d’équilibrage de charge entre les connecteurs ou de configurer l’accès entrant à travers vos pare-feu.
-
-Dans tous les cas, vous devez exécuter la procédure suivante :
-1. Configurez le service de mise à jour du connecteur de sorte à passer par le proxy sortant.
-2. Configurez les paramètres du proxy pour autoriser les connexions au service de proxy d’application Azure AD.
-
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services liés pour passer par le proxy sortant
-
-Comme indiqué précédemment, si WPAD est activé dans l’environnement et correctement configuré, le connecteur détecte automatiquement le serveur proxy sortant et tente de l’utiliser. Toutefois, vous pouvez configurer explicitement le connecteur pour passer par un proxy sortant.
-
-Pour ce faire, modifiez le fichier C:\Program Files\Microsoft AAD application Proxy Connector\ApplicationProxyConnectorService.exe.config et ajoutez la section [system.net] indiquée dans cet exemple de code :
+Pour désactiver l’utilisation d’un proxy sortant pour le connecteur, modifiez le fichier C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config et ajoutez la section *system.net* indiquée dans cet exemple de code :
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-<system.net>  
-    <defaultProxy>   
-      <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
-    </defaultProxy>  
-</system.net>
+  <system.net>
+    <defaultProxy enabled="false"></defaultProxy>
+  </system.net>
   <runtime>
-     <gcServer enabled="true"/>
+    <gcServer enabled="true"/>
   </runtime>
   <appSettings>
     <add key="TraceFilename" value="AadAppProxyConnector.log" />
   </appSettings>
 </configuration>
 ```
+Pour être sûr que le connecteur du service de mise à jour contourne également le proxy, apportez une modification similaire au fichier ApplicationProxyConnectorUpdaterService.exe.config situé dans C:\Program Files\Microsoft AAD application Proxy Connector Updater.
 
->[!NOTE]
->Modifiez _proxyserver:8080_ afin de refléter le nom de votre serveur proxy local ou l’adresse IP et le port qu’il écoute.
->
+Veillez à faire des copies des fichiers d’origine, au cas où vous devriez restaurer les fichiers par défaut.
+
+## <a name="use-the-outbound-proxy-server"></a>Utiliser le serveur proxy sortant
+
+Certains environnements clients requièrent que tout le trafic sortant passe par un proxy sortant, sans exception. Par conséquent, le contournement du serveur proxy n’est pas une option.
+
+Vous pouvez configurer le trafic du connecteur pour passer par le serveur proxy sortant comme indiqué dans le diagramme suivant.
+
+ ![Configuration du trafic de connecteur pour passer par un proxy sortant vers un proxy d’application Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
+
+Conséquence de la présence seule de trafic sortant, il est inutile de configurer l’accès entrant à travers vos pare-feu.
+
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services liés pour passer par le proxy sortant
+
+Comme indiqué précédemment, si WPAD est activé dans l’environnement et correctement configuré, le connecteur détecte automatiquement le serveur proxy sortant et tente de l’utiliser. Toutefois, vous pouvez configurer explicitement le connecteur pour passer par un proxy sortant.
+
+Pour ce faire, modifiez le fichier C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config et ajoutez la section *system.net* indiquée dans cet exemple de code. Modifiez *proxyserver:8080* afin de refléter le nom de votre serveur proxy local ou l’adresse IP et le port qu’il écoute.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.net>  
+    <defaultProxy>   
+      <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
+    </defaultProxy>  
+  </system.net>
+  <runtime>
+    <gcServer enabled="true"/>
+  </runtime>
+  <appSettings>
+    <add key="TraceFilename" value="AadAppProxyConnector.log" />
+  </appSettings>
+</configuration>
+```
 
 Configurez ensuite le service de mise à jour du connecteur pour utiliser le proxy en apportant une modification similaire au fichier situé dans C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
@@ -172,7 +158,7 @@ Vous devriez maintenant voir tout le trafic transitant par le proxy. Si vous ren
 
 Le meilleur moyen d’identifier et de résoudre les problèmes de connectivité de connecteur consiste à prendre une capture réseau sur le service de connecteur au démarrage de ce dernier. Cela peut être une tâche ardue, aussi examinons quelques conseils rapides sur la capture et le filtrage des traces réseau.
 
-Vous pouvez utiliser l’outil de surveillance de votre choix. Dans le cadre de cet article, nous avons utilisé Microsoft Network Monitor 3.4. Vous pouvez [le télécharger à partir de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+Vous pouvez utiliser l’outil de surveillance de votre choix. Dans le cadre de cet article, nous avons utilisé Microsoft Network Monitor 3.4. Vous pouvez [le télécharger à partir de Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
 Les exemples et les filtres que nous utilisons dans les sections suivantes sont spécifiques à Network Monitor, mais les principes peuvent être appliqués à n’importe quel outil d’analyse.
 
@@ -240,7 +226,7 @@ L’analyse des traces réseau n’est pas faite pour tout le monde. Mais il peu
 
 Si vous continuez à rencontrer des problèmes de connectivité avec le connecteur, créez un ticket auprès de notre équipe de support technique. L’équipe peut vous aider dans la suite de la résolution des problèmes.
 
-Pour plus d’informations sur la résolution des erreurs avec le connecteur de proxy d’application, consultez [Résoudre les problèmes du proxy d’application](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+Pour plus d’informations sur la résolution des erreurs avec le connecteur de proxy d’application, consultez [Résoudre les problèmes du proxy d’application](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
