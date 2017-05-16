@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: alkarche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
 
