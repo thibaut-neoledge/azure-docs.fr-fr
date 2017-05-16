@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: df5832478bf7049a7bb883eacac4be961ef65cf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ Un ordinateur de développement exécutant :
 * [Outils et SDK Service Fabric](service-fabric-get-started.md).
 *  Docker pour Windows.  [Obtenez Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette action est nécessaire pour exécuter des images Docker basées sur Windows.
 
-Un cluster Windows avec au moins trois nœuds s’exécutant sur Windows Server 2016 avec conteneurs. [Créez un cluster](service-fabric-get-started-azure-cluster.md) ou [essayez gratuitement Service Fabric](http://tryazureservicefabrictest.westus.cloudapp.azure.com/). 
+Un cluster Windows avec au moins trois nœuds s’exécutant sur Windows Server 2016 avec conteneurs. [Créez un cluster](service-fabric-get-started-azure-cluster.md) ou [essayez gratuitement Service Fabric](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
 
 Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure. 
 
@@ -193,7 +193,7 @@ Le kit de développement logiciel Service Fabric fournit un modèle de service p
 4. Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
-Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Les [clusters d’essai](http://tryazureservicefabrictest.westus.cloudapp.azure.com/) sont automatiquement supprimés après quelques heures.
+Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Les [clusters d’essai](http://tryazureservicefabric.westus.cloudapp.azure.com/) sont automatiquement supprimés après quelques heures.
 
 Une fois l’image publiée dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
 
