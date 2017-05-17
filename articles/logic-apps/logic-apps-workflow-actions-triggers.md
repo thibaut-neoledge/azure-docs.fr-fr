@@ -150,7 +150,7 @@ Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérif
   
 Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Il requiert les champs suivants :  
   
-|Response|Description|  
+|Réponse|Description|  
 |------------|---------------|  
 |Code d’état|Code d’état 200 \(OK\) pour déclencher une exécution. Les autres codes d’état ne déclenchent pas d’exécution.|  
 |En-tête Retry\-After|Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison.|  
