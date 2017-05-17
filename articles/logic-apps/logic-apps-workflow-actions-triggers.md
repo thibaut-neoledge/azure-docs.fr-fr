@@ -800,7 +800,7 @@ Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau
 |--------|------------|--------|---------------|  
 |host id|Oui|String|ID de ressource du workflow que vous souhaitez appeler.|  
 |host triggerName|Oui|String|Nom du déclencheur que vous souhaitez appeler.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
   
@@ -837,7 +837,7 @@ Les sorties de l’action `workflow` sont basées sur ce que vous avez défini p
 |Nom|Requis|Type|Description|  
 |--------|------------|--------|---------------|  
 |function id|Oui|String|ID de ressource de la fonction que vous souhaitez appeler.|  
-|statique|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
+|method|Non|String|Méthode HTTP utilisée pour appeler la fonction. Par défaut, a la valeur `POST` lorsqu’elle n’est pas spécifiée.|  
 |queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us" }`.|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
