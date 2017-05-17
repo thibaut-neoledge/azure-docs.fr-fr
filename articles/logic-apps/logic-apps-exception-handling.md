@@ -160,9 +160,9 @@ Voici la procédure détaillée pour décrire ce qui se produit :
 
 1. Pour obtenir le résultat de toutes les actions au sein de `My_Scope`, l’action **Filter_array** permet de filtrer `@result('My_Scope')`.
 
-2. La condition de l’action **Filtrer le tableau** est tout élément `@result()` dont l’état est égal à `Failed`. Cette condition filtre le tableau de tous les résultats d’action de `My_Scope` selon un tableau contenant uniquement les résultats d’action ayant échoué.
+2. La condition de l’action **Filter_array** est tout élément `@result()` dont l’état est égal à `Failed`. Cette condition filtre le tableau de tous les résultats d’action de `My_Scope` selon un tableau contenant uniquement les résultats d’action ayant échoué.
 
-3. Exécution d’une action **For Each** sur les résultats du **tableau filtré**. Cette étape exécute une action *pour chaque* résultat d’action ayant échoué filtré précédemment.
+3. Exécution d’une action **For Each** sur les résultats du **Filter_array**. Cette étape exécute une action *for each* résultat d’action ayant échoué filtré précédemment.
 
     Si une action unique dans l’étendue a échoué, les actions de `foreach` s’exécutent une seule fois. 
     De nombreuses actions ayant échoué peuvent provoquer une action par échec.
