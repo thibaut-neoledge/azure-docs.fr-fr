@@ -14,11 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: aa6e78feb7ffaefcb8bce9c7f2293421c4859898
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +37,5 @@ Les rubriques suivantes fournissent des indications sur l’utilisation des diff
 | Prise en main |[Utilisation d’appareils Windows 10 sur votre lieu de travail](active-directory-azureadjoin-windows10-devices.md) <br> <br> [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md) <br> <br> [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md) |
 | Déploiement |[Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Activation de Microsoft Passport for Work dans l’organisation](active-directory-azureadjoin-passport-deployment.md)<br><br> [Activer Enterprise State Roaming pour Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tâches de l’utilisateur |[Configuration d’un nouvel appareil Windows 10 avec Azure AD lors de l’installation](active-directory-azureadjoin-user-frx.md) <br><br> [Configuration d’un appareil Windows 10 avec Azure AD à partir du menu des paramètres](active-directory-azureadjoin-user-upgrade.md) <br><br> [Association d’un appareil Windows 10 personnel à votre organisation](active-directory-azureadjoin-personal-device.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

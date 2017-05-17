@@ -13,9 +13,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 6304f01fd5f97dd528054f8c4909593dd062e16b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/26/2017
 
 
@@ -126,7 +127,7 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
 
 ## <a name="setting-up-linux-ha"></a>Configuration de la haute disponibilité Linux
 
-Les éléments suivants sont précédés de [A] (applicable à tous les nœuds), de [1] (applicable uniquement au nœud 1) ou de [2] (applicable uniquement au nœud 2).
+Les éléments suivants sont précédés de [A] \(applicable à tous les nœuds), de [1] \(applicable uniquement au nœud 1) ou de [2] \(applicable uniquement au nœud 2).
 
 1. [A] SLES for SAP BYOS uniquement : inscrire SLES pour pouvoir utiliser les référentiels
 1. [A] SLES for SAP BYOS uniquement : ajouter un module de cloud public

@@ -3,7 +3,7 @@ title: "Prise en main d’Azure AD Android | Microsoft Docs"
 description: "Création d’une application Android qui s’intègre avec Azure AD pour la connexion et appelle des API protégées par Azure AD en utilisant OAuth."
 services: active-directory
 documentationcenter: android
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
