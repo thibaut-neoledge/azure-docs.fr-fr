@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ Là encore, VS Code vous aide en suggérant les fonctions disponibles.
 
 ![afficher les fonctions](./media/resource-manager-create-first-template/show-functions.png)
 
-La fonction est placée entre crochets. La fonction [resourceGroup](resource-group-template-functions.md#resourcegroup) renvoie un objet avec une propriété appelée `location`. Le groupe de ressources comprend toutes les ressources pour votre solution. Vous pouvez coder en dur la propriété emplacement avec une valeur telle que « États-Unis du Centre », mais vous devrez modifier manuellement le modèle pour redéployer vers un autre emplacement. La fonction `resourceGroup` vous permet de redéployer ce modèle vers un autre groupe de ressources dans un emplacement différent.
+La fonction est placée entre crochets. La fonction [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) renvoie un objet avec une propriété appelée `location`. Le groupe de ressources comprend toutes les ressources pour votre solution. Vous pouvez coder en dur la propriété emplacement avec une valeur telle que « États-Unis du Centre », mais vous devrez modifier manuellement le modèle pour redéployer vers un autre emplacement. La fonction `resourceGroup` vous permet de redéployer ce modèle vers un autre groupe de ressources dans un emplacement différent.
 
 Votre modèle doit maintenant ressembler à ceci :
 
@@ -216,7 +217,7 @@ Votre modèle doit maintenant ressembler à ceci :
 ## <a name="add-parameters-and-variables"></a>Ajouter des paramètres et des variables
 Il existe seulement deux valeurs à définir dans votre modèle : **nom** et **sku.name**. Pour ces propriétés, vous ajoutez des paramètres qui vous permettent de personnaliser ces valeurs au cours du déploiement. 
 
-Les noms de compte de stockage ont de nombreuses restrictions qui rendent leur définition plus difficile. Le nom doit comprendre entre 3 et 24 caractères, comporter uniquement des lettres en minuscules et des nombres, et être unique. Au lieu d’essayer de deviner une valeur unique correspondant aux restrictions, utilisez la fonction [uniqueString](resource-group-template-functions.md#uniquestring) pour générer une valeur de hachage. Pour donner à cette valeur de hachage plus de sens, ajoutez un préfixe qui vous aide à l’identifier comme un compte de stockage après le déploiement. 
+Les noms de compte de stockage ont de nombreuses restrictions qui rendent leur définition plus difficile. Le nom doit comprendre entre 3 et 24 caractères, comporter uniquement des lettres en minuscules et des nombres, et être unique. Au lieu d’essayer de deviner une valeur unique correspondant aux restrictions, utilisez la fonction [uniqueString](resource-group-template-functions-string.md#uniquestring) pour générer une valeur de hachage. Pour donner à cette valeur de hachage plus de sens, ajoutez un préfixe qui vous aide à l’identifier comme un compte de stockage après le déploiement. 
 
 1. Pour transmettre un préfixe pour le nom qui correspond à vos conventions d’affectation de noms, accédez à la section **paramètres** de votre modèle. Ajoutez un paramètre au modèle qui accepte un préfixe pour le nom de compte de stockage :
 
