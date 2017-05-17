@@ -48,7 +48,7 @@ Voici la structure de base d’une définition de flux de travail :
 |$schema|Non|Spécifie l’emplacement du fichier de schéma JSON qui décrit la version du langage de définition. Cet emplacement est requis si vous référencez une définition en externe. Pour ce document, l’emplacement est le suivant : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|Non|Spécifie la version de la définition. Lorsque vous déployez un flux de travail à l’aide de la définition, vous pouvez utiliser cette valeur pour vous assurer que la définition appropriée est utilisée.|  
 |parameters|Non|Spécifie les paramètres utilisés pour entrer des données dans la définition. Il est possible de définir 50 paramètres maximum.|  
-|Déclencheurs|Non|Spécifie des informations pour les déclencheurs qui lancent le flux de travail. Il est possible de définir 250 déclencheurs au maximum.|  
+|triggers|Non|Spécifie des informations pour les déclencheurs qui lancent le flux de travail. Il est possible de définir 250 déclencheurs au maximum.|  
 |actions|Non|Spécifie les actions qui sont effectuées pendant l’exécution du flux. Il est possible de définir 250 actions au maximum.|  
 |outputs|Non|Spécifie des informations sur la ressource déployée. Il est possible de définir 10 sorties au maximum.|  
   
