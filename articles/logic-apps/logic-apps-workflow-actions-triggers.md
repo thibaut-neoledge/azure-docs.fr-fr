@@ -504,9 +504,9 @@ Cette action requiert une référence à une connexion valide, ainsi que des inf
 |Nom de l'élément|Requis|Type|Description|  
 |----------------|------------|--------|---------------|  
 |host|Oui|Object|Représente les informations sur le connecteur, telles que la propriété runtimeUrl et la référence à l’objet de connexion.|
-|statique|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
+|method|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
 |path|Oui|String|Chemin de l’opération d’API.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 |retryPolicy|Non|Object|Permet de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|  
@@ -659,7 +659,7 @@ La sortie de l’action `query` est un tableau qui contient les éléments du ta
 |Nom|Requis|Type|Description|
 |--------|------------|--------|---------------|
 |from|Oui|Tableau|Tableau source.|
-|où|Oui|String|Condition à appliquer à chaque élément du tableau source.|
+|where|Oui|String|Condition à appliquer à chaque élément du tableau source.|
 
 ## <a name="select-action"></a>Action select
 
