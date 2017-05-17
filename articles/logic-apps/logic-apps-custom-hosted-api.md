@@ -136,7 +136,7 @@ Dans la section **Autorisation** de l’action **HTTP** :
 | Élément | Description |
 | ------- | ----------- |
 | type |Type d'authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. |
-| locataire |L'identifiant du locataire est utilisé pour identifier le locataire Active Directory. |
+| tenant |L'identifiant du tenant est utilisé pour identifier le locataire Active Directory. |
 | audience |Obligatoire. Ressource à laquelle vous vous connectez. |
 | clientID |L'identifiant client pour l'application Azure AD. |
 | secret |Obligatoire. Secret du client qui demande le jeton. |
