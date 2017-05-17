@@ -140,9 +140,9 @@ Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérif
   
 |Nom de l'élément|Requis|Description|Type|  
 |----------------|------------|---------------|--------|  
-|statique|yes|Peut être l’une des méthodes HTTP suivantes : GET, POST, PUT, DELETE, PATCH ou HEAD.|String|  
+|method|yes|Peut être l’une des méthodes HTTP suivantes : GET, POST, PUT, DELETE, PATCH ou HEAD.|String|  
 |URI|yes|Point de terminaison HTTP ou HTTPS qui est appelé. La longueur maximale est de 2 Ko.|String|  
-|requêtes|Non|Objet représentant les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|Object|  
+|queries|Non|Objet représentant les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|Object|  
 |headers|Non|Objet représentant chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
 |body|Non|Objet représentant la charge utile envoyée au point de terminaison.|Object|  
 |retryPolicy|Non|Objet permettant de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|Object|  
@@ -200,8 +200,8 @@ Le déclencheur ApiConnection présente des fonctionnalités de base similaires 
 |Nom de l'élément|Requis|Type|Description|  
 |----------------|------------|--------|---------------|  
 |host|Oui||Passerelle et ID d’hôte de l’application d’API.|  
-|statique|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
-|requêtes|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
+|method|Oui|String|Peut être l’une des méthodes HTTP suivantes : **GET**, **POST**, **PUT**, **DELETE**, **PATCH** ou **HEAD**.|  
+|queries|Non|Object|Représente les paramètres de requête à ajouter à l’URL. Par exemple, `"queries" : { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL.|  
 |headers|Non|Object|Représente chacun des en-têtes envoyés à la requête. Par exemple, pour définir la langue et le type sur une requête :`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|Non|Object|Représente la charge utile envoyée au point de terminaison.|  
 |retryPolicy|Non|Object|Permet de personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx.|  
