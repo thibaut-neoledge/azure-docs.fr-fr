@@ -52,7 +52,7 @@ Voici la structure de base d’une définition de flux de travail :
 |actions|Non|Spécifie les actions qui sont effectuées pendant l’exécution du flux. Il est possible de définir 250 actions au maximum.|  
 |outputs|Non|Spécifie des informations sur la ressource déployée. Il est possible de définir 10 sorties au maximum.|  
   
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Cette section spécifie tous les paramètres utilisés dans la définition de flux de travail au moment du déploiement. Tous les paramètres doivent être déclarés dans cette section pour pouvoir être utilisés dans d’autres sections de la définition.  
   
