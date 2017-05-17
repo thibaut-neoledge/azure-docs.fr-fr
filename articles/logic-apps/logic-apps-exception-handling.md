@@ -158,7 +158,7 @@ Pour exécuter une action *pour chaque* action dans une étendue marquée comme 
 
 Voici la procédure détaillée pour décrire ce qui se produit :
 
-1. Pour obtenir le résultat de toutes les actions au sein de `My_Scope`, l’action **Filtrer le tableau** permet de filtrer `@result('My_Scope')`.
+1. Pour obtenir le résultat de toutes les actions au sein de `My_Scope`, l’action **Filter_array** permet de filtrer `@result('My_Scope')`.
 
 2. La condition de l’action **Filtrer le tableau** est tout élément `@result()` dont l’état est égal à `Failed`. Cette condition filtre le tableau de tous les résultats d’action de `My_Scope` selon un tableau contenant uniquement les résultats d’action ayant échoué.
 
