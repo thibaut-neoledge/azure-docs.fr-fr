@@ -34,20 +34,20 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 #### <a name="timeout"></a>Délai d'expiration
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Délai d’expiration de la demande|120 secondes|Un [modèle asynchrone](../logic-apps/logic-apps-create-api-app.md) ou une [boucle Until](logic-apps-loops-and-scopes.md) peuvent compenser en fonction des besoins.|
 
 #### <a name="message-size"></a>Taille des messages
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Taille des messages|100 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 100 Mo |
 |Limite d’évaluation des expressions|131 072 caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Nouvelles tentatives|4|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Délai maximal avant nouvelle tentative|1 heure|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
@@ -57,7 +57,7 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 Voici les limites pour l’exécution d’une application logique.
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Durée d’exécution|90 jours||
 |Rétention de stockage|90 jours|À compter de l’heure de début de l’exécution.|
@@ -69,7 +69,7 @@ Voici les limites pour l’exécution d’une application logique.
 
 Voici les limites pour l’exécution d’une application logique.
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Éléments ForEach|100 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
 |Itérations Until|5 000||
@@ -81,7 +81,7 @@ Voici les limites pour l’exécution d’une application logique.
 
 Voici les limites pour une instance d’application logique. 
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Exécutions d’actions par tranche de 5 minutes |100 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
 |Appels de lecture de point de terminaison de runtime toutes les 5 minutes |60 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
@@ -94,7 +94,7 @@ Si vous pensez dépasser cette limite dans le cadre du traitement normal ou souh
 
 Voici les limites pour la définition d’une application logique.
 
-|Name|Limite|Remarques|
+|Nom|Limite|Remarques|
 |----|----|----|
 |Actions par flux de travail|250|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Niveaux d’imbrication d’actions autorisés|5|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
