@@ -154,7 +154,7 @@ Le résultat est toujours une chaîne, ce qui rend cette fonctionnalité semblab
 
 Les opérateurs sont les caractères que vous pouvez utiliser dans des expressions ou fonctions. 
   
-|opérateur|Description|  
+|Opérateur|Description|  
 |--------------|-----------------|  
 |.|L’opérateur point vous permet de référencer les propriétés d’un objet.|  
 |?|L’opérateur point d’interrogation vous permet de référencer les propriétés Null d’un objet sans erreur d’exécution. Par exemple, vous pouvez utiliser cette expression pour gérer les sorties de déclencheur Null : <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
