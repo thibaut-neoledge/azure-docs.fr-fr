@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5bbdd1db655c080b4372f6728bb47207757209e4
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a0e245121f2a9ff4109b281cd7286ed601bf64ac
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,12 +28,20 @@ Ce didacticiel vous montre comment lier un certificat SSL personnalisé acheté 
 
 ![Application Web avec certificat SSL personnalisé](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Mettre à jour le niveau de tarification de votre application
+> * Lier votre certificat SSL personnalisé à App Service
+> * Appliquer le protocole HTTPS à votre application
+> * Automatiser la liaison de certificat SSL avec des scripts
+
 > [!TIP]
 > Si vous avez besoin d’un certificat SSL personnalisé, vous pouvez en obtenir un directement dans le portail Azure et le lier à votre application web. Suivez le [didacticiel Certificats App Service](web-sites-purchase-ssl-web-site.md). 
 >
 > 
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 Avant de suivre les instructions de ce didacticiel, vous devez avoir réalisé les étapes suivantes :
 
 - [Création d’une application App Service](/azure/app-service/)
@@ -109,7 +118,7 @@ Si vous avez généré votre demande de certificat à l’aide d’OpenSSL, vous
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-Si vous avez utilisé IIS ou `Certreq.exe` pour générer votre demande de certificat, installez d’abord le certificat sur votre ordinateur local, puis exportez-le vers PFX en suivant les étapes de la section [Exportation d’un certificat avec la clé privée](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Si vous avez utilisé IIS ou _Certreq.exe_ pour générer votre demande de certificat, installez d’abord le certificat sur votre ordinateur local, puis exportez-le vers PFX en suivant les étapes de l’article [Exporter un certificat avec la clé privée](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### <a name="upload-your-ssl-certificate"></a>Chargement de votre certificat SSL
 
@@ -156,7 +165,7 @@ Par défaut, votre application web utilise une adresse IP publique partagée. D�
 
 Si vous avez mappé un enregistrement A à votre application web, mettez à jour le registre de domaine avec cette nouvelle adresse IP dédiée.
 
-La page **Domaine personnalisé** de votre application web est mise à jour avec la nouvelle adresse IP dédiée. [Copiez cette adresse IP](app-service-web-tutorial-custom-domain.md#info), puis [mappez à nouveau l’enregistrement A](app-service-web-tutorial-custom-domain.md#create-the-a-record) à cette nouvelle adresse IP.
+La page **Domaine personnalisé** de votre application web est mise à jour avec la nouvelle adresse IP dédiée. [Copiez cette adresse IP](app-service-web-tutorial-custom-domain.md#info), puis [mappez à nouveau l’enregistrement A](app-service-web-tutorial-custom-domain.md#create-a) à cette nouvelle adresse IP.
 
 <a name="test"></a>
 
@@ -177,10 +186,10 @@ Il ne reste plus maintenant qu’à vous assurer que HTTPS fonctionne pour votre
 ## <a name="enforce-https"></a>Appliquer le protocole HTTPS
 Si vous souhaitez toujours autoriser l’accès HTTP à votre application web, ignorez cette étape. 
 
-App Service n’appliquant *pas* le protocole HTTPS, tout le monde peut accéder à votre application à l’aide de HTTP. Pour appliquer le protocole HTTPS pour votre application web, vous pouvez définir une règle de réécriture dans le fichier `web.config` pour votre application web. App Service utilise ce fichier, quelle que soit l’infrastructure de langage de votre application web.
+App Service n’appliquant *pas* le protocole HTTPS, tout le monde peut accéder à votre application à l’aide de HTTP. Pour appliquer le protocole HTTPS à votre application web, vous pouvez définir une règle de réécriture dans le fichier _web.config_ pour votre application web. App Service utilise ce fichier, quelle que soit l’infrastructure de langage de votre application web.
 
 > [!NOTE]
-> Certaines redirections de requête sont propres au langage. ASP.NET MVC peut utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) au lieu de la règle de réécriture dans `web.config` (voir [Déployer une application ASP.NET MVC 5 sécurisée vers une application web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> Certaines redirections de requête sont propres au langage. ASP.NET MVC peut utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) au lieu de la règle de réécriture dans le fichier _web.config_ (voir [Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
@@ -190,7 +199,7 @@ Ou, si vous développez avec PHP, Node.js, Python ou Java, il est possible que c
 
 Connectez-vous au point de terminaison FTP de votre application web en suivant les instructions fournies dans [Déployer votre application dans Azure App Service avec FTP/S](app-service-deploy-ftp.md). 
 
-Ce fichier doit se trouver dans `/home/site/wwwroot`. Dans le cas contraire, créez un `web.config` dans ce dossier avec le code XML suivant :
+Ce fichier doit se trouver dans _/home/site/wwwroot_. Dans le cas contraire, créez un fichier _web.config_ dans ce dossier avec le code XML suivant :
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -213,7 +222,7 @@ Ce fichier doit se trouver dans `/home/site/wwwroot`. Dans le cas contraire, cr�
 </configuration>
 ```
 
-Pour un `web.config` existant, il suffit de copier l’intégralité de la balise `<rule>` dans l’élément `web.config` de votre `configuration/system.webServer/rewrite/rules`. S’il existe d’autres balises `<rule>` dans votre `web.config`, placez la balise `<rule>` copiée avant les autres balises `<rule>`.
+Pour un fichier _web.config_ existant, il vous suffit de copier l’intégralité de la balise `<rule>` dans l’élément `configuration/system.webServer/rewrite/rules` de votre fichier _web.config_. S’il existe d’autres balises `<rule>` dans votre fichier _web.config`<rule>`, placez la balise_  copiée avant les autres balises `<rule>`.
 
 Cette règle renvoie un HTTP 301 (redirection permanente) vers le protocole HTTPS chaque fois que l’utilisateur envoie une requête HTTP à votre application web. Par exemple, elle redirige de `http://contoso.com` vers `https://contoso.com`.
 
@@ -228,16 +237,23 @@ Vous pouvez automatiser les liaisons SSL de votre application web à l’aide de
 La commande suivante charge un fichier PFX exporté et obtient l’empreinte. 
 
 ```bash
-thumprint=$(az appservice web config ssl upload --certificate-file <path_to_PFX_file> \
---certificate-password <PFX_password> --name <app_name> --resource-group <resource_group_name> \
---query thumbprint --output tsv)
+thumprint=$(az appservice web config ssl upload \
+    --name <app_name> \
+    --resource-group <resource_group_name> \
+    --certificate-file <path_to_PFX_file> \
+    --certificate-password <PFX_password> \
+    --query thumbprint \
+    --output tsv)
 ```
 
 La commande suivante ajoute une liaison SSL basée sur SNI à l’aide de l’empreinte de la commande précédente.
 
 ```bash
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name <app_name> --resource-group <resource_group_name>
+az appservice web config ssl bind \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --certificate-thumbprint $thumbprint \
+    --ssl-type SNI \
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -245,12 +261,21 @@ az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-typ
 La commande suivante charge un fichier PFX exporté et ajoute une liaison SSL basée sur SNI.
 
 ```PowerShell
-New-AzureRmWebAppSSLBinding -WebAppName <app_name> -ResourceGroupName <resource_group_name> -Name <dns_name> `
--CertificateFilePath <path_to_PFX_file> -CertificatePassword <PFX_password> -SslState SniEnabled
+New-AzureRmWebAppSSLBinding `
+    -WebAppName <app_name> `
+    -ResourceGroupName <resource_group_name> `
+    -Name <dns_name> `
+    -CertificateFilePath <path_to_PFX_file> `
+    -CertificatePassword <PFX_password> `
+    -SslState SniEnabled
 ```
-## <a name="more-resources"></a>Autres ressources
-* [Centre de gestion de la confidentialité Microsoft Azure](/support/trust-center/security/)
-* [Options de configuration déverrouillées dans Sites Web Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Activer la journalisation des diagnostics](web-sites-enable-diagnostic-log.md)
-* [Configurer des applications web dans Azure App Service](web-sites-configure.md)
+## <a name="what-you-have-learned"></a>Ce que vous avez appris
+
+Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Mettre à jour le niveau de tarification de votre application
+> * Lier votre certificat SSL personnalisé à App Service
+> * Appliquer le protocole HTTPS à votre application
+> * Automatiser la liaison de certificat SSL avec des scripts
 
