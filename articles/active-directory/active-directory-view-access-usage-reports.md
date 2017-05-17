@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
-ms.author: dhanyahk
-translationtype: Human Translation
+ms.date: 05/16/2017
+ms.author: dhanyahk;markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,10 +244,5 @@ Pour plus d’informations sur les notifications de création de rapport Azure 
 ## <a name="whats-next"></a>Étapes suivantes
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 * [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

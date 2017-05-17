@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90ba006f25c27e1dc24c85fdc4ef1d5e2a8d0e3d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -46,10 +48,5 @@ Oui, pour désactiver les notifications liées à des connexions anormales dans 
 * Curieux de savoir quels rapports de sécurité, d'audit et d'activité sont disponibles ? Découvrez [Rapports de sécurité, d'audit et d'activité d'Azure AD](active-directory-view-access-usage-reports.md)
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 * [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

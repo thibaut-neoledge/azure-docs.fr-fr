@@ -3,7 +3,7 @@ title: "Activation de l’authentification unique entre applications sur iOS à 
 description: "En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications. "
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: xerners
+ms.author: brandwe
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
