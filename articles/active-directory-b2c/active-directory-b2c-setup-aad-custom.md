@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 29d30cacb29fee1b2c5b8ef523051fa543bee829
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f520b46e9d37ac31c2ef5d78ef9044e62dd25a6f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -53,10 +53,10 @@ Pour activer la connexion pour les utilisateurs d’une organisation Azure AD sp
 1. Choisissez **Inscription d’une nouvelle application**.
 1. Tapez un **Nom** pour votre application (par exemple, application Azure AD B2C)
 1. Sélectionnez **Application web/API** pour Type d’application.
-1. Pour « URL de connexion », entrez l’URL ci-dessous, où `{tenantName}` doit être remplacé par le nom de votre client Azure AD B2C (par ex. fabrikamb2c.onmicrosoft.com).
+1. Pour « URL de connexion », entrez l’URL ci-dessous, où `yourtenant` doit être remplacé par le nom de votre client Azure AD B2C (p. ex. fabrikamb2c.onmicrosoft.com).
 
     ```
-    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Enregistrez **l’ID de l’application**.
@@ -68,28 +68,18 @@ Pour activer la connexion pour les utilisateurs d’une organisation Azure AD sp
 
 Vous devez stocker la clé d’application `contoso.com` dans votre client Azure AD B2C. Pour ce faire :
 
-1. Ouvrez PowerShell et accédez au répertoire de travail `active-directory-b2c-advanced-policies`.
-1. Basculez dans le dossier avec l’outil ExploreAdmin.
+1. Accédez à votre client Azure AD B2C et ouvrez B2C Settings (Paramètres B2C)>Identity Experience Framework (Infrastructure d’expérience d’identité)> Clés de stratégie.
+1. Cliquez sur +Ajouter.
+1. Options :
+ * Sélectionnez Option >`Manual`.
+ * Nom : > `ContosoAppSecret`. Choisissez un nom qui correspond au nom de votre client Azure AD.  Le préfixe B2C_1A_ est ajouté automatiquement au nom de votre clé.
+ * Collez votre clé d’application dans la zone de texte `Secret`.
+ * Sélectionnez Signature.
+1. Cliquez sur `Create`
+1. Confirmez que vous avez créé la clé : `B2C_1A_ContosoAppSecret`.
 
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
+    Lorsque vous exécutez la commande, vérifiez que vous vous connectez avec le compte d’administrateur onmicrosoft.com local au locataire Azure AD B2C. Si vous recevez une erreur indiquant que « TokenSigningKeyContainer » ou `B2C_1A_TokenSigningKeyContainer` est introuvable, parcourez le guide de [prise en main](active-directory-b2c-get-started-custom.md).
 
-1. Importer l’outil ExploreAdmin dans PowerShell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. Dans la commande suivante, remplacez `tenantName` par le nom de votre client Azure AD B2C (par exemple, fabrikamb2c.onmicrosoft.com), `SecretReferenceId` par un nom que vous utiliserez pour référencer la clé secrète (par exemple, ContosoAppSecret) et `ClientSecret` par la clé d’application `contoso.com`. Exécutez la commande.
-
-    ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
-    ```
-
-    Lorsque vous exécutez la commande, vérifiez que vous vous connectez avec le compte d’administrateur onmicrosoft.com local au locataire Azure AD B2C. Si vous recevez une erreur indiquant que « TokenSigningKeyContainer » est introuvable, parcourez le guide de [prise en main](active-directory-b2c-get-started-custom.md).
-
-1. Fermez PowerShell.
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Ajoutez un fournisseur de revendications dans votre stratégie de base
 
@@ -121,7 +111,7 @@ Afin de permettre aux utilisateurs de se connecter à l’aide d’Azure AD, vou
             <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
             </CryptographicKeys>
             <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
+                <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
                 <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
                 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                 <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
@@ -153,9 +143,9 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 1. Mettez à jour la valeur pour `<Description>`.
 1. Azure AD utilise le protocole OpenID Connect, assurez-vous donc que `<Protocol>` est « OpenIDConnect ».
 
-Vous devez mettre à jour la section `<Metdata>` dans le XML ci-dessus pour refléter les paramètres de configuration de votre client Azure AD spécifique. Dans le XML, mettez à jour les valeurs de métadonnées comme suit :
+Vous devez mettre à jour la section `<Metadata>` dans le XML ci-dessus pour refléter les paramètres de configuration de votre client Azure AD spécifique. Dans le XML, mettez à jour les valeurs de métadonnées comme suit :
 
-1. Définissez `<Item Key="METADATA">` sur `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, où `tenantName` est le nom de votre client Azure AD (par exemple, contoso.com).
+1. Définissez `<Item Key="METADATA">` sur `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre client Azure AD (par exemple, contoso.com).
 1. Ouvrez votre navigateur et accédez à l’URL `Metadata` que vous venez de mettre à jour.
 1. Dans le navigateur, recherchez l’objet « issuer » et copiez sa valeur. Vous devriez obtenir quelque chose semblable à ce qui suit : `https://sts.windows.net/{tenantId}/`.
 1. Collez la valeur de `<Item Key="ProviderName">` dans le XML.
@@ -164,9 +154,9 @@ Vous devez mettre à jour la section `<Metdata>` dans le XML ci-dessus pour refl
 1. Vérifiez que `<Item Key="response_types">` est défini sur `id_token`.
 1. Vérifiez que `<Item Key="UsePolicyInRedirectUri">` est défini sur `false`.
 
-Vous devez également lier la [clé secrète Azure AD que vous avez enregistrée dans votre client Azure AD B2C](#add-the-azure-ad-key-to-azure-ad-b2c) au `<ClaimsProvider>` d’Azure AD.
+Vous devez également lier le secret Azure AD que vous avez inscrit auprès de votre client Azure AD B2C au `<ClaimsProvider>` d’Azure AD.
 
-1. Dans la section `<CryptographicKeys>` dans le XML ci-dessus, mettez à jour la valeur pour `StorageReferenceId` sur l’ID de référence de la clé secrète que vous avez définie (par exemple, ContosoAppSecret).
+* Dans la section `<CryptographicKeys>` dans le XML ci-dessus, mettez à jour la valeur pour `StorageReferenceId` sur l’ID de référence de la clé secrète que vous avez définie (par exemple, ContosoAppSecret).
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
 
@@ -231,7 +221,6 @@ Vous devez maintenant mettre à jour le fichier RP qui initialisera le parcours 
 Testez la stratégie personnalisée que vous venez de télécharger en ouvrant son panneau et en cliquant sur « Exécuter maintenant ». En cas d’échec quelconque, consultez le guide de [résolution des problèmes](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
- 
-Fournissez des commentaires à AADB2CPreview@microsoft.com.
 
+Fournissez des commentaires à AADB2CPreview@microsoft.com.
 

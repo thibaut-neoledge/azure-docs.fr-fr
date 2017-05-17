@@ -4,7 +4,7 @@ description: "Apprenez à concevoir votre première base de données SQL Azure."
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,20 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Concevoir votre première base de données SQL Azure
 
-Dans ce didacticiel, vous générez une base de données pour une université afin qu’elle puisse effectuer le suivi des notes des étudiants et de l’inscription aux cours. Ce didacticiel montre comment utiliser le [portail Azure](https://portal.azure.com/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) pour créer une base de données SQL Azure sur un serveur logique Azure SQL Database, ajouter des tables à la base de données, charger des données dans les tables et interroger la base de données. Il montre également comment utiliser les capacités de [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database pour restaurer la base de données à un point antérieur dans le temps.
+Azure SQL Database est une base de données relationnelle en tant que service reposant sur le moteur Microsoft SQL Server. Ce didacticiel couvre les tâches de base de données classiques telles que la création d’une base de données et de tables, le chargement et l’interrogation de données, ainsi que la restauration de la base de données à un point antérieur dans le temps. Vous allez apprendre à effectuer les actions suivantes : 
+
+> [!div class="checklist"]
+> * Créer une base de données
+> * Configurer une règle de pare-feu
+> * Vous connecter à la base de données avec [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * créez des tables
+> * Charger des données en bloc
+> * Interroger ces données
+> * Restaurer la base de données à un point antérieur dans le temps à l’aide des fonctionnalités de [restauration à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database
 
 Pour effectuer ce didacticiel, assurez-vous que vous avez installé la dernière version de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
@@ -281,7 +290,19 @@ Imaginez que vous avez supprimé une table par inadvertance. Il s’agit de quel
 
 3. Cliquez sur **OK** pour restaurer la base de données [à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) avant l’ajout des tables. La restauration d’une base de données vers un autre point dans le temps crée une base de données en double sur le même serveur que la base de données d’origine en date du point dans le temps que vous spécifiez, à condition qu’il se trouve au sein de la période de rétention pour votre [niveau de service](sql-database-service-tiers.md).
 
-## <a name="next-steps"></a>Étapes suivantes 
 
-Pour obtenir des exemples de PowerShell pour les tâches courantes, consultez [Exemples PowerShell pour SQL Database](sql-database-powershell-samples.md)
+
+## <a name="next-steps"></a>Étapes suivantes 
+Dans ce didacticiel, vous avez appris à exécuter des tâches de base de données classiques telles que la création d’une base de données et de tables, le chargement et l’interrogation de données, ainsi que la restauration de la base de données à un point antérieur dans le temps. Vous avez appris à effectuer les actions suivantes :
+> [!div class="checklist"]
+> * Créer une base de données
+> * Configurer une règle de pare-feu
+> * Vous connecter à la base de données avec [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * créez des tables
+> * Charger des données en bloc
+> * Interroger ces données
+> * Restaurer la base de données à un point antérieur dans le temps à l’aide des fonctionnalités de [restauration à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database. Passez au didacticiel suivant pour apprendre à migrer vos données.
+
+> [!div class="nextstepaction"]
+>[Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
 
