@@ -17,9 +17,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
 ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/17/2017
 
 
@@ -781,7 +782,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![Valeur ASC](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse ** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse**: pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
