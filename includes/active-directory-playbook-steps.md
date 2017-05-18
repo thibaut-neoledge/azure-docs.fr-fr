@@ -25,7 +25,7 @@
      * [Réinitialisation de mot de passe en libre-service](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset)
      * [Accès en libre-service aux applications](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications)
 4. [Blocs de construction](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   * [Catalogue des acteurs](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   * [Catalogue des acteurs](../articles/active-directory/active-directory-playbook-building-blocks.md)
    * [Configuration requise commune à tous les blocs de construction](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
    * [Synchronisation des répertoires - synchronisation du code de hachage de mots de passe (PHS) - nouvelle installation](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
    * [Personnalisation](../articles/active-directory/active-directory-playbook-building-blocks.md#branding)
