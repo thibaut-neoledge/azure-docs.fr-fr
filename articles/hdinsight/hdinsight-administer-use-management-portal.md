@@ -188,7 +188,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
 
-    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
