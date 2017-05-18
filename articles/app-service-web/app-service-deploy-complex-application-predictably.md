@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 844f42e61ba443a4b74a52f622113e87a7781913
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -130,7 +131,7 @@ Notez les éléments suivants concernant le code JSON en surbrillance :
 * Les ressources imbriquées dans l’élément `“resources”: […]`, dans lequel la base de données et les règles de pare-feu sont définies, incluent un élément `dependsOn` qui spécifie l’ID de la ressource SQL Server de niveau racine. Ce code indique au logiciel Microsoft Azure Resource Manager que l’autre ressource doit déjà exister avant qu’il ne crée cette ressource ; si cette autre ressource est définie dans le modèle, il doit la créer en premier.
   
   > [!NOTE]
-  > Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md).
+  > Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * Grâce à l’élément `dependsOn` , Azure Resource Manager peut savoir quelles ressources peuvent être créées en parallèle et quelles autres doivent être créées de façon séquentielle. 
