@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d0a92475258176ad20cbf8e9cf34f35038d2133d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6b6e3f0a1182fbce209494af111cf8159e43b639
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -65,7 +66,7 @@ Ces variables peuvent être utiles si vous utilisez plusieurs des commandes de c
 | Généraliser une machine virtuelle |[Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM -Generalized<BR></BR><BR></BR>Exécutez cette commande avant la commande Save-AzureRmVMImage. |
 | Capturer une machine virtuelle |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Save-AzureRmVMImage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>Une machine virtuelle doit être [arrêtée et généralisée](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour être utilisée lors de la création d’une image. Avant d’exécuter cette commande, exécutez la commande Set-AzureRmVm. |
 | Mettre à jour une machine virtuelle |[Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Obtenez la configuration de machine virtuelle actuelle à l’aide de la commande Get-AzureRmVM, modifiez les paramètres de configuration sur l’objet de machine virtuelle, puis exécutez cette commande. |
-| Ajouter un disque de données à une machine virtuelle |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMDataDisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Utilisez la commande Get-AzureRmVM pour obtenir l’objet de machine virtuelle. Spécifiez le numéro de LUN et la taille du disque. Exécutez la commande Update-AzureRmVM pour appliquer les modifications apportées à la configuration à la machine virtuelle. Le disque que vous ajoutez n’est pas initialisé. Pour plus d’informations sur l’initialisation des disques à mesure qu’ils sont ajoutés, voir [Gérer des machines virtuelles Azure à l’aide de Resource Manager et de PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Ajouter un disque de données à une machine virtuelle |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMDataDisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Utilisez la commande Get-AzureRmVM pour obtenir l’objet de machine virtuelle. Spécifiez le numéro de LUN et la taille du disque. Exécutez la commande Update-AzureRmVM pour appliquer les modifications apportées à la configuration à la machine virtuelle. Le disque que vous ajoutez n’est pas initialisé. |
 | Supprimer un disque de données à partir d'une machine virtuelle |[Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>Utilisez la commande Get-AzureRmVM pour obtenir l’objet de machine virtuelle. Exécutez la commande Update-AzureRmVM pour appliquer les modifications apportées à la configuration à la machine virtuelle. |
 | Ajouter une extension à une machine virtuelle |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Set-AzureRmVMExtension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Exécutez cette commande avec les [informations de configuration](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) appropriées pour l’extension que vous souhaitez installer. |
 | Supprimer une extension de machine virtuelle |[Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) -ResourceGroupName $myResourceGroup -Name "extensionName" -VMName $myVM |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -131,11 +131,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans le menu situé en haut, cliquez sur **Admin**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Administrateur](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Administrateur")
 
 9. Dans l’onglet **General Settings**, cliquez sur **Security**.
    
-       ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Sécurité](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Sécurité")
 
 10. Dans la section **Security** , procédez comme suit :
    

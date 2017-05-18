@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a7fbd85b6dd9c083fc71f2b1632d8cec4940c0bc
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: f94cfaf5a2c8585dadf9fec74feb6d8875a1b3e4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ Dans ce scénario, vous allez apprendre à créer un cache redis et une applicat
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Cache Redis Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Cache Redis Azure")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -52,3 +53,4 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts CLI App Service dans la [documentation relative à Azure App Service](../app-service-cli-samples.md).
+

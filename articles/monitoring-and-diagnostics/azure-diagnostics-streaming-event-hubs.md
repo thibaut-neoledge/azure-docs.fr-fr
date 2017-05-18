@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 492e0ca675f2a827b172c33fcd33226abc95dcec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -47,7 +48,7 @@ La réception par Event Hubs de données provenant d’Azure Diagnostics est pri
 * Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
   * Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell : [Activer les diagnostics dans Services cloud Azure à l’aide de PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs]((../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion d’Azure Diagnostics au récepteur Event Hubs
 Par défaut, Azure Diagnostics transmet toujours des journaux et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans le chemin suivant : **Projet de service cloud** > **Rôles** > **(RoleName)** > fichier **diagnostics.wadcfgx**.
@@ -323,7 +324,7 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Créer un hub d’événements](../event-hubs/event-hubs-create.md)
+* [Créer un concentrateur d’événements](../event-hubs/event-hubs-create.md)
 * [FAQ sur les hubs d'événements](../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->

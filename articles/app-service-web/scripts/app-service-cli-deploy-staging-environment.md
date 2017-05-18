@@ -12,13 +12,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 184b099e0b723016180adaef95dc092da4d4224c
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 6ee3008ab00fcdca3d1eb8330237bed196fad813
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ Cet exemple de script crée une application web dans App Service avec un emplace
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[principal](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Créer une application web et déployer du code dans un environnement intermédiaire")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Créer une application web et déployer du code dans un environnement intermédiaire")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -53,3 +54,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts CLI App Service dans la [documentation relative à Azure App Service](../app-service-cli-samples.md).
+
