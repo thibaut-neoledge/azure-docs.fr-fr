@@ -139,7 +139,7 @@ Créez une instance de MetricManager et utilisez-la comme une fabrique pour les 
     var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
 
     // For each metric that you want to use:
-    var metric1 = mgr.CreateMetric("m1", dimensions);
+    var metric1 = manager.CreateMetric("m1", dimensions);
 
     // Each time you want to record a measurement:
     metric1.Track(value);
