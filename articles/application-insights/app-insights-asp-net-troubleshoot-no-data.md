@@ -3,7 +3,7 @@ title: "Guide de dépannage : Application Insights pour .NET"
 description: "Vous ne voyez pas de données dans Azure Application Insights ? Essayez ici."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights

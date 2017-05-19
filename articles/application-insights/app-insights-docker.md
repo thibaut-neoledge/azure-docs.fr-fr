@@ -3,7 +3,7 @@ title: "Surveiller les applications Docker dans Azure Application Insights | Mic
 description: "Vous pouvez visualiser les compteurs de performances, les événements et les exceptions Docker dans Application Insights, avec les données de télémétrie des applications en conteneur."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights

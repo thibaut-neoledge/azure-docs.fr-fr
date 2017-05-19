@@ -3,7 +3,7 @@ title: "Configuration d’alertes dans Azure Application Insights | Microsoft Do
 description: "Tenez-vous informé des temps de réponse lents, des exceptions et des autres changements de performances ou d’utilisation de votre application web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights

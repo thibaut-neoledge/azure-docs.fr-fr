@@ -3,7 +3,7 @@ title: "Surveillance d’un site SharePoint avec Application Insights"
 description: "Démarrage de la surveillance d&quot;une nouvelle application avec une nouvelle clé d&quot;instrumentation"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights

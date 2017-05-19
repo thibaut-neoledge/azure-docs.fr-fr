@@ -3,7 +3,7 @@ title: "Intégration de SCOM à Application Insights | Microsoft Docs"
 description: "Si vous êtes un utilisateur SCOM, analysez les performances et diagnostiquez les problèmes avec Application Insights. Tableaux de bord complets, alertes intelligentes, requêtes analytiques et outils de diagnostic efficaces."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights

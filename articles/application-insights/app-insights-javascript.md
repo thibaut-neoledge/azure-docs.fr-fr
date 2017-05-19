@@ -3,7 +3,7 @@ title: Azure Application Insights pour les applications web JavaScript | Microso
 description: "Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights

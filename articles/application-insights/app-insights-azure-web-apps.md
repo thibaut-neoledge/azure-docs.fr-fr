@@ -3,7 +3,7 @@ title: "Surveillance des performances d’application web Azure | Microsoft Docs
 description: "Analyse des performances des applications pour les applications web Azure. Graphique de charge et de temps de réponse, informations de dépendance et alertes sur les performances."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal

@@ -3,7 +3,7 @@ title: "Exportation continue des données de télémétrie d’Application Insi
 description: "Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights

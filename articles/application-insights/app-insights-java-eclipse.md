@@ -3,7 +3,7 @@ title: "Prise en main d’Azure Application Insights avec Java dans Eclipse | Mi
 description: "Le plug-in Eclipse permet d’ajouter la surveillance des performances et de l’utilisation de votre site web Java avec Application Insights"
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights

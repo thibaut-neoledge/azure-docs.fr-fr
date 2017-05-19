@@ -27,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 
 Ce script crée une machine virtuelle Azure exécutant Windows Server 2016, puis utilise l’extension DSC de la machine virtuelle Azure pour installer et configurer IIS. Une fois que vous avez exécuté le script, vous pouvez accéder au site IIS par défaut sur l’adresse IP publique de la machine virtuelle.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
