@@ -3,7 +3,7 @@ title: "Ressources, rôles et contrôle d’accès dans Azure Application Insigh
 description: "Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights

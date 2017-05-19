@@ -3,7 +3,7 @@ title: "Tirer parti d’Azure Application Insights | Microsoft Docs"
 description: "Après avoir pris en main Application Insights, voici un résumé des fonctionnalités que vous pouvez explorer."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights

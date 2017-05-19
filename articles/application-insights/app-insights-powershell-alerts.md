@@ -3,7 +3,7 @@ title: "Utilisation de PowerShell pour la configuration d’alertes dans Applica
 description: "Automatisez la configuration d’Application Insights pour recevoir des e-mails retraçant les modifications des métriques."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights

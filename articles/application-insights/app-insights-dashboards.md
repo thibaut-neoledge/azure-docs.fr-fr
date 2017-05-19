@@ -3,7 +3,7 @@ title: Tableaux de bord et navigation dans Azure Application Insights | Microsof
 description: "Créez des vues de votre principaux graphiques et requêtes APM."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights

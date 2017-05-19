@@ -3,7 +3,7 @@ title: "Filtrer les données de télémétrie d’Azure Application Insights dan
 description: "Réduisez le trafic de télémétrie en excluant les événements que vous n’avez pas besoin de surveiller."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

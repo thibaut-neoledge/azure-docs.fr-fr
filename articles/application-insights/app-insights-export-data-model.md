@@ -3,7 +3,7 @@ title: "Modèle de données d’Azure Application Insights | Microsoft Docs"
 description: "Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights

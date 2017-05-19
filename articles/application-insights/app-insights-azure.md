@@ -3,7 +3,7 @@ title: "Application Insights pour les applications Microsoft Azure | Microsoft 
 description: "Analysez l’utilisation et les performances de votre application Azure avec Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights

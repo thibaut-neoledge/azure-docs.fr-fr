@@ -1,7 +1,7 @@
 ---
 title: "Détecter et diagnostiquer les problèmes des applications web - Azure Application Insights | Microsoft Docs"
 description: "Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications"
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm
