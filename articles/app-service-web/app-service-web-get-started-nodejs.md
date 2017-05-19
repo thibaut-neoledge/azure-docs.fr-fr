@@ -1,5 +1,5 @@
 ---
-title: "Créer une application Node.js sur application web | Documents Microsoft"
+title: "Créer une application Node.js sur Azure Web App | Microsoft Docs"
 description: "Déployer votre premier Node.js Hello World dans l’application web App Service en quelques minutes."
 services: app-service\web
 documentationcenter: 
@@ -12,29 +12,30 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 05/05/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ced6f54603120d8832ee417b02b6673f80a99613
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Créer une application Node.js sur application web
 
-Ce didacticiel de démarrage rapide vous guide dans le développement et le déploiement d’une application Node.js dans Azure. Nous allons exécuter l’application à l’aide d’un service Azure App basé sur Linux et créer et configurer une nouvelle application web à l’aide de l’interface CLI Azure. Nous allons ensuite utiliser GIT pour déployer notre application Node.js sur Azure.
+Ce didacticiel de démarrage rapide vous guide dans le développement et le déploiement d’une application Node.js dans Azure. Nous allons exécuter l’application à l’aide d’un [plan Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), puis créer et configurer une nouvelle application web à l’aide de l’interface Azure CLI. Nous allons ensuite utiliser GIT pour déployer notre application Node.js sur Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. L’exécution des étapes ci-dessous ne devrait prendre que 5 minutes environ.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 
-Avant d’exécuter cet exemple, tenez compte des conditions préalables suivantes :
+Avant de créer cet exemple, téléchargez et installez les composants suivants :
 
-1. [Téléchargement et installation de GIT](https://git-scm.com/)
-1. [Téléchargement et installation de Node.js et NPM](https://nodejs.org/)
-1. Téléchargement et installation de l’interface [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [ Node.js et NPM](https://nodejs.org/)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,9 +46,6 @@ Clonez le référentiel de l’exemple d’application Hello World sur votre or
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-> [!TIP]
-> Vous pouvez également [télécharger l’exemple](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) sous la forme d’un fichier zip et l’extraire.
 
 Passez au répertoire qui contient l’exemple de code.
 
@@ -83,20 +81,8 @@ Nous allons maintenant utiliser l’interface Azure CLI 2.0 dans une fenêtre de
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Configurer un utilisateur de déploiement
-
-Pour les sites FTP et Git locaux, il est nécessaire de disposer d’un utilisateur de déploiement configuré sur le serveur pour authentifier votre déploiement. La création d’un utilisateur de déploiement est une opération de configuration unique. Notez le nom d’utilisateur et le mot de passe, car ils seront utilisés lors d’une étape à suivre.
-
-> [!NOTE]
-> Un utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web.
-> Le `username` et `password` sont liés aux comptes, par conséquent, ils sont différents de vos informations d’identification de l’abonnement Azure. Ces informations d’identification ne doivent être créées qu’une seule fois.
->
-
-Utilisez la commande [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) pour créer vos informations d’identification au niveau des comptes.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -106,32 +92,26 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Créez un plan Azure App Service
+## <a name="create-an-azure-app-service-plan"></a>Créer un plan Azure App Service
 
-Créez un plan Azure App Service basé sur Linux avec la commande [az appservice plan create](/cli/azure/appservice/plan#create).
+Créez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) « GRATUIT » avec la commande [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications.
->
-> Les plans App Service définissent :
-> * Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique)
-> * Taille d’instance (« Petit », « Moyen » ou « Grand »)
-> * Comptage (une, deux ou trois instances, etc.)
-> * Référence (SKU) (gratuit, partagé, basique, standard, premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-L’exemple suivant crée un plan App Service sur les Workers Linux nommés `quickStartPlan` en appliquant le niveau tarifaire **Standard**.
+L’exemple suivant crée un plan App Service nommé `quickStartPlan` en appliquant le niveau tarifaire **Gratuit**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
-Lorsque le plan App Service est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant.
+Lorsque le plan App Service est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
 
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -146,9 +126,13 @@ Lorsque le plan App Service est créé, l’interface Azure CLI affiche des in
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-Maintenant qu’un plan App Service est créé, générez une application web dans le plan App Service `quickStartPlan`. L’application web nous offre un espace d’hébergement pour déployer notre code, et fournit une URL pour nous permettre d’afficher l’application déployée. Utilisez la commande [az appservice web create](/cli/azure/appservice/web#create) pour créer l’application web.
+Maintenant qu’un plan App Service est créé, générez une [application web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) dans le plan App Service `quickStartPlan`. L’application web nous offre un espace d’hébergement pour déployer notre code, et fournit une URL pour nous permettre d’afficher l’application déployée. Utilisez la commande [az appservice web create](/cli/azure/appservice/web#create) pour créer l’application web.
 
-Dans la commande ci-dessous, indiquez le nom unique de votre propre application là où se trouve `<app_name>` l’espace réservé. La valeur `<app_name>` sera utilisée en tant que site DNS par défaut pour l’application web. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Vous pouvez ultérieurement mapper toute entrée DNS personnalisée vers l’application web avant de l’exposer à vos utilisateurs.
+Dans la commande ci-dessous, indiquez le nom unique de votre propre application là où se trouve `<app_name>` l’espace réservé. `<app_name>` est utilisé dans le site DNS par défaut de l’application web. Si `<app_name>` n’est pas une valeur unique, le message d’erreur « Un site Web nommé <app_name> existe déjà. » s’affiche.
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -182,20 +166,9 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
-Nous avons maintenant créé une nouvelle application web vide dans Azure. Configurons maintenant notre application web pour utiliser Node.js et y déployer notre application.
+Nous avons maintenant créé une nouvelle application web vide dans Azure.
 
-## <a name="configure-to-use-nodejs"></a>Configurer l’utilisation de Node.js
-
-Utilisez la commande [az appservice web config update](/cli/azure/app-service/web/config#update) pour configurer l’application web pour utiliser la version de Node.js `6.9.3`.
-
-> [!TIP]
-> Définir la version de node.js ainsi utilise un conteneur par défaut fourni par la plate-forme, si vous souhaitez utiliser votre propre conteneur reportez-vous à la référence de l’interface CLI pour la commande [az appservice web config container update](/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
-```
-
-## <a name="configure-local-git-deployment"></a>Configuration du déploiement Git local
+## <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
 
 Vous pouvez procéder au déploiement sur l’application web de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Visual Studio Team Services et Bitbucket.
 
@@ -219,9 +192,9 @@ Ajoutez un référentiel distant Azure dans votre référentiel Git local.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application. Le mot de passe que vous avez fourni précédemment dans le cadre de la création de l’utilisateur du déploiement vous sera demandé.
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application. Le mot de passe que vous avez fourni précédemment dans le cadre de la création de l’utilisateur du déploiement vous sera demandé. Veillez à saisir le mot de passe que vous avez indiqué dans [Configurer un utilisateur de déploiement](#configure-a-deployment-user), et non pas celui que vous utilisez pour vous connecter au portail Azure.
 
-```azurecli
+```bash
 git push azure master
 ```
 
@@ -279,14 +252,14 @@ Cette fois, la page qui affiche le message Hello World est en cours d’exécuti
 response.end("Hello Azure!");
 ```
 
-Valider vos modifications dans Git, puis envoyer les modifications de code vers Azure.
+Validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Une fois le déploiement terminé, revenez à la fenêtre du navigateur ouverte dans le navigateur à l’étape de navigation vers l’application, puis cliquez sur Actualiser.
+Une fois le déploiement terminé, revenez à la fenêtre du navigateur ouverte à l’étape **Accéder à l’application**, puis cliquez sur Actualiser.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -318,7 +291,6 @@ Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous p
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Explorez les [scripts CLI d’application web](app-service-cli-samples.md) créés au préalable.
+> [!div class="nextstepaction"]
+> [Parcourez des exemples de scripts CLI d’applications web](app-service-cli-samples.md)
 

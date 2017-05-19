@@ -3,7 +3,7 @@ title: "Analyse de la disponibilité et de la réactivité d’un site Web | Mic
 description: "Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
-Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests web pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
+Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
 
-![Exemple de test web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Vous pouvez configurer des tests de disponibilité pour n’importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public. Vous n’avez rien à ajouter au site web que vous testez. Il ne faut pas nécessairement qu’il s’agisse de votre site : vous pouvez tester un service API REST dont vous dépendez.
 
-Vous pouvez configurer des tests web pour n'importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public. Vous n’avez rien à ajouter au site web que vous testez. Il ne faut pas nécessairement qu’il s’agisse de votre site : vous pouvez tester un service API REST dont vous dépendez.
-
-Il existe deux types de tests web :
+Il existe deux types de tests de disponibilité :
 
 * [Test ping d’URL](#create): un test simple que vous pouvez créer dans le portail Azure.
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Enterprise et que vous chargez sur le portail.
 
-Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
+Vous pouvez créer jusqu’à 25 tests de disponibilité par ressource d’application.
 
-## <a name="create"></a>1. Ouvrir une ressource pour vos rapports de test web
+## <a name="create"></a>1. Ouvrir une ressource pour vos rapports de test de disponibilité
 
 **Si vous avez déjà configuré Application Insights** pour votre application web, ouvrez sa ressource Application Insights dans le [portail Azure](https://portal.azure.com).
 
@@ -45,12 +44,12 @@ Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de la nouvelle ressource.
 
 ## <a name="setup"></a>2. Créer un test Ping d’URL
-Ouvrez le panneau de disponibilité et ajoutez un test web.
+Ouvrez le panneau de disponibilité et ajoutez un test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. 
+* **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut contenir une chaîne de requête. Vous pouvez donc, par exemple, tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
+* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. 
 
     Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
 * **Autoriser de nouvelles tentatives**: si cette option est cochée, une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. Nous recommandons cette option. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.
@@ -71,30 +70,38 @@ Ouvrez le panneau de disponibilité et ajoutez un test web.
 Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
 
-## <a name="monitor"></a>3. Consulter les résultats des tests web
+## <a name="monitor"></a>3. Consulter les résultats des tests de disponibilité
 
-Après 5 minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
+Au bout de quelques minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Cliquez sur une barre du graphique de synthèse pour obtenir une vue plus détaillée de cette période.
+Le nuage de points montre des exemples de résultats de test contenant des détails de l’étape de test de diagnostic. Le moteur de test stocke les détails de diagnostic pour les tests qui présentent des erreurs. Pour les tests réussis, les détails de diagnostic sont stockés pour un sous-ensemble des exécutions. Pointez sur les points verts/rouges pour voir l’horodatage, la durée, l’emplacement et le nom du test. Cliquez sur n’importe quel point dans le nuage de points pour afficher les détails du résultat de test.  
+
+Sélectionnez un test ou emplacement spécifique, ou réduisez la période de temps pour voir plus de résultats autour de la période d’intérêt. Utilisez l’Explorateur de recherche pour voir les résultats de toutes les exécutions, ou utilisez les requêtes Analytics pour exécuter des rapports personnalisés sur ces données.
+
+Outre les résultats bruts, il existe deux mesures de disponibilité dans Metrics Explorer : 
+
+1. Disponibilité : pourcentage des tests qui ont réussi, sur toutes les exécutions de test. 
+2. Durée du test : durée moyenne du test sur toutes les exécutions de test.
+
+Vous pouvez appliquer des filtres sur le nom du test et sur l’emplacement pour analyser les tendances d’un test et/ou d’un emplacement en particulier.
 
 ## <a name="edit"></a>Examiner et modifier des tests
 
 Dans la page de résumé, sélectionnez un test spécifique. Ici, vous pouvez voir ses résultats spécifiques et le modifier ou le désactiver temporairement.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des opérations de maintenance sur votre service.
-
+Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service. 
 
 ## <a name="failures"></a>Si vous constatez des erreurs
 Cliquez sur un point rouge.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-À partir d’un résultat de test web, vous pouvez :
+À partir d’un résultat de test de disponibilité, vous pouvez :
 
 * Vérifier la réponse reçue à partir de votre serveur.
 * Ouvrir la télémétrie envoyée par votre application serveur lors du traitement de l’instance de requête ayant échoué.
@@ -104,7 +111,7 @@ Cliquez sur un point rouge.
 
 *Le résultat semble correct, mais une erreur est signalée ?* Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
 
-*Aucun élément connexe ?* Cela peut être dû au fait que [l’échantillonnage](app-insights-sampling.md) est en cours.
+*Aucun élément connexe ?* Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](app-insights-sampling.md) en cours. 
 
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
@@ -240,7 +247,7 @@ Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance
 Une fois le test terminé, les temps de réponse et les taux de réussite s’affichent.
 
 ## <a name="automation"></a>Automatisation
-* [Utilisez des scripts PowerShell pour configurer un test web](app-insights-powershell.md#add-an-availability-test) automatiquement.
+* [Utilisez des scripts PowerShell pour configurer un test de disponibilité](app-insights-powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
 
 ## <a name="qna"></a>Des questions ? Des problèmes ?
@@ -252,13 +259,13 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
     Nous prenons en charge TLS 1.1 et TLS 1.2.
 * *Quelle est la différence entre les « tests Web » et les « tests de disponibilité » ?*
 
-    Nous utilisons ces deux termes indifféremment.
+    Les deux conditions peuvent être référencées indifféremment. « Tests de disponibilité » est un terme plus générique qui inclut les tests ping d’URL uniques en plus des tests web à plusieurs étapes.
 * *J’aimerais utiliser les tests de disponibilité sur notre serveur interne qui s’exécute derrière un pare-feu.*
 
     Il existe deux solutions possibles :
     
     * Configurez votre pare-feu pour autoriser les demandes entrantes provenant des [adresses IP de nos agents de test web](app-insights-ip-addresses.md).
-    * Écrivez votre propre code pour tester régulièrement votre serveur interne. Exécutez le code en tant que processus en arrière-plan sur un serveur test derrière votre pare-feu. Le processus de test peut envoyer ses résultats à Application Insights à l’aide de l’API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) dans le package du kit de développement logiciel (SDK) principal. Cela nécessite que votre serveur de test ait un accès sortant au point de terminaison d’ingestion Application Insights, mais ce risque de sécurité est beaucoup plus faible que l’alternative, qui consiste à autoriser les demandes entrantes. Les résultats n’apparaissent pas dans les panneaux de tests web de la disponibilité, mais ils apparaîtront comme résultats de disponibilité dans Analytics, Search et Metric Explorer.
+    * Écrivez votre propre code pour tester régulièrement votre serveur interne. Exécutez le code en tant que processus en arrière-plan sur un serveur test derrière votre pare-feu. Le processus de test peut envoyer ses résultats à Application Insights à l’aide de l’API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) dans le package du kit de développement logiciel (SDK) principal. Cela nécessite que votre serveur de test ait un accès sortant au point de terminaison d’ingestion Application Insights, mais ce risque de sécurité est beaucoup plus faible que l’alternative, qui consiste à autoriser les demandes entrantes. Les résultats n’apparaissent pas dans les panneaux de tests web de disponibilité, mais ils s’affichent comme résultats de disponibilité dans Analytics, Search et Metric Explorer.
 * *Le chargement d’un test web multi-étapes échoue*
 
     La limite de taille est de 300 Ko.
@@ -291,4 +298,3 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

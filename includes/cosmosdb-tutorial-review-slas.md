@@ -1,0 +1,5 @@
+Maintenant que votre application est en cours d’exécution, vous souhaitez garantir la continuité de l’activité et surveiller l’accès des utilisateurs pour leur garantir une disponibilité élevée. Vous pouvez utiliser le portail Azure pour vérifier la disponibilité, la latence, le débit et la cohérence de votre collection. Chaque graphique qui est associé aux [contrats de niveau de service de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/documentdb/) contient une ligne indiquant le quota requis pour respecter le contrat de niveau de service et votre utilisation réelle, ce qui vous permet de connaître en toute transparence les performances de votre base de données. Des indicateurs de performance supplémentaires tels que l’utilisation du stockage et le nombre de requêtes par minute sont également inclus dans le portail
+
+* Dans le portail Azure, dans le menu de gauche, sous **Surveillance**, cliquez sur **Indicateurs de performance**.
+
+   ![Application To-Do avec des exemples de données](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

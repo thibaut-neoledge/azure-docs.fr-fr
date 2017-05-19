@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-ac
 Batch prend en charge deux configurations de comptes, en fonction de la propriété du *mode d’allocation de pool*. Ces deux configurations vous donnent accès aux différentes fonctionnalités liées aux [pools](#pool) (voir plus loin dans cet article).
 
 
-* **Service Batch** : c’est l’option par défaut, les machines virtuelles du pool Batch étant allouées à l’arrière-plan dans les abonnements gérés par Azure. Utilisez cette configuration de compte si des pools de services cloud sont requis. Par contre, ne l’utilisez pas si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez accéder aux API Batch à l’aide de l’authentification de clé partagée ou de [l’authentification Azure Active Directory](batch-aad-auth.md).
+* **Service Batch** : c’est l’option par défaut, les machines virtuelles du pool Batch étant allouées à l’arrière-plan dans les abonnements gérés par Azure. Utilisez cette configuration de compte si des pools de services cloud sont requis. Par contre, ne l’utilisez pas si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez accéder aux API Batch à l’aide de l’authentification de clé partagée ou de [l’authentification Azure Active Directory](batch-aad-auth.md). Vous pouvez utiliser des nœuds de calcul dédiés ou à faible priorité dans des pools lors de la configuration de compte de service par lots.
 
-* **Abonnement de l’utilisateur** : utilisez cette configuration de compte si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez uniquement accéder aux API Batch à l’aide de [l’authentification Azure Active Directory](batch-aad-auth.md), et les pools de services cloud ne sont pas pris en charge. Les machines virtuelles de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode exige de configurer un coffre de clés Azure pour votre compte Batch.
-
+* **Abonnement de l’utilisateur** : utilisez cette configuration de compte si des pools de machines virtuelles sont requis et qu’ils sont créés à partir d’images de machines virtuelles personnalisées ou qu’ils utilisent un réseau virtuel. Vous pouvez uniquement accéder aux API Batch à l’aide de [l’authentification Azure Active Directory](batch-aad-auth.md), et les pools de services cloud ne sont pas pris en charge. Les machines virtuelles de calcul Batch sont allouées directement dans votre abonnement Azure. Ce mode exige de configurer un coffre de clés Azure pour votre compte Batch. Vous pouvez utiliser uniquement des nœuds de calcul dédiés dans des pools lors de la configuration du compte d’abonnement de l’utilisateur. 
 
 ## <a name="compute-node"></a>Nœud de calcul
-Un nœud de calcul est une machine virtuelle Azure dédiée au traitement d’une partie de la charge de travail de votre application. La taille d’un nœud détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Vous pouvez créer des pools de nœuds Windows ou Linux à l’aide d’images d’Azure Cloud Services ou du Marketplace de machines virtuelles. Pour plus d’informations sur ces options, voir la section suivante [Pool](#pool) .
+Un nœud de calcul est une machine virtuelle Azure ou une machine virtuelle de service cloud dédiée au traitement d’une partie de la charge de travail de votre application. La taille d’un nœud détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Vous pouvez créer des pools de nœuds Windows ou Linux à l’aide d’images d’Azure Cloud Services ou du Marketplace de machines virtuelles. Pour plus d’informations sur ces options, voir la section suivante [Pool](#pool) .
 
 Les nœuds peuvent exécuter tout fichier exécutable ou script pris en charge par l’environnement de système d’exploitation du nœud. Cela inclut les scripts \*.exe, \*.cmd, \*.bat et PowerShell pour Windows, les fichiers binaires, ainsi que les scripts shell et Python pour Linux.
 
@@ -117,6 +116,25 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants. Cert
   * La *famille de système d’exploitation* détermine également les versions de .NET qui sont installées avec le système d’exploitation.
   * Comme avec les rôles de travail dans Services cloud, vous pouvez spécifier une *Version du système d’exploitation* (pour plus d’informations sur les rôles de travail, consultez la section [En savoir plus sur Services cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) de l’article [Vue d’ensemble de Services cloud](../cloud-services/cloud-services-choose-me.md)).
   * Comme avec les rôles de travail, nous vous recommandons de spécifier `*` comme *version du système d’exploitation* afin que les nœuds soient automatiquement mis à niveau et qu’aucun travail supplémentaire ne soit requis pour gérer ces nouvelles versions. La principale raison de sélectionner une version de système d’exploitation spécifique est d’assurer la compatibilité des applications, ce qui permet aux tests de compatibilité descendante d’être réalisés avant d’autoriser la mise à jour de la version. Une fois validée, la *version du système d’exploitation* du pool peut être mise à jour et la nouvelle image du système d’exploitation peut être installée. Toutes les tâches en cours d’exécution sont interrompues et remises en file d’attente.
+
+* **Type de nœud de calcul** et **nombre cible de nœuds**
+
+    Lorsque vous créez un pool, vous pouvez spécifier les types de nœuds de calcul souhaités et le nombre cible pour chacun. Les deux types de nœuds de calcul sont les suivants :
+
+    - **Nœuds de calcul à faible priorité.** Les nœuds à faible priorité tirent profit de la capacité excédentaire dans Azure pour exécuter vos charges de travail par lots. Les nœuds à faible priorité sont plus économiques que les nœuds dédiés et activent les charges de travail nécessitant une importante puissance de calcul. Pour plus d’informations, consultez [Utiliser des machines virtuelles à faible priorité avec Batch](batch-low-pri-vms.md).
+
+        Les nœuds de calcul à faible priorité peuvent être reportés lorsque Azure n’a pas suffisamment de capacité excédentaire. Si un nœud est reporté lors de l’exécution de tâches, celles-ci sont remises dans la file d’attente et exécutées à nouveau dès qu’un nœud de calcul redevient disponible. Les nœuds à faible priorité sont intéressants pour les charges de travail pour lesquelles l’heure d’achèvement est flexible et le travail est réparti entre plusieurs nœuds.
+
+        Les nœuds de calcul à faible priorité sont disponibles uniquement pour les comptes Batch créés avec le mode d’allocation de pool défini sur **Service Batch**.
+
+    - **Nœuds de calcul dédiés.** Les nœuds de calcul dédiés sont réservés à vos charges de travail. Ils sont plus chers que les nœuds à faible priorité, mais sont assurés de ne jamais être reportés.    
+
+    Un même pool peut contenir des nœuds de calcul dédiés et à faible priorité. Chaque type de nœud &mdash; dédié et à faible priorité &mdash; a son propre paramètre de cible pour lequel vous pouvez spécifier le nombre de nœuds souhaité. 
+        
+    Le nombre de nœuds de calcul est appelé *cible* car, dans certaines situations, votre pool ne pourra peut-être pas atteindre le nombre de nœuds souhaité. Par exemple, un pool ne pourra peut-être pas atteindre la cible s’il atteint d’abord le [quota de base](batch-quota-limit.md) de votre compte Batch ou si vous avez appliqué au pool une formule de mise à l’échelle automatique qui limite le nombre maximal de nœuds.
+
+    Pour obtenir les informations de tarification des nœuds de calcul dédiés et à faible priorité, consultez [Tarification du service Batch](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Taille des nœuds**
 
     **Configuration de Cloud Services** sont répertoriées dans [Tailles de services cloud](../cloud-services/cloud-services-sizes-specs.md). Le service Batch prend en charge l’ensemble des tailles de services cloud, à l’exception de `ExtraSmall`, `STANDARD_A1_V2` et `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants. Cert
     Lorsque vous sélectionnez une taille de nœud de calcul, tenez compte des caractéristiques et des exigences des applications que vous allez exécuter sur les nœuds. Des aspects tels que la nature multithread de l’application et le volume de mémoire utilisé vous aideront à déterminer la taille de nœud la mieux adaptée et la plus rentable. La taille du nœud est souvent sélectionnée en supposant qu’une tâche s’exécutera sur un nœud à la fois. Cependant, plusieurs tâches (et par conséquent, plusieurs instances d’application) peuvent [s’exécuter en parallèle](batch-parallel-node-tasks.md) sur les nœuds de calcul lors de l’exécution du travail. Dans ce cas, il est courant de choisir une plus grande taille de nœud pour prendre en charge la demande accrue de l’exécution parallèle des tâches. Pour plus d’informations, consultez la section [Stratégie de planification de tâches](#task-scheduling-policy).
 
     Tous les nœuds du pool ont la même taille. Si vous prévoyez d’exécuter des applications dont la configuration système requise et/ou les niveaux de charge diffèrent, nous vous recommandons d’utiliser des pools distincts.
-* **Nombre cible de nœuds**
 
-    Il s’agit du nombre de nœuds de calcul que vous souhaitez déployer dans le pool. On parle de *cible* , car dans certaines situations, votre pool ne pourra peut-être pas atteindre le nombre de nœuds souhaité. Un pool peut ne pas atteindre le nombre souhaité de nœuds s’il atteint le [quota de cœurs](batch-quota-limit.md) de votre compte Batch, ou si une formule de mise à l’échelle automatique que vous avez appliquée au pool limite le nombre maximal de nœuds (voir la section « Stratégie de mise à l’échelle » ci-après).
 * **Stratégie de mise à l’échelle**
 
     Pour les charges de travail dynamiques, vous pouvez écrire et appliquer une [formule de mise à l’échelle automatique](#scaling-compute-resources) à un pool. Le service Batch évalue régulièrement la formule et ajuste le nombre de nœuds dans le pool en fonction de différents paramètres de pool, de travail et de tâche que vous pouvez spécifier.
+
 * **Stratégie de planification de tâches**
 
     L’option de configuration [Nombre maximal de tâches par nœud](batch-parallel-node-tasks.md) détermine le nombre maximal de tâches qui peuvent être exécutées en parallèle sur chaque nœud de calcul au sein du pool.
