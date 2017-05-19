@@ -39,7 +39,7 @@ Le portail Azure s’actualise.  Vous êtes à présent connecté au portail Azu
 ## <a name="navigate-to-the-b2c-features-blade"></a>Accéder au panneau de fonctionnalités B2C
 
 1. Cliquez sur **Parcourir** dans le volet de navigation de gauche.
-1. Cliquez sur ** > Plus de services**, puis recherchez `Azure AD B2C` dans le volet de navigation de gauche.  (Pour l’épingler à votre Tableau d’accueil sur la gauche, cliquez sur l’étoile située à gauche d’Azure AD B2C.)
+1. Cliquez sur **> Plus de services**, puis recherchez `Azure AD B2C` dans le volet de navigation de gauche.  (Pour l’épingler à votre Tableau d’accueil sur la gauche, cliquez sur l’étoile située à gauche d’Azure AD B2C.)
 1. Cliquez sur **Azure AD B2C** pour accéder au panneau de fonctionnalités B2C.
    
     ![Capture d’écran du bouton Parcourir du panneau de fonctionnalités B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
