@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -46,8 +46,7 @@ Si vous avez besoin de procédures plus détaillées et d’explications, poursu
 
 > [!TIP]
 > Si le bouton **Connecter** de votre machine virtuelle est grisé dans le portail et que vous n’êtes pas connecté à Azure avec une connexion [Express Route](../../expressroute/expressroute-introduction.md) ou [réseau privé virtuel de site à site](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Comment résoudre les problèmes de connexion RDP
 Vous pouvez résoudre les problèmes affectant les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager en utilisant l’une des méthodes suivantes :
@@ -121,8 +120,6 @@ Les exemples suivants utilisent des variables telles que `myResourceGroup`, `myV
 
 > [!NOTE]
 > Vous pouvez réinitialiser les informations d’identification de l’utilisateur et la configuration RDP en utilisant l’applet de commande PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension). Dans les exemples suivants, `myVMAccessExtension` est un nom que vous spécifiez dans le cadre du processus. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Pour afficher le nom, examinez la section « Extensions » de la sortie.
-> 
-> 
 
 Après chaque étape de résolution des problèmes, essayez de nouveau de vous connecter à la machine virtuelle. Si vous ne parvenez toujours pas à vous connecter, essayez l’étape suivante.
 

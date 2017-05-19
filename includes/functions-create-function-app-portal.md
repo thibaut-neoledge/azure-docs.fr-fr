@@ -1,14 +1,15 @@
-
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Cliquez sur **Calculer** > **Function App**, sélectionnez votre **Abonnement**, tapez dans le champ **Nom de l’application** un nom identifiant de manière unique votre Function App, puis spécifiez les paramètres suivants :
-   
-   * **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** : sélectionnez **Créer** et entrez un nom pour votre nouveau groupe de ressources. 
-   * **[Plan d’hébergement](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**, que vous pouvez définir sur l’une des valeurs suivantes : 
-     * **Plan de consommation** : type de plan par défaut pour Azure Functions. Lorsque vous choisissez un plan de consommation, vous devez également renseigner le champ **Emplacement**.  
-     * **Plan App Service** : un plan App Service exige de créer un **Plan App Service/Emplacement** ou d’en sélectionner un existant. Ces paramètres déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.  
-   * **Compte de stockage**: chaque Function App nécessite un compte de stockage. Vous pouvez choisir un compte de stockage existant ou [créer un compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account). 
-     
+1. Cliquez sur **Calcul** > **Function App**, sélectionnez votre **Abonnement**. Ensuite, utilisez les paramètres de Function App comme indiqué dans la table.
+
     ![Créer une Function App dans le Portail Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-3. Cliquez sur **Créer** pour configurer et déployer la nouvelle Function App.  
+    | Paramètre      | Valeur suggérée  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. | 
+    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. | 
+    | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** |   Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Vous payez uniquement pour la durée d’exécution de vos fonctions.   |
+    | **Emplacement** | Europe de l’Ouest | Choisissez un emplacement près de chez vous ou près d’autres services auxquels vos fonctions accéderont. |
+    | **[Compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** |  Nom globalement unique |  Nom du nouveau compte de stockage utilisé par votre Function App. Vous pouvez également utiliser un compte existant. |
+
+1. Cliquez sur **Créer** pour configurer et déployer la nouvelle Function App.

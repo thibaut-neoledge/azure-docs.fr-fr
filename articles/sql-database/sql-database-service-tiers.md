@@ -17,10 +17,10 @@ ms.workload: data-management
 wms.date: 04/26/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +50,11 @@ Tout d’abord, vous devez décider si vous souhaitez exécuter une base de donn
 | **Fonctionnalités de niveau de service** | **De base** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Taille maximale de la base de données unique | 2 Go | 250 Go | 4 To*  | 500 Go  |
-| Taille maximale de la base de données dans un pool élastique | 156 Go | 2,9 To | 500 Go | 500 Go |
+| Taille maximale du pool élastique | 156 Go | 2,9 To | 4 To* | 750 Go |
+| Taille maximale de la base de données dans un pool élastique | 2 Go | 250 Go | 500 Go | 500 Go |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 | 100 |
+| DTU max de la base de données unique | 5 | 100 | 4000 | 1 000 |
+| DTU max de la base de données dans un pool élastique | 5 | 100 | 4000 | 1 000 |
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 35 jours | 35 jours |
 ||||||
 
@@ -93,11 +96,9 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 
 Les pools permettent aux bases de données de partager et de consommer des ressources eDTU sans qu’il soit nécessaire d’affecter un niveau de performances propre à chaque base de données dans le pool. Par exemple, une base de données unique dans un pool standard peut être offerte avec de 0 eDTUe au nombre d’eDTU maximal défini lors de la configuration du pool. Les pools permettent à plusieurs bases de données avec différentes charges de travail d’utiliser efficacement les ressources eDTU disponibles pour l’ensemble du pool. Consultez l’article [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool.md) .
 
-Le tableau suivant décrit les caractéristiques des niveaux de service de pool.
+Les tableaux suivants décrivent les limites de ressources imposées aux pools élastiques.  Notez que les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools. Elles dépendent du nombre de DTU et du niveau de service.  Par exemple, le nombre maximal d’ouvriers simultanés dans une base de données S2 est de 120.  Par conséquent, le nombre maximal d’ouvriers simultanés d’une base de données dans un pool Standard est également de 120 si le nombre maximal de DTU par base de données dans le pool est de 50 (soit l’équivalent de S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Chaque base de données au sein d'un pool respecte également les caractéristiques de base de données unique pour ce niveau. Par exemple, le pool de base possède une limite de sessions maximale par pool de 4800 à 28800, mais une base de données individuelle dans un pool de base a une limite de base de données de 300 sessions.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>Mise à l’échelle supérieure ou inférieure d’un pool élastique
 
@@ -137,7 +138,7 @@ Lors de la création ou de la mise à niveau d’une base de données P11/P15 da
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To
 
 - Lors de la création ou de la mise à jour d’une base de données P11 ou P15, vous pouvez uniquement choisir une taille maximale de 1 To ou de 4 To. Les tailles de stockage intermédiaires ne sont actuellement pas prises en charge.
-- La taille maximale de base de données de 4 To ne peut pas être modifiée pour 1 To, même si le stockage réel utilisé est inférieur à 1 To. Par conséquent, vous ne pouvez pas rétrograder une base de données P11-4 To/P15-4 To vers un niveau de performance P11-1 To/P15-1 To ou un niveau de performance inférieur (par exemple, vers P1-P6) avant que nous ne mettions à disposition des options de stockage supplémentaire pour les autres niveaux de performance. Cette restriction s’applique également aux scénarios de restauration et de copie, notamment la limite de restauration dans le temps, la restauration géographique, la rétention de sauvegarde à long terme et la copie de bases de données. Une fois qu’une base de données est configurée avec l’option 4 To, toutes les opérations de restauration de cette base de données doivent s’effectuer vers une base de données P11/P15 avec une taille maximale de 4 To.
+- La taille maximale de base de données de 4 To ne peut pas être modifiée pour 1 To, même si le stockage réel utilisé est inférieur à 1 To. Par conséquent, vous ne pouvez pas rétrograder une base de données P11-4 To/P15-4 To vers un niveau de performance P11-1 To/P15-1 To ou un niveau de performance inférieur (par exemple, vers P1-P6) avant que nous ne mettions à disposition des options de stockage supplémentaire pour les autres niveaux de performance. Cette restriction s’applique également aux scénarios de restauration et de copie, notamment la limite de restauration dans le temps, la restauration géographique, la rétention de sauvegarde à long terme et la copie de bases de données. Une fois qu’une base de données est configurée avec l’option 4 To, toutes les opérations de restauration de cette base de données doivent s’effectuer vers une base de données P11/P15 avec une taille maximale de 4 To.
 - Pour les scénarios de géo-réplication active :
    - Configuration d’une relation de géo-réplication : si la base de données primaire est de niveau P11 ou P15, la ou les bases de données secondaires doivent également être de niveau P11 ou P15. Les niveaux de performance inférieurs sont rejetés pour les bases de données secondaires, car ils ne sont pas en mesure de prendre en charge 4 To.
    - Mise à niveau de la base de données primaire dans une relation de géo-réplication : le fait de modifier la taille maximale de la base de données primaire pour 4 To déclenche la même modification sur la base de données secondaire. Les deux mises à niveau doivent aboutir pour que la modification sur la base de données principale prenne effet. Des limitations de région pour l’option de 4 To s’appliquent (voir ci-dessus). Si la base de données secondaire se situe dans une région qui ne prend pas en charge l’option de 4 To, la base de données principale ne sera pas mise à niveau.

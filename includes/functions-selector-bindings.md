@@ -1,7 +1,7 @@
 
 > [!div class="op_single_selector"]
-> * [Base de données de documents](../articles/azure-functions/functions-bindings-documentdb.md)  
-> * [Hubs d'événements](../articles/azure-functions/functions-bindings-event-hubs.md)  
+> * [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)  
+> * [Concentrateurs d'événements](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
 > * [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)  
 > * [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md)  
