@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e59cdcf2d54edece06feb0ee5675bdef35dfae03
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="azure-monitor-documentation"></a>Documentation Azure Monitor
@@ -40,7 +41,25 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=monitor">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Centre vidéo Azure Monitor</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
@@ -149,7 +168,7 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/monitor/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -160,7 +179,7 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Analyse</h3>
+                        <h3>Surveillance</h3>
                             <p><a href="/azure/monitoring-and-diagnostics/monitoring-supported-metrics">Listes des mesures prises en charge</a></p>
                             <p><a href="/azure/monitoring-and-diagnostics/monitoring-data-sources">Sources de données d’analyse</a></p>
                     </div>
@@ -174,10 +193,11 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
                 <div class="card">
                     <div class="cardText">
                         <h3>Diagnostics</h3>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics Schema</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics Schema 1.0</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics Schema 1.2</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics Schema 1.3 à 1.5</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-versioning-history">Historique des versions de l’Extension Diagnostics Azure</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Schéma d’extension Diagnostics Azure</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Schéma d’extension Diagnostics Azure 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Schéma d’extension Diagnostics Azure 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Schéma d’extension Diagnostics Azure 1.3 à 1.7</a></p>
                     </div>
                 </div>
             </div>

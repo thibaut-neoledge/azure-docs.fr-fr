@@ -1,11 +1,10 @@
 # Vue d'ensemble
-
 ## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
 
-# Prise en main
-## [Créer un serveur](analysis-services-create-server.md)
-## [Déployer sur un serveur](analysis-services-deploy.md)
-## [Connexion](analysis-services-connect.md)
+# Démarrages rapides
+## [Créer un serveur – Portail](analysis-services-create-server.md)
+## [Déployer un modèle – SSDT](analysis-services-deploy.md)
+
 
 # Didacticiels
 ## Créer et déployer un modèle
@@ -31,6 +30,7 @@
 ## [Gérer un serveur](analysis-services-manage.md)
 ## [Gestion des utilisateurs](analysis-services-manage-users.md)
 ## [Intégrer la passerelle de données locale](analysis-services-gateway.md)
+## [Connexion aux serveurs](analysis-services-connect.md)
 ## [Connexion avec Excel](analysis-services-connect-excel.md)
 ## [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)

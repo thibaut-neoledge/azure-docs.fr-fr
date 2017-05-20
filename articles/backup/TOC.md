@@ -71,9 +71,11 @@
 ### [Sauvegarde lente de fichiers et de dossiers dans Sauvegarde Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Concepts
+## [Vue d’ensemble des coffres Recovery Services](backup-azure-recovery-services-vault-overview.md)
+## [Mise à niveau d’un coffre de sauvegarde vers le coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Supprimer un coffre de Sauvegarde Azure](backup-azure-delete-vault.md)
 ## [Contrôle d’accès en fonction du rôle](backup-rbac-rs-vault.md)
 ## [Sécurité pour les sauvegardes hybrides](backup-azure-security-feature.md)
-## [Supprimer un coffre de Sauvegarde Azure](backup-azure-delete-vault.md)
 ## [Configurer la sauvegarde hors connexion](backup-azure-backup-import-export.md)
 ## [Remplacer votre bibliothèque de bandes](backup-azure-backup-cloud-as-tape.md)
 ## [Sauvegardes cohérentes des applications des machines virtuelles Linux](backup-azure-linux-app-consistent.md)
