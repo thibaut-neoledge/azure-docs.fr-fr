@@ -743,7 +743,7 @@ Utiliser le modèle ARM de disque managé Azure pour créer une nouvelle machine
 
 ## <a name="appendix"></a>Annexe
 ### <a name="connect-to-your-subscription"></a>Connexion à votre abonnement
-Avant de poursuivre, voir la section *Conditions préalables * dans cet article. Après avoir vérifié que toutes les conditions préalables sont remplies, connectez-vous à votre abonnement en procédant comme suit :
+Avant de poursuivre, voir la section *Conditions préalables* dans cet article. Après avoir vérifié que toutes les conditions préalables sont remplies, connectez-vous à votre abonnement en procédant comme suit :
 
 1. Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :
 
