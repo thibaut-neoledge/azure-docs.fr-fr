@@ -3,6 +3,7 @@
 ## Architecture
 ### [Routage asymétrique avec plusieurs chemins d’accès réseau](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conceptions de réseau sécurisé](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Topologie hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Meilleures pratiques en matière de sécurité réseau](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Appliances virtuelles réseau hautement disponible](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Combiner les méthodes d’équilibrage de charge](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
