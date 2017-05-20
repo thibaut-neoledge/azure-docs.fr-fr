@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
 
 
@@ -128,7 +129,7 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
        Nom renseigné automatiquement et les membres seront affichés pour Ensemble de lignes, Classes, Bases de données, Schémas et Objets définis par l'utilisateur (UDO).
 
        IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
-   * **Développer les colonnes ***
+   * **Développer * les colonnes**
 
        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas.
        ![Outils Data Lake Visual Studio : développer *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
