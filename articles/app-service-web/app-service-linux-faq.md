@@ -1,6 +1,6 @@
 ---
-title: FAQ Azure App Service Web Apps sous Linux | Microsoft Docs
-description: FAQ Azure App Service Web Apps sous Linux.
+title: "FAQ de l’application web Azure App Service sur Linux | Microsoft Docs"
+description: "FAQ de l’application web Azure App Service sur Linux."
 keywords: azure app service, application web, faq, linux, oss
 services: app-service
 documentationCenter: 
@@ -13,21 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
+ms.date: 05/04/2017
+ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="azure-app-service-web-apps-on-linux-faq"></a>FAQ Azure App Service Web Apps sous Linux
+# <a name="azure-app-service-web-app-on-linux-faq"></a>FAQ de l’application web Azure App Service sur Linux
 
-Avec la mise en production d’Azure App Service sous Linux (actuellement en version préliminaire), nous travaillons à l’ajout de fonctionnalités et l’amélioration de notre plateforme. Voici quelques-unes des questions courantes que nos clients nous ont posées au cours des derniers mois.
-Si vous avez une question, veuillez commenter l’article ; nous vous répondrons dès que possible.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Avec la mise en production de l’application web sur Linux, nous travaillons à l’ajout de fonctionnalités et à l’amélioration de notre plateforme. Voici quelques-unes des questions courantes que nos clients nous ont posées au cours des derniers mois.
+Si vous avez une question, commentez l’article ; nous vous répondrons dès que possible.
 
 ## <a name="built-in-images"></a>Images prédéfinies
 
@@ -41,41 +44,43 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 ## <a name="management"></a>Gestion
 
-**Q :** J’appuie sur le bouton Redémarrer dans le portail Azure, mais mon application web ne redémarre pas. Pourquoi ?
+**Q :** Que se passe-t-il lorsque j’appuie sur le bouton Redémarrer dans le portail Azure ?
 
-**R :** Nous travaillons à l’activation prochaine du bouton de réinitialisation. Maintenant, deux options s’offrent à vous :
-- Ajoutez ou modifiez un paramètre d’application factice. Cela forcera votre application web à redémarrer.
-- Arrêtez puis démarrez votre application web.
+**R :** Cela revient à redémarrer Docker.
 
 **Q :** Puis-je utiliser Secure Shell (SSH) pour me connecter à la machine virtuelle du conteneur d’application ?
 
-**R :** Non. Nous fournirons prochainement un moyen d’utiliser SSH pour vous connecter au conteneur de l’application.
+**R :** Oui, vous pouvez le faire via le site SCM,. Consultez l’article suivant pour en savoir plus sur [la prise en charge SSH pour l’application Web sur Linux](./app-service-linux-ssh-support.md)
 
 ## <a name="continuous-integrationdeployment"></a>Intégration/Déploiement en continu
 
 **Q :** Mon application web utilise toujours une ancienne image de conteneur Docker après la mise à jour de l’image sur DockerHub. Prenez-vous en charge l’intégration continue / le déploiement continu de conteneurs personnalisés ?
 
-**R :** vous pouvez actualiser le conteneur en arrêtant puis démarrant votre application web. Vous pouvez également modifier ou ajouter un paramètre d’application factice pour forcer une actualisation de votre conteneur. Nous travaillons sur une fonctionnalité d’intégration et déploiement en continu pour les conteneurs personnalisés que nous espérons proposer dans une version ultérieure.
+**R :** Pour configurer l’intégration/le déploiement en continu des images DockerHub, consultez l’article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md) (Déploiement continu DockerHub avec l’application web sur Linux). Pour les registres privés, vous pouvez actualiser le conteneur en arrêtant puis démarrant votre application web. Vous pouvez également modifier ou ajouter un paramètre d’application factice pour forcer une actualisation de votre conteneur.
+
+**Q :** Prenez-vous en charge les environnements intermédiaires ?
+
+**R :** Oui.
 
 ## <a name="language-support"></a>Support multilingue
 
 **Q :** Prenez-vous en charge les applications .NET Core non compilées ?
 
-**R :** Non. Vous devez déployer des applications .NET Core compilées avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement et de compilation complète pour une version ultérieure.
+**R :** Oui.
 
 **Q :** Prenez-vous en charge Composer en tant que gestionnaire de dépendances pour les applications PHP ?
 
-**R :** Non. Vous devez déployer des applications PHP avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement complète dans une version ultérieure.
+**R :** Non. Vous devez déployer vos applications PHP avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement complète dans une version ultérieure.
 
 ## <a name="custom-containers"></a>Conteneurs personnalisés
 
-**Q :** J’utilise mon propre conteneur personnalisé. Mon application se trouve dans le répertoire \home\, mais je ne trouve pas mes fichiers lorsque je parcours le contenu avec le [site SCM](https://github.com/projectkudu/kudu) ou un client FTP. Où sont mes fichiers ?
+**Q :** J’utilise mon propre conteneur personnalisé. Mon application se trouve dans le répertoire `\home\`, mais je ne trouve pas mes fichiers lorsque je parcours le contenu avec le [site SCM](https://github.com/projectkudu/kudu) ou un client FTP. Où sont mes fichiers ?
 
-**R :** Nous montons un partage SMB dans le répertoire \home\. Cela remplace tout le contenu qui s’y trouve.
+**R :** Nous montons un partage SMB dans le répertoire `\home\`. Cela remplace tout le contenu qui s’y trouve.
 
 **Q :** Quel est le format de l’URL du serveur de registre privé ?
 
-**R :** Vous devez entrer l’URL de registre complète, y compris « http:// » ou « https:// ».
+**R :** Vous devez fournir l’URL de registre complète, y compris `http://` ou `https://`.
 
 **Q :** Quel est le format du nom d’image dans l’option de registre privé ?
 
@@ -95,7 +100,7 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 **Q :** Mon conteneur personnalisé écoute un autre port que le port 80. Comment puis-je configurer mon application pour acheminer les demandes vers ce port ?
 
-**R :** Vous pouvez spécifier un paramètre d’application appelé **PORT** et lui attribuer la valeur du numéro de port attendu.
+**R :** La détection automatique du port est activée, mais vous pouvez aussi spécifier un paramètre d’application appelé **PORT** et lui attribuer la valeur du numéro de port attendu.
 
 **Q :** Dois-je implémenter HTTPS dans mon conteneur personnalisé ?
 
@@ -105,7 +110,7 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 **Q :** Quelle est la tarification pour l’utilisation de la préversion publique ?
 
-**R :** La moitié du nombre d’heures d’exécution de votre application vous sera facturée, à la tarification Azure App Service normale. Cela signifie que vous bénéficiez d’une remise de 50 pour cent sur la tarification normale d’Azure App Service.
+**R :** La moitié du nombre d’heures d’exécution de votre application vous est facturée, à la tarification Azure App Service normale. Cela signifie que vous bénéficiez d’une remise de 50 pour cent sur la tarification normale d’Azure App Service.
 
 ## <a name="other"></a>Autres
 
@@ -118,6 +123,9 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 **R :** Vous pouvez proposer votre idée sur le [Forum de commentaires pour Web Apps](https://aka.ms/webapps-uservoice). Ajoutez « [Linux] » au titre de votre idée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
-* [Création d’applications Web dans App Service sur Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Qu’est-ce qu’Azure Web App sur Linux ?](app-service-linux-intro.md)
+* [Création d’applications web dans l’application web Azure sur Linux](app-service-linux-how-to-create-web-app.md)
+* [Prise en charge SSH pour l’application web Azure sur Linux](./app-service-linux-ssh-support.md)
+* [Configurer des environnements intermédiaires dans Azure App Service](./web-sites-staged-publishing.md)
+* [Déploiement continu Docker Hub avec l’application web Azure sur Linux](./app-service-linux-ci-cd.md)
 

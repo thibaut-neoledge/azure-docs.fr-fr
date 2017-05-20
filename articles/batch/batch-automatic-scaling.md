@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 85a2fac77cf5beae6debad044df169301d43f4ca
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -108,6 +108,7 @@ Vous pouvez **obtenir** la valeur des variables définies par le service ci-apr�
 | $SucceededTasks |Nombre de tâches ayant abouti. |
 | $FailedTasks |Nombre de tâches ayant échoué. |
 | $CurrentDedicated |Nombre actuel de nœuds de calcul dédiés. |
+| $PreemptedNodeCount | Le nombre de nœuds dans le pool qui sont à l’état Reporté. |
 
 > [!TIP]
 > Les variables en lecture seule définies par le service qui sont illustrées ci-dessus sont des *objets* qui fournissent diverses méthodes pour accéder aux données qui leur sont associées. Pour plus d’informations, consultez la section [Obtenir des exemples de données](#getsampledata) ci-dessous.

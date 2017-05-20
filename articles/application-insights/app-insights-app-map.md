@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 37b85ba4987f8f29e4e825a17f0a892ddabf9599
-ms.lasthandoff: 04/12/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e76a31a8eaa249ab064d180bfd7ed158ef32c85a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,19 +87,35 @@ Pour enregistrer les filtres que vous avez appliqués, épinglez la vue filtrée
 
 ![Épingler au tableau de bord](./media/app-insights-app-map/12.png)
 
+## <a name="error-pane"></a>Volet d’erreur
+Lorsque vous cliquez sur un nœud de la mise en correspondance, un volet d’erreur résumant les échecs de ce nœud s’affiche sur le côté droit. Les échecs sont tout d’abord regroupés par ID d’opération, puis par ID de problème.
+
+![Volet d’erreur](./media/app-insights-app-map/error-pane.png)
+
+Cliquez sur un échec pour accéder à l’instance la plus récente de ce dernier.
+
+## <a name="resource-health"></a>Intégrité des ressources
+Pour certains types de ressources, l’intégrité des ressources est indiquée en haut du volet d’erreur. Par exemple, l’intégrité de la base de données et les alertes survenues s’affichent lorsque vous cliquez sur un nœud SQL.
+
+![Intégrité des ressources](./media/app-insights-app-map/resource-health.png)
+
+Vous pouvez cliquer sur le nom de la ressource pour afficher les indicateurs de performances de la vue d’ensemble standard de cette ressource.
+
 ## <a name="end-to-end-system-app-maps"></a>Cartes d’applications système de bout en bout
+
+*Requiert le Kit de développement logiciel (SDK) version 2.3 ou ultérieure*
 
 Si votre application possède plusieurs composants (par exemple, un service principal en plus de l’application web), vous pouvez tous les afficher sur une même carte d’applications intégrée.
 
 ![Définir les filtres](./media/app-insights-app-map/multi-component-app-map.png)
 
-La carte d’applications identifie les nœuds serveurs en recherchant toutes les ressources Application Insights dans le groupe de ressources actuel. Elle détecte également les nœuds serveurs en suivant les appels de dépendance suivis par les ressources Application Insights dans le groupe de ressources actuel.
+La mise en correspondance d’applications trouve les nœuds de serveur en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le Kit de développement logiciel (SDK) Application Insights est installé. Chaque ressource Application Insights est supposée contenir un serveur.
 
+### <a name="multi-role-app-map-preview"></a>Mise en correspondance d’applications contenant plusieurs rôles (version préliminaire)
 
-### <a name="setting-up"></a>Configuration
+La fonctionnalité de mise en correspondance d’applications contenant plusieurs rôles vous permet d’utiliser la mise en correspondance d’applications avec plusieurs serveurs envoyant des données à la même ressource Application Insights/clé d’instrumentation. Les serveurs de la mise en correspondance sont segmentés par la propriété cloud_RoleName sur les éléments de télémétrie. Définissez la *mise en correspondance d’applications contenant plusieurs rôles* sur *Activé* à partir du panneau Aperçus pour activer cette configuration.
 
-> [!NOTE] 
-> La carte d’applications système de bout en bout est en version préliminaire. Vous devez instrumenter vos composants avec une version spéciale du Kit de développement logiciel (SDK) et utiliser une URL spéciale pour voir la carte d’applications. [Découvrez comment configurer les cartes d’applications système de bout en bout](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+Cette approche peut être souhaitable dans une application de micro-services, ou dans d’autres scénarios où vous souhaitez mettre en corrélation des événements sur plusieurs serveurs au sein d’une seule ressource Application Insights.
 
 ## <a name="video"></a>Vidéo
 

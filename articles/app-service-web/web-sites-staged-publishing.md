@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
 
-Lorsque vous déployez votre application web, principale mobile ou API dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut en mode **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+Lorsque vous déployez votre application web, application web sur Linux, principale mobile ou API dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut en mode **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
 * Vous pouvez valider les modifications d’une application dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
 * Déployer d’abord une application vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est requise avant l’échange.
-* Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisez.
+* Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
 Chaque mode de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le mode de votre application, consultez la page [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
@@ -120,6 +120,9 @@ Vous pouvez échanger des emplacements de déploiement dans la vue **Vue d’ens
 L’échange avec l’aperçu, ou échange multiphase, simplifie la validation des éléments de configuration spécifiques d’un emplacement, tels que les chaînes de connexion.
 Pour les charges de travail stratégiques, il est souhaitable de vérifier que l’application se comporte comme prévu lorsque la configuration de l’emplacement de production est appliquée, et cette vérification doit être effectuée *avant* le basculement de l’application en production. C’est précisément ce que l’échange avec aperçu permet de faire.
 
+> [!NOTE]
+> L’échange avec l’aperçu n’est pas pris en charge dans les applications web sous Linux.
+
 Lorsque vous utilisez l’option **Échange avec aperçu** (voir [Échanger des emplacements de déploiement](#Swap)), App Service :
 
 - Laisse l’emplacement de destination inchangé, de sorte que la charge de travail existante dans cet emplacement (de production, par exemple) n’est pas affectée.
@@ -141,6 +144,9 @@ L’échange automatique simplifie les scénarios d’opérations de développem
 > Lorsque vous activez l’échange automatique pour un emplacement, vérifiez que la configuration de l’emplacement est exactement celle que vous souhaitez pour l’emplacement cible (en général, l’emplacement de production).
 > 
 > 
+
+> [!NOTE]
+> L’échange automatique n’est pas pris en charge dans les applications web sous Linux.
 
 La configuration de l’échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
 
@@ -166,7 +172,7 @@ Si vous identifiez des erreurs de production après un basculement d'emplacement
 
 <a name="Warm-up"></a>
 
-## <a name="custom-warm-up-before-swap"></a>Mise en route personnalisé avant la permutation
+## <a name="custom-warm-up-before-swap"></a>Mise en route personnalisée avant la permutation
 Certaines applications peuvent nécessiter des actions personnalisées de mise en route. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération de permutation attendra la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
 
     <applicationInitialization>
@@ -277,9 +283,9 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-[Version d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Introduction à App Service sur Linux](./app-service-linux-intro.md)
+[Essai gratuit de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
