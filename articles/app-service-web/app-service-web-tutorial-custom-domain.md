@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,20 +28,22 @@ Ce didacticiel vous montre comment mapper un nom DNS personnalisé existant à d
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Ce didacticiel montre trois scénarios courants de mappage de deux noms DNS à une application dans App Service :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-- `www.contoso.com` - un sous-domaine de `contoso.com`. Vous allez utiliser un enregistrement CNAME pour le mapper à l’application.
-- `contoso.com` - un domaine racine. Vous allez utiliser un enregistrement A pour le mapper à l’application.
-- `*.contoso.com` - un domaine générique. Vous allez utiliser un enregistrement CNAME pour le mapper à l’application.
+> [!div class="checklist"]
+> * Mapper un sous-domaine (par exemple, `www.contoso.com`) à l’aide d’un enregistrement CNAME
+> * Mapper un domaine racine (par exemple, `contoso.com`) à l’aide d’un enregistrement A
+> * Mapper un domaine générique (par exemple, `*.contoso.com`) à l’aide d’un enregistrement CNAME
+> * Automatiser le mappage de domaine à l’aide de scripts
 
 Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pour mapper un nom DNS personnalisé à App Service.
 
 > [!NOTE]
-> Nous vous recommandons d’utiliser un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple contoso.com). 
+> Nous vous recommandons d’utiliser un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple, `contoso.com`). 
 > 
 > 
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel, vous devez accéder à votre registre DNS pour votre fournisseur de domaine (tel que GoDaddy) et disposer des autorisations pour modifier la configuration de votre domaine. 
 
@@ -195,6 +198,8 @@ Dans la capture d’écran de l’exemple, vous cliquez sur **Ajouter** pour cr�
 >
 >
 
+<a name="create-a"></a>
+
 ### <a name="create-the-a-record"></a>Créer l’enregistrement A
 
 Pour mapper un enregistrement A à votre application, App Service a besoin de **deux** enregistrements DNS :
@@ -325,8 +330,10 @@ Vous pouvez automatiser la gestion des domaines personnalisés à l’aide de sc
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 
 ```bash 
-az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
---name <fully_qualified_domain_name> 
+az appservice web config hostname add \
+    --webapp <app_name> \
+    --resource-group <resourece_group_name> \ 
+    --name <fully_qualified_domain_name> 
 ``` 
 
 Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application web](scripts/app-service-cli-configure-custom-domain.md) 
@@ -336,13 +343,26 @@ Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 
 ```PowerShell  
-Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
--HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+Set-AzureRmWebApp `
+    -Name <app_name> `
+    -ResourceGroupName <resourece_group_name> ` 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
 Pour plus d’informations, consultez [Attribuer un domaine personnalisé à une application web](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="next-steps"></a>Étapes suivantes
 
-[Configurer un domaine App Service dans Azure App Service](custom-dns-web-site-buydomains-web-app.md)
+Dans ce didacticiel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Mapper un sous-domaine à l’aide d’un enregistrement CNAME
+> * Mapper un domaine racine à l’aide d’un enregistrement A
+> * Mapper un domaine générique à l’aide d’un enregistrement CNAME
+> * Automatiser le mappage de domaine à l’aide de scripts
+
+Passez au didacticiel suivant pour découvrir comment lier un certificat SSL personnalisé à une application web.
+
+> [!div class="nextstepaction"]
+> [Lier un certificat SSL personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md)
 
