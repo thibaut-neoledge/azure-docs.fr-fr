@@ -81,7 +81,7 @@ Pour la preuve de concept (POC) d’Azure Stack, vous devez exporter le certific
 
 3. Recherchez **AzureStackCertificationAuthority** sous **Racine de la console\Certificats (ordinateur local)\Autorités de certification racines de confiance\Certificats**. 
 
-4. Cliquez avec le bouton droit sur l’élément, sélectionnez **All Tasks (Toutes les tâches)** > **Exporter**, puis suivez les instructions pour exporter le certificat avec **X.509 encodé en base 64 (*.cer)**.  
+4. Cliquez avec le bouton droit sur l’élément, sélectionnez **All Tasks (Toutes les tâches)** > **Exporter**, puis suivez les instructions pour exporter le certificat avec **X.509 encodé en base 64 (.cer)**.  
 
     Le certificat exporté sera utilisé à l’étape suivante.   
 
