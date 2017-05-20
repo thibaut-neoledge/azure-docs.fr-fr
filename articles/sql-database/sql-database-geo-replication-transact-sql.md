@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/14/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Cet article vous montre comment configurer la géoréplication active pour une b
 Pour lancer un basculement avec Transact-SQL, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
+> Lorsque vous utilisez la géoréplication active (copies secondaires lisibles) pour la récupération d’urgence, vous devez configurer un groupe de basculement pour toutes les bases de données dans une application pour permettre un basculement automatique et transparent. Cette fonctionnalité est en préversion. Pour plus d’informations, consultez [Auto-failover groups and Geo-Replication](sql-database-geo-replication-overview.md) (Groupes de basculement automatique et géoréplication).
 > 
 > 
 
@@ -53,23 +54,6 @@ Une fois la seconde base de données secondaire créée et semée, les données 
 > [!NOTE]
 > Si une base de données existe sur le serveur partenaire spécifié avec le même nom qu’une base de données primaire, la commande échoue.
 > 
-> 
-
-### <a name="add-non-readable-secondary-single-database"></a>Ajoutez une base de données non accessible en lecture secondaire non lisible (base de données unique)
-Utilisez les étapes suivantes pour créer une base de données non lisible en tant que base de données unique.
-
-1. Vous devez disposer de la version 13.0.600.65 ou d’une version ultérieure de SQL Server Management Studio.
-   
-   > [!IMPORTANT]
-   > Téléchargez la [dernière](https://msdn.microsoft.com/library/mt238290.aspx) version de SQL Server Management Studio. Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour publiées sur le portail Azure.
-   > 
-   > 
-2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est le nom de serveur convivial.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
-4. Cliquez sur **Exécuter** pour exécuter la requête.
 
 ### <a name="add-readable-secondary-single-database"></a>Ajouter une base de données secondaire accessible en lecture (base de données unique)
 Utilisez les étapes suivantes pour créer une base de données secondaire accessible en lecture en tant que base de données unique.
@@ -80,18 +64,6 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-4. Cliquez sur **Exécuter** pour exécuter la requête.
-
-### <a name="add-non-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire non accessible en lecture (pool élastique)
-Utilisez les étapes suivantes pour créer une base de données secondaire non accessible en lecture dans un pool élastique.
-
-1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
-2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire non accessible en lecture sur un serveur secondaire dans un pool élastique.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
 ### <a name="add-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire accessible en lecture (pool élastique)
@@ -141,22 +113,6 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 9. Cliquez sur **Exécuter** pour exécuter la requête.
-
-## <a name="upgrade-a-non-readable-secondary-to-readable"></a>Mettre à niveau une base de données secondaire non accessible en lecture en une base de données accessible en lecture
-En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture. Si vous utilisez des bases de données secondaires non accessibles en lecture et souhaitez les rendre accessibles en lecture, vous pouvez utiliser les étapes suivantes pour chaque base de données secondaire.
-
-> [!IMPORTANT]
-> Il n’existe aucune méthode en libre-service de mise à niveau in situ d’une base de données secondaire non accessible en lecture en une base de données accessible en lecture. Si vous supprimez votre unique base de données secondaire, la base de données primaire restera sans protection jusqu'à ce que la nouvelle base de données secondaire soit entièrement synchronisée. Si le contrat de mise à niveau de service (SLA) de votre application nécessite la protection permanente de la base de données primaire, vous pouvez créer une base de données parallèle sur un autre serveur avant d’appliquer la procédure de mise à niveau ci-dessus. Notez que chaque base de données primaire peut avoir jusqu'à 4 bases de données secondaires.
-> 
-> 
-
-1. Connectez-vous d’abord au serveur *secondaire* et supprimez la base de données secondaire non accessible en lecture :  
-   
-        DROP DATABASE <MyNonReadableSecondaryDB>;
-2. Connectez-vous ensuite au serveur *principal* serveur et ajoutez une nouvelle base de données secondaire accessible en lecture
-   
-        ALTER DATABASE <MyDB>
-            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la géoréplication active, consultez [Géoréplication active](sql-database-geo-replication-overview.md)

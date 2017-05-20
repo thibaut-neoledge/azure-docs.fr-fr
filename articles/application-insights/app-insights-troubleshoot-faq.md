@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -103,7 +104,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 À partir d’applications web serveur :
 
 * Requêtes HTTP
-* [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure DocumentDB, table, stockage d’objets blob et file d’attente. 
+* [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](app-insights-asp-net-exceptions.md) et arborescences des appels de procédure.
 * [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la surveillance Azure (app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
 * [Événements et mesures personnalisés](app-insights-api-custom-events-metrics.md) que vous codez.

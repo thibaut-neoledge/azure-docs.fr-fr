@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/16/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
-ms.lasthandoff: 04/13/2017
+ms.date: 04/07/2017
+ms.author: sashan;carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4abcfa777c08cec25770dc92f38e530f1ddb1d89
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,16 +35,16 @@ Nous allons à présent aborder les stratégies de récupération d’urgence ap
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scénario 1 Start-up soucieuse des coûts
 <i>Ma jeune entreprise a un budget très serré.  Je souhaite simplifier le déploiement et la gestion de l’application et avoir un contrat SLA limité pour chacun de mes clients. Mais je veux être sûr que l’application ne sera jamais hors connexion.</i>
 
-Pour répondre au besoin de simplicité, vous devez déployer toutes les bases de données client dans un pool élastique dans la région Azure de votre choix et déployer les bases de données de gestion en tant que bases de données uniques géo-répliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, ces dernières doivent être géo-répliquées vers une autre région (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total de la ou des base(s) de données secondaire(s). Cette configuration est illustrée dans le schéma suivant.
+Pour répondre au besoin de simplicité, vous devez déployer toutes les bases de données client dans un pool élastique dans la région Azure de votre choix et déployer les bases de données de gestion en tant que bases de données uniques géo-répliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, nous vous recommandons de les géo-répliquer dans une autre région avec un groupe de basculement automatique (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total de la ou des base(s) de données secondaire(s). Cette configuration est illustrée dans le schéma suivant.
 
 ![La figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 En cas de panne dans la région primaire, les étapes de récupération à suivre pour remettre votre application en ligne sont illustrées dans le schéma suivant.
 
-* Basculez immédiatement les bases de données de gestion (2) vers la région de récupération d’urgence. 
-* Modifiez la chaîne de connexion de l’application pour la diriger vers la région de récupération d’urgence. Tous les nouveaux comptes et bases de données client seront créés dans la région de récupération d’urgence. Les données des clients existants seront temporairement indisponibles.
-* Créez le pool élastique en utilisant la même configuration que le pool d’origine (3). 
-* Utilisez la géo-restauration pour créer des copies des bases de données client (4). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou utiliser d’autres schémas de priorité spécifiques à l’application.
+* Le groupe de basculement lance le basculement automatique de la base de données de gestion vers la région de récupération d’urgence. L’application est reconnectée automatiquement aux nouveaux comptes principaux et à tous les nouveaux comptes. De même, les nouvelles bases de données client sont créées dans la région de récupération d’urgence. Les données des clients existants seront temporairement indisponibles.
+* Créez le pool élastique en utilisant la même configuration que celle du pool d’origine (2).
+* Utilisez la géo-restauration pour créer des copies des bases de données client (3). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou utiliser d’autres schémas de priorité spécifiques à l’application.
+
 
 À ce stade, votre application est à nouveau en ligne dans la région de récupération d’urgence, mais certains clients accéderont moins rapidement à leurs données.
 

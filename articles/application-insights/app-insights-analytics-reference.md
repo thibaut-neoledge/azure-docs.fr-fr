@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3fb2464e3757d316367487506f0aca9f1c2e35cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -35,13 +35,16 @@ Sources d’information supplémentaires :
 ## <a name="index"></a>Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Requêtes et opérateurs** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Requêtes et opérateurs** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Valeurs scalaires** [Littéraux Boolean](#boolean-literals) | [Opérateurs booléens](#boolean-operators) | [Casts](#casts) | [Comparaisons scalaires](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 **Chiffres** [Opérateurs arithmétiques](#arithmetic-operators) | [Littéraux numériques](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [journal](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Séries numériques** 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Date et heure** [Expressions de date et heure](#date-and-time-expressions) | [Littéraux Date et d’heure](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [maintenant](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -315,10 +318,12 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` doit être le dernier opérateur du pipeline de requête (à l’exception d’un éventuel `render`). Il ne doit pas apparaître dans le corps d’une fonction.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
 #### <a name="evaluate-autocluster"></a>evaluate autocluster
      T | evaluate autocluster()
+
+Autocluster est un moyen rapide de rechercher les regroupements naturels dans un jeu de données. Par exemple, à partir d’une masse de données de demande, vous pouvez rapidement identifier que 80 % des échecs 404 étaient des demandes pour une URL particulière, effectuée par un client dans une ville spécifique.
 
 AutoCluster recherche les modèles courants d’attributs discrets (dimensions) dans les données et réduit les résultats de la requête d’origine (qu’elle fasse 100 ou 100 000 lignes) à un petit nombre de modèles. AutoCluster a été développé pour analyser les échecs (par exemple, les exceptions, les incidents) mais peut éventuellement fonctionner sur n’importe quel jeu de données filtré. 
 
@@ -369,10 +374,11 @@ Notez que les modèles ne sont pas disjoints : ils peuvent se chevaucher et ne c
   
     Exemple : `T | evaluate autocluster("weight_column=sample_Count")` 
 
-#### <a name="evaluate-basket"></a>evaluate basket
+#### <a name="evaluate-basket-deprecated"></a>evaluate basket (déconseillé)
+
      T | evaluate basket()
 
-Basket recherche tous les modèles fréquents d’attributs discrets (dimensions) dans les données et retourne l’ensemble des modèles fréquents ayant franchi le seuil de fréquence dans la requête d’origine. La recherche, par basket, de tous les modèles fréquents dans les données est garantie, mais pas son exécution polynomiale. L’exécution de la requête est linéaire pour le nombre de lignes mais peut, dans certains cas, être exponentielle pour le nombre de colonnes (dimensions). Basket repose sur l’algorithme Apriori, développé à l’origine pour l’exploration de données d’analyse du panier. 
+**Cette version de `basket` est déconseillée. Utilisez [basket_v2](#evaluate-basketv2).**
 
 **Retourne**
 
@@ -400,10 +406,55 @@ Tous les modèles qui apparaissent dans plus d’une fraction spécifiée (valeu
   * `minimize` : retire les colonnes indiquant « * » comme seul résultat.
   * `all` : toutes les colonnes de l’entrée sont générées.
 
+<a name="evaluate-basket"></a>
+#### <a name="evaluate-basketv2"></a>evaluate basket_v2
+
+     T | evaluate basket_v2()
+
+Basket recherche tous les modèles fréquents d’attributs discrets (dimensions) dans les données et retourne l’ensemble des modèles fréquents ayant franchi le seuil de fréquence dans la requête d’origine. La recherche, par basket, de tous les modèles fréquents dans les données est garantie, mais pas son exécution polynomiale. L’exécution de la requête est linéaire pour le nombre de lignes mais peut, dans certains cas, être exponentielle pour le nombre de colonnes (dimensions). Basket repose sur l’algorithme Apriori, développé à l’origine pour l’exploration de données d’analyse du panier. 
+
+Remplace la syntaxe `evaluate basket` déconseillée.
+
+**Retourne**
+
+Tous les modèles qui apparaissent dans plus d’une fraction spécifiée (valeur par défaut 0,05) des événements. Pour chaque modèle, les colonnes qui ne sont pas définies dans le modèle (c’est-à-dire sans restriction sur une valeur spécifique) contiennent une valeur générique qui sont des valeurs null par défaut (voir dans la section Arguments ci-dessous comment ils peuvent être modifiés manuellement).
+
+**Arguments (tous facultatifs)**
+
+Tous les arguments sont facultatifs, mais doivent apparaître dans l’ordre suivant. Pour indiquer qu’une valeur par défaut doit être utilisée, utilisez le signe tilde ~ (voir les exemples ci-dessous).
+
+* Seuil : 0,015 < *double* < 1 (valeur par défaut : 0,05) 
+  
+    Définit le taux minimal de lignes pouvant être considérées comme fréquentes (les modèles dont le taux est moins élevé ne seront pas retournés).
+  
+    Exemple : `T | evaluate basket(0.02)`
+* Colonne de pondération *itemCount*
+  
+    Permet de prendre en compte l’échantillonnage et l’agrégation préliminaire métrique. Chaque ligne se voit attribuer la pondération spécifiée dans cette colonne. Par défaut, chaque ligne a une pondération de '1'. Cela prend en compte la création de compartiments ou l’agrégation des données déjà incorporées dans chaque ligne.
+  
+    Exemple : `T | evaluate basket('~', itemCount)`
+* Dimensions max. : 1 < *int* (valeur par défaut : 5)
+  
+    Définit le nombre maximal de dimensions non corrélées par panier, limité par défaut pour réduire le temps d’exécution de la requête.
+
+    Exemple : `T | evaluate basket('~', '~', 3)`
+* Types génériques personnalisés : *n’importe quelle valeur par type*
+  
+    Définit la valeur de caractère générique pour un type spécifique dans la table de résultats qui indique que le modèle actuel ne présente pas de restriction sur cette colonne. La valeur par défaut est null, la chaîne par défaut est une chaîne vide. Si la valeur par défaut est une valeur viable dans les données, une valeur de caractère générique différente doit être utilisée (par exemple, *).
+
+    Exemple : `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Exemple**
+
+``` AIQL
+requests 
+| evaluate basket_v2(0.7, itemCount)
+```
+
 #### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
      requests | evaluate diffpatterns("split=success")
 
-Diffpatterns compare deux jeux de données de la même structure et recherche les modèles d’attributs discrets (dimensions) qui caractérisent les différences entre les deux jeux de données. Diffpatterns a été développé pour analyser les échecs (par exemple, en comparant les échecs et l’absence d’échecs sur une période donnée), mais peut éventuellement rechercher les différences entre deux jeux de données quelconques de la même structure. 
+Diffpatterns identifie les différences entre deux jeux de données de la même structure, par exemple, le journal de la demande au moment d’un incident, et les journaux de demandes normaux. Diffpatterns a été développé pour analyser les échecs (par exemple, en comparant les échecs et l’absence d’échecs sur une période donnée), mais peut éventuellement rechercher les différences entre deux jeux de données quelconques de la même structure. 
 
 **Syntaxe**
 
@@ -2101,6 +2152,299 @@ Fonction racine carrée.
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
     tolong(b.c)        // cast from dynamic
+
+## <a name="numeric-series"></a>Série numérique
+
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |  [series_periods](#seriesperiods) | [series_stats](#seriesstats)  
+
+### <a name="seriesfir"></a>series_fir
+La fonction series_fir() applique un filtre [Finite Impulse Response](https://wikipedia.org/wiki/Finite_impulse_response) (filtre à réponse impulsionnelle finie) sur une série (qui est représentée par une colonne dynamique contenant le tableau numérique).
+
+En spécifiant les coefficients de filtre, il peut être utilisé pour le calcul de moyenne mobile, le lissage, la détection de modifications et de nombreux autres cas d’utilisation.
+
+La fonction accepte comme entrée la colonne qui contient le tableau dynamique et un tableau statique et dynamique des coefficients du filtre, et applique le filtre sur la colonne. Il génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
+
+**Syntaxe**
+
+`series_fir(x, filter [, normalize[, center]])`
+
+**Arguments**
+
+* *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques, généralement le résultat des opérateurs [make-series](#make-series-operator) ou [makelist](#makelist-operator).
+* *filter :* une valeur booléenne facultative indiquant si les coefficients de filtre doivent être normalisés (c.-à-d. divisés par la somme). Par défaut, normalize a la valeur true. Si le filtre contient des valeurs négatives, la normalisation automatique ne peut pas être effectuée, et normalize doit être explicitement défini sur false.
+* *normalize :* valeur booléenne facultative indiquant si le filtre doit être normalisé. Par défaut, normalize a la valeur true. Si le filtre contient des valeurs négatives, normalize doit être spécifié comme false. 
+* *center :* une valeur booléenne facultative indiquant si le filtre est appliqué symétriquement sur un intervalle de temps avant et après le point actuel, ou sur une fenêtre de temps à partir du point actif vers l’arrière. Par défaut, center est défini sur false, ce qui correspond au scénario de diffusion en continu de données, où nous pouvons uniquement appliquer le filtre sur les points actuels et anciens. Toutefois, pour un traitement ad hoc, vous pouvez le définir sur true, et maintenir la synchronisation avec la série chronologique (voir les exemples ci-dessous). Techniquement parlant, ce paramètre contrôle le retard de groupe du filtre.
+
+**Exemples**
+
+Le calcul d’une moyenne mobile de 5 points peut être effectué en définissant les valeurs comme suit : filter=[1,1,1,1,1] et normalize=true (valeur par défaut). Notez l’effet de center=false (valeur défaut) par rapport à la valeur true :
+
+```AIQL
+range t from bin(now(), 1h)-23h to bin(now(), 1h) step 1h
+| summarize t=makelist(t)
+| project id='TS', val=dynamic([0,0,0,0,0,0,0,0,0,10,20,40,100,40,20,10,0,0,0,0,0,0,0,0]), t
+| extend 5h_MovingAvg=series_fir(val, dynamic([1,1,1,1,1])),
+         5h_MovingAvg_centered=series_fir(val, dynamic([1,1,1,1,1]), true, true)
+| render timechart
+```
+
+Cette requête renvoie :
+
+* *5h_MovingAvg :* filtre de moyenne mobile de 5 points. Le pic est lissé et son point culminant est déplacé de (5-1)/2 = 2 h.
+* *5h_MovingAvg_centered :* identique mais avec le paramètre center=true, le point culminant reste à son emplacement d’origine.
+
+![Résultats de la requête](./media/app-insights-analytics-reference/series-fir-1.png) (Pour afficher plusieurs lignes, décochez l’option « Fractionner » dans les contrôles du graphique.)
+
+Le calcul de la différence entre un point et le point précédent peut être effectué en définissant filter=[1,-1 ]:
+
+```AIQL
+range t from bin(now(), 1h)-11h to bin(now(), 1h) step 1h
+| summarize t=makelist(t)
+| project id='TS',t,value=dynamic([0,0,0,0,2,2,2,2,3,3,3,3])
+| extend diff=series_fir(value, dynamic([1,-1]), false, false)
+| render timechart
+```
+
+
+![Résultats de la requête](./media/app-insights-analytics-reference/series-fir-2.png)
+
+
+### <a name="seriesfitline"></a>series\_fit\_line
+La fonction series_fit_line() prend une colonne contenant un tableau numérique dynamique en tant qu’entrée, et effectue la régression linéaire afin de trouver la ligne qui lui convient mieux. Cette fonction doit être utilisée sur des tableaux de séries chronologiques, pour correspondre à la sortie de l’opérateur make-series. Il génère une colonne dynamique contenant les champs suivants :
+
+* *slope :* pente de la ligne approximative (il s’agit de `a` dans `y=ax+b`).
+* *interception :* interception de la ligne approximative (il s’agit de `b` dans `y=ax+b`).
+* *rsquare :* r-square est une mesure standard de qualité adaptée. Il s’agit d’un nombre dans la plage [0-1], où 1 est la meilleure correspondance possible, et 0 signifie que les données sont totalement désordonnées et ne correspondent à aucune ligne.
+* *variance :* variance des données d’entrée.
+* *rvariance :* variance résiduelle qui est l’écart entre les valeurs des données d’entrée et les valeurs approximatives.
+* *line_fit :* tableau numérique contenant une série de valeurs de la ligne la mieux adaptée. La longueur de la série est égale à la longueur du tableau d’entrée. Elle est principalement utilisée pour les graphiques.
+
+La méthode la plus pratique pour utiliser cette fonction est son application aux résultats de l’opérateur make-series.
+
+**Syntaxe**
+    
+    series_fit_line(x)
+
+**Arguments**
+
+* `x:` Tableau dynamique de valeurs numériques. Notez que la fonction attend que toutes les lignes aient le même nombre d’éléments de tableau. Autrement, des résultats vides seront renvoyés. 
+
+**Exemples**
+
+```AIQL
+range x from 1 to 1 step 1
+| project id=' ', x=range(bin(now(), 1h)-11h, bin(now(), 1h), 1h), y=dynamic([2,5,6,8,11,15,17,18,25,26,30,30])
+| extend (s,i,rs,v,rv,LineFit)=series_fit_line(y)
+| render timechart 
+```
+
+![Résultats de la requête](./media/app-insights-analytics-reference/series-fit-line.png)
+
+|Slope|Interception|RSquare|Variance|RVariance|LineFit|
+|---|---|---|---|---|---|
+|0.982|2.730|98.628|1.686|-1.666| 1.064, 3.7945, 6.526, 9.256, 11.987, 14.718, 17.449, 20.180, 22.910, 25.641, 28.371, |
+
+### <a name="seriesfit2lines"></a>series\_fit\_2lines
+
+La fonction series_fit_2lines() s’applique à la régression linéaire de deux segments d’une série (chronologique) afin d’identifier et de quantifier la modification de tendance dans une série. La fonction effectue une itération sur les index de la série. Dans chaque itération, elle fractionne la série 2 parties, correspond à une ligne distincte (à l’aide de series_fit_line()) de chaque partie et calcule la valeur r-square totale. La meilleure séparation est celle qui optimise la valeur r-square ; la fonction renvoie ses paramètres :
+
+* *rsquare :* r-square est une mesure standard de qualité adaptée. Il s’agit d’un nombre dans la plage [0-1], où 1 est la meilleure correspondance possible, et 0 signifie que les données sont totalement désordonnées et ne correspondent à aucune ligne
+* *split_idx :* l’index du point de rupture de 2 segments (basés sur zéro)
+* *variance :* variance des données d’entrée
+* *rvariance :* variance résiduelle qui est l’écart entre les valeurs des données d’entrée et les valeurs approximatives (selon les 2 segments linéaires).
+* *line_fit :* tableau numérique contenant une série de valeurs de la ligne la mieux adaptée. La longueur de la série est égale à la longueur du tableau d’entrée. Elle est principalement utilisée pour les graphiques.
+* *right_rsquare :* r-square de la ligne située à droite du fractionnement, voir series_fit_line()
+* *right_slope :* pente de la ligne droite approximative (il s’agit de a dans y=ax+b)
+* *right_interception :* interception de la ligne droite approximative (il s’agit de b dans y=ax+b)
+* *right_variance :* variance des données d’entrée sur le côté droit du fractionnement
+* *right_rvariance :* variance résiduelle des données d’entrée sur le côté droit du fractionnement
+* *left_rsquare :* r-square de la ligne située à gauche du fractionnement, voir series_fit_line()
+* *left_slope :* pente de la ligne gauche approximative (il s’agit de a dans y=ax+b)
+* *left_interception :* interception de la ligne gauche approximative (il s’agit de b dans y=ax+b)
+* *left_variance :* variance des données d’entrée sur le côté gauche du fractionnement
+* *left_rvariance :* variance résiduelle des données d’entrée sur le côté gauche du fractionnement
+
+Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisé en tant qu’argument pour une autre fonction.
+
+**Syntaxe**
+
+    project series_fit_2lines(x)
+
+Renverra toutes les colonnes mentionnées avec les noms suivants :`series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx and etc.`
+
+    project (rs, si, v)=series_fit_2lines(x)
+
+Renvoie les colonnes suivantes : `rs (r-square), si (split index), v (variance)` et le reste ressemblera à : `series_fit_2lines_x_rvariance, series_fit_2lines_x_line_fit`, etc.
+
+    extend (rs, si, v)=series_fit_2lines(x)
+
+Renvoie uniquement : rs (r-square), si (split index) et v (variance).
+
+**Arguments**
+
+* *x :* tableau dynamique de valeurs numériques. 
+
+La méthode la plus pratique pour utiliser cette fonction est son application aux résultats de l’opérateur make-series.
+
+**Exemples**
+
+```AIQL
+range x from 1 to 1 step 1
+| project id=' ', x=range(bin(now(), 1h)-11h, bin(now(), 1h), 1h), y=dynamic([1,2.2, 2.5, 4.7, 5.0, 12, 10.3, 10.3, 9, 8.3, 6.2])
+| extend (Slope,Interception,RSquare,Variance,RVariance,LineFit)=series_fit_line(y), (RSquare2, SplitIdx, Variance2,RVariance2,LineFit2)=series_fit_2lines(y)
+| project id, x, y, LineFit, LineFit2
+| render timechart
+```
+
+
+![Résultats de la requête](./media/app-insights-analytics-reference/series-fit-2lines.png)
+
+### <a name="seriesiir"></a>series_iir
+
+La fonction series_iir() applique un filtre Infinite Impulse Response (filtre à réponse impulsionnelle infinie) sur une série (qui est représentée par une colonne dynamique contenant le tableau numérique).
+
+Si les coefficients de filtre sont spécifiés, il peut être utilisé par exemple pour calculer la somme cumulée de la série, pour appliquer des opérations de lissage, ainsi que diverses filtres passe-haut, passe-bande et passe-bas.
+
+La fonction accepte comme entrée la colonne qui contient le tableau dynamique et deux tableaux statiques et dynamiques des coefficients a et b du filtre, et applique le filtre sur la colonne. Il génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
+
+**Syntaxe**
+
+    series_iir(x, b , a)
+
+**Arguments**
+
+
+* *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques, généralement le résultat des opérateurs make-series ou makelist.
+* *b :* une expression constante qui contient les coefficients numérateurs du filtre (stockés sous forme de tableau dynamique des valeurs numériques).
+* *a :* une expression constante, comme b. Contient les coefficients dénominateurs du filtre.
+
+    Le premier élément de a (c’est-à-dire a[0]) ne doit pas être égal à zéro (pour éviter une division par 0 ; voir la formule ci-dessous).
+
+**En savoir plus sur la formule récursive du filtre**
+
+Soit un tableau d’entrée X et des tableaux de coefficients a, b de longueurs `n_a` et `n_b` respectivement, la fonction de transfert du filtre, générant le tableau de sortie Y, est définie par (voir également Wikipédia) : 
+
+    Y[i] = 1/a[0] * ( b[0]*X[i] + b[1]*X[i-1] + … 
+                 + b[n_b-1]*X[i-n_b-1] — a[1]*Y[i-1] – a[2]*Y[i-2] – …
+                 – a[n_a-1]*Y[i-n_a-1] )
+
+
+**Exemples**
+
+Le calcul de la somme cumulée peut être effectué par le filtre iir avec des coefficients a=[1,-1] et b=[1] : 
+
+```AIQL
+let x = range(1.0, 10, 1);
+range t from 1 to 1 step 1
+| project x=x, y = series_iir(x, dynamic([1]), dynamic([1,-1]))
+| mvexpand x, y
+```
+
+|x|y|
+|---|---|
+|1.0|1.0|
+|2.0|3.0|
+|3.0|6.0|
+|4.0|10.0|
+
+
+### <a name="seriesperiods"></a>series_periods
+
+La fonction series_periods() recherche les périodes les plus significatives qui existent dans une série chronologique.
+
+Par exemple, très souvent une mesure déterminant le trafic d’une application se caractérise par deux cycles significatifs : un hebdomadaire et un quotidien. Étant donné cette série chronologique, series_periods() doit détecter ces 2 périodes dominantes.
+
+La fonction accepte en entrée une colonne contenant un tableau dynamique de série chronologique (généralement, le résultat d’un opérateur make-series), deux nombres réels définissant l’intervalle minimum et maximum (par exemple, le nombre d’emplacements, par exemple, pour un emplacement de 1 h la taille d’une période quotidienne serait 24) à rechercher, et un nombre long définissant le nombre total de périodes à rechercher par la fonction. La sortie est un tableau dynamique qui contient la taille des périodes qui ont été trouvées, classées par importance des périodes dans les données.
+
+**Syntaxe**
+
+    series_periods(x, min_period, max_period, num_periods)`
+
+**Arguments**
+
+* *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques, généralement le résultat des opérateurs make-series ou makelist.
+* *min_period :* un nombre réel spécifiant la période minimale à rechercher.
+* *max_period :* un nombre réel spécifiant la période maximale à rechercher.
+* *num_periods :* un nombre long spécifiant le nombre de périodes maximal requis. Il s’agit de la longueur du tableau dynamique de sortie.
+
+**Remarques importantes**
+
+* L’algorithme derrière series\_periods() requiert au moins 4 points dans une période pour la détection. Par conséquent, la valeur minimale de min_period est 4. Si min_period est défini sur une valeur inférieure, la fonction remplace cette valeur par 4.
+* La valeur maximale de max_period est la moitié de la longueur de la série d’entrée. Si max_period est défini sur une valeur supérieure, la fonction l’ajuste à cette valeur.
+* Comme mentionné ci-dessus, les périodes qui en résultent sont dans des unités de placement, par exemple, si la série d’origine a une période quotidienne et a été agrégée par emplacements horaires, une période quotidienne de la sortie sera 24. Si les données sont agrégées par minute, la sortie sera de 60 × 24 = 1 440.
+* Vous devez définir min\_period un peu ci-dessous et max\_period un peu au-dessus des périodes que vous vous attendez à trouver dans la série chronologique. Par exemple, si vous disposez d’un signal agrégé horaire, et que vous recherchez des périodes quotidiennes et hebdomadaires (qui seraient 24 et 168 respectivement), vous pouvez définir min\_period=0,824, *max\_period=1,2*168.
+* La longueur du tableau dynamique de sortie est num\_of\_periods ; si la fonction a trouvé moins de num\_of\_periods périodes significatives, le reste des entrées du tableau sera défini sur 0.
+* La série chronologique d’entrée doit être régulière, c’est-à-dire agrégé en emplacements constants (ce qui est toujours le cas si elle a été créée à l’aide de make-series). Dans le cas contraire, le résultat n’est pas significatif.
+
+**Exemple**
+
+Par exemple, la requête suivante incorpore un instantané d’un mois du trafic d’une application, agrégé deux fois par jour (c.-à-d., toutes les 12 heures).
+
+```AIQL
+range x from 1 to 1 step 1
+| project y=dynamic([80,139,87,110,68,54,50,51,53,133,86,141,97,156,94,149,95,140,77,61,50,54,47,133,72,152,94,148,105,162,101,160,87,63,53,55,54,151,103,189,108,183,113,175,113,178,90,71,62,62,65,165,109,181,115,182,121,178,114,170])
+| project x=range(1, arraylength(y), 1), y  
+| render linechart
+```
+
+![Résultats de la requête](./media/app-insights-analytics-reference/series-periods1.png)
+
+L’exécution de series_periods() sur cette série dans la période hebdomadaire (longue de 14 points) :
+
+```AIQL
+range x from 1 to 1 step 1
+| project y=dynamic([80,139,87,110,68,54,50,51,53,133,86,141,97,156,94,149,95,140,77,61,50,54,47,133,72,152,94,148,105,162,101,160,87,63,53,55,54,151,103,189,108,183,113,175,113,178,90,71,62,62,65,165,109,181,115,182,121,178,114,170])
+| project x=range(1, arraylength(y), 1), y  
+| project periods = series_periods(y, 4.0, 50.0, 2)
+```
+
+|periods|
+|---|
+|[14.0, 0.0]|
+
+### <a name="seriesstats"></a>series_stats
+
+La fonction series_stats() prend une colonne contenant un tableau numérique dynamique comme entrée, et calcule les colonnes suivantes :
+
+* *min :* valeur minimale dans le tableau d’entrée
+* *min_idx :* valeur maximale dans le tableau d’entrée
+* *max :* valeur maximale dans le tableau d’entrée
+* *max_idx :* valeur maximale dans le tableau d’entrée
+* *moyenne :* valeur moyenne du tableau d’entrée
+* *variance :* exemple de variance du tableau d’entrée
+* *stdev :* exemple d’écart standard du tableau d’entrée
+
+Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisé en tant qu’argument pour une autre fonction.
+
+**Syntaxe**
+
+    project series_stats(x)
+
+Renvoie toutes les colonnes mentionnées ci-dessus portant les noms suivants : serie\_stats\_x\_min, series\_stats\_x\_min\_idx, etc.
+
+    project (m, mi)=series_stats(x)
+
+Renvoie les colonnes suivantes : `m (min), mi (min_idx)` et le reste ressemblera à `series_stats_x_max, series_stats_x_line_max_idx`, etc.
+
+    extend (m, mi)=series_stats(x)
+
+Renvoie uniquement : m (min) et mi (min_idx).
+
+**Arguments**
+
+* *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques. 
+
+**Exemples**
+
+Pour l’entrée suivante :
+
+` [1,6,11,16,21,26,31,36,41,46,51,56,61,66,71,76,81,86,91,96]`
+
+series_stats() renvoie :
+
+|min|min\_idx|max|max\_idx|average|variance|stdev|
+|---|---|---|---|---|---|---|
+|1.0|1|96.0|19|48.5|29.58039891549808|875.0|
 
 
 ## <a name="date-and-time"></a>Date et heure

@@ -1,6 +1,6 @@
 ---
-title: Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux | Microsoft Docs
-description: Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux
+title: "Utilisation de la configuration PM2 pour Node.js dans l’application web Azure sur Linux | Microsoft Docs"
+description: "Utilisation de la configuration PM2 pour Node.js dans l’application web Azure sur Linux"
 keywords: azure app service, application web, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7ad48d42f8cc847ece199a2372c20430c4c8424e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Utiliser la configuration PM2 pour Node.js dans les applications Web sur Linux
-Si vous définissez la pile d’applications sur Node.js pour les applications web sous Linux, vous avez la possibilité de définir un fichier de démarrage Node.js, comme indiqué dans l’image suivante :
+# <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>Utiliser la configuration PM2 pour Node.js dans l’application web Azure sur Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Si vous définissez la pile d’applications sur Node.js pour l’application web Azure sur Linux, vous avez la possibilité de définir un fichier de démarrage Node.js, comme indiqué dans l’image suivante :
 
 ![Définir un fichier de démarrage Node.js][1]
 
@@ -61,8 +66,8 @@ Les éléments importants à prendre en compte dans cette configuration sont les
 * Pour « watch_options », vous devez actuellement attribuer la valeur true à « usePolling » en raison de la façon dont le contenu de votre application est monté.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
-* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)
+* [Qu’est-ce que l’application web Azure sur Linux ?](app-service-linux-intro.md)
+* [FAQ Application web Azure App Service sur Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

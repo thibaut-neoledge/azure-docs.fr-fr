@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -183,11 +184,11 @@ Si l’application a correctement démarré, le journal stdout doit afficher le 
 Vous pouvez contrôler la granularité des journaux stdout dans le fichier [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) .
 
 ## <a name="connect-to-a-database-in-azure"></a>Se connecter à une base de données dans Azure
-Pour vous connecter à une base de données dans Azure, créez la base de données de votre choix dans Azure, par exemple Azure SQL Database, MySQL, MongoDB, Cache (Redis) Azure, etc. et utilisez [l’adaptateur de banque de données](https://github.com/balderdashy/sails#compatibility) correspondant pour la connexion. Les étapes décrites dans cette section vous montrent comment se connecter à MongoDB à l’aide d’une base de données [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md), qui peut prendre en charge les connexions clientes à MongoDB.
+Pour vous connecter à une base de données dans Azure, créez la base de données de votre choix dans Azure, par exemple Azure SQL Database, MySQL, MongoDB, Cache (Redis) Azure, etc. et utilisez [l’adaptateur de banque de données](https://github.com/balderdashy/sails#compatibility) correspondant pour la connexion. Les étapes décrites dans cette section vous montrent comment se connecter à MongoDB à l’aide d’une base de données [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md), qui peut prendre en charge les connexions clientes à MongoDB.
 
-1. [Créez un compte DocumentDB prenant en charge le protocole MongoDB](../documentdb/documentdb-create-mongodb-account.md).
-2. [Créez une collection et une base de données DocumentDB](../documentdb/documentdb-create-collection.md). Le nom de la collection n’a pas d’importance, mais vous avez besoin du nom de la base de données lorsque vous vous connectez à partir de Sails.js.
-3. [Recherchez les informations de connexion pour votre base de données DocumentDB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+1. [Créez un compte Cosmos DB prenant en charge le protocole MongoDB](../documentdb/documentdb-create-mongodb-account.md).
+2. [Créez une collection et une base de données Cosmos DB](../documentdb/documentdb-create-collection.md). Le nom de la collection n’a pas d’importance, mais vous avez besoin du nom de la base de données lorsque vous vous connectez à partir de Sails.js.
+3. [Recherchez les informations de connexion pour votre base de données Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. Dans votre terminal de ligne de commande, installez l’adaptateur MongoDB :
 
         npm install sails-mongo --save
@@ -205,11 +206,11 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
         },
 
     > [!NOTE] 
-    > L’option `ssl: true` est importante, car [Azure DocumentDB en a besoin](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > L’option `ssl: true` est importante, car [Cosmos DB en a besoin](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
-4. Vous devez définir chaque variable d’environnement (`process.env.*`) dans App Service. Pour ce faire, exécutez les commandes suivantes à partir de votre terminal. Utilisez les informations de connexion pour votre base de données DocumentDB.
+4. Vous devez définir chaque variable d’environnement (`process.env.*`) dans App Service. Pour ce faire, exécutez les commandes suivantes à partir de votre terminal. Utilisez les informations de connexion pour Cosmos DB.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -230,7 +231,7 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
             },
         },
 
-    Cette configuration remplace les paramètres de votre fichier config/connections.js pour l’environnement local. Ce fichier est exclu par le .gitignore par défaut dans votre projet, il n’est donc pas stocké dans Git. À présent, vous êtes en mesure de vous connecter à votre base de données DocumentDB (MongoDB) depuis votre application web Azure et depuis votre environnement de développement local.
+    Cette configuration remplace les paramètres de votre fichier config/connections.js pour l’environnement local. Ce fichier est exclu par le .gitignore par défaut dans votre projet, il n’est donc pas stocké dans Git. À présent, vous êtes en mesure de vous connecter à votre base de données Cosmos DB (MongoDB) depuis votre application web Azure et depuis votre environnement de développement local.
 6. Ouvrez config/env/production.js pour configurer votre environnement de production et ajoutez l’objet `models` suivant :
 
         models: {
@@ -270,7 +271,7 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
 
          http://<appname>.azurewebsites.net/mywidget/create
 
-     Si l’API renvoie une autre nouvelle entrée, votre application web Azure parle à votre base de données DocumentDB (MongoDB).
+     Si l’API renvoie une autre nouvelle entrée, votre application web Azure parle à votre base de données Cosmos DB (MongoDB).
 
 ## <a name="more-resources"></a>Autres ressources
 * [Prise en main des applications web Node.js dans Azure App Service](app-service-web-get-started-nodejs.md)
