@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 03756c15d0cd46731e66df3d81c97099f13dcd17
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Azure Event Hubs Archive
-Azure Event Hubs Archive vous permet de fournir automatiquement les données en continu dans Event Hubs vers le compte de stockage Blob de votre choix avec une souplesse accrue pour spécifier un intervalle personnalisé de temps ou de taille. La configuration de l’outil Archive est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-what-is-event-hubs.md#capacity) Event Hubs. Event Hubs Archive représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure, et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
+Azure Event Hubs Archive vous permet de fournir automatiquement les données en continu dans Event Hubs vers le compte de stockage Blob de votre choix avec une souplesse accrue pour spécifier un intervalle personnalisé de temps ou de taille. La configuration de l’outil Archive est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-features.md#capacity) Event Hubs. Event Hubs Archive représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure, et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
 
 Event Hubs Archive vous permet de traiter des pipelines basés sur des lots et en temps réel sur le même flux. Cela vous permet de créer des solutions capables d’évoluer avec vos besoins au fil du temps. Que vous créiez des systèmes basés sur des lots dès aujourd’hui en pensant au traitement en temps réel à l’avenir, ou que vous souhaitiez ajouter un chemin à froid efficace vers une solution existante en temps réel, Event Hubs Archive facilite la tâche avec les données diffusées en continu.
 
 ## <a name="how-event-hubs-archive-works"></a>Fonctionnement de l’outil Event Hubs Archive
-Event Hubs est une mémoire tampon durable de rétention temporelle pour l’entrée de télémétrie, similaire à un journal distribué. La clé de la mise à l’échelle dans Event Hubs est le [modèle de consommateur partitionné](event-hubs-what-is-event-hubs.md#partitions). Chaque partition est un segment de données indépendant, et est utilisée de manière indépendante. Au fil du temps ces données vieillissent, en fonction de la période de rétention configurable. Par conséquent, un hub d’événements donné n’est jamais « saturé ».
+Event Hubs est une mémoire tampon durable de rétention temporelle pour l’entrée de télémétrie, similaire à un journal distribué. La clé de la mise à l’échelle dans Event Hubs est le [modèle de consommateur partitionné](event-hubs-features.md#partitions). Chaque partition est un segment de données indépendant, et est utilisée de manière indépendante. Au fil du temps ces données vieillissent, en fonction de la période de rétention configurable. Par conséquent, un hub d’événements donné n’est jamais « saturé ».
 
 Event Hubs Archive vous permet de spécifier votre propre compte de stockage Blob Azure, ainsi qu’un conteneur qui sera utilisé pour stocker les données archivées. Ce compte peut se trouver dans la même région que votre hub d’événements ou dans une autre région, ce qui ajoute à la flexibilité de la fonctionnalité Event Hubs Archive.
 
@@ -41,7 +42,7 @@ Event Hubs Archive vous permet de définir une « fenêtre » pour contrôler 
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Mise à l’échelle des unités de débit
-Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-what-is-event-hubs.md#capacity). Une unité de débit autorise 1 Mo/s ou 1 000 événements par seconde d’entrée et 2 000 événements par seconde de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec 1 à 20 unités de débit, et vous pouvez en acheter d’autres en soumettant une [demande de support][support request] d’augmentation de quota. L’utilisation au-delà des unités de débit que vous avez achetées est limitée. Event Hubs Archive copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
+Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-features.md#capacity). Une unité de débit autorise 1 Mo/s ou 1 000 événements par seconde d’entrée et 2 000 événements par seconde de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec 1 à 20 unités de débit, et vous pouvez en acheter d’autres en soumettant une [demande de support][support request] d’augmentation de quota. L’utilisation au-delà des unités de débit que vous avez achetées est limitée. Event Hubs Archive copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
 
 Une fois configuré, l’outil Event Hubs Archive s’exécute automatiquement dès que vous envoyez votre premier événement. Il continue à s’exécuter en permanence. Pour que votre traitement en aval sache plus facilement que le processus fonctionne, les Event Hubs écrivent des fichiers vides en l’absence de données. Cela fournit une cadence prévisible et un marqueur qui peuvent alimenter vos processeurs de traitement par lots.
 

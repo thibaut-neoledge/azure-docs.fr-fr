@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 2d2527248c5812704ebfc1174222304c388fec07
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: ecbaba6b7ce2d07bde1d9f6c4b723b3fa5e53c54
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Cet exemple de script crée tous les éléments nécessaires pour exécuter plus
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Création rapide de machine virtuelle")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Création rapide de machine virtuelle")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

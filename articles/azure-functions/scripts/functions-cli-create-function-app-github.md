@@ -1,25 +1,23 @@
 ---
 title: "Créer une Function App et déployer le code de fonction à partir de GitHub | Microsoft Docs"
-description: "Créer une Function App et déployer le code de fonction à partir de GitHub"
+description: "Exemple de script Azure CLI - Créer une Function App et déployer le code de fonction à partir de GitHub"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
+ms.service: functions
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0
+ms.openlocfilehash: f87cf7d300b4c2b89ad692aadcda958e9747c7f9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
 
 ---
-# <a name="create-an-app-service"></a>Créer un App Service
+# <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Créer une Function App et déployer le code de fonction à partir de GitHub
 
-Cet exemple de script crée une Function App à l’aide du [plan de consommation](../functions-scale.md#consumption-plan) avec les ressources associées et déploie en continu votre code de fonction à partir d’un référentiel GitHub. Dans cet exemple, vous aurez besoin des éléments suivants :
-
-* Un référentiel GitHub avec du code de fonction, pour lequel vous disposez d’autorisations d’administration.
-* Un [jeton d’accès personnel](https://help.github.com/articles/creating-an-access-token-for-command-line-use) pour votre compte GitHub.
+Cet exemple de script crée une Function App à l’aide du [plan de consommation](../functions-scale.md#consumption-plan) avec les ressources associées et déploie votre code de fonction à partir d’un référentiel GitHub public (sans déploiement continu). En ce qui concerne la livraison continue du code de fonction à partir de GitHub, consultez la page [Créer une Function App et déployer en continu à partir de GitHub](functions-cli-create-function-app-github-continuous.md)
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,7 +25,7 @@ Cet exemple de script crée une Function App à l’aide du [plan de consommatio
 
 Cet exemple crée une Function App Azure et déploie le code de fonction à partir de GitHub.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Service Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Créer une Function App avec un déploiement à partir de GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -39,7 +37,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crée un plan App Service. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Crée une Function App Azure. |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associe une Function App à un référentiel Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Étapes suivantes

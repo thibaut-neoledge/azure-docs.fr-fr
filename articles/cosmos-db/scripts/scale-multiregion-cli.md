@@ -1,6 +1,6 @@
 ---
-title: "Exemple de script Azure CLI - Créer une stratégie de basculement pour une haute disponibilité | Microsoft Docs"
-description: "Exemple de script Azure CLI - Créer une stratégie de basculement pour une haute disponibilité"
+title: "Script CLI Azure - Réplication multirégion Azure Cosmos DB | Microsoft Docs"
+description: "Exemple de script CLI Azure - Réplication multirégion Azure Cosmos DB"
 services: cosmosdb
 documentationcenter: cosmosdb
 author: mimig1
@@ -18,21 +18,21 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 24ce695bdc48e1fc196415dcee8c3dab269e1e91
+ms.openlocfilehash: cde5ff007dc7b26db33e195dd6cb528675ecd391
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
 
 ---
 
-# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Créer une stratégie de basculement pour une haute disponibilité à l’aide d’Azure CLI
+# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Répliquer un compte de base de données Azure Cosmos DB dans plusieurs régions et configurer les priorités de basculement avec la CLI Azure
 
-Cet exemple de script CLI crée un compte Azure Cosmos DB, puis le configure pour la haute disponibilité.
+Cet exemple réplique tout type de compte de base de données Azure Cosmos DB dans plusieurs régions et configure les priorités de basculement à l’aide de la CLI Azure.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Créer une stratégie de basculement Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Mettre à l’échelle Azure Cosmos DB dans plusieurs régions")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -49,8 +49,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Remarques |
 |---|---|
 | [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](/cli/azure/sql/server#create) | Crée un compte Azure Cosmos DB. |
-| [az cosmosdb update](/cli/azure/cosmosdb#update) | Met à jour un compte Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Met à jour un compte Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
