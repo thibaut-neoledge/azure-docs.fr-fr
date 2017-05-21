@@ -116,7 +116,7 @@
 ### [Meilleures pratiques en matière de sécurité](iot-hub-security-best-practices.md)
 ### [Architecture de la sécurité](iot-hub-security-architecture.md)
 ### [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
-## Kit de développement logiciel (SDK) Gateway
+## IoT Edge
 ### Simuler un appareil
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (appareils)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Kits de développement logiciel (SDK) Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [Kit de développement logiciel (SDK) Gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (fournisseur de ressources)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identités des appareils)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [Représentations d’appareil physique](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
