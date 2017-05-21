@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Utiliser les didacticiels interactifs Azure Data Lake Analytics
 Le Portail Azure fournit un didacticiel interactif pour vous permettre de vous familiariser avec Data Lake Analytics. Cet article vous indique comment parcourir le didacticiel pour l’analyse des journaux de sites web.
-
-> [!NOTE]
-> Si vous souhaitez suivre ce même didacticiel à l'aide de Visual Studio, consultez [Analyser les journaux des sites web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> D'autres didacticiels interactifs à ajouter au portail.
-> 
-> 
 
 Pour les autres didacticiels, consultez :
 
@@ -87,10 +83,5 @@ Chaque compte Data Lake Analytics possède une dépendance de compte [Azure Data
 * [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

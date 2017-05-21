@@ -15,10 +15,10 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -411,5 +411,6 @@ Vous pouvez maintenant procéder à la [reprotection](site-recovery-how-to-repro
 * Veillez à ne pas activer Storage vMotion sur des composants de gestion tels qu’un serveur cible maître. Si le serveur cible maître est déplacé après une reprotection, les disques de machine virtuelle (VMDK) ne peuvent pas être détachés et la restauration échouera.
 * Le serveur cible maître ne doit pas présenter d’instantanés sur la machine virtuelle. Si des instantanés sont présents, la restauration automatique échouera.
 * En raison de configurations de carte réseau personnalisées chez certains clients, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/sysconfig/network-scripts/ifcfg-eth de la carte Ethernet.
-        * BOOTPROTO=dhcp * ONBOOT=yes
+    * BOOTPROTO=dhcp
+    * ONBOOT=yes
 
