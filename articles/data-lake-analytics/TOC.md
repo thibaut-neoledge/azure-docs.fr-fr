@@ -17,6 +17,7 @@
 ## Développement
 ### [Concepts de base de U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Catalogue U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Jointures U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
 ### [Paramètres U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Fonctions de fenêtre U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Opérateurs U-SQL définis par l’utilisateur](data-lake-analytics-u-sql-develop-user-defined-operators.md)

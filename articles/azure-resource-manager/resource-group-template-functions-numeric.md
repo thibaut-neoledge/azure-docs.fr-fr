@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 5844540801a6f0ff593b3f404f6815473c65a52e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -91,7 +91,7 @@ Entier qui contient la somme des paramètres.
 <a id="copyindex" />
 
 ## <a name="copyindex"></a>copyIndex
-`copyIndex(offset)`
+`copyIndex(loopName, offset)`
 
 Retourne l’index d’une boucle d’itération. 
 
@@ -99,11 +99,16 @@ Retourne l’index d’une boucle d’itération.
 
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
+| loopName | Non | string | Nom de la boucle pour l’obtention de l’itération. |
 | Offset |Non |int |Le nombre à ajouter à la valeur d’itération de base zéro. |
 
 ### <a name="remarks"></a>Remarques
 
-Cette fonction est toujours utilisée avec un objet **copy** . Si aucune valeur n’est fournie pour **offset**, la valeur d’itération actuelle est retournée. La valeur d’itération commence à zéro. Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Cette fonction est toujours utilisée avec un objet **copy** . Si aucune valeur n’est fournie pour **offset**, la valeur d’itération actuelle est retournée. La valeur d’itération commence à zéro.
+
+La propriété **loopName** permet d’indiquer si copyIndex fait référence à une itération de ressource ou de propriété. Si aucune valeur n’est indiquée pour **loopName**, l’itération du type de ressource actuelle est utilisée. Indiquez une valeur pour **loopName** lors de l’itération sur une propriété. 
+ 
+Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 ### <a name="examples"></a>Exemples
 
@@ -496,7 +501,7 @@ L’exemple suivant soustrait un paramètre à un autre paramètre.
 Entier représentant la multiplication.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).

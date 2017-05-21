@@ -11,6 +11,7 @@
 ## [Présentation de la solution d’usine connectée](iot-suite-connected-factory-overview.md)
 ## [Procédure pas à pas pour la solution de surveillance à distance](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Procédure pas à pas pour la solution de maintenance prédictive](iot-suite-predictive-walkthrough.md)
+## [Procédure pas à pas de la solution d’usine connectée](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Connexion de votre Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Utiliser C
 #### [Données simulés](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
