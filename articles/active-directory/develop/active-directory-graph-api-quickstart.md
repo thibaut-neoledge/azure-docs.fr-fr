@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: patricka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: bf079cab3da388a497fc5b7c7ea3d5157cea5ffd
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: adefef44d9d3d8e986b26ebe813ecd5d3a6c6f3f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/29/2017
 L’API Graph Azure Active Directory (AD) donne accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire. Par exemple, vous pouvez utiliser l’API Graph pour créer un utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier que l’appartenance à un groupe offre un accès en fonction du rôle, et désactiver ou supprimer l’utilisateur. Pour plus d’informations sur les fonctionnalités de l’API Graph et les scénarios d’application, consultez [Azure AD Graph API reference (Référence sur l’API Graph Azure AD)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Prerequisites for Using the Graph API in an App (Conditions préalables à l’utilisation de l’API Graph dans une application)](https://msdn.microsoft.com/library/hh974476.aspx). 
 
 > [!IMPORTANT]
-> Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://graph.microsoft.io/) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory. Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Azure AD Graph peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
+> Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://developer.microsoft.com/graph) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory. Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Azure AD Graph peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
 > 
 > 
 

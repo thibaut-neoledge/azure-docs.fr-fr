@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 181428e5302c5c8f5b72f06d6c54b0f87802690a
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: 69f1363c26d8b5a18ffd5629c6a49c34306dd7c0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -46,7 +46,7 @@ Les distributions suivantes dans la Place de marché Azure sont prises en charge
 * Red Hat Enterprise Linux 7.3 
 * Basé sur CentOS 7.3 
 
-**Pilotes pris en charge** : NVIDIA CUDA 8.0, branche pilote R375. [Procédure d’installation](#install-CUDA-drivers-for-NC-VMs)
+**Pilotes pris en charge** : NVIDIA CUDA 8.0, branche pilote R375. [Procédure d’installation](#install-cuda-drivers-for-nc-vms)
 
 
 
