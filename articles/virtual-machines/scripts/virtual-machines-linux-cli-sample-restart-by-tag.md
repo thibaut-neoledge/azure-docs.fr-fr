@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fec7a2738c3b8e74ac335f62189f3d9b1dd346ab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -59,19 +59,19 @@ Le troisième script redémarre toutes les machines virtuelles qui ont été con
 Ce script crée un groupe de ressources, puis trois machines virtuelles à redémarrer.
 Deux présentent un indicateur.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Approvisionnement des machines virtuelles")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Approvisionnement des machines virtuelles")]
 
 ### <a name="wait"></a>Wait
 
 Ce script vérifie l’état de configuration toutes les 20 secondes jusqu'à ce que les trois machines virtuelles soient approvisionnées, ou qu’une d’entre elles ne puisse l’être.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Attente du provisionnement des machines virtuelles")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Attente du provisionnement des machines virtuelles")]
 
 ### <a name="restart-the-vms"></a>Redémarrer les machines virtuelles
 
 Ce script redémarre toutes les machines virtuelles dans le groupe de ressources, puis redémarre uniquement les machines virtuelles marquées.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Redémarrer les machines virtuelles par balise")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Redémarrer les machines virtuelles par balise")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

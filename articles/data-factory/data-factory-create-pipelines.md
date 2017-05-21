@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -281,7 +281,7 @@ Vous pouvez également chaîner des activités se trouvant dans des pipelines di
 
 Dans cet exemple, Pipeline1 ne contient qu’une seule activité qui utilise Dataset1 comme entrée et produit Dataset2 comme sortie. Pipeline2 ne contient également qu’une seule activité qui utilise Dataset2 comme entrée et produit Dataset3 comme sortie. 
 
-Pour plus d’informations, consultez [Planification et exécution](#chaining-activities). 
+Pour plus d’informations, consultez [Planification et exécution](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="create-and-monitor-pipelines"></a>Créer et surveiller des pipelines
 Vous pouvez créer des pipelines à l’aide de l’un de ces outils ou kits de développement logiciel (SDK). 

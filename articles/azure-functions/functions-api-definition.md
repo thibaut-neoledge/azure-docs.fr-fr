@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 08063960d3956ca65dd32d9fe726c366799a2087
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: aac362f5123038cc39e0d2b32c10f7747a702cfe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -34,10 +35,10 @@ Cette fonctionnalité de la version préliminaire vous permet d’écrire une d�
 
 ## <a name="enable"></a>Activation la prise en charge de la définition OpenAPI
 * Tous les paramètres OpenAPI peuvent être configurés sur la page `API Definition (preview)` des paramètres de votre application Function.
-* Paramétrez `API defintion source` sur `Function` pour activer une définition OpenAPI hébergée et une génération de définition à démarrage rapide.
+* Paramétrez `API definition source` sur `Function` pour activer une définition OpenAPI hébergée et une génération de définition à démarrage rapide.
   * `External URL` permet à votre fonction d’utiliser une définition OpenAPI qui est hébergée ailleurs.
 
-## <a name="generate-defintion"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
+## <a name="generate-definition"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
 Le modèle est la solution idéale pour commencer à écrire votre première définition OpenAPI. La fonctionnalité de modèle de définition crée une définition OpenAPI partielle à l’aide de toutes les métadonnées dans function.json, pour chacune de vos fonctions de déclencheur HTTP. **Vous devez renseigner plus d’informations sur votre API à partir de la [spécification OpenAPI](http://swagger.io/specification/), comme les modèles de requête et de réponse.**
 
 [Consultez ce didacticiel de prise en main pour obtenir la procédure détaillée.](./functions-api-definition-getting-started.md)
