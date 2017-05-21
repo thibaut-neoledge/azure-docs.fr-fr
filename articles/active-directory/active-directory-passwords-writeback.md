@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d53fb9003ed3b6805c3ee5cfda966e556844e0ff
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de l’écriture différée de mot de passe
 
-L’écriture différée de mot de passe vous permet de configurer Azure AD pour l’écriture différée des mots de passe vers l’environnement Active Directory local. Cela vous évite d’avoir à configurer et à gérer une solution de réinitialisation de mot de passe libre-service locale complexe en offrant à vos utilisateurs un moyen pratique via le cloud de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent. L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](connect/active-directory-aadconnect.md) qui peut être activé et utilisé par les abonnés actifs des [éditions Premium d’Azure Active Directory](active-directory-editions.md).
+L’écriture différée de mot de passe vous permet de configurer Azure AD pour l’écriture différée des mots de passe vers l’environnement Active Directory local. Cela vous évite d’avoir à configurer et à gérer une solution de réinitialisation de mot de passe libre-service locale complexe en offrant à vos utilisateurs un moyen pratique via le cloud de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent. L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) qui peut être activé et utilisé par les abonnés actifs des [éditions Premium d’Azure Active Directory](active-directory-editions.md).
 
 L’écriture différée des mots de passe fournit les fonctionnalités suivantes
 
 * **Retour d’informations immédiat** : l’écriture différée de mot de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne remplit pas les critères des stratégies ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
 * **Prend en charge la réinitialisation des mots de passe des utilisateurs se servant d’AD FS ou autres technologies de fédération** : avec l’écriture différée de mot de passe, tant que les comptes utilisateur fédérés sont synchronisés dans votre client Azure AD, ils sont en mesure de gérer leurs mots de passe AD locaux à partir du cloud.
-* **Prise en charge de la réinitialisation des mots de passe pour les utilisateurs qui ont recours à la [synchronisation de hachage de mot de passe](/connect/active-directory-aadconnectsync-implement-password-synchronization.md)** : lorsque le service de réinitialisation des mots de passe détecte qu’un compte d’utilisateur synchronisé est activé pour la synchronisation de hachage de mot de passe, le mot de passe local de ce compte et le mot de passe du cloud sont tous deux réinitialisés simultanément.
+* **Prise en charge de la réinitialisation des mots de passe pour les utilisateurs qui ont recours à la [synchronisation de hachage de mot de passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)** : lorsque le service de réinitialisation des mots de passe détecte qu’un compte d’utilisateur synchronisé est activé pour la synchronisation de hachage de mot de passe, le mot de passe local de ce compte et le mot de passe du cloud sont tous deux réinitialisés simultanément.
 * **Prend en charge la modification des mots de passe à partir du panneau d’accès et Office 365** : lorsque des utilisateurs fédérés ou synchronisés par mot de passe viennent à modifier leurs mots de passe ayant expiré ou non, nous réécrivons ces mots de passe dans votre environnement AD local.
 * **Prend en charge l’écriture différée des mots de passe lorsqu’un administrateur les réinitialise depuis le portail Azure** : chaque fois qu’un administrateur réinitialise le mot de passe d’un utilisateur dans le [portail Azure](https://portal.azure.com), si cet utilisateur est fédéré ou dispose de la synchronisation de mot de passe, nous définissons également le mot de passe sélectionné par l’administrateur sur votre annuaire AD local. Cette fonctionnalité n’est pas prise en charge actuellement dans le portail d’administration Office.
 * **Applique vos stratégies de mot de passe AD locales** : lorsqu’un utilisateur réinitialise son mot de passe, nous nous assurons qu’il répond à votre stratégie AD locale avant de la valider dans cet annuaire. Cela comprend l’historique, la complexité, l’âge, les filtres de mot de passe et toute autre restriction de mot de passe que vous avez définie dans votre annuaire Active Directory local.
@@ -76,7 +76,7 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Scénarios pris en charge par l’écriture différée de mot de passe
 
-Nous vous recommandons d’utiliser la fonctionnalité de mise à jour automatique [d’Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md) si vous souhaitez utiliser l’écriture différée de mot de passe.
+Nous vous recommandons d’utiliser la fonctionnalité de mise à jour automatique [d’Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) si vous souhaitez utiliser l’écriture différée de mot de passe.
 
 Des informations supplémentaires sur [le cycle de vie de la prise en charge d’Azure AD Sync et DirSync](connect/active-directory-aadconnect-dirsync-deprecated.md)
 
@@ -170,17 +170,17 @@ La taille de chacun des messages décrits ci-dessus est généralement inférieu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
+Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide** ](active-directory-passwords-getting-started.md) - soyez rapidement opérationnel avec la gestion de mots de passe en libre-service d’Azure AD 
-* [**Licences** ](active-directory-passwords-licensing.md) - configurez vos licences Azure AD
-* [**Données** ](active-directory-passwords-data.md) : comprenez les données requises et comment elles sont utilisées pour la gestion des mots de passe
-* [**Déploiement** ](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service sur vos utilisateurs grâce aux conseils figurant ici
-* [**Personnalisation** ](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
-* [**Stratégie** ](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
-* [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service
-* [**Présentation technique approfondie** ](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours
-* [**Résolution des problèmes** ](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service d’Azure AD. 
+* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
+* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
+* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
+* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
+* [**Stratégie**](active-directory-passwords-policy.md) : comprenez mieux et définissez les stratégies de mot de passe d’Azure AD.
+* [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
+* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
+* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
+* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
 
 

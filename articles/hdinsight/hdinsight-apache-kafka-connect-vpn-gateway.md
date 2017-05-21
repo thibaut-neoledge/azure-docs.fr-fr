@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9ddf19c008c35525419a357436b1a969a4b19205
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -229,7 +230,7 @@ Par défaut, Zookeeper renvoie le nom de domaine des répartiteurs Kafka aux cli
 
     Lorsque vous y êtes invité, utilisez le nom et le mot de passe utilisateur HTTPS correspondant au cluster. L’interface utilisateur web d’Ambari pour le cluster s’affiche.
 
-2. Pour afficher plus d’informations sur Kafka, sélectionnez __Kafka__ dans la liste sur la gauche. 
+2. Pour afficher plus d’informations sur Kafka, sélectionnez __Kafka__ dans la liste sur la gauche.
 
     ![Liste des services avec l’option Kafka en surbrillance](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -271,7 +272,7 @@ Par défaut, Zookeeper renvoie le nom de domaine des répartiteurs Kafka aux cli
 
 ## <a name="connect-to-the-vpn-gateway"></a>Connexion à la passerelle VPN
 
-Pour vous connecter à la passerelle VPN à partir d’un __client Windows__, suivez la section __Connexion à Azure__ du document [Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure).
+Pour vous connecter à la passerelle VPN à partir d’un __client Windows__, suivez la section __Connexion à Azure__ du document [Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate).
 
 ## <a name="remote-kafka-client"></a>Client Kafka distant
 
@@ -319,7 +320,7 @@ Pour vous connecter à Kafka à partir de l’ordinateur client, vous devez util
   ```
 
     Remplacez les entrées `'ip_address'` par les adresses renvoyées à partir de l’étape 1 de cette section.
-    
+
     > [!NOTE]
     > Ce code envoie la chaîne `test message` à la rubrique `testtopic`. La configuration par défaut de Kafka sur HDInsight consiste à créer la rubrique si elle n’existe pas.
 

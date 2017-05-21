@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: a3ceca6cd0f470a5cd6849c345867f094b870a85
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Présentation d’Apache Kafka sur HDInsight (version préliminaire)
@@ -48,10 +49,6 @@ Kafka fournit les fonctionnalités suivantes :
 * **Agrégation** : avec le traitement de flux de données, vous pouvez agréger des informations à partir de différents flux afin de combiner et de centraliser les informations dans des données opérationnelles.
 
 * **Transformation** : avec le traitement de flux de données, vous pouvez combiner et enrichir les données à partir de plusieurs rubriques d’entrée dans une ou plusieurs rubriques de sortie.
-
-## <a name="where-do-i-start"></a>Par où commencer ?
-
-Consultez [Prise en main de Kafka sur HDInsight](hdinsight-apache-kafka-get-started.md) pour découvrir comment créer un cluster Kafka et utiliser Kafka, et notamment des exemples Java d’utilisation des API de producteur, de consommateur et de diffusion en continu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
