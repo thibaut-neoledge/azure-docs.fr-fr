@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -331,7 +332,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebIssuesNotSignin|Vous n’êtes pas connecté. Veuillez {0} pour signaler un problème ou publier un commentaire.|  
 |WebIssuesReportIssueButton|Signaler un problème|  
 |WebIssuesSignIn|se connecter|  
-|WebIssuesStatusReportedBy|État : {0} &#124 ; Signalé par {1}.|  
+|WebIssuesStatusReportedBy|État: {0} &#124; Signalé par {1}.|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
