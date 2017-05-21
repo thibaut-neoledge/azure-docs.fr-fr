@@ -9,7 +9,7 @@
 
 # Prise en main
 ## [Réplication de machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
-## [Répliquer des serveurs physiques dans Azure](site-recovery-physical-servers-to-azure.md) 
+## [Répliquer des serveurs physiques dans Azure](site-recovery-physical-servers-to-azure.md)
 ## [Répliquer des machines virtuelles Hyper-V dans Azure (avec VMM)](site-recovery-vmm-to-azure.md)
 ## [Réplication de machines virtuelles Hyper-V dans Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Répliquer des machines virtuelles Hyper-V vers un site secondaire (avec VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Planifier la capacité et mettre à l’échelle la réplication VMware dans Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner pour la réplication de VMware vers Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pour la réplication Hyper-V](site-recovery-capacity-planner.md)
+### [Contrôle d’accès en fonction du rôle](site-recovery-role-based-linked-access-control.md)
 
 ## Configuration
 ### [Configurer l’environnement source](site-recovery-set-up-vmware-to-azure.md)
