@@ -1,6 +1,6 @@
 ---
-title: "Déployer et explorer l’application Wingtip Tickets Platform (WTP) (exemple d’application SaaS utilisant Azure SQL Database) | Microsoft Docs"
-description: "Déployer et explorer un exemple d’application SaaS qui utilise Azure SQL Database"
+title: "Déployer et explorer une application SaaS qui utilise Azure SQL Database | Microsoft Docs"
+description: "Déployer et explorer l’exemple d’application WTP Azure SQL Database"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -29,6 +29,8 @@ ms.lasthandoff: 05/10/2017
 Dans ce didacticiel, vous allez déployer et explorer l’application SaaS WTP. L’application utilise une base de données par locataire, un modèle d’application SaaS, pour traiter plusieurs locataires. L’application est conçue pour présenter les fonctionnalités d’Azure SQL Database qui autorisent des scénarios Saas, ainsi que des modèles de gestion et de conception SaaS.
 
 Cinq minutes après avoir cliqué sur le bouton *Déployer sur Azure* ci-dessous, vous disposez d’une application SaaS mutualisée et fonctionnelle dans le cloud, utilisant SQL Database. L’application est déployée avec trois exemples de locataires, chacun avec sa propre base de données et tous déployés dans un pool élastique SQL. L’application est déployée sur votre abonnement Azure, ce qui vous donne un accès complet pour inspecter et utiliser les composants individuels de l’application.
+
+Les scripts et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
@@ -97,7 +99,7 @@ Dans un environnement de production, vous créez généralement un enregistremen
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts de l’application WTP
 
-Les scripts WTP et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** sur votre ordinateur local, sans en modifier l’arborescence.
+Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
 

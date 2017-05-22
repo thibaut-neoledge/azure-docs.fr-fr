@@ -1,6 +1,6 @@
 ---
-title: "Exécuter des requêtes d’analyse ad hoc sur tous les clients (exemple d’application SaaS à l’aide d’Azure SQL Database) | Documents Microsoft"
-description: "Exécuter des requêtes d’analyse ad hoc sur tous les clients"
+title: "Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure | Microsoft Docs"
+description: "Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données dans une application mutualisée"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c00c25116002c46fc94c5ea59acc101a2055b689
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: dd41e7f1f131f6c18e03d2434982c3d681342b8b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -42,8 +42,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, voir [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md)
-* Azure Powershell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, voir [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 
 ## <a name="ad-hoc-analytics-pattern"></a>Modèle d’analyse ad hoc
@@ -54,7 +54,7 @@ L’accès à ces données dans une base de données mutualisée est facile, mai
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts Wingtip Tickets et le code source d’application sont disponibles dans le référentiel github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts Wingtip Tickets et le code source de l’application sont disponibles dans le référentiel github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-analytics-queries"></a>Déployer la base de données utilisée pour les requêtes d’analyse ad hoc
 

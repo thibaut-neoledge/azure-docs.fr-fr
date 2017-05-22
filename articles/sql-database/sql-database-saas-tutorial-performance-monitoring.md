@@ -1,6 +1,6 @@
 ---
-title: "Surveillance des performances de l’application WTP (exemple d’application SaaS utilisant Azure SQL Database) | Microsoft Docs"
-description: "Surveiller les performances d’un exemple d’application SaaS qui utilise Azure SQL Database"
+title: "Surveiller les performances d’une application SaaS SQL Database | Microsoft Docs"
+description: "Surveiller et gérer les performances de l’exemple d’application WTP Azure SQL Database"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1698a06dc326b1d215bb635c40724f914ba82442
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pour les scénarios impliquant de grands volumes, il est possible d’utiliser L
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts Wingtip Tickets et le code source de l’application sont disponibles dans le dépôt Github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="provision-additional-tenants"></a>Approvisionner des locataires supplémentaires
 

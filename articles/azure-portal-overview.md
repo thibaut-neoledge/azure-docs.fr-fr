@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos
   ![Navigation au sein de l'interface utilisateur du portail Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Avant de commencer
-Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel.  Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui.  Une fois abonné, vous pourrez accéder au portail à l’adresse [https://portal.azure.com].
+Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel.  Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui.  Une fois abonné, vous pourrez accéder au portail à l’adresse <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Comment créer une ressource
 Azure possède un marketplace proposant des milliers d'articles que vous pouvez créer depuis un seul et même endroit.  Supposons que vous vouliez créer une machine virtuelle Windows Server 2012.  Le hub +Nouveau constitue le point d'entrée des différentes catégories proposées par le marketplace.  Chaque catégorie comporte un petit groupe d'articles proposés avec un lien vers l'intégralité du marketplace où vous trouverez toutes les catégories et pourrez effectuer vos recherches. Pour créer cette nouvelle machine virtuelle Windows Server 2012, effectuez les actions suivantes :  
