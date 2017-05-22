@@ -56,6 +56,7 @@ Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **Revendication de l’émetteur (iss)** Si vous souhaitez modifier la revendication de l’émetteur (iss), modifiez la valeur contenue dans l’élément `<Item>` suivi de Key="IssuanceClaimPattern".  Les valeurs possibles sont `AuthorityAndTenantGuid` et `AuthorityWithTfp`.
 
 **Paramétrage de l’ID de stratégie représentant la revendication** Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference).  
@@ -88,5 +89,8 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
 </UserJourneyBehaviors>
 ```
 **Configuration de l’authentification unique (SSO)** Pour modifier la configuration de l’authentification unique, vous devez modifier la valeur de l’élément `<SingleSignOn>`.  Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Disabled`. 
+
 **Durée de vie de la session d’application web (minutes)** Pour modifier la durée de vie de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryInSeconds>`.  La valeur par défaut dans les stratégies prédéfinies est de 86 400 secondes (1 440 minutes).
+
 **Délai d’expiration de la session d’application web** Pour modifier le délai d’expiration de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryType>`.  Les valeurs possibles sont `Absolute` et `Rolling`.
+
