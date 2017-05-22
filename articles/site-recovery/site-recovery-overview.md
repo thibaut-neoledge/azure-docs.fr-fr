@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Recovery Services contribue à votre stratégie de continuité d’activit
 
 - **Récupération d’urgence dans le cloud** : vous pouvez répliquer des charges de travail qui s’exécutent sur des machines virtuelles et des serveurs physiques vers Azure, plutôt que vers un site secondaire. Ceci réduit le coût et la complexité de gestion d’un centre de données secondaire.
 - **Réplication flexible pour les environnements hybrides** : vous pouvez répliquer des charges de travail s’exécutant sur des machines virtuelles locales Hyper-V et VMware prises en charge, et sur des serveurs physiques Windows/Linux.
-- **Migration** : vous pouvez utiliser Site Recovery pour migrer des instances AWS locales vers des machines virtuelles Azure, ou pour migrer des machines virtuelles Azure entre différentes régions Azure.
+- **Migration** : vous pouvez utiliser Site Recovery pour migrer des instances AWS vers des machines virtuelles Azure, ou pour migrer des machines virtuelles Azure entre différentes régions Azure.
 - **Continuité d’activité et récupération d’urgence simplifiées** : vous pouvez déployer la réplication à partir d’un emplacement unique sur le Portail Azure.  Vous pouvez exécuter des basculements simples et des restaurations d’une seule ou de plusieurs machines.
 - **Résilience** : Site Recovery prend en charge la réplication et le basculement, sans intercepter les données d’application.
 Les données répliquées sont stockées dans le Stockage Azure, avec la résilience que cela implique. Lors du basculement, les machines virtuelles Azure sont créées à partir des données répliquées.

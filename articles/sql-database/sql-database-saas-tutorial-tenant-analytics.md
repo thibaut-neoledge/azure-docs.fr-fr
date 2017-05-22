@@ -1,6 +1,6 @@
 ---
-title: "Exécuter des requêtes d’analyse sur plusieurs locataires (exemple d’application SaaS à l’aide d’Azure SQL Database) | Microsoft Docs"
-description: "Exécuter des requêtes d’analyse sur plusieurs locataires"
+title: "Exécuter des requêtes d’analyse sur plusieurs bases de données SQL Azure | Microsoft Docs"
+description: "Exécuter des requêtes distribuées sur plusieurs bases de données SQL Azure"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Exécuter des requêtes d’analyse sur plusieurs locataires
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes distribuées sur plusieurs bases de données SQL Azure
 
 Dans ce didacticiel, vous exécutez des requêtes d’analyse sur chaque locataire dans le catalogue. Un travail élastique est créé pour l’exécution des requêtes. Le travail récupère les données et les charge dans une base de données d’analyse distincte, créée sur le serveur de catalogue. Cette base de données peut être interrogée pour extraire les informations qui se trouvent noyées dans les données opérationnelles quotidiennes de tous les locataires. La sortie du travail est un tableau, créé à partir des requêtes renvoyant des résultats à l’intérieur de la base de données d’analyse du locataire.
 
@@ -37,7 +37,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, voir [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La dernière version de SQL Server Management Studio (SSMS) est installée. [Télécharger et installer SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -47,7 +47,7 @@ Une des grandes opportunités avec les applications SaaS est l’exploitation de
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts Wingtip Tickets et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Déployer une base de données pour les résultats d’analyse du locataire
 

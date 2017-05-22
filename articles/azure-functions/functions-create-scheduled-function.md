@@ -16,43 +16,49 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 10461bddeb4d5adf4a6e4f65159ba2653dbef8a4
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-#  <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
-Apprenez à créer une fonction dans Azure, qui s’exécute selon une planification que vous définissez. 
+Apprenez à créer une fonction dans Azure, qui s’exécute selon une planification que vous définissez.
 
 ![Créer une Function App dans le Portail Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-Moins de cinq minutes sont nécessaires pour effectuer toutes les étapes de cette rubrique.
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="prerequisites"></a>Composants requis 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-Dans cette rubrique, vous créez une fonction déclenchée par un minuteur dans votre Function App existante. 
+## <a name="create-an-azure-function-app"></a>Création d’une application Azure Function
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-function"></a>Créer une fonction déclenchée par un minuteur
+![Function App créée avec succès.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Créez ensuite une fonction dans la nouvelle Function App.
+
+<a name="create-function"></a>
+
+## <a name="create-a-timer-triggered-function"></a>Créer une fonction déclenchée par un minuteur
 
 1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **TimerTrigger** pour la langue de votre choix. Ensuite, utilisez les paramètres comme indiqué dans la table, et cliquez sur **Créer** :
 
-    | Paramètre      |  Valeur suggérée   | Description                              |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nommer votre fonction** | TimerTriggerCSharp1 | Définit le nom de votre fonction déclenchée par minuteur.
-    | **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 */1 * * * * | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
+| Paramètre | Valeur suggérée | Description |
+|---|---|---|
+| **Nommer votre fonction** | TimerTriggerCSharp1 | Définit le nom de votre fonction déclenchée par minuteur. |
+| **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
 
-    Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute. 
+Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 
-4. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux. 
+1. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
 
-    ![Fonctions de visionneuse du journal dans le Portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+![Fonctions de visionneuse du journal dans le Portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 À présent, vous pouvez modifier la planification de la fonction afin qu’elle s’exécute moins souvent, par exemple une fois par heure. 
 
@@ -71,12 +77,9 @@ Vous disposez maintenant d’une fonction qui s’exécute toutes les heures.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez créé une fonction qui s’exécute selon une planification. 
+
+Vous avez créé une fonction qui s’exécute selon une planification.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Pour en savoir plus sur les déclencheurs de minuteur, consultez la page [Planifier l’exécution de code avec Azure Functions](functions-bindings-timer.md). 
-
-
-
-
+Pour en savoir plus sur les déclencheurs de minuteur, consultez la page [Planifier l’exécution de code avec Azure Functions](functions-bindings-timer.md).

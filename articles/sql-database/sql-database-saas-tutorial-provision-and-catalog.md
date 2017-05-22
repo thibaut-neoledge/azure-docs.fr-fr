@@ -1,6 +1,6 @@
 ---
-title: "Approvisionner et répertorier dans un catalogue de nouveaux locataires (exemple d’application SaaS utilisant Azure SQL Database) | Microsoft Docs"
-description: "Approvisionner et répertorier dans un catalogue de nouveaux locataires"
+title: "Approvisionner de nouveaux locataires dans une application multi-locataire, à l’aide de Azure SQL Database | Microsoft Docs"
+description: "Approvisionner et répertorier dans un catalogue de nouveaux locataires dans l’exemple d’application SaaS WTP SQL Database"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4eeada941f8615fa04624bc725efcb44f05d56c7
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -57,7 +57,7 @@ L’application SaaS Wingtip approvisionne de nouveaux locataires en copiant une
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts Wingtip Tickets et le code source de l’application sont disponibles dans le dépôt Github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
 
