@@ -103,9 +103,9 @@ Dans l’exemple suivant, les données d’entrée seront disponibles toutes les
             },
             "partitionedBy": [
                 { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
-                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "%d" } },
-                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "%H" }}
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "HH" }}
             ]
         },
         "availability": {
@@ -343,8 +343,8 @@ Les fichiers d’entrée des heures sont supprimés dans le dossier pour le jour
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -372,8 +372,8 @@ Un fichier de sortie est créé chaque jour dans le dossier pour la journée. Di
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -418,8 +418,8 @@ Le script Hive reçoit les informations de *DateTime* en tant que paramètres qu
                 "scriptLinkedService": "StorageLinkedService",
                 "defines": {
                     "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                    "Month": "$$Text.Format('{0:MM}',WindowStart)",
+                    "Day": "$$Text.Format('{0:dd}',WindowStart)"
                 }
             },
             "scheduler": {
@@ -465,8 +465,8 @@ La première entrée est l’objet Azure Blob mis à jour quotidiennement.
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -495,8 +495,8 @@ Entrée2 est l’objet Azure Blob mis à jour chaque semaine.
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -525,8 +525,8 @@ Un fichier de sortie est créé chaque jour dans le dossier pour la journée. La
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -576,8 +576,8 @@ L’activité Hive accepte les deux entrées et génère une tranche de sortie t
           "scriptLinkedService": "StorageLinkedService",
           "defines": {
             "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-            "Month": "$$Text.Format('{0:%M}',WindowStart)",
-            "Day": "$$Text.Format('{0:%d}',WindowStart)"
+            "Month": "$$Text.Format('{0:MM}',WindowStart)",
+            "Day": "$$Text.Format('{0:dd}',WindowStart)"
           }
         },
         "scheduler": {
