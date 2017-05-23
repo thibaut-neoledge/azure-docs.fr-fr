@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: ashwink
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
-Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. Il s’applique à Machines virtuelles, Virtual Machine Scale Sets et Services cloud.  Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
+Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [services cloud](https://azure.microsoft.com/services/cloud-services/) et à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
 * Une ressource ne peut avoir qu’ *un* paramètre de mise à l’échelle automatique
@@ -119,7 +119,7 @@ En outre, il existe un profil récurrent défini pour Lundi. Il est défini pour
 
 De même, lorsque la mise à l’échelle automatique bascule vers le profil par défaut, elle vérifie d’abord si les conditions minimales et maximales sont remplies. Si le nombre d’instances à ce moment-là est égal à 12, la taille des instances diminue jusqu’à 10, le maximum autorisé pour le profil par défaut.
 
-![paramètres de mise à l’échelle automatique](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![paramètres de mise à l’échelle automatique](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considérations relatives à la mise à l’échelle lorsque plusieurs règles sont configurées dans un profil
 Il existe des cas où vous devrez définir plusieurs règles dans un profil. L’ensemble de règles de mise à l’échelle automatique suivant est utilisé par les services lorsque plusieurs règles sont définies.
