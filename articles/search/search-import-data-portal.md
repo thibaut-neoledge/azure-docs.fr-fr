@@ -1,6 +1,6 @@
 ---
 title: "Importer des données dans Azure Search dans le portail | Documents Microsoft"
-description: "Utilisez l’Assistant Importer des données de Recherche Azure dans le portail Azure pour analyser des données Azure à partir de NoSQL DocumentDB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure."
+description: "Utilisez l’Assistant Importer des données de Recherche Azure dans le portail Azure pour analyser des données Azure à partir de NoSQL Azure Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ En interne, l’Assistant configure et appelle un *indexeur*, ce qui permet d’
 * Génération d’un schéma d’index modifiable basé sur la structure des données source
 * Chargement de documents JSON dans un index à l’aide d’un ensemble de lignes extrait de la source de données
 
-Vous pouvez tester ce workflow à l’aide d’exemples de données dans DocumentDB. Pour obtenir des instructions, consultez la page [Prise en main d’Azure Search dans le portail Azure](search-get-started-portal.md) .
+Vous pouvez tester ce workflow à l’aide d’exemples de données dans Azure Cosmos DB. Pour obtenir des instructions, consultez la page [Prise en main d’Azure Search dans le portail Azure](search-get-started-portal.md) .
 
 > [!NOTE]
-> Vous pouvez lancer l’Assistant **Importer des données** depuis le tableau de bord DocumentDB afin de simplifier l’indexation pour cette source de données. Dans la navigation de gauche, accédez à **Collections** > **Ajouter Azure Search** pour commencer.
+> Vous pouvez lancer l’Assistant **Importation de données** sur le tableau de bord Azure Cosmos DB afin de simplifier l’indexation de cette source de données. Dans la navigation de gauche, accédez à **Collections** > **Ajouter la Recherche Azure** pour commencer.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Sources de données prises en charge par l’Assistant Importer des données
 L’Assistant Importation de données prend en charge les sources de données suivantes : 
 
 * Azure SQL Database
 * Données relationnelles SQL Server sur une machine virtuelle Azure
-* Document DB Azure
+* Azure Cosmos DB
 * Stockage d'objets blob Azure
 * Stockage de tables Azure
 
@@ -58,7 +60,7 @@ Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos impor
 | **Source de données existante** |Si des indexeurs sont déjà définis dans votre service de recherche, vous pouvez sélectionner une définition de source de données existante pour une autre importation. |
 | **Base de données SQL Azure** |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
 | **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à Recherche Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
-| **Base de données de documents** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou pour détecter les documents modifiés dans l’optique de l’actualisation ultérieure des données. |
+| **Azure Cosmos DB** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou pour détecter les documents modifiés dans l’optique de l’actualisation ultérieure des données. |
 | **Stockage Blob Azure** |La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
 | **Azure Table Storage** |La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation de Stockage Table](search-howto-indexing-azure-tables.md) pour plus d’informations. |
 
@@ -113,16 +115,11 @@ L’ajout d’un nouveau champ, la modification des profils de score, la modific
 Suivez ces liens pour en savoir plus sur les indexeurs :
 
 * [Indexation d’Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Connexion de DocumentDB à Azure Search à l’aide d’indexeurs](search-howto-index-documentdb.md)
+* [Indexation d’Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 * [Indexation de Stockage Table](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,28 +1,29 @@
 ---
-title: "Découverte de Node.js - Didacticiel Node.js DocumentDB | Microsoft Docs"
-description: "Découvrez Node.js ! Ce didacticiel explique comment utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d’une application web Node.js Express hébergée sur Sites Web Azure."
+title: "Découverte de Node.js - Didacticiel Node.js Azure Cosmos DB | Microsoft Docs"
+description: "Découvrez Node.js ! Ce didacticiel explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur les sites Web Azure."
 keywords: "Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 20b04f07581354144ef3dd3fc98da10cbff78e63
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
+# <a name="_Toc395783175"></a>Création d’une application web Node.js avec Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pour MongoDB](documentdb-mongodb-application.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Ce didacticiel Node.js vous montre comment utiliser le service Azure DocumentDB pour stocker des données et y accéder à partir d’une application Node.js Express hébergée sur un site Sites Web Microsoft Azure. Vous allez créer une simple application web de gestion des tâches, une application ToDo, qui permet de créer, de récupérer et de terminer des tâches. Ces dernières sont stockées en tant que documents JSON dans Azure DocumentDB. Ce didacticiel vous guide à travers la création et le déploiement de l’application et explique ce qui se passe dans chaque extrait de code.
+Ce didacticiel Node.js vous montre comment utiliser le service Azure Cosmos DB pour stocker des données et y accéder à partir d’une application Express Node.js hébergée sur les sites web Azure. Vous allez créer une simple application web de gestion des tâches, une application ToDo, qui permet de créer, de récupérer et de terminer des tâches. Ces dernières sont stockées en tant que documents JSON dans AzureCosmos DB. Ce didacticiel vous guide à travers la création et le déploiement de l’application et explique ce qui se passe dans chaque extrait de code.
 
 ![Capture d’écran de l’application My Todo List créée dans ce didacticiel Node.js](./media/documentdb-nodejs-application/image1.png)
 
@@ -50,13 +51,13 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
    OU
 
-   Une installation locale de [l’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md).
+   Une installation locale de [l’émulateur Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] version v0.10.29 ou supérieure.
 * [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 * [Git][Git].
 
-## <a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
-Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur DocumentDB pour ce didacticiel, vous pouvez passer à [l’Étape 2 : Création d’une application Node.js](#_Toc395783178).
+## <a name="_Toc395637761"></a>Étape 1 : création d’un compte de base de données Azure Cosmos DB
+Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à [l’étape 2 : création d’une application Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,8 +117,8 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
    
     Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
 
-## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
-Ceci concerne l'ensemble de l'installation et de la configuration initiales. Venons-en à présent à la raison de notre présence ici, à savoir écrire du code avec Azure DocumentDB.
+## <a name="_Toc395783180"></a>Étape 4 : utilisation du service Azure Cosmos DB dans une application Node
+Ceci concerne l’ensemble de l’installation et de la configuration initiales. Venons-en à présent à la raison de notre présence ici, à savoir écrire du code avec Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Création du modèle
 1. Dans le répertoire du projet, créez un répertoire nommé **models** dans le même répertoire que le fichier package.json.
@@ -194,7 +195,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
    > [!TIP]
    > createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut.
    > 
-   > Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md) 
+   > Pour en savoir plus sur les types d’offre Azure Cosmos DB, reportez-vous aux [niveaux de performances d’Azure Cosmos DB](documentdb-performance-levels.md). 
    > 
    > 
 5. Enregistrez et fermez le fichier **docdbUtils.js** .
@@ -214,7 +215,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
         }
    
         module.exports = TaskDao;
-8. Ensuite, ajoutez le code suivant pour définir des méthodes supplémentaires sur l'objet Task permettant d'interagir avec les données stockées dans DocumentDB.
+8. Ensuite, ajoutez le code suivant pour définir des méthodes supplémentaires sur l’objet Task permettant d’interagir avec les données stockées dans Azure Cosmos DB.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -397,7 +398,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
         config.collectionId = "Items";
    
         module.exports = config;
-3. Dans le fichier **config.js**, mettez à jour les valeurs des paramètres HOST et AUTH_KEY en indiquant les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](https://portal.azure.com).
+3. Dans le fichier **config.js**, mettez à jour les valeurs des paramètres HOST et AUTH_KEY en indiquant les valeurs trouvées dans le panneau Clés de votre compte Azure Cosmos DB, dans le [portail Microsoft Azure](https://portal.azure.com).
 4. Enregistrez et fermez le fichier **config.js** .
 
 ### <a name="modify-appjs"></a>Modification de app.js
@@ -427,7 +428,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l’aide des valeurs lues dans **config.js**), initialisent l’objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
+5. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à Azure Cosmos DB (à l’aide des valeurs lues dans **config.js**), initialisent l’objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
 6. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
 
 ## <a name="_Toc395783181"></a>Étape 5 : création d'une interface utilisateur
@@ -529,7 +530,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
     > [!TIP]
     > Si vous recevez une erreur liée à la mise en retrait dans le fichier layout.jade ou index.jade, assurez-vous que les deux premières lignes des deux fichiers sont justifiées à gauche et ne présentent aucun espace. Supprimez tout espace éventuel dans les deux premières lignes, enregistrez les deux fichiers, puis actualisez la fenêtre du navigateur. 
 
-2. Utilisez les champs Élément, Nom d’élément et Catégorie pour saisir une nouvelle tâche, puis cliquez sur **Ajouter des éléments**. Cette opération permet de créer un document présentant ces propriétés dans DocumentDB. 
+2. Utilisez les champs Élément, Nom d’élément et Catégorie pour saisir une nouvelle tâche, puis cliquez sur **Ajouter des éléments**. Cette opération permet de créer un document présentant ces propriétés dans Azure Cosmos DB. 
 3. La page doit se mettre à jour et afficher le nouvel élément créé dans la liste des tâches.
    
     ![Capture d'écran de l'application avec un nouvel élément dans la liste de tâches](./media/documentdb-nodejs-application/image19.png)
@@ -547,16 +548,16 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
         git push azure master
 4. En quelques secondes, git achève la publication de votre application web et lance un navigateur dans lequel vous pouvez voir votre réalisation exécutée dans Azure !
 
-    Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure DocumentDB et de la publier sur Azure Websites.
+    Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure Cosmos DB et de la publier sur les sites web Azure.
 
     Si vous souhaitez télécharger ou vous référer à l’application de référence complète de ce didacticiel, vous pouvez la télécharger à partir de [GitHub][GitHub].
 
 ## <a name="_Toc395637775"></a>Étapes suivantes
 
-* Vous souhaitez effectuer un test des performances et de la mise à l’échelle avec DocumentDB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md)
-* Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
+* Vous voulez effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](documentdb-performance-testing.md).
+* Découvrez comment [surveiller un compte Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
-* Consultez la [documentation relative à DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
+* Parcourez la [documentation Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

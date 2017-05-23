@@ -1,28 +1,29 @@
 ---
-title: "Didacticiel ASP.NET MVC pour DocumentDB : développement d’applications Web | Microsoft Docs"
-description: "Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide de DocumentDB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC."
+title: "Didacticiel ASP.NET MVC pour Azure Cosmos DB : développement d’applications Web | Microsoft Docs"
+description: "Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide d’Azure Cosmos DB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC."
 keywords: "didacticiel asp.net mvc, développement d’application web, application web mvc, didacticiel mvc asp net étape par étape"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48736ab63a74c78a7d111011faf135f32c0c4f9e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’une application web avec DocumentDB.
+# <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pour MongoDB](documentdb-mongodb-application.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure DocumentDB pour stocker et interroger les documents JSON, cet article fournit une procédure de bout en bout vous montrant comment créer une application todo à l’aide d’Azure DocumentDB. Ces dernières sont stockées en tant que documents JSON dans Azure DocumentDB.
+Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure Cosmos DB pour stocker et interroger les documents JSON, cet article fournit une procédure de bout en bout vous montrant comment créer une application todo à l’aide d’Azure Cosmos DB. Les tâches sont stockées en tant que documents JSON dans Azure Cosmos DB.
 
 ![Capture d’écran de l’application web todo list MVC créée dans ce didacticiel - Didacticiel étape par étape ASP.NET MVC](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni par Azure pour stocker des données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure. Si vous recherchez un didacticiel portant uniquement sur DocumentDB et non sur les composants ASP.NET MVC, voir [Didacticiel NoSQL : générer une application de console C# DocumentDB](documentdb-get-started.md).
+Cette procédure pas à pas montre comment utiliser le service Azure Cosmos DB fourni par Azure pour stocker des données et y accéder à partir d’une application web ASP.NET MVC hébergée sur Azure. Si vous recherchez un didacticiel portant uniquement sur Azure Cosmos DB et non sur les composants ASP.NET MVC, consultez [Azure Cosmos DB : Didacticiel sur la prise en main de l’API DocumentDB](documentdb-get-started.md).
 
 > [!TIP]
 > Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][GitHub] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
@@ -50,14 +51,14 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
     OU
 
-    Une installation locale de [l’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Une installation locale de [l’émulateur Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) ou Visual Studio 2013 mise à jour 4 ou ultérieure. Si vous utilisez Visual Studio 2013, vous devrez installer le [package NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) pour prendre en charge C# 6.0. 
 * Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 ou version ultérieure, disponible via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Toutes les captures d'écran figurant dans cet article ont été prises avec Visual Studio 2013 Update 4 et le Kit de développement logiciel (SDK) Azure pour .NET 2.5.1. Si votre système est configuré avec différentes versions, il est probable que vos écrans et options ne correspondent pas totalement. Toutefois, si vous respectez la configuration requise citée plus haut, cette solution devrait fonctionner.
 
-## <a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
-Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur DocumentDB pour ce didacticiel, vous pouvez passer à l’étape [Création d’une application ASP.NET MVC](#_Toc395637762).
+## <a name="_Toc395637761"></a>Étape 1 : création d’un compte de base de données Azure Cosmos DB
+Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à l’étape [Création d’une application ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,26 +90,26 @@ Maintenant que vous avez un compte, nous allons créer notre nouveau projet ASP.
 
 8. Si vous voulez procéder à l'hébergement dans le cloud, un ou plusieurs écrans supplémentaires apparaîtront pour vous demander de vous connecter à votre compte Azure et d'indiquer plusieurs valeurs pour votre nouveau site web. Fournissez toutes les valeurs supplémentaires et continuez. 
    
-      Je n’ai pas choisi de « Serveur de base de données », car nous n’allons pas utiliser de serveur de base de données SQL Azure. Nous allons créer un compte Azure DocumentDB ultérieurement, dans le portail Azure.
+      Je n’ai pas choisi de « Serveur de base de données », car nous n’allons pas utiliser de serveur de base de données SQL Azure. Nous allons créer un compte Azure Cosmos DB ultérieurement, dans le portail Azure.
    
     Pour plus d’informations sur le choix d’un **Plan App Service** et d’un **Groupe de ressources**, consultez la rubrique [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
       ![Capture d'écran de la boîte de dialogue Configurer un site web Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 9. Une fois que Visual Studio a fini de créer l'application MVC réutilisable, vous disposez d'une application ASP.NET vide que vous pouvez exécuter localement.
    
-    Nous allons sauter l'exécution du projet localement, car je suis sûr que nous avons tous vu l'application « Hello World » ASP.NET. Nous allons maintenant ajouter DocumentDB à ce projet et créer notre application.
+    Nous allons sauter l'exécution du projet localement, car je suis sûr que nous avons tous vu l'application « Hello World » ASP.NET. Nous allons maintenant ajouter Azure Cosmos DB à ce projet et créer notre application.
 
-## <a name="_Toc395637767"></a>Étape 3 : Ajout de DocumentDB à votre projet d’application web MVC
-Maintenant que nous avons la plupart des éléments ASP.NET MVC nécessaires à cette solution, passons au véritable objectif de ce didacticiel, à savoir, ajouter Azure DocumentDB à notre application web MVC.
+## <a name="_Toc395637767"></a>Étape 3 : ajout d’Azure Cosmos DB à votre projet d’application web MVC
+Maintenant que nous avons la plupart des éléments ASP.NET MVC nécessaires à cette solution, passons au véritable objectif de ce didacticiel, à savoir, ajouter Azure Cosmos DB à notre application web MVC.
 
 1. Le Kit de développement logiciel (SDK) .NET DocumentDB est packagé et distribué en tant que package NuGet. Pour obtenir le package NuGet dans Visual Studio, utilisez le gestionnaire de package NuGet dans Visual Studio en cliquant avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis en cliquant sur **Gérer les packages NuGet**.
    
       ![Capture d’écran des options contextuelles pour le projet d’application web dans l’Explorateur de solutions, avec Gérer les packages NuGet mis en surbrillance.](./media/documentdb-dotnet-application/image21.png)
    
     La boîte de dialogue **Gérer les packages NuGet** apparaît.
-2. Dans la zone NuGet **Parcourir**, tapez ***Azure DocumentDB***.
+2. Dans la zone **Parcourir** de NuGet, tapez ***Azure Cosmos DB***.
    
-    À partir des résultats, installez le package **Bibliothèques clientes de Microsoft Azure DocumentDB** . Cela va vous permettre de télécharger et d'installer le package DocumentDB ainsi que toutes les dépendances (telles que Newtonsoft.Json). Cliquez sur **OK** dans la fenêtre **Aperçu**, puis sur **J’accepte** dans la fenêtre **Acceptation de la licence** pour terminer l’installation.
+    À partir des résultats, installez le package **Bibliothèques clientes de Microsoft Azure Cosmos DB**. Cela va vous permettre de télécharger et d’installer le package Azure Cosmos DB, ainsi que toutes les dépendances (telles que Newtonsoft.Json). Cliquez sur **OK** dans la fenêtre **Aperçu**, puis sur **J’accepte** dans la fenêtre **Acceptation de la licence** pour terminer l’installation.
    
       ![Capture d'écran de la fenêtre Gérer les packages NuGet, avec la bibliothèque cliente Microsoft Azure DocumentDB mise en surbrillance](./media/documentdb-dotnet-application/nuget.png)
    
@@ -159,7 +160,7 @@ Commençons par créer le modèle (qui correspond au **M** dans MVC).
             public bool Completed { get; set; }
         }
    
-    Toutes les données de DocumentDB sont transmises puis stockées au format JSON. Pour contrôler la méthode JSON.NET de sérialisation/désérialisation de vos objets, vous pouvez utiliser l’attribut **JsonProperty**, comme indiqué dans la classe **Item** que nous venons de créer. Vous n'êtes **pas obligé** de procéder ainsi, mais cela permet de s'assurer que les propriétés respectent les conventions d'attribution de noms JSON camelCase. 
+    Toutes les données d’Azure Cosmos DB sont transmises puis stockées au format JSON. Pour contrôler la méthode JSON.NET de sérialisation/désérialisation de vos objets, vous pouvez utiliser l’attribut **JsonProperty**, comme indiqué dans la classe **Item** que nous venons de créer. Vous n'êtes **pas obligé** de procéder ainsi, mais cela permet de s'assurer que les propriétés respectent les conventions d'attribution de noms JSON camelCase. 
    
     En plus de contrôler le format du nom de propriété au moment d'être transmis à JSON, vous pouvez entièrement renommer vos propriétés .NET, comme ici avec la propriété **Description** . 
 
@@ -232,8 +233,8 @@ Pour terminer, ajoutons une dernière vue permettant de modifier un **Élément*
 
 Une fois cette opération effectuée, fermez tous les documents .cshtml dans Visual Studio. Nous reviendrons à ces vues un peu plus tard.
 
-## <a name="_Toc395637769"></a>Étape 5 : liaison de DocumentDB
-Maintenant que nous nous sommes occupés des éléments de base de MVC, ajoutons le code pour DocumentDB. 
+## <a name="_Toc395637769"></a>Étape 5 : liaison d’Azure Cosmos DB
+Maintenant que nous nous sommes occupés des éléments de base de MVC, ajoutons le code pour Azure Cosmos DB. 
 
 Dans cette section, nous allons ajouter du code pour gérer les éléments suivants :
 
@@ -242,7 +243,7 @@ Dans cette section, nous allons ajouter du code pour gérer les éléments suiva
 * [Modification d'éléments](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>Établissement de la liste des éléments incomplets dans votre application web MVC
-La première chose à faire ici est d'ajouter une classe qui contient toute la logique permettant de se connecter à DocumentDB et de l'utiliser. Pour ce didacticiel, nous allons encapsuler toute cette logique dans une classe de référentiel appelée DocumentDBRepository. 
+La première chose à faire ici est d’ajouter une classe qui contient toute la logique permettant de se connecter à Azure Cosmos DB et de l’utiliser. Pour ce didacticiel, nous allons encapsuler toute cette logique dans une classe de référentiel appelée DocumentDBRepository. 
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **DocumentDBRepository**, puis cliquez sur **Ajouter**.
 2. Dans la classe **DocumentDBRepository** nouvellement créée, ajoutez les *instructions using* suivantes au-dessus de la déclaration *namespace*
@@ -318,7 +319,7 @@ La première chose à faire ici est d'ajouter une classe qui contient toute la l
         }
    
    > [!TIP]
-   > Au moment de créer une collection DocumentCollection, vous pouvez fournir un paramètre RequestOptions facultatif pour OfferType, ce qui vous permet de spécifier le niveau de performance de la nouvelle collection. Si ce paramètre n'est pas transmis, le type d'offre par défaut est utilisé. Pour plus d'informations sur les types d'offre DocumentDB, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+   > Au moment de créer une collection DocumentCollection, vous pouvez fournir un paramètre RequestOptions facultatif pour OfferType, ce qui vous permet de spécifier le niveau de performance de la nouvelle collection. Si ce paramètre n'est pas transmis, le type d'offre par défaut est utilisé. Pour en savoir plus sur les types d’offre Azure Cosmos DB, reportez-vous aux [niveaux de performances d’Azure Cosmos DB](documentdb-performance-levels.md).
    > 
    > 
 3. Nous allons lire certaines valeurs de la configuration. Pour cela, ouvrez le fichier **Web.config** de votre application et ajoutez les lignes suivantes sous la section `<AppSettings>`.
@@ -395,7 +396,7 @@ Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit�
 ### <a name="_Toc395637771"></a>Ajout d'éléments
 Plaçons à présent quelques éléments dans notre base de données afin d'ajouter du contenu à la grille vide.
 
-Ajoutons du code à DocumentDBRepository et ItemController pour rendre l’enregistrement persistant dans DocumentDB.
+Ajoutons du code à AzureCosmosDBRepository et ItemController pour rendre l’enregistrement persistant dans Azure Cosmos DB.
 
 1. Ajoutez la méthode suivante à la classe **DocumentDBRepository** .
    
@@ -468,9 +469,9 @@ La dernière chose à faire est d'ajouter la possibilité de modifier des **él�
             }
         }
    
-    La première de ces méthodes, **GetItem**, récupère un élément auprès de DocumentDB et le transmet à nouveau à **ItemController**, puis à la vue **Edit**.
+    La première de ces méthodes, **GetItem**, récupère un élément auprès d’Azure Cosmos DB et le transmet à nouveau à **ItemController**, puis à la vue **Modifier**.
    
-    La deuxième méthode que nous venons d’ajouter remplace le **document** dans DocumentDB par la version du **document** transmise par **ItemController**.
+    La deuxième méthode que nous venons d’ajouter remplace le **document** dans Azure Cosmos DB par la version du **document** transmise par **ItemController**.
 2. Ajoutez le code suivant à la classe **ItemController** .
    
         [HttpPost]
@@ -504,11 +505,11 @@ La dernière chose à faire est d'ajouter la possibilité de modifier des **él�
             return View(item);
         }
    
-    La première méthode traite l’opération HTTP GET qui se produit lorsque l’utilisateur clique sur le lien **Edit** de la vue **Index**. Elle extrait un [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) à partir de DocumentDB et le transmet à la vue **Edit**.
+    La première méthode traite l’opération HTTP GET qui se produit lorsque l’utilisateur clique sur le lien **Edit** de la vue **Index**. Elle extrait un [**document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) à partir d’Azure Cosmos DB et le transmet à la vue **Modifier**.
    
     La vue **Edit** renvoie ensuite une opération HTTP POST au **IndexController**. 
    
-    La deuxième méthode que nous avons ajoutée gère en transmettant l'objet mis à jour à DocumentDB pour le rendre persistant dans la base de données.
+    La deuxième méthode que nous avons ajoutée gère la transmission de l’objet mis à jour à Azure Cosmos DB pour le rendre persistant dans la base de données.
 
 Maintenant que nous avons répertorié les **éléments** non terminés, ajouté des **éléments**, puis modifié des **éléments**, nous sommes en mesure d’exécuter notre application.
 
@@ -534,7 +535,7 @@ Pour tester l'application sur votre machine locale, procédez comme suit :
 5. Une fois que vous avez testé l'application, appuyez sur Ctrl+F5 pour arrêter le débogage de l'application. Vous êtes prêt à déployer.
 
 ## <a name="_Toc395637774"></a>Étape 7 : déploiement de l'application sur Azure Websites
-Maintenant que l'application terminée fonctionne correctement avec DocumentDB, nous allons la déployer sur Azure Websites. Si vous avez sélectionné **Héberger dans le cloud** au moment de créer le projet ASP.NET MVC vide, Visual Studio vous facilite la tâche en faisant presque tout le travail à votre place. 
+Maintenant que l’application terminée fonctionne correctement avec Azure Cosmos DB, nous allons la déployer sur les sites web Azure. Si vous avez sélectionné **Héberger dans le cloud** au moment de créer le projet ASP.NET MVC vide, Visual Studio vous facilite la tâche en faisant presque tout le travail à votre place. 
 
 1. Pour publier cette application, il vous suffit de cliquer avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis de cliquer sur **Publier**.
    
@@ -565,7 +566,7 @@ Si vous rencontrez l’erreur « Une erreur s’est produite lors du traitement
 
 
 ## <a name="_Toc395637775"></a>Étapes suivantes
-Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure DocumentDB et de la publier sur les sites web Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
+Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure Cosmos DB et de la publier sur les sites web Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
 
 Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque DocumentDB .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) et n’hésitez pas à contribuer à la bibliothèque DocumentDB .NET sur [GitHub][GitHub]. 
 

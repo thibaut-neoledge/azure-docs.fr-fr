@@ -11,7 +11,7 @@ Vous pouvez utiliser le service de table pour stocker et interroger de grands en
 ## <a name="table-service-concepts"></a>Concepts du service de Table
 Le service de table contient les composants suivants :
 
-![Table1][Table1]
+![Diagramme des composants de service de table][Table1]
 
 * **Format d'URL :** le code traite les tables dans un compte à l'aide de ce format d'adresse :   
   http://`<storage account>`.table.core.windows.net/`<table>`  

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ De nos jours, d'importantes quantités de données transitent à haute vitesse s
 * **Moindre coût :** le service cloud Stream Analytics est optimisé pour permettre aux utilisateurs d’exécuter et de tenir à jour des solutions d’analyse en temps réel à prix réduit. Le service est conçu pour permettre un paiement à l’utilisation basé sur l’unité de diffusion et la quantité de données traitées par le système. L’utilisation est définie en fonction du volume d’événements traités et de la quantité de puissance de calcul configurée dans le cluster pour gérer les tâches Stream Analytics respectives.  
 * **Données de référence :** Stream Analytics permet aux utilisateurs de spécifier et d’utiliser des données de référence. Il peut s’agir de données d’historique ou simplement de données de non-diffusion, qui changent moins souvent au fil du temps. Le système simplifie l'utilisation des données de référence pour les traiter comme n'importe quel autre flux d'événement entrant à joindre avec d'autres flux d'événements reçus en temps réel pour effectuer des transformations.  
 * **Fonctions définies par l’utilisateur :** Stream Analytics offre une intégration à Azure Machine Learning pour définir des appels de fonction au sein du service Machine Learning dans le cadre d’une requête Stream Analytics. Cela étend les fonctionnalités de Stream Analytics pour tirer parti des solutions Azure Machine Learning existantes. Pour plus d’informations à ce sujet, consultez le [didacticiel sur l’intégration de Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* **Connectivité :** Stream Analytics se connecte directement à Azure Event Hubs et à Azure IoT Hub pour l’ingestion de flux de données, ainsi qu’au service BLOB Azure pour l’ingestion de données d’historique. Les résultats peuvent être écrits de Stream Analytics vers les objets blob ou tables de stockage Azure, le service Base de données SQL Azure, les instances Azure Data Lake Store, DocumentDB, les hubs d’événements Event Hubs, les rubriques ou files d’attente Service Bus Azure et Power BI, où ils peuvent être visualisés, faire l’objet d’un traitement plus poussé par les workflows, être utilisés dans les analyses par lot via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ou être traités à nouveau en tant que série d’événements. Lorsque vous utilisez Event Hubs, vous pouvez composer plusieurs Stream Analytics avec d’autres sources de données et moteurs de traitement sans dénaturer la capacité de diffusion des calculs.  
+* **Connectivité :** Stream Analytics se connecte directement à Azure Event Hubs et à Azure IoT Hub pour l’ingestion de flux de données, ainsi qu’au service BLOB Azure pour l’ingestion de données d’historique. Les résultats peuvent être écrits de Stream Analytics vers les objets blob ou tables de stockage Azure, le service Base de données SQL Azure, les instances Azure Data Lake Store, Azure Cosmos DB, les hubs d’événements Event Hubs, les rubriques ou files d’attente Service Bus Azure et Power BI, où ils peuvent être visualisés, faire l’objet d’un traitement plus poussé par les workflows, être utilisés dans les analyses par lot via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ou être traités à nouveau en tant que série d’événements. Lorsque vous utilisez Event Hubs, vous pouvez composer plusieurs Stream Analytics avec d’autres sources de données et moteurs de traitement sans dénaturer la capacité de diffusion des calculs.  
 
 ## <a name="get-help"></a>Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

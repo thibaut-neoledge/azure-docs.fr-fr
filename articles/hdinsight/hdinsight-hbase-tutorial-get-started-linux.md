@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -153,7 +153,7 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Dans c
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Exécutez le script HiveQL suivant pour interroger les données dans la table HBase :
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Utilisation des API REST HBase à l’aide de Curl
 
@@ -182,7 +182,7 @@ L’API REST est sécurisée à l’aide de l’ [authentification de base](http
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    Vous devez coder en base64 les valeurs spécifiées dans le commutateur -d.  Dans l’exemple :
+    Vous devez coder en base64 les valeurs spécifiées dans le commutateur -d.  Dans l’exemple :
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
