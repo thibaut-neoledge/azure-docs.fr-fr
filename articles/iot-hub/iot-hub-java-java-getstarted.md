@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 11d7c919da7e443dcb59c16b4d5fe2b25501fb2d
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 51a4be879b053a3bdf0c9662f3bbd5e3ed7f6d4d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -461,7 +462,7 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 
 * [Connexion de votre appareil][lnk-connect-device]
 * [Prise en main de la gestion d’appareils][lnk-device-management]
-* [Prise en main du Kit de développement logiciel (SDK) IoT Gateway][lnk-gateway-SDK]
+* [Explore Azure IoT Edge architecture on Linux][lnk-gateway-SDK] (Découvrir l’architecture Azure IoT Edge sur Linux)
 
 Pour découvrir comment étendre votre solution IoT et traiter les messages appareil-à-cloud à grande échelle, consultez le didacticiel [Traitement des messages appareil-à-cloud][lnk-process-d2c-tutorial].
 

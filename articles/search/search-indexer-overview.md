@@ -1,6 +1,6 @@
 ---
 title: Indexeurs dans le service Recherche Azure | Microsoft Docs
-description: "Analysez une base de données Azure SQL, DocumentDB ou Azure Storage pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Azure Search."
+description: "Analysez une base de données Azure SQL, Cosmos DB ou le stockage Azure pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -27,9 +29,9 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 > * [Vue d'ensemble](search-indexer-overview.md)
 > * [Portail](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Base de données de documents](search-howto-index-documentdb.md)
-> * [Blob Storage (version préliminaire)](search-howto-indexing-azure-blob-storage.md)
-> * [Table Storage (aperçu)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
+> * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -40,7 +42,7 @@ Vous pouvez utiliser un indexeur comme seul moyen d’ingestion des données ou 
 Vous pouvez exécuter des indexeurs à la demande ou en fonction d’une planification d’actualisation des données périodique qui s’exécute jusqu’à une fois toutes les quinze minutes. Des mises à jour plus fréquentes requièrent un modèle d’émission qui met à jour simultanément les données dans Azure Search et dans votre source de données externe.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Méthodes de création et de gestion des indexeurs
-Pour les indexeurs à disposition générale tels qu’Azure SQL ou DocumentDB, vous pouvez créer et gérer les indexeurs à l’aide des méthodes suivantes :
+Pour les indexeurs mis à la disposition générale tels qu’Azure SQL ou Azure Cosmos DB, vous pouvez créer et gérer les indexeurs à l’aide des méthodes suivantes :
 
 * [Portail > Assistant Importer des données](search-get-started-portal.md)
 * [API REST du service](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -56,7 +58,7 @@ Un indexeur automatise certaines tâches liées à l’ingestion de données, ma
 Un indexeur extrait les données d’une **source de données** qui contient des informations telles qu’une chaîne de connexion. Actuellement, les sources de données suivantes sont prises en charge :
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Stockage d’objets blob azure](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
 * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 
@@ -69,14 +71,9 @@ La définition de l’indexeur est une structure qui spécifie l’index, la sou
 Maintenant que vous avez la structure de base, l’étape suivante consiste à passer en revue les exigences et les tâches propres à chaque type de source de données.
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Stockage d’objets blob azure](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
 * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
-* [Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-csv-blobs.md)
-* [Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
+* [Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)
 

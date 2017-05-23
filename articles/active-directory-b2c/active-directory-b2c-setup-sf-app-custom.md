@@ -210,7 +210,7 @@ Vous allez devoir enregistrer Azure AD B2C en tant qu’application connectée d
 
     1. Entrez l’URL suivante dans le champ **ACS URL** (URL ACS) et assurez-vous de remplacer le `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase /samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Gardez les valeurs par défaut de tous les autres paramètres.
