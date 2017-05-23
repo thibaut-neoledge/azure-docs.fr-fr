@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: add8cf22430c9e7af47e6d3c242fbd25797dd099
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: e441f2a1535ab9544621ff47f28e11c3baf3cae2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -36,9 +36,19 @@ Cet article vous explique comment créer un réseau virtuel avec une connexion p
 >
 >
 
-Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Le P2S est une connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Les connexions point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique. Vous établissez la connexion VPN depuis l’ordinateur client. Pour plus d’informations sur les connexions de point à site, consultez le [Forum Aux Questions sur les connexions point à site](#faq) à la fin de cet article.
+Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Les connexions point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. La connexion VPN P2S est initiée à partir de l’ordinateur client à l’aide du client VPN Windows natif. Les clients qui se connectent utilisent des certificats pour l’authentification. 
+
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
+
+Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. P2S crée les connexions VPN sur SSTP (Secure Socket Tunneling Protocol). Côté serveur, nous prenons en charge SSTP, versions 1.0, 1.1 et 1.2. Le client détermine la version à utiliser. Pour Windows 8.1 et supérieur, SSTP utilise la version 1.2 par défaut. Pour plus d’informations sur les connexions de point à site, consultez le [Forum Aux Questions sur les connexions point à site](#faq) à la fin de cet article.
+
+Les connexions P2S requièrent les éléments suivants :
+
+* Une passerelle VPN dynamique.
+* La clé publique (fichier .cer) d’un certificat racine chargée sur Azure. Ce certificat est considéré comme un certificat approuvé et est utilisé pour l’authentification.
+* Un certificat client généré à partir du certificat racine et installé sur chaque ordinateur client qui se connecte. Ce certificat est utilisé pour l’authentification du client.
+* Un package de configuration du client VPN doit être généré et installé sur chaque ordinateur client qui se connecte. Le package de configuration du client configure le client VPN natif qui se trouve déjà sur le système d’exploitation avec les informations nécessaires à la connexion au réseau virtuel.
 
 ### <a name="example-settings"></a>Exemples de paramètres
 
@@ -98,7 +108,7 @@ Vous allez maintenant créer un sous-réseau de passerelle et une passerelle de 
 3. Dans le panneau **Nouvelle connexion VPN**, sélectionnez **Point à site**.
 
   ![Type de connexion de point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. Pour **l’espace d’adressage du client**, ajoutez la plage d’adresses IP. Il s’agit de la plage à partir de laquelle les clients VPN reçoivent une adresse IP lorsqu’ils se connectent. Supprimez la plage renseignée automatiquement et ajoutez la vôtre.
+4. Pour **l’espace d’adressage du client**, ajoutez la plage d’adresses IP. Il s’agit de la plage à partir de laquelle les clients VPN reçoivent une adresse IP lorsqu’ils se connectent. Utilisez une plage d’adresses IP privées qui ne chevauche ni l’emplacement local à partir duquel vous vous connectez ni le réseau virtuel auquel vous souhaitez vous connecter. Vous pouvez supprimer la plage renseignée automatiquement, puis ajouter la plage d’adresses IP privée que vous souhaitez utiliser.
 
   ![Espace d’adressage du client](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Cochez la case **Créer une passerelle immédiatement**.
@@ -116,11 +126,11 @@ Vous allez maintenant créer un sous-réseau de passerelle et une passerelle de 
 9. Sélectionnez le **type de routage** pour votre passerelle. Les configurations P2S nécessitent un type de routage **dynamique**. Cliquez sur **OK** lorsque vous avez terminé la configuration de ce panneau.
 
   ![Configurer le type de routage](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. Dans le panneau **Nouvelle connexion VPN**, cliquez sur **OK** en bas du panneau pour commencer à créer votre passerelle de réseau virtuel. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes.
+10. Dans le panneau **Nouvelle connexion VPN**, cliquez sur **OK** en bas du panneau pour commencer à créer votre passerelle de réseau virtuel. L’achèvement d’une passerelle VPN peut prendre jusqu’à 45 minutes en fonction de la référence de passerelle que vous sélectionnez.
 
 ## <a name="generatecerts"></a>Section 2 : créer des certificats
 
-Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site.
+Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme « approuvée ». Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Utilisateur actuel/Personnel. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. Pour plus d’informations sur la génération et l’installation de certificats, voir [Certificats pour les connexions point à site](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="cer"></a>Partie 1 : obtention de la clé publique (.cer) pour le certificat racine
 
@@ -132,7 +142,7 @@ Les certificats sont utilisés par Azure pour authentifier les clients VPN pour 
 
 ## <a name="upload"></a>Section 3 - Charger le fichier .cer de certificat racine
 
-Une fois la passerelle créée, vous pouvez charger le fichier .cer pour un certificat racine approuvé dans Azure. Vous pouvez charger des fichiers pour 20 certificats racine maximum. Vous ne chargez pas la clé privée pour le certificat racine dans Azure. Une fois le fichier .cer chargé, Azure l’utilise pour authentifier les clients qui se connectent au réseau virtuel.
+Après la création de la passerelle, vous pouvez charger le fichier .cer (qui contient les informations de clé publique) pour un certificat racine approuvé dans Azure. Vous ne chargez pas la clé privée pour le certificat racine dans Azure. Une fois qu’un fichier .cer est chargé, Azure peut l’utiliser pour authentifier les clients qui ont installé un certificat client généré à partir du certificat racine approuvé. Vous pouvez charger ultérieurement d’autres fichiers de certificat racine approuvé, jusqu’à un total de 20, si nécessaire.  
 
 1. Dans la section **Connexions VPN** du panneau de votre réseau virtuel, cliquez sur le graphique des **clients** pour ouvrir le panneau **Connexion VPN point à site**.
 
@@ -149,9 +159,9 @@ Une fois la passerelle créée, vous pouvez charger le fichier .cer pour un cert
 
 ## <a name="vpnclientconfig"></a>Section 4 - Configurer le client
 
-Pour se connecter à un réseau virtuel à l’aide d’un VPN point à site, chaque client doit installer un package de configuration du client VPN. Le package n’installe aucun client VPN. Vous pouvez utiliser le même package de configuration du client VPN sur chaque ordinateur client, tant que la version correspond à l’architecture du client. Pour obtenir la liste des systèmes d’exploitation clients pris en charge, consultez la section [Forum Aux Questions sur les connexions point à site](#faq) à la fin de cet article.
+Pour se connecter à un réseau virtuel à l’aide d’un VPN de point à site, chaque client doit installer un package pour configurer le client VPN Windows natif. Le package de configuration configure le client VPN Windows natif avec les paramètres nécessaires pour se connecter au réseau virtuel et, si vous avez spécifié un serveur DNS pour votre réseau virtuel, il contient l’adresse IP du serveur DNS que le client utilisera pour la résolution de noms. Si vous modifiez le serveur DNS spécifié ultérieurement, après avoir généré le package de configuration client, veillez à générer un nouveau package de configuration client à installer sur vos ordinateurs clients.
 
-Le package de configuration configure le client VPN Windows natif avec les paramètres nécessaires pour se connecter au réseau virtuel et, si vous avez spécifié un serveur DNS pour votre réseau virtuel, il contient l’adresse IP du serveur DNS que le client utilisera pour la résolution de noms. Si vous modifiez le serveur DNS spécifié ultérieurement, après avoir généré le package de configuration client, veillez à générer un nouveau package de configuration client à installer sur vos ordinateurs clients.
+Vous pouvez utiliser le même package de configuration du client VPN sur chaque ordinateur client, tant que la version correspond à l’architecture du client. Pour obtenir la liste des systèmes d’exploitation clients pris en charge, consultez la section [Forum Aux Questions sur les connexions point à site](#faq) à la fin de cet article.
 
 ### <a name="part-1-generate-and-install-the-vpn-client-configuration-package"></a>Partie 1 : Générer et installer le package de configuration du client VPN
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2016
+ms.date: 05/12/2017
 ms.author: osamam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -82,7 +82,7 @@ Le chemin d’homologation publique Azure vous permet de vous connecter à tous 
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 
-Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d’homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
+Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et Dynamics 365. Microsoft prend en charge la connectivité bidirectionnelle sur l’homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres répertoriés ci-dessous.
 
@@ -193,7 +193,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | **Microsoft Exchange** |12076:5010 |
 | **SharePoint** |12076:5020 |
 | **Skype Entreprise** |12076:5030 |
-| **CRM Online** |12076:5040 |
+| **Dynamics 365** |12076:5040 |
 | **Autres services Office 365** |12076:5100 |
 
 > [!NOTE]

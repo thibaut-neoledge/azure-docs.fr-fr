@@ -1,6 +1,7 @@
 ---
-title: "Didacticiel Hadoop : prise en main de Hadoop et Hive dans HDInsight | Microsoft Docs"
-description: "Suivez ce didacticiel Linux pour apprendre à utiliser Hadoop dans HDInsight. Découvrez comment créer des clusters Linux et interroger des données avec Hive."
+title: "Prise en main de Hadoop et Hive dans Azure HDInsight | Microsoft Docs"
+description: "Découvrez comment créer des clusters HDInsight et interroger des données avec Hive."
+keywords: "prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,18 +10,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 05/12/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: bef6754f5ffd2b004af01a2e26edeeed63793b6e
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: f2a97c32e9f1a286102e0800db57107e041d1990
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -37,7 +38,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ## <a name="create-cluster"></a>Créer un cluster
 
-La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Le modèle Resource Manager est entièrement personnalisable ; il facilite la création de ressources Azure, telles que HDInsight. Aucune expérience avec le modèle Resource Manager n’est requise pour ce didacticiel. Pour obtenir d’autres méthodes de création de cluster et comprendre les propriétés utilisées dans ce didacticiel, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Utilisez le sélecteur en haut de la page pour choisir les options de création de votre cluster.
+La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Aucune expérience avec le modèle Resource Manager n’est requise pour ce didacticiel. Pour obtenir d’autres méthodes de création de cluster et comprendre les propriétés utilisées dans ce didacticiel, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Utilisez le sélecteur en haut de la page pour choisir les options de création de votre cluster.
 
 Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -46,10 +47,10 @@ Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub]
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Entrez ou sélectionnez les valeurs suivantes :
    
-    ![Prise en main de HDInsight sous Linux - Utilisation du modèle Resource Manager sur le portail](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![Prise en main de HDInsight sous Linux - Utilisation du modèle Resource Manager sur le portail](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template (Déployer un cluster Hadoop dans HDInsight à l’aide du portail Azure et d’un modèle de gestionnaire de groupes de ressources)").
    
     * **Abonnement** : sélectionnez votre abonnement Azure.
-    * **Groupe de ressources** : créez un groupe de ressources ou sélectionnez un groupe de ressources existant.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. 
+    * **Groupe de ressources** : créez un groupe de ressources ou sélectionnez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. 
     * **Emplacement** : sélectionnez l’emplacement Azure où vous souhaitez créer votre cluster.  Choisissez un emplacement proche de vous pour obtenir des performances optimales. 
     * **Type du cluster** : pour les besoins de ce didacticiel, sélectionnez **hadoop**.
     * **Nom de cluster** : saisissez le nom du cluster Hadoop.
@@ -58,22 +59,22 @@ Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub]
      
     Certaines propriétés ont été codées en dur dans le modèle.  Vous pouvez configurer ces valeurs à partir du modèle.
 
-    * **Emplacement** : le cluster et le compte de stockage dépendant utilisent le même emplacement que le groupe de ressources.
+    * **Emplacement** : le cluster et le compte de stockage dépendant partagent le même emplacement que le groupe de ressources.
     * **Version de cluster** : 3.5
     * **Type de système d’exploitation** : Linux
     * **Nombre de nœuds de travail** : 2
 
-     Chaque cluster possède une dépendance de compte de stockage Azure. Il est habituellement désigné comme compte de stockage par défaut. Le cluster HDInsight et son compte de stockage par défaut doivent figurer dans la même région Azure. La suppression de clusters n’a pas pour effet de supprimer le compte de stockage. 
+     Chaque cluster possède une dépendance de compte Stockage Azure. Elle est désignée comme compte de stockage par défaut. Le cluster HDInsight et son compte de stockage par défaut doivent figurer dans la même région Azure. La suppression de clusters n’a pas pour effet de supprimer le compte de stockage. 
      
      Pour consulter une présentation de ces propriétés, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus** et **Épingler au tableau de bord**, puis cliquez sur **Acheter**. Vous verrez une nouvelle vignette intitulée **Déploiement du déploiement de modèle** sur le tableau de bord du portail. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, la vignette change de légende pour afficher le nom du groupe de ressources que vous avez spécifié. Le portail ouvre automatiquement le groupe de ressources dans un nouveau panneau. Le cluster et le stockage par défaut sont répertoriés.
    
-    ![Prise en main de HDInsight sous Linux - Groupe de ressources](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+    ![Prise en main de HDInsight sous Linux - Groupe de ressources](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Groupe de ressources de cluster Azure HDInsight").
 
 4. Cliquez sur le nom du cluster pour ouvrir celui-ci dans un nouveau panneau.
 
-   ![Prise en main de HDInsight sous Linux - Paramètres du cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+   ![Prise en main de HDInsight sous Linux - Paramètres du cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "Propriétés de cluster HDInsight")
 
 
 ## <a name="run-hive-queries"></a>Exécuter des requêtes Hive
@@ -83,7 +84,7 @@ Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub]
 2. Entrez le nom d’utilisateur Hadoop et le mot de passe que vous avez spécifiés dans la section précédente. Le nom d’utilisateur par défaut est **admin**.
 3. Ouvrez l’ **affichage Hive** comme illustré dans la capture d’écran suivante.
    
-    ![Sélection des vues Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Sélection des vues Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "Menu Affichage Hive dans HDInsight").
 4. Dans la section **Éditeur de requêtes** de la page, collez les instructions HiveQL suivantes dans la feuille de calcul :
    
         SHOW TABLES;
@@ -96,7 +97,7 @@ Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub]
    
     Une fois la requête terminée, la section de **résultats du processus de requête** affiche les résultats de l’opération. Vous devriez voir une table appelée **hivesampletable**. Cet exemple de table Hive est fourni avec les clusters HDInsight.
    
-    ![Affichages HDInsight Hive](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
+    ![Affichages Hive dans HDInsight](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "Éditeur de requête de l’affichage Hive dans HDInsight").
 6. Répétez les étapes 4 et 5 pour exécuter la requête suivante :
    
         SELECT * FROM hivesampletable;
@@ -121,7 +122,7 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À partir du tableau de bord du portail, cliquez sur la vignette portant le nom du groupe de ressources que vous avez utilisé lors de la création du cluster.
-3. Cliquez sur **Supprimer** dans le panneau de ressources pour supprimer le groupe de ressources contenant le cluster et le compte de stockage par défaut. Sinon, cliquez sur le nom du cluster dans la vignette **Ressources**, puis cliquez sur **Supprimer** dans le panneau du cluster. Notez que la suppression du groupe de ressources aura pour effet de supprimer le compte de stockage. Si vous souhaitez conserver le compte de stockage, choisissez de supprimer uniquement le cluster.
+3. Cliquez sur **Supprimer** dans le panneau de ressources pour supprimer le groupe de ressources contenant le cluster et le compte de stockage par défaut. Vous pouvez également cliquer sur le nom du cluster dans la vignette **Ressources**, puis sur **Supprimer** dans le panneau du cluster. Notez que la suppression du groupe de ressources aura pour effet de supprimer le compte de stockage. Si vous souhaitez conserver le compte de stockage, choisissez de supprimer uniquement le cluster.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
@@ -146,7 +147,7 @@ Si vous voulez en savoir plus sur la création ou la gestion d’un cluster HDIn
 
 * Pour en savoir plus sur la gestion de votre cluster HDInsight Linux, consultez la page [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
 * Pour en savoir plus sur les options que vous pouvez sélectionner pendant la création d’un cluster HDInsight, consultez la page [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Si vous maîtrisez Linux et Hadoop, mais que vous souhaitez connaître les spécificités de Hadoop sur HDInsight, consultez la page [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md). Cette rubrique vous fournit des informations telles que :
+* Si vous maîtrisez Linux et Hadoop, mais que vous souhaitez connaître les spécificités de Hadoop sur HDInsight, consultez la page [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md). Cet article vous fournit les informations suivantes :
   
   * les URL correspondant aux services hébergés sur le cluster, tels qu'Ambari et WebHCat
   * l'emplacement des fichiers Hadoop et des exemples sur le système de fichiers local

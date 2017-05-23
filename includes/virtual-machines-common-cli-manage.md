@@ -1,39 +1,46 @@
-Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
+Azure CLI 2.0 vous permet de créer et de gérer vos ressources Azure sur Mac OS, Linux et Windows. Cet article décrit certaines des commandes les plus courantes pour créer et gérer des machines virtuelles.
 
-Si vous n’avez pas encore installé l’interface de ligne de commande Azure et connecté cette dernière à votre abonnement, consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../articles/cli-install-nodejs.md), définissez le mode sur `arm` avec `azure config mode arm`, puis connectez-vous à Azure avec la commande `azure login`.
+Cet article requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Commandes de base Basic Azure Resource Manager de l’interface de ligne de commande Azure
-Cet article traite des commandes de base que vous utiliserez avec l’interface de ligne de commande Azure pour gérer et interagir avec vos ressources ARM (principalement des machines virtuelles) dans votre abonnement Azure.  Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
+Pour plus d’informations sur les commutateurs et options de ligne de commande spécifiques, vous pouvez utiliser les options et l’aide en ligne des commandes en tapant `az <command> <subcommand> --help`.
 
-> [!NOTE]
-> Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez les articles [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-> 
-> 
+### <a name="create-vms"></a>Créer des machines virtuelles
+| Task | Commandes d’interface de ligne de commande Azure |
+| --- | --- |
+| Créer un groupe de ressources | `az group create --name myResourceGroup --location eastus` |
+| Créer une machine virtuelle Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
+| Créer une machine virtuelle Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
-| Tâche | Gestionnaire de ressources |
-| --- | --- | --- |
-| Créer la machine virtuelle de base |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenez l’élément `image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour découvrir des exemples.) |
-| Créer une machine virtuelle Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Créer une machine virtuelle Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| Énumérer les machines virtuelles |`azure  vm list [options]` |
-| Obtenir des informations sur une machine virtuelle |`azure  vm show [options] <resource_group> <name>` |
-| Démarrer une machine virtuelle |`azure vm start [options] <resource_group> <name>` |
-| Arrêter une machine virtuelle |`azure vm stop [options] <resource_group> <name>` |
-| Désallouer une machine virtuelle |`azure vm deallocate [options] <resource-group> <name>` |
-| Redémarrer une machine virtuelle |`azure vm restart [options] <resource_group> <name>` |
-| Supprimer une machine virtuelle |`azure vm delete [options] <resource_group> <name>` |
-| Capturer une machine virtuelle |`azure vm capture [options] <resource_group> <name>` |
-| Créer une machine virtuelle à partir d'une image utilisateur |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Créer une machine virtuelle à partir d'un disque spécialisé |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
-| Ajouter un disque de données à une machine virtuelle |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
-| Supprimer un disque de données à partir d'une machine virtuelle |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
-| Ajouter une extension générique à une machine virtuelle |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Ajouter l'extension d'accès aux machines virtuelles à une machine virtuelle |`azure vm reset-access [options] <resource-group> <name>` |
-| Ajouter l'extension Docker à une machine virtuelle |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
-| Supprimer une extension de machine virtuelle |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Obtenir l'utilisation des ressources de la machine virtuelle |`azure vm list-usage [options] <location>` |
-| Obtenir toutes les tailles de machines virtuelles disponibles |`azure vm sizes [options]` |
+### <a name="manage-vm-state"></a>Gérer l’état d’une machine virtuelle
+| Task | Commandes d’interface de ligne de commande Azure |
+| --- | --- |
+| Démarrer une machine virtuelle | `az vm start --resource-group myResourceGroup --name myVM` |
+| Arrêter une machine virtuelle | `az vm stop --resource-group myResourceGroup --name myVM` |
+| Désallouer une machine virtuelle | `az vm deallocate --resource-group myResourceGroup --name myVM` |
+| Redémarrer une machine virtuelle | `az vm restart --resource-group myResourceGroup --name myVM` |
+| Redéploiement d’une machine virtuelle | `az vm redeploy --resource-group myResourceGroup --name myVM` |
+| Supprimer une machine virtuelle | `az vm delete --resource-group myResourceGroup --name myVM` |
+
+### <a name="get-vm-info"></a>Obtenir des informations sur les machines virtuelles
+| Task | Commandes d’interface de ligne de commande Azure |
+| --- | --- |
+| Énumérer les machines virtuelles | `az vm list` |
+| Obtenir des informations sur une machine virtuelle | `az vm show --resource-group myResourceGroup --name myVM` |
+| Obtenir l'utilisation des ressources de la machine virtuelle | `az vm list-usage --location eastus` |
+| Obtenir toutes les tailles de machines virtuelles disponibles | `az vm list-sizes --location eastus` |
+
+## <a name="disks-and-images"></a>Disques et images
+| Task | Commandes d’interface de ligne de commande Azure |
+| --- | --- |
+| Ajouter un disque de données à une machine virtuelle | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Supprimer un disque de données à partir d'une machine virtuelle | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
+| Redimensionner un disque | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
+| Effectuer la capture instantanée d’un disque | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| Créer une image de machine virtuelle | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
+| Créer une machine virtuelle à partir d’une image | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour d'autres exemples de commandes de l'interface CLI dépassant la gestion de base des machines virtuelles, consultez la page [Utilisation de l'interface CLI Azure avec Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+Pour visualiser des exemples supplémentaires des commandes CLI, consultez le didacticiel [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md).
 

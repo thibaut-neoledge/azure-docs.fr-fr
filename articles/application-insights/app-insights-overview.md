@@ -3,7 +3,7 @@ title: "Qu’est-ce qu’Azure Application Insights ? | Microsoft Docs"
 description: "Gestion des performances et suivi de l’utilisation de votre application web en ligne.  Détectez, triez et diagnostiquez les problèmes et découvrez comment votre application est utilisée."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c47041bb729a3ee1f3fb4c7baf7f988db226677
-ms.lasthandoff: 04/12/2017
-
+ms.date: 05/14/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e57912a197394fbb8ea8bc374a1f3934ae0ff464
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
@@ -64,14 +64,17 @@ Il existe de nombreuses manières d’explorer vos données. Consultez les artic
 
 |  |  |
 | --- | --- |
+| [**Détection intelligente et alertes manuelles**](app-insights-proactive-diagnostics.md)<br/>Les alertes automatiques s’adaptent aux habitudes télémétriques normales de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](app-insights-alerts.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Mise en correspondance d’applications**](app-insights-app-map.md)<br/>Les composants de votre application, avec des alertes et des mesures clés. |![Mise en correspondance d’applications](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profileur**](app-insights-profiler.md)<br/>Examinez les profils d’exécution des requêtes échantillonnées. |![Profileur](./media/app-insights-overview/profiler.png) |
+| [**Analyse de l’utilisation**](app-insights-usage-overview.md)<br/>Analysez la rétention et la segmentation ds utilisateurs.|![Outil de rétention](./media/app-insights-overview/retention.png) |
 | [**Recherche de diagnostic pour les données d’instance**](app-insights-diagnostic-search.md)<br/>Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.  |![Télémétrie de recherche](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer pour les données agrégées**](app-insights-metrics-explorer.md)<br/>Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages. |![Mesures](./media/app-insights-overview/metrics-tn.png) |
 | [**Tableaux de bord**](app-insights-dashboards.md#dashboards)<br/>Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe. |![Exemple de tableaux de bord](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu. |![Exemple de métriques temps réel](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analytics**](app-insights-analytics.md)<br/>Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant. |![Exemple d’analyse](./media/app-insights-overview/analytics-tn.png) |
-| [**Alertes automatiques et manuelles**](app-insights-alerts.md)<br/>Les alertes automatiques s’adaptent aux habitudes télémétriques normales de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également définir des alertes sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Consultez les données de performances dans le code. Accédez au code à partir de l’arborescence des appels de procédure.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Débogueur de capture instantanée**](app-insights-snapshot-debugger.md)<br/>Déboguez les captures instantanées échantillonnées à partir des opérations en direct, avec des valeurs de paramètre.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Intégrez des mesures d’utilisation à d’autres données décisionnelles.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**API REST**](https://dev.applicationinsights.io/)<br/>Écrivez du code pour exécuter des requêtes sur vos propres données brutes et mesures.| ![API REST](./media/app-insights-overview/rest-tn.png) |
 | [**Exportation continue**](app-insights-export-telemetry.md)<br/>Exportation en bloc de données brutes vers le système de stockage dès leur arrivée. |![Exportation](./media/app-insights-overview/export-tn.png) |
@@ -90,10 +93,10 @@ Lorsque vous recevez une alerte ou découvrez un problème :
 
 * Évaluez le nombre d’utilisateurs affectés.
 * Mettez en corrélation les échecs et les exceptions, les appels de dépendance et les traces.
-* Examinez les journaux de suivi et les vidages de pile.
+* Examinez le profileur, les captures instantanées, les vidages de pile et les journaux de suivi.
 
 ### <a name="build-measure-learn"></a>Créer, mesurer, apprendre
-Mesurez l’efficacité de chaque nouvelle fonctionnalité que vous déployez.
+[Mesurez l’efficacité](app-insights-usage-overview.md) de chaque nouvelle fonctionnalité que vous déployez.
 
 * Planifiez l’évaluation de la manière dont les clients utilisent de nouvelles fonctionnalités d’entreprise ou utilisateur.
 * Écrivez des données de télémétrie personnalisées dans votre code.

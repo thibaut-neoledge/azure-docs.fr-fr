@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Compte Azure
-* Un compte Microsoft Azure actif et valide. Ce compte est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
+* Un compte Microsoft Azure actif et valide. Ce compte est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et Dynamics 365.
 * Un abonnement Office 365 actif (si vous utilisez les services Office 365). Pour plus d’informations, consultez la section [Conditions requises propres à Office 365](#office-365-specific-requirements) de cet article.
 
 ## <a name="connectivity-provider"></a>Fournisseur de connectivité
@@ -53,10 +54,10 @@ Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les docume
 * [Intégration d’Office 365 aux environnements locaux](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Vidéos de formation avancée à ExpressRoute sur Office 365](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documents suivants pour plus d’informations sur CRM Online.
+## <a name="dynamics-365"></a>Dynamics 365
+Si vous prévoyez d’activer Dynamics 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur Dynamics 365.
 
-* [URL et plages d’adresses IP](https://support.microsoft.com/kb/2655102) [CRM Online](https://support.microsoft.com/kb/2728473)
+* [URL](https://support.microsoft.com/kb/2655102) et [plages d’adresses IP Dynamics 365](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).

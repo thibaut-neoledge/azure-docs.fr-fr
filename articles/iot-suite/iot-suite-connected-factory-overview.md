@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -43,7 +44,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
 1. Connectez-vous à azureiotsuite.com à l’aide des informations d’identification de votre compte Azure, puis cliquez sur « **+** » pour créer une solution.
 2. Cliquez sur **Sélectionner** sur la vignette **Usine connectée**.
-3. Entrez un **Nom de solution** pour votre solution préconfigurée de surveillance à distance.
+3. Entrez un **Nom de solution** pour votre solution préconfigurée d’usine connectée.
 4. Sélectionnez l’**Abonnement** et la **Région** à utiliser pour configurer la solution.
 5. Cliquez sur **Créer une solution** pour commencer le processus de déploiement. L’exécution de ce processus prend généralement plusieurs minutes.
 
@@ -303,7 +304,7 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

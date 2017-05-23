@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6a83d5e5939744137e11a441048ade407c63ee86
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -32,36 +33,35 @@ ms.lasthandoff: 02/03/2017
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-**L’Assistant Copie** d’Azure Data Factory vous permet de créer facilement et rapidement un pipeline mettant en œuvre le scénario d’ingestion/déplacement de données. Par conséquent, nous vous recommandons d’utiliser l’Assistant en vue de créer un exemple de pipeline pour le scénario de déplacement de données. Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure à une base de données SQL Azure. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) . 
+Ce didacticiel vous montre comment utiliser **l’Assistant de copie** pour copier des données à partir d’un stockage Blob Azure dans une base de données SQL Azure. 
+
+**L’Assistant de copie** Azure Data Factory vous permet de créer rapidement un pipeline de données qui copie les données d’un magasin de données source pris en charge dans un magasin de données de destination pris en charge. Par conséquent, nous vous recommandons d’utiliser l’Assistant en vue de créer un exemple de pipeline pour votre scénario de déplacement de données. Pour obtenir la liste des magasins de données pris en charge en tant que sources et destinations, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .  
+
+Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure à une base de données SQL Azure. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 ## <a name="prerequisites"></a>Composants requis
-- Consultez [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une vue d’ensemble du didacticiel et effectuer les **étapes préalables requises** .
-
+Assurez-vous que vous respectez la configuration requise décrite dans l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) avant de suivre ce didacticiel.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
 Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
-1. Une fois connecté au [portail Azure](https://portal.azure.com), cliquez sur **+ NOUVEAU** en haut à gauche, sur **Intelligence et analyse**, puis sur **Data Factory**. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Cliquez sur **+ NOUVEAU** en haut à gauche, sur **Données et analyse**, puis sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. Dans le panneau **Nouvelle fabrique de données** :
    
    1. Entrez **ADFTutorialDataFactory** comme **nom**.
-       Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
+       Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur `Data factory name “ADFTutorialDataFactory” is not available` s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryAAAAMMJJ), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
       
-       ![Nom de la fabrique de données indisponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
-      
-      > [!NOTE]
-      > Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
-      > 
-      > 
+       ![Nom de la fabrique de données indisponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Sélectionnez votre **abonnement**Azure.
    3. Pour Groupe de ressources, effectuez l’une des opérations suivantes : 
       
       - Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
       - Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
-         
-          Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+          
+        Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
    4. Sélectionnez un **emplacement** pour la fabrique de données.
    5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.  
    6. Cliquez sur **Create**.
@@ -71,22 +71,20 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    
    ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-copy-wizard"></a>Lancer l’Assistant de copie
-1. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**. 
+## <a name="launch-copy-wizard"></a>Lancer l’Assistant Copie
+1. Dans le panneau Fabrique de données, cliquez sur **Copier les données [VERSION PRÉLIMINAIRE]** pour lancer **l’Assistant de copie**. 
    
    > [!NOTE]
-   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
-   > 
-   > 
+   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) dans les paramètres du navigateur (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
 2. Dans la page **Propriétés** :
    
    1. Saisissez **CopyFromBlobToAzureSql** dans **Nom de la tâche**.
    2. Saisissez une **Description** (facultative).
-   3. Modifiez les champs **Date et heure de début** et **Date et heure de fin** de manière à définir la date de fin sur la date du jour et la date de début cinq jours avant la date du jour.  
-   4. Cliquez sur **Next**.  
+   3. Modifiez les champs **Date et heure de début** et **Date et heure de fin** de manière à définir la date de fin sur la date du jour et la date de début cinq jours plus tôt.  
+   4. Cliquez sur **Suivant**.  
       
       ![Outil de copie - page Propriétés](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. Dans la page **Source data store** (Magasin de données source), cliquez sur la vignette **Stockage d’objets blob Azure**. Cette page sert à spécifier le magasin de données source pour la tâche de copie. Vous pouvez utiliser un service lié de magasin de données existant (ou) spécifier un nouveau magasin de données. Pour utiliser un service lié existant, vous devez cliquer sur **FROM EXISTING LINKED SERVICES** (À PARTIR DES SERVICES LIÉS EXISTANTS) et sélectionner le service lié approprié. 
+3. Dans la page **Source data store** (Magasin de données source), cliquez sur la vignette **Stockage d’objets blob Azure**. Cette page sert à spécifier le magasin de données source pour la tâche de copie. 
    
     ![Outil de copie - page Source data store (Magasin de données source)](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 4. Dans la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage d’objets blob Azure) :
@@ -99,9 +97,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
       ![Outil de copie - spécifiez le compte de stockage d’objets blob Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 5. Dans la page **Choose the input file or folder** (Choisir le fichier ou le dossier d’entrée) :
    
-   1. Accédez au dossier **adftutorial** .
+   1. Double-cliquez sur **adftutorial** (dossier).
    2. Sélectionnez **emp.txt**, puis cliquez sur **Choisir**.
-   3. Cliquez sur **Next**. 
       
       ![Outil de copie - choisissez le fichier ou le dossier d’entrée](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. Sur la page **Choose the input file or folder (Choisir le fichier ou le dossier d’entrée)**, cliquez sur **Suivant**. Ne sélectionnez pas **copie binaire**. 
@@ -120,7 +117,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    3. Sélectionnez votre **abonnement**Azure.  
    4. Sélectionnez le **Nom du serveur** et la **Base de données**.
    5. Saisissez le **Nom d’utilisateur** et le **Mot de passe**.
-   6. Cliquez sur **Next**.  
+   6. Cliquez sur **Suivant**.  
       
       ![Outil de copie - Spécifier la base de données SQL Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Dans la page **Mappage de table**, sélectionnez **emp** dans la liste déroulante du champ **Destination**, puis cliquez sur **Flèche vers le bas** (facultatif) pour afficher le schéma et un aperçu des données.
@@ -140,23 +137,21 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 1. Dans la page **Déploiement**, cliquez sur le lien : `Click here to monitor copy pipeline`.
    
    ![Outil de copie - Déploiement réussi](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. Suivez les instructions de la section [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion](data-factory-monitor-manage-app.md) pour en savoir plus sur la surveillance du pipeline que vous venez de créer. Cliquez sur l’icône **Actualiser** dans la liste de **FENÊTRES D’ACTIVITÉ** pour afficher la tranche. 
+2. L’application d’analyse est lancée dans un onglet distinct de votre navigateur web.   
    
-   ![Application de surveillance](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
-   
-   
-   Cliquez sur le bouton **Actualiser** dans la liste **FENÊTRES D’ACTIVITÉ** en bas pour afficher le dernier état. L’état n’est pas actualisé automatiquement. 
+   ![Application de surveillance](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
+3. Pour afficher le dernier état des tranches horaires, cliquez sur le bouton **Actualiser** dans la liste **FENÊTRES D’ACTIVITÉ** en bas. Cette opération affiche cinq fenêtres d’activité pour cinq jours entre les heures de début et de fin du pipeline. Comme la liste n’est pas actualisée automatiquement, vous devrez peut-être cliquer sur Actualiser plusieurs fois avant que toutes les fenêtres d’activité soient à l’état Prêt. 
+4. Sélectionnez une fenêtre d’activité dans la liste. Affichez les informations la concernant dans **l’Explorateur de fenêtres d’activité** à droite.
 
-> [!NOTE]
-> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, voir [Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
-> 
-> Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, voir [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md).
+    ![Détails de la fenêtre d’activité](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-## <a name="see-also"></a>Voir aussi
-| Rubrique | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
-| [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
-| [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
+    Notez que les dates, 11, 12, 13, 14 et 15 sont en vert, ce qui signifie que les tranches de sortie quotidiennes de ces dates ont déjà été produites. Ce codage couleur apparaît également sur le pipeline et dans le jeu de données de sortie de la vue du diagramme. À l’étape précédente, notez que deux tranches ont déjà été produites et une tranche est en cours de traitement. Les deux autres sont en attente de traitement (comme l’indique le codage couleur). 
 
+    Pour plus d’informations sur l’utilisation de cette application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et de gestion](data-factory-monitor-manage-app.md).
 
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+Pour plus d’informations sur les champs/propriétés affichés dans l’Assistant de copie d’un magasin de données, cliquez sur le lien du magasin de données dans la table. 

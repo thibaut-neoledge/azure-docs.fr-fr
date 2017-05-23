@@ -3,7 +3,7 @@ title: "Configurer des analyses d’application web pour ASP.NET avec Azure Appl
 description: "Configurez les performances, la disponibilité et l’analyse de l’utilisation de votre site web ASP.NET, hébergé en local ou dans Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -52,11 +52,16 @@ Passez à la page de configuration d’Application Insights :
 
 **a.** Sélectionnez le compte et l’abonnement que vous utilisez pour accéder à Azure.
 
-**b.** Sélectionnez la ressource Azure où vous souhaitez afficher les données de votre application. Généralement, une ressource distincte est créée pour chaque application. Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos données sont stockées, cliquez sur **Configurer les paramètres**. Les groupes de ressources sont utilisés pour contrôler l’accès aux données. Par exemple, si vous possédez plusieurs applications qui font partie du même système, vous pourrez placer leurs données Application Insights dans le même groupe de ressources.
+**b.** Sélectionnez la ressource Azure où vous souhaitez afficher les données de votre application. En règle générale :
+
+* Utilisez une [seule ressource pour les différents composants](app-insights-monitor-multi-role-apps.md) d’une application unique. 
+* Créez des ressources distinctes pour les applications non liées.
+ 
+Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos données sont stockées, cliquez sur **Configurer les paramètres**. Les groupes de ressources sont utilisés pour contrôler l’accès aux données. Par exemple, si vous possédez plusieurs applications qui font partie du même système, vous pourrez placer leurs données Application Insights dans le même groupe de ressources.
 
 **c.** Définissez une limite de volume de données gratuites, pour éviter des frais. Application Insights est gratuit jusqu’à un certain volume de données de télémétrie. Une fois la ressource créée, vous pouvez modifier votre sélection dans le portail en ouvrant **Fonctionnalités + tarifs** > **Gestion des données** > **Limite quotidienne de volume**.
 
-**d.** Cliquez sur **Inscrire** pour configurer Application Insights pour votre application web. Les données de télémétrie seront envoyées au [portail Azure](https://portal.azure.com), pendant le débogage et une fois que vous aurez publié votre application.
+**d.** Cliquez sur **Inscrire**  pour configurer Application Insights pour votre application web. Les données de télémétrie seront envoyées au [portail Azure](https://portal.azure.com), pendant le débogage et une fois que vous aurez publié votre application.
 
 **e.** Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous serez en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](app-insights-monitor-performance-live-website-now.md).
 
