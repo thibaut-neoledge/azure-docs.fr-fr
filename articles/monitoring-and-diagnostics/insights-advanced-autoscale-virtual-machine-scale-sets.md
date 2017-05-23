@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/23/2017
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
 
 > [!NOTE]
-> Bien que cette procédure concerne plus spécifiquement VM Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle automatique de Cloud Services et de Web Apps.
+> Bien que cette procédure concerne plus spécifiquement jeux de mise à l’échelle de machines virtuelles, les mêmes informations s’appliquent pour la mise à l’échelle automatique des [services cloud](https://azure.microsoft.com/services/cloud-services/) et [d’App Service - Applications web](https://azure.microsoft.com/services/app-service/web/).
 > Pour utiliser un simple paramètre de mise à l’échelle (avec diminution ou augmentation de la taille des instances) sur un groupe de machines virtuelles identiques à partir d’une simple métrique de performances (par exemple, ressources processeur), reportez-vous à la documentation [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) et [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 >
 >

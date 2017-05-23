@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 62bafc9bc58811cd9bd314639e3c2a609f4935d3
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,9 +43,12 @@ Lorsque les conditions relatives aux règles sont remplies, une ou plusieurs act
 
 La description suivante s’applique aux éléments du schéma précédent.   
 
-## <a name="resource-metrics"></a>Mesures de ressources
-Les ressources génèrent des mesures, qui sont ensuite traitées par des règles. Les mesures sont fournies via différentes méthodes.
+## <a name="resource-metrics"></a>Métriques de ressources
+Les ressources émettent des métriques, qui sont ensuite traitées par des règles. Les mesures sont fournies via différentes méthodes.
 Les jeux de mise à l’échelle de machine virtuelle utilisent les données de télémétrie des agents de diagnostics Azure, tandis que les données de télémétrie pour les applications web et les services cloud proviennent directement de l’infrastructure Azure. Parmi les statistiques couramment utilisées figurent l’utilisation du processeur, l’utilisation de la mémoire, le nombre de threads, la longueur de la file d’attente et l’utilisation du disque. Pour obtenir une liste des données de télémétrie que vous pouvez utiliser, voir [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md).
+
+## <a name="custom-metrics"></a>Métriques personnalisées
+Vous pouvez également utiliser vos propres métriques personnalisées que peuvent émettre vos applications. Si vous avez configuré vos applications pour envoyer des métriques à Application Insights, vous pouvez en tirer parti pour prendre des décisions au sujet de la mise à l’échelle. 
 
 ## <a name="time"></a>Time
 Les règles basées sur la planification s’appuient sur l’heure UTC. Vous devez définir votre fuseau horaire correctement lorsque vous configurez vos règles.  
