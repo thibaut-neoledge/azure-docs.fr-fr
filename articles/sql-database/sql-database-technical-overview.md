@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 36a9fd78f5c53891f38bc3a8356cef666f4d0ca2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Définition de la base de données SQL Présentation de SQL Database
@@ -49,7 +50,7 @@ Mais comment comparer les performances relatives des bases de données uniques e
 ## <a name="keep-your-app-and-business-running"></a>Votre application et votre activité ne s’arrêtent jamais
 Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service [(SLA)](http://azure.microsoft.com/support/legal/sla/)d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque base de données SQL, vous tirez parti de la sécurité intégrée, d’une tolérance en cas de panne et de la [protection des données](sql-database-automated-backups.md) que vous seriez de toute manière contraint d’acheter ou de concevoir, de créer et de gérer. Avec SQL Database, chaque niveau de service offre un ensemble complet de fonctionnalités et d’options assurant la continuité des activités, que vous pouvez utiliser pour démarrer votre base de données et vous assurer qu’elle fonctionne de manière continue. Vous pouvez utiliser la [limite de restauration dans le temps](sql-database-recovery-using-backups.md) pour renvoyer une base de données à un état antérieur, jusqu’à 35 jours. Vous pouvez configurer la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) pour stocker les sauvegardes dans un coffre sécurisé pendant 10 ans maximum. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez restaurer les bases de données à partir de [copies géo-redondantes des sauvegardes récentes](sql-database-recovery-using-backups.md). Si nécessaire, vous pouvez également configurer des [réplicas lisibles géo-redondants](sql-database-geo-replication-overview.md) dans une ou plusieurs régions pour un basculement rapide en cas de panne du centre de données. Vous pouvez également utiliser ces réplicas pour améliorer les performances en lecture dans différentes régions géographiques ou pour les [mises à niveau de l’application sans temps d’arrêt](sql-database-manage-application-rolling-upgrade.md). 
 
-![Géo-réplication de base de données SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
+![Géoréplication de SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 Consultez [Continuité de l’activité](sql-database-business-continuity.md) pour plus d’informations sur les différentes fonctionnalités de continuité d’activité disponibles pour les différents niveaux de service.
 

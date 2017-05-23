@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure 2.0 (version préliminaire)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide d’Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Découvrez comment utiliser l’interface de ligne de commande Azure 2.0 pour créer des comptes Azure Data Lake Analytics, définir des travaux Data Lake Analytics dans [U-SQL](data-lake-analytics-u-sql-get-started.md), et envoyer des travaux à des comptes Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
@@ -32,12 +33,6 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Activer Data Lake Store/Analytics CLI 2.0 (version préliminaire)**. Data Lake Store et Data Lake Analytics CLI 2.0 sont toujours en version préliminaire. Exécutez les commandes suivantes pour ouvrir les éléments suivants :
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 

@@ -7,6 +7,7 @@ Azure IoT Hub est la clé de voûte de l’implémentation de cette architecture
 
 * La solution de *surveillance à distance* vous permet de surveiller l’état des appareils tels que les distributeurs automatiques.
 * La solution de *maintenance prédictive* vous permet d’anticiper les besoins de maintenance des appareils tels que les pompes des stations de pompage à distance et d’éviter les temps d’arrêt non planifiés.
+* La solution d’*usine connectée* vous permet de vous connecter et de surveiller vos appareils industriels.
 
 ## <a name="iot-solution-architecture"></a>Architecture de solution IoT
 

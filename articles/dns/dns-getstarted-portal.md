@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particu
    | **Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
    |**Name**|contoso.com|Nom de la zone DNS|
-   |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la passerelle de l’application.|
+   |**Abonnement**|[Votre abonnement]|Sélectionnez un abonnement pour y créer la zone DNS.|
    |**Groupe de ressources**|**Créer :** contosoDNSRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Emplacement**|Ouest des États-Unis||
 
@@ -70,7 +71,7 @@ L’exemple suivant vous guide tout au long du processus de création d’un enr
    |**Type**|Un | Type d’enregistrement DNS pour créer. Les valeurs acceptables sont A, AAAA, CNAME, MX, NS, SRV, TXT et PTR.  Pour plus d’informations sur les types d’enregistrement, voir [Aperçu des zones DNS et des enregistrements](dns-zones-records.md)|
    |**TTL**|1|Durée de vie de la requête DNS.|
    |**Unité de durée de vie**|Heures|Mesure de temps pour la durée de vie.|
-   |**Adresse IP**|{ipAddressValue| Cette valeur est l’adresse IP correspondant à l’enregistrement DNS.|
+   |**Adresse IP**|ipAddressValue| Cette valeur est l’adresse IP correspondant à l’enregistrement DNS.|
 
 ## <a name="view-records"></a>Affichage des enregistrements
 

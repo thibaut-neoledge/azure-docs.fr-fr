@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -31,8 +31,8 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivant :
-    * La version v0.10.29 ou supérieure de[Node.js](https://nodejs.org/en/).
+* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
+    * [Node.js](https://nodejs.org/en/) version v0.10.29 ou ultérieure
     * [Git](http://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -47,17 +47,17 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Az
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-À présent, nous allons cloner une application API Graph à partir de GitHub, configurer la chaîne de connexion, et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
+À présent, nous allons cloner une application API Graph à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une fenêtre de terminal git, comme git bash, et `cd` vers un répertoire de travail.  
+1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
 
-2. Exécutez les commandes suivantes afin de cloner l’exemple de référentiel. 
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
     ```
 
-3. Ensuite, ouvrez le fichier de solution dans Visual Studio. 
+3. Ouvrez le fichier de solution dans Visual Studio. 
 
 ## <a name="review-the-code"></a>Examiner le code
 
@@ -90,43 +90,41 @@ Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le 
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
-Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de chaîne de connexion, et copiez-les dans l’application.
+Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
 1. Sur le [Portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation situé à gauche, cliquez sur **Clés**, puis cliquez sur **Clés en lecture-écriture**. Vous utilisez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier `app.js` à l’étape suivante.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-documentdb-dotnet/keys.png)
+    ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/create-documentdb-dotnet/keys.png)
 
-2. Renseignez vos configurations de *point de terminaison*, *db*, *coll* et *clé d’authentification* dans le fichier `app.js` :
+2. Copiez votre valeur d’URI à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de configuration de la clé du point de terminaison dans le fichier config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Remplacez la partie documents.azure.com de l’URI par graphs.azure.com.
+
+4. Puis, copiez votre valeur de clé primaire à partir du portail et définissez-la comme la valeur de la config.primaryKey dans config.js. Votre application est maintenant à jour avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## <a name="run-the-console-app"></a>Exécuter l’application console
 
-1. Exécutez `npm install` dans un terminal afin d’installer les modules npm requis
+1. Ouvrez une fenêtre de terminal et `cd` dans un répertoire d’installation pour le fichier package.json inclus dans le projet.  
 
-2. Remplacez les contenus de `node_modules\gremlin` par le code source à partir de [l’embranchement Gremlin Cosmos DB](https://github.com/CosmosDB/gremlin-javascript), qui prend en charge les mécanismes SSL et SASL, requis pour Azure Cosmos DB, mais non pris en charge par le pilote (jusqu'à ce que les modifications soient acceptées dans le pilote).
+2. Exécutez `npm install gremlin` pour installer les modules npm requis.
 
-2. Exécutez `node app.js` sur un terminal pour démarrer votre application Node.
+3. Remplacez les contenus du dossier `node_modules\gremlin` par le code source à partir de [l’embranchement Gremlin Cosmos DB](https://github.com/CosmosDB/gremlin-javascript), qui prend en charge les mécanismes SSL et SASL, requis pour Azure Cosmos DB, mais non pris en charge par le pilote (jusqu’à ce que les modifications soient acceptées dans le pilote).
+
+4. Exécutez `node app.js` sur un terminal pour démarrer votre application Node.
 
 Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
 
 ## <a name="browse-using-the-data-explorer"></a>Parcourir à l’aide de l’Explorateur de données
 
-Vous pouvez dès à présent retourner à l’Explorateur de données dans le Portail Azure, parcourir et interroger vos nouvelles données graphiques.
+Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail Azure pour parcourir et interroger vos nouvelles données graphiques.
 
 * Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Collections. Développez **graphdb**, **graphcoll**, puis cliquez sur **Graph**.
 
-    Les données générées par l’exemple d’application s’affichent dans le volet Graph.
+    Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
 
@@ -136,14 +134,12 @@ Vous pouvez dès à présent retourner à l’Explorateur de données dans le Po
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante : 
 
-1. À partir du menu de gauche dans le Portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
+2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos D, à créer un graphique à l’aide de l’Explorateur de données, et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos D, à créer un graphique à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Requête via Gremlin](tutorial-query-graph.md)
-
-
+> [Interroger à l’aide de Gremlin](tutorial-query-graph.md)

@@ -2,8 +2,8 @@
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Réseaux virtuels par abonnement |50 |100 |
-| Sites de réseaux locaux par abonnement |20 |contacter le support technique |
+| Réseaux virtuels |50 |100 |
+| Sites de réseau local |20 |contacter le support technique |
 | Serveurs DNS par réseau virtuel |20 |100 |
 | Adresses IP privées par réseau virtuel |4096 |4096 |
 | Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle |500K |500K |
@@ -22,7 +22,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Réseaux virtuels par abonnement |50 |500 |
+| Réseaux virtuels |50 |500 |
 | Nombre de sous-réseaux par réseau virtuel |1 000 |contacter le support |
 | Serveurs DNS par réseau virtuel |9 |25 |
 | Adresses IP privées par réseau virtuel |4096 |4 096 |
@@ -43,5 +43,5 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
 | Configurations IP secondaires par réseau virtuel |1 000 |contacter le support |
 
-Pour accroître les limites par défaut, contactez le support technique.
+Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/how-to-create-azure-support-request.md).
 

@@ -37,9 +37,11 @@
 >[!NOTE]
 > Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès, etc. Pour plus d’informations et un exemple, consultez [cette](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
-<sup>7</sup>Si vous chargez du contenu dans une ressource dans Azure Media Services dans l’objectif de le traiter avec des processeurs multimédias de notre service (par exemple, des encodeurs comme Media Encoder Standard et le workflow d’encodeur multimédia premium, ou des moteurs d’analyse comme Face Detector), vous devez être conscient des limites suivantes. 
+<sup>7</sup>Si vous chargez du contenu dans une ressource dans Azure Media Services dans l’objectif de le traiter avec des processeurs multimédias de notre service (par exemple, des encodeurs comme Media Encoder Standard et le workflow d’encodeur multimédia premium, ou des moteurs d’analyse comme Face Detector), vous devez être conscient de la limite de taille maximale suivante. 
 
-| Types d’unités réservées de média | Taille maximale du fichier (Go)| 
+À compter du 15 mai 2017, la taille maximale prise en charge pour un seul objet blob est 195 To. Si vos fichiers sont d’une taille supérieure à cette limite, la tâche échouera. Nous sommes en train de développer un correctif pour résoudre ce problème de limite. En outre, la limite de taille maximale de l’élément multimédia est la suivante.
+
+| Types d’unités réservées de média | Taille maximale en entrée (Go)| 
 | --- | --- | 
 |S1    | 325|
 |S2    | 640|

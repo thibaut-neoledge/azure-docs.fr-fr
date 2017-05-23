@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 9bbf188b0080b8b1cf71423023645f54f1f823e5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -58,44 +58,50 @@ Vous pouvez maintenant ajouter des données à votre nouvelle table grâce à l�
 
 Nous allons maintenant cloner une application API DocumentDB à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une fenêtre de terminal git, comme git bash, et `cd` vers un répertoire de travail.  
+1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
 
-2. Exécutez les commandes suivantes afin de cloner l’exemple de référentiel. 
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
     ```
 
-3. Ensuite, ouvrez le fichier de solution dans Visual Studio. 
+3. Ouvrez le fichier de solution dans Visual Studio. 
 
 ## <a name="review-the-code"></a>Examiner le code
 
-Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier DocumentDBRepository.cs, et vous découvrirez que ces lignes de code créent les ressources Azure Cosmos DB. 
+Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
 
-* Le DocumentClient est initialisé.
-
-    ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
-    ```
-
-* Une nouvelle base de données est créée.
+* L’élément CloudTableClient est initialisé.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Un nouveau conteneur graphique est créé.
+* Une nouvelle table est créée si elle n’existe pas.
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-## <a name="update-your-connection-string"></a>Mettre à jour votre chaîne de connexion
+* Un nouveau conteneur de table est créé. Vous remarquerez que ce code est très similaire au kit de développement logiciel (SDK) de stockage de tables Azure normal 
 
-Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de chaîne de connexion, et copiez-les dans l’application.
+    ```csharp
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
+    ```
+
+## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
+
+Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
 1. Sur le [Portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation situé à gauche, cliquez sur **Clés**, puis cliquez sur **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier app.config à l’étape suivante.
 
@@ -106,7 +112,7 @@ Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de 
 3. Copiez votre nom de compte Azure Cosmos DB à partir du portail, et définissez-le comme la valeur du nom de compte dans la valeur de chaîne PremiumStorageConnection, dans app.config. Dans la capture d’écran ci-dessus, le nom du compte est cosmos-db-démarrage rapide. Votre nom de compte s’affiche en haut du portail.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Ensuite, copiez votre valeur de clé primaire à partir du portail et définissez-la comme la valeur de la propriété AccountKey dans PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de 
 
 5. Enfin, copiez votre valeur URI à partir de la page Clés du portail (à l’aide du bouton Copier) et définissez-la comme la valeur de la propriété TableEndpoint du PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     Vous pouvez laisser le StandardStorageConnectionString en l’état.
 
@@ -142,8 +148,8 @@ Vous pouvez dès à présent revenir à l’Explorateur de données et voir la r
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante : 
 
-1. À partir du menu de gauche dans le Portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
+2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

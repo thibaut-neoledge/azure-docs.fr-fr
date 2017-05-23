@@ -10,6 +10,7 @@
 | Lectures API Resource Manager |15 000 par heure |15 000 par heure |
 | Écritures API Resource Manager |1 200 par heure |1 200 par heure |
 | Taille de la demande d’API Resource Manager |4 194 304 octets |4 194 304 octets |
+| Balises par abonnement |10000 |10000 |
 | [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |Non applicable<sup>3</sup> |Non applicable<sup>3</sup> |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |Non applicable<sup>3</sup> |Non applicable<sup>3</sup> |
 
