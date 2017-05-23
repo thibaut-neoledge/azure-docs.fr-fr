@@ -13,12 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 05/10/2017
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/15/2017
 Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis d’améliorer les performances :
 
 - Grâce à la technologie OLTP en mémoire, [Quorum Business Solutions a réussi à doubler sa charge de travail tout en améliorant les DTU (c’est-à-dire, la consommation de ressources) de 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [OLTP en mémoire dans Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+- La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [Vidéo OLTP en mémoire dans Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Pour plus d’informations, voir le billet de blog : [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 Les technologies en mémoire sont disponibles dans toutes les bases de données du niveau Premium, notamment les bases de données dans des pools élastiques Premium.
 
@@ -64,14 +65,14 @@ Introduction rapide sur l’OLTP en mémoire : [Démarrage rapide 1 : Technologi
 Vidéos détaillées sur les technologies :
 
 - [OLTP en mémoire dans Azure DQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (avec notamment une démonstration des avantages de performances et les étapes à suivre pour reproduire ces résultats vous-même)
-- [Vidéos sur l’OLTP en mémoire : qu’est-ce-que c’est, et comment l’utiliser](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Vidéos sur l’OLTP en mémoire : qu’est-ce que c’est, et comment l’utiliser](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 - [Index Columntore : vidéos d’analyse en mémoire (c'est-à-dire les index columnstore) depuis Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ## <a name="storage-and-data-size"></a>Taille des données et du stockage
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Seuil de la taille des données et du stockage pour l’OLTP en mémoire
 
-l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisés pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans le service SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
+l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans le service SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
 
 Chaque niveau tarifaire de base de données autonome pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire. Au moment de l’écriture de cet article, vous obtenez un gigaoctet de stockage pour 125 unités de transaction de base de données (DTU) ou unités de transaction de base de données élastique (eDTU).
 
@@ -497,6 +498,8 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 #### <a name="deeper-information"></a>Informations supplémentaires
 
 - [Découvrez comment le Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 %, grâce à l’OLTP en mémoire dans la SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
+- [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 - [En savoir plus sur In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 

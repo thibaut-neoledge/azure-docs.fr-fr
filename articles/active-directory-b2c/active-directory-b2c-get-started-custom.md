@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b72db6a0eb8a8621be5f05da6028615d5d24ba1e
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 42824fe10e635257681f62ab1fec9b47abd4294a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="azure-active-directory-b2c-getting-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
@@ -35,7 +35,7 @@ L’accès à la modification de stratégie personnalisée requiert un abonnemen
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Ajouter à votre client B2C des clés de signature et de chiffrement utilisables par les stratégies personnalisées
 
-1. Accédez au panneau Identity Experience Framework (Infrastructure d’expérience d’identité) dans les paramètres de votre client Azure AD B2C.
+1. Accédez au panneau **Identity Experience Framework** (Infrastructure d’expérience d’identité) dans les paramètres de votre client Azure AD B2C.
 2. Sélectionnez **Clés de stratégie** pour afficher les clés disponibles dans votre client.
 3. Créez `B2C_1A_TokenSigningKeyContainer` s’il n’existe pas :
  * Cliquez sur **Ajouter**.
@@ -107,7 +107,7 @@ Chaque pack de démarrage contient :
 
 * Le [fichier de base](active-directory-b2c-overview-custom.md#policy-files) de la stratégie. Il n’y a que peu de modifications à apporter la base.
 * Le [fichier d’extension](active-directory-b2c-overview-custom.md#policy-files) de la stratégie.  C’est sur ce fichier que portent la plupart des modifications de la configuration.
-* [Les fichiers de partie de confiance](active-directory-b2c-overview-custom.md#policy-files). Il s’agit de fichiers spécifiques de tâches appelés par votre application pour réaliser des tâches spécifiques.
+* [Les fichiers de partie de confiance](active-directory-b2c-overview-custom.md#policy-files). Il s’agit de fichiers spécifiques de tâches appelés par votre application.
 
 >[!NOTE]
 >Si votre éditeur XML prend en charge la validation, vous pouvez valider la conformité des fichiers au fichier de schéma XML `TrustFrameworkPolicy_0.3.0.0.xsd`, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
@@ -120,7 +120,7 @@ C’est parti :
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Ouvrez le dossier `SocialAndLocalAccounts`.  Le fichier de base (`TrustFrameworkBase.xml`) de ce dossier comporte le contenu nécessaire aux comptes locaux et sociaux / d’entreprise. Le contenu social n’interfère pas avec les étapes d’opérationnalisation des comptes locaux.
-3. Ouvrez `TrustFrameworkBase.xml`.  Si vous avez besoin d’un éditeur XML, essayez [Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplatformes léger.
+3. Ouvrez `TrustFrameworkBase.xml`.  Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplatformes léger.
 4. Dans l’élément `TrustFrameworkPolicy` racine, mettez à jour les attributs `TenantId` et `PublicPolicyUri` en remplaçant `yourtenant.onmicrosoft.com` par le nom de domaine de votre client Azure AD B2C :
 
     ```xml
@@ -139,7 +139,7 @@ C’est parti :
 5. Enregistrez le fichier.
 6. Ouvrez `TrustFrameworkExtensions.xml` et apportez ces deux mêmes modifications en remplaçant `yourtenant.onmicrosoft.com` par votre client Azure AD B2C. Effectuez le même remplacement dans l’élément `<TenantId>`, avec 3 modifications au total.  Enregistrez le fichier.
 7. Ouvrez `SignUpOrSignIn.xml` et apportez les mêmes modifications en remplaçant `yourtenant.onmicrosoft.com` par votre client Azure AD B2C à trois endroits. Enregistrez le fichier.
-8. Ouvrez le secret de mot de passe et les fichiers de modification de profil et apportez les mêmes modifications en remplaçant `yourtenant.onmicrosoft.com` par votre client Azure AD B2C à trois endroits de chaque fichier. Enregistrez les fichiers.
+8. Ouvrez la réinitialisation de mot de passe et les fichiers de modification de profil et apportez les mêmes modifications en remplaçant `yourtenant.onmicrosoft.com` par votre client Azure AD B2C à trois endroits de chaque fichier. Enregistrez les fichiers.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Ajouter les ID d’application à votre stratégie personnalisée
 Ajoutez les ID d’application au fichier d’extensions (`TrustFrameworkExtensions.xml`).
