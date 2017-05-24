@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: c3594b292a5b548bcb1e0df5959775d139576597
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
 
 
@@ -69,7 +70,7 @@ Voici une liste des problèmes couramment rencontrés lorsque les utilisateurs n
 
    * Vérifiez que les **informations de contact d’authentification** de l’utilisateur sont à jour et permettent d’appliquer les stratégies d’accès conditionnel ou de Multi-Factor Authentication. [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status) ou [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 
--   Pour les **applications **Microsoft** qui nécessitent une licence** (comme Office 365), voici certains problèmes à vérifier une fois que vous avez écarté les problèmes d’ordre général ci-dessus :
+-   Pour les applications **Microsoft** **qui nécessitent une licence** (comme Office 365), voici certains problèmes à vérifier une fois que vous avez écarté les problèmes d’ordre général ci-dessus :
 
    * Vérifiez que l’utilisateur **dispose d’une licence**. [Vérifier les licences affectées à un utilisateur](#check-a-users-assigned-licenses) ou [Vérifier les licences affectées à un groupe](#check-a-groups-assigned-licenses)
 
