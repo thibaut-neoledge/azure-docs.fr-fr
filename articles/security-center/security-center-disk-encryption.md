@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’arti
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Récupérer et exécuter le script de configuration d’Azure Disk Encryption
 Le script de configuration d’Azure Disk Encryption permet de configurer toutes les conditions préalables requises pour le chiffrement de vos machines virtuelles Azure.
 
-1. Accédez à la page GitHub contenant le [script de configuration d’Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Accédez à la page GitHub contenant le [script de configuration d’Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. Sur la page GibHub, cliquez sur le bouton **Raw** .
 3. Utilisez les touches **CTRL-A** pour sélectionner l’intégralité du texte de la page, puis les touches **CTRL-C** pour copier le contenu dans le Presse-papiers.
 4. Ouvrez le **Bloc-notes** pour y coller le texte que vous avez copié.

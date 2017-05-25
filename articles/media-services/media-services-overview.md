@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0a84e69f33ae30040c2365e6a5180e17e8df7539
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ Pour les concepts Azure Media Services, consultez [Concepts](media-services-conc
 
 Pour découvrir une série de procédures qui présente tous les principaux composants d’Azure Media Services, consultez les [didacticiels pas à pas Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Cette série constitue une excellente présentation des concepts, et utilise l’outil AMSE pour effectuer les tâches AMS. Notez que l’outil AMSE est un outil Windows. Cet outil prend en charge la plupart des tâches que vous pouvez obtenir par programmation avec le [Kit de développement logiciel (SDK) AMS pour .NET](https://github.com/Azure/azure-sdk-for-media-services), le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java) ou le [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
+## <a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
 Cette section décrit les scénarios courants et fournit des liens vers des rubriques pertinentes. Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans la distribution de contenu à la demande.
 
 ![Flux de travail VOD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +127,7 @@ Media Analytics est une collection de composants visuels et vocaux qui aident le
     Si vous utilisez un localisateur SAS, le contenu est téléchargé depuis le stockage d’objets blob Azure. Dans ce cas, il n’est pas nécessaire de disposer de points de terminaison de streaming à l’état Démarré.
 4. Téléchargez le contenu de manière progressive.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Diffusion d’événements en direct en continu avec Azure Media Services
+## <a id="live_scenarios"></a>Diffusion d’événements en direct en continu avec Azure Media Services
 Lorsque vous utilisez la vidéo en flux continu, les composants suivants sont généralement impliqués :
 
 * Une caméra utilisée pour diffuser un événement.
@@ -156,7 +157,7 @@ Un **canal** représente un pipeline de traitement du contenu vidéo en flux con
 >
 >
 
-* Un encodeur dynamique envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTP (MPEG-TS), RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur dynamique envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTP (MPEG-TS), RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 ### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux (méthode directe)
 Le diagramme suivant présente les principaux composants de la plateforme AMS impliqués dans ce flux de travail de **méthode directe** .
@@ -185,8 +186,7 @@ Media Services prend en charge l’intégration avec le CDN d’Azure. Pour plus
 Vous pouvez mettre à l’échelle **Media Services** en spécifiant le nombre d’**unités réservées de diffusion en continu** et d’**unités réservées d’encodage** que vous voulez attribuer à votre compte.
 
 Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajoutant des comptes de stockage. Chaque compte de stockage est limité à 500 To. Pour développer votre capacité stockage au-delà des limites par défaut, vous pouvez choisir de rattacher plusieurs comptes de stockage à un même compte Media Services.
-En fonction de leurs besoins, les clients Media Services choisissent un point de terminaison de streaming **Standard** ou un ou plusieurs points de terminaison de streaming **Premium**. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Il inclut les mêmes fonctionnalités que les unités de diffusion en continu premium.
-Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Si votre charge de travail est avancée, si vos besoins en capacité de diffusion en continu ne correspondent pas aux cibles de débit du point de terminaison de streaming standard ou si vous souhaitez contrôler la capacité du service StreamingEndpoint afin de gérer les besoins croissants en termes de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion premium), il est alors recommandé d’allouer des unités d’échelle.
+En fonction de leurs besoins, les clients Media Services choisissent un point de terminaison de streaming **Standard** ou un ou plusieurs points de terminaison de streaming **Premium**. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Il inclut les mêmes fonctionnalités que les unités de diffusion en continu premium. Si votre charge de travail est avancée, si vos besoins en capacité de diffusion en continu ne correspondent pas aux cibles de débit du point de terminaison de streaming standard ou si vous souhaitez contrôler la capacité du service StreamingEndpoint afin de gérer les besoins croissants en termes de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion premium), il est alors recommandé d’allouer des unités d’échelle.
 
 [Cette](media-services-portal-scale-streaming-endpoints.md) rubrique offre des liens vers des rubriques connexes.
 

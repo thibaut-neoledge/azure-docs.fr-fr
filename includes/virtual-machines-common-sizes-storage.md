@@ -5,7 +5,7 @@ La série Ls est optimisée pour les charges de travail qui requièrent un stock
 
 ACU : 180-240
  
-| Taille          | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau | 
+| Taille          | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5 000 / 125                               | 2 / Élevée       | 
 | Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 10 000 / 250                              | 4 / Très élevée  | 

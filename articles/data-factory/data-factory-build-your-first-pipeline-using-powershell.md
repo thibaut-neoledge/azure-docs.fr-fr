@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: bfd2176103601b748bd141cc1cc86e814395c3b3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -142,7 +143,6 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +154,6 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
    | Propriété | Description |
    |:--- |:--- |
-   | Version |Indique que la version de service HDInsight doit être la version 3.2. |
    | ClusterSize |Spécifie la taille du cluster HDInsight. |
    | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
    | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight |
