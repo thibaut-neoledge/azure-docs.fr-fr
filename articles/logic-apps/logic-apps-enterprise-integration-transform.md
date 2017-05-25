@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
 ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -71,10 +73,5 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 ## <a name="learn-more"></a>En savoir plus
 * [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

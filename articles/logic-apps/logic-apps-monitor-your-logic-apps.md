@@ -12,16 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jehollan
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.date: 10/18/2016
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
 ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
 
-
 ---
+
 # <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Affichage des performances et démarrage de la journalisation des diagnostics et des alertes de vos flux de travail dans les applications logiques
 Une fois que vous avez [créé une application logique](../logic-apps/logic-apps-create-a-logic-app.md), vous pouvez consulter l’historique complet de son exécution dans le Portail Azure.  Vous pouvez également configurer des services tels que les diagnostics Azure et les alertes Azure pour analyser les événements en temps réel, et vous alerter en cas d’événements du type « échec de plus de 5 exécutions en une heure ».
 

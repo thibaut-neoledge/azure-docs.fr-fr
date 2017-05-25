@@ -3,7 +3,7 @@ title: "Recherche de données à l’aide de recherches de journal dans Azure Lo
 description: "Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
