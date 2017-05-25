@@ -30,7 +30,6 @@
 ### [C sur Windows](iot-suite-connecting-devices.md)
 ### [C sur Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.JS](iot-suite-connecting-devices-node.md)
-## [Connecter votre périphérique mbed](iot-suite-connecting-devices-mbed.md)
 ## [Connecter une application logique à la solution de surveillance à distance](iot-suite-logic-apps-tutorial.md)
 ## [Personnaliser une solution préconfigurée](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Utiliser la télémétrie dynamique avec la solution de surveillance à distance](iot-suite-dynamic-telemetry.md)

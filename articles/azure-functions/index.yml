@@ -1,9 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentation Azure Functions"
+title: Documentation Azure Functions
 metadata:
-  title: "Documentation Azure Functions - Didacticiels | Microsoft Docs"
-  description: "Découvrez comment développer et déployer des fonctions dans le langage de votre choix pour exécuter des tâches en arrière-plan ou en fonction d’une planification sans infrastructure spéciale."
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: "Documentation Azure Functions\_- Didacticiels\_| Microsoft\_Docs"
+  meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
   author: apexprodleads
   manager: carolz
@@ -14,53 +15,68 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: "Azure Functions est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande sans explicitement configurer ou gérer l’infrastructure. Utilisez Azure Functions pour exécuter un script ou du code en réponse à un grand nombre d’événements. Découvrez comment utiliser Azure Functions avec nos guides de démarrage rapide, nos didacticiels et nos exemples."
+  description: 'Azure Functions est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande sans explicitement configurer ou gérer l’infrastructure. Utilisez Azure Functions pour exécuter un script ou du code en réponse à un grand nombre d’événements. Découvrez comment utiliser Azure Functions avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
   aside:
     image:
       alt: 
       height: 110
-      src: media/index/get-started-with-azure-functions.png
+      src: media/index/video-thumb-get-started.png
       width: 250  
-    title: "Bien démarrer avec Azure Functions. (2:39)"
+    title: 'Bien démarrer avec Azure Functions. (2:39)'
     href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
     width: 250
 sections:
-- title: "Démarrages en 5 minutes"
+- title: "Démarrages en 5\_minutes"
   items:
   - type: paragraph
-    text: 'Learn how to create a Hello World function using:'
+    text: 'Learn how to create functions that execute based on events created via:'
   - type: list
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Azure portal
+        src: media/index/http.svg
+      text: HTTP
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
-- title: "Didacticiels pas à pas"
+        src: media/index/stopwatch.svg
+      text: Timer
+      href: /azure/azure-functions/functions-create-scheduled-function
+    - image: 
+        src: media/index/octokitty.svg
+      text: GitHub webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image: 
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image: 
+        src: media/index/storage.svg
+      text: Queue
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Learn how to build and manage Azure Functions'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
-- title: "Exemples"
+- title: Exemples
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
-- title: "Référence"
+- title: Référence
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Ligne de commande"
+    - title: Ligne de commande
       html: <p><a href="/cli/azure">Azure CLI</a></p>
+    - title: Liaisons
+ 
+      html: <p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB bindings</p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio output binding</p>
