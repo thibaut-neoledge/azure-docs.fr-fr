@@ -6,7 +6,7 @@ Depuis son lancement, l’extension de script personnalisé a été largement ut
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage JSON en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
 
 * [Présentation du groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)
-* [Déploiement de modèles avec Azure Powershell](../articles/virtual-machines/windows/ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Déploiement de modèles avec Azure Powershell](../articles/virtual-machines/windows/ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="prerequisites"></a>Conditions préalables
 1. Téléchargez les outils en ligne de commande Azure pour votre système d’exploitation [ici](https://azure.microsoft.com/downloads/).
