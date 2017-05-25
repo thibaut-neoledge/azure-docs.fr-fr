@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
 ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -98,10 +100,5 @@ Pour télécharger un nouveau mappage remplaçant un mappage existant, procédez
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
 * [En savoir plus sur les transformations](logic-apps-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

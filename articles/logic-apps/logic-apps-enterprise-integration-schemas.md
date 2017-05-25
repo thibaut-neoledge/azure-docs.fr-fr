@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
 ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,11 +60,11 @@ Ces étapes varient selon le niveau d’accès du conteneur d’objets blob : *
 
 **Pour déterminer ce niveau d’accès**
 
-1.  Ouvrez **l’Explorateur de stockage Azure**. 
+1.    Ouvrez **l’Explorateur de stockage Azure**. 
 
-2.  Sous **Conteneurs d’objets Blob**, sélectionnez le conteneur d’objets blob de votre choix. 
+2.    Sous **Conteneurs d’objets Blob**, sélectionnez le conteneur d’objets blob de votre choix. 
 
-3.  Sélectionnez **Sécurité**, **Niveau d’accès**.
+3.    Sélectionnez **Sécurité**, **Niveau d’accès**.
 
 Si le niveau d’accès de sécurité d’objet blob est **Public**, procédez comme suit.
 
@@ -132,10 +134,5 @@ Azure affiche un message indiquant que le schéma a été téléchargé avec suc
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack").  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

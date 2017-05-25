@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -74,10 +76,5 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.
 * Configurez la [collecte des compteurs de performances](log-analytics-data-sources-performance-counters.md) à partir de vos agents Windows.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

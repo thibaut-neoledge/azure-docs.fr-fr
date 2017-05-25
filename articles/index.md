@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: true
 experimental: true
-experiment_id: d6155f71-baae-45
+experiment_id: 81ba5f65-59fb-4d
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 ms.translationtype: Human Translation
