@@ -14,9 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: 3f2e856b71a42fe677d92c9c020236b8f0da9c1e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -245,10 +248,5 @@ Pour poursuivre l’apprentissage sur le point de terminaison v2.0, consultez de
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
