@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 
@@ -350,7 +351,7 @@ Vous avez maintenant configuré tous les rapports correspondant au traitement pa
 2. Cliquez sur **Get Data**  
 3. Chargez le fichier Power BI Desktop.  
 4. Pour lancer le chargement, cliquez sur **Get Data (Obtenir les données) -> Files Get (Obtention de fichiers) -> Fichier local**  
-5. Accédez au fichier « **“**ConnectedCarsPbiReport.pbix** »**  
+5. Accédez au fichier « **“**ConnectedCarsPbiReport.pbix**“** »  
 6. Une fois le fichier chargé, vous serez redirigé vers votre espace de travail Power BI.  
 
 Un jeu de données, un rapport et un tableau de bord vide sont alors créés.  
