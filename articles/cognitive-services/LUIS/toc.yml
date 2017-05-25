@@ -21,6 +21,8 @@
     href: luis-concept-entity-types.md
   - name: Énoncés
     href: luis-concept-utterance.md
+  - name: Caractéristiques
+    href: luis-concept-feature.md
   - name: Prise en charge multilingue
     href: luis-concept-language-support.md
 - name: Procédures
