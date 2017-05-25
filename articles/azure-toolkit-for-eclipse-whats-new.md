@@ -299,7 +299,7 @@ Publication de la version préliminaire CTP (Community Technology Preview) de j
 ### <a name="december-10-2011"></a>10 décembre 2011
 Publication de la version préliminaire CTP de décembre 2011 du plug-in Azure pour Eclipse. Nouvelles fonctionnalités :
 
-* **Prise en charge de l’affinité de session (&quot;sessions rémanentes&quot;) **: permet d’activer des applications Java en cluster avec état à l’aide d’une seule case à cocher. Pour plus d’informations, voir l’article [Affinité de session].
+* **Prise en charge de l’affinité de session (&quot;sessions rémanentes&quot;):** permet d’activer des applications Java en cluster avec état à l’aide d’une seule case à cocher. Pour plus d’informations, voir l’article [Affinité de session].
 * **Exemples de script de démarrage préconçus** : pour les principaux serveurs Java (Tomcat, Jetty, JBoss et GlassFish), que vous pouvez simplement copier/coller à partir du répertoire d’exemples de votre projet dans votre script de démarrage.
 * **Sortie de démarrage d’émulateur en temps réel** : vous pouvez désormais visionner l’exécution de toutes les étapes de votre script de démarrage dans une fenêtre de console dédiée, qui vous indique la progression et les échecs de votre script lorsqu’il est exécuté par Azure.
 * **Surveillance de java.exe automatique et légère** : force un recyclage des rôles quand java.exe cesse de s’exécuter, en utilisant un script léger, préconçu inclus automatiquement dans votre déploiement.
