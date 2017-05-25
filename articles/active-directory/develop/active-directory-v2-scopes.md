@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e00ceb8dd87e00bbdd05146e107c72e6182eb474
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -201,9 +204,4 @@ Content-Type: application/json
 Vous pouvez utiliser le jeton d’accès obtenu dans les requêtes HTTP transmises à la ressource. Il indique de façon fiable à la ressource que votre application dispose de l’autorisation appropriée pour effectuer une tâche spécifique.  
 
 Pour en savoir plus sur le protocole OAuth 2.0 et sur le mode d’obtention des jetons d’accès, consultez la page de [référence sur les protocoles du point de terminaison v2.0](active-directory-v2-protocols.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

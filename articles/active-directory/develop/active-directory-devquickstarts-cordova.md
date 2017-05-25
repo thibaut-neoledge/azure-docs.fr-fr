@@ -14,9 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
 ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -290,9 +293,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est d
 Vous pouvez maintenant passer à des scénarios plus avancés (et plus intéressants). Par exemple : [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
