@@ -46,7 +46,7 @@ ACU : 180 - 240
 
 ACU : 210-250
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 |2 |14 |28 |4 |8 000 / 64 (72) |6 400 / 96 |2 Élevée |
 | Standard_DS12_v2 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 192 |4 Élevée |
@@ -58,7 +58,7 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
-** Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_DS15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+** Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_DS15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md).
 
 ***L’instance G5 est isolée sur un matériel dédié à un client unique.
 <br>
@@ -78,7 +78,7 @@ ACU : 210-250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / Extrêmement élevée           |
 | Standard_D15_v2** | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 40 / 40 x 500                       | 8 / Extrêmement élevée*          |
 
-* Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_D15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+* Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_D15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md).
 
 **L’instance G5 est isolée sur un matériel dédié à un client unique.
 
@@ -88,7 +88,7 @@ ACU : 210-250
 
 ACU : 160
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |4 |8 000 / 64 (72) |6 400 / 64 |2 / Élevée |
 | Standard_DS12 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 128 |4 / Élevée |
