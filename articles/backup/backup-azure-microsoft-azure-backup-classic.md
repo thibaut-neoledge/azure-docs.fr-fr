@@ -177,8 +177,8 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 * www.msftncsi.com
 * \*.Microsoft.com
 * \*.WindowsAzure.com
-* \**.microsoftonline.com
-* \**.windows.net
+* \*.microsoftonline.com
+* \*.windows.net
 
 Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Server, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
 
