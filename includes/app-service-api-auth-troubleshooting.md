@@ -1,7 +1,7 @@
 En général, les erreurs d’authentification résultent de paramètres de configuration incorrects ou incohérents. Voici quelques suggestions spécifiques des éléments à vérifier :
 
 * Assurez-vous que vous n’avez pas oublié de cliquer sur le bouton **Enregistrer**. C’est souvent le cas. Il en résulte que les valeurs sur une page de portail sont correctes mais qu’elles n’ont pas été enregistrées dans l’environnement Azure ou l’application Azure AD.
-* Pour les paramètres configurés dans le panneau **Paramètres de l’application** du portail Azure, vérifiez que vous avez bien sélectionné l’application API ou web appropriée lors de la saisie des paramètres.  **Vérifiez également que les paramètres ont été entrés en tant que **paramètres de l’application** et non en tant que** chaînes de connexion, car le format des deux sections est similaire.
+* Pour les paramètres configurés dans le panneau **Paramètres de l’application** du portail Azure, vérifiez que vous avez bien sélectionné l’application API ou web appropriée lors de la saisie des paramètres.  Vérifiez également que les paramètres ont été entrés en tant que **paramètres de l’application** et non en tant que **chaînes de connexion**, car le format des deux sections est similaire.
 * Pour l’authentification sur un serveur frontal JavaScript, téléchargez le manifeste à nouveau pour vérifier que `oauth2AllowImplicitFlow` a bien été remplacé par `true`.
 * Vérifiez que vous avez utilisé HTTPS à chaque fois que vous avez configuré les URL :
   
