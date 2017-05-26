@@ -1,6 +1,7 @@
 ---
-title: "Utiliser Livy pour soumettre des travaux à distance à Spark sur Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment utiliser Livy avec les clusters HDInsight pour soumettre les travaux Spark à distance."
+title: "Utiliser Livy Spark pour envoyer des travaux à un cluster Spark sur Azure HDInsight | Documents Microsoft"
+description: "Découvrez comment utiliser l’API REST Apache Spark pour envoyer des travaux Spark à distance à un cluster Azure HDInsight."
+keywords: api rest apache spark,livy spark
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,34 +10,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 05/15/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 541aeb4eba6d00f13021af5789cf1dde961301fd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Soumettre des travaux Spark à distance à un cluster Apache Spark sous HDInsight à l’aide de Livy
+# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight
 
-Un cluster Apache Spark sur Azure HDInsight inclut Livy, une interface REST permettant de soumettre des travaux à distance à un cluster Spark. Consultez la documentation détaillée sur Livy [ici](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Découvrez comment utiliser Livy, API REST Apache Spark servant à envoyer des travaux à distance à un cluster Spark HDInsight Azure. Consultez la documentation détaillée sur Livy [ici](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
-Vous pouvez utiliser Livy pour exécuter des interpréteurs de commandes Spark interactifs ou soumettre des traitements par lots à exécuter sur Spark. Cet article traite de l’utilisation de Livy pour soumettre des traitements par lots. La syntaxe ci-dessous utilise Curl pour effectuer des appels REST au point de terminaison Livy.
+Vous pouvez utiliser Livy pour exécuter des interpréteurs de commandes Spark interactifs ou soumettre des traitements par lots à exécuter sur Spark. Cet article traite de l’utilisation de Livy pour soumettre des traitements par lots. La syntaxe ci-dessous utilise Curl pour effectuer des appels d’API REST au point de terminaison Livy Spark.
 
 **Configuration requise :**
 
 Vous devez disposer des éléments suivants :
 
-* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-a-batch-job"></a>Soumettre un traitement par lots
+## <a name="submit-a-livy-spark-batch-job"></a>Envoyer un traitement par lots Livy Spark
 Avant de soumettre un traitement par lots, vous devez télécharger le fichier .jar d’application sur le stockage associé au cluster. Pour ce faire, vous pouvez utiliser l’utilitaire de ligne de commande [**AzCopy**](../storage/storage-use-azcopy.md). De nombreux autres clients permettent également de télécharger des données. Pour en savoir plus à leur sujet, consultez [Téléchargement de données pour les travaux Hadoop dans HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -50,40 +51,40 @@ Avant de soumettre un traitement par lots, vous devez télécharger le fichier .
   
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-## <a name="get-information-on-batches-running-on-the-cluster"></a>Obtenir des informations sur les lots exécutés sur le cluster
+## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Obtenir des informations sur des lots Livy Spark en cours d’exécution sur le cluster
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 
 **Exemples :**
 
-* Si vous souhaitez récupérer tous les lots en cours d’exécution sur le cluster :
+* Si vous souhaitez récupérer tous les lots Livy Spark en cours d’exécution sur le cluster :
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
 * Si vous souhaitez récupérer un lot spécifique avec un ID de lot donné
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
-## <a name="delete-a-batch-job"></a>Supprimer un traitement par lots
+## <a name="delete-a-livy-spark-batch-job"></a>Supprimer un traitement par lots Livy Spark
     curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 
 **Exemple**:
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
-## <a name="livy-and-high-availability"></a>Livy et haute disponibilité
+## <a name="livy-spark-and-high-availability"></a>Livy Spark et haute disponibilité
 Livy assure une haute disponibilité des travaux Spark exécutés sur le cluster. Voici quelques exemples :
 
 * Si le service Livy tombe en panne après avoir soumis un travail à distance à un cluster Spark, l’exécution du travail se poursuit en arrière-plan. La sauvegarde de Livy entraîne la restauration de l’état du travail et la création d’un rapport à ce sujet.
 * Les blocs-notes Jupyter pour HDInsight sont alimentés par Livy sur le serveur principal. Si un bloc-notes exécute un travail Spark et que le service Livy est redémarré, le bloc-notes poursuit l’exécution des cellules de code. 
 
 ## <a name="show-me-an-example"></a>Afficher un exemple
-Dans cette section, nous étudions des exemples sur l’utilisation de Livy pour soumettre une application Spark, surveiller la progression de l’application, puis supprimer le travail. L’application que nous utilisons dans cet exemple est décrite dans l’article [Créer une application Scala autonome et l’exécuter sur un cluster HDInsight Spark](hdinsight-apache-spark-create-standalone-application.md). Les étapes suivantes partent des suppositions ci-après :
+Dans cette section, nous examinons des exemples d’utilisation de Livy Spark pour envoyer un traitement par lots, surveiller l’avancement du travail, puis supprimer celui-ci. L’application que nous utilisons dans cet exemple est décrite dans l’article [Créer une application Scala autonome et l’exécuter sur un cluster HDInsight Spark](hdinsight-apache-spark-create-standalone-application.md). Les étapes suivantes partent des suppositions ci-après :
 
 * Vous avez déjà copié le fichier .jar de l’application dans le compte de stockage associé au cluster.
 * CuRL est installé sur l’ordinateur sur lequel vous effectuez la procédure.
 
 Procédez comme suit.
 
-1. Vérifions tout d’abord que Livy est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy, 0 doit être la valeur renvoyée.
+1. Vérifions tout d’abord que Livy Spark est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy, 0 doit être la valeur renvoyée.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
@@ -100,6 +101,7 @@ Procédez comme suit.
         {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
    
     Notez la dernière ligne qui indique **total:0**, ce qui suggère qu’aucun lot n’est en cours d’exécution.
+
 2. Soumettons à présent un traitement par lots. L’extrait de code ci-dessous utilise un fichier d’entrée (input.txt) pour transmettre le nom du fichier .jar et le nom de classe en tant que paramètres. Il s’agit de l’approche recommandée si vous exécutez ces étapes sur un ordinateur Windows.
    
         curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
@@ -122,6 +124,7 @@ Procédez comme suit.
         {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
    
     Notez la dernière ligne de la sortie qui indique **state:starting**. Elle indique également **id:0**. Il s’agit de l’ID du lot.
+
 3. Vous pouvez maintenant récupérer l’état de ce lot à l’aide de l’ID correspondant.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
@@ -139,6 +142,7 @@ Procédez comme suit.
         {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://hn0-myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
    
     La sortie indique maintenant **state:success**, ce qui suggère que le travail a été exécuté correctement.
+
 4. Si vous le souhaitez, vous pouvez maintenant supprimer le lot.
    
         curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
@@ -157,7 +161,7 @@ Procédez comme suit.
    
     La dernière ligne de la sortie indique que le lot a été supprimé. Si vous supprimez un travail pendant son exécution, celui-ci va s’arrêter. Si vous supprimez un travail qui s’est terminé, les informations du travail sont entièrement supprimées.
 
-## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>Utilisation de Livy sur des clusters HDInsight 3.5 Spark
+## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Utilisation de Livy Spark sur des clusters HDInsight 3.5
 
 Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins locaux pour accéder à des fichiers de données ou des fichiers JAR. Nous vous conseillons plutôt d'utiliser le chemin `wasb://` pour accéder aux fichiers JAR ou aux exemples de fichiers de données à partir du cluster. Si vous ne souhaitez pas utiliser le chemin d’accès local, vous devez mettre à jour la configuration Ambari en conséquence. Pour ce faire :
 
@@ -173,7 +177,7 @@ Voici quelques problèmes que vous pouvez rencontrer lors de l’utilisation de 
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L’utilisation d’un fichier JAR externe à partir du stockage supplémentaire n’est pas prise en charge.
 
-**Problème :** si vous exécutez un travail Spark avec Livy, en faisant référence à un fichier JAR externe à partir du stockage supplémentaire associé au cluster, le travail échoue.
+**Problème :** si vous exécutez un travail Livy Spark en faisant référence à un fichier jar externe à partir du stockage supplémentaire associé au cluster, le travail échoue.
 
 **Résolution :** vérifiez que le fichier JAR que vous voulez utiliser est présent dans le stockage par défaut associé au cluster HDInsight.
 

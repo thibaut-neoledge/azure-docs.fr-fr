@@ -1,21 +1,19 @@
 ---
-title: "Niveaux de service dans une base de données Azure pour MySQL | Microsoft Docs"
+title: "Niveaux de service dans la base de données Azure pour MySQL | Documents Microsoft"
 description: "Niveaux de service dans la base de données Azure pour MySQL"
 services: mysql
 author: v-chenyh
-ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-ms.assetid: 
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
+ms.author: v-chenyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b647db3c3a48ac6c151814ee68b3117a92c1d4d8
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 9ae42c9b151c53a1f57d6856bc29cd7f71a7f9be
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-service-tier"></a>Options et performances de la base de données Azure pour MySQL : comprendre les éléments disponibles dans chaque niveau de service
@@ -39,18 +37,17 @@ Le tableau suivant fournit des exemples de niveaux adaptés à différentes char
 | De base | Idéal pour les petites charges de travail qui requièrent une capacité de calcul et de stockage évolutive sans garantie d’E/S par seconde. Exemple : serveurs utilisés pour le développement ou le test ou pour des applications à petite échelle rarement utilisées. |
 | Standard | L’option incontournable pour les applications cloud qui ont besoin d’une garantie d’E/S par seconde avec la possibilité d’évoluer indépendamment vers une capacité de calcul et de stockage supérieure pour un débit élevé. Exemples : applications web ou applications d’analyse. |
 | Premium | Idéal pour les charges de travail nécessitant de très courtes latences pour les transactions et les E/S, avec un débit élevé d’E/S et de charges de travail. Assure la meilleure prise en charge possible d’un grand nombre d’utilisateurs simultanés. S’applique aux bases de données qui prennent en charge les applications critiques.<br />Le niveau de service Premium n’est pas disponible en préversion. |
-| &nbsp; | &nbsp; |
+
 
 Pour choisir un niveau de service, commencez par déterminer si votre charge de travail a besoin d’une garantie d’E/S par seconde. Ensuite, déterminez les fonctionnalités dont vous avez besoin au minimum :
 
 | **Fonctionnalités de niveau de service** | **De base** | **Standard** | **Premium** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| Nombre maximal d’unités de calcul | 100 | 2000 | Non disponible en préversion |
-| Volume total de stockage maximal | 1 050 Go | 10 000 Go | Non disponible en préversion |
+| Nombre maximal d’unités de calcul | 100 | 2 000 | Non disponible en préversion |
+| Volume total de stockage maximal | 1 050 Go | 10 000 Go | Non disponible en préversion |
 | Garantie d’E/S par seconde de stockage | N/A  | Oui | Non disponible en préversion |
-| Quantité maximale d’E/S par seconde de stockage | N/A  | 30 000 | Non disponible en préversion |
+| Quantité maximale d’E/S par seconde de stockage | N/A  | 3 000 | Non disponible en préversion |
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 35 jours |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 > [!NOTE]
 > Le niveau de service Standard en préversion prend actuellement en charge jusqu’à 800 unités de calcul et 1 000 Go de stockage au maximum.
@@ -63,40 +60,36 @@ Toutefois, vous pouvez augmenter ou réduire le nombre d’unités de calcul ind
 > En préversion, les niveaux De base et Standard ne prennent pas en charge la mise à l’échelle dynamique du stockage pour le moment. Nous prévoyons d’ajouter cette fonctionnalité à l’avenir.
 
 > [!NOTE]
-> Dans le niveau de service Standard, les E/S par seconde s’adaptent proportionnellement à la taille de stockage approvisionnée selon un rapport fixe de trois contre un. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Si vous approvisionnez 1 000 Go, vous obtiendrez 3 000 E/S par seconde approvisionnées. Vous devez surveiller la consommation d’unités de calcul du serveur et monter en puissance pour utiliser pleinement les E/S par seconde approvisionnées disponibles.
+> Dans le niveau de service Standard, les E/S par seconde s’adaptent proportionnellement à la taille de stockage approvisionnée selon un rapport fixe de trois contre un. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Si vous approvisionnez 1 000 Go, vous obtenez 3 000 E/S par seconde approvisionnées. Vous devez surveiller la consommation d’unités de calcul du serveur et monter en puissance pour utiliser pleinement les E/S par seconde approvisionnées disponibles.
 
 ## <a name="service-tiers-and-performance-levels"></a>Niveaux de service et niveaux de performances
 
 La base de données Azure pour MySQL offre plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir le niveau qui répond le mieux aux besoins de votre charge de travail, en utilisant l’un des outils suivants :
-
 - [Portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Interface de ligne de commande Azure](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Quel que soit le nombre de bases de données hébergées dans chaque serveur MySQL, votre base de données obtient toujours un ensemble de ressources garanti, et les caractéristiques de performance attendues du serveur ne sont pas affectées.
 
-Niveau de service De base :
+### <a name="basic-service-tier"></a>Niveau de service De base :
 
 | **Niveau de performances** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Nombre maximal d’unités de calcul | 50 | 100 |
 | Taille du stockage inclus | 50 Go | 50 Go |
-| Taille maximale de stockage du serveur\* | 1 050 Go | 1 050 Go |
-| Nombre maximal de connexions simultanées | &nbsp; | &nbsp; |
-| Nombre maximal de connexions | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| Taille maximale de stockage du serveur\* | 1 050 Go | 1 050 Go |
 
-Niveau de service Standard :
+\*La taille maximale de stockage du serveur fait référence à la taille maximale de stockage approvisionnée pour votre serveur.
+
+
+### <a name="standard-service-tier"></a>Niveau de service Standard :
 
 | **Niveau de performances** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Nombre maximal d’unités de calcul | 100 | 200 | 400 | 800 |
-| Taille du stockage inclus et E/S par seconde approvisionnées | 125 Go, 375 E/S par seconde | &nbsp; | &nbsp; | &nbsp; |
-| Taille maximale de stockage du serveur\* | 1 To | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal d’E/S par seconde du serveur approvisionnées | 3 000 E/S par seconde | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal d’E/S par seconde du serveur approvisionnées par Go | 3 E/S par seconde fixes par Go | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal de connexions simultanées | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal de connexions | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Taille du stockage inclus et E/S par seconde approvisionnées | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE |
+| Taille maximale de stockage du serveur\* | 1 To | 1 To | 1 To | 1 To |
+| Nombre maximal d’E/S par seconde du serveur approvisionnées | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE |
+| Nombre maximal d’E/S par seconde du serveur approvisionnées par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go |
 
 \*La taille maximale de stockage du serveur fait référence à la taille maximale de stockage approvisionnée pour votre serveur.
 
@@ -109,12 +102,15 @@ La modification du niveau de service et/ou de performances d’une base de donn�
 La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service du serveur avant et après la modification. Par exemple, la modification des unités de calcul d’un serveur vers ou à partir d’un niveau de service Standard ne demande que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 
 ### <a name="documentation-about-the-steps-for-scaling-up-or-down"></a>Documentation sur les étapes de montée et descente en puissance
+[Surveiller et mettre à l’échelle une base de données Azure pour MySQL à l’aide d’Azure CLI](scripts/sample-scale-server.md)
 
-- [Gérer un serveur unique avec le Portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Gérer un serveur unique avec Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ### <a name="details-about-scaling-up-or-down"></a>Autres informations sur la montée et la descente en puissance
 
 - Pour descendre en puissance un serveur, ses unités de stockage doivent être inférieures à la taille maximale autorisée par le niveau de service voulu.
-- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour plus d’informations, consultez la page [Guide pratique pour sauvegarder et restaurer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./howto-restore-server-portal.md).
+- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour plus d’informations, consultez la page [Guide pratique pour sauvegarder et restaurer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](howto-restore-server-portal.md).
 - Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
+
+## <a name="next-steps"></a>Étapes suivantes
+[Explication des unités de calcul et de stockage](concepts-compute-unit-and-storage.md)
+

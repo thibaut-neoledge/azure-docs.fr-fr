@@ -10,12 +10,12 @@ ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 23a93060697bc48084658bbbd895d13fd393b07b
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: a946c114824597cc55e435a455cd888816789dbf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-service-tier"></a>Options et performances de la base de données Azure pour PostgreSQL : comprendre les éléments disponibles dans chaque niveau de service
@@ -46,15 +46,15 @@ Pour choisir un niveau de service, commencez par déterminer si votre charge de 
 
 | **Fonctionnalités de niveau de service** | **De base** | **Standard** | **Premium** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| Nombre maximal d’unités de calcul | 100 | 2000 | Non disponible en préversion |
-| Volume total de stockage maximal | 1 050 Go | 10 000 Go | Non disponible en préversion |
+| Nombre maximal d’unités de calcul | 100 | 2 000 | Non disponible en préversion |
+| Volume total de stockage maximal | 1 050 Go | 10 000 Go | Non disponible en préversion |
 | Garantie d’E/S par seconde de stockage | N/A  | Oui | Non disponible en préversion |
-| Quantité maximale d’E/S par seconde de stockage | N/A  | 30 000 | Non disponible en préversion |
+| Quantité maximale d’E/S par seconde de stockage | N/A  | 3 000 | Non disponible en préversion |
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 35 jours |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+
 
 > [!NOTE]
-> Le niveau de service Standard en préversion prend actuellement en charge jusqu’à 800 unités de calcul et 1 000 Go de stockage au maximum.
+> Le niveau de service Standard en version préliminaire prend actuellement en charge jusqu’à 800 unités de calcul et 1 000 Go de stockage.
 
 Une fois que vous avez déterminé le niveau de service minimal, vous êtes prêt à déterminer le niveau de performances du serveur PostgreSQL (les unités de calcul). Les 200 et 400 unités de calcul standard constituent souvent un bon point de départ pour les applications qui ont besoin d’un accès utilisateur concurrentiel supérieur pour leurs charges de travail d’analyse ou web. 
 
@@ -64,44 +64,38 @@ Toutefois, vous pouvez augmenter ou réduire le nombre d’unités de calcul ind
 > En préversion, les niveaux De base et Standard ne prennent pas en charge la mise à l’échelle dynamique du stockage pour le moment. Nous prévoyons d’ajouter cette fonctionnalité à l’avenir.
 
 > [!NOTE]
-> Dans le niveau de service Standard, les E/S par seconde s’adaptent proportionnellement à la taille de stockage approvisionnée selon un rapport fixe de trois contre un. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Si vous approvisionnez 1 000 Go, vous obtiendrez 3 000 E/S par seconde approvisionnées. Vous devez surveiller la consommation d’unités de calcul du serveur et monter en puissance pour utiliser pleinement les E/S par seconde approvisionnées disponibles.
+> Dans le niveau de service Standard, les E/S par seconde s’adaptent proportionnellement à la taille de stockage approvisionnée selon un rapport fixe de trois contre un. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Si vous approvisionnez 1 000 Go, vous obtenez 3 000 E/S par seconde approvisionnées. Vous devez surveiller la consommation d’unités de calcul du serveur et monter en puissance pour utiliser pleinement les E/S par seconde approvisionnées disponibles.
 
 ## <a name="service-tiers-and-performance-levels"></a>Niveaux de service et niveaux de performances
 
 La base de données Azure pour PostgreSQL offre plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir le niveau qui répond le mieux aux besoins de votre charge de travail, en utilisant l’un des outils suivants :
 
-- [Portail Azure](/azure/azure-portal-overview), à l’adresse [http://portal.azure.com](http://portal.azure.com)
+- [Portail Azure](quickstart-create-server-database-portal.md), à l’adresse [http://portal.azure.com](http://portal.azure.com)
 - [Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
 
 Quel que soit le nombre de bases de données hébergées dans chaque serveur PostgreSQL, votre base de données obtient toujours un ensemble de ressources garanti, et les caractéristiques de performance attendues du serveur ne sont pas affectées.
 
-Niveau de service De base :
+### <a name="basic-service-tier"></a>Niveau de service De base :
 
 | **Niveau de performances** | **50** | **100** |
-| :-------------------- | :----- | :------ |
+| --------------------: | :----- | :------ |
 | Nombre maximal d’unités de calcul | 50 | 100 |
 | Taille du stockage inclus | 50 Go | 50 Go |
-| Taille maximale de stockage du serveur\* | 1 050 Go | 1 050 Go |
-| Nombre maximal de connexions simultanées | &nbsp; | &nbsp; |
-| Nombre maximal de connexions | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| Taille maximale de stockage du serveur\* | 1 050 Go | 1 050 Go |
 
-Niveau de service Standard :
+### <a name="standard-service-tier"></a>Niveau de service Standard :
 
 | **Niveau de performances** | **100** | **200** | **400** | **800** |
-| :-------------------- | :------ | :------ | :------ | :------ |
+| --------------------: | :------ | :------ | :------ | :------ |
 | Nombre maximal d’unités de calcul | 100 | 200 | 400 | 800 |
-| Taille du stockage inclus et E/S par seconde approvisionnées | 125 Go, 375 E/S par seconde | &nbsp; | &nbsp; | &nbsp; |
-| Taille maximale de stockage du serveur\* | 1 To | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal d’E/S par seconde du serveur approvisionnées | 3 000 E/S par seconde | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal d’E/S par seconde du serveur approvisionnées par Go | 3 E/S par seconde fixes par Go | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal de connexions simultanées | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Nombre maximal de connexions | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Taille du stockage inclus et E/S par seconde approvisionnées | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE | 125 GO,<br/> 375 E/S PAR SECONDE |
+| Taille maximale de stockage du serveur\* | 1 To | 1 To | 1 To | 1 To |
+| Nombre maximal d’E/S par seconde du serveur approvisionnées | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE | 3 000 E/S PAR SECONDE |
+| Nombre maximal d’E/S par seconde du serveur approvisionnées par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go | 3 E/S par seconde fixes par Go |
 
 \*La taille maximale de stockage du serveur fait référence à la taille maximale de stockage approvisionnée pour votre serveur.
 
-## <a name="scaling-up-or-down-a-single-server"></a>Montée ou descente en puissance d’un serveur unique
+## <a name="scaling-up-or-down-a-server"></a>Augmentation ou réduction de l’échelle d’un serveur
 
 Après avoir choisi un niveau de service et un niveau de performances initiaux, vous pouvez monter ou descendre en puissance le serveur de façon dynamique en fonction des besoins de votre charge de travail. Pour cela, vous pouvez très simplement modifier le niveau de votre base de données sur le Portail Azure ou avec Azure CLI.
 
@@ -109,10 +103,7 @@ La modification du niveau de service et/ou de performances d’une base de donn�
 
 La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service du serveur avant et après la modification. Par exemple, la modification des unités de calcul d’un serveur vers ou à partir d’un niveau de service Standard ne demande que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 
-### <a name="documentation-about-the-steps-for-scaling-up-or-down"></a>Documentation sur les étapes de montée et descente en puissance
-
-- [Gérer un serveur unique sur le Portail Azure](quickstart-create-server-database-portal.md)
-- [Gérer une base de données unique avec Azure CLI](quickstart-create-server-database-azure-cli.md)
+Vous pouvez utiliser le portail Azure pour augmenter ou réduire l’échelle, ou utiliser Azure CLI pour surveiller et mettre à l’échelle votre serveur. Voir [Surveiller et mettre à l’échelle un seul serveur PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
 ### <a name="details-about-scaling-up-or-down"></a>Autres informations sur la montée et la descente en puissance
 

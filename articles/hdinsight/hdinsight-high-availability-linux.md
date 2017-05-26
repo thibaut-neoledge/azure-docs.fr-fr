@@ -1,15 +1,16 @@
 ---
-title: "Fonctionnalités de haute disponibilité de HDInsight (Hadoop) | Microsoft Docs"
-description: "Découvrez comment les clusters HDInsight Linux améliorent la fiabilité et la disponibilité en utilisant un nœud principal supplémentaire. Découvrez dans quelle mesure les services Hadoop tels qu’Ambari et Hive sont concernés, et comment se connecter à chaque nœud principal via SSH."
+title: "Haute disponibilité pour Hadoop - Azure HDInsight | Documents Microsoft"
+description: "Découvrez comment les clusters HDInsight améliorent la fiabilité et la disponibilité en utilisant un nœud principal supplémentaire. Découvrez dans quelle mesure les services Hadoop tels qu’Ambari et Hive sont concernés, et comment se connecter à chaque nœud principal via SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
 documentationcenter: 
 tags: azure-portal
+keywords: "haute disponibilité hadoop"
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
@@ -17,10 +18,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 8e2c1ccb003adafeaf315b23171f49d5b3f50cdb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -28,12 +29,12 @@ ms.lasthandoff: 04/27/2017
 
 Les clusters HDInsight fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Hadoop en cours d’exécution.
 
-Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en conservant des copies des services et des données sur plusieurs nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster. Ce n’est pas un problème avec HDInsight.
+Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliquant des services et données sur plusieurs nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster. HDInsight fournit deux nœuds principaux pour améliorer la disponibilité et la fiabilité de Hadoop.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-## <a name="understanding-the-nodes"></a>Vue d’ensemble des nœuds
+## <a name="availability-and-reliability-of-nodes"></a>Disponibilité et fiabilité des nœuds
 
 Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines virtuelles Azure. En cas de défaillance d’un nœud, ce dernier est mis hors connexion, et un autre nœud est créé pour remplacer le nœud défaillant. Tant que le nœud se trouve à l’état hors connexion, un autre nœud du même type est utilisé jusqu’à ce que le nouveau nœud soit mis en ligne.
 
@@ -44,7 +45,7 @@ Les sections ci-après décrivent les différents types de nœuds utilisés avec
 
 ### <a name="head-nodes"></a>Nœuds principaux
 
-Les deux nœuds principaux sont actifs et s’exécutent simultanément sur le cluster HDInsight. Certains services, par exemple HDFS et YARN, ne sont « actifs » que sur un seul nœud principal à un instant t. D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
+Pour garantir une haute disponibilité des services Hadoop, HDInsight fournit deux nœuds principaux. Les deux nœuds principaux sont actifs et s’exécutent simultanément sur le cluster HDInsight. Certains services, par exemple HDFS et YARN, ne sont « actifs » que sur un seul nœud principal à un instant t. D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
 
 Les nœuds principaux (et les autres nœuds dans HDInsight) possèdent une valeur numérique comme partie du nom d’hôte du nœud. Par exemple, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
 
@@ -53,11 +54,11 @@ Les nœuds principaux (et les autres nœuds dans HDInsight) possèdent une valeu
 
 ### <a name="nimbus-nodes"></a>Nœuds Nimbus
 
-Pour les clusters Storm, les nœuds Nimbus offrent des fonctionnalités comparables au service Hadoop JobTracker en distribuant et en surveillant le traitement dans l’ensemble des nœuds de travail. HDInsight fournit 2 nœuds Nimbus pour le type de cluster Storm.
+Des nœuds Nimbus sont disponibles avec les clusters Storm. Les nœuds Nimbus offrent des fonctionnalités comparables au service Hadoop JobTracker en distribuant et en surveillant le traitement sur l’ensemble des nœuds de travail. HDInsight fournit deux nœuds Nimbus pour les clusters Storm
 
 ### <a name="zookeeper-nodes"></a>Nœuds Zookeeper
 
-Les nœuds [ZooKeeper](http://zookeeper.apache.org/) sont utilisés pour la sélection primaire de services principaux sur les nœuds principaux et garantissent que les services, les nœuds (Worker) et les passerelles savent sur quel nœud principal un service principal est actif. Par défaut, HDInsight fournit trois nœuds ZooKeeper.
+Des nœuds [ZooKeeper](http://zookeeper.apache.org/) sont utilisés pour l’élection de leader des services maîtres sur nœuds principaux. Ils sont également utilisés pour s’assurer que les services, les nœuds de données (worker) et les passerelles sachent sur quel nœud principal un service maître est actif. Par défaut, HDInsight fournit trois nœuds ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nœuds de travail
 
@@ -65,7 +66,7 @@ Les nœuds de travail effectuent l’analyse de données proprement dite lorsqu�
 
 ### <a name="edge-node"></a>Nœud de périmètre
 
-Un nœud de périmètre ne participe pas activement à l’analyse des données au sein du cluster, mais est plutôt utilisé par les développeurs ou les scientifiques des données lorsque ces derniers travaillent avec Hadoop. Le nœud de périmètre se trouve dans le même réseau virtuel Azure que les autres nœuds du cluster et peut accéder directement à tous les autres nœuds. Étant donné qu’il ne prend pas part à l’analyse des données pour le cluster, il peut être utilisé sans détourner les ressources nécessaires aux travaux d’analyse ou aux services Hadoop critiques.
+Un nœud ne participe pas activement à l’analyse de données au sein du cluster. Il est utilisé par les développeurs ou chercheurs de données qui travaillent avec Hadoop. Le nœud de périmètre se trouve dans le même réseau virtuel Azure que les autres nœuds du cluster et peut accéder directement à tous les autres nœuds. Le nœud Edge peut être utilisé sans qu’il faille recourir à des ressources de services Hadoop ou de tâches d’analyse critiques.
 
 Pour l’instant, R Server sur HDInsight est le seul type de cluster à fournir un nœud de périmètre par défaut. Dans le cas de R Server sur HDInsight, le nœud de périmètre est utilisé pour tester le code R localement sur le nœud avant de le soumettre au cluster à des fins de traitement distribué.
 
@@ -105,7 +106,7 @@ Vous pouvez vous connecter aux nœuds qui ne sont pas directement accessibles su
 
 * **SSH** : une fois connecté à un nœud principal au moyen de SSH, vous pouvez utiliser SSH à partir de ce nœud principal pour vous connecter à d’autres nœuds du cluster. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur l’un des nœuds qui ne sont pas exposés à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+* **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur l’un des nœuds qui ne sont pas exposés à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 * **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Étendre HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -135,15 +136,15 @@ Pour plus d’informations sur Ambari, consultez la page [Surveiller et gérer H
 
 ### <a name="ambari-rest-api"></a>API Ambari REST
 
-L’API REST Ambari est disponible sur Internet, et la passerelle publique gère les demandes d’acheminement vers le nœud principal qui héberge actuellement l’API REST.
+L’API REST Ambari est disponible sur internet. La passerelle publique HDInsight gère l’acheminement des demandes vers le nœud principal hébergeant l’API REST.
 
 Vous pouvez utiliser la commande suivante pour vérifier l'état d'un service via l'API REST Ambari :
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Remplacez **PASSWORD** par le mot de passe de compte de l’utilisateur HTTP (admin)
+* Remplacez **PASSWORD** par le mot de passe du compte d’utilisateur HTTP (admin).
 * Remplacez **CLUSTERNAME** par le nom de votre cluster.
-* Remplacez **SERVICENAME** par le nom du service dont l'état doit être contrôlé
+* Remplacez **SERVICENAME** par le nom du service dont vous voulez contrôler l’état.
 
 Par exemple, pour vérifier l’état du service **HDFS** dans un cluster nommé **mycluster**, avec un mot de passe **password**, vous devez utiliser la commande suivante :
 
@@ -192,7 +193,7 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 Vous pouvez également vous connecter au nœud principal à l’aide du protocole FTP SSH, ou protocole FTP sécurisé (SFTP), et télécharger directement les fichiers journaux.
 
-Comme lors de l’utilisation d’un client SSH, lorsque vous vous connectez au cluster, vous devez fournir le nom du compte d’utilisateur SSH et l’adresse SSH du cluster. Par exemple, `sftp username@mycluster-ssh.azurehdinsight.net`. Vous devez spécifier le mot de passe du compte lorsque vous y êtes invité, ou bien fournir une clé publique à l’aide du paramètre `-i`.
+Comme lors de l’utilisation d’un client SSH, lorsque vous vous connectez au cluster, vous devez fournir le nom du compte d’utilisateur SSH et l’adresse SSH du cluster. Par exemple, `sftp username@mycluster-ssh.azurehdinsight.net`. Lorsque vous y êtes invité, fournissez le mot de passe du compte ou une clé publique à l’aide du paramètre `-i`.
 
 Une fois connecté, vous voyez apparaître une invite `sftp>` . À partir de cette invite, vous pouvez changer de répertoire, ainsi que charger et télécharger des fichiers. Par exemple, les commandes ci-après activent le répertoire **/var/log/hadoop/hdfs** , puis téléchargent tous les fichiers dans ce répertoire.
 
@@ -207,7 +208,7 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> Pour accéder aux fichiers journaux avec Ambari, vous devez utiliser un tunnel SSH. L’interface web de chaque service n’est pas exposée publiquement sur Internet. Pour plus d’informations sur l’utilisation d’un tunnel SSH, consultez la page [Utilisation de SSH Tunneling pour accéder à l’interface utilisateur web d’Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Pour accéder aux fichiers journaux avec Ambari, vous devez utiliser un tunnel SSH. Les interfaces web des différents services ne sont pas exposée publiquement sur Internet. Pour plus d’informations sur l’utilisation du tunnel SSH, voir le document [Utilisation d’un Tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux.
 
@@ -215,9 +216,9 @@ Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vou
 
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 
-La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à spécifier la taille avec le [Portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [l’interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à spécifier la taille avec le [Portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [l’interface de ligne de commande Azure][azure-cli] :
 
 * **Portail Azure** : à la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 

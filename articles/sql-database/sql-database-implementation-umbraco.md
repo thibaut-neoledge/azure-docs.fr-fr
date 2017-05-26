@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
-ms.lasthandoff: 01/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -69,11 +70,11 @@ Avec Azure SQL Database et d’autres services Azure, les clients Umbraco peuven
    Umbraco surveille l’activité des bases de données à l’aide de tableaux de bord sur le Portail Azure, ainsi que d’alertes e-mail personnalisées.
 4. Récupération d'urgence
    
-   Azure propose deux options de récupération d’urgence : la géo-réplication active et la géo-restauration. Une entreprise doit sélectionner l’option de récupération d’urgence en fonction de ses [objectifs de continuité d’activité](sql-database-business-continuity.md).
+   Azure propose deux options de récupération d’urgence : la géoréplication active et la géorestauration. Une entreprise doit sélectionner l’option de récupération d’urgence en fonction de ses [objectifs de continuité d’activité](sql-database-business-continuity.md).
    
-   La géo-réplication active fournit le niveau de réponse le plus rapide en cas de temps d’arrêt. À l’aide de la géo-réplication active, vous pouvez créer jusqu’à quatre bases de données secondaires accessibles en lecture sur les serveurs de différentes régions, et ensuite lancer le basculement vers les bases de données secondaires en cas de défaillance.
+   La géoréplication active fournit le niveau de réponse le plus rapide en cas de temps d’arrêt. À l’aide de la géoréplication active, vous pouvez créer jusqu’à quatre bases de données secondaires accessibles en lecture sur les serveurs de différentes régions, puis lancer un basculement vers les bases de données secondaires en cas de défaillance.
    
-   Umbraco ne requiert pas la géo-réplication, mais utilise la géo-restauration Azure pour garantir des temps d’arrêt minimum en cas d’interruption. La géo-restauration s’appuie sur les sauvegardes des bases de données dans le stockage Azure géo-redondant. Cela permet aux utilisateurs d’effectuer la restauration à partir d’une copie de sauvegarde en cas d’interruption dans la région primaire.
+   Umbraco ne requiert pas la géoréplication, mais utilise la géorestauration Azure pour garantir des temps d’arrêt minimum en cas d’interruption. La géorestauration s’appuie sur les sauvegardes des bases de données dans le stockage Azure géoredondant. Cela permet aux utilisateurs d’effectuer la restauration à partir d’une copie de sauvegarde en cas d’interruption dans la région primaire.
 5. Annuler l’approvisionnement
    
    Lorsqu’un environnement de projet est supprimé, les bases de données (de développement, intermédiaires ou en ligne) associées sont supprimées au cours du nettoyage de la file d’attente Azure Service Bus. Ce processus automatisé restaure les bases de données inutilisées dans le pool de disponibilité des bases de données élastiques d’Umbraco, ce qui les rend disponibles pour un approvisionnement futur tout en maintenant une utilisation maximale.

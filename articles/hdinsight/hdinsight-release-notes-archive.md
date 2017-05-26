@@ -1,6 +1,6 @@
 ---
-title: "Notes de publication archivées pour les composants Hadoop sur Azure HDInsight | Microsoft Docs"
-description: "Notes de publication archivées et versions des composants Hadoop pour Azure HDInsight."
+title: "Notes de publication archivées - Composants Hadoop sur Azure HDInsight | Documents Microsoft"
+description: "Notes de publication archivées pour des versions plus anciennes des composants Hadoop pour Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -8,7 +8,7 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -61,7 +62,7 @@ Cette version contient les mises à jour suivantes.
 
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Spark, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 | --- | --- | --- | --- | --- |
-| Modifications apportées aux clusters HDInsight 3.4 |Les valeurs par défaut des configurations hive suivantes sont modifiées pour optimiser les performances  <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |de diffusion en continu |Tout |N/A |
+| Modifications apportées aux clusters HDInsight 3.4 |Les valeurs par défaut des configurations de Hive suivantes sont modifiées pour optimiser les performances <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Service |Tout |N/A |
 | Les correctifs suivants sont inclus dans cette version |HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933 |de diffusion en continu |Tout |N/A |
 
 ## <a name="notes-for-07142016-release-of-hdinsight"></a>Notes pour la version du 14/07/2016 de HDinsight
@@ -107,7 +108,7 @@ Cette version contient les mises à jour suivantes.
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Spark, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 | --- | --- | --- | --- | --- |
 | [Outils HDInsight pour IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) |Le plug-in IntelliJ IDEA pour les clusters HDInsight Spark est désormais intégré au kit de ressources Azure pour IntelliJ. Il prend en charge Azure SDK v2.9.1, les kits de développement Java les plus récents et inclut toutes les fonctionnalités de la version autonome de HDInsight Plugin pour IntelliJ. |Outils |Spark |N/A |
-| [Outils HDInsight pour Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) |Le kit de ressources Azure pour Eclipse prend désormais en charge les clusters HDInsight Spark. Il fournit les fonctionnalités suivantes. <ul><li>Créer et écrire une application Spark facilement en Scala et en Java, avec la prise en charge des opérations d’auteur première classe pour IntelliSense, la mise en forme automatique, la vérification des erreurs, etc.</li><li>Tester l’application Spark localement.</li><li>Envoyer des travaux au cluster HDInsight Spark et récupérer les résultats.</li><li>Se connecter à Azure et accéder à tous les clusters Spark associés à vos abonnements Azure.</li><li>Accéder à toutes les ressources de stockage associées de votre cluster HDInsight Spark.</li></ul> |Outils |Spark |N/A |
+| [Outils HDInsight pour Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) |Le kit de ressources Azure pour Eclipse prend désormais en charge les clusters HDInsight Spark. Il fournit les fonctionnalités suivantes. <ul><li>Créer et écrire une application Spark facilement en Scala et en Java, avec la prise en charge des opérations d’auteur première classe pour IntelliSense, la mise en forme automatique, la vérification des erreurs, etc.</li><li>Tester l’application Spark localement.</li><li>Envoyer des travaux au cluster HDInsight Spark et récupérer les résultats.</li><li>Connectez-vous à Azure et accédez à tous les clusters Spark associés à vos abonnements Azure.</li><li>Accéder à toutes les ressources de stockage associées de votre cluster HDInsight Spark.</li></ul> |Outils |Spark |N/A |
 
 À compter de cette version, nous avons modifié la stratégie de gestion des mises à jour correctives du système d’exploitation invité pour les clusters HDInsight sous Linux. L’objectif de la nouvelle stratégie est de réduire considérablement le nombre de redémarrages dus à la mise à jour corrective. La nouvelle stratégie exécutera les correctifs sur des machines virtuelles dans des clusters Linux chaque lundi ou un jeudi à partir de minuit (UTC) de manière échelonnée sur les nœuds dans tout cluster donné. Toutefois, toute machine virtuelle donnée ne redémarrera qu’une fois tous les 30 jours au maximum en raison de la mise à jour corrective du système d’exploitation invité. En outre, le premier redémarrage d’un cluster nouvellement créé aura lieu au plus tôt 30 jours après la date de création du cluster.
 
@@ -128,8 +129,8 @@ Cette version contient les mises à jour suivantes.
 
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Spark, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 | --- | --- | --- | --- | --- |
-| Spark sur HDInsight est généralement disponible |Cette version apporte des améliorations en matière de disponibilité, d’extensibilité et de productivité à Apache Spark sur HDInsight open source. <ul><li>Leader du marché avec un contrat de niveau de service de 99,9 % pour la disponibilité, qui le rend adapté aux charges de travail importantes des entreprises.</li><li>Couche de stockage évolutive avec Azure Data Lake Store.</li><li>Outils de productivité pour chaque phase de développement et d’exploration des données. Des blocs-notes Jupyter avec noyau Spark personnalisé activent l’exploration interactive des données. L’intégration de tableaux de bord de BI tels que Power BI, Tableau et Qlik est intéressante pour un partage de données rapide et une création de rapports continue. Le plug-in IntelliJ est une option fiable de développement à long terme et de débogage d’artefacts de code.</li></ul> |de diffusion en continu |Spark |N/A |
-| Outils HDInsight pour IntelliJ |Il s’agit d’un plug-in IntelliJ IDEA pour les clusters HDInsight Spark. Il fournit les fonctionnalités suivantes.<ul><li>Créer et écrire une application Spark facilement en Scala et en Java, avec la prise en charge des opérations d’auteur première classe pour IntelliSense, la mise en forme automatique, la vérification des erreurs, etc.</li><li>Tester l’application Spark localement.</li><li>Envoyer des travaux au cluster HDInsight Spark et récupérer les résultats.</li><li>Se connecter à Azure et accéder à tous les clusters Spark associés à vos abonnements Azure.</li><li>Accéder à toutes les ressources de stockage associées de votre cluster HDInsight Spark.</li><li>Accéder à toutes les informations et à tout l’historique des tâches pour votre cluster HDInsight Spark.</li><li>Déboguer les tâches Spark à distance à partir de votre ordinateur de bureau.</li></ul> |Outils |Spark |N/A |
+| Spark sur HDInsight est généralement disponible |Cette version apporte des améliorations en matière de disponibilité, d’extensibilité et de productivité à Apache Spark sur HDInsight open source. <ul><li>Leader du marché avec un contrat de niveau de service (SLA) de 99,9 % pour la disponibilité, qui le rend adapté aux charges de travail importantes des entreprises.</li><li>Couche de stockage évolutive avec Azure Data Lake Store.</li><li>Outils de productivité pour chaque phase de développement et d’exploration des données. Des blocs-notes Jupyter avec noyau Spark personnalisé activent l’exploration interactive des données. L’intégration de tableaux de bord de BI tels que Power BI, Tableau et Qlik est intéressante pour un partage de données rapide et une création de rapports continue. Le plug-in IntelliJ est une option fiable de développement à long terme et de débogage d’artefacts de code.</li></ul> |de diffusion en continu |Spark |N/A |
+| Outils HDInsight pour IntelliJ |Il s’agit d’un plug-in IntelliJ IDEA pour les clusters HDInsight Spark. Il fournit les fonctionnalités suivantes.<ul><li>Créer et écrire une application Spark facilement en Scala et en Java, avec la prise en charge des opérations d’auteur première classe pour IntelliSense, la mise en forme automatique, la vérification des erreurs, etc.</li><li>Tester l’application Spark localement.</li><li>Envoyer des travaux au cluster HDInsight Spark et récupérer les résultats.</li><li>Connectez-vous à Azure et accédez à tous les clusters Spark associés à vos abonnements Azure.</li><li>Accéder à toutes les ressources de stockage associées de votre cluster HDInsight Spark.</li><li>Accéder à toutes les informations et à tout l’historique des tâches pour votre cluster HDInsight Spark.</li><li>Déboguer les tâches Spark à distance à partir de votre ordinateur de bureau.</li></ul> |Outils |Spark |N/A |
 
 ## <a name="notes-for-05132016-release-of-hdinsight"></a>Notes pour la version du 13/05/2016 de HDInsight
 Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
@@ -166,9 +167,9 @@ Cette version contient les mises à jour suivantes.
 
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 | --- | --- | --- | --- | --- |
-| Problèmes de mise à niveau personnalisée du metastore pour HDI 3.4 |La création du cluster échouait si vous utilisiez un metastore personnalisé auparavant utilisé sur une version antérieure d’un autre cluster HDInsight. Ceci était dû à une erreur de script de mise à niveau qui a maintenant été résolue |Création du cluster |Tout |N/A |
+| Problèmes de mise à niveau personnalisée du metastore pour HDI 3.4 |La création du cluster échouait si vous utilisiez un metastore personnalisé auparavant utilisé sur une version antérieure d’un autre cluster HDInsight. Cela était dû à une erreur de script de mise à niveau qui a maintenant été résolue |Création du cluster |Tout |N/A |
 | Récupération après blocage de Livy |Fournit la résilience de l’état du travail pour tout travail soumis via Livy |Fiabilité |Spark sous Linux |N/A |
-| Haute disponibilité du contenu de Jupyter |Fournit la capacité d’enregistrer et de charger les contenus des blocs-notes Jupyter depuis et vers le compte de stockage associé au cluster. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Blocs-notes |Spark sous Linux |N/A |
+| Haute disponibilité du contenu de Jupyter |Fournit la capacité d’enregistrer et de charger les contenus des blocs-notes Jupyter depuis et vers le compte de stockage associé au cluster. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Blocs-notes |Spark sous Linux |N/A  |
 | Suppression de hiveContext dans les blocs-notes Jupyter |Utilisez la commande magique `%%sql` au lieu de la commande magique `%%hive`. SqlContext est équivalent à hiveContext. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Blocs-notes |Clusters Spark sur Linux |N/A |
 | Désapprobation d’anciennes versions de Spark |La version 1.3.1 de Spark sera retirée du service le 31/05 |de diffusion en continu |Clusters Spark sur Windows |N/A |
 
@@ -536,7 +537,7 @@ Cette version contient les mises à jour suivantes.
 </tr>
 <tr>
 <td>Modification de la configuration de mémoire de conteneur YARN par défaut</td>
-<td>Dans cette mise à jour, la mémoire disponible par défaut pour les conteneurs YARN (yarn.nodemanager.resource.memory-mb et yarn.scheduler.maximum-allocation-mb), lancée par le Gestionnaire de nœuds, est passée à 5 632 Mo. Elle était auparavant de 4 608 Mo, mais selon les diverses exécutions de tâches, la nouvelle valeur doit offrir une meilleure fiabilité et de meilleures performances pour la plupart des tâches. Elle constitue donc le meilleur choix par défaut. Comme d’habitude, si vous avez une dépendance critique sur cette configuration de mémoire, définissez-la explicitement lors de la création du cluster.</td>
+<td>Dans cette mise à jour, la mémoire disponible par défaut pour les conteneurs YARN (yarn.nodemanager.resource.memory-mb et yarn.scheduler.maximum-allocation-mb), lancée par le Gestionnaire de nœuds, est passée à 5 632 Mo. Elle était auparavant de 4 608 Mo, mais selon les diverses exécutions de tâches, la nouvelle valeur doit offrir une meilleure fiabilité et de meilleures performances pour la plupart des tâches. Elle constitue donc le meilleur choix par défaut. Comme d’habitude, si vous avez une dépendance critique par rapport à cette configuration de mémoire, définissez-la de façon explicite lors de la création du cluster.</td>
 <td>HDP</td>
 <td>Tous les types de cluster</td>
 <td>N/A</td>
@@ -571,7 +572,7 @@ Cette version contient les mises à jour suivantes.
 </tr>
 <tr>
 <td>Prise en charge de EventHub avec SCP.NET</td>
-<td>Les packages de cluster mis à jour pour HDInsight Storm apportent de nouvelles fonctionnalités à SCP.NET. Vous avez désormais accès aux nouvelles API dans le générateur de topologie, ce qui facilite l’utilisation de « spouts » EventHub ou Java. Vous devez mettre à jour le Kit de développement logiciel (SDK) de votre client SCP.NET pour utiliser les nouveaux clusters, car les contrats ont été mis à jour. Pour plus d’informations sur les nouvelles API, l’utilisation et les notes de publication (y compris les correctifs de bogues), consultez le fichier Readme inclus dans le package nuget SCP.NET.</td>
+<td>Les packages de cluster mis à jour pour HDInsight Storm apportent de nouvelles fonctionnalités à SCP.NET. Vous avez désormais accès aux nouvelles API dans le générateur de topologie, ce qui facilite l’utilisation de « spouts » EventHub ou Java. Vous devez mettre à jour le Kit de développement logiciel (SDK) de votre client SCP.NET pour utiliser les nouveaux clusters, car les contrats ont été mis à jour. Pour plus d’informations sur les nouvelles API, l’utilisation et les notes de publication (y compris les correctifs de bogues), voir le fichier Readme inclus dans le package NuGet SCP.NET.</td>
 <td>Outils VS</td>
 <td>Clusters HDInsight 3.2 Storm</td>
 <td>N/A</td>
@@ -834,7 +835,7 @@ Cette version contient les mises à jour suivantes.
 <td>Hadoop 2.6/HDP2.2 est disponible avec les clusters HDInsight 3.2. Il contient des mises à jour importantes pour tous les composants open source. Pour plus d’informations, consultez Nouveautés dans HDInsight et <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">Notes de version HDP 2.2.0.0</a>.</td>
 <td>Logiciels open source</td>
 <td>Tout</td>
-<td>N/A</td>
+<td>N/A </td>
 </tr>
 <tr>
 <td>HDInsight sous Linux (version préliminaire)</td>
@@ -869,11 +870,11 @@ Cette version contient les mises à jour suivantes.
 <td>En plus d’outils complets pour Apache Storm, les outils Apache Hive dans Visual Studio ont été mis à jour pour inclure la saisie semi-automatique des instructions, la validation locale et une meilleure prise en charge du débogage. Pour plus d’informations, consultez la page Prise en main de HDInsight Hadoop Tools pour Visual Studio.</td>
 <td>Outils</td>
 <td>Hadoop</td>
-<td>N/A</td>
+<td>N/A </td>
 </tr>
-<td>Connecteur Hadoop pour DocumentDB</td>
-<td>Avec le connecteur Hadoop pour DocumentDB, vous pouvez effectuer des agrégations complexes, des analyses et des manipulations sur vos documents JSON sans schéma stockés dans les collections DocumentDB ou des comptes de base de données. Pour plus d’informations et un didacticiel, consultez Exécution d’une tâche Hadoop avec DocumentDB et HdInsight.</td>
-<td>de diffusion en continu</td>
+<td>Connecteur Hadoop pour Azure Cosmos DB</td>
+<td>Avec le connecteur Hadoop pour Azure Cosmos DB, vous pouvez effectuer des agrégations complexes, des analyses et des manipulations sur vos documents JSON sans schéma stockés dans des collections Azure Cosmos DB ou des comptes de base de données. Pour plus d’informations et un didacticiel, voir Exécuter des tâches Hadoop avec Azure Cosmos DB et HDInsight.</td>
+<td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
 </tr>
@@ -1101,7 +1102,7 @@ Les numéros de version complets des clusters HDInsight déployés avec cette ve
 * HDInsight 2.1.9.382.1169709 (pas de changements par rapport à la version du 14/11/2014)
 * HDInsight 3.0.5.382.1169709 (pas de changements par rapport à la version du 14/11/2014)
 * HDInsight 3.1.1.382.1169709 (pas de changements par rapport à la version du 14/11/2014)
-* Kit de développement logiciel (SDK) HDINsight 1.4.0
+* Kit de développement logiciel (SDK) HDInsight 1.4.0
 
 Cette version contient les mises à jour de composant suivantes.
 
@@ -1249,7 +1250,7 @@ Pour plus d’informations sur les paramètres de configuration de mémoire util
 En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développement logiciel (SDK) HDInsight : «*Le cluster n’est pas configuré pour l’accès aux services HTTP*» :
 
 * Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que «*Impossible de se connecter au cluster*».
-* Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel HDInsight à partir de [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
+* Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel (SDK) HDInsight à partir de [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Notes pour la version du 12/09/2014 de HDinsight 3.1
 * Cette version est basée sur Hortonworks Data Platform (HDP) 2.1.5. Pour obtenir la liste des bogues corrigés dans cette version, consultez la page [Erreurs corrigées dans cette version](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) sur le site Hortonworks.
@@ -1300,7 +1301,7 @@ Cette version inclut des améliorations du service HDInsight :
 Avec HBase, vous pouvez créer différentes charges de travail en temps réel sur HDInsight, de sites web interactifs fonctionnant avec des jeux de données volumineux à des services stockant les données de capteur et de télémétrie provenant de millions de points de terminaison. L’étape suivante consisterait à analyser les données dans ces charges de travail avec des tâches Hadoop, ce qui est possible dans HDInsight grâce, notamment, à Azure PowerShell et au tableau de bord de cluster Hive.
 
 ### <a name="apache-mahout-preinstalled-on-hdinsight-31"></a>Apache Mahout préinstallé sur HDInsight 3.1
- [Mahout](http://hortonworks.com/hadoop/mahout/) est préinstallé sur les clusters Hadoop HDInsight 3.1, afin de pouvoir exécuter des tâches Mahout sans configuration de cluster supplémentaire. Par exemple, vous pouvez vous connecter à distance à un cluster Hadoop avec le protocole RDP (Remote Desktop Protocol) et exécuter la commande Mahout Hello World suivante sans étapes supplémentaires :
+ [Mahout](http://hortonworks.com/hadoop/mahout/) est préinstallé sur les clusters Hadoop HDInsight 3.1, afin de pouvoir exécuter des tâches Mahout sans configuration de cluster supplémentaire. Par exemple, vous pouvez vous connecter à distance à un cluster Hadoop avec le protocole RDP (Remote Desktop Protocol) et exécuter la commande Mahout Hello World suivante sans étape supplémentaire :
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L
 
@@ -1310,7 +1311,7 @@ Pour une explication plus complète de cette procédure, consultez la documentat
 
 ### <a name="hive-queries-can-use-tez-in-hdinsight-31"></a>Les requêtes Hive peuvent utiliser Tez dans HDinsight 3.1
 Hive 0.13 est désormais disponible dans HDInsight 3.1 et capable d’exécuter des requêtes avec Tez. Des gains de performances considérables peuvent ainsi être obtenus.
-Tez n'est pas activé par défaut pour les requêtes Hive. Vous devez choisir de l’utiliser. Vous pouvez activer Tez en exécutant l’extrait de code suivant :
+Tez n’est pas activé par défaut pour les requêtes Hive. Vous devez choisir de l’utiliser. Vous pouvez activer Tez en exécutant l’extrait de code suivant :
 
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: af7d5b03e1490ed8d90021980f14c47281e8a655
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -80,6 +80,7 @@ Non, les machines virtuelles d’un groupe à haute disponibilité doivent utili
 
 Pas actuellement, mais ils le seront à l’avenir.
 
+
 **Est-il possible de créer un disque géré vide ?**
 
 Oui, vous pouvez tout à fait créer un disque vide. Un disque géré peut être créé indépendamment d’une machine virtuelle, c’est-à-dire sans l’attacher à aucune machine virtuelle.
@@ -127,6 +128,10 @@ Non. Cette fonctionnalité n’est pas prise en charge pour l’instant.
 
 **Puis-je modifier la propriété de nom d’ordinateur lors de l’utilisation d’un disque de système d’exploitation spécialisé (pas préparé avec Sysprep ni généralisé) pour configurer une machine virtuelle** Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle hérite de celle de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
 
+**Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques gérés**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks et port 8443
 
 **Pourquoi les clients doivent-ils débloquer le trafic sortant sur le port 8443 pour les machines virtuelles avec Azure Managed Disks ?**
@@ -145,7 +150,7 @@ Il n’y aura aucun impact sur le déploiement.
 
 Le déploiement de l’extension ne réussira pas. L’état de l’extension sera inconnu. 
 
-**Que se passe-t-il si un modèle ARM est utilisé pour approvisionner plusieurs machines virtuelles avec le port 8443 bloqué : une machine virtuelle avec extensions et une deuxième machine virtuelle qui dépend de la première machine virtuelle ?**
+**Que se passe-t-il si un modèle Azure Resource Manager est utilisé pour approvisionner plusieurs machines virtuelles avec le port 8443 bloqué : une machine virtuelle avec extensions et une deuxième qui dépend de la première ?**
 
 Le déploiement de la première machine virtuelle apparaîtra comme un échec, car le déploiement des extensions n’a pas réussi. La deuxième machine virtuelle ne sera pas déployée. 
 

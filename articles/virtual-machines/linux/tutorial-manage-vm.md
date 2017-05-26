@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
 
-Ce didacticiel examine les éléments de la création de machines virtuelles Azure de base, par exemple la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Ce didacticiel couvre également les opérations de gestion de base telles que la gestion de l’état, la suppression et le redimensionnement d’une machine virtuelle.
+Les machines virtuelles fournissent un environnement informatique entièrement configurable et flexible. Ce didacticiel traite d’aspects de base du déploiement de machines virtuelles Azure, tels que la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Vous allez apprendre à effectuer les actions suivantes :
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Créer une machine virtuelle et vous y connecter
+> * Sélectionner et utiliser des images de machine virtuelle
+> * Afficher et utiliser des tailles de machine virtuelle spécifiques
+> * Redimensionner une machine virtuelle
+> * Consulter et comprendre l’état d’une machine virtuelle
+
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *westus*. 
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 Le groupe de ressources est spécifié lors de la création ou de la modification d’une machine virtuelle, qui peut être vue dans ce didacticiel.
@@ -57,7 +64,7 @@ Une fois la machine virtuelle créée, l’interface Azure CLI fournit des infor
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -156,7 +163,7 @@ Le tableau suivant classe les tailles en fonction des cas d’utilisation.
 Pour afficher la liste des tailles de machines virtuelles disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Résultat partiel :
@@ -297,6 +304,17 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris les tâches de création et de gestion de base des machines virtuelles. Passez au didacticiel suivant pour en savoir plus sur les disques de machine virtuelle.  
+Ce didacticiel vous a montré les tâches de base de création et de gestion de machines virtuelles, notamment :
 
-[Créer et gérer des disques de machine virtuelle](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * Créer une machine virtuelle et vous y connecter
+> * Sélectionner et utiliser des images de machine virtuelle
+> * Afficher et utiliser des tailles de machine virtuelle spécifiques
+> * Redimensionner une machine virtuelle
+> * Consulter et comprendre l’état d’une machine virtuelle
+
+Passez au didacticiel suivant pour en savoir plus sur les disques de machine virtuelle.  
+
+> [!div class="nextstepaction"]
+> [Créer et gérer des disques de machine virtuelle](./tutorial-manage-disks.md)
+

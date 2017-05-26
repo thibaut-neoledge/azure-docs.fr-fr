@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/7/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 157f8db0f0f7ac751b03b39e504bf0a5ec25effc
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e308b75581ca5372a4de168895f2eeb140a69a78
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -186,6 +186,6 @@ Lorsque vous avez terminé, vous devez voir la machine virtuelle nouvellement cr
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, voir [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

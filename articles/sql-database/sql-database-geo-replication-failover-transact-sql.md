@@ -15,26 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL
 
-Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec Transact-SQL. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-transact-sql.md).
+Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec Transact-SQL. Pour configurer la géoréplication, voir [Configurer la géoréplication pour Azure SQL Database](sql-database-geo-replication-transact-sql.md).
 
-Pour lancer le basculement, vous avez besoin des éléments suivants :
+Pour lancer le basculement, vous devez disposer de ce qui suit :
 
-* Une connexion qui est DBManager sur le serveur principal, a la propriété db_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
-* SQL Server Management Studio (SSMS)
+* ID de connexion DBManager sur le serveur principal
+* Droits db_ownership sur la base de données locale que vous allez géorépliquer
+* Rôle DBManager sur les serveurs partenaires sur lesquels vous voulez configurer la géoréplication
+* Dernière version de SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Initier un basculement planifié en assurant la promotion d’une base de données secondaire, pour qu’il devienne le nouveau réplica principal
 Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière planifiée, et rétrogradant l’élément primaire existant pour qu’elle devienne secondaire. Cette instruction est exécutée sur la base de données master sur le serveur logique de base de données SQL Azure sur lequel réside la base secondaire géo-répliquée promue. Cette fonctionnalité est conçue pour le basculement planifié, comme pendant les exercices de récupération d’urgence et nécessite que la base de données primaire soit disponible.
@@ -42,7 +44,7 @@ Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base
 La commande exécute le flux de travail suivant :
 
 1. Bascule provisoirement la réplication en mode synchrone, ce qui fait que toutes les transactions en attente doivent être vidées vers le serveur secondaire et toutes les nouvelles transactions bloquées ;
-2. Inverse les rôles des deux bases de données du partenariat géoréplication.  
+2. Inverse les rôles des deux bases de données du partenariat de géoréplication.  
 
 Cette séquence garantit que les deux bases de données sont synchronisées avant le basculement des rôles et que, par conséquent, aucune perte de données ne se produira. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire.  Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
@@ -61,7 +63,7 @@ Utilisez les étapes suivantes pour initier un basculement planifié.
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales
-Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de façon non planifiée, en forçant la rétrogradation de l’élément primaire existant pour qu’elle devienne secondaire dans le cas où la base de données n’est plus disponible. Cette instruction est exécutée sur la base de données master sur le serveur logique de base de données SQL Azure sur lequel réside la base secondaire géo-répliquée promue.
+Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de façon non planifiée, en forçant la rétrogradation de la base de données primaire existante pour qu’elle devienne secondaire dans l’hypothèse où elle cesserait d’être disponible. Cette instruction est exécutée sur la base de données master sur le serveur logique de base de données SQL Azure sur lequel réside la base secondaire géo-répliquée promue.
 
 Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la restauration de la disponibilité de la base de données est essentielle et une perte de données est acceptable. Lorsque le basculement forcé est appelé, la base de données secondaire devient la base de données primaire immédiatement et commence à accepter des transactions d’écriture. Dès que la base de données primaire d’origine est en mesure de se reconnecter à cette base de données primaire, une sauvegarde incrémentielle s’effectue sur la base de données primaire d’origine et l’ancienne base de données primaire est transformée en base de données secondaire de la nouvelle base de données primaire ; par la suite, il s’agit d’un simple réplica de la nouvelle base de données primaire.
 
@@ -79,16 +81,16 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
 > [!NOTE]
-> Si la commande est émise lorsque les bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire deviendra immédiatement la nouvelle base de données secondaire, sans synchronisation des données. Si la base de données primaire valide des transactions lorsque la commande est émise, une perte de données peut se produire.
+> Si la commande est émise lorsque les bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire devient immédiatement la nouvelle base de données secondaire, sans synchronisation des données. Si la base de données primaire valide des transactions lorsque la commande est émise, une perte de données peut se produire.
 > 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
-* Pour en savoir plus sur la reprise après un sinistre à l’aide de la géoréplication active, notamment les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Récupération d’urgence](sql-database-disaster-recovery.md)
-* Consultez le billet de blog publié par Sasha Nosov concernant la géoréplication active : [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-* Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géoréplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géoréplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* Pour plus d’informations sur la géo-réplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-* Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+* Pour en savoir plus sur la récupération après sinistre à l’aide de la géoréplication active, notamment les étapes de pré/post-récupération et l’organisation d’un exercice de récupération d’urgence, voir [Récupération d’urgence](sql-database-disaster-recovery.md).
+* Consultez le billet de blog publié par Sasha Nosov concernant la géoréplication active : [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/).
+* Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géoréplication active, voir [Conception d’applications cloud pour la continuité d’activité à l’aide de la géoréplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+* Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Pour une vue d’ensemble de la continuité des activités, voir [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 

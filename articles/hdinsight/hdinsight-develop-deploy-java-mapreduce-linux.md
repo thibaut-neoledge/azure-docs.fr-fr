@@ -1,6 +1,6 @@
 ---
-title: "Développement de programmes MapReduce en Java pour HDInsight basé sur Linux | Microsoft Docs"
-description: "Découvrez comment développer des programmes MapReduce en Java et les déployer dans HDInsight basé sur Linux."
+title: "Créer une application MapReduce Java pour Hadoop - Azure HDInsight | Documents Microsoft"
+description: "Découvrez comment développer des programmes MapReduce Java et les déployer vers Hadoop sur HDInsight."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a8623991dda4192d700d35ef3970d416e315c5c6
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: ce5661febe502e9da9682166af1b601b1fc0b965
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>Développer des programmes MapReduce en Java pour Hadoop dans HDInsight Linux
+# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Développer des programmes MapReduce Java pour Hadoop sur HDInsight
 
-Apprenez à utiliser Apache Maven pour créer une application Java MapReduce, la déployer vers un cluster Hadoop Linux dans HDInsight, puis l’exécuter.
+Découvrez comment utiliser Apache Maven pour créer une application MapReduce basée sur Java, puis l’exécuter avec Hadoop sur Azure HDInsight.
 
 ## <a name="prerequisites"></a>Configuration requise
 
@@ -36,13 +37,8 @@ Apprenez à utiliser Apache Maven pour créer une application Java MapReduce, la
 
 * [Apache Maven](http://maven.apache.org/)
 
-* **Un abonnement Azure**
+## <a name="configure-development-environment"></a>Configurer l’environnement de développement
 
-* **Interface de ligne de commande Azure**
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
-## <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
 * `JAVA_HOME` : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
@@ -61,17 +57,17 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 2. Utilisez la commande `mvn`, installée avec Maven, pour générer la structure du projet.
 
-   ```
+   ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Cette commande permet de créer un répertoire avec le nom spécifié par le paramètre **artifactID** (**wordcountjava** dans cet exemple.) Le répertoire contient les éléments suivants :
+    Cette commande crée un répertoire du nom spécifié par le paramètre `artifactID` (**wordcountjava** dans cet exemple). Le répertoire contient les éléments suivants :
 
    * `pom.xml` - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) qui contient les informations et la configuration utilisées pour générer le projet.
 
    * `src` : le répertoire qui contient l’application.
 
-3. Supprimez le fichier `src/test/java/org/apache/hadoop/examples/apptest.java`, car il n’est pas utilisé dans cet exemple.
+3. Supprimez le fichier `src/test/java/org/apache/hadoop/examples/apptest.java`. Il n’est pas utilisé dans cet exemple.
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
@@ -81,19 +77,19 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
    ```
@@ -101,6 +97,9 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
     Cela définit les bibliothèques nécessaires (figurant dans &lt;artifactId\>) avec une version spécifique (figurant dans &lt;version\>). Au moment de la compilation, ces dépendances sont téléchargées à partir du référentiel Maven par défaut. Vous pouvez utiliser la [recherche du référentiel Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) pour en afficher davantage.
    
     `<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l'application, car elles sont fournies par le cluster HDInsight au moment de l'exécution.
+
+    > [!IMPORTANT]
+    > La version utilisée doit correspondre à la version de Hadoop présente sur votre cluster. Pour plus d’informations sur les versions, voir [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 
 2. Ajoutez le code suivant au fichier `pom.xml`. Ce texte doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
@@ -129,9 +128,10 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
             <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             </configuration>
         </plugin>
         </plugins>
@@ -255,11 +255,7 @@ Utilisez la commande suivante pour télécharger le fichier jar dans le nœud pr
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-Avec cette commande, les fichiers du système local sont copiés dans le nœud principal.
-
-> [!NOTE]
-> Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
-
+Avec cette commande, les fichiers du système local sont copiés dans le nœud principal. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="run"></a>Exécution de la tâche MapReduce
 
@@ -271,7 +267,7 @@ Avec cette commande, les fichiers du système local sont copiés dans le nœud p
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    Cette commande démarre l’application WordCount MapReduce. Le fichier d’entrée est **/example/data/gutenberg/davinci.txt**, et celui de sortie est stocké dans **/example/data/wordcountout**. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
+    Cette commande démarre l’application WordCount MapReduce. Le fichier d’entrée est `/example/data/gutenberg/davinci.txt`, et le répertoire de sortie est `/example/data/wordcountout`. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
 
 3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats générés :
    

@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 05/14/2017
 ms.author: srinia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: b84185d0f224352e7cf5449068bee359914bd4ed
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 907e15da90bcd82358a462f7d8a7d2ba4a34f371
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -88,7 +87,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 Utilisez la cmdlet [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) pour définir le paramètre _-StorageMB_. Indiquez la limite de stockage en Mo (p. ex. 2097152 définit la limite de stockage sur 2 To). Consultez la section [Limites relatives aux eDTU et au stockage](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) pour connaître les valeurs acceptées.
 
 > [!IMPORTANT]
-> Le stockage de données max. par défaut par pool pour les pools Premium avec 1 500 eDTU ou plus est de 750 Go. Pour obtenir la _taille de stockage de données max. par pool_ la plus élevée, la limite de stockage doit être définie explicitement. Les pools Premium avec plus de 750 Go de stockage sont actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Europe de l’Ouest, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Canada Centre et Canada Est.
+> Le stockage de données max. par défaut par pool pour les pools Premium avec 1 500 eDTU ou plus est de 750 Go. Pour obtenir la _taille de stockage de données max. par pool_ la plus élevée, la limite de stockage doit être définie explicitement. Les pools Premium avec plus de 750 To de stockage sont actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Canada Centre et Canada Est.
 
 ```PowerShell
 Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c34af1d0c1df88d13ba82fdef7ca9b33a2e55784
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: ce043e53d64a79c0ba37b500f8af9231e5372044
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -39,10 +39,10 @@ Dans un environnement de base de données partitionnée, il existe un seul clien
 Le GSM et le LSM peuvent devenir désynchronisés pour les raisons suivantes :
 
 1. La suppression d'un partitionnement dont on pense que la plage n'est plus utilisée ou l'attribution d'un nouveau nom au partitionnement. La suppression d’une partition  se traduit par un **mappage de partition orphelin**. De même, une base de données renommée peut causer un mappage de partition orphelin. En fonction de l'objectif de la modification, il peut être nécessaire de supprimer la partition ou de mettre à jour l'emplacement de partition. Pour récupérer une base de données supprimée, consultez [Restauration d’une base de données supprimée](sql-database-recovery-using-backups.md).
-2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur et le nom de la base de données du gestionnaire de partitions dans l'application, puis mettre à jour les détails de mappage de partition pour toutes les partitions d'un mappage de partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Pour en savoir plus sur les options de récupération d’une base de données en cas de panne du centre de données, consultez les rubriques sur la [continuité des activités](sql-database-business-continuity.md) et la [récupération d’urgence](sql-database-disaster-recovery.md).
+2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur et le nom de la base de données du gestionnaire de partitions dans l'application, puis mettre à jour les détails de mappage de partition pour toutes les partitions d'un mappage de partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Pour en savoir plus sur les options de récupération d’une base de données en cas de panne du centre de données, voir les rubriques sur la [continuité des activités](sql-database-business-continuity.md) et la [récupération d’urgence](sql-database-disaster-recovery.md).
 3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure. Pour en savoir plus sur la récupération jusqu`à une date et heure avec les sauvegardes, consultez [Récupération avec des sauvegardes](sql-database-recovery-using-backups.md).
 
-Pour plus d’informations sur les outils de base de données élastique de base de données SQL Azure, la géo-réplication et la restauration, veuillez voir ce qui suit : 
+Pour plus d’informations sur les outils de base de données élastique, la géoréplication et la restauration d’Azure SQL Database, voir les rubriques suivantes : 
 
 * [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](sql-database-business-continuity.md) 
 * [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)  
@@ -101,7 +101,7 @@ La [méthode ResolveMappingDifferences](https://msdn.microsoft.com/library/azure
 
 * Le paramètre *RecoveryToken* énumère les différences de mappage entre le GSM et le LSM pour la partition spécifique. 
 * L’ [énumération MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) est utilisée pour indiquer la méthode de résolution de la différence entre les mappages de partition. 
-* **MappingDifferenceResolution.KeepShardMapping** est recommandé si LSM contient les correspondances exactes et que le mappage de la partition doit donc être utilisé. C’est généralement le cas lors d’un basculement : la partition se trouve maintenant sur un nouveau serveur. Comme la partition doit d’abord être supprimée du GSM (à l’aide de la méthode RecoveryManager.DetachShard), il n’existe plus de mappage sur le GSM. Par conséquent, le LSM doit être utilisé pour rétablir le mappage de partition.
+* **MappingDifferenceResolution.KeepShardMapping** est recommandé si LSM contient les correspondances exactes et que le mappage de la partition doit donc être utilisé. C’est généralement le cas lors d’un basculement : la partition se trouve désormais sur un nouveau serveur. Comme la partition doit d’abord être supprimée du GSM (à l’aide de la méthode RecoveryManager.DetachShard), il n’existe plus de mappage sur le GSM. Par conséquent, le LSM doit être utilisé pour rétablir le mappage de partition.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Attachez une partition au ShardMap une fois la partition restaurée
 La [méthode AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attache la partition donnée à la table de partition. Il détecte des incohérences de mappage de partition et met à jour les mappages pour qu’ils correspondent à la partition au moment de la restauration de la partition. On suppose que la base de données est également renommée pour reprendre le nom de la base de données d’origine (avant la restauration de la partition), car la restauration à un point donné revient par défaut à une nouvelle base de données ajoutée avec un horodatage. 

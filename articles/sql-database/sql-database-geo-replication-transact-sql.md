@@ -1,6 +1,6 @@
 ---
-title: "Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL | Documents Microsoft"
-description: "Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL"
+title: "Configurer la géoréplication pour Azure SQL Database avec Transact-SQL | Documents Microsoft"
+description: "Configurer la géoréplication pour Azure SQL Database à l’aide de Transact-SQL"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,17 +30,19 @@ Cet article vous montre comment configurer la géoréplication active pour une b
 Pour lancer un basculement avec Transact-SQL, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> Lorsque vous utilisez la géoréplication active (copies secondaires lisibles) pour la récupération d’urgence, vous devez configurer un groupe de basculement pour toutes les bases de données dans une application pour permettre un basculement automatique et transparent. Cette fonctionnalité est en préversion. Pour plus d’informations, consultez [Auto-failover groups and Geo-Replication](sql-database-geo-replication-overview.md) (Groupes de basculement automatique et géoréplication).
+> Lorsque vous utilisez la géoréplication active (bases de données secondaires lisibles) pour la récupération d’urgence, vous devez configurer un groupe de basculement pour toutes les bases de données au sein d’une application afin de permettre un basculement automatique et transparent. Cette fonctionnalité est en préversion. Pour plus d’informations, voir [Groupes de basculement automatique et géoréplication](sql-database-geo-replication-overview.md).
 > 
 > 
 
-Pour configurer la géoréplication active à l’aide de Transact-SQL, vous devez disposer des éléments suivants :
+Pour configurer la géoréplication active à l’aide de Transact-SQL, vous devez disposer des éléments suivants :
 
-* Un abonnement Azure.
-* Un serveur de base de données SQL Azure <MyLocalServer> et une base de données SQL <MyDB> : la base de données primaire que vous souhaitez répliquer.
-* Un ou plusieurs serveurs logiques de bases de données SQL Azure <MySecondaryServer(n)> - Les serveurs logiques qui seront serveurs partenaires dans lequel vous créerez des bases de données secondaires.
-* Une connexion qui est DBManager sur le serveur principal, a la propriété db_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
-* SQL Server Management Studio (SSMS)
+* Abonnement Azure
+* Serveur logique Azure SQL Database <MyLocalServer> et base de données SQL <MyDB> (base de données primaire à répliquer)
+* Un ou plusieurs serveurs logiques Azure SQL Database <MySecondaryServer(n)> (les serveurs logiques qui seront les serveurs partenaires dans lesquels créer des bases de données secondaires)
+* ID de connexion DBManager sur le serveur principal
+* Droits db_ownership sur la base de données locale que vous allez géorépliquer
+* Rôle DBManager sur les serveurs partenaires sur lesquels vous voulez configurer la géoréplication
+* Dernière version de SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -60,7 +62,7 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
 
 1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour fabriquer une base de données locale dans une géoréplication primaire avec une base de données secondaire accessible en lecture sur un serveur secondaire.
+3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire accessible en lecture sur un serveur secondaire.
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
@@ -81,7 +83,7 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
 ## <a name="remove-secondary-database"></a>Supprimer une base de données secondaire
 Vous pouvez utiliser l’instruction **ALTER DATABASE** pour arrêter définitivement le partenariat de réplication entre une base de données secondaire et sa base de données primaire. Cette instruction est exécutée sur la base de données master sur lequel réside la base de données primaire. Après la fin de la relation, la base de données secondaire devient une base de données accessible en lecture-écriture. Si la connectivité à la base de données secondaire est interrompue, cette commande réussit mais la base de données secondaire devient accessible en lecture-écriture une fois la connectivité rétablie. Pour plus d’informations, consultez [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
-Utilisez les étapes suivantes pour supprimer la base de données secondaire répliquée d’un partenariat de géoréplication.
+Suivez les étapes suivantes pour supprimer la base de données secondaire géorépliquée d’un partenariat de géoréplication.
 
 1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
@@ -93,7 +95,7 @@ Utilisez les étapes suivantes pour supprimer la base de données secondaire ré
 
 ## <a name="monitor-active-geo-replication-configuration-and-health"></a>Surveillance de la configuration et de l’état de la géoréplication active
 
-Les tâches de surveillance incluent la surveillance de la configuration de géoréplication et la surveillance de l’état de réplication de données.  Vous pouvez utiliser la vue de gestion dynamique **sys.dm_geo_replication_links** dans la base de données Master pour renvoyer des informations sur tous les liens de réplication de chaque base de données sur le serveur logique de base de données SQL Azure. Cette vue contient une ligne pour chacun des liens de réplication entre les bases de données primaires et secondaires. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_replication_link_status** pour renvoyer une ligne pour chaque base de données SQL Azure actuellement engagée dans un lien de réplication. Cela inclut les bases de données primaires et secondaires. S’il existe plusieurs liens de réplication continus pour une base de données primaire donnée, cette table contient une ligne pour chacune des relations. La vue est créée dans toutes les bases de données, y compris la logique principale. Toutefois, l’interrogation de cette vue dans la logique principale renvoie un jeu vide. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_operation_status** pour afficher l’état de toutes les opérations de base de données, et notamment l’état des liens de réplication. Pour plus d’informations, consultez [sys.geo_replication_links (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575504.aspx) et [sys.dm_operation_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
+Les tâches de surveillance incluent la surveillance de la configuration de géo-réplication et la surveillance de l’état de réplication de données.  Vous pouvez utiliser la vue de gestion dynamique **sys.dm_geo_replication_links** dans la base de données Master pour renvoyer des informations sur tous les liens de réplication de chaque base de données sur le serveur logique de base de données SQL Azure. Cette vue contient une ligne pour chacun des liens de réplication entre les bases de données primaires et secondaires. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_replication_link_status** pour renvoyer une ligne pour chaque base de données SQL Azure actuellement engagée dans un lien de réplication. Cela inclut les bases de données primaires et secondaires. S’il existe plusieurs liens de réplication continus pour une base de données primaire donnée, cette table contient une ligne pour chacune des relations. La vue est créée dans toutes les bases de données, y compris la logique principale. Toutefois, l’interrogation de cette vue dans la logique principale renvoie un jeu vide. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_operation_status** pour afficher l’état de toutes les opérations de base de données, et notamment l’état des liens de réplication. Pour plus d’informations, consultez [sys.geo_replication_links (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575504.aspx) et [sys.dm_operation_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
 Utilisez les étapes suivantes pour surveiller un partenariat de géoréplication active.
 
@@ -115,7 +117,7 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
 9. Cliquez sur **Exécuter** pour exécuter la requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la géoréplication active, consultez [Géoréplication active](sql-database-geo-replication-overview.md)
+* Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
 

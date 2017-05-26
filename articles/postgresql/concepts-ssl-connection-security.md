@@ -12,12 +12,12 @@ ms.custom: connection security
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 079e4234c7969b267e7e3a3a518cae570da77dfe
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: dd8b3d5b26f4a903f403e5c7e9dba645a14b3231
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
@@ -33,14 +33,14 @@ De même, les chaînes de connexion prédéfinies dans les paramètres « Chaî
 ## <a name="configure-enforcement-of-ssl"></a>Configurer l’application du protocole SSL
 Si vous le souhaitez, vous pouvez désactiver l’application de la connectivité SSL. Microsoft Azure recommande de toujours activer le paramètre **Appliquer une connexion SSL** pour renforcer la sécurité.
 
-#### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 Accédez à votre serveur de base de données Azure pour PostgreSQL et cliquez sur **Sécurité de la connexion**. Utilisez le bouton bascule pour activer ou désactiver le paramètre **Appliquer une connexion SSL**. Cliquez ensuite sur **Enregistrer**. 
 
 ![Sécurité de connexion - Désactiver l’application de la connexion SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
 Vous pouvez vérifier le paramètre en consultant la page **Vue d’ensemble** pour voir si l’indicateur **d’état de d’application SSL** est affiché.
 
-#### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
+### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 Vous pouvez activer ou désactiver le paramètre **ssl-mise en œuvre** en utilisant respectivement les valeurs `Enabled` ou `Disabled` dans Azure CLI.
 
 ```azurecli
@@ -115,8 +115,12 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Se connecter à la base de données Azure pour PostgreSQL avec authentification par certificat SSL
 Maintenant que vous avez correctement décodé votre certificat, vous pouvez vous connecter à votre serveur de base de données en toute sécurité via SSL. Pour qu’il puisse être vérifié, le certificat de serveur doit être placé dans le fichier ~/.postgresql/root.crt qui se trouve dans le répertoire de base de l’utilisateur. (Sous Microsoft Windows, le fichier se nomme %APPDATA%\postgresql\root.crt.). Vous trouverez ci-dessous les instructions pour se connecter à la base de données Azure pour PostgreSQL.
 
+> [!NOTE]
+> Il existe actuellement un problème connu. Si vous utilisez « sslmode=verify-full » dans votre connexion au service, la connexion échoue avec l’erreur suivante : _certificat de serveur pour "&lt;région&gt;. control.database.windows.net" (et 7 autres noms) ne correspond pas au nom de l’hôte "&lt;nom_serveur&gt;.postgres.database.azure.com"._
+> Si « sslmode=verify-full » est requis, utilisez la convention de nom de serveur  **&lt;nom_serveur&gt;.database.windows.net** en tant que nom hôte de votre chaîne de connexion. Nous prévoyons de supprimer cette limitation dans le futur. Les connexions utilisant d’autres [modes SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) doivent continuer à utiliser la convention de nom d’hôte par défaut  **&lt;nom_serveur&gt;. postgres.database.azure.com**.
+
 #### <a name="using-psql-command-line-utility"></a>Avec l’utilitaire de ligne de commande psql
-Les exemples suivants montrent comment se connecter au serveur PostgreSQL avec à la fois l’interface de ligne de commande pgsql et l’utilitaire en ligne de commande psql, à l’aide du fichier `root.crt` créé et de l’option `sslmode=verify-ca`.
+L’exemple suivant montre comment se connecter à votre serveur PostgreSQL à l’aide de l’utilitaire de ligne de commande psql. Utilisez le fichier créé `root.crt` et l’option `sslmode=verify-ca` ou `sslmode=verify-full`.
 
 À l’aide de l’interface de ligne de commande PostgreSQL, exécutez la commande suivante :
 ```bash
@@ -136,9 +140,10 @@ postgres=>
 ```
 
 #### <a name="using-pgadmin-gui-tool"></a>Avec l’outil d’interface graphique utilisateur pgAdmin
-Pour configurer pgAdmin 4 de façon à établir une connexion sécurisée via SSL, il vous faut définir le `SSL mode = Verify-CA` ainsi :
+Pour configurer pgAdmin 4 de façon à établir une connexion sécurisée via SSL, vous devez définir `SSL mode = Verify-CA` ou `SSL mode = Verify-Full` comme suit :
 
 ![Capture d’écran de pgAdmin - connexion - conditions du mode SSL](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Passez en revue les différentes options de connectivité d’application de la page [Bibliothèques de connexions de la base de données Azure pour PostgreSQL](concepts-connection-libraries.md).
+

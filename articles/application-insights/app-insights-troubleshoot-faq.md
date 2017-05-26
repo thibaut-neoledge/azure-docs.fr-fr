@@ -3,7 +3,7 @@ title: Forum aux questions sur Azure Application Insights | Microsoft Docs
 description: "Questions fréquentes sur Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -172,6 +172,8 @@ Vous pouvez :
 Les données POST ne sont pas automatiquement consignées, mais vous pouvez utiliser un appel TrackTrace ; placez les données dans le paramètre message. Ce dernier présente une limite de taille plus longue que les limites relatives aux propriétés de type chaîne, bien que vous ne puissiez pas lui appliquer de filtres.
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Dois-je utiliser une ou plusieurs ressources Application Insights ?
+
+Utilisez une ressource unique pour tous les composants ou rôles dans un système métier unique. Utilisez des ressources distinctes pour les versions de développement, de test et de publication, et pour les applications indépendantes.
 
 * [Suivez la discussion ici](app-insights-separate-resources.md)
 * [Exemple : service cloud avec des rôles web et worker](app-insights-cloudservices.md)
