@@ -32,6 +32,7 @@ Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles 
 > * Restaurer un fichier à partir d’une sauvegarde
 
 
+
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
 
 Lorsque le service Azure Backup lance une sauvegarde, il déclenche l’extension de sauvegarde pour prendre un instantané à un moment donné. Le service Azure Backup utilise l’extension _VMSnapshotLinux_ dans Linux. L’extension est installée lors de la première sauvegarde de machine virtuelle si cette machine virtuelle est exécutée. Si la machine virtuelle n’est pas en cours d’exécution, le service Sauvegarde prend un instantané du stockage sous-jacent (car aucune écriture de l’application n’a lieu pendant l’arrêt de la machine virtuelle).
