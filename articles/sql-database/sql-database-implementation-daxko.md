@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
-ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -67,8 +68,8 @@ Plusieurs fonctionnalités d’Azure ont aidé CSI Software à se concentrer sur
 
 CSI Software fournit actuellement environ 550 bases de données aux clients. Avant les pools élastiques, il était difficile de gérer autant de bases de données dans une structure hiérarchisée. Les responsables des opérations devaient attribuer différents niveaux de performances selon les besoins de croissance des clients, ce qui nécessitait la mobilisation de nombreuses ressources informatiques. Avec les pools élastiques, ils peuvent affecter aux locataires un pool Standard ou Premium selon les cas, puis déplacer les clients en fonction de la taille et du besoin. Les clients ont presque immédiatement ressenti les effets des pools élastiques ; avant, ils subissaient des délais d’attente et d’autres problèmes pendant les périodes de pic d’utilisation mais, avec les pools élastiques, ils peuvent au besoin manifester des pics d’activité et continuer à utiliser SpectrumNG sans problème.
 
-## <a name="azure-active-geo-replication-accelerates-reporting"></a>La géo-réplication active Azure accélère la création de rapports
-Plusieurs clients CSI Software tirent également parti de la géo-réplication active Azure. Avec la géo-réplication active, jusqu’à quatre bases de données secondaires accessibles en lecture peuvent être configurées dans des régions de centres de données identiques ou différentes. CSI Software utilise la géo-réplication active de deux manières : tout d’abord, les bases de données secondaires sont disponibles en cas de panne du centre de données ou d’incapacité à se connecter à la base de données primaire ; ensuite, elles sont accessibles en lecture et peuvent être utilisées pour décharger les charges de travail en lecture seule, comme les travaux de création de rapports. Certains clients de CSI Software utilisent cet avantage pour accélérer les flux de travail de création de rapports.
+## <a name="azure-active-geo-replication-accelerates-reporting"></a>La géoréplication active Azure accélère la création de rapports
+Plusieurs clients CSI Software tirent également parti de la géoréplication active Azure. Avec la géoréplication active, jusqu’à quatre bases de données secondaires accessibles en lecture peuvent être configurées dans des régions de centres de données identiques ou différentes. CSI Software utilise la géoréplication active de deux manières : tout d’abord, les bases de données secondaires sont disponibles en cas de panne du centre de données ou d’incapacité à se connecter à la base de données primaire ; ensuite, elles sont accessibles en lecture et peuvent être utilisées pour décharger les charges de travail en lecture seule, comme les travaux de création de rapports. Certains clients de CSI Software utilisent cet avantage pour accélérer les flux de travail de création de rapports.
 
 ## <a name="csi-software-application-logic-and-architecture"></a>Architecture et logique des applications de CSI Software
 SpectrumNG utilise des rôles Web. L’application étant multilocataire, un service WCF est utilisé pour gérer la demande de connexion initiale des clients. Comme Molina l’indique, « La requête identifie chaque client, ce qui nous permet ensuite de créer une chaîne de connexion à leur base de données afin qu’ils puissent mener à bien leurs travaux. »
@@ -91,7 +92,7 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 * Pour plus d’informations sur les pools élastiques Azure, consultez [Pools élastiques](sql-database-elastic-pool.md).
 * Pour plus d’informations sur les outils de bases de données et la mise à l’échelle élastique, consultez [Outils de bases de données élastique et mise à l’échelle élastique](sql-database-elastic-scale-get-started.md).
 * Pour en savoir plus sur la migration d’une base de données SQL Server, consultez [Migrer une base de données SQL Server vers Azure](sql-database-cloud-migrate.md).
-* Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
+* Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l’échelle des services cloud](../cloud-services/cloud-services-how-to-scale.md).

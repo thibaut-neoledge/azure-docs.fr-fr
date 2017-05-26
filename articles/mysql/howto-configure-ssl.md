@@ -11,12 +11,12 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/18/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 96856fe2a9ce869eb63b7c857de614202ae43064
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 801806056b745be5663c0a10241795947d1dd036
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -28,7 +28,7 @@ Par défaut, le service de base de données doit être configuré pour exiger de
 ## <a name="enforcing-ssl-connections"></a>Application de connexions SSL
 Lorsque vous configurez un nouveau serveur Azure Database pour MySQL via le portail Azure ou l’interface CLI, l’application de connexions SSL est activée par défaut. 
 
-De même, les chaînes de connexion prédéfinies dans les paramètres « Chaînes de connexion » de votre serveur dans le portail Azure incluent les paramètres requis pour les langages courants pour vous connecter à votre serveur de base de données à l’aide du protocole SSL. Le paramètre SSL varie en fonction du connecteur, par exemple « ssl=true » ou « sslmode=require » ou « sslmode=require » et d’autres variations.
+De même, les chaînes de connexion prédéfinies dans les paramètres « Chaînes de connexion » de votre serveur dans le portail Azure incluent les paramètres requis pour les langages courants pour vous connecter à votre serveur de base de données à l’aide du protocole SSL. Le paramètre SSL varie en fonction du connecteur, par exemple « ssl=true », « sslmode=require » ou « sslmode=require » et d’autres variations.
 
 ## <a name="configure-enforcement-of-ssl"></a>Configuration de l’application du protocole SSL
 Vous pouvez activer ou désactiver l’application du protocole SSL. Microsoft Azure recommande de toujours activer le paramètre Appliquer une connexion SSL pour renforcer la sécurité.
@@ -65,7 +65,7 @@ Ouverture d’une session terminal et installation d’OpenSSL
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ```  
-Extraction des fichiers du package téléchargé
+Extrayez les fichiers du package téléchargé.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
@@ -105,7 +105,7 @@ Les bibliothèques OpenSSL sont fournies dans le code source directement à part
 
 L’installation d’OpenSSL sur un PC Windows peut être effectuée comme suit :
 
-1. **(Recommandé)**  : en utilisant la fonctionnalité Bash pour Windows intégrée à Windows 10 et versions ultérieures, OpenSSL est installé par défaut.  Vous trouverez [ici](https://msdn.microsoft.com/commandline/wsl/install_guide) des instructions sur l’activation de la fonctionnalité Bash pour Windows dans Windows 10.
+1. **(Recommandé)** : en utilisant la fonctionnalité Bash pour Windows intégrée à Windows 10 et versions ultérieures ; OpenSSL est installé par défaut.  Vous trouverez [ici](https://msdn.microsoft.com/commandline/wsl/install_guide) des instructions sur l’activation de la fonctionnalité Bash pour Windows dans Windows 10.
 
 2. En téléchargeant une application Win32/64 fournie par la communauté. Même si OpenSSL Software Foundation ne fournit ni n’approuve aucun programme d’installation Windows spécifique, cet organisme propose une liste des programmes d’installation disponibles [ici](https://wiki.openssl.org/index.php/Binaries)
 
@@ -123,7 +123,7 @@ Les exemples suivants montrent comment se connecter à votre serveur MySQL via l
 À l’aide de l’interface de ligne de commande MySQL, exécutez la commande suivante :
 
 ```dos
-mysql.exe -h yourserver. -uUsername@Servername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -uUsername@mysqlserver4demo -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 Exécuter la commande mysql **status** pour vérifier que vous êtes connecté à votre serveur MySQL à l’aide de SSL :
 
@@ -151,9 +151,13 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 --------------
 ```
 
+> [!NOTE]
+> Il existe actuellement un problème connu lié à l’utilisation de l’option « --ssl-mode=VERIFY_IDENTITY » dans votre connexion mysql.exe au service. La connexion échoue avec l’erreur suivante : _ERREUR 2026 (HY000) : erreur de connexion SSL : échec de validation du certificat SSL_ Veuillez revenir aux [modes SSL](https://dev.mysql.com/doc/refman/5.7/en/secure-connection-options.html#option_general_ssl-mode) « --ssl-mode=VERIFY_CA » ou antérieurs. Si vous avez besoin d’utiliser « --ssl-mode=VERIFY_IDENTITY », vous pouvez effectuer un test ping sur le nom de votre serveur pour résoudre le nom de serveur régional, par exemple, westeurope1-a.control.database.windows.net, puis utiliser le nom de ce serveur régional dans la connexion jusqu’à ce que ce le problème soit résolu. Nous prévoyons de supprimer cette limitation dans le futur. 
+
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Connexion au serveur à l’aide de MySQL Workbench via le protocole SSL
 Pour configurer MySQL Workbench afin d’établir une connexion sécurisée via SSL, vous devez accéder à l’onglet **SSL** de la boîte de dialogue de configuration d’une nouvelle connexion MySQL Workbench le, puis entrer l’emplacement du fichier **MyServerCACert.pem** dans le champ du **fichier d’autorité de certification SSL :**.
 ![Enregistrement d’une mosaïque personnalisée](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Passez en revue les différentes options de connectivité d’application de la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)
+

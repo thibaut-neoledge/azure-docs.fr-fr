@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 47627bc6df93db1d92aa29350fe6e48039dc6f1b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Vue d’ensemble d’Azure Cloud Shell (version préliminaire)
@@ -39,19 +39,22 @@ Cloud Shell est préinstallé avec des outils de ligne de commande et la prise e
 Cloud Shell s’authentifie automatiquement de façon sécurisée sur chaque session pour accéder immédiatement à vos ressources via Azure CLI 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Connexion à votre stockage de fichiers Azure
-Les machines Cloud Shell sont temporaires et nécessitent ainsi qu’un partage de fichiers Azure soit monté pour conserver votre répertoire $Home.
+Les machines Cloud Shell sont temporaires et nécessitent ainsi qu’un partage de fichiers Azure soit monté en tant que `clouddrive` pour conserver votre répertoire $Home.
 Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage de fichiers en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. 
 
 ![](media/storage-prompt.png)
 
-Un compte de stockage LRS est créé en votre nom avec un partage de fichiers Azure contenant une image de disque de 5 Go par défaut.
-Cette image disque est utilisée pour la synchronisation et la conservation de votre répertoire $Home. Les coûts de stockage standard s’appliquent.
+Un compte de stockage LRS est créé en votre nom avec un partage de fichiers Azure contenant une image de disque de 5 Go par défaut. Le partage de fichiers se monte en tant que `clouddrive` pour l’interaction du partage de fichiers avec l’image de disque utilisée pour synchroniser et conserver votre répertoire $Home. Les coûts de stockage standard s’appliquent.
+
 Trois ressources sont créées en votre nom :
 1. Groupe de ressources nommé : `cloud-shell-storage-<region>`
 2. Compte de stockage nommé : `cs-uniqueGuid`
 3. Partage de fichiers nommé : `cs-<user>-<domain>-com-uniqueGuid`
 
-[Découvrez comment Cloud Shell conserve les fichiers] (persistance-shell-storage.md).
+> [!Note]
+> Tous les fichiers figurant dans votre répertoire $Home, tels que les clés SSH, sont conservés dans l’image de disque utilisateur stockée dans votre partage de fichiers monté. Appliquez les meilleures pratiques lors de l’enregistrement des fichiers dans votre répertoire $Home et le partage de fichiers monté.
+
+[Découvrez le stockage Cloud Shell, la mise à jour des partages de fichiers et le chargement/téléchargement de fichiers.] (persistance-shell-storage.md).
 
 ## <a name="concepts"></a>Concepts
 * Cloud Shell s’exécute sur une machine temporaire fournie par session et par utilisateur

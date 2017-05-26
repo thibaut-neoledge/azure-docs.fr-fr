@@ -1,6 +1,6 @@
 ---
-title: "Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ | Microsoft Docs"
-description: "Découvrez comment vous connecter à Microsoft Azure à l’aide du kit de ressources Azure pour IntelliJ."
+title: Instructions de connexion pour le Kit de ressources Azure pour IntelliJ | Documents Microsoft
+description: "Découvrez comment vous connecter à Microsoft Azure à l’aide du Kit de ressources Azure pour IntelliJ."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -15,144 +15,144 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d1be0432a54ed300bc135345b660b90f3efb3b39
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
-# <a name="azure-sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ
+# <a name="sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Instructions de connexion pour le Kit de ressources Azure pour IntelliJ
 
-Le kit de ressources Azure pour IntelliJ propose deux méthodes pour vous connecter à votre compte Azure :
+Le Kit de ressources Azure pour IntelliJ vous permet de vous connecter à votre compte Azure à l’aide de deux méthodes :
 
-  * **Interactive** : si vous utilisez cette méthode, vous devez entrer vos informations d’identification Azure à chaque fois que vous vous connectez à votre compte Azure.
-  * **Automatisée** : si vous utilisez cette méthode, vous devez créer un fichier d’informations d’identification qui contiendra vos données de principal de service, après quoi vous pourrez utiliser le fichier d’informations d’identification pour vous connecter automatiquement à votre compte Azure.
+  * **Interactive**: vous entrez vos informations d’identification Azure chaque fois que vous vous connectez à votre compte Azure.
+  * **Automatisée** : vous créez un fichier d’informations d’identification que vous pouvez utiliser pour vous connecter automatiquement à votre compte Azure.
 
-Les étapes décrites dans les sections suivantes décrivent l’utilisation de chaque méthode.
+Les sections suivantes décrivent comment utiliser chaque méthode.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="signing-into-your-azure-account-interactively"></a>Connexion interactive à votre compte Azure
+## <a name="sign-in-to-your-azure-account-interactively"></a>Connexion à votre compte Azure de façon interactive
 
-La procédure suivante indique comment vous connecter à Azure en entrant manuellement vos informations d’identification Azure.
+Pour vous connecter à Azure en entrant manuellement vos informations d’identification, procédez comme suit :
 
 1. Ouvrez votre projet avec IntelliJ IDEA.
 
-1. Cliquez successivement sur **Outils**, **Azure** et **Connexion à Azure**.
+2. Cliquez sur **Outils**, pointez sur **Azure**, puis cliquez sur **Connexion à Microsoft Azure**.
 
-   ![Menu d’IntelliJ pour la connexion à Azure][I01]
+   ![Commande IntelliJ de connexion à Azure][I01]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, sélectionnez **Interactive**, puis cliquez sur **Se connecter**.
+3. Dans la fenêtre **Connexion à Azure** qui s’affiche, sélectionnez **Interactive**, puis cliquez sur **Se connecter**.
 
-   ![Boîte de dialogue Se connecter][I02]
+   ![Fenêtre Connexion à Azure avec l’option Interactive activée][I02]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, entrez vos informations d’identification Azure, puis cliquez sur **Se connecter**.
+4. Dans la boîte de dialogue **Connexion à Azure** qui s’affiche, entrez vos informations d’identification Azure, puis cliquez sur **Se connecter**.
 
    ![Boîte de dialogue Connexion à Azure][I03]
 
-1. Lorsque la boîte de dialogue **Sélectionner des abonnements** s’affiche, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
+5. Lorsque la boîte de dialogue **Sélectionner des abonnements**, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
 
    ![Boîte de dialogue Sélectionner des abonnements][I04]
 
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-interactively"></a>Déconnexion de votre compte Azure lorsque vous vous êtes connecté de manière interactive
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Déconnexion de votre compte Azure après vous être connecté de manière interactive
 
-Après avoir configuré les étapes indiquées dans la section précédente, vous êtes déconnecté automatiquement de votre compte Azure à chaque redémarrage d’IntelliJ IDEA. Toutefois, si vous souhaitez vous déconnecter de votre compte Azure sans redémarrer IntelliJ IDEA, procédez comme suit.
+Après que vous avez configuré votre compte en procédant de la manière décrite les étapes précédentes, vous êtes automatiquement déconnecté de votre compte Azure à chaque redémarrage d’IntelliJ IDEA. En revanche, si vous souhaitez vous déconnecter de votre compte Azure *sans* redémarrer IntelliJ IDEA, procédez comme suit.
 
-1. Dans IntelliJ IDEA, cliquez successivement sur **Outils**, **Azure** et **Déconnexion d’Azure**.
+1. Dans IntelliJ IDEA, dans le menu **Outils**, pointez sur **Azure**, puis cliquez sur **Déconnexion de Microsoft Azure**.
 
-   ![Menu d’IntelliJ pour la déconnexion d’Azure][L01]
+   ![Commande IntelliJ de déconnexion d’Azure][L01]
 
-1. Lorsque la boîte de dialogue **Déconnexion d’Azure** s’affiche, cliquez sur **Oui**.
+2. Dans la fenêtre de confirmation **e déconnecter de Microsoft Azure**, cliquez sur **Oui**.
 
-   ![Boîte de dialogue Se déconnecter][L02]
+   ![Fenêtre de confirmation de déconnexion d’Azure][L02]
 
-## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-to-use-in-the-future"></a>Connexion automatique à votre compte Azure et création d’un fichier d’informations d’identification à utiliser à l’avenir
+## <a name="sign-in-to-your-azure-account-automatically"></a>Connexion automatique à votre compte Azure
 
-La procédure suivante vous guide dans la création d’un fichier d’informations d’identification qui contient vos données de principal de service. Une fois que vous avez effectué ces étapes, Eclipse utilise automatiquement le fichier d’informations d’identification pour vous connecter automatiquement à Azure à chaque fois que vous ouvrez votre projet.
+Cette section vous guide dans la création d’un fichier d’informations d’identification contenant les données de votre principal de service. Une fois ce processus terminé, Eclipse utilise le fichier d’informations d’identification pour vous connecter automatiquement à Azure chaque fois que vous ouvrez votre projet.
 
 1. Ouvrez votre projet avec IntelliJ IDEA.
 
-1. Cliquez successivement sur **Outils**, **Azure** et **Connexion à Azure**.
+2. Dans le menu **Outils**, pointez sur **Azure**, puis cliquez sur **Connexion à Microsoft Azure**.
 
-   ![Menu d’IntelliJ pour la connexion à Azure][A01]
+   ![Commande IntelliJ de connexion à Azure][A01]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, sélectionnez **Automatisée**, puis cliquez sur **Nouveau**.
+3. Dans la fenêtre **Connexion à Microsoft Azure**, sélectionnez **Automatisée**, puis cliquez sur **Nouveau**.
 
-   ![Boîte de dialogue Se connecter][A02]
+   ![Fenêtre Connexion à Microsoft Azure avec l’option Automatique activée][A02]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, entrez vos informations d’identification Azure, puis cliquez sur **Se connecter**.
+4. Dans la boîte de dialogue **Connexion à Azure** qui s’affiche, entrez vos informations d’identification Azure, puis cliquez sur **Se connecter**.
 
    ![Boîte de dialogue Connexion à Azure][A03]
 
-1. Lorsque la boîte de dialogue **Create authentication files (Créer des fichiers d’authentification)** s’affiche, sélectionnez les abonnements que vous souhaitez utiliser, choisissez votre répertoire de destination, puis cliquez sur **Démarrer**.
+5. Dans la fenêtre **Créer les fichiers d’authentification**, sélectionnez les abonnements que vous souhaitez utiliser, choisissez votre répertoire de destination, puis cliquez sur **Démarrer**.
 
-   ![Boîte de dialogue Connexion à Azure][A04]
+   ![Fenêtre Créer les fichiers d’authentification][A04]
 
-1. La boîte de dialogue **Service Principal Creation Status (État de création du principal de service)** s’affiche, et une fois que vos fichiers ont été créés, cliquez sur **OK**.
+6. Dans la boîte de dialogue **État de création du principal de service** qui s’affiche, une fois vos fichiers créés, cliquez sur **OK**.
 
-   ![Boîte de dialogue Service Principal Creation Status (État de création du principal de service)][A05]
+   ![Boîte de dialogue État de création du principal de service][A05]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, cliquez sur **Se connecter**.
+7. Dans la fenêtre **Connexion à Microsoft Azure**, cliquez sur **Se connecter**.
 
    ![Boîte de dialogue Connexion à Azure][A06]
 
-1. Lorsque la boîte de dialogue **Sélectionner des abonnements** s’affiche, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
+8. Lorsque la boîte de dialogue **Sélectionner des abonnements**, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
 
    ![Boîte de dialogue Sélectionner des abonnements][A07]
 
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>Déconnexion de votre compte Azure lorsque vous vous êtes connecté automatiquement
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a>Déconnexion de votre compte Azure après vous être connecté automatiquement
 
-Après avoir configuré les étapes indiquées dans la section précédente, le kit de ressources Azure vous connecte automatiquement à votre compte Azure à chaque redémarrage d’IntelliJ IDEA. Toutefois, pour vous déconnecter de votre compte Azure et empêcher le kit de ressources Azure de vous connecter automatiquement, procédez comme suit.
+Après que vous avez configuré votre compte en suivant la procédure précédente, le Kit de ressources Azure vous connecte automatiquement à votre compte Azure chaque fois que vous redémarrez IntelliJ IDEA. Toutefois, pour vous déconnecter de votre compte Azure et empêcher le Kit de ressources Azure de vous connecter automatiquement, procédez comme suit :
 
-1. Dans IntelliJ IDEA, cliquez successivement sur **Outils**, **Azure** et **Déconnexion d’Azure**.
+1. Dans IntelliJ IDEA, dans le menu **Outils**, pointez sur **Azure**, puis cliquez sur **Déconnexion de Microsoft Azure**.
 
-   ![Menu d’IntelliJ pour la déconnexion d’Azure][L01]
+   ![Commande IntelliJ de déconnexion d’Azure][L01]
 
-1. Lorsque la boîte de dialogue **Déconnexion d’Azure** s’affiche, cliquez sur **Oui**.
+2. Dans la fenêtre de confirmation **e déconnecter de Microsoft Azure**, cliquez sur **Oui**.
 
-   ![Boîte de dialogue Se déconnecter][L03]
+   ![Fenêtre de confirmation de déconnexion d’Azure][L03]
 
-## <a name="signing-into-your-azure-account-automatically-using-a-credentials-file-which-you-have-already-created"></a>Connexion automatique à votre compte Azure et utilisation d’un fichier d’informations d’identification que vous avez déjà créé
+## <a name="sign-in-to-your-azure-account-automatically-by-using-an-existing-credentials-file"></a>Connexion automatique à votre compte Azure à l’aide d’un fichier d’informations d’identification existant
 
-Si vous vous déconnectez d’Azure lorsque vous utilisez IntelliJ IDEA, vous devez reconfigurer le kit de ressources Azure pour Eclipse afin d’utiliser un fichier d’informations d’identification qui a été créé pour pouvoir vous connecter automatiquement à votre compte Azure. La procédure suivante vous guide dans la configuration du kit de ressources Azure pour utiliser un fichier d’informations d’identification existant.
+Si vous vous déconnectez de votre compte Azure alors que vous utilisez IntelliJ IDEA, vous devez utiliser un fichier d’informations d’identification existant pour vous reconnecter automatiquement au compte. Pour configurer le Kit de ressources Azure pour Eclipse afin d’utiliser un fichier d’informations d’identification existant, procédez comme suit :
 
 1. Ouvrez votre projet avec IntelliJ IDEA.
 
-1. Cliquez successivement sur **Outils**, **Azure** et **Connexion à Azure**.
+2. Dans le menu **Outils**, pointez sur **Azure**, puis cliquez sur **Connexion à Microsoft Azure**.
 
-   ![Menu d’IntelliJ pour la connexion à Azure][A01]
+   ![Commande IntelliJ de connexion à Azure][A01]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, sélectionnez **Automatisée**, puis cliquez sur **Parcourir**.
+3. Dans la fenêtre **Connexion à Microsoft Azure**, sélectionnez **Automatisée**, puis cliquez sur **Parcourir**.
 
-   ![Boîte de dialogue Se connecter][A02]
+   ![Fenêtre Connexion à Microsoft Azure avec l’option Automatique activée][A02]
 
-1. Lorsque la boîte de dialogue **Select Authentication File (Sélectionner un fichier d’authentification)** s’affiche, sélectionnez un fichier d’informations d’identification que vous avez créé précédemment, puis cliquez sur **Sélectionner**.
+4. Dans la boîte de dialogue **Sélectionner le fichier d’authentification**, choisissez un fichier d’informations d’identification créé précédemment, puis cliquez sur **Sélectionner**.
 
-   ![Boîte de dialogue Se connecter][A08]
+   ![Boîte de dialogue Sélectionner le fichier d’authentification][A08]
 
-1. Lorsque la boîte de dialogue **Connexion à Azure** s’affiche, cliquez sur **Se connecter**.
+5. Dans la fenêtre **Connexion à Microsoft Azure**, cliquez sur **Se connecter**.
 
-   ![Boîte de dialogue Connexion à Azure][A06]
+   ![Fenêtre Connexion à Microsoft Azure avec l’option Automatique activée][A06]
 
-1. Lorsque la boîte de dialogue **Sélectionner des abonnements** s’affiche, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
+6. Lorsque la boîte de dialogue **Sélectionner des abonnements**, sélectionnez les abonnements que vous souhaitez utiliser, puis cliquez sur **OK**.
 
    ![Boîte de dialogue Sélectionner des abonnements][A07]
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
 * [Kit de ressources Azure pour Eclipse]
-  * [Nouveautés du kit de ressources Azure pour Eclipse]
+  * [Nouveautés du Kit de ressources Azure pour Eclipse]
   * [Installation du kit de ressources Azure pour Eclipse]
-  * [Azure Sign In Instructions for the Azure Toolkit for Eclipse] (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
-  * [Créer une application web « Hello World » pour Azure dans Eclipse]
+  * [Instructions de connexion pour le Kit de ressources Azure pour Eclipse]
+  * [Créer une application web Hello World pour Azure dans Eclipse]
 * [Kit de ressources Azure pour IntelliJ]
   * [Nouveautés du Kit de ressources Azure pour IntelliJ]
   * [Installation du kit de ressources Azure pour IntelliJ]
-  * *Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ (cet article)*
-  * [Créer une application web « Hello World » pour Azure dans IntelliJ]
+  * *Instructions de connexion pour le Kit de ressources Azure pour IntelliJ* (cet article)
+  * [Créer une application web Hello World pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure] et les [outils Java pour Visual Studio Team Services].
 
@@ -161,12 +161,12 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
 [Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Créer une application web Hello World pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Instructions de connexion pour le Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Nouveautés du Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/

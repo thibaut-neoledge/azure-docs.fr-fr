@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6530da96cd6e6ccd90714a9d3c9f00f88afe853e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 Si vous avez des machines virtuelles Azure existantes qui utilisent des disques non gérés dans des comptes de stockage et que vous souhaitez tirer parti des [disques gérés](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vous pouvez convertir les machines virtuelles. Le processus convertit à la fois le disque du système d’exploitation et les disques de données attachés de disques non gérés dans un compte de stockage vers des disques gérés. Les machines virtuelles sont arrêtées et libérées. Vous utilisez ensuite Powershell pour convertir la machine virtuelle afin qu’elle utilise des disques gérés. Après la conversion, vous redémarrez la machine virtuelle, qui utilisera désormais des disques gérés.
 
 Avant de commencer, n’oubliez pas d’étudier la [planification de la migration vers des disques gérés](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-Testez le processus de migration en migrant une machine virtuelle de test avant d’effectuer la migration de production, car le processus de migration n’est pas réversible.
+Testez le processus de migration en migrant une machine virtuelle de test avant d’effectuer la migration de production, car le processus de migration n’est pas réversible. La gestion de la machine virtuelle étant verrouillée pendant la migration, vous ne pouvez pas démarrer, arrêter ou supprimer la machine virtuelle avant la fin de l’opération.
 
 
 > [!IMPORTANT] 

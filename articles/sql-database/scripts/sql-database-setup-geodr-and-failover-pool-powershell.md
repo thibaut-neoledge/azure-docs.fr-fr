@@ -1,6 +1,6 @@
 ---
 title: "Script Azure PowerShell - Configuration de la géoréplication d’une base de données SQL regroupée | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Configuration de la géoréplication active pour une base de données SQL Azure regroupée à l’aide de PowerShell"
+description: "Exemple de script Azure PowerShell - Configurer la géoréplication active pour une base de données Azure SQL Database regroupée à l’aide de PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -17,14 +17,14 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0971209e69917db492d19afd6708f5a2dc3463c7
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 294ba61b23e8cc1ef1ecf1bf538934393a4f9768
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configuration de la géoréplication active pour une base de données SQL Azure regroupée à l’aide de PowerShell
+# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configurer la géoréplication active pour une base de données Azure SQL Database regroupée à l’aide de PowerShell
 
 Cet exemple de script PowerShell configure la géoréplication active pour une base de données dans un pool élastique et la fait basculer vers le réplica secondaire.
 
@@ -32,7 +32,7 @@ Cet exemple de script PowerShell configure la géoréplication active pour une b
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configuration de la géoréplication active pour un pool élastique")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurer la géoréplication active pour un pool élastique")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

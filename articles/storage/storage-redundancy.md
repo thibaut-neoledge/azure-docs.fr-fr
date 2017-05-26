@@ -1,6 +1,6 @@
 ---
 title: "Réplication de données dans le stockage Azure | Microsoft Docs"
-description: "Les données de votre compte de stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)."
+description: "Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. La réplication copie vos données dans le même centre de données ou dans un second centre de données, selon l’option de réplication que vous choisissez. La réplication protège vos données et maintient votre application en bon état de fonctionnement en cas de panne matérielle temporaire. Si vos données sont répliquées vers un deuxième centre de données, elles sont également protégées en cas de panne catastrophique à l’emplacement primaire.
+
+Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. La réplication copie vos données dans le même centre de données ou dans un second centre de données, selon l’option de réplication que vous choisissez. La réplication protège vos données et maintient votre application en bon état de fonctionnement en cas de panne matérielle temporaire. Si vos données sont répliquées vers un deuxième centre de données, elles sont protégées en cas de défaillance irrémédiable de l’emplacement primaire.
 
 La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service.
 
@@ -33,14 +34,14 @@ Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des opt
 * [Stockage géo-redondant (GRS)](#geo-redundant-storage)
 * [Stockage géo-redondant avec accès en lecture (RA-GRS)](#read-access-geo-redundant-storage)
 
-Le stockage géo-redondant avec accès en lecture (RA-GRS) est l’option par défaut lorsque vous créez un compte de stockage.
+Le stockage géoredondant avec accès en lecture (RA-GRS) est l’option par défaut lorsque vous créez un compte de stockage.
 
 Le tableau suivant fournit une vue d’ensemble rapide des différences entre LRS, ZRS, GRS et RA-GRS, tandis que les sections suivantes décrivent chaque type de réplication plus en détail.
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Les données sont répliquées entre plusieurs centres de données. |Non |Oui |Oui |Oui |
-| Les données peuvent être lues à partir de l’emplacement secondaire et principal. |Non |Non |Non |Oui |
+| Les données peuvent être lues tant à partir d’un emplacement secondaire que de l’emplacement principal. |Non |Non |Non |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
 
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différentes options de redondance.
@@ -48,20 +49,19 @@ Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/detai
 > [!NOTE]
 > Stockage Premium prend en charge uniquement un stockage localement redondant (LRS). Pour plus d’informations sur Stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 >
->
 
 ## <a name="locally-redundant-storage"></a>Stockage localement redondant
-Le stockage localement redondant (LRS) réplique vos données trois fois dans une unité d’échelle de stockage qui est hébergée dans un centre de données dans la région dans laquelle vous avez créé votre compte de stockage. Une demande d’écriture est retournée avec succès uniquement après son écriture dans les trois réplicas. Ces trois réplicas se trouvent dans des domaines d’erreur et de mise à niveau distincts dans une unité d’échelle de stockage.
+Le stockage localement redondant (LRS) réplique vos données trois fois à l’intérieur d’une unité d’échelle de stockage hébergée dans un centre de données situé dans la région dans laquelle vous avez créé votre compte de stockage. Une demande d’écriture est retournée avec succès uniquement après son écriture dans les trois réplicas. Ces trois réplicas se trouvent dans des domaines d’erreur et de mise à niveau distincts dans une unité d’échelle de stockage.
 
 Une unité d’échelle de stockage est un ensemble de racks de nœuds de stockage. Un domaine d’erreur est un groupe de nœuds qui représentent une unité physique d’incident et peuvent être considérés comme des nœuds appartenant au même rack physique. Un domaine de mise à niveau est un groupe de nœuds qui sont mis à jour ensemble au cours d’un processus de mise à niveau de service (déploiement). Les trois réplicas sont répartis sur des domaines d’erreur et de mise à jour au sein d’une unité d’échelle de stockage afin de garantir que les données sont disponibles même en cas de défaillance matérielle d’un rack ou lorsque les nœuds sont mis à niveau pendant un déploiement.
 
-Le stockage LRS est l’option la moins coûteuse et offre une durabilité moindre par rapport aux autres options. En cas d’incident au niveau du centre de données (incendie, inondation, etc.) les trois réplicas peuvent être perdus ou irrécupérables. Pour atténuer ce risque, le stockage géo-redondant (GRS) est recommandé pour la plupart des applications.
+Le stockage LRS est l’option la moins coûteuse et offre une durabilité moindre par rapport aux autres options. En cas d’incident au niveau du centre de données (incendie, inondation, etc.) les trois réplicas peuvent être perdus ou irrécupérables. Pour atténuer ce risque, un stockage géoredondant (GRS) est recommandé pour la plupart des applications.
 
 Le stockage localement redondant peut toujours être adapté dans certains scénarios :
 
 * Fournit la bande passante maximale la plus élevée de toutes les options de réplication Stockage Azure.
 * Si votre application stocke des données qui peuvent être recréées facilement, vous pouvez opter pour un stockage LRS.
-* Certaines applications sont limitées à la réplication des données dans un pays en raison des exigences de gouvernance des données. Une région jumelée peut se trouver dans un autre pays ; consultez les [régions Azure](https://azure.microsoft.com/regions/) pour plus d’informations sur les régions jumelées.
+* Certaines applications sont limitées à la réplication des données dans un pays en raison des exigences de gouvernance des données. Une région jumelée peut être située dans un autre pays. Pour plus d’informations sur les régions jumelées, voir [Régions Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="zone-redundant-storage"></a>Stockage redondant dans une zone
 Le stockage redondant dans une zone (ZRS) réplique vos données de façon asynchrone entre plusieurs centres de données situés dans une ou deux régions, et stocke trois réplicas, comme c’est le cas pour le stockage LRS. Cela fournit donc une durabilité supérieure à celle du stockage LRS. Les données stockées par stockage ZRS sont durables même si le centre de données principal est indisponible ou irrécupérable.
@@ -121,7 +121,7 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Ouest des États-Unis 2 |Centre-Ouest des États-Unis |
 | Centre-Ouest des États-Unis |Ouest des États-Unis 2 |
 
-Pour obtenir des informations récentes sur les régions prises en charge par Azure, consultez [Régions Azure](https://azure.microsoft.com/regions/).
+Pour obtenir des informations à jour sur les régions prises en charge par Azure, voir [Régions Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="read-access-geo-redundant-storage"></a>Stockage géo-redondant avec accès en lecture
 Le stockage géo-redondant avec accès en lecture (RA-GRS) optimise la disponibilité de votre compte de stockage, en fournissant un accès en lecture seule aux données dans l’emplacement secondaire, en plus de la réplication entre les deux régions offerte par GRS.
@@ -137,10 +137,10 @@ Considérations :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
+* [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [À propos des comptes de stockage Azure](storage-create-storage-account.md)
-* [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
-* [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-* [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Objectifs de performance et d’extensibilité du Stockage Azure](storage-scalability-targets.md)
+* [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Document SOSP - Stockage Azure : service de stockage cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 

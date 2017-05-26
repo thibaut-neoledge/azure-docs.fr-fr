@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 64babace9ec5aa61acb396edf86f889e96a52c71
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,7 +30,7 @@ Cet article montre comment configurer la géoréplication active pour SQL Databa
 Pour lancer un basculement avec le portail Azure, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md).
 
 > [!NOTE]
-> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
+> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017, le type de base de données secondaire non accessible en lecture a été retiré, et les bases de données non accessibles en lecture existantes ont automatiquement été mises à niveau vers des bases de données secondaires accessibles en lecture.
 > 
 > 
 
@@ -54,7 +54,7 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 > 
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
-2. Dans la page Base de données SQL, sélectionnez **Géoréplication**, puis la région dans laquelle créer la base de données secondaire. Bien que vous puissiez sélectionner n’importe quelle région autre que la région qui héberge la base de données primaire, nous vous recommandons de sélectionner la [région jumelée](../best-practices-availability-paired-regions.md).
+2. Dans la page SQL Database, sélectionnez **Géoréplication**, puis choisissez la région dans laquelle créer la base de données secondaire. Bien que vous puissiez sélectionner n’importe quelle région autre que la région qui héberge la base de données primaire, nous vous recommandons de sélectionner la [région jumelée](../best-practices-availability-paired-regions.md).
    
     ![Configuration de la géo-réplication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Sélectionnez ou configurez le serveur et le niveau tarifaire pour la base de données secondaire.
@@ -73,8 +73,8 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 
 La base de données secondaire peut être basculée en base de données primaire.  
 
-1. Dans le [portail Azure](http://portal.azure.com) , accédez à la base de données primaire dans le partenariat de géoréplication.
-2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géoréplication**.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+2. Dans le panneau SQL Database, sélectionnez **Tous les paramètres** > **Géoréplication**.
 3. Dans la liste **SECONDAIRES**, sélectionnez la base de données qui doit devenir la nouvelle base primaire et cliquez sur **Basculement**.
    
     ![Basculement](./media/sql-database-geo-replication-failover-portal/secondaries.png)
@@ -93,7 +93,7 @@ Il existe une courte période pendant laquelle les deux bases de données ne son
 Cette opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.  
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
-2. Dans la page de la SQL Database, sélectionnez **Géo-réplication**.
+2. Dans la page SQL Database, sélectionnez **Géoréplication**.
 3. Dans la liste des bases de données **SECONDAIRES**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géo-réplication.
 4. Cliquez sur **Arrêter la réplication**.
    
@@ -101,7 +101,7 @@ Cette opération arrête définitivement la réplication vers la base de donnée
 5. Une fenêtre de confirmation s’ouvre. Cliquez sur **Oui** pour supprimer la base de données de partenariat de géo-réplication (définissez-la sur une base de données en lecture-écriture ne faisant pas partie d’une réplication).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
+* Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 

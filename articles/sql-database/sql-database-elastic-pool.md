@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 448bdbd2ae12d325781587846c812995cae33774
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: de0c9969ec28e7b6e57bc384ac3ec47191096a9b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -157,11 +157,11 @@ Les bases de données regroupées prennent généralement en charge les mêmes [
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 La restauration dans le temps utilise les sauvegardes automatiques de base de données pour récupérer une base de données d’un pool à un moment précis dans le temps. Voir [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### <a name="geo-restore"></a>Restauration géographique
-La restauration géographique constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Voir [Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire](sql-database-disaster-recovery.md)
+### <a name="geo-restore"></a>Géo-restauration
+La géorestauration constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident survenu dans la région où elle est hébergée. Voir [Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>Géoréplication active
-Pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géorestauration, configurez la [géoréplication active](sql-database-geo-replication-overview.md).
+Pour les applications qui ont des exigences de récupération plus agressives que ce qu’offre la géorestauration, configurez la [géoréplication active](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

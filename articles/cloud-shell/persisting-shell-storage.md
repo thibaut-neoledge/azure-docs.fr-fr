@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ Au démarrage initial, Azure Cloud Shell demande à votre abonnement de créer u
 Ce partage de fichiers sera monté en tant que `clouddrive` dans le répertoire $Home. Ce partage de fichiers est également utilisé pour stocker une image de 5 Go créée pour vous qui met à jour et conserve votre répertoire $Home automatiquement. Il s’agit d’une action unique qui se monte automatiquement pour les sessions ultérieures.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>Cloud Shell conserve les fichiers avec les deux méthodes suivantes :
-1. Créez une image de disque de votre répertoire $Home pour conserver les fichiers dans $Home. Cette image de disque est enregistrée dans votre partage de fichier spécifié en tant que `<User>.img` sur `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+1. Créez une image de disque de votre répertoire $Home pour conserver les fichiers dans $Home. Cette image de disque est enregistrée dans votre partage de fichier spécifié en tant que `acc_<User>.img` sur `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Montez le partage de fichiers spécifié en tant que `clouddrive` dans votre répertoire $Home pour l’interaction directe de partage de fichiers. 
 `/Home/<User>/clouddrive` est mappé à `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> Tous les fichiers figurant dans votre répertoire $Home, tels que les clés SSH, sont conservés dans l’image de disque utilisateur stockée dans votre partage de fichiers monté. Appliquez les meilleures pratiques lors de la conservation d’informations dans votre répertoire $Home et votre partage de fichiers monté.
+
 ## <a name="using-clouddrive"></a>Avec clouddrive
 Cloud Shell permet aux utilisateurs d’exécuter une commande appelée `clouddrive` qui permet de mettre à jour manuellement le partage de fichiers monté sur Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -94,7 +97,7 @@ Pour plus de détails, exécutez `clouddrive mount -h` : <br>
 Pour découvrir quel partage de fichiers est monté en tant que `clouddrive` :
 1. Exécutez `df`. 
 
-Le chemin d’accès à clouddrive affiche votre nom de compte de stockage et le partage de fichiers dans l’URL.
+Le chemin d’accès à clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL.
 
 `//storageaccountname.file.core.windows.net/filesharename`
 
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>Charger ou télécharger des fichiers locaux
-Utilisez le portail Azure pour gérer le transfert de fichiers locaux vers ou depuis le partage de fichiers.
-La mise à jour des fichiers à partir Cloud Shell se reflète dans l’interface graphique de stockage de fichiers lors de l’actualisation du panneau.
+## <a name="transfer-local-files-to-cloud-shell"></a>Transférer des fichiers locaux vers Cloud Shell
+Le répertoire `clouddrive` se synchronise dans le panneau Stockage du portail Azure. Utilisez celui-ci pour échanger des fichiers avec votre partage de fichiers. La mise à jour des fichiers à partir Cloud Shell se reflète dans l’interface graphique de stockage de fichiers lors de l’actualisation du panneau.
 
-1. Accédez au partage de fichiers monté ![](media/touch-txt-storage.png)
-2. Sélectionnez le fichier cible dans le portail
-3. Appuyez sur « Télécharger » ![](media/download-storage.png)
+### <a name="download-files"></a>Télécharger des fichiers
+![](media/download.gif)
+1. Accéder au partage de fichiers monté
+2. Sélectionner le fichier cible dans le portail
+3. Appuyez sur « Télécharger »
 
-Si vous devez télécharger un fichier qui existe en dehors de `clouddrive` :
-1. Copiez le fichier vers `/<User>/clouddrive` <br>
-2. Suivez les [étapes précédentes](#upload-or-download-local-files) <br>
+### <a name="upload-files"></a>Charger des fichiers
+![](media/upload.gif)
+1. Accéder au partage de fichiers monté
+2. Sélectionner « Télécharger ».
+3. Sélectionner le fichier à charger
+4. Confirmer le chargement
 
-## <a name="cloud-shell-tagging"></a>Balisage Cloud Shell
-Cloud Shell ajoute une « balise » aux comptes de stockage montés en utilisant le format : <br>
-
-| Clé | Valeur |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Utilisez ces balises pour voir quels utilisateurs sont mappés sur certains partages de fichiers et où vous trouverez certaines images $Home.
+Vous devriez à présent voir le fichier accessible dans votre répertoire clouddrive dans Cloud Shell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Cloud Shell](quickstart.md) 

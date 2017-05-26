@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 2d77e95a4e99679686839959bf6330f1e29f870b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,7 +65,7 @@ Au cœur de l’application SMART by GEP se trouvent les instances d’Azure SQL
 > 
 > 
 
-En utilisant Azure SQL Database, GEP dispose automatiquement de plus de fonctionnalités de récupération d’urgence qu’il ne lui aurait été possible d’en concevoir en local à bas coût, en raison des fonctionnalités de tolérance aux pannes intégrées à Azure SQL Database. GEP utilise la fonctionnalité de géo-réplication active d’Azure SQL Database, couplée avec plusieurs réplicas secondaires actifs, accessibles en lecture et en ligne (groupes de disponibilité AlwaysOn) dans différentes régions géographiques, pour former des paires à haute disponibilité. La réplication des données de SMART by GEP sur plusieurs régions signifie que, en cas de sinistre sur l’ensemble de la région, GEP peut facilement récupérer les données des clients avec un objectif de point de récupération (RPO) et un objectif de délai de récupération (RTO) minimaux.
+En utilisant Azure SQL Database, GEP dispose automatiquement de plus de fonctionnalités de récupération d’urgence qu’il ne lui aurait été possible d’en concevoir en local à bas coût, en raison des fonctionnalités de tolérance aux pannes intégrées à Azure SQL Database. GEP utilise la fonctionnalité de géoréplication active d’Azure SQL Database, couplée avec plusieurs réplicas secondaires actifs, accessibles en lecture et en ligne (groupes de disponibilité AlwaysOn) dans différentes régions géographiques, pour former des paires à haute disponibilité. La réplication des données de SMART by GEP sur plusieurs régions signifie que, en cas de sinistre sur l’ensemble de la région, GEP peut facilement récupérer les données des clients avec un objectif de point de récupération (RPO) et un objectif de délai de récupération (RTO) minimaux.
 
 Chaque client de SMART by GEP a deux instances Azure SQL Database : l’une pour le traitement transactionnel en ligne (OLTP) et l’autre pour l’analyse (par exemple, l’analyse des rapports et des dépenses des clients). Les pools élastiques Azure SQL Database permettent à GEP de gérer facilement des milliers de bases de données à travers le monde pour traiter des demandes imprévisibles de ressources de bases de données. Les pools élastiques fournissent à GEP un moyen de veiller à ce que les bases de données clients soient capables d’évoluer selon les besoins, sans approvisionnement excessif ou insuffisant, tout en lui permettant de contrôler les coûts. En outre, étant donné qu’il s’agit d’un service PaaS, la société obtient toutes les nouvelles fonctionnalités d’Azure SQL Database grâce à des mises à niveau automatiques.
 

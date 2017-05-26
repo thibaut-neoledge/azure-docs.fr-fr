@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Version préliminaire d’Azure CLI 2.0](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -118,13 +118,13 @@ Ensuite, créez la ressource App Service dans Azure et déployez votre applicati
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) avec un nom. Pour ce didacticiel PHP, il n’est pas vraiment nécessaire de vous familiariser avec l’outil.
+3. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) avec un nom. Pour ce didacticiel node.js, il n’est pas vraiment nécessaire de vous familiariser avec cela.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     Pour connaître les valeurs possibles que vous pouvez utiliser pour `<location>`, utilisez la commande CLI `az appservice list-locations`.
 
-3. Créez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) « FREE » avec un nom. Pour ce didacticiel PHP, sachez que vous ne serez pas facturé pour les applications web utilisées dans ce plan.
+3. Créez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) « FREE » avec un nom. Pour ce didacticiel node.js, sachez que vous ne serez pas facturé pour les Web Apps utilisées dans le cadre de cette offre.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 

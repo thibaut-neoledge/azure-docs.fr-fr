@@ -1,5 +1,5 @@
 ---
-title: "Restaurer une base de données à client unique (exemple d’application SaaS utilisant Azure SQL Database) | Microsoft Docs"
+title: "Restaurer une base de données Azure SQL Database dans une application mutualisée | Documents Microsoft"
 description: "Découvrez comment restaurer une base de données SQL à client unique après la suppression accidentelle des données"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
@@ -17,10 +17,10 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aa5759645713c5e5bc4c4f1d2b10f032efc7eae2
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -44,20 +44,20 @@ Dans ce didacticiel, vous allez découvrir deux modèles de récupération des d
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, voir [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introduction au modèle SaaS de restauration d’un client
 
 Il existe deux modèles simples pour restaurer les données d’un client individuel. Étant donné que les bases de données des clients sont isolées les unes des autres, la restauration d’un client n’a aucun impact sur les données des autres clients.
 
-Dans le premier modèle, les données sont restaurées dans une nouvelle base de données. Le client se voit ensuite accorder l’accès à cette base de données en même temps que celui aux données de production qu’elle contient. Ce modèle permet à un administrateur client d’examiner les données restaurées et de potentiellement pouvoir les utiliser pour remplacer les valeurs de données actuelles de manière sélective. Il incombe au concepteur d’applications SaaS de déterminer le niveau de sophistication des options de récupération des données. Dans certains scénarios, il est parfois simplement demandé de pouvoir analyser les données dans l’état dans lequel elles étaient à un instant t. Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md), nous vous recommandons de copier les données souhaitées dans la base de données d’origine, à partir de la copie restaurée. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
+Dans le premier modèle, les données sont restaurées dans une nouvelle base de données. Le client se voit ensuite accorder l’accès à cette base de données en même temps que celui aux données de production qu’elle contient. Ce modèle permet à un administrateur client d’examiner les données restaurées et de potentiellement pouvoir les utiliser pour remplacer les valeurs de données actuelles de manière sélective. Il incombe au concepteur d’applications SaaS de déterminer le niveau de sophistication des options de récupération des données. Dans certains scénarios, il est parfois simplement demandé de pouvoir analyser les données dans l’état dans lequel elles étaient à un instant t. Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md), nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
 
 Dans le second modèle (qui suppose que le client a perdu des données ou qu’elles sont corrompues), la base de données de production du client est restaurée à un point antérieur dans le temps. Dans le modèle de restauration sur place, le client est mis hors connexion pendant un bref instant, le temps que la base de données soit restaurée et remise en ligne. La base de données d’origine est supprimée, mais elle peut toujours être restaurée si vous avez besoin de revenir à un point encore plus antérieur dans le temps. Il existe une variante de ce modèle : vous pouvez renommer la base de données au lieu de la supprimer, bien que cela n’offre aucun avantage supplémentaire en termes de sécurité des données.
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts Wingtip Tickets et le code source de l’application sont disponibles dans le référentiel github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simuler la suppression accidentelle des données par le client
 
@@ -100,7 +100,7 @@ Exécutez le script de génération de ticket et créez des données supplément
 
 Cet exercice restaure la base de données Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Après avoir supprimé l’événement dans les étapes précédentes, vous voulez le récupérer et afficher les données supprimées. Vous n’avez pas besoin de restaurer votre base de données de production avec l’enregistrement supprimé. Toutefois, pour des raisons professionnelles, vous devez récupérer l’ancienne base de données pour accéder aux anciennes données.
 
- Le script *Restore-TenantInParallel.ps1* crée une base de données client parallèle et une entrée de catalogue parallèle, toutes deux appelées *ContosoConcertHall\_ancien*. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure ou dans des scénarios de récupération de conformité et d’audit. Cette approche est également recommandée lorsque vous utilisez la [géo-réplication](sql-database-geo-replication-overview.md).
+ Le script *Restore-TenantInParallel.ps1* crée une base de données client parallèle et une entrée de catalogue parallèle, toutes deux appelées *ContosoConcertHall\_ancien*. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure ou dans des scénarios de récupération de conformité et d’audit. Cette approche est également recommandée lorsque vous utilisez la [géoréplication](sql-database-geo-replication-overview.md).
 
 1. Terminez la section [simuler une suppression accidentelle de données par l’utilisateur](#simulate-a-tenant-accidentally-deleting-data).
 1. Ouvrez …\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ dans *PowerShell ISE*.

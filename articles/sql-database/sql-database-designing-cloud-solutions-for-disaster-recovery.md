@@ -17,16 +17,16 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 364038c11f13bcb72b259618b1d7d433f48a33c1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conception de services hautement disponibles à l’aide d’Azure SQL Database
 
-Pour créer et déployer des services hautement disponibles dans Azure SQL Database, vous devez utiliser [des groupes de basculement et la géo-réplication active](sql-database-geo-replication-overview.md). Vous bénéficiez ainsi d’une résistance aux défaillances régionales et aux pannes graves, ainsi que d’une récupération rapide grâce au basculement vers les bases de données secondaires. Cet article examine les modèles d’application courants et présente les avantages et les inconvénients de chaque option selon les exigences liées au déploiement d’une application, le contrat de niveau de service ciblé, la latence du trafic et les coûts. Pour plus d’informations sur la géo-réplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous utilisez des [groupes de basculement et un géoréplication active](sql-database-geo-replication-overview.md) pour assurer une tolérance aux défaillances régionales et aux pannes catastrophiques, ainsi que permettre une récupération rapide des bases de données secondaires. Cet article se concentre sur des modèles d’application courants et présente les avantages et inconvénients de chaque option en fonction des exigences liées au déploiement d’application, du contrat de niveau de service ciblé, de la latence du trafic et des coûts. Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Modèle de conception 1 : Déploiement actif/passif pour la récupération d’urgence cloud avec une base de données colocalisée
 Cette option est idéale pour les applications dotées des caractéristiques suivantes :
@@ -43,9 +43,9 @@ Dans ce cas, la topologie de déploiement d’applications est optimisée pour l
 
 Le diagramme suivant illustre cette configuration avant une panne.
 
-![Configuration de la géoréplication d’une base de données SQL. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
+![Configuration de la géoréplication de SQL Database. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-Après une panne dans la région primaire, le service SQL Database détecte que la base de données primaire n’est pas accessible et déclenche un basculement vers la base de données secondaire en fonction des paramètres de la stratégie de basculement automatique. Selon le contrat de niveau de service (SLA) de votre application, vous pouvez choisir de configurer une période de grâce entre la détection de la panne et le basculement proprement dit. La configuration d’une période de grâce permet de réduire le risque de perte de données dans les cas où la défaillance est grave et la disponibilité dans la région ne peut pas être restaurée rapidement. Si le basculement du point de terminaison est lancé par Traffic Manager avant que le groupe de basculement déclenche le basculement de la base de données, l’application web ne sera pas en mesure de se reconnecter à la base de données. La tentative de reconnexion de l’application réussira automatiquement dès que le basculement de la base de données sera terminé. 
+Après une panne dans la région primaire, le service SQL Database détecte que la base de données primaire n’est pas accessible et déclenche un basculement vers la base de données secondaire conformément aux paramètres de la stratégie de basculement automatique. Selon le contrat de niveau de service (SLA) de votre application, vous pouvez choisir de configurer une période de grâce entre la détection de la panne et le basculement proprement dit. La configuration d’une période de grâce permet de réduire le risque de perte de données dans les cas où la défaillance est grave et la disponibilité dans la région ne peut pas être restaurée rapidement. Si le basculement de point de terminaison est initié par Traffic Manager avant que le groupe de basculement déclenche le basculement de la base de données, l’application web ne peut plus de se reconnecter à la base de données. La tentative de reconnexion de l’application réussit automatiquement dès que le basculement de la base de données est terminé. 
 
 > [!NOTE]
 > Pour bénéficier d’un basculement entièrement coordonné de l’application et des bases de données, vous devez concevoir votre propre méthode d’analyse et utiliser le basculement manuel des points de terminaison de l’application web et des bases de données.
@@ -58,7 +58,7 @@ Une fois le basculement des points de terminaison de l’application et de la ba
 Si une panne se produit dans la région secondaire, le lien de réplication entre les bases de données primaire et secondaire est interrompu, mais le basculement n’est pas déclenché, car la base de données primaire n’est pas affectée. L’application reste alors disponible, mais elle est exposée et court donc un risque plus élevé en cas de défaillances successives dans les deux régions.
 
 > [!NOTE]
->Nous recommandons les configurations de déploiement uniquement avec une seule région de récupération d’urgence. En effet, la plupart des zones géographiques Azure comptent deux régions. Ces configurations ne protègent pas votre application d’une défaillance irrémédiable des deux régions. Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Nous recommandons les configurations de déploiement uniquement avec une seule région de récupération d’urgence. En effet, la plupart des zones géographiques Azure comptent deux régions. Ces configurations ne protègent pas votre application d’une défaillance irrémédiable des deux régions. Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Une fois la panne résolue, la base de données secondaire se resynchronise automatiquement avec la base de données primaire. Lors de la synchronisation, les performances de la base de données primaire peuvent être légèrement affectées selon la quantité de données à synchroniser. Le diagramme suivant illustre une panne dans la région secondaire.
@@ -163,7 +163,7 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
-* Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)  
+* Pour découvrir des options de récupération plus rapides, voir [Géoréplication active](sql-database-geo-replication-overview.md).  
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
-* Pour plus d’informations sur la géo-réplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

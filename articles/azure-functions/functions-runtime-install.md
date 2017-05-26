@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 70740f0caf31d34f354b1d13558d9f960d7dfc4f
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -41,7 +41,7 @@ Avant d’installer la version préliminaire du runtime d’Azure Functions, vou
 
 ## <a name="install-the-azure-functions-runtime-preview"></a>Installer la version préliminaire du runtime d’Azure Functions
 
-Le programme d’installation de la version préliminaire du runtime d’Azure Functions vous guide lors de l’installation des rôles de gestion et de travail de la version préliminaire du runtime d’Azure Functions.  Il est possible d’installer le rôle de gestion et de travail sur le même ordinateur.  Toutefois, si vous ajoutez des fonctions, vous devez déployer davantage de rôles de travail sur des ordinateurs supplémentaires pour faire évoluer vos fonctions sur plusieurs rôles de travail.
+Le programme d’installation en version préliminaire du runtime d’Azure Functions vous guide lors de l’installation des rôles de gestion et de travail de la version préliminaire du runtime d’Azure Functions.  Il est possible d’installer le rôle de gestion et de travail sur le même ordinateur.  Toutefois, si vous ajoutez des fonctions, vous devez déployer davantage de rôles de travail sur des ordinateurs supplémentaires pour faire évoluer vos fonctions sur plusieurs rôles de travail.
 
 ## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Installer le rôle de gestion et de travail sur le même ordinateur
 

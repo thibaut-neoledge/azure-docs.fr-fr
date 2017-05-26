@@ -11,31 +11,31 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
-Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans une base de données Azure pour MySQL.
-- Sauvegarde et restauration en ligne de commande (avec mysqldump) 
-- Sauvegarde et restauration avec PHPMyAdmin 
+Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
+- Sauvegarder et restaurer à partir de la ligne de commande (en utilisant mysqldump) 
+- Sauvegarder et restaurer à l’aide de PHPMyAdmin 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
 - [Créer un serveur de base de données Azure pour MySQL - Portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Utilitaire de ligne de commande [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) installé sur un ordinateur
-- MySQL Workbench [Télécharger MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat ou tout autre outil MySQL tiers
+- MySQL Workbench [Téléchargement de MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat ou tout outil MySQL tiers
 
 ## <a name="use-common-tools"></a>Utiliser des outils courants
 Utilisez les outils courants tels que MySQL Workbench, mysqldump, Toad ou Navicat pour vous connecter à distance et restaurer les données dans la base de données Azure pour MySQL. Utilisez ces outils sur votre ordinateur client disposant d’une connexion web pour se connecter à la base de données Azure pour MySQL. Utilisez une connexion chiffrée SSL pour appliquer les meilleures pratiques de sécurité ; consultez également la page [Configurer la connectivité SSL dans la base de données Azure pour MySQL](concepts-ssl-connection-security.md). Il est inutile de déplacer les fichiers d’images mémoire dans un emplacement spécifique du cloud lors de la migration vers la base de données Azure pour MySQL. 
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Créer un fichier de sauvegarde en ligne de commande avec mysqldump
-Pour sauvegarder une base de données MySQL existante sur site ou dans une machine virtuelle, exécutez la commande suivante : 
+Pour sauvegarder une base de données MySQL existante localement ou sur une machine virtuelle, exécutez la commande suivante : 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
@@ -66,18 +66,15 @@ Pour sauvegarder toutes les bases de données du serveur en même temps, il est 
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="upload-files"></a>Charger des fichiers
-Avec WinSCP, vous pouvez facilement charger et gérer l’importation ou les images mémoire des fichiers de votre environnement MySQL (Azure ou non) existant sur votre ordinateur local via le protocole SFTP ou FTPS à des fins d’exportation.
-
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>Créer une base de données sur le serveur MySQL Azure cible
-Vous devez créer une base de données vide sur le serveur cible de base de données Azure pour MySQL dans lequel vous souhaitez migrer les données avec MySQL Workbench, Toad, Navicat ou tout autre outil tiers pour MySQL. La base de données peut avoir le même nom que celle qui contient les données capturées, mais vous pouvez également créer une base de données avec un autre nom.
+Vous devez créer une base de données vide sur le serveur cible de base de données Azure pour MySQL vers lequel vous souhaitez migrer les données avec MySQL Workbench, Toad, Navicat ou tout autre outil tiers pour MySQL. La base de données peut avoir le même nom que celle qui contient les données capturées, mais vous pouvez également créer une base de données avec un autre nom.
 
 ![Chaîne de connexion de la base de données Azure pour MySQL](./media/concepts-migrate-import-export/p5.png)
 
 ![Chaîne de connexion MySQL Workbench](./media/concepts-migrate-import-export/p4.png)
 
 
-## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Restaurez votre base de données MySQL en ligne de commande ou avec MySQL Workbench
+## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Restaurer votre base de données MySQL à l’aide d’une ligne de commande ou de MySQL Workbench
 Une fois que vous avez créé la base de données cible, vous pouvez utiliser la commande mysql ou MySQL Workbench pour restaurer les données dans la base de données créée à cet effet à partir du fichier d’image mémoire.
 ```bash
 mysql -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
