@@ -3,7 +3,7 @@ title: "Gestion de la puissance de calcul dans Azure SQL Data Warehouse (portail
 description: "Tâches du portail Azure permettant de gérer la puissance de calcul. Mettez à l’échelle les ressources de calcul en ajustant les unités DWU. Ou suspendez et reprenez des ressources de calcul pour réduire les coûts."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 233b0da5-4abd-4d1d-9586-4ccc5f50b071
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
 ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/20/2017
 
 

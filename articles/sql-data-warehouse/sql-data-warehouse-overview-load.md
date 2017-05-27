@@ -3,7 +3,7 @@ title: "Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs"
 description: "Découvrez les scénarios courants de chargement des données dans SQL Data Warehouse. Ceux-ci incluent l’utilisation de PolyBase, d’Azure Blob Storage et de fichiers plats ainsi que l’envoi de disques. Vous pouvez également utiliser des outils tiers."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9366bae67be7d1abf932d07971d2062c7bd29f3c
 ms.openlocfilehash: 49825cc7455ae082ef750a2a31abbd2d71693c79
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/27/2017
 
 

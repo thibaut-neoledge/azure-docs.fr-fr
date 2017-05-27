@@ -3,7 +3,7 @@ title: "Migration de vos données vers SQL Data Warehouse | Microsoft Docs"
 description: "Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: 
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.author: joeyong;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 7835797bc353a64c934b362c31fdcd9b448aca34
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/17/2017
 
 
