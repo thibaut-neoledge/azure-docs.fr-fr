@@ -3,7 +3,7 @@ title: "Gestion de bases de données dans Azure SQL Data Warehouse | Microsoft D
 description: "Vue d’ensemble de la gestion des bases de données SQL Data Warehouse. Inclut des outils de gestion, des unités DWU et une montée en puissance des performances, une résolution des problèmes de performances des requêtes, la mise en œuvre de stratégies de sécurité adaptées et la restauration d’une base de données en cas d’altération des données ou de panne au niveau régional."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
 ms.openlocfilehash: 0056c458cc002cbdb1b8dabefe0d11a8abd61179
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
 
 

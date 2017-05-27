@@ -218,6 +218,8 @@ Votre page d’enregistrements DNS doit ressembler à la capture d’écran suiv
 
 ![Page Enregistrements DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>Activer le mappage d’enregistrement A dans votre application
 
 Vous êtes maintenant prêt à ajouter votre nom DNS configuré à votre application.
