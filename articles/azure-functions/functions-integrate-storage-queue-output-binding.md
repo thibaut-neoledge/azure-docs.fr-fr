@@ -1,5 +1,5 @@
 ---
-title: "Création d’une fonction dans Azure déclenchée par des messages de file d’attente | Microsoft Docs"
+title: "Créer une fonction dans Azure déclenchée par des messages de file d’attente | Microsoft Docs"
 description: "Utilisez Azure Functions pour créer une fonction sans serveur appelée par un message soumis à une file d’attente de stockage Azure."
 services: azure-functions
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e2501b0eb218d3c8a62dd4959b08ff85ec565eb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ccafe4d440f533560fcb3780d4e0e440a4399021
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,9 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une méthode déclarative pour se connecter à des données de service externe à partir de votre fonction. Dans cette rubrique, apprenez à mettre à jour une fonction existante en ajoutant une liaison de sortie qui envoie des messages au service Stockage File d’attente d’Azure.  
 
-![Afficher le message dans les journaux.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
-
-Moins de cinq minutes sont nécessaires pour effectuer toutes les étapes de cette rubrique.
+![Affichage du message dans les journaux.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
 ## <a name="prerequisites"></a>Composants requis 
 
@@ -110,7 +108,7 @@ Ignorez les trois premières étapes si vous avez déjà installé l’Explorate
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Saisissez le **Nom de compte** et la **Clé de compte** de l’étape 1, puis cliquez sur **Suivant** , et sur **Connexion**. 
+3. Saisissez le **Nom du compte** et la **Clé du compte** récupérés à l’étape 1, puis cliquez sur **Suivant** et sur **Connexion**. 
   
     ![Entrez les informations d’identification de stockage et connectez-vous.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 

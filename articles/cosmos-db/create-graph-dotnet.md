@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -43,25 +43,13 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
 
-## <a name="add-sample-data"></a>Ajout d’un exemple de données
-
-Vous pouvez maintenant ajouter des données à votre nouveau graphique à l’aide de l’Explorateur de données.
-
-1. Dans l’Explorateur de données, développez **sample-database**, **sample-graph**, cliquez sur **Graph**, puis sur **New Vertex** (Nouveau sommet) et **New Edge** (Nouveau bord) pour ajouter des éléments à votre graphique. À partir de l’Explorateur de données, vous pouvez également mettre à l’échelle votre débit et ajouter des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs à votre conteneur.
-
-    ![Ajout de sommets et de bords à un graphique dans l’Explorateur de données](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Une fois que vous avez ajouté des éléments, cliquez sur le bouton **Appliquer un filtre**, ou cliquez avec le bouton droit sur **Graph** et cliquez sur **New Graph Query** (Nouvelle requête Graph) pour afficher le graphique représentant vos données. Vous pouvez modifier l’étiquetage des données et le style qui leur est appliqué en cliquant sur le bouton **Style** et en modifiant vos paramètres. Voici un exemple de graphique dans l’Explorateur de données. Les étiquettes, les couleurs et les données affichées peuvent toutes être modifiées.
-
-    ![Afficheur Graph de l’Explorateur de données dans le portail Azure](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
-
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
 À présent, nous allons cloner une application API Graph à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
 1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel : 
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
@@ -69,7 +57,7 @@ Vous pouvez maintenant ajouter des données à votre nouveau graphique à l’ai
 
 3. Ouvrez le fichier de solution dans Visual Studio. 
 
-## <a name="review-the-code"></a>Examen du code
+## <a name="review-the-code"></a>Examiner le code
 
 Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
 
@@ -152,13 +140,13 @@ Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail 
 
     Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
 
-## <a name="review-slas-in-the-azure-portal"></a>Examen des SLA dans le portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le portail Azure en procédant de la façon suivante : 
+Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante : 
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.

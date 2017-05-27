@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25bfd2c6c25ddb8747dec58fdc68f904f81127fa
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 85bb0396809297f0efb7323bef081055f17ede62
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -27,9 +27,7 @@ Cet article vous guide dans le portail Azure pour créer un exemple de serveur A
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
-Ouvrez votre navigateur web et accédez au [portail Microsoft Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. La vue par défaut est votre tableau de bord des services.
-
-![Portail Azure - Connexion et tableau de bord](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
+Ouvrez votre navigateur web et accédez au [portail Microsoft Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
 ## <a name="create-azure-database-for-mysql-server"></a>Créer un serveur de base de données Azure pour MySQL
 
@@ -47,7 +45,7 @@ Dans notre exemple, vous renseignez la page Azure Database pour MySQL avec les i
 | *Connexion d’administrateur du serveur* | myadmin (nom du compte administrateur de l’installation) |
 | *Mot de passe* | mot de passe du compte administrateur de l’installation |
 | *Confirmer le mot de passe* | confirmez le mot de passe du compte administrateur |
-| *Emplacement* | Europe du Nord (choisissez entre **Europe du Nord** et **États-Unis de l'Ouest**) |
+| *Emplacement* | Europe du Nord (choisissez entre **Europe du Nord** et **États-Unis de l’Ouest**) |
 | *Version* | 5.6 (sélectionnez la version du serveur MySQL) |
 | *Configurer les performances* | De base (choisissez **Niveau de performance**, **Unités de calcul**, **Stockage**, puis cliquez sur **OK**) |
 
