@@ -12,10 +12,10 @@ ms.service: functions
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ef9d65ae5ad0792230e1b8c0d7ed123c129f0f59
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 05/10/2017
 
 Ce didacticiel de démarrage rapide vous guide dans l’utilisation des fonctions Azure en vue de créer votre première fonction. Utilisez Azure CLI afin de créer une Function App, qui correspond à l’infrastructure sans serveur qui héberge votre fonction. Le code de fonction est lui-même déployé à partir d’un référentiel d’exemples GitHub.    
 
-Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. Environ cinq minutes sont nécessaires pour effectuer toutes les étapes de cette rubrique.
+Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
 
 ## <a name="prerequisites"></a>Composants requis 
 

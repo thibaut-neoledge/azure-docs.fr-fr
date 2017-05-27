@@ -11,7 +11,7 @@
 
     Remplissez le panneau Nouveau compte en vous aidant des informations figurant dans la capture d’écran. Vous allez choisir des valeurs uniques lors de la configuration de votre compte, c’est pourquoi vos valeurs ne correspondront pas exactement à la capture d’écran. 
  
-    ![Capture d’écran du nouveau Panneau Azure Cosmos DB](./media/cosmosdb-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
+    ![Capture d’écran du panneau Nouveau > Azure Cosmos DB](./media/cosmosdb-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
@@ -20,7 +20,6 @@
     Abonnement|*Votre abonnement*|L’abonnement Azure que vous souhaitez utiliser pour le compte Azure Cosmos DB. 
     Groupe de ressources|*La même valeur que l’ID*|Le nouveau nom de groupe de ressources pour votre compte. Pour plus de simplicité, vous pouvez utiliser le même nom que votre ID. 
     Lieu|*La région la plus proche de vos utilisateurs*|La zone géographique dans laquelle héberger votre compte Azure Cosmos DB. Choisissez l’emplacement le plus proche de vos utilisateurs afin de leur donner l’accès le plus rapide aux données.
-    Plan App Service pour l’API Graph|Création - S1 par défaut|Sélectionnez la ressource de calcul pour exécuter les requêtes Gremlin Graph.
 
 4. Cliquez sur **Créer** pour créer le compte.
 5. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
