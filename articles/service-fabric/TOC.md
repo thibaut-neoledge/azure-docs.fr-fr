@@ -49,6 +49,7 @@
 #### [Déployer un conteneur Linux](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
+#### [Pilotes de journalisation et de volume](service-fabric-containers-volume-logging-drivers.md)
 
 ### Générer un service Reliable Service
 #### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [C# sur Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java sur Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Cycle de vie des Reliable Services
-##### [Configurer](service-fabric-reliable-services-configuration.md)
-##### [Envoi de notifications](service-fabric-reliable-services-notifications.md)
-##### [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
+#### [Configurer](service-fabric-reliable-services-configuration.md)
+#### [Envoi de notifications](service-fabric-reliable-services-notifications.md)
+#### [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
 
 #### Communiquer avec les services
 ##### [Communiquer avec Reliable Services](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Générer un service Reliable Actor
 #### [Vue d'ensemble](service-fabric-reliable-actors-introduction.md)
 #### Concepts
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Cycle de vie et garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Gestion des états](service-fabric-reliable-actors-state-management.md)
-#### [Polymorphisme](service-fabric-reliable-actors-polymorphism.md)
-#### [Réentrance](service-fabric-reliable-actors-reentrancy.md)
-#### [Sérialisation de type](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architecture](service-fabric-reliable-actors-platform.md)
+##### [Cycle de vie et garbage collection](service-fabric-reliable-actors-lifecycle.md)
+##### [Gestion des états](service-fabric-reliable-actors-state-management.md)
+##### [Polymorphisme](service-fabric-reliable-actors-polymorphism.md)
+##### [Réentrance](service-fabric-reliable-actors-reentrancy.md)
+##### [Sérialisation de type](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Prise en main
 ##### [C# sur Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Modèle de communication de service](service-fabric-connect-and-communicate-with-services.md)
 #### [Service DNS](service-fabric-dnsservice.md)
 #### [Proxy inversé](service-fabric-reverseproxy.md)
+#### [Configurer le proxy inverse pour une communication sécurisée](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Ajouter un serveur web frontal](service-fabric-add-a-web-frontend.md)
 

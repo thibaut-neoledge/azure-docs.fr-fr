@@ -13,6 +13,7 @@
 ## Utiliser des machines virtuelles dans un laboratoire
 ### [Créer des machines virtuelles](devtest-lab-add-vm.md)
 ### [Créer des machines virtuelles exigibles](devtest-lab-add-claimable-vm.md)
+### [Créer et gérer des machines virtuelles avec l’interface Azure CLI](devtest-lab-vmcli.md)
 
 ## Utiliser des environnements dans un laboratoire
 ### [Créer un environnement](devtest-lab-create-environment-from-arm.md)

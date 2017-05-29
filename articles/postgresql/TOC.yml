@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Ressources
     items:
-    - name: Niveaux de service
+    - name: Niveaux de tarification
       href: concepts-service-tiers.md
-    - name: Unités de calcul et unités de stockage
+    - name: Unités de calcul
       href: concepts-compute-unit-and-storage.md
     - name: limites
       href: concepts-limits.md
