@@ -1,26 +1,10 @@
 ---
-title: "Créer votre première fabrique de données Azure (portail Azure) | Microsoft Docs"
-description: "Dans ce didacticiel, vous créez un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure."
-services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+titre : Créer votre première fabrique de données (portail Azure) | Description de Documents Microsoft : dans ce didacticiel, vous créez un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure.
+services: data-factory documentationcenter: '' author: spelluru manager: jhubbard editor: monicar
 
+ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d ms.service: data-factory ms.workload: data-services ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article ms.date: 04/17/2017 ms.author: spelluru
 
----
+3
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Didacticiel : Créer votre première fabrique de données Azure à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
@@ -34,11 +18,11 @@ ms.lasthandoff: 02/03/2017
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre première fabrique de données Azure. Pour suivre le didacticiel avec d’autres outils/Kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante. 
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Didacticiel : Copier des données de Blob Storage vers une base de données SQL).
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
+> Ce didacticiel utilise uniquement une activité de type Copie. Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 2. Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Nous vous recommandons de lire l’article [Introduction à Azure Data Factory](data-factory-introduction.md) pour une présentation détaillée du service.  
 
@@ -61,13 +45,15 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
    >
 4. Sélectionnez l’ **abonnement Azure** où vous voulez que la fabrique de données soit créée.
 5. Sélectionnez un **groupe de ressources** existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé : **ADFGetStartedRG**.
-6. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
+6. Sélectionnez **l’emplacement** de la fabrique de données. Seules les régions prises en charge par le service Data Factory sont affichées dans la liste déroulante.
+7. Sélectionnez **Épingler au tableau de bord**. 
+8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
    >
    >
-7. La fabrique de données apparaît comme étant en cours de création dans le **Tableau d’accueil** du portail Azure, comme suit :   
+7. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : Déploiement de fabrique de données.    
 
    ![État de la création de la fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. Félicitations ! Vous avez créé votre première fabrique de données. Une fois la fabrique de données créée, la page correspondante s’affiche et indique son contenu.     
@@ -114,7 +100,6 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +112,6 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
    | Propriété | Description |
    |:--- |:--- |
-   | Version |Indique que la version de service HDInsight doit être la version 3.2. |
    | ClusterSize |Spécifie la taille du cluster HDInsight. |
    | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
    | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight. |
@@ -184,13 +168,16 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
    | Propriété | Description |
    |:--- |:--- |
-   | type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
-   | linkedServiceName |fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
-   | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité. |
-   | type |Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
-   | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (,) |
-   | frequency/interval |La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement. |
-   | external |Cette propriété a la valeur true si les données d’entrée ne sont pas générées par le service Data Factory. |
+   | type |La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
+   | linkedServiceName |Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
+   | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** contenant les objets blob d’entrée. | 
+   | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier **input.log** est traité. |
+   | type |Les fichiers journaux étant au format texte, nous utilisons **TextFormat**. |
+   | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une **virgule (`,`)**. |
+   | frequency/interval |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les segments d’entrée sont disponibles mensuellement. |
+   | external | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’étant pas généré par ce pipeline, nous définissons la propriété sur true. |
+
+    Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer. Vous devez voir le jeu de données dans l’arborescence sur la gauche.
 
 ### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
@@ -391,4 +378,3 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
-
