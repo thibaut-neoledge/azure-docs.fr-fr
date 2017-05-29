@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: Groupes de machines virtuelles identiques (VMSS)
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Service de métadonnées Instance 
+  - name: Service de métadonnées Instance
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Conteneurs
     href: containers.md
@@ -137,10 +138,7 @@
       href: csharp-template.md
     - name: Créer une machine virtuelle avec Chef
       href: chef-automation.md
-    - name: >-
-        Créer une machine virtuelle exécutant des infrastructures d’application
-        populaires
-
+    - name: Créer une machine virtuelle exécutant des infrastructures d’application populaires
       href: app-frameworks.md
     - name: Déplacer une machine virtuelle entre des abonnements
       href: move-vm.md
@@ -223,10 +221,7 @@
         href: upload-image.md
       - name: Créer une image non gérée
         href: capture-image.md
-      - name: >-
-          Créer une machine virtuelle non gérée à partir d’un disque dur virtuel
-          généralisé
-
+      - name: Créer une machine virtuelle non gérée à partir d’un disque dur virtuel généralisé
         href: create-vm-generalized.md
       - name: Copier une machine virtuelle
         href: vhd-copy.md
@@ -305,10 +300,7 @@
     - name: Extension de configuration d’état souhaité Powershell
       href: extensions-dsc-overview.md
       items:
-      - name: >-
-          Gestion des informations d’identification de l’extension de configuration
-          d’état souhaité Powershell
-
+      - name: Gestion des informations d’identification de l’extension de configuration d’état souhaité Powershell
         href: extensions-dsc-credentials.md
       - name: Configuration d’état souhaité et VMSS avec des modèles
         href: extensions-dsc-template.md
@@ -332,10 +324,7 @@
       href: sharepoint-farm.md
     - name: Configuration d’une application métier web dans un cloud hybride pour le test
       href: ps-hybrid-cloud-test-env-lob.md
-    - name: >-
-        Configuration d’une simulation d’environnement de cloud hybride à des fins de
-        test
-
+    - name: Configuration d’une simulation d’environnement de cloud hybride à des fins de test
       href: ps-hybrid-cloud-test-env-sim.md
     - name: MongoDB
       href: install-mongodb.md
@@ -347,23 +336,14 @@
       href: ../workloads/sap/get-started.md
   - name: Migrer des machines virtuelles
     items:
-    - name: >-
-        Vue d’ensemble de la migration de machines virtuelles AWS et locales vers
-        Azure
-
+    - name: Vue d’ensemble de la migration de machines virtuelles AWS et locales vers Azure
       href: on-prem-to-azure.md
       items:
       - name: Migrer d’Amazon Web Services (AWS) vers Azure
         href: aws-to-azure.md
-    - name: >-
-        Charger et créer une machine virtuelle à partir d’un disque dur virtuel
-        généralisé
-
+    - name: Charger et créer une machine virtuelle à partir d’un disque dur virtuel généralisé
       href: upload-generalized-managed.md
-    - name: >-
-        Charger et créer une machine virtuelle à partir d’un disque dur virtuel
-        spécialisé
-
+    - name: Charger et créer une machine virtuelle à partir d’un disque dur virtuel spécialisé
       href: upload-specialized.md
     - name: Migrer de Classic vers Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
@@ -391,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Réinitialiser le mot de passe RDP
       href: reset-rdp.md
+    - name: Diagnostics de démarrage
+ 
+      href: boot-diagnostics.md
     - name: Création d’une machine virtuelle
       href: troubleshoot-deployment-new-vm.md
     - name: Redémarrage ou redimensionnement d’une machine virtuelle
@@ -401,10 +384,9 @@
       href: allocation-failure.md
     - name: Redéploiement d’une machine virtuelle
       href: redeploy-to-new-node.md
-    - name: >-
-        Attacher un disque dur virtuel pour résoudre des problèmes de machine
-        virtuelle
-
+    - name: Messages d’erreur courants
+      href: error-messages.md
+    - name: Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle
       items:
       - name: "Azure\_PowerShell"
         href: troubleshoot-recovery-disks.md

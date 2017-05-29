@@ -5,7 +5,7 @@
   - name: À propos d’Azure Cosmos DB
     href: introduction.md
   - name: 'Clients DocumentDB, bienvenue'
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Démarrages rapides
   expanded: true
   items:
@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Basculement régional
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Définir le débit
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Analyser les contrats de niveau de service
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Gérer les clés et la cohérence
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automatisation
       items:
       - name: "Interface de ligne de commande Azure 1.0\_- Créer un compte"
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Prise en charge de pare-feu
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Sécurisation de l’accès aux données
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integrate
     items:
     - name: Se connecter à Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Se connecter à Spark GraphX
+      href: spark-connector-graph.md      
     - name: Déployer un site web dans Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Journalisation des applications avec Logic Apps

@@ -10,7 +10,6 @@
 ## [Déployer un cluster – Portail](container-service-deployment.md)
 ## [Déployer un cluster – Interface de ligne de commande Azure](container-service-create-acs-cluster-cli.md)
 ## [CI/CD avec Kubernetes et Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD avec DC/OS et VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD avec Docker Swarm et VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Concepts
@@ -44,6 +43,7 @@
 #### [Surveiller avec OMS](container-service-kubernetes-oms.md)
 #### [Surveiller avec Datadog](container-service-kubernetes-datadog.md)
 #### [Surveiller avec Sysdig](container-service-kubernetes-sysdig.md)
+#### [Surveiller avec CoScale](container-service-kubernetes-coscale.md)
 ## Gérer avec Docker Swarm
 ### [Docker et Docker Compose](container-service-docker-swarm.md)
 

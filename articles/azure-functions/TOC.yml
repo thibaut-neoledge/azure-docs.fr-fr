@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Concepts
   items:
-  - name: Plans d’hébergement
+  - name: "Plans Consommation et App\_Service"
     href: functions-scale.md
   - name: Déclencheurs et liaisons
     href: functions-triggers-bindings.md
+  - name: Langues
+    items:
+    - name: 'Concepts de fonctions C#'
+      href: functions-reference-csharp.md
+    - name: 'Concepts de fonctions F#'
+      href: functions-reference-fsharp.md
+    - name: Concepts de fonctions JavaScript
+      href: functions-reference-node.md    
 - name: Procédures
   items:
+  - name: Guide du développeur
+    href: functions-reference.md
   - name: Test des fonctions Azure
     href: functions-test-a-function.md
   - name: Développer et déboguer localement
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Installer les fonctions Runtime
     href: functions-runtime-install.md
+  - name: Connexion à la base de données SQL
+    href: functions-scenario-database-table-cleanup.md
+  - name: Créer une définition OpenAPI 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Meilleures pratiques pour les fonctions Azure
+    href: functions-best-practices.md     
 - name: Référence
   items:
-  - name: Développer des applications de fonction
-    href: functions-reference.md
-    items:
-    - name: Ouvrir une API 2.0
-      href: functions-api-definition.md
-  - name: Meilleures pratiques pour les fonctions Azure
-    href: functions-best-practices.md
   - name: Liaisons
     items:
     - name: Liaisons Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Liaison de sortie Twilio
       href: functions-bindings-twilio.md
-  - name: Frameworks
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Référence OpenAPI
+    href: functions-api-definition.md     
 - name: Ressources
   items:
   - name: Tarification

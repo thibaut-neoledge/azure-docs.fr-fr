@@ -21,9 +21,13 @@
 ### [Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Portail Azure (classique)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Générer des certificats auto-signés pour les connexions point à site
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Configurer une connexion de réseau virtuel à réseau virtuel
 ### [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
 ### [Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Créer des certificats auto-signés pour les connexions point à site
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Référence
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (classique)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj154113)
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)
+## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Rubriques connexes
 ## [Réseau virtuel](/azure/virtual-network/)

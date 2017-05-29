@@ -44,6 +44,7 @@
 
 ## Gérer
 ### [Inscriptions](notification-hubs-push-notification-registration-management.md)
+### [Authentification basée sur les jetons APNS](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Sécuriser](notification-hubs-push-notification-security.md)
 ### Notification Push sécurisée
