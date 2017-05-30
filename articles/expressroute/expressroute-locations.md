@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 05/22/2017
 ms.author: pareshmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4e18db124436b8e2ed429ea7977b047142f2dfc9
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 28105bb35e4219488cd901ac01065adb8c321f75
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -43,7 +43,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
-| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
+| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
 | **Amérique du Sud** |Sud du Brésil |São Paulo |
 | **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
 | **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour |
@@ -56,7 +56,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 Le tableau ci-dessous fournit des informations sur les régions et les limites géopolitiques et des clouds nationaux.
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Cloud du gouvernement des États-Unis** |Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **Chine** |Chine du Nord, Chine orientale |Beijing, Shanghai |
 | **Allemagne** |Allemagne centrale, Allemagne de l’est |Berlin, Francfort |
@@ -84,7 +84,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Comcast** |Pris en charge |Pris en charge |Chicago, Silicon Valley, Washington DC |
 | **Console**| Pris en charge | Pris en charge |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Pris en charge |Pris en charge |Denver+, Los Angeles, New York |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Pris en charge |Pris en charge |Amsterdam |
 | **GÉANT** |Pris en charge |Pris en charge |Amsterdam |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Pris en charge| Pris en charge | Chennai |
@@ -97,7 +97,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[KPN](http://www.kpn.com/cloudconnect)** | Pris en charge | Pris en charge | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Pris en charge |Pris en charge |Busan |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, New York, Québec, Seattle, Singapour, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, New York, Québec, Seattle, Silicon Valley, Singapour, Sydney, Toronto, Washington DC |
 | **MTN** |Pris en charge |Pris en charge |Londres |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Pris en charge |Pris en charge |Newport (Nouvelle-Galles du Sud) |
 | **NEXTDC** |Pris en charge |Pris en charge |Melbourne, Sydney |
@@ -147,8 +147,6 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Pris en charge |Non pris en charge |Berlin |
 | **Interxion** |Pris en charge |Non pris en charge |Francfort |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge  | Non pris en charge | Berlin |
-
-## <a name="c1partners"></a>Connectivité via d’autres fournisseurs de services
 
 ## <a name="connectivity-through-exchange-providers"></a>Connectivité via des fournisseurs Exchange
 

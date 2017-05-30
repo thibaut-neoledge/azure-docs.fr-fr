@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -120,7 +122,7 @@ Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-re
 ![Images de couloirs d’application native](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitations actuelles
-Pour l’instant, Azure AD B2C ne prend pas en charge les types d’applications ci-après, mais ces dernières figurent sur la feuille de route. Les autres limites et restrictions associées à Azure AD B2C sont décrites dans [Limites et restrictions](active-directory-b2c-limitations.md).
+Pour l’instant, Azure AD B2C ne prend pas en charge les types d’applications ci-après, mais ces dernières figurent sur la feuille de route. 
 
 ### <a name="daemonsserver-side-apps"></a>Démons/applications côté serveur
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur) et à l’aide du flux des informations d’identification du client OAuth 2.0.
@@ -131,9 +133,4 @@ Ce flux n’est pas actuellement pris en charge par Azure AD B2C. Ces applicat
 De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant chez les clients natifs disposant d’une API web principale. Il appelle ensuite un service en ligne Microsoft, tel que l’API Azure AD Graph.
 
 Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of.  Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

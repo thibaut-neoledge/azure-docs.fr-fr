@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -87,27 +87,15 @@ Nommez votre groupe de ressources **myResourceGroup** et cliquez sur **OK**.
 
 ## <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-Votre application web Azure nécessite également un _plan App Service_. 
-
-> [!NOTE]
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
->
-> Les plans App Service définissent :
->
-> - Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique)
-> - Taille d’instance (« Petit », « Moyen » ou « Grand »)
-> - Comptage (une, deux ou trois instances, etc.) 
-> - Référence (SKU) (gratuit, partagé, basique, standard, premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 À côté de **Plan App Service**, cliquez sur **Nouveau**. 
 
 Dans la boîte de dialogue **Configurer plan App Service** configurez le nouveau plan App Service avec les paramètres suivants :
 
 - **Plan App Service** : type **myAppServicePlan**. 
-- **Emplacement** : choisissez **Europe de l’Ouest**, ou toute autre région.
-- **Taille** : choisissez **Gratuit**, ou tout autre [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/).
+- **Emplacement** : choisissez **Europe de l’Ouest**, ou une région proche de vous.
+- **Taille** : choisissez **Gratuit**, ou un autre [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/).
 
 Cliquez sur **OK**.
 
