@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin | Microsoft Docs"
+title: "Didacticiel Azure Cosmos DB : Créer, interroger et parcourir la console Apache TinkerPops Gremlin | Microsoft Docs"
 description: "Démarrage rapide d’Azure Cosmos DB pour créer des vertex, des bords et des requêtes à l’aide de l’API Graph Azure Cosmos DB."
 services: cosmosdb
 author: AndrewHoh
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/19/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fb27ba1a70959ba92fbd021e9e42438081000e45
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: caf3b69b25ccd15322054a0bbf95fc2a5816e00a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/20/2017
 
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données, ainsi qu’un graphique (conteneur) et comment utiliser ensuite la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) pour travailler avec les données API Graph (préversion). Dans ce didacticiel, vous allez créer et interroger des vertex et des bords, mettre à jour une propriété de vertex, interroger des vertex, parcourir le graphique et supprimer un vertex.
+Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données, ainsi qu’un graphique (conteneur) et comment utiliser ensuite la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) à partir d’[Apache TinkerPop](http://tinkerpop.apache.org) pour travailler avec les données API Graph (version préliminaire). Dans ce didacticiel, vous allez créer et interroger des vertex et des bords, mettre à jour une propriété de vertex, interroger des vertex, parcourir le graphique et supprimer un vertex.
 
 ![Azure Cosmos DB à partir de la console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -53,12 +53,12 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    Hôtes|***.graphs.azure.com|Votre service graphique URI, que vous pouvez récupérer à partir du portail Azure
-    Port|443|Défini sur 443
+    Hôtes|***. graphs.azure.com|Votre service graphique URI, que vous pouvez récupérer à partir du portail Azure
+    Port|443|Définir à 443
     Nom d’utilisateur|*Votre nom d’utilisateur*|La ressource au format `/dbs/<db>/colls/<coll>`.
     Mot de passe|*Votre clé principale primaire*|Votre clé principale primaire pour Azure Cosmos DB
     ConnectionPool|{enableSsl: true}|Votre paramètre de pool de connexions pour SSL
-    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Défini sur cette valeur
+    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: {serializeResultToString: true }}|Défini sur cette valeur
 
 3. Sur votre terminal, exécutez *bin/gremlin.bat* ou *bin/gremlin.sh* pour démarrer la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. Sur votre terminal, exécutez *:remote connect tinkerpop.server conf/remote-secure.yaml* pour vous connecter à votre App Service.
@@ -258,9 +258,9 @@ Félicitations ! Vous avez terminé ce tutoriel Azure Cosmos DB : API Graph !
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne pensez pas utiliser à nouveau cette application, supprimez toutes les ressources créées par ce démarrage rapide dans le portail Azure en procédant comme suit :  
+Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :  
 
-1. À partir du menu de gauche dans le portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -269,4 +269,3 @@ Dans ce démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB,
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)
-

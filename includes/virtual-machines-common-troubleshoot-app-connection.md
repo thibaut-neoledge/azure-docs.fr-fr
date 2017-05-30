@@ -2,27 +2,25 @@ Plusieurs raisons peuvent expliquer le fait que vous ne puissiez pas démarrer o
 
 Si vous rencontrez des problèmes de connexion à votre machine virtuelle à l’aide de RDP ou de SSH, consultez l’un des articles suivants :
 
-* [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../articles/resource-manager-deployment-model.md). Cet article traite des deux modèles, mais Microsoft recommande d’utiliser le modèle Resource Manager dans la plupart des nouveaux déploiements.
-> 
-> 
 
 Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
 
-## <a name="quick-start-troubleshooting-endpoint-connectivity-problems"></a>Résolution rapide des problèmes de connectivité de point de terminaison
+## <a name="quick-start-troubleshooting-steps"></a>Étapes de dépannage rapide
 Si vous avez des problèmes de connexion à une application, essayez les étapes génériques suivantes. Après chaque étape, essayez de vous connecter à votre application :
 
 * Redémarrez la machine virtuelle.
 * Recréez le point de terminaison, les règles de pare-feu et les règles de groupe de sécurité réseau.
-  * [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connectez-vous à partir d’un emplacement différent, tel qu’un autre réseau virtuel Azure.
 * Redéployez la machine virtuelle.
-  * [Redéployez la machine virtuelle Windows.](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Redéployer la machine virtuelle Linux.](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Redéployez la machine virtuelle Windows.](../articles/virtual-machines/windows/redeploy-to-new-node.md)
+  * [Redéployer la machine virtuelle Linux.](../articles/virtual-machines/linux/redeploy-to-new-node.md)
 * Recréez la machine virtuelle.
 
 Pour plus d'informations, consultez [Résolution des problèmes de connectivité de point de terminaison (échecs RDP/SSH/HTTP, etc.)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -44,6 +42,7 @@ La résolution des problèmes d’accès à une application exécutée sur une m
    * Les règles de pare-feu en place empêchent-elles la circulation correcte du trafic ?
 
 Pour les ordinateurs clients qui accèdent à l’application par le biais d’une connexion de réseau privé virtuel de site à site ou d’une connexion ExpressRoute, les principaux éléments susceptibles de poser problème sont l’application et la machine virtuelle Azure.
+
 Pour déterminer la source du problème et sa correction, procédez comme suit.
 
 ## <a name="step-1-access-application-from-target-vm"></a>Étape 1 : Accéder à une application à partir de la machine virtuelle cible
@@ -115,7 +114,7 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 * Le trafic des réponses des applications entrantes, de la machine virtuelle Azure.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-[Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
-[Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

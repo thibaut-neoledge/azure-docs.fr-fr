@@ -1,6 +1,6 @@
 ---
-title: "Surveiller les performances d’une application SaaS SQL Database | Microsoft Docs"
-description: "Surveiller et gérer les performances de l’exemple d’application WTP Azure SQL Database"
+title: "Surveiller les performances de nombreuses bases de données Azure SQL dans une application de SaaS mutualisée | Documents Microsoft"
+description: "Surveiller et gérer les performances de l’exemple d’application SaaS Wingtip Azure SQL Database"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 54f29cc816d356e22b425f3824ef89800c017e61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="monitor-performance-of-the-wtp-sample-saas-application"></a>Surveiller les performances de l’exemple d’application SaaS WTP
+# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Surveiller les performances de l’application SaaS Wingtip
 
 Ce tutoriel illustre les fonctionnalités intégrées de surveillance et de gestion d’alertes de SQL Database et des pools élastiques. Il présente ensuite plusieurs scénarios clés de gestion des performances utilisés dans les applications SaaS.
 
-L’application Wingtip Tickets utilise un modèle de données par locataire, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-what-is-a-dtu.md). Ce tutoriel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application SaaS Wingtip utilise un modèle de données à client unique, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-what-is-a-dtu.md). Ce tutoriel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -42,10 +42,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-saas-performance-management-patterns"></a>Introduction aux modèles de gestion des performances SaaS
+## <a name="introduction-to-saas-performance-management-patterns"></a>Présentation des modèles de gestion de la performance SaaS
 
 La gestion des performances des bases de données se compose des opérations suivantes : compilation et analyse des données de performances, puis réaction à ces données en ajustant les paramètres afin de conserver un temps de réponse acceptable pour votre application. Lorsque vous hébergez plusieurs locataires, les pools de bases de données élastiques sont un moyen économique pour fournir et gérer des ressources d’un groupe de bases de données avec des charges de travail imprévisibles. Avec certains modèles de charge de travail, il peut être avantageux de gérer ne serait-ce que 2 bases de données S3 dans un pool. Un pool partage le coût des ressources, mais il peut également éliminer la nécessité de constamment surveiller et suivre les bases de données individuelles.
 
@@ -66,7 +66,7 @@ Pour les scénarios impliquant de grands volumes, il est possible d’utiliser L
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-additional-tenants"></a>Approvisionner des locataires supplémentaires
 
@@ -80,7 +80,7 @@ Si vous avez déjà configuré un lot de locataires dans un tutoriel précédent
 
 Le script déploie 17 locataires en moins de cinq minutes.
 
-Le script *New-TenantBatch* utilise un ensemble imbriqué ou lié de modèles [Resource Manager](../azure-resource-manager/index.md) qui créent un lot de locataires, ce qui copie par défaut la base de données **baseTenantDb** sur le serveur de catalogue pour créer de nouvelles bases de données de locataire, puis inscrit celles-ci dans le catalogue, avant de les initialiser avec le type de lieu et le nom du locataire. Ce comportement est cohérent avec la manière dont l’application WTP approvisionne un nouveau locataire. Les modifications apportées à *baseTenantDB* sont appliquées aux nouveaux locataires approvisionnés par la suite. Consultez le [tutoriel de gestion de schéma](sql-database-saas-tutorial-schema-management.md) pour voir comment apporter des modifications de schéma à des bases de données de locataire *existantes*, y compris la base de données *or* (golden).
+Le script *New-TenantBatch* utilise un ensemble imbriqué ou lié de modèles [Resource Manager](../azure-resource-manager/index.md) qui créent un lot de locataires, ce qui copie par défaut la base de données **baseTenantDb** sur le serveur de catalogue pour créer de nouvelles bases de données de locataire, puis inscrit celles-ci dans le catalogue, avant de les initialiser avec le type de lieu et le nom du locataire. Ce comportement est cohérent avec la manière dont l’application approvisionne un nouveau locataire. Les modifications apportées à *baseTenantDB* sont appliquées aux nouveaux locataires approvisionnés par la suite. Consultez le [tutoriel de gestion de schéma](sql-database-saas-tutorial-schema-management.md) pour voir comment apporter des modifications de schéma à des bases de données de locataire *existantes*, y compris la base de données *or* (golden).
 
 ## <a name="simulate-different-usage-patterns-by-generating-different-load-types"></a>Simuler différents modèles d’utilisation en générant différents types de charge
 
@@ -222,7 +222,7 @@ Une fois que la charge supérieure à la normale sur la base de données contoso
 
 ## <a name="other-performance-management-patterns"></a>Autres modèles de gestion des performances
 
-**Mise à l’échelle préemptive** : dans l’exercice 6 où vous avez exploré la mise à l’échelle d’une base de données isolée, vous saviez quelle base de données rechercher. Si la direction de la salle de concert Contoso avait informé WTP de la vente de tickets imminente, la base de données aurait pu être déplacée hors du pool préalablement. Dans le cas contraire, il aurait probablement été nécessaire de configurer une alerte sur le pool ou la base de données pour détecter ce qui s’est produit. Vous ne voulez pas prendre connaissance de ce type de problème par d’autres locataires du pool qui se plaignent d’une dégradation des performances. Et si le locataire peut prédire la durée pendant laquelle il va avoir besoin de ressources supplémentaires, vous pouvez configurer un runbook Azure Automation pour déplacer la base de données hors du pool puis la réimporter selon une planification définie.
+**Mise à l’échelle préemptive** : dans l’exercice 6 où vous avez exploré la mise à l’échelle d’une base de données isolée, vous saviez quelle base de données rechercher. Si la direction du Contoso Concert Hall avait informé Wingtip d’une vente imminente de tickets, la base de données aurait pu être préalablement déplacée hors du pool. Dans le cas contraire, il aurait probablement été nécessaire de configurer une alerte sur le pool ou la base de données pour détecter ce qui s’est produit. Vous ne voulez pas prendre connaissance de ce type de problème par d’autres locataires du pool qui se plaignent d’une dégradation des performances. Et si le locataire peut prédire la durée pendant laquelle il va avoir besoin de ressources supplémentaires, vous pouvez configurer un runbook Azure Automation pour déplacer la base de données hors du pool puis la réimporter selon une planification définie.
 
 **Mise à l’échelle libre-service par le locataire** : comme la mise à l’échelle est une tâche facilement appelée via l’API de gestion, vous pouvez aisément configurer la possibilité de mettre à l’échelle des bases de données de locataire dans votre application côté locataire et l’offrir en tant que fonctionnalité de votre service SaaS. Par exemple, laissez les locataires administrer la mise à l’échelle en liant ces opérations à leur facturation.
 
@@ -247,7 +247,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres tutoriels reposant sur le déploiement initial d’applications Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Autres [didacticiels reposant sur le déploiement de l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pools élastiques SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Tutoriel Configuration et utilisation de Log Analytics

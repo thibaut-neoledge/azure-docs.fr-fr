@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cbe2b6bbc8e193bdbbf08572a8488239c633548d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>Gérer un schéma pour plusieurs locataires dans l’application SaaS WTP
+# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Gérer un schéma pour plusieurs clients dans l’application SaaS Wingtip
 
-Le didacticiel de présentation de l’application WTP montre comment l’application WTP peut configurer une base de données de locataire avec son schéma initial et l’inscrire dans le catalogue. Comme n’importe quelle application, l’application WTP évolue au fil du temps et nécessite parfois l’apport de modifications à la base de données. Ces modifications peuvent inclure un schéma nouveau ou modifié, des données de référence nouvelles ou modifiées et des tâches de maintenance de routine de la base de données pour garantir des performances optimales de l’application. Avec une application SaaS, ces modifications doivent être déployées de façon coordonnée dans un parc potentiellement immense de bases de données de locataire. Les modifications doivent également être incorporées dans le processus d’approvisionnement pour les bases de données de locataire ultérieures.
+Le [premier didacticiel SaaS Wingtip](sql-database-saas-tutorial.md) montre comment l’application peut approvisionner une base de données client et l’enregistrer dans le catalogue. Comme n’importe quelle application, l’application SaaS Wingtip évolue au fil du temps et nécessite parfois l’apport de modifications à la base de données. Ces modifications peuvent inclure un schéma nouveau ou modifié, des données de référence nouvelles ou modifiées et des tâches de maintenance de routine de la base de données pour garantir des performances optimales de l’application. Avec une application SaaS, ces modifications doivent être déployées de façon coordonnée dans un parc potentiellement immense de bases de données de locataire. Les modifications doivent également être incorporées dans le processus d’approvisionnement pour les bases de données de locataire ultérieures.
 
-Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité de [travaux élastiques](sql-database-elastic-jobs-overview.md) est utilisée pour exécuter ces opérations sur l’ensemble des locataires et sur une base de données de locataire *principale* qui sert de modèle pour les nouvelles bases de données.
+Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité de [travaux élastiques](sql-database-elastic-jobs-overview.md) est utilisée pour exécuter ces opérations sur l’ensemble des clients et sur la base de données de client *principale* qui sert de modèle pour les nouvelles bases de données.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -41,7 +41,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La dernière version de SQL Server Management Studio (SSMS) est installée. [Télécharger et installer SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -62,9 +62,9 @@ Il existe une nouvelle version des travaux élastiques qui est désormais une fo
 > [!NOTE]
 > *Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Comme il s’agit d’une préversion limitée, vous devez contacter SaaSFeedback@microsoft.com pour toute question ou demande de support associée.*
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts de l’application Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** sur votre ordinateur local, sans en modifier l’arborescence.
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Créer une base de données de compte de travail et un compte de travail
 
@@ -89,11 +89,11 @@ Pour créer un travail, nous utilisons un ensemble de procédures stockées syst
 1. Connectez-vous également au serveur de locataire tenants1-\<user\>.database.windows.net.
 1. Accédez à la base de données *contosoconcerthall* sur le serveur *tenants1* et interrogez la table *VenueTypes* pour vérifier que *Motorcycle Racing* et *Swimming Club* **ne figurent pas** dans la liste des résultats.
 1. Ouvrez le fichier ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql.
-1. Remplacez les trois occurrences de \<user\> dans le script par le nom d’utilisateur utilisé lors du déploiement de l’application WTP.
+1. Remplacez les trois occurrences de \<user\> dans le script par le nom d’utilisateur utilisé lors du déploiement de l’application Wingtip.
 1. Assurez-vous que vous êtes connecté à la base de données jobaccount, puis appuyez sur **F5** pour exécuter le script.
 
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup. Nous devons à présent ajouter des membres cibles.
-* **sp\_add\_target\_group\_member** ajoute un type de membre cible *server*, qui estime que toutes les bases de données de ce serveur (notez qu’il s’agit du serveur customer1-&lt;WtpUser&gt; contenant les bases de données de locataire) au moment de l’exécution du travail doivent être incluses dans le travail, un type de membre *database*, à savoir la base de données principale baseTenantDB, hébergée sur le serveur catalog-&lt;WtpUser&gt;, et enfin un autre type de membre de groupe cible *database* afin d’inclure la base de données adhocanalytics utilisée dans un prochain didacticiel.
+* **sp\_add\_target\_group\_member** ajoute un type de membre cible *server*, qui estime que toutes les bases de données de ce serveur (notez qu’il s’agit du serveur customer1-&lt;User&gt; contenant les bases de données de locataire) au moment de l’exécution du travail doivent être incluses dans le travail, un type de membre *database*, à savoir la base de données principale baseTenantDB, hébergée sur le serveur catalog-&lt;User&gt;, et enfin un autre type de membre de groupe cible *database* afin d’inclure la base de données adhocanalytics utilisée dans un prochain didacticiel.
 * **sp\_add\_job** crée une tâche appelée « Reference Data Deployment » (Déploiement des données de référence).
 * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour la table de référence, VenueTypes.
 * Les autres vues du script indiquent l’existence des objets et contrôlent l’exécution du travail. Examinez la valeur de l’état dans la colonne **lifecycle**. Le travail a été accompli avec succès sur toutes les bases de données de locataire et les deux autres bases de données contenant la table de référence.
@@ -107,9 +107,9 @@ De façon similaire à l’exercice précédent, cet exercice crée un travail p
 
 Créez un travail en utilisant les mêmes procédures stockées « système » dédiées aux travaux.
 
-1. Ouvrez SSMS et connectez-vous au serveur catalog-&lt;WtpUser&gt;.database.windows.net.
+1. Ouvrez SSMS et connectez-vous au serveur catalog-&lt;User&gt;.database.windows.net.
 1. Ouvrez le fichier ...\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-1. Cliquez sur le bouton droit de la souris, sélectionnez Connexion et connectez-vous au serveur catalog-&lt;WtpUser&gt;.database.windows.net si ce n’est pas déjà fait.
+1. Si vous n’êtes pas déjà connecté, cliquez avec le bouton droit, sélectionnez Connexion et connectez-vous au serveur de catalogue &lt;User&gt;.database.windows.net
 1. Assurez-vous que vous êtes connecté à la base de données jobaccount, puis appuyez sur F5 pour exécuter le script.
 
 * sp\_add\_job crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 ».
@@ -133,6 +133,6 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres didacticiels reposant sur le déploiement initial de l’application Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Autres didacticiels reposant sur le déploiement de l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
 * [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)

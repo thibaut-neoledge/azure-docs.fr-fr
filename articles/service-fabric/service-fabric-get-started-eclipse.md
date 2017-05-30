@@ -1,4 +1,4 @@
----
+--- 
 title: Plug-in Azure Service Fabric pour Eclipse | Documents Microsoft
 description: Prise en main du plug-in Service Fabric pour Eclipse
 services: service-fabric
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 05/03/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -34,8 +35,8 @@ Vous pouvez installer un plug-in Service Fabric sur Eclipse. Ce plug-in peut aid
     -   Pour vérifier et installer les mises à jour pour Eclipse Neon, accédez à **Aide** > **Rechercher les mises à jour**.
 
 2.  Pour installer le plug-in Service Fabric, dans Eclipse Neon, accédez à **Aide** > **Installer un nouveau logiciel**.
-  1.    Dans la zone de texte **Utiliser**, entrez : **http://dl.windowsazure.com/eclipse/servicefabric**.
-  2.    Cliquez sur **Ajouter**.
+  1.    Dans la zone **Work with** (Utiliser avec), entrez : **http://dl.microsoft.com/eclipse**.
+  2.    Cliquez sur **Add**.
     ![Plug-in Service Fabric pour Eclipse Neon][sf-eclipse-plugin-install]
   3.    Sélectionnez le plug-in Service Fabric, puis cliquez sur **Suivant**.
   4.    Terminez les étapes d’installation, puis acceptez les termes du contrat de licence du logiciel Microsoft.
@@ -43,7 +44,7 @@ Vous pouvez installer un plug-in Service Fabric sur Eclipse. Ce plug-in peut aid
 Si le plug-in Service Fabric est déjà installé, assurez-vous que vous disposez de la dernière version. Pour vérifier les mises à jour disponibles, accédez à **Aide** > **Détails de l’installation**. Dans la liste des plug-ins installés, sélectionnez Service Fabric, puis cliquez sur **Mettre à jour**. Les mises à jour disponibles seront installées.
 
 > [!NOTE]
-> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites, sauf pour celui qui pointe vers l’emplacement du plug-in Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
+> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites, sauf pour celui qui pointe vers l’emplacement du plug-in Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Créer une application Service Fabric dans Eclipse
 
@@ -123,6 +124,12 @@ Pour ajouter un service Service Fabric à une application Service Fabric existan
 5.  Une fois le service ajouté, la structure globale de votre projet ressemble au projet suivant :
 
     ![Ajouter un service Service Fabric, page 4][add-service/p4]
+
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Modifier les versions de manifeste de votre application Java Service Fabric
+
+Pour modifier les versions de manifeste, cliquez avec le bouton droit sur le projet, accédez à **Service Fabric** et sélectionnez **Modifier les versions de manifeste...**  à partir de la liste déroulante du menu. Dans l’Assistant, vous pouvez mettre à jour les versions du manifeste d’application, du manifeste de service et des packages **Code**, **Config** et **Data**.
+
+Si vous activez l’option **Mettre à jour automatiquement les versions des applications et des services**, puis que vous mettez à jour une version, les versions des manifestes seront automatiquement mises à jour. Par exemple, vous commencez par cocher la case, vous changez la version du **Code** de 0.0.0 à 0.0.1, puis vous cliquez sur **Terminer**. La version du manifeste de service et du manifeste d’application sera automatiquement mise à jour à 0.0.1.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Mettre à niveau votre application Java Service Fabric
 

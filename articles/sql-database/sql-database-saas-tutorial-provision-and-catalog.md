@@ -1,6 +1,6 @@
 ---
 title: "Approvisionner de nouveaux locataires dans une application multi-locataire, à l’aide de Azure SQL Database | Microsoft Docs"
-description: "Approvisionner et répertorier dans un catalogue de nouveaux locataires dans l’exemple d’application SaaS WTP SQL Database"
+description: "Approvisionner et cataloguer de nouveaux locataires dans l’application SaaS Wingtip"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cf2fa0950f9f9df833051979b02355236214c4ea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
-Dans ce tutoriel, vous allez approvisionner de nouveaux locataires dans l’application SaaS WTP (Wingtip Tickets Platform). Vous créez des locataires, des bases de données de locataires et inscrivez les locataires dans le catalogue. Le *catalogue* est une base de données qui gère le mappage entre les nombreux locataires des applications SaaS et les données associées. Utilisez ces scripts pour explorer les modèles d’approvisionnement et d’inscription au catalogue utilisés et pour voir la façon dont l’inscription de nouveaux locataires dans le catalogue est implémentée. Le catalogue joue un rôle important, car il dirige les demandes de l’application vers les bases de données appropriées.
+Dans ce didacticiel, vous allez apprendre à approvisionner de nouveaux locataires dans l’application SaaS Wingtip. Vous créez des locataires, des bases de données de locataires et inscrivez les locataires dans le catalogue. Le *catalogue* est une base de données qui gère le mappage entre les nombreux locataires des applications SaaS et les données associées. Utilisez ces scripts pour explorer les modèles d’approvisionnement et d’inscription au catalogue utilisés et pour voir la façon dont l’inscription de nouveaux locataires dans le catalogue est implémentée. Le catalogue joue un rôle important, car il dirige les demandes de l’application vers les bases de données appropriées.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -39,16 +39,16 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Présentation du modèle de catalogue SaaS
 
-Dans une application SaaS mutualisée appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et l’endroit où sont stockées les données. L’application WTP utilise une architecture de base de données à locataire unique. Toutefois, le modèle de base relatif au stockage du mappage locataire/base de données dans un catalogue s’applique que la base de données soit mutualisée ou à locataire unique.
+Dans une application SaaS mutualisée appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et l’endroit où sont stockées les données. L’application SaaS Wingtip utilise une architecture de base de données à locataire unique. Toutefois, le modèle de base relatif au stockage du mappage locataire/base de données dans un catalogue s’applique, que la base de données soit mutualisée ou à locataire unique.
 
-Chaque locataire reçoit une clé qui différencie ses données dans le catalogue. Dans l’application WTP, la clé est formée à partir d’un hachage du nom du locataire. Ce modèle permet d’utiliser le nom du locataire dans l’URL de l’application pour construire la clé et récupérer les connexions d’un locataire spécifique. D’autres modèles d’identification peuvent être utilisés sans affecter le modèle global.
+Chaque locataire reçoit une clé qui différencie ses données dans le catalogue. Dans le cas de l’application SaaS Wingtip, la clé est générée à partir d’un code de hachage du nom du locataire. Ce modèle permet d’utiliser le nom du locataire dans l’URL de l’application pour construire la clé et récupérer les connexions d’un locataire spécifique. D’autres modèles d’identification peuvent être utilisés sans affecter le modèle global.
 
-Le catalogue de l’application WTP est implémenté à l’aide de la technologie de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](sql-database-elastic-database-client-library.md). La bibliothèque EDCL est responsable de la création et de la gestion d’un _catalogue_ appuyé par une base de données où une _carte de partitions_ est conservée. Le catalogue contient le mappage entre les clés (locataires) et leurs bases de données (partitions).
+Le catalogue de l’application est implémenté à l’aide de la technologie de gestion des partitions dans la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](sql-database-elastic-database-client-library.md). La bibliothèque EDCL est responsable de la création et de la gestion d’un _catalogue_ appuyé par une base de données où une _carte de partitions_ est conservée. Le catalogue contient le mappage entre les clés (locataires) et leurs bases de données (partitions).
 
 > [!IMPORTANT]
 > Bien que les données de mappage soient accessibles dans la base de données de catalogue, *ne les modifiez pas*. Modifiez les données de mappage des API Elastic Database Client Library uniquement. Manipuler directement les données de mappage risque d’endommager le catalogue et n’est pas pris en charge.
@@ -57,16 +57,16 @@ L’application SaaS Wingtip approvisionne de nouveaux locataires en copiant une
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
 
-Si vous avez déjà créé un locataire dans le premier tutoriel WTP, passez à la section suivante : [Approvisionner un lot de locataires](#provision-a-batch-of-tenants).
+Si vous avez déjà créé un locataire dans le [premier didacticiel SaaS Wingtip](sql-database-saas-tutorial.md), vous pouvez directement passer à la section suivante : [approvisionner un lot de locataires](#provision-a-batch-of-tenants).
 
 Exécutez le script *Demo-ProvisionAndCatalog* pour créer rapidement un locataire et l’inscrire dans le catalogue :
 
 1. Ouvrez **Demo-ProvisionAndCatalog.ps1** dans l’ISE PowerShell et définissez les valeurs suivantes :
-   * **$TenantName** = nom du nouveau lieu (par exemple *Bushwillow Blues*). 
+   * **$TenantName** = nom du nouveau lieu (par exemple *Bushwillow Blues*).
    * **$VenueType** = un des types prédéfinis de décor : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = 1, laissez cette valeur définie sur _1_ pour **approvisionner un seul locataire**.
 
@@ -79,7 +79,7 @@ Une fois le script terminé, le nouveau locataire est approvisionné et son appl
 
 ## <a name="provision-a-batch-of-tenants"></a>Approvisionner un lot de locataires
 
-Cet exercice permet d’approvisionner un lot de locataires supplémentaires. Avant de le suivre, il est recommandé d’effectuer les autres tutoriels WTP.
+Cet exercice permet d’approvisionner un lot de locataires supplémentaires. Il est préférable de suivre ces étapes avant de réaliser tout autre didacticiel SaaS Wingtip.
 
 1. Ouvrez ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* dans l’*ISE PowerShell* et définissez les valeurs suivantes :
    * **$DemoScenario** = **3**. Définissez sur **3** pour **Approvisionner un lot de locataires**.
@@ -156,9 +156,9 @@ Voici les autres modèles d’approvisionnement non inclus dans ce tutoriel :
 
 ## <a name="stopping-wingtip-saas-application-related-billing"></a>Arrêt de la facturation liée à l’application SaaS Wingtip
 
-Si vous ne prévoyez pas de passer à un autre tutoriel, il est recommandé de supprimer toutes les ressources pour interrompre la facturation. Supprimez le groupe de ressources dans lequel l’application WTP a été déployée pour supprimer toutes ses ressources.
+Si vous ne prévoyez pas de passer à un autre tutoriel, il est recommandé de supprimer toutes les ressources pour interrompre la facturation. Supprimez le groupe de ressources dans lequel l’application Wingtip a été déployé. Ainsi, toutes ses ressources sont supprimées.
 
-* Accédez au groupe de ressources de l’application dans le portail et supprimez-le pour arrêter toute facturation associée à ce déploiement WTP.
+* Accédez au groupe de ressources de l’application dans le portail et supprimez-le afin d’arrêter toute facturation associée à ce déploiement Wingtip.
 
 ## <a name="tips"></a>Conseils
 
@@ -180,7 +180,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres tutoriels reposant sur le déploiement initial d’applications Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Bibliothèque cliente de base de données élastique](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

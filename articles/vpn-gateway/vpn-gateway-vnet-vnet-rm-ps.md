@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 8f370918b86c5519f370b0042866d2cc089655d4
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 56f101f4aecb6987d7ea6fb81bbf7f19a52baacd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -30,13 +30,12 @@ Cet article vous explique comment créer une connexion de passerelle VPN entre d
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Classic - Portail Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
-![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de VNet Peering. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
@@ -49,28 +48,32 @@ Vous pouvez combiner une communication de réseau virtuel à réseau virtuel ave
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
 * **Géo-redondance et présence géographique dans plusieurs régions**
-  
+
   * Vous pouvez configurer la géo-réplication ou la synchronisation avec une connectivité sécurisée sans passer par les points de terminaison accessibles sur Internet.
   * Avec Traffic Manager et l’équilibreur de charge Azure, vous pouvez configurer une charge de travail hautement disponible avec la géo-redondance dans plusieurs régions Azure. Vous pouvez par exemple configurer SQL Always On avec des groupes de disponibilité répartis dans différentes régions Azure.
 * **Applications multiniveaux régionales avec une limite d’isolement ou administrative**
-  
+
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
 Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quelle procédure dois-je utiliser ?
+
 Cet article inclut deux ensembles d’étapes distincts. L’un des ensembles est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub), et l’autre aux [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub). La principale différence réside dans le fait que vous puissiez ou non créer et configurer toutes les ressources de passerelle et de réseau virtuel au sein de la même session PowerShell.
 
-Les étapes de cet article utilisent les variables déclarées au début de chaque section. Si vous travaillez déjà avec des réseaux virtuels existants, modifiez les variables pour les adapter aux paramètres de votre propre environnement. 
+Les étapes de cet article utilisent les variables déclarées au début de chaque section. Si vous travaillez déjà avec des réseaux virtuels existants, modifiez les variables pour les adapter aux paramètres de votre propre environnement. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
+
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Avant de commencer
+
 Avant de commencer, vous devez installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
-Dans les étapes suivantes, nous allons créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Nous allons ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
+
+Dans les étapes suivantes, nous allons créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Nous allons ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche. Dans ces exemples, nous n’incluons pas de serveur DNS. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Nous utilisons les valeurs suivantes dans les exemples :
 
@@ -83,7 +86,6 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * FrontEnd : 10.11.0.0/24
 * BackEnd : 10.12.0.0/24
 * GatewaySubnet : 10.12.255.0/27
-* Serveur DNS : 8.8.8.8
 * GatewayName : VNet1GW
 * Adresse IP publique : VNet1GWIP
 * Type de VPN : RouteBased
@@ -100,17 +102,16 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * Sous-réseau de passerelle : 10.42.255.0/27
 * Groupe de ressources : TestRG4
 * Emplacement : États-Unis de l’Ouest
-* Serveur DNS : 8.8.8.8
 * Nom de la passerelle : VNet4GW
 * Adresse IP publique : VNet4GWIP
 * Type de VPN : RouteBased
 * Connexion : VNet4toVNet1
 * Type de connexion : VNet2VNet
 
+
 ### <a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
-1. Déclarez vos variables.
-   
-    Commencez par déclarer les variables. Cet exemple déclare les variables avec les valeurs de cet exercice. Dans la plupart des cas, vous devez remplacer les valeurs par les vôtres. Cependant, vous pouvez utiliser ces variables si vous exécutez la procédure pour vous familiariser avec ce type de configuration. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
+
+1. Déclarez vos variables. Cet exemple déclare les variables avec les valeurs de cet exercice. Dans la plupart des cas, vous devez remplacer les valeurs par les vôtres. Cependant, vous pouvez utiliser ces variables si vous exécutez la procédure pour vous familiariser avec ce type de configuration. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
 
   ```powershell
   $Sub1 = "Replace_With_Your_Subcription_Name"
@@ -125,43 +126,38 @@ Nous utilisons les valeurs suivantes dans les exemples :
   $FESubPrefix1 = "10.11.0.0/24"
   $BESubPrefix1 = "10.12.0.0/24"
   $GWSubPrefix1 = "10.12.255.0/27"
-  $DNS1 = "8.8.8.8"
   $GWName1 = "VNet1GW"
   $GWIPName1 = "VNet1GWIP"
   $GWIPconfName1 = "gwipconf1"
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
-2. Connectez-vous à votre abonnement.
-   
-    Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+
+2. Se connecter à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
   ```powershell
   Login-AzureRmAccount
   ```
-   
-    Vérifiez les abonnements associés au compte.
- 
+
+  Vérifiez les abonnements associés au compte.
+
   ```powershell
   Get-AzureRmSubscription
-  ``` 
-   
-    Spécifiez l’abonnement que vous souhaitez utiliser.
+  ```
+
+  Spécifiez l’abonnement que vous souhaitez utiliser.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub1
   ```
-
 3. Créez un groupe de ressources.
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. Créez les configurations de sous-réseau pour TestVNet1.
-   
-    Cet exemple crée un réseau virtuel nommé TestVNet1 et trois sous-réseaux nommés GatewaySubnet, FrontEnd et Backend. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle « GatewaySubnet ». Si vous le nommez autrement, la création de votre passerelle échoue. 
-   
-    L’exemple suivant utilise les variables définies précédemment. Dans cet exemple, le sous-réseau de passerelle utilise /27. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau plus vaste qui inclut un plus grand nombre d’adresses en sélectionnant au moins /28 ou /27. Cela permettra à un nombre suffisant d’adresses de s’adapter à de possibles configurations supplémentaires possibles que vous êtes susceptible de souhaiter par la suite.
+4. Créez les configurations de sous-réseau pour TestVNet1. Cet exemple crée un réseau virtuel nommé TestVNet1 et trois sous-réseaux nommés GatewaySubnet, FrontEnd et Backend. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle « GatewaySubnet ». Si vous le nommez autrement, la création de votre passerelle échoue.
+
+  L’exemple suivant utilise les variables définies précédemment. Dans cet exemple, le sous-réseau de passerelle utilise /27. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau plus vaste qui inclut un plus grand nombre d’adresses en sélectionnant au moins /28 ou /27. Cela permettra à un nombre suffisant d’adresses de s’adapter à de possibles configurations supplémentaires possibles que vous êtes susceptible de souhaiter par la suite.
 
   ```powershell
   $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -174,17 +170,13 @@ Nous utilisons les valeurs suivantes dans les exemples :
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. Demandez une adresse IP publique
-   
-  Demandez l’allocation d’une adresse IP publique à la passerelle que vous allez créer pour votre réseau virtuel. Notez que la valeur AllocationMethod est dynamique. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
-   
+6. Demandez l’allocation d’une adresse IP publique à la passerelle que vous allez créer pour votre réseau virtuel. Notez que la valeur AllocationMethod est dynamique. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
+
   ```powershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. Créez la configuration de la passerelle.
-   
-    La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple pour créer la configuration de votre passerelle.
+7. Créez la configuration de la passerelle. La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple pour créer la configuration de votre passerelle.
 
   ```powershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
@@ -192,9 +184,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. Créez la passerelle pour TestVNet1.
-   
-    Dans cette étape, vous créez la passerelle de réseau virtuel de votre TestVNet1. Les configurations de réseau virtuel à réseau virtuel requièrent un VPN de type RouteBased. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
+8. Créez la passerelle pour TestVNet1. Dans cette étape, vous créez la passerelle de réseau virtuel de votre TestVNet1. Les configurations de réseau virtuel à réseau virtuel requièrent un VPN de type RouteBased. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
@@ -203,11 +193,10 @@ Nous utilisons les valeurs suivantes dans les exemples :
   ```
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Étape 3 : créez et configurez TestVNet4
+
 Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étapes ci-dessous, en remplaçant les valeurs par les vôtres si nécessaire. Cette étape peut être réalisée dans la même session PowerShell, car elle se trouve dans le même abonnement.
 
-1. Déclarez vos variables.
-   
-    Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration.
+1. Déclarez vos variables. Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration.
 
   ```powershell
   $RG4 = "TestRG4"
@@ -221,14 +210,11 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
   $FESubPrefix4 = "10.41.0.0/24"
   $BESubPrefix4 = "10.42.0.0/24"
   $GWSubPrefix4 = "10.42.255.0/27"
-  $DNS4 = "8.8.8.8"
   $GWName4 = "VNet4GW"
   $GWIPName4 = "VNet4GWIP"
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-   
-    Avant de continuer, assurez-vous que vous êtes toujours connecté à l’abonnement 1.
 2. Créez un groupe de ressources.
 
   ```powershell
@@ -249,7 +235,7 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
   ```
 5. Demandez une adresse IP publique
 
-  ```powershell  
+  ```powershell
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
@@ -268,50 +254,43 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
   -VpnType RouteBased -GatewaySku Standard
   ```
 
-### <a name="step-4---connect-the-gateways"></a>Étape 4 : connectez les passerelles
-1. Obtenez les passerelles de réseau virtuel.
-   
-    Dans cet exemple, étant donné que les deux passerelles se trouvent dans le même abonnement, cette étape peut être effectuée dans la même session PowerShell.
-   
+### <a name="step-4---create-the-connections"></a>Étape 4 : créez les connexions
+
+1. Obtenez les passerelles de réseau virtuel. Si les deux passerelles appartiennent au même abonnement, comme dans l’exemple, vous pouvez effectuer cette étape dans la même session PowerShell.
+
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. Créez la connexion de TestVNet1 à TestVNet4.
-   
-    Lors de cette étape, vous créez la connexion de TestVNet1 à TestVNet4. Une clé partagée est référencée dans les exemples. Vous pouvez utiliser vos propres valeurs pour cette clé partagée. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
-   
+2. Créez la connexion de TestVNet1 à TestVNet4. Lors de cette étape, vous créez la connexion de TestVNet1 à TestVNet4. Une clé partagée est référencée dans les exemples. Vous pouvez utiliser vos propres valeurs pour cette clé partagée. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
+
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. Créez la connexion de TestVNet4 à TestVNet1.
-   
-    Cette étape est similaire à celle présentée ci-dessus, sauf que vous créez la connexion de TestVNet4 à TestVNet1. Vérifiez que les clés partagées correspondent.
+3. Créez la connexion de TestVNet4 à TestVNet1. Cette étape est similaire à celle présentée ci-dessus, sauf que vous créez la connexion de TestVNet4 à TestVNet1. Vérifiez que les clés partagées correspondent. Après quelques minutes, la connexion est établie.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-   
-    Après quelques minutes, la connexion doit être établie.
 4. Vérifiez votre connexion. Consultez la section [Vérification de votre connexion](#verify).
 
 ## <a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
+
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Cette configuration nécessite l’ajout d’une connexion supplémentaire entre réseaux virtuels pour connecter TestVNet1 à TestVNet5. 
+Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
 
-La différence réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement, notamment lorsque les deux abonnements appartiennent à différentes organisations. 
+### <a name="step-5---create-and-configure-testvnet1"></a>Étape 5 : créez et configurez TestVNet1
 
-Ces instructions sont la suite des étapes précédentes répertoriées plus haut. Vous devez terminer les étapes [1](#Step1) et [2](#Step2) pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Une fois les étapes 1 et 2 effectuées, passez à l’étape 5 pour créer TestVNet5.
+Vous devez terminer les étapes [1](#Step1) et [2](#Step2) de la section précédente pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Pour cette configuration, vous n’êtes pas obligé de créer TestVNet4 de la section précédente. Même si vous le créez, ce dernier n’entrera pas en conflit avec ces étapes. Une fois les étapes 1 et 2 effectuées, passez à l’étape 6 pour créer TestVNet5. 
 
-### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Étape 5 : vérifiez les plages d’adresses IP supplémentaires
-Il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel TestVNet5 ne chevauche aucune de vos plages de réseaux virtuels ou de passerelles de réseau locales. 
+### <a name="step-6---verify-the-ip-address-ranges"></a>Étape 6 : vérifiez les plages d’adresses IP
 
-Dans cet exemple, les réseaux virtuels peuvent appartenir à différentes organisations. Pour cet exercice, vous pouvez utiliser les valeurs suivantes pour TestVNet5 :
+Il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel TestVNet5 ne chevauche aucune de vos plages de réseaux virtuels ou de passerelles de réseau locales. Dans cet exemple, les réseaux virtuels peuvent appartenir à différentes organisations. Pour cet exercice, vous pouvez utiliser les valeurs suivantes pour TestVNet5 :
 
 **Valeurs pour TestVNet5 :**
 
@@ -322,23 +301,17 @@ Dans cet exemple, les réseaux virtuels peuvent appartenir à différentes organ
 * Serveur frontal : 10.51.0.0/24
 * Serveur principal : 10.52.0.0/24
 * Sous-réseau de passerelle : 10.52.255.0.0/27
-* Serveur DNS : 8.8.8.8
 * Nom de la passerelle : VNet5GW
 * Adresse IP publique : VNet5GWIP
 * Type de VPN : RouteBased
 * Connexion : VNet5toVNet1
 * Type de connexion : VNet2VNet
 
-**Valeurs supplémentaires pour TestVNet1 :**
+### <a name="step-7---create-and-configure-testvnet5"></a>Étape 7 : créez et configurez TestVNet5
 
-* Connexion : VNet1toVNet5
-
-### <a name="step-6---create-and-configure-testvnet5"></a>Étape 6 : créez et configurez TestVNet5
 Cette étape doit être effectuée dans le cadre du nouvel abonnement. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement.
 
-1. Déclarez vos variables.
-   
-    Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration.
+1. Déclarez vos variables. Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration.
 
   ```powershell
   $Sub5 = "Replace_With_the_New_Subcription_Name"
@@ -353,27 +326,24 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement. Cette par
   $FESubPrefix5 = "10.51.0.0/24"
   $BESubPrefix5 = "10.52.0.0/24"
   $GWSubPrefix5 = "10.52.255.0/27"
-  $DNS5 = "8.8.8.8"
   $GWName5 = "VNet5GW"
   $GWIPName5 = "VNet5GWIP"
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. Connectez-vous à l’abonnement 5.
-   
-    Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+2. Connectez-vous à l’abonnement 5. Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
   ```powershell
   Login-AzureRmAccount
   ```
-   
-    Vérifiez les abonnements associés au compte.
-   
+
+  Vérifiez les abonnements associés au compte.
+
   ```powershell
   Get-AzureRmSubscription
   ```
-   
-    Spécifiez l’abonnement que vous souhaitez utiliser.
+
+  Spécifiez l’abonnement que vous souhaitez utiliser.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
@@ -416,25 +386,24 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement. Cette par
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
   ```
 
-### <a name="step-7---connecting-the-gateways"></a>Étape 7 : connectez les passerelles
+### <a name="step-8---create-the-connections"></a>Étape 8 : créez les connexions
+
 Dans cet exemple, étant donné que les passerelles se trouvent dans différents abonnements, nous avons divisé cette étape en deux sessions PowerShell notées [Abonnement 1] et [Abonnement 5].
 
-1. **[Abonnement 1]** Obtenez la passerelle de réseau virtuel pour Abonnement 1.
-   
-    Veillez à ouvrir une session et à vous connecter à Abonnement 1.
+1. **[Abonnement 1]** Obtenez la passerelle de réseau virtuel pour Abonnement 1. Se connecter et se connecter à Abonnement 1 avant d’exécuter l’exemple suivant :
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
-   
-    Copiez la sortie des éléments suivants et envoyez-la à l’administrateur d’Abonnement 5 par message électronique ou une autre méthode.
+
+  Copiez la sortie des éléments suivants et envoyez-la à l’administrateur d’Abonnement 5 par message électronique ou une autre méthode.
 
   ```powershell
   $vnet1gw.Name
   $vnet1gw.Id
   ```
-   
-    Ces deux éléments ont des valeurs similaires à l’exemple de sortie suivant :
+
+  Ces deux éléments ont des valeurs similaires à l’exemple de sortie suivant :
 
   ```
   PS D:\> $vnet1gw.Name
@@ -442,22 +411,20 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Abonnement 5]** Obtenez la passerelle de réseau virtuel pour Abonnement 5.
-   
-    Veillez à ouvrir une session et à vous connecter à Abonnement 5.
+2. **[Abonnement 5]** Obtenez la passerelle de réseau virtuel pour Abonnement 5. Se connecter et se connecter à Abonnement 5 avant d’exécuter l’exemple suivant :
 
   ```powershell
   $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
-   
-    Copiez la sortie des éléments suivants et envoyez-la à l’administrateur d’Abonnement 1 par message électronique ou une autre méthode.
+
+  Copiez la sortie des éléments suivants et envoyez-la à l’administrateur d’Abonnement 1 par message électronique ou une autre méthode.
 
   ```powershell
   $vnet5gw.Name
   $vnet5gw.Id
   ```
-   
-    Ces deux éléments ont des valeurs similaires à l’exemple de sortie suivant :
+
+  Ces deux éléments ont des valeurs similaires à l’exemple de sortie suivant :
 
   ```
   PS C:\> $vnet5gw.Name
@@ -465,11 +432,9 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[Abonnement 1]** Créez la connexion TestVNet1 à TestVNet5.
-   
-    Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. La différence réside dans le fait que $vnet5gw ne peut pas être obtenu directement, car il se trouve dans un abonnement différent. Vous devez créer un objet PowerShell avec les valeurs communiquées par Abonnement 1 dans les étapes précédentes. Utilisez l’exemple ci-dessous. Remplacez le nom, l’ID et la clé partagée par vos propres valeurs. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
-   
-    Veillez à vous connecter à Abonnement 1.
+3. **[Abonnement 1]** Créez la connexion TestVNet1 à TestVNet5. Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. La différence réside dans le fait que $vnet5gw ne peut pas être obtenu directement, car il se trouve dans un abonnement différent. Vous devez créer un objet PowerShell avec les valeurs communiquées par Abonnement 1 dans les étapes précédentes. Utilisez l’exemple ci-dessous. Remplacez le nom, l’ID et la clé partagée par vos propres valeurs. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
+
+  Se connecter à Abonnement 1 avant d’exécuter l’exemple suivant :
 
   ```powershell
   $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -478,11 +443,9 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[Abonnement 5]** Créez la connexion TestVNet5 à TestVNet1.
-   
-    Cette étape est similaire à celle présentée ci-dessus, sauf que vous créez la connexion de TestVNet5 à TestVNet1. La procédure de création d’un objet PowerShell basé sur les valeurs obtenues à partir d’Abonnement 1 s’applique également ici. Dans cette étape, vérifiez que les clés partagées correspondent.
-   
-    Veillez à vous connecter à Abonnement 5.
+4. **[Abonnement 5]** Créez la connexion TestVNet5 à TestVNet1. Cette étape est similaire à celle présentée ci-dessus, sauf que vous créez la connexion de TestVNet5 à TestVNet1. La procédure de création d’un objet PowerShell basé sur les valeurs obtenues à partir d’Abonnement 1 s’applique également ici. Dans cette étape, vérifiez que les clés partagées correspondent.
+
+  Se connecter à Abonnement 5 avant d’exécuter l’exemple suivant :
 
   ```powershell
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -492,16 +455,16 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   ```
 
 ## <a name="verify"></a>Vérification d’une connexion
+
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .
-* Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md). 
-
-
+* Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
