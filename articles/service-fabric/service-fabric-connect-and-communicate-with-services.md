@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 5/9/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c78f07cb780d5e7cd758fb782fc6ba37946f9537
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -51,8 +51,28 @@ La résolution et la connexion aux services impliquent l’exécution des étape
 * **Connecter**: se connecter au service à l’aide du protocole que ce dernier utilise sur le point de terminaison en question.
 * **Réessayer** : une tentative de connexion peut échouer pour diverses raisons. Par exemple : si le service a été déplacé depuis la dernière fois que l’adresse de point de terminaison a été résolue. Si la tentative de connexion échoue, les étapes précédentes de résolution et de connexion doivent être réessayées, et ce cycle se répète jusqu’à ce que la connexion aboutisse.
 
+## <a name="connecting-to-other-services"></a>Connexion à d’autres services
+Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster se trouvent sur le même réseau local. Afin de faciliter la connexion entre les services, Service Fabric fournit des services supplémentaires qui utilisent le service d’affectation de noms : un service DNS et un service de proxy inverse.
+
+
+### <a name="dns-service"></a>Service DNS
+Dans la mesure où de nombreux services, en particulier les services en conteneur, peuvent avoir un nom d’URL existant, il est très pratique de pouvoir utiliser le protocole DNS standard (plutôt que le protocole d’affectation de noms), notamment dans les scénarios impliquant le développement et le transfert d’applications. C’est là précisément qu’intervient le service DNS. Il vous permet de mapper les noms DNS à un nom de service et, par conséquent, de résoudre les adresses IP des points de terminaison. 
+
+Comme le montre l’illustration suivante, le service DNS (exécuté dans le cluster Service Fabric), mappe les noms DNS aux noms de service qui sont ensuite résolus par le service d’affectation de noms pour renvoyer les adresses de point de terminaison auxquelles se connecter. Le nom DNS du service est fourni au moment de la création. 
+
+![points de terminaison de service][9]
+
+Pour plus d’informations sur l’utilisation du service DNS, consultez l’article [Service DNS dans Azure Service Fabric](service-fabric-dnsservice.md).
+
+### <a name="reverse-proxy-service"></a>Service de proxy inverse
+Le proxy inverse traite les services dans le cluster qui expose des points de terminaison HTTP, y compris HTTPS. Le proxy inverse simplifie l’appel d’autres services et de leurs méthodes grâce à un format URI spécifique, et gère les étapes de résolution, de connexion et de reconnexion indispensable pour permettre à un service de communiquer avec un autre à l’aide du service d’affectation de noms. En d’autres termes, il masque le service d’affectation de noms lors de l’appel d’autres services de sorte que la procédure est aussi simple que l’appel d’une URL.
+
+![points de terminaison de service][10]
+
+Pour plus d’informations sur l’utilisation du service de proxy inverse, consultez l’article [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md).
+
 ## <a name="connections-from-external-clients"></a>Connexions des clients externes
-Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster sont généralement sur le même réseau local. Cependant, dans certains environnements, un cluster peut se trouver derrière un équilibrage de charge. Celui-ci achemine le trafic d’entrée externe à travers un ensemble limité de ports. Dans ces cas, les services peuvent toujours communiquer entre eux et résoudre les adresses à l’aide du Service d’attribution de noms. Cependant, des étapes supplémentaires doivent être suivies afin d’autoriser les clients externes à se connecter aux services.
+Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster se trouvent sur le même réseau local. Cependant, dans certains environnements, un cluster peut se trouver derrière un équilibrage de charge. Celui-ci achemine le trafic d’entrée externe à travers un ensemble limité de ports. Dans ces cas, les services peuvent toujours communiquer entre eux et résoudre les adresses à l’aide du Service d’attribution de noms. Cependant, des étapes supplémentaires doivent être suivies afin d’autoriser les clients externes à se connecter aux services.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric dans Azure
 Un cluster Service Fabric dans Azure est placé derrière un équilibrage de charge Azure. Tout trafic externe vers le cluster doit passer par l’équilibrage de charge. L’équilibrage de charge transmet automatiquement le trafic entrant sur un port donné vers un *nœud* aléatoire ayant le même port ouvert. L’Azure Load Balancer (équilibrage de charge Azure) ne connaît que les ports ouverts sur les *nœuds*. Il ne connaît pas les ports ouverts par des *services* individuels.
@@ -153,7 +173,7 @@ Par exemple : les éléments suivants doivent être configurés pour accepter le
 
 Gardez à l’esprit que l’Azure Load Balancer (équilibrage de charge Azure) et la sonde ont uniquement connaissance des *nœuds*, et non des *services* s’exécutant sur les nœuds. L’équilibrage de charge Azure envoie toujours le trafic aux nœuds qui répondent à la sonde. Vous devez donc veiller à ce que les services soient disponibles sur les nœuds en mesure de répondre à cette dernière.
 
-## <a name="built-in-communication-api-options"></a>Options d’API de communication intégrées
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services : options d’API de communication intégrées
 L’infrastructure Reliable Services est livrée avec plusieurs options de communication intégrées. Le choix de l’API dépend du modèle de programmation utilisé, de la structure de communication et du langage de programmation dans lequel vos services sont écrits.
 
 * **Aucun protocole spécifique** : si vous pouvez choisir n’importe quelle infrastructure de communication, mais que vous souhaitez une solution rapidement opérationnelle, l’option idéale est le [service à distance](service-fabric-reliable-services-communication-remoting.md), qui rend possible des appels de procédure distante fortement typés pour Reliable Services et Reliable Actors. Il s'agit de la façon la plus simple et la plus rapide de prendre en main la communication avec les services. Le service à distance gère la résolution des adresses de service ainsi que la connexion, les nouvelles tentatives et la gestion des erreurs. Il est disponible pour les applications C# et Java.
@@ -173,4 +193,6 @@ Découvrez-en plus sur les concepts et les API disponibles dans le [modèle de c
 [5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
+[9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
+[10]: ./media/service-fabric-reverseproxy/internal-communication.png
 

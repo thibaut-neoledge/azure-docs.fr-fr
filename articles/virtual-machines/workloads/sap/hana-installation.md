@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b791be369016dd52d95ec727e46fd8b554c09047
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 89356670737ed7b9adc5df51466ce71eb73b3cd4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ Vous êtes responsable de l’installation de SAP HANA. Vous pouvez la lancer ap
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Premières étapes à suivre après la réception des unités de grandes instances HANA
 
-Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès et la connectivité aux instances, la **première étape** consiste à enregistrer le système d’exploitation de l’instance auprès de votre fournisseur de système d’exploitation. Cela inclut par exemple l’enregistrement de votre système d’exploitation SUSE Linux dans une instance de SUSE SMT que vous devez avoir déployée. Ou bien l’enregistrement de votre système d’exploitation Red Hat dans le Gestionnaire d’abonnements Red Hat auquel vous devez vous connecter. Consultez également la section Remarques de ce [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette étape est également nécessaire si vous souhaitez appliquer des correctifs ultérieurs au système d’exploitation. Tâche qui incombe au client. 
+Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès et la connectivité aux instances, la **première étape** consiste à enregistrer le système d’exploitation de l’instance auprès de votre fournisseur de système d’exploitation. Cela inclut notamment l’enregistrement de votre système d’exploitation SUSE Linux dans une instance de SUSE SMT que vous devez avoir déployée dans une machine virtuelle Azure à laquelle l’unité Grande instance HANA peut se connecter. Ou bien l’enregistrement de votre système d’exploitation Red Hat dans le Gestionnaire d’abonnements Red Hat auquel vous devez vous connecter. Consultez également la section Remarques de ce [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette étape est également nécessaire si vous souhaitez appliquer des correctifs ultérieurs au système d’exploitation. Tâche qui incombe au client. Pour SUSE, la documentation permettant d’installer et de configurer SMT se trouve [ici](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 La **deuxième étape** consiste à rechercher les nouveaux correctifs applicables à la version spécifique du système d’exploitation. Vérifiez que le niveau de correctif logiciel des grandes instances HANA est à jour. En fonction de la date de publication des correctifs/versions du système d’exploitation et des modifications de l’image que Microsoft peut déployer, il peut arriver que les correctifs les plus récents ne soient pas inclus. Par conséquent, cette étape est obligatoire après réception d’une unité de grandes instances HANA et enregistrement de l’installation du système d’exploitation auprès du distributeur Linux. Il s’agit de vérifier si des correctifs indispensables pour la sécurité, le fonctionnement, la disponibilité et les performances ont été publiés entretemps par le fournisseur Linux concerné et s’ils doivent être appliqués.
 

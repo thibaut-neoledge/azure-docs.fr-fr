@@ -1,37 +1,38 @@
 ---
-title: "Unités de requête et estimation du débit - Azure DocumentDB | Microsoft Docs"
-description: "Découvrez les besoins en unités de requête dans DocumentDB, et comment les spécifier et les estimer."
-services: documentdb
+title: "Unités de requête et estimation du débit - Azure Cosmos DB | Microsoft Docs"
+description: "Découvrez les besoins en unités de requête dans Azure Cosmos DB, et comment les spécifier et les estimer."
+services: cosmosdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
-ms.service: documentdb
+ms.service: Azure Cosmos DB
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/10/2017
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: af039d210ca1eb59bc7ffcc81fc01aa9ccd3640f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="request-units-in-documentdb"></a>Unités de requête dans DocumentDB
-Désormais disponible : DocumentDB [calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner). Pour en savoir plus, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs).
+# <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
+Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs).
 
 ![Calculatrice de débit][5]
 
 ## <a name="introduction"></a>Introduction
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) est un service de base de données NoSQL entièrement géré et évolutif pour les documents JSON. Avec DocumentDB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales. Dans DocumentDB, les données sont stockées au sein de collections, qui sont des conteneurs flexibles hautement disponibles. Plutôt que de vous soucier de la gestion des ressources matérielles comme le processeur, la mémoire et les E/S par seconde d’une collection, vous pouvez réserver un débit en termes de requêtes par seconde. DocumentDB gère automatiquement l’approvisionnement, le partitionnement transparent et la mise à l’échelle de votre collection pour traiter le nombre de requêtes approvisionnées. 
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multimodèle mondialement distribué de Microsoft. Avec Azure Cosmos DB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. Azure Cosmos DB est utilisé et surveillé en continu par les excellents ingénieurs Microsoft afin d’offrir une disponibilité, des performances et une protection des données optimales. Vous pouvez accéder à vos données à l’aide des API de votre choix, sachant que les API [SQL DocumentDB](https://docs.microsoft.com/azure/documentdb/documentdb-sql-query) (document), MongoDB (document), [Stockage Table Azure](https://azure.microsoft.com/services/storage/tables/) (clé-valeur) et [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graphique) sont toutes prises en charge de manière native. L’unité de mesure d’Azure Cosmos DB est l’unité de requête (RU). Avec RU, vous n’avez pas besoin de réserver de capacités en lecture et en écriture, ni de configurer les ressources de processeur, de mémoire et d’E/S par seconde.
 
-DocumentDB prend en charge un certain nombre d’API pour les opérations de lecture et d’écriture, les requêtes et les exécutions de procédures stockées. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans DocumentDB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse.
+Azure Cosmos DB prend en charge un certain nombre d’API avec différentes opérations allant des lectures, des écritures aux requêtes graphiques complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans Azure Cosmos DB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse. 
 
-Dans DocumentDB, chaque collection peut être réservée avec un débit, également exprimé en termes d’unités de requête. Il s’agit de blocs de 100 unités de demande (RU) par seconde, allant de quelques centaines à plusieurs millions d’unités de requête par seconde. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. 
+Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. Pour chaque bloc de 100 RU/seconde, vous pouvez attacher un bloc de 1 000 RU/minute. Combiner la configuration par seconde et par minute s’avère extrêmement puissant, car vous n’avez pas besoin d’effectuer une configuration pour les pics de charge et vous pouvez économiser jusqu’à 75 % de coûts par rapport à un service utilisant uniquement la configuration par seconde.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
@@ -40,24 +41,26 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Comment estimer les besoins en unités de requête de mon application ?
 * Que se passe-t-il si je dépasse la capacité d’unités de requête pour une collection ?
 
+Azure Cosmos DB étant une base de données multimodèle, il est important de noter que nous allons faire référence à une collection/un document pour une API de document, à un graphique/nœud pour une API de graphique et à une table/entité pour une API de table. Tout au long de ce document, nous allons généraliser les concepts de conteneur/élément.
+
 ## <a name="request-units-and-request-charges"></a>Unités de requête et frais de requête
-DocumentDB et l’API pour MongoDB offrent des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application.  Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, DocumentDB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
+Azure Cosmos DB offre des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application.  Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, Azure Cosmos DB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
 
-Avec DocumentDB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde.  On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application.  Chaque opération dans DocumentDB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. 
+Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde ou par minute (module complémentaire).  Imaginez que les unités de requête sont des unités de mesure du débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde ou par minute à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de requêtes est également un outil merveilleux pour tester le cœur d’une requête.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique les unités de requête et les performances prévisibles avec DocumentDB.
+Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique les unités de requête et les performances prévisibles avec Azure Cosmos DB.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
 > 
 > 
 
-## <a name="specifying-request-unit-capacity-in-documentdb"></a>Spécification de la capacité d’unités de requête dans DocumentDB
-Quand vous créez une collection DocumentDB, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver pour la collection. En fonction du débit configuré, DocumentDB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
+## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Spécification de la capacité d’unités de requête dans Azure Cosmos DB
+Lorsque vous démarrez une nouvelle collection, table ou un nouveau graphique, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. Vous pouvez également décider si vous souhaitez activer des RU par minute. Si vous les activez, vous obtiendrez 10 fois ce que vous obtenez par seconde, mais par minute. En fonction du débit configuré, Azure Cosmos DB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
 
-DocumentDB nécessite la spécification d’une clé de partition lorsqu’une collection est configurée avec 10 000 unités de requête ou plus. Une clé de partition est également requise ultérieurement pour mettre à l’échelle le débit de votre collection au-delà de 10 000 unités de requête. Il est donc fortement recommandé de configurer une [clé de partition](documentdb-partition-data.md) lors de la création d’une collection, quel que soit le débit initial. Dans la mesure où les données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes) de manière à ce que DocumentDB puisse mettre à l’échelle votre collection et vos requêtes de manière uniforme. 
+Azure Cosmos DB nécessite la spécification d’une clé de partition lorsqu’une collection est configurée avec 2 500 unités de requête ou plus. Une clé de partition est également requise ultérieurement pour mettre à l’échelle le débit de votre collection au-delà de 2 500 unités de requête. Il est donc fortement recommandé de configurer une [clé de partition](documentdb-partition-data.md) lors de la création d’un conteneur, quel que soit le débit initial. Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes) de manière qu’Azure Cosmos DB puisse mettre à l’échelle votre collection/table/graphique et vos requêtes de manière uniforme. 
 
 > [!NOTE]
-> Une clé de partition est une limite logique et non physique. Il n’est donc pas nécessaire de limiter le nombre de valeurs de clé de partition distinctes. En fait, il vaut mieux avoir trop de valeurs de clé de partition distinctes que pas assez, car DocumentDB offre plus d’options d’équilibrage de charge.
+> Une clé de partition est une limite logique et non physique. Il n’est donc pas nécessaire de limiter le nombre de valeurs de clé de partition distinctes. En fait, il vaut mieux avoir trop de valeurs de clé de partition distinctes que pas assez, car Azure Cosmos DB offre plus d’options d’équilibrage de charge.
 
 L’extrait de code suivant permet de créer une collection avec 3 000 unités de requête par seconde à l’aide du SDK .NET :
 
@@ -72,9 +75,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-DocumentDB fonctionne sur un modèle de réservation du débit. Autrement dit, vous êtes facturé pour la quantité de débit *réservée* pour la collection, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité d’unités réservées par le biais des Kits de développement logiciel (SDK) DocumentDB ou à l’aide du [Portail Azure](https://portal.azure.com).
+Azure Cosmos DB fonctionne sur un modèle de réservation du débit. Autrement dit, vous êtes facturé pour la quantité de débit *réservée*, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité de RU réservées par le biais des kits de développement logiciel (SDK) Azure Cosmos DB ou à l’aide du [portail Azure](https://portal.azure.com).
 
-Chaque collection est mappée sur une ressource `Offer` dans DocumentDB, qui contient des métadonnées sur le débit configuré pour la collection. Vous pouvez modifier le débit alloué pour une collection en recherchant la ressource correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’une collection en 5 000 unités de requête par seconde à l’aide du SDK .NET :
+Chaque collection/table/graphique est mappé sur une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit configuré. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’une collection en 5 000 unités de requête par seconde à l’aide du SDK .NET :
 
 ```csharp
 // Fetch the resource to be updated
@@ -90,40 +93,33 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-La modification du débit n’a aucun impact sur la disponibilité de votre collection. Le nouveau débit réservé est généralement effectif quelques secondes après son application.
-
-## <a name="specifying-request-unit-capacity-in-api-for-mongodb"></a>Spécification de la capacité d’unités de requête dans l’API pour MongoDB
-L’API pour MongoDB vous permet de spécifier le nombre d’unités de requête (RU par seconde) à réserver pour la collection.
-
-L’API pour MongoDB fonctionne sur le même modèle de réservation basé sur le débit que DocumentDB. Autrement dit, vous êtes facturé pour la quantité de débit *réservée* pour la collection, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité d’unités de requête réservées à l’aide du [portail Azure](https://portal.azure.com).
-
-La modification du débit n’a aucun impact sur la disponibilité de votre collection. Le nouveau débit réservé est généralement effectif quelques secondes après son application.
+La modification du débit n’a aucun impact sur la disponibilité de votre conteneur. Le nouveau débit réservé est généralement effectif quelques secondes après son application.
 
 ## <a name="request-unit-considerations"></a>Considérations relatives aux unités de requête
-Quand vous évaluez le nombre d’unités de requête à réserver pour votre collection DocumentDB, vous devez impérativement tenir compte des variables suivantes :
+Quand vous évaluez le nombre d’unités de requête à réserver pour votre conteneur Azure Cosmos DB, vous devez impérativement tenir compte des variables suivantes :
 
-* **Taille des documents**. Plus la taille du document est grande, plus le nombre d'unités consommées pour lire ou écrire des données augmente.
-* **Nombre de propriétés de documents**. En supposant que toutes les propriétés sont indexées par défaut, le nombre d'unités consommées pour écrire un document augmente parallèlement au nombre de propriétés.
-* **Cohérence des données**. Quand vous utilisez les niveaux de cohérence des données Strong (Fort) ou Bounded Staleness (En fonction de l'obsolescence), des unités supplémentaires sont consommées pour lire les documents.
-* **Propriétés indexées**. Une stratégie d'indexation sur chaque collection détermine quelles propriétés sont indexées par défaut. Vous pouvez réduire la consommation d’unités de requête en limitant le nombre de propriétés indexées ou en activant l’indexation différée.
-* **Indexation des documents**. Par défaut, chaque document est automatiquement indexé. Vous consommerez moins d'unités de requête en choisissant de ne pas indexer certains documents.
+* **Taille de l’élément**. Plus la taille est grande, plus le nombre d’unités consommées pour lire ou écrire des données augmente.
+* **Nombre de propriétés de l’élément**. En supposant que toutes les propriétés sont indexées par défaut, le nombre d’unités consommées pour écrire un document/nœud/une entité augmente parallèlement au nombre de propriétés.
+* **Cohérence des données**. Quand vous utilisez les niveaux de cohérence des données Fort ou Obsolescence limitée, des unités supplémentaires sont consommées pour lire les éléments.
+* **Propriétés indexées**. Une stratégie d’indexation sur chaque conteneur détermine quelles propriétés sont indexées par défaut. Vous pouvez réduire la consommation d’unités de requête en limitant le nombre de propriétés indexées ou en activant l’indexation différée.
+* **Indexation des documents**. Par défaut, chaque élément est automatiquement indexé. Vous consommerez moins d’unités de requête en choisissant de ne pas indexer certains éléments.
 * **Modèles de requête**. La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, les projections, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données source ont tous une influence sur le coût des opérations de requête.
 * **Utilisation des scripts**.  Comme avec les requêtes, les procédures stockées et les déclencheurs consomment plus ou moins d’unités de requête en fonction de la complexité des opérations effectuées. Pendant le développement de votre application, inspectez l'en-tête des frais de requêtes pour mieux comprendre de quelle façon chaque opération consomme la capacité des unités de requête.
 
 ## <a name="estimating-throughput-needs"></a>Estimation des besoins de débit
-Une unité de requête est une mesure normalisée du coût de traitement de la requête. Une unité de requête représente la capacité de traitement nécessaire pour lire (par le biais d’un élément self link ou id) un seul document JSON de 1 Ko composé de 10 valeurs de propriété uniques (à l’exclusion des propriétés système). Une demande de création (insertion), de remplacement ou de suppression du même document nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de requête.   
+Une unité de requête est une mesure normalisée du coût de traitement de la requête. Une unité de requête représente la capacité de traitement nécessaire pour lire (par le biais d’un lien réflexif ou id) un seul élément de 1 Ko composé de 10 valeurs de propriété uniques (à l’exclusion des propriétés système). Une demande de création (insertion), de remplacement ou de suppression du même élément nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de requête.   
 
 > [!NOTE]
-> La ligne de base d’une unité de requête pour un document de 1 Ko correspond à une opération GET simple par l’élément self link ou id du document.
+> La ligne de base d’une unité de requête pour un élément de 1 Ko correspond à une opération GET simple par le lien réflexif ou l’id de l’élément.
 > 
 > 
 
-Par exemple, voici un tableau qui indique le nombre d’unités de demande à fournir pour trois tailles de documents (1 Ko, 4 Ko et 64 Ko) et à deux niveaux de performances (500 lectures par seconde + 100 écritures par seconde et 500 lectures par seconde + 500 écritures par seconde). La cohérence des données a été configurée au niveau de la session et la stratégie d’indexation a été définie sur None.
+Par exemple, voici un tableau qui indique le nombre d’unités de requête à fournir pour trois tailles d’élément (1 Ko, 4 Ko et 64 Ko) et à deux niveaux de performances (500 lectures par seconde + 100 écritures par seconde et 500 lectures par seconde + 500 écritures par seconde). La cohérence des données a été configurée au niveau de la session et la stratégie d’indexation a été définie sur None.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Taille des documents</strong></p></td>
+            <td valign="top"><p><strong>Taille de l’élément</strong></p></td>
             <td valign="top"><p><strong>Lectures par seconde</strong></p></td>
             <td valign="top"><p><strong>Écritures par seconde</strong></p></td>
             <td valign="top"><p><strong>Unités de demande</strong></p></td>
@@ -170,20 +166,20 @@ Par exemple, voici un tableau qui indique le nombre d’unités de demande à fo
 ### <a name="use-the-request-unit-calculator"></a>Utiliser la calculatrice d’unités de demande
 Pour aider les clients à affiner leurs estimations de débit, il existe une [calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner) sur le web qui permet d’estimer les besoins d’unité de demande pour les opérations courantes, notamment :
 
-* Créations (écritures) de documents
-* Lectures de documents
-* Suppressions de documents
-* Mises à jour de documents
+* Créations (écritures) d’éléments
+* Lectures d’éléments
+* Suppressions d’éléments
+* Mises à jour d’éléments
 
-L’outil inclut également la prise en charge de l’estimation des besoins de stockage de données en fonction des exemples de documents que vous fournissez.
+L’outil inclut également la prise en charge de l’estimation des besoins de stockage de données en fonction des exemples d’éléments que vous fournissez.
 
 L’utilisation de l’outil est simple :
 
-1. Chargez un ou plusieurs documents JSON représentatifs.
+1. Chargez un ou plusieurs éléments représentatifs.
    
-    ![Charger les documents vers la calculatrice d’unités de demande][2]
-2. Pour estimer les besoins de stockage, entrez le nombre total de documents que vous voulez stocker.
-3. Entrez le nombre d’opérations de création, lecture, mise à jour et suppression de documents dont vous avez besoin (par seconde). Pour estimer les frais d’unités de requête des opérations de mise à jour de documents, chargez une copie du document de l’étape 1 comprenant des mises à jour de champs types.  Par exemple, si les mises à jour de document comprennent généralement la modification de deux propriétés nommées lastLogi et userVisits, copiez le document, mettez à jour les valeurs de ces deux propriétés, puis chargez le document copié.
+    ![Charger les éléments dans la calculatrice d’unités de requête][2]
+2. Pour estimer les besoins de stockage de données, entrez le nombre total d’éléments que vous pensez stocker.
+3. Entrez le nombre d’opérations de création, lecture, mise à jour et suppression d’éléments dont vous avez besoin (par seconde). Pour estimer les frais d’unités de requête des opérations de mise à jour d’éléments, chargez une copie de l’exemple d’élément de l’étape 1 comprenant des mises à jour de champs types.  Par exemple, si les mises à jour d’éléments comprennent généralement la modification de deux propriétés nommées lastLogi et userVisits, copiez l’exemple d’élément, mettez à jour les valeurs de ces deux propriétés, puis chargez l’élément copié.
    
     ![Entrez les exigences de débit dans la calculatrice d’unités de demande][3]
 4. Cliquez sur Calculer et examinez les résultats.
@@ -191,28 +187,28 @@ L’utilisation de l’outil est simple :
     ![Résultats de la calculatrice d’unités de demande][4]
 
 > [!NOTE]
-> Si vous avez des types de documents qui varient considérablement en termes de taille et de nombre de propriétés indexées, chargez un exemple de chaque *type* de document standard dans l’outil, puis calculez les résultats.
+> Si vous avez des types d’éléments qui varient considérablement en termes de taille et de nombre de propriétés indexées, chargez un exemple de chaque *type* d’élément standard dans l’outil, puis calculez les résultats.
 > 
 > 
 
-### <a name="use-the-documentdb-request-charge-response-header"></a>Utiliser l’en-tête de réponse de frais de requête DocumentDB
-Chaque réponse du service DocumentDB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. Cet en-tête est également accessible par le biais des Kits de développement logiciel (SDK) DocumentDB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de requête DocumentDB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
+### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utiliser l’en-tête de réponse de frais de requête Azure Cosmos DB
+Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. Cet en-tête est également accessible par le biais des Kits de développement logiciel (SDK) DocumentDB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de requêtes Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
 
 ![Examen des frais d’unités de requête dans l’Explorateur de requête][1]
 
-Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un document représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.  Veillez à mesurer et à inclure également les requêtes courantes et l’utilisation des scripts DocumentDB.
+Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.  Veillez à mesurer et à inclure également les requêtes courantes et l’utilisation des scripts Azure Cosmos DB.
 
 > [!NOTE]
-> Si vous avez des types de documents qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* de document par défaut.
+> Si vous avez des types d’éléments qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* d’élément standard.
 > 
 > 
 
 Par exemple :
 
-1. Enregistrer les frais d’unités de requête de création (insertion) d’un document par défaut. 
-2. Enregistrer les frais d’unités de requête de lecture d’un document par défaut.
-3. Enregistrer les frais d’unités de requête de mise à jour d’un document par défaut.
-4. Enregistrer les frais d’unités de requête des requêtes de documents standard courantes.
+1. Enregistrez les frais d’unités de requête de création (insertion) d’un élément standard. 
+2. Enregistrez les frais d’unités de requête de lecture d’un élément standard.
+3. Enregistrez les frais d’unités de requête de mise à jour d’un élément standard.
+4. Enregistrez les frais d’unités de requête des requêtes d’élément standard courantes.
 5. Enregistrer les frais d’unités de requête des scripts personnalisés (procédures stockées, déclencheurs, fonctions définies par l’utilisateur) utilisés par l’application.
 6. Calculer les unités de requête nécessaires étant donné l’estimation du nombre d’exécutions d’opérations prévues chaque seconde.
 
@@ -236,10 +232,10 @@ Ensuite, exécutez la commande *getLastRequestStatistics*.
 }
 ```
 
-Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un document représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.
+Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.
 
 > [!NOTE]
-> Si vous avez des types de documents qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* de document par défaut.
+> Si vous avez des types d’éléments qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* d’élément standard.
 > 
 > 
 
@@ -302,21 +298,21 @@ Considérez le document suivant d’environ 1 Ko :
 ```
 
 > [!NOTE]
-> Les documents étant minimisés dans DocumentDB, la taille du document ci-dessus calculée par le système est légèrement inférieure à 1 Ko.
+> Les documents étant minimisés dans Azure Cosmos DB, la taille du document ci-dessus calculée par le système est légèrement inférieure à 1 Ko.
 > 
 > 
 
-Le tableau suivant montre les frais d’unités de requête approximatifs pour les opérations courantes sur ce document (les frais d’unités de requête approximatifs partent du principe que le niveau de cohérence du compte a comme valeur « Session » et que tous les documents sont indexés automatiquement) :
+Le tableau suivant montre les frais d’unités de requête approximatifs pour les opérations courantes sur cet élément (les frais d’unités de requête approximatifs partent du principe que le niveau de cohérence du compte a comme valeur « Session » et que tous les éléments sont indexés automatiquement) :
 
 | Opération | Frais d’unités de requête |
 | --- | --- |
-| Créer le document |~15 unités de requête |
-| Lire le document |~1 unité de requête |
-| Interroger le document par id |~2,5 unités de requête |
+| Créer un élément |~15 unités de requête |
+| Lire un élément |~1 unité de requête |
+| Interroger un élément par id |~2,5 unités de requête |
 
 En outre, ce tableau montre les frais d’unités de requête approximatifs pour les requêtes courantes utilisées dans l’application :
 
-| Requête | Frais d’unités de requête | # de documents retournés |
+| Requête | Frais d’unités de requête | Nombre d’éléments renvoyés |
 | --- | --- | --- |
 | Sélectionner un aliment par id |~2,5 unités de requête |1 |
 | Sélectionner un aliment par fabricant |~7 unités de requête |7 |
@@ -324,7 +320,7 @@ En outre, ce tableau montre les frais d’unités de requête approximatifs pour
 | Sélectionner les 10 premiers aliments dans un groupe d’aliments |~10 unités de requête |10 |
 
 > [!NOTE]
-> Les frais d’unités de requête varient en fonction du nombre de documents retournés.
+> Les frais de RU varient en fonction du nombre d’éléments renvoyés.
 > 
 > 
 
@@ -332,16 +328,16 @@ Avec ces informations, nous pouvons estimer les besoins en unités de requête p
 
 | Opération/Requête | Nombre estimé par seconde | Unités de requête nécessaires |
 | --- | --- | --- |
-| Créer le document |10 |150 |
-| Lire le document |100 |100 |
+| Créer un élément |10 |150 |
+| Lire un élément |100 |100 |
 | Sélectionner un aliment par fabricant |25 |175 |
 | Sélectionner par groupe d’aliments |10 |700 |
 | Sélectionner les 10 premiers |15 |150 Total |
 
 Dans ce cas, nous estimons l’exigence de débit moyen à 1275 unités de requête par seconde.  Arrondi à la centaine la plus proche, nous devons approvisionner 1 300 unités de requête par seconde pour la collection de cette application.
 
-## <a id="RequestRateTooLarge"></a> Dépassement des limites de débit réservé dans DocumentDB
-Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde. Pour les applications qui dépassent le taux d’unités de requête configuré pour une collection, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
+## <a id="RequestRateTooLarge"></a> Dépassement des limites de débit réservé dans Azure Cosmos DB
+Rappelez-vous que la consommation d’unités de requête est évaluée sous forme de taux par seconde si l’unité de requête par minute est désactivée ou si la totalité du budget a été dépensée. Pour les applications qui dépassent le taux d’unités de requête configuré pour un conteneur, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -349,21 +345,20 @@ Souvenez-vous que la consommation d’unités de requête est évaluée en fonct
 
 Si vous utilisez des requêtes LINQ et le SDK .NET Client, la plupart du temps vous ne devez jamais traiter cette exception, car la version actuelle du SDK .NET Client intercepte implicitement cette réponse, respecte l’en-tête retry-after spécifié par le serveur, et réessaie d’effectuer la demande. La tentative suivante réussira toujours, sauf si plusieurs clients accèdent simultanément à votre compte.
 
-Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour la collection.
+Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour le conteneur.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API pour MongoDB
 Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](documentdb-set-throughput.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur le débit réservé avec les bases de données Azure DocumentDB, explorez ces ressources :
+Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
-* [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Modélisation des données dans DocumentDB](documentdb-modeling-data.md)
-* [Niveaux de performances dans DocumentDB](documentdb-partition-data.md)
+* [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/documentdb/)
+* [Partitionnement, clés de partition et mise à l’échelle dans Azure Cosmos DB](documentdb-partition-data.md)
 
-Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.microsoft.com/documentation/services/documentdb/)Azure DocumentDB. 
+Pour en savoir plus sur Azure Cosmos DB, consultez la [documentation](https://azure.microsoft.com/documentation/services/co/) relative à Azure Cosmos DB. 
 
-Pour commencer avec le test des performances et de la mise à l’échelle avec DocumentDB, consultez [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md).
+Pour commencer avec le test des performances et de la mise à l’échelle avec Azure Cosmos DB, consultez [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png

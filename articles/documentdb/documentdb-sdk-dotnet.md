@@ -1,24 +1,25 @@
 ---
 title: SDK et ressources .NET Azure DocumentDB | Microsoft Docs
 description: "Découvrez l&quot;API et le Kit SDK .NET, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit SDK .NET DocumentDB."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0e43aa89dbed801e5e212279582223b09eb9854
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 772af5812941ff12e64665ec4fb505ef7d41462c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2017
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -45,12 +46,26 @@ ms.lasthandoff: 04/20/2017
 
 <tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) .NET DocumentDB](documentdb-get-started.md)</td></tr>
 
-<tr><td>**Didacticiel d’application web**</td><td>[Développement d’une application web avec DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**Infrastructure actuellement prise en charge**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+*    Ajout de la prise en charge de la fonctionnalité Unité de requête par minute (RU/m).
+*    Ajout de la prise en charge d’un nouveau niveau de cohérence nommé ConsistentPrefix.
+*    Ajout de la prise en charge des mesures de requête liées aux partitions individuelles.
+*    Ajout de la prise en charge de la limitation de la taille du jeton de continuation concernant les requêtes.
+*    Ajout de la prise en charge d’un suivi plus détaillé pour les demandes ayant échoué.
+*    Améliorations des performances du Kit de développement logiciel (SDK).
+
+### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
+* Fonctionnalités identiques à 1.13.4. Plusieurs modifications internes.
+
+### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
+* Fonctionnalités identiques à 1.13.2. Plusieurs modifications internes.
 
 ### <a name="a-name11321132"></a><a name="1.13.2"/>1.13.2
 * Résolution du problème qui ignorait la valeur PartitionKey fournie dans FeedOptions pour les requêtes d’agrégation.
@@ -192,7 +207,7 @@ ms.lasthandoff: 04/20/2017
   * DocumentCollection.IndexingPolicy est désormais mutable
 * Ajout de la prise en charge de l’indexation et des requêtes spatiales
   * Nouvel espace de noms Microsoft.Azure.Documents.Spatial pour la sérialisation/désérialisation des types de données spatiales comme Point et Polygon
-  * Nouvelle classe SpatialIndex pour l’indexation des données GeoJSON stockées dans DocumentDB
+  * Nouvelle classe SpatialIndex pour l’indexation des données GeoJSON stockées dans Cosmos DB
 * **[Résolu]** : requête SQL incorrecte générée à partir de l’expression linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
@@ -220,12 +235,15 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
 
-Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
+Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |10 mai 2017 |--- |
+| [1.13.4](#1.13.4) |09 mai 2017 |--- |
+| [1.13.3](#1.13.3) |06 mai 2017 |--- |
 | [1.13.2](#1.13.2) |19 avril 2017 |--- |
 | [1.13.1](#1.13.1) |29 mars 2017 |--- |
 | [1.13.0](#1.13.0) |24 mars 2017 |--- |
@@ -262,6 +280,6 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 

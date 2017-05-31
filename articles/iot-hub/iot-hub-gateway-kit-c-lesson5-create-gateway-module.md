@@ -17,15 +17,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Leçon 5 : Créer votre premier module de passerelle Azure IoT
-Bien que le Kit de développement de passerelle permette de développer des modules écrits en Java, .NET ou Node.js, ce didacticiel vous guide à travers les étapes de création d’un module en langage C.
+Bien qu’Azure IoT Edge permette de développer des modules écrits en Java, .NET ou Node.js, ce didacticiel vous guide à travers les étapes de création d’un module en langage C.
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
@@ -41,7 +42,7 @@ Bien que le Kit de développement de passerelle permette de développer des modu
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-Le Kit de développement logiciel (SDK) de la passerelle Azure IoT qui a été installé sur votre ordinateur hôte.
+Azure IoT Edge installé sur votre ordinateur hôte.
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
@@ -103,7 +104,7 @@ Pour compiler et exécuter l’application `hello_world`, procédez comme suit s
 
 La procédure ci-dessous vous guide dans la création d’un module et sa compilation sur l’Intel NUC. Le module affiche des messages avec un horodatage au moment de leur réception. Vous allez créer votre premier module de passerelle personnalisé dans cette section.
 
-Tout module du Kit de développement logiciel (SDK) de la passerelle Azure IoT doit implémenter les interfaces suivantes :
+Tout module Azure IoT Edge doit implémenter les interfaces suivantes :
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson

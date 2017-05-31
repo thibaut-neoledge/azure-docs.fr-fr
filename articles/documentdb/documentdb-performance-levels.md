@@ -1,31 +1,32 @@
 ---
-title: "Niveaux de performances dans DocumentDB | Microsoft Docs"
-description: "Découvrez comment les niveaux de performances dans DocumentDB permettent de réserver le débit pour chaque collection."
-services: documentdb
+title: "Niveaux de performances dans l’API DocumentDB | Microsoft Docs"
+description: "Découvrez comment les niveaux de performances dans l’API DocumentDB permettent de réserver le débit pour chaque conteneur."
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2f67166e95da9f47133f8856be4c7902da75b886
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Mise hors service des niveaux de performances S1, S2 et S3 dans DocumentDB
+# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
 > [!IMPORTANT] 
-> Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouvelles collections DocumentDB.
+> Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouveaux comptes de l’API DocumentDB.
 >
 
 Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S3 et explique comment les collections qui les utilisent seront migrées vers des collections à partition unique le 1er août 2017. Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
@@ -45,7 +46,7 @@ Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Pourquoi les niveaux de performances S1, S2 et S3 vont-ils être mis hors service ?
 
-Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité que les collections DocumentDB à partition unique. Avec les niveaux de performances S1, S2 et S3, le débit et la capacité de stockage étaient prédéfinis. DocumentDB offre désormais la possibilité de personnaliser votre débit et votre stockage, ce qui vous garantit une plus grande flexibilité en matière d’adaptation à l’évolution de vos besoins.
+Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité que les collections de l’API DocumentDB. Avec les niveaux de performances S1, S2 et S3, le débit et la capacité de stockage étaient prédéfinis et n’offraient aucune élasticité. Azure Cosmos DB offre désormais la possibilité de personnaliser votre débit et votre stockage, ce qui vous garantit une plus grande flexibilité vis-à-vis de l’évolution de vos besoins.
 
 <a name="compare"></a>
 
@@ -58,7 +59,7 @@ Le tableau suivant compare les options de débit et de stockage disponibles dans
 |Débit maximal|Illimité|10 000 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Débit minimal|2 500 RU/s|400 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Stockage maximal|Illimité|10 Go|10 Go|10 Go|10 Go|
-|Prix|Débit : 6 USD / 100 RU/s<br><br>Stockage :&0;,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage :&0;,25 USD/Go|25 USD|50 USD|100 USD|
+|Prix|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|25 USD|50 USD|100 USD|
 
 Vous êtes un client Contrat Entreprise ? Si oui, voir [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
 
@@ -66,7 +67,7 @@ Vous êtes un client Contrat Entreprise ? Si oui, voir [Quelles sont les consé
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Comment assurer un accès ininterrompu à mes données ?
 
-Vous n’avez rien à faire, DocumentDB se charge de la migration pour vous. Si vous avez une collection S1, S2 ou S3, votre collection actuelle sera migrée vers une collection à partition unique le 31 juillet 2017. 
+Vous n’avez rien à faire : Cosmos DB se charge de la migration pour vous. Si vous avez une collection S1, S2 ou S3, votre collection actuelle sera migrée vers une collection à partition unique le 31 juillet 2017. 
 
 <a name="collection-change"></a>
 
@@ -78,7 +79,7 @@ Si vous avez une collection S2, elle sera migrée vers une collection à partiti
 
 Si vous avez une collection S3, elle sera migrée vers une collection à partition unique dotée d’un débit de 2 500 RU/s. Vous n’observerez aucun changement de niveau de débit.
 
-Dans chacun de ces cas, une fois la migration de votre collection effectuée, vous serez en mesure de personnaliser votre niveau de débit, ou de le mettre à l’échelle selon vos besoins afin de fournir un accès à faible latence à vos utilisateurs. Pour modifier le niveau de débit une fois votre collection migrée, il vous suffit d’ouvrir votre compte DocumentDB dans le portail Azure, puis de cliquer sur Mettre à l’échelle, de choisir votre collection et enfin d’ajuster le niveau du débit, comme illustré dans la capture d’écran suivante :
+Dans chacun de ces cas, une fois la migration de votre collection effectuée, vous serez en mesure de personnaliser votre niveau de débit, ou de le mettre à l’échelle selon vos besoins afin de fournir un accès à faible latence à vos utilisateurs. Pour modifier le niveau de débit une fois votre collection migrée, il vous suffit d’ouvrir votre compte Cosmos DB dans le portail Azure, puis de cliquer sur Mettre à l’échelle, de choisir votre collection et enfin d’ajuster le niveau du débit, comme illustré dans la capture d’écran suivante :
 
 ![Mise à l’échelle du débit dans le portail Azure](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
 
@@ -94,7 +95,7 @@ Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?
 
-Que vous disposiez d’une collection avec un niveau de performance S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données DocumentDB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure DocumentDB](documentdb-partition-data.md). Pour plus d’informations sur la façon de migrer votre collection S1, S2, S3 ou à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition). 
+Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](documentdb-partition-data.md). Pour plus d’informations sur la façon de migrer votre collection S1, S2, S3 ou à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition). 
 
 <a name="change-before"></a>
 
@@ -106,7 +107,7 @@ Seuls les comptes existants avec des niveaux de performances S1, S2 et S3 seront
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Comment serai-je informé de la migration de ma collection ?
 
-La migration aura lieu le 31 juillet 2017. Si vous avez une collection qui utilise les niveaux de performances S1, S2 ou S3, l’équipe DocumentDB vous contactera par e-mail avant de lancer la migration. Une fois la migration terminée, le 1er août 2017, le portail Azure indiquera que votre collection utilise la tarification Standard.
+La migration aura lieu le 31 juillet 2017. Si vous avez une collection qui utilise les niveaux de performances S1, S2 ou S3, l’équipe Cosmos DB vous contactera par e-mail avant de lancer la migration. Une fois la migration terminée, le 1er août 2017, le portail Azure indiquera que votre collection utilise la tarification Standard.
 
 ![Confirmation de la migration de votre collection vers le niveau tarifaire Standard](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
 
@@ -118,11 +119,11 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
 
 **Migration vers des collections à partition unique à l’aide du portail Azure**
 
-1. Dans le [**Portail Azure**](https://portal.azure.com), cliquez sur **NoSQL (DocumentDB)**, puis sélectionnez le compte DocumentDB à modifier. 
+1. Dans le [**portail Azure**](https://portal.azure.com), cliquez sur **Azure Cosmos DB**, puis sélectionnez le compte Cosmos DB à modifier. 
  
-    Si **NoSQL (DocumentDB)** ne figure pas dans la barre de lancement, cliquez sur >, accédez à **Bases de données**, sélectionnez **NoSQL (DocumentDB)**, puis sélectionnez le compte DocumentDB.  
+    Si **Azure Cosmos DB** ne figure pas dans la barre de lancement, cliquez sur >, accédez à **Bases de données**, sélectionnez **Azure Cosmos DB**, puis sélectionnez le compte DocumentDB.  
 
-2. Dans le menu de la ressource, sous **Collections**, cliquez sur **Mettre à l’échelle**, sélectionnez la collection à modifier dans la liste déroulante, puis cliquez sur **Niveau tarifaire**. Les comptes utilisant un débit prédéfini ont un niveau tarifaire de S1, S2 ou S3.  Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Standard** pour basculer vers le débit défini par l’utilisateur, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
+2. Dans le menu de la ressource, sous **Conteneurs**, cliquez sur **Mettre à l’échelle**, sélectionnez la collection à modifier dans la liste déroulante, puis cliquez sur **Niveau tarifaire**. Les comptes utilisant un débit prédéfini ont un niveau tarifaire de S1, S2 ou S3.  Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Standard** pour basculer vers le débit défini par l’utilisateur, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
 
     ![Capture d’écran du panneau Paramètres montrant où modifier la valeur de débit](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
@@ -174,9 +175,9 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.document
 Les clients Contrat Entreprise bénéficieront d’une protection en matière de tarification jusqu’à la fin de leur contrat actuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
+Pour en savoir plus sur la tarification et la gestion des données avec Azure Cosmos DB, explorez les ressources suivantes :
 
-1.    [Partitionnement des données dans DocumentDB](documentdb-partition-data.md). Découvrez la différence entre les collections à partition unique et les collections partitionnées et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
-2.    [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
+1.    [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](documentdb-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+2.    [Tarification Cosmos DB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
 3.    [Unités de requête](documentdb-request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
-4.    [Modélisation des données dans DocumentDB](documentdb-modeling-data.md). Apprenez à modéliser vos données pour DocumentDB.
+

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -76,7 +77,8 @@ Téléchargez la dernière version de l’[outil WAImportExport](http://download
 >
 
 ### <a name="hard-disk-drives"></a>Disques durs
-Le service Import/Export ne prend en charge que les disques durs internes SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To.
+Le service Import/Export ne prend en charge que les disques durs internes SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces. Une tâche d’importation/exportation peut avoir un maximum de 10 disques durs/SSD, et chaque disque dur/SSD peut avoir n’importe quelle taille. Il est possible de répartir un grand nombre de disques entre plusieurs tâches, et il n’existe aucune limite quant au nombre de tâches pouvant être créées. 
+
 Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS.
 
 > [!IMPORTANT]
@@ -508,6 +510,14 @@ Consultez la rubrique [Importer des fichiers PST ou des données SharePoint dans
 
 Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Azure Backup](../backup/backup-azure-backup-import-export.md).
 
+** Quel est le nombre maximum de disques durs par livraison ?
+
+Une livraison peut contenir n’importe quel nombre de disques durs et, si les disques appartiennent à plusieurs tâches, il est recommandé : a) d’indiquer les noms de tâche correspondants sur les disques. b) de mettre à jour les tâches avec un numéro de suivi se terminant par -1, -2, etc.
+  
+** Quel est la taille maximale des objets blob de pages et de blocs pris en charge par le service Import/Export de disques ?
+
+La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
+La taille maximale des objets blob de pages est de 1 To.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)

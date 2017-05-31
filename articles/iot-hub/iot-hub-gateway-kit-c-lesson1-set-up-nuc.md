@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 475664845a9922c5225ea1fd8e008bcb5582bd67
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
 - Configurez l’Intel NUC comme passerelle IoT.
-- Installez le package du kit de développement logiciel (SDK) Gateway Azure IoT sur l’Intel NUC.
+- Installez le package Azure IoT Edge sur l’Intel NUC.
 - Exécutez un exemple d’application « hello_world » sur l’Intel NUC pour vérifier le bon fonctionnement de la passerelle.
 
   > Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-troubleshooting.md).
@@ -89,9 +90,9 @@ Vous aurez besoin d’un clavier et d’un écran pour obtenir l’adresse IP de
    Il est plus efficace et productif d’utiliser un Intel NUC à partir d’un ordinateur hôte. Vous aurez besoin de l’adresse IP, du nom d’utilisateur et du mot de passe de l’Intel NUC pour vous y connecter par le biais d’un client SSH. Voici un exemple qui fait appel à un client SSH sur Mac OS.
    ![Client SSH exécuté sur macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Installation du package du Kit de développement logiciel (SDK) Gateway Azure IoT
+## <a name="install-the-azure-iot-edge-package"></a>Installer le package Azure IoT Edge
 
-Le package du kit de développement logiciel (SDK) Gateway Azure IoT contient les fichiers binaires précompilés du Kit de développement logiciel (SDK) et de ses dépendances. Ces fichiers binaires sont : le kit de développement logiciel (SDK) Gateway Azure IoT, le Kit de développement logiciel (SDK) Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. Le Kit de développement logiciel (SDK) constitue la partie principale de la passerelle. 
+Le package Azure IoT Edge contient les fichiers binaires précompilés d’Azure IoT Edge et de ses dépendances. Ces fichiers binaires sont Azure IoT Edge, le kit de développement logiciel (SDK) Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. IoT Edge constitue la partie principale de la passerelle. 
 
 Pour installer le package, procédez comme suit.
 
@@ -133,9 +134,9 @@ Pour installer le package, procédez comme suit.
 
    Une fois le package installé, l’Intel NUC est prêt à fonctionner en tant que passerelle.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » du Kit de développement logiciel (SDK) Gateway Azure IoT
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » d’Azure IoT Edge
 
-L’exemple d’application suivant crée une passerelle à partir d’un fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture du SDK Gateway Azure IoT pour consigner le message « Hello World » dans un fichier (log.txt) toutes les 5 secondes.
+L’exemple d’application suivant crée une passerelle à partir d’un fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture Azure IoT Edge pour consigner le message « Hello World » dans un fichier (log.txt) toutes les 5 secondes.
 
 Vous pouvez exécuter l’exemple Hello World en utilisant les commandes suivantes :
 

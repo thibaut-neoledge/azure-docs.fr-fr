@@ -1,6 +1,6 @@
 ---
 title: "Utiliser les recommandations Azure Security Center pour améliorer la sécurité | Microsoft Docs"
-description: " Découvrez comment utiliser les stratégies de sécurité et les recommandations d&quot;Azure Security Center pour prévenir une attaque de sécurité. "
+description: " Découvrez comment utiliser les stratégies de sécurité et les recommandations d’Azure Security Center pour prévenir une attaque de sécurité. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ Jeff se connecte au [portail Azure](https://azure.microsoft.com/features/azure-p
 
 1. Jeff sélectionne la mosaïque **Recommandations** pour ouvrir le panneau **Recommandations**.
    ![Sélectionner la mosaïque Recommandations][3]
-2. Jeff passe en revue la liste des recommandations. Il constate que Security Center a fourni la liste des recommandations par ordre de priorité, de la priorité la plus élevée à la priorité la plus basse. Il décide de traiter la première recommandation de priorité élevée dans la liste. Il sélectionne **Installer Endpoint Protection** dans le panneau **Recommandations**.
+2. Jeff passe en revue la liste des recommandations. Il constate que Security Center a fourni la liste des recommandations par ordre de priorité, de la priorité la plus élevée à la priorité la plus basse. Il décide de traiter une recommandation de priorité élevée dans la liste. Il sélectionne **Installer Endpoint Protection** dans le panneau **Recommandations**.
 3. Le panneau **Installer Endpoint Protection** s’ouvre en affichant une liste de machines virtuelles sans logiciel anti-programme malveillant activé. Jeff passe en revue la liste des machines virtuelles, sélectionne toutes les machines virtuelles puis choisit **Installer sur 3 machines virtuelles**.
    ![Installer Endpoint Protection][4]
 4. Le panneau **Sélectionner Endpoint Protection** s’ouvre et offre à Jeff deux solutions anti-programmes malveillants. Jeff sélectionne la solution **Microsoft Antimalware**.
@@ -114,9 +116,4 @@ Surveiller les recommandations dans Security Center peut vous aider à éliminer
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

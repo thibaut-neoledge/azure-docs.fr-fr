@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 Cet article explique comment empaqueter une application Service Fabric et la préparer pour le déploiement.
 
 ## <a name="package-layout"></a>Disposition du package
-Le manifeste d'application, le(s) manifeste(s) de service et les autres fichiers de package nécessaires doivent être organisés selon une disposition spécifique en vue du déploiement dans un cluster Service Fabric. Les exemples de manifestes dans cet article doivent être organisés selon la structure de répertoires suivante :
+Le manifeste d’application, un ou plusieurs manifestes de service et les autres fichiers de package nécessaires doivent être organisés selon une disposition spécifique en vue du déploiement dans un cluster Service Fabric. Les exemples de manifestes dans cet article doivent être organisés selon la structure de répertoires suivante :
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -54,7 +55,7 @@ Les dossiers sont nommés d'après les attributs **Name** de chaque élément co
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
 
-Pour plus d’informations sur la façon de configurer **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
+Pour plus d’informations sur la configuration de **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md).
 
 ## <a name="configure"></a>Configuration 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
@@ -67,7 +68,7 @@ Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Ex
 Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie**. L’étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Développer un package par ligne de commande
-Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot : voici ce que Visual Studio exécute pour obtenir le même résultat.
+Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot, Visual Studio l’exécute pour obtenir le même résultat.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -113,13 +114,13 @@ PS D:\temp>
 
 Si des [paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) sont définis pour votre application, vous pouvez les transmettre dans [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) pour assurer une validation correcte.
 
-Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre la chaîne de connexion du magasin d’images. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
+Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre le paramètre `ImageStoreConnectionString`. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
 
 Une fois que l’application a été correctement empaquetée et a passé la validation avec succès, déterminez si une compression est nécessaire en fonction de la taille et du nombre de fichiers. 
 
 ## <a name="compress-a-package"></a>Compresser un package
 Lorsqu’un package est volumineux ou contient de nombreux fichiers, vous pouvez le compresser afin d’accélérer le déploiement. La compression réduit le nombre de fichiers et la taille du package.
-Le [chargement du package d’application](service-fabric-deploy-remove-applications.md#upload-the-application-package) peut prendre plus de temps que pour le package non compressé, mais l’[inscription](service-fabric-deploy-remove-applications.md#register-the-application-package) et la [désinscription du type d’application](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sont plus rapides.
+Pour un package d’application compressé, le [chargement du package d’application](service-fabric-deploy-remove-applications.md#upload-the-application-package) peut prendre plus de temps que le chargement du package non compressé (surtout si la durée de compression est prise en compte), mais l’[enregistrement](service-fabric-deploy-remove-applications.md#register-the-application-package) et l’[annulation de l’enregistrement du type d’application](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sont plus rapides pour un package d’application compressé.
 
 Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
 La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet. 
@@ -169,7 +170,7 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 En interne, Service Fabric calcule les sommes de contrôle des packages d’application à des fins de validation. Lorsque la compression est utilisée, les sommes de contrôle sont calculées dans les versions compressées de chaque package.
-Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour le même package, vous devez modifier les versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. Si les packages sont identiques, au lieu de changer de version, vous pouvez utiliser [l’approvisionnement différé](service-fabric-application-upgrade-advanced.md). Vous n’avez pas à inclure le package inchangé avec cette option, il suffit de le référencer dans le manifeste de service.
+Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour ce même package, vous devez modifier les versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. Si les packages sont identiques, au lieu de changer de version, vous pouvez utiliser [l’approvisionnement différé](service-fabric-application-upgrade-advanced.md). Vous n’avez pas à inclure le package inchangé avec cette option. Il suffit de le référencer dans le manifeste de service.
 
 De même, si vous avez chargé une version compressée du package et que vous souhaitez utiliser un package non compressé, vous devez mettre à jour les versions pour éviter la non-concordance des sommes de contrôle.
 

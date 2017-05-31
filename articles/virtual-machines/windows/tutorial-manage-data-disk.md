@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="manage-azure-disks-with-powershell"></a>Gestion des disques Azure avec PowerShell
 
-Ce didacticiel décrit les différents disques de machines virtuelles et explique comment sélectionner une configuration de disque et comment créer et attacher des disques aux machines virtuelles Azure. Ce didacticiel couvre également la prise de captures instantanées de disque.  
+Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel décrit le déploiement et la gestion des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Disques de système d’exploitation et disques temporaires
+> * Disques de données
+> * Disques Standard et Premium
+> * Performances des disques
+> * Attachement et préparation des disques de données
+
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 
@@ -39,7 +46,7 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 
-| Type | Taille de la machine virtuelle | Taille du disque temp. max. |
+| Type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 800 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 800 |
@@ -136,7 +143,17 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez développé vos connaissances sur les disques de machine virtuelle. Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
+Ce didacticiel vous a apporté des connaissances concernant les disques de machine virtuelle, notamment concernant les points suivants :
 
-[How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
+> [!div class="checklist"]
+> * Disques de système d’exploitation et disques temporaires
+> * Disques de données
+> * Disques Standard et Premium
+> * Performances des disques
+> * Attachement et préparation des disques de données
+
+Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
+
+> [!div class="nextstepaction"]
+> [How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
 

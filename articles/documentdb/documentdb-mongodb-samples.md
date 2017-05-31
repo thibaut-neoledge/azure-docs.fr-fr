@@ -1,28 +1,29 @@
 ---
-title: "Utiliser les API MongoDB pour générer une application DocumentDB | Microsoft Docs"
-description: "Un didacticiel NoSQL qui crée une base de données en ligne à l’aide des API DocumentDB pour MongoDB."
+title: "Utiliser les API MongoDB pour générer une application Azure Cosmos DB | Microsoft Docs"
+description: "Didacticiel qui crée une base de données en ligne à l’aide des API DocumentDB pour MongoDB."
 keywords: exemples mongodb
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 867ec5d0b27e790f3b00c94a4e5d14e4b2b17f73
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d4243fc1400c4e9ad545060f253ae46a579e406f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-documentdb-api-for-mongodb-app-using-nodejs"></a>Générer une application DocumentDB : API pour MongoDB à l’aide de Node.js
+# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Générer une application Azure Cosmos DB : API pour MongoDB à l’aide de Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/08/2017
 >  
 >
 
-Cet exemple vous montre comment générer une application console DocumentDB : API pour MongoDB à l’aide de Node.js.
+Cet exemple vous montre comment générer une application console Azure Cosmos DB : API pour MongoDB à l’aide de Node.js.
 
 Pour utiliser cet exemple, vous devez :
 
-* [Créer](documentdb-create-mongodb-account.md) un compte Azure DocumentDB : API pour MongoDB.
+* [Créez](documentdb-create-mongodb-account.md) un compte Azure Cosmos DB : API pour MongoDB.
 * Récupérer les informations de [chaîne de connexion](documentdb-connect-mongodb-account.md) MongoDB.
 
 ## <a name="create-the-app"></a>Création de l'application
@@ -132,5 +133,5 @@ Pour utiliser cet exemple, vous devez :
 3. Ouvrez votre terminal préféré, exécutez **npm install mongodb --save**, puis exécutez votre application avec **node app.js**
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [utiliser MongoChef](documentdb-mongodb-mongochef.md) avec votre compte DocumentDB : API pour MongoDB.
+* Découvrez comment [utiliser MongoChef](documentdb-mongodb-mongochef.md) avec votre compte Azure Cosmos DB : API pour MongoDB.
 

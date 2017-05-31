@@ -1,31 +1,40 @@
 ---
-title: "Stratégies d’indexation de DocumentDB | Microsoft Docs"
-description: "Appréhendez les mécanismes d’indexation dans DocumentDB et apprenez à configurer et à modifier la stratégie d’indexation. Configurez la stratégie d’indexation dans DocumentDB pour bénéficier d’une indexation automatique et de meilleures performances."
-keywords: "mécanismes de l’indexation, indexation automatique, base de données d’indexation, documentdb, azure, Microsoft azure"
-services: documentdb
+title: "Stratégies d’indexation d’Azure Cosmos DB | Microsoft Docs"
+description: "Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances."
+keywords: "fonctionnement de l’indexation, indexation automatique, base de données d’indexation"
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
-ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c64c7a058d8635223dadd21eea402d92656599b9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-indexing-policies"></a>Stratégies d’indexation de DocumentDB
-Bien que de nombreux clients soient ravis de laisser Azure DocumentDB gérer automatiquement tous les aspects de l’indexation, DocumentDB prend également en charge la spécification d’une **stratégie d’indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.  
+# <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
-Dans cet article, nous examinons en détail les stratégies d’indexation de DocumentDB, la personnalisation d’une stratégie d'indexation et les compromis associés. 
+Par défaut, toutes les données d’Azure Cosmos DB sont indexées. Bien que de nombreux clients apprécient de laisser Azure Cosmos DB gérer automatiquement tous les aspects de l’indexation, cette solution permet également de spécifier une **stratégie d’indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans Azure Cosmos DB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, car elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans Azure Cosmos DB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écritures et de requêtes et la cohérence des requêtes.  
+
+**Comment indexer des données dans Azure Cosmos DB pour chaque modèle de données ?**
+
+|   |API DocumentDB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API de tables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API Graph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      API MongoDB|
+|---|-----------------|--------------|-------------|---------------|
+|Options d’indexation|Utilisez la valeur par défaut et indexez toutes les données. <br><br> Ou [créez des stratégies d’indexation personnalisées](#CustomizingIndexingPolicy).|
+|Modes d’indexation|[Cohérent, différé ou aucun](#indexing-modes).|
+
+Dans cet article, nous examinons en détail les stratégies d’indexation d’Azure Cosmos DB, la personnalisation d’une stratégie d’indexation et les compromis associés. 
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
@@ -35,12 +44,12 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Comment puis-je apporter des modifications à la stratégie d'indexation d'une collection ?
 * Comment puis-je comparer le stockage et les performances des différentes stratégies d'indexation ?
 
-## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personnalisation de la stratégie d’indexation d’une collection
-Les développeurs peuvent personnaliser les compromis entre le stockage, les performances d'écriture/de requête et la cohérence des requêtes, en remplaçant la stratégie d'indexation par défaut sur une collection DocumentDB et en configurant les aspects suivants.
+## <a id="CustomizingIndexingPolicy"></a> Personnalisation de la stratégie d’indexation d’une collection
+Les développeurs peuvent personnaliser les compromis entre stockage, performances d’écriture/de requête et cohérence des requêtes, en remplaçant la stratégie d’indexation par défaut sur une collection Azure Cosmos DB et en configurant les aspects suivants.
 
 * **Inclusion/Exclusion des documents et chemins d’accès vers/à partir de l’index**. Les développeurs peuvent choisir certains documents à exclure ou inclure dans l'index au moment de les insérer ou de les remplacer dans la collection. Les développeurs peuvent également inclure ou exclure certaines propriétés JSON, ou chemins d’accès (y compris des modèles génériques), à indexer dans tous les documents qui sont inclus dans un index.
 * **Configuration de plusieurs types d’index**. Pour chacun des chemins d'accès inclus, les développeurs peuvent également spécifier le type d'index qu'ils ont besoin pour une collection en fonction de leurs données, de la charge de travail des requêtes et de la « précision » numérique/de chaîne de chaque chemin d'accès.
-* **Configuration des modes de mise à jour d’index**. DocumentDB prend en charge trois modes d'indexation qui peuvent être configurés via la stratégie d'indexation sur une collection DocumentDB : le mode Cohérent, le mode Différé et le mode Aucun. 
+* **Configuration des modes de mise à jour d’index**. Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être configurés via la stratégie d’indexation sur une collection Azure Cosmos DB : Cohérent, Différé et Aucun. 
 
 L’extrait de code .NET suivant montre comment définir une stratégie d’indexation personnalisée lors de la création d’une collection. Ici, nous définissons la stratégie avec un index de plage pour les chaînes et les chiffres à la précision maximale. Cette stratégie nous permet d’exécuter des requêtes Trier par sur les chaînes.
 
@@ -55,25 +64,25 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
 > [!NOTE]
 > Le schéma JSON de la stratégie d’indexation a été modifié avec la version de l’API REST 2015-06-03 pour prendre en charge les index de plage dans des chaînes. Le Kit de développement logiciel (SDK) .NET 1.2.0 et les Kits de développement logiciel (SDK) Java, Python et Node.js 1.1.0 prennent en charge le nouveau schéma de stratégie. Des Kits de développement (SDK) plus anciens utilisent la version 2015-04-08 de l'API REST et prennent en charge le schéma de stratégie d'indexation plus ancien.
 > 
-> Par défaut, DocumentDB indexe régulièrement toutes les propriétés de chaîne au sein des documents avec un index de hachage, et les propriétés numériques avec un index de plage.  
+> Par défaut, Azure Cosmos DB indexe toutes les propriétés de chaîne au sein des documents, de manière cohérente, avec un index de hachage et des propriétés numériques avec un index de plage.  
 > 
 > 
 
-### <a name="database-indexing-modes"></a>Modes d’indexation de base de données
-DocumentDB prend en charge trois modes d'indexation qui peuvent être configurés via la stratégie d'indexation sur une collection DocumentDB : le mode Cohérent, le mode Différé et le mode Aucun.
+### <a id="indexing-modes"></a>Modes d’indexation de base de données
+Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être configurés via la stratégie d’indexation sur une collection Azure Cosmos DB : Cohérent, Différé et Aucun.
 
-**Cohérent** : si la stratégie d’une collection DocumentDB est désignée comme « cohérente », les requêtes sur une collection DocumentDB donnée suivent le même niveau de cohérence que celui spécifié pour les lectures de point (c.-à-d., fort, en fonction de l’obsolescence, session ou éventuel). L’index est mis à jour de façon synchrone dans le cadre de la mise à jour du document (par ex. l’insertion, le remplacement, la mise à jour et la suppression d’un document dans une collection DocumentDB).  L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d'écriture. Cette réduction dépend des chemins d'accès uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
+**Cohérent** : si la stratégie d’une collection Azure Cosmos DB est désignée comme « cohérente », les requêtes sur une collection Azure Cosmos DB donnée suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (c.-à-d., fort, en fonction de l’obsolescence, session ou éventuel). L’index est mis à jour de façon synchrone lors de la mise à jour du document (par ex. l’insertion, le remplacement, la mise à jour et la suppression d’un document dans une collection Azure Cosmos DB).  L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d'écriture. Cette réduction dépend des chemins d'accès uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
 
-**Différé** : pour offrir un débit maximal d’ingestion de documents, une collection DocumentDB peut être configurée avec une cohérence différée, ce qui veut dire que les requêtes sont cohérentes. L'index est mis à jour de façon asynchrone lorsqu'une collection DocumentDB est inactive. En d’autres termes, la capacité du débit de la collection n'est pas entièrement exploitée pour traiter les requêtes de l'utilisateur. Pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion libre des documents, le mode d'indexation « différé » peut être approprié.
+**Différé** : pour offrir un débit maximal d’ingestion de documents, une collection Azure Cosmos DB peut être configurée avec une cohérence différée, ce qui veut dire que les requêtes sont cohérentes. L’index est mis à jour de façon asynchrone lorsqu’une collection Azure Cosmos DB est inactive. En d’autres termes, la capacité de débit de la collection n’est pas entièrement exploitée pour traiter les requêtes de l’utilisateur. Pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion libre des documents, le mode d'indexation « différé » peut être approprié.
 
-**Aucun**: une collection en mode « Aucun » ne comporte aucun index associé. Ce mode est souvent utilisé si DocumentDB est utilisé en tant que stockage clé-valeur, et les documents sont accessibles uniquement via leur propriété ID. 
+**Aucun**: une collection en mode « Aucun » ne comporte aucun index associé. Ce mode est souvent employé si Azure Cosmos DB est utilisé en tant que stockage de clés-valeurs et si les documents ne sont accessibles que via leur propriété ID. 
 
 > [!NOTE]
 > La configuration de la stratégie d’indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant. Utilisez-la si vos modèles d'accès ne requièrent que l’attribut « id » et/ou « self-link » (lien réflexif).
 > 
 > 
 
-L'exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET de DocumentDB pour créer une collection DocumentDB avec une indexation automatique cohérente de toutes les insertions de document.
+L’exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET d’Azure Cosmos DB pour créer une collection Azure Cosmos DB avec une indexation automatique cohérente de toutes les insertions de document.
 
 Le tableau suivant indique la cohérence des requêtes en fonction du mode d'indexation (Cohérent et Différé) qui a été configuré pour la collection et du niveau de cohérence spécifié pour la requête. Cela s'applique aux requêtes effectuées à l'aide de n'importe quelle interface : API REST, Kit de développement logiciel (SDK) ou à partir de déclencheurs et de procédures stockées. 
 
@@ -84,7 +93,7 @@ Le tableau suivant indique la cohérence des requêtes en fonction du mode d'ind
 |Session|Session|Eventual (Éventuel)|
 |Eventual (Éventuel)|Eventual (Éventuel)|Eventual (Éventuel)|
 
-DocumentDB renvoie une erreur pour les requêtes effectuées sur les collections en mode d’indexation « Aucun ». Les requêtes peuvent toujours être exécutées comme des analyses via l’en-tête explicite `x-ms-documentdb-enable-scan` dans l’API REST ou l’option de demande `EnableScanInQuery` à l’aide du Kit de développement logiciel (SDK) .NET. Certaines fonctions de requêtes, telles que ORDER BY, ne sont pas prises en charge en tant qu’analyses avec `EnableScanInQuery`.
+Azure Cosmos DB renvoie une erreur pour les requêtes effectuées sur les collections en mode d’indexation « Aucun ». Les requêtes peuvent toujours être exécutées comme des analyses via l’en-tête explicite `x-ms-documentdb-enable-scan` dans l’API REST ou l’option de demande `EnableScanInQuery` à l’aide du Kit de développement logiciel (SDK) .NET. Certaines fonctions de requêtes, telles que ORDER BY, ne sont pas prises en charge en tant qu’analyses avec `EnableScanInQuery`.
 
 Le tableau suivant indique la cohérence des requêtes en fonction du mode d'indexation (Cohérent, Différé et Aucun) qui a été configuré lorsque EnableScanInQuery est spécifié.
 
@@ -95,7 +104,7 @@ Le tableau suivant indique la cohérence des requêtes en fonction du mode d'ind
 |Session|Session|Eventual (Éventuel)|Session|
 |Eventual (Éventuel)|Eventual (Éventuel)|Eventual (Éventuel)|Eventual (Éventuel)|
 
-L'exemple de code suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET de DocumentDB pour créer une collection DocumentDB avec une indexation cohérente de toutes les insertions de document.
+L’exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET d’Azure Cosmos DB pour créer une collection Azure Cosmos DB avec une indexation automatique cohérente de toutes les insertions de document.
 
      // Default collection creates a hash index for all string fields and a range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
@@ -108,11 +117,11 @@ L'exemple de code suivant montre comment utiliser le Kit de développement logic
 
 
 ### <a name="index-paths"></a>Chemins d’accès de l’index
-DocumentDB modélise les documents JSON et l'index sous forme d’arborescences et vous permet de les ajuster aux stratégies de chemins d'accès dans l'arborescence. Pour plus d’informations, consultez la rubrique [Présentation de l’indexation DocumentDB](documentdb-indexing.md). Dans les documents, vous pouvez choisir les chemins d'accès qui doivent être inclus ou exclus de l'indexation. Il peut en résulter de meilleures performances d'écriture et un stockage des index inférieur pour les scénarios lorsque les modèles de requête sont connus au préalable.
+Azure Cosmos DB modélise les documents JSON et l’index sous la forme d’arborescences, et vous permet de les adapter aux stratégies pour les chemins d’accès dans l’arborescence. Pour plus d’informations, consultez la rubrique [Présentation de l’indexation Azure Cosmos DB](documentdb-indexing.md). Dans les documents, vous pouvez choisir les chemins d'accès qui doivent être inclus ou exclus de l'indexation. Il peut en résulter de meilleures performances d'écriture et un stockage des index inférieur pour les scénarios lorsque les modèles de requête sont connus au préalable.
 
 Le chemin des index commence par la racine et se termine généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d’index pour /familyName/? dans la stratégie d’index de la collection.
 
-Les chemins d'index peuvent aussi utiliser l'opérateur générique * pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
+Les chemins d’index peuvent aussi utiliser l’opérateur générique * pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* permet d’exclure de l’indexation tout ce qui figure sous la propriété « payload ».
 
 Voici les modèles courants de spécification des chemins d'index :
 
@@ -162,17 +171,17 @@ Maintenant que nous avons vu comment spécifier des chemins d’accès, examinon
 * Précision : 1 à 8 ou -1 (précision maximale) pour les nombres, 1 à 100 (précision maximale) pour les chaînes
 
 #### <a name="index-kind"></a>Type d’index
-DocumentDB prend en charge les types d'index de hachage et de plage pour chaque chemin d'accès (qui peuvent être configurés pour les chaînes, nombres ou les deux).
+Azure Cosmos DB prend en charge les types d’index de hachage et de plage pour chaque chemin d’accès (qui peuvent être configurés pour les chaînes, les nombres ou les deux).
 
 * **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets. Le type de données peut être Chaîne ou Nombre.
 * **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1). Le type de données peut être Chaîne ou Nombre.
 
-DocumentDB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur dans le chemin d’accès spécifié doit être un fragment GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+Azure Cosmos DB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur dans le chemin d’accès spécifié doit être un fragment GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Spatial** prend en charge les requêtes spatiales efficaces (within et distance) Le type de données peut être Point, Polygone ou LineString.
 
 > [!NOTE]
-> DocumentDB prend en charge l’indexation automatique des Points, des Polygones et des LineStrings.
+> Azure Cosmos DB prend en charge l’indexation automatique des points, polygones et lineStrings.
 > 
 > 
 
@@ -208,7 +217,7 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
 
 
 > [!NOTE]
-> DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale. 
+> Azure Cosmos DB renvoie une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage pour le chemin d’accès avec la précision maximale. 
 > 
 > 
 
@@ -216,7 +225,7 @@ De même, des chemins d’accès peuvent être exclus complètement de l’index
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
@@ -237,23 +246,23 @@ Ainsi, l’exemple suivant montre comment inclure un document explicitement à l
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
 ## <a name="modifying-the-indexing-policy-of-a-collection"></a>Modification de la stratégie d'indexation d'une collection
-DocumentDB vous permet d'apporter des modifications à la stratégie d'indexation d'une collection à la volée. Une modification de stratégie d'indexation dans une collection DocumentDB peut entraîner une modification de la forme de l'index, notamment des chemins d'accès qui peuvent être indexés, de leur précision et du modèle de cohérence de l'index. Pour modifier cette stratégie, vous devez donc opter pour un nouvel index. 
+Azure Cosmos DB vous permet d’apporter des modifications à la stratégie d’indexation d’une collection à la volée. Une modification de stratégie d’indexation dans une collection Azure Cosmos DB peut entraîner une modification de la forme de l’index, notamment les chemins d’accès indexables, leur précision et le modèle de cohérence de l’index. Pour modifier cette stratégie, vous devez donc opter pour un nouvel index. 
 
 **Transformations d'index en ligne**
 
-![Mécanismes de l’indexation – Transformations d’index en ligne DocumentDB](media/documentdb-indexing-policies/index-transformations.png)
+![Mécanismes de l’indexation – Transformations d’index en ligne Azure Cosmos DB](media/documentdb-indexing-policies/index-transformations.png)
 
 Les transformations d’index sont effectuées en ligne, ce qui signifie que les documents indexés par l’ancienne stratégie sont transformés efficacement par la nouvelle stratégie, **sans affecter la disponibilité de l’écriture ou le débit approvisionné** de la collection. La cohérence des opérations de lecture et d'écriture effectuées à l'aide de l'API REST, des Kits de développement logiciel ou à partir des déclencheurs et des procédures stockées n'est pas affectée au cours de la transformation de l'index. Cela signifie qu’aucune dégradation de performances, ou interruption de vos applications, n’est effectuée lorsque vous modifiez une stratégie d'indexation.
 
 Toutefois, lors de la transformation de l'index, les requêtes sont cohérentes, et ce, quelle que soit la configuration du mode d'indexation (mode Cohérent ou Différé). Cela s'applique également aux requêtes effectuées à l'aide de n'importe quelle interface : API REST, Kit de développement logiciel (SDK) ou à partir de déclencheurs et de procédures stockées. Tout comme avec l'indexation Différé, la transformation de l'index est exécutée de façon asynchrone en arrière-plan sur les réplicas à l'aide de ressources d’échange disponibles pour un réplica donné. 
 
-Les transformations d’index sont également effectuées **in situ** (sur place) ; cela signifie que DocumentDB ne conserve pas deux copies de l’index et remplace l’ancien index par un nouveau. Cela signifie qu'aucun espace disque supplémentaire n’est requis ou utilisé dans vos collections lors de l'exécution des transformations d’index.
+Les transformations d’index sont également effectuées **in situ**. Cela signifie qu’Azure Cosmos DB ne conserve pas deux copies de l’index mais remplace l’ancien par le nouveau. Cela signifie qu'aucun espace disque supplémentaire n’est requis ou utilisé dans vos collections lors de l'exécution des transformations d’index.
 
-Lorsque vous modifiez une stratégie d'indexation, ces modifications qui sont appliquées pour passer de l'ancien index à un nouveau dépendent plus des configurations du mode d’indexation que d'autres valeurs telles que les chemins d'accès inclus/exclus, les types d'index et les précisions. Si vos anciennes et nouvelles stratégies utilisent l’indexation cohérente, DocumentDB effectue une transformation d'index en ligne. Vous ne pouvez pas appliquer une autre modification de stratégie d'indexation via le mode d'indexation Cohérent lors de la transformation.
+Lorsque vous modifiez une stratégie d'indexation, ces modifications qui sont appliquées pour passer de l'ancien index à un nouveau dépendent plus des configurations du mode d’indexation que d'autres valeurs telles que les chemins d'accès inclus/exclus, les types d'index et les précisions. Si vos anciennes et nouvelles stratégies utilisent l’indexation cohérente, Azure Cosmos DB effectue une transformation d’index en ligne. Vous ne pouvez pas appliquer une autre modification de stratégie d'indexation via le mode d'indexation Cohérent lors de la transformation.
 
 Vous pouvez toutefois opter pour le mode d'indexation Différé ou Aucun lorsqu'une transformation est en cours. 
 
-* Lorsque vous optez pour le mode Différé, la modification de stratégie d’indexation prend immédiatement effet et DocumentDB démarre la recréation de l'index de façon asynchrone. 
+* Lorsque vous optez pour le mode Différé, la modification de la stratégie d’indexation prend effet immédiatement et Azure Cosmos DB démarre la recréation de l’index de façon asynchrone. 
 * Lorsque vous optez pour le mode Aucun, l'index est immédiatement désactivé. Opter pour le mode Aucun peut s’avérer très utile lorsque vous souhaitez annuler une transformation en cours et utiliser une nouvelle stratégie d'indexation. 
 
 Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez lancer une modification de stratégie d’indexation en utilisant la nouvelle méthode **ReplaceDocumentCollectionAsync** et suivre la progression, en pourcentage, de la transformation d’index à l’aide de la propriété Response **IndexTransformationProgress** à partir d’un appel **ReadDocumentCollectionAsync**. D’autres Kits de développement logiciel (SDK), ainsi que l'API REST, prennent en charge des propriétés et des méthodes équivalentes pour apporter des modifications de stratégie d'indexation.
@@ -298,10 +307,10 @@ Vous pouvez supprimer l'index d’une collection en optant pour le mode d'indexa
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-Quand pouvez-vous apporter des modifications de stratégie d'indexation à vos collections DocumentDB ? Les scénarios d'utilisation les plus courants sont les suivants :
+Quand pouvez-vous modifier la stratégie d’indexation dans vos collections Azure Cosmos DB ? Les scénarios d'utilisation les plus courants sont les suivants :
 
 * Fournir des résultats cohérents lors du bon déroulement de l’opération, mais revenir à l'indexation différée lors de l'importation de données en bloc
-* Commencer à utiliser de nouvelles fonctionnalités d’indexation sur vos collections DocumentDB, telles que les requêtes géospatiales nécessitant le type d’index spatial, Trier par et les requêtes de plage de chaîne qui requièrent le type d’index de plage de chaîne
+* Commencer à utiliser de nouvelles fonctionnalités d’indexation sur vos collections Azure Cosmos DB, telles que les requêtes géospatiales nécessitant le type d’index spatial, ou les requêtes de tri/plage de chaîne qui requièrent le type d’index de plage de chaîne
 * Sélectionner les propriétés à indexer et les modifier au fil du temps
 * Ajuster la précision d'indexation pour améliorer les performances de requête ou réduire le stockage utilisé
 
@@ -405,7 +414,7 @@ Si votre code approvisionne des collections avec une stratégie d'indexation per
     }
 
 ## <a name="next-steps"></a>Étapes suivantes
-Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratégie d’index et pour en savoir plus sur le langage de requête de DocumentDB.
+Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratégie d’index et en savoir plus sur le langage de requête d’Azure Cosmos DB.
 
 1. [Exemples de code de gestion d’index DocumentDB .NET](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Opérations sur la collection de l’API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)

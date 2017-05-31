@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: ce3a622db8667df8b3f1d1391c2aa0d7e1e012a5
-ms.lasthandoff: 02/16/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3c228be32539050123b01c5ccd74547b0d04ed28
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,152 +73,8 @@ Une action est une opération effectuée par le flux de travail défini dans une
    > 
 5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
-## <a name="technical-details"></a>Détails techniques
-## <a name="sql-database-actions"></a>Actions Base de données SQL
-Une action est une opération effectuée par le flux de travail défini dans une application logique. Le connecteur de base de données SQL inclut les actions suivantes. 
-
-| Action | Description |
-| --- | --- |
-| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Exécute une procédure stockée dans SQL |
-| [GetRow](connectors-create-api-sqlazure.md#get-row) |Récupère une seule ligne d’une table SQL |
-| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Récupère les lignes d’une table SQL |
-| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Insère une nouvelle ligne dans une table SQL |
-| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Supprime une ligne d’une table SQL |
-| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Extrait des tables à partir d’une base de données SQL |
-| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Met à jour une ligne existante dans une table SQL |
-
-### <a name="action-details"></a>Détails de l’action
-Dans cette section, consultez les détails relatifs à chaque action, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
-
-#### <a name="execute-stored-procedure"></a>Exécuter une procédure stockée
-Exécute une procédure stockée dans SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| procedure * |Nom de la procédure |Nom de la procédure stockée à exécuter |
-| parameters * |Paramètres d'entrée |Les paramètres sont dynamiques et dépendent de la procédure stockée que vous choisissez. <br/><br/> Par exemple, si vous utilisez l’exemple de base de données Adventure Works, choisissez la procédure stockée *ufnGetCustomerInformation*. Le paramètre d’entrée **ID du client** est affiché. Entrez «&6; » ou l’un des autres ID de client. |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ProcedureResult : transmet le résultat de l’exécution de la procédure stockée
-
-| Nom de la propriété | Type de données | Description |
-| --- | --- | --- |
-| OutputParameters |objet |Valeurs de paramètres de sortie |
-| ReturnCode |integer |Code de retour d’une procédure |
-| ResultSets |objet |Jeux de résultats |
-
-#### <a name="get-row"></a>Obtenir une ligne
-Récupère une seule ligne d’une table SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table * |Nom de la table |Nom de la table SQL |
-| id * |ID de la ligne |Identificateur unique de la ligne à récupérer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtenir des lignes
-Récupère les lignes d’une table SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table SQL |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
-| $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insérer une ligne
-Insère une nouvelle ligne dans une table SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table SQL |
-| item* |Ligne |Ligne à insérer dans la table SQL spécifiée |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Supprimer la ligne
-Supprime une ligne d’une table SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table SQL |
-| id* |ID de la ligne |Identificateur unique de la ligne à supprimer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-#### <a name="get-tables"></a>Obtenir des tables
-Extrait des tables à partir d’une base de données SQL.  
-
-Il n'existe aucun paramètre pour cet appel. 
-
-##### <a name="output-details"></a>Détails des résultats
-TablesList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Mettre à jour une ligne
-Met à jour une ligne existante dans une table SQL.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table SQL |
-| id* |ID de la ligne |Identificateur unique de la ligne à mettre à jour |
-| item* |Ligne |Ligne avec valeurs mises à jour |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Réponses HTTP
-Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. Le tableau suivant présente les réponses et leurs descriptions :  
-
-| Nom | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Acceptée |
-| 400 |Demande incorrecte |
-| 401 |Non autorisé |
-| 403 |Interdit |
-| 404 |Introuvable |
-| 500 |Erreur interne du serveur. Une erreur inconnue s'est produite |
-| default |L’opération a échoué. |
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

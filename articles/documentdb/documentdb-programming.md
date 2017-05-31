@@ -1,14 +1,14 @@
 ---
-title: "Programmation de JavaScript côté serveur pour Azure DocumentDB | Microsoft Docs"
-description: "Apprenez à utiliser DocumentDB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données."
+title: "Programmation en JavaScript côté serveur pour Azure Cosmos DB | Microsoft Docs"
+description: "Découvrez comment utiliser Azure Cosmos DB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données."
 keywords: "Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3e15914ab5bd549f3583f5261a88eb74b95f56af
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1c128d182da8245dd9a2aa8f0ce8fcca94aea0fa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
-Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
+Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans JavaScript. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
 
-Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur de DocumentDB. 
+Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur d’Azure Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
@@ -35,27 +35,27 @@ Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquel
 Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :  
 
 * Comment écrire une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur à l'aide de JavaScript ?
-* Comment DocumentDB offre-il une garantie ACID ?
-* Comment fonctionnent les transactions dans DocumentDB ?
+* Comment Azure Cosmos DB offre-il une garantie ACID ?
+* Comment les transactions fonctionnent-elles dans Azure Cosmos DB ?
 * Qu'est-ce que les pré-déclencheurs et les post-déclencheurs, et comment procède-t-on pour leur écriture ?
 * Comment enregistrer et exécuter une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur sur la base de l'architecture REST avec HTTP ?
-* Quels sont les Kits de développement logiciel (SDK) DocumentDB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur ?
+* Quels sont les Kits de développement logiciel (SDK) Azure Cosmos DB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur ?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Introduction à la programmation de procédures stockées et de fonctions définies par l’utilisateur
 Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* libère les développeurs d’applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage de relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :  
 
 * **Logique procédurale :** JavaScript en tant que langage de programmation de haut niveau offre une interface riche et familière permettant d’exprimer la logique métier. Vous pouvez effectuer des séquences d'opérations complexes plus proches des données.
-* **Transactions atomiques :** DocumentDB s’assure que les opérations de base de données effectuées au sein d'un déclencheur ou d’une procédure stockée unique sont atomiques. Cela permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse. 
-* **Performances :** Le fait que JSON soit intrinsèquement mappé au système de type de langage Javascript et qu’il constitue l’unité de base du stockage dans DocumentDB permet une série d’optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande au code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
+* **Transactions atomiques :** Azure Cosmos DB garantit que les opérations de base de données effectuées dans un déclencheur ou une procédure stockée sont atomiques. Cela permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse. 
+* **Performances :** le fait que JSON soit intrinsèquement mappé au système en langage Javascript et qu’il constitue l’unité de base du stockage dans Azure Cosmos DB permet une série d’optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur transmission au code en cours d’exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
   
   * Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits. 
-  * Précompilation - DocumentDB précompile les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
+  * Précompilation : Azure Cosmos DB précompile les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
   * Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur. 
 * **Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique métier à un endroit. Ceci présente deux avantages :
   * Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
   * Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), de [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md) de nombreuses plateformes, dont .NET, Node.js et JavaScript.
+La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), d’[Azure Cosmos DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md) sur de nombreuses plateformes, dont .NET, Node.js et JavaScript.
 
 Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js avec Q Promises](http://azure.github.io/azure-documentdb-node-q/) pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.   
 
@@ -98,12 +98,12 @@ Une fois que la procédure stockée est enregistrée, nous pouvons l'exécuter s
         });
 
 
-L'objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage DocumentDB, ainsi que l'accès aux objets request et response. En l'occurrence, nous avons utilisé l'objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du Kit de développement logiciel (SDK) du serveur JavaScript DocumentDB](http://azure.github.io/azure-documentdb-js-server/).  
+L’objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage Azure Cosmos DB, ainsi que l’accès aux objets request et response. En l'occurrence, nous avons utilisé l'objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du Kit de développement logiciel (SDK) du serveur JavaScript Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
 Extrapolons à partir de cet exemple et ajoutons à la procédure stockée d'autres fonctionnalités liées à la base de données. Les procédures stockées peuvent créer, mettre à jour, lire, interroger et supprimer des documents et des pièces jointes au sein de la collection.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemple : Écriture d’une procédure stockée pour créer un document
-L'extrait de code suivant indique comment utiliser l'objet context pour interagir avec les ressources DocumentDB.
+L’extrait de code suivant indique comment utiliser l’objet context pour interagir avec les ressources Azure Cosmos DB.
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -122,7 +122,7 @@ L'extrait de code suivant indique comment utiliser l'objet context pour interagi
     }
 
 
-Cette procédure stockée prend en entrée documentToCreate, le corps d'un document à créer dans la collection actuelle. Toutes ces opérations sont asynchrones et dépendent de rappels de fonction JavaScript. La fonction de rappel présente deux paramètres, un pour l'objet d'erreur en cas d'échec de l'opération et un pour l'objet créé. À l'intérieur du rappel, les utilisateurs peuvent gérer l'exception ou générer une erreur. Si aucun rappel n'est fourni et qu'une erreur se produit, le runtime DocumentDB génère une erreur.   
+Cette procédure stockée prend en entrée documentToCreate, le corps d'un document à créer dans la collection actuelle. Toutes ces opérations sont asynchrones et dépendent de rappels de fonction JavaScript. La fonction de rappel présente deux paramètres, un pour l'objet d'erreur en cas d'échec de l'opération et un pour l'objet créé. À l'intérieur du rappel, les utilisateurs peuvent gérer l'exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur.   
 
 Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opération a échoué. Dans le cas contraire, elle définit l'ID du document créé en tant que corps de la réponse au client. Voici la façon dont cette procédure stockée est exécutée avec des paramètres d'entrée.
 
@@ -150,7 +150,7 @@ Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opéra
     });
 
 
-Notez que cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs demandes du réseau visant à les créer chacune séparément. Ceci peut être utilisé pour mettre en œuvre une importation en bloc efficace pour DocumentDB (nous aborderons ce point plus tard dans ce didacticiel).   
+Notez que cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs demandes du réseau visant à les créer chacune séparément. Ceci permet de mettre en œuvre une importation en bloc efficace pour Azure Cosmos DB (un point que nous aborderons plus tard dans ce didacticiel).   
 
 L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Nous verrons les déclencheurs et les fonctions définies par l'utilisateur plus loin dans ce didacticiel.
 
@@ -159,7 +159,7 @@ Une transaction dans une base de données classique peut être définie comme é
 
 En bref, l'atomicité permet de s'assurer que tout le travail effectué au sein d'une transaction est traité en tant que simple unité validée dans son intégralité ou aucunement. La cohérence permet de s'assurer que les données sont toujours dans un état interne correct d'une transaction à l'autre. L'isolation, quant à elle, permet de garantir qu'aucune transaction n'interfère avec les autres. Généralement, la plupart des systèmes commerciaux fournissent plusieurs niveaux d'isolation pouvant être utilisés en fonction des besoins des applications. Enfin, la durabilité permet de s'assurer que toute modification validée dans la base de données sera toujours présente.   
 
-Dans DocumentDB, JavaScript est hébergé dans le même espace mémoire que la base de données. Par conséquent, les demandes effectuées au sein de procédures stockées et de déclencheurs s'exécutent dans la même étendue qu'une session de base de données. Cela permet à DocumentDB de garantir ACID pour toutes les opérations faisant partie d'une seule procédure stockée ou d'un seul déclencheur. Envisageons la définition de procédure stockée suivante :
+Dans Azure Cosmos DB, JavaScript est hébergé dans le même espace mémoire que la base de données. Par conséquent, les demandes effectuées au sein de procédures stockées et de déclencheurs s'exécutent dans la même étendue qu'une session de base de données. Cela permet à Azure Cosmos DB de garantir ACID pour toutes les opérations qui font partie d’une procédure stockée ou d’un déclencheur. Envisageons la définition de procédure stockée suivante :
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -226,22 +226,22 @@ Dans DocumentDB, JavaScript est hébergé dans le même espace mémoire que la b
 
 Cette procédure stockée utilise des transactions au sein d'une application de jeu pour échanger des éléments entre deux joueurs en une seule opération. Elle essaie de lire deux documents, correspondant chacun aux ID de joueur transmis en tant qu'arguments. Si les deux documents de joueur sont trouvés, la procédure stockée les met à jour en intervertissant leurs éléments. Si des erreurs se produisent en chemin, elle génère une exception JavaScript qui annule implicitement la transaction.
 
-Si la collection de la procédure stockée est enregistrée sur une collection à partition unique, la transaction est étendue à tous les documents au sein de la collection. Si la collection est partitionnée, les procédures stockées sont exécutées dans l’étendue de transaction d’une clé de partition unique. Chaque exécution de procédure stockée doit alors inclure une valeur de clé de partition correspondant à l’étendue sous laquelle la transaction doit être exécutée. Pour plus d’informations, consultez [Partitionnement de DocumentDB](documentdb-partition-data.md).
+Si la collection de la procédure stockée est enregistrée sur une collection à partition unique, la transaction est étendue à tous les documents au sein de la collection. Si la collection est partitionnée, les procédures stockées sont exécutées dans l’étendue de transaction d’une clé de partition unique. Chaque exécution de procédure stockée doit alors inclure une valeur de clé de partition correspondant à l’étendue sous laquelle la transaction doit être exécutée. Pour plus d’informations, consultez [Partitionnement dans Azure Cosmos DB](documentdb-partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Validation et restauration
-Les transactions sont intégrées de façon approfondie et native dans le modèle de programmation JavaScript de DocumentDB. Dans une fonction JavaScript, toutes les opérations sont automatiquement encapsulées dans une transaction unique. Si le code JavaScript s'exécute sans erreur, les opérations dans la base de données sont validées. En effet, les instructions BEGIN TRANSACTION et COMMIT TRANSACTION dans des bases de données relationnelles sont implicites dans DocumentDB.  
+Les transactions sont intégrées de façon approfondie et native dans le modèle de programmation JavaScript d’Azure Cosmos DB. Dans une fonction JavaScript, toutes les opérations sont automatiquement encapsulées dans une transaction unique. Si le code JavaScript s'exécute sans erreur, les opérations dans la base de données sont validées. En effet, les instructions BEGIN TRANSACTION et COMMIT TRANSACTION des bases de données relationnelles sont implicites dans Azure Cosmos DB.  
 
-Si une exception est propagée à partir du script, le runtime JavaScript de DocumentDB annule la transaction dans son ensemble. Comme illustré dans l'exemple précédent, la génération d'une exception équivaut en fait à une instruction ROLLBACK TRANSACTION dans DocumentDB.
+Si une exception est propagée à partir du script, le runtime JavaScript d’Azure Cosmos DB annule toute la transaction. Comme le montre l’exemple précédent, la génération d’une exception équivaut à une instruction ROLLBACK TRANSACTION dans Azure Cosmos DB.
 
 ### <a name="data-consistency"></a>Cohérence des données
 Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal de la collection DocumentDB. Cela permet de s'assurer que les lectures à partir des procédures stockées offrent une cohérence forte. Les requêtes utilisant des fonctions définies par l'utilisateur peuvent être exécutées dans le réplica principal ou n'importe quel réplica secondaire, mais nous veillons à répondre au niveau de cohérence demandé en choisissant le réplica approprié.
 
 ## <a name="bounded-execution"></a>Exécution limitée
-Toutes les opérations DocumentDB doivent s'effectuer pendant la durée d'expiration de demande spécifiée par le serveur. Cette contrainte s'applique également aux fonctions JavaScript (procédures stockées, déclencheurs et fonctions définies par l'utilisateur). Si une opération n'est pas terminée dans ce délai imparti, la transaction est annulée. Les fonctions JavaScript doivent s'exécuter dans ce délai ou mettre en œuvre un modèle basé sur la continuation pour traiter par lots/reprendre l'exécution.  
+Toutes les opérations Azure Cosmos DB doivent s’effectuer avant l’expiration de la demande spécifiée par le serveur. Cette contrainte s'applique également aux fonctions JavaScript (procédures stockées, déclencheurs et fonctions définies par l'utilisateur). Si une opération n'est pas terminée dans ce délai imparti, la transaction est annulée. Les fonctions JavaScript doivent s'exécuter dans ce délai ou mettre en œuvre un modèle basé sur la continuation pour traiter par lots/reprendre l'exécution.  
 
 Afin de simplifier le développement de procédures stockées et de déclencheurs pour gérer les limites de temps, toutes les fonctions sous l'objet de collection (pour la création, la lecture, le remplacement et la suppression de documents et de pièces jointes) renvoient une valeur booléenne qui indique si l'opération arrivera à son terme. Si cette valeur est false, cela indique que la limite de temps est sur le point d'arriver à échéance et que la procédure doit clôturer l'exécution.  Les opérations mises en file d'attente avant la première opération de stockage non acceptée sont assurées de s'exécuter si la procédure stockée s'exécute à temps et ne place pas d'autres demandes dans la file d'attente.  
 
-Les fonctions JavaScript sont également liées lors de la consommation de ressources. DocumentDB réserve le débit par collection sur la base de la taille configurée d'un compte de base de données. Le débit est exprimé en unités normalisées de processeur, de mémoire et de consommation d'E/S, appelées unités de demande. Les fonctions JavaScript peuvent potentiellement utiliser un nombre élevé d'unités de demande en peu de temps, et la limite de débit peut être restreinte si la limite de la collection est atteinte. Les procédures stockées gourmandes en ressources peuvent également être mises en quarantaine pour garantir la disponibilité des opérations de base de données primitives.  
+Les fonctions JavaScript sont également liées lors de la consommation de ressources. Azure Cosmos DB réserve le débit par collection en fonction de la taille configurée d’un compte de base de données. Le débit est exprimé en unités normalisées de processeur, de mémoire et de consommation d'E/S, appelées unités de demande. Les fonctions JavaScript peuvent potentiellement utiliser un nombre élevé d'unités de demande en peu de temps, et la limite de débit peut être restreinte si la limite de la collection est atteinte. Les procédures stockées gourmandes en ressources peuvent également être mises en quarantaine pour garantir la disponibilité des opérations de base de données primitives.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemple : importation de données en bloc dans un programme de base de données
 Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour importer des documents en bloc dans une collection. Notez la façon dont la procédure stockée gère l'exécution liée en vérifiant la valeur de retour booléenne à partir de createDocument, puis utilise le nombre de documents insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d'un lot à un autre.
@@ -297,7 +297,7 @@ Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour 
 
 ## <a id="trigger"></a> Déclencheurs de base de données
 ### <a name="database-pre-triggers"></a>Pré-déclencheurs de base de données
-DocumentDB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération dans un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
+Azure Cosmos DB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération sur un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -436,10 +436,10 @@ Le déclencheur peut être enregistré comme indiqué dans l'exemple suivant.
 
 Ce déclencheur interroge le document de métadonnées et le met à jour avec des informations relatives au document qui vient d'être créé.  
 
-Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans DocumentDB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
+Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
 
 ## <a id="udf"></a>Fonctions définies par l’utilisateur
-Les fonctions définies par l'utilisateur permettent d'étendre la grammaire du langage de requête SQL dans DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service DocumentDB.  
+Les fonctions définies par l’utilisateur (FDU) permettent d’étendre la grammaire du langage de requête SQL de l’API DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service Azure Cosmos DB.  
 
 L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à 20 000 $.
 
@@ -707,7 +707,7 @@ Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .N
         });
 
 
-Enfin, l’exemple suivant illustre la création d’une fonction définie par l’utilisateur et son utilisation dans une [requête SQL DocumentDB](documentdb-sql-query.md).
+Enfin, l’exemple suivant décrit comment créer une fonction définie par l’utilisateur et l’utiliser une [requête SQL de l’API DocumentDB](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

@@ -1,38 +1,39 @@
 ---
-title: "Syntaxe SQL et requête SQL pour DocumentDB | Microsoft Docs"
-description: "Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour DocumentDB, une base de données NoSQL. SQL peut être utilisé comme un langage de requête JSON dans DocumentDB."
+title: "Syntaxe SQL et requête SQL pour Azure Cosmos DB | Microsoft Docs"
+description: "Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour Azure Cosmos DB. SQL peut être utilisé comme un langage de requête JSON dans Azure Cosmos DB."
 keywords: "syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données, requêtes sql et fonctions agrégées"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11dc9d2e4c6cabfbfe7d68c88e5b210c94a3ec64
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sql-query-and-sql-syntax-in-documentdb"></a>Requête SQL et syntaxe SQL dans DocumentDB
-Microsoft Azure DocumentDB prend en charge l’interrogation de documents à l’aide du langage SQL en tant que langage de requête JSON. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires. 
+# <a name="sql-query-and-sql-syntax-in-azure-cosmos-db"></a>Requête SQL et syntaxe SQL dans Azure Cosmos DB
+Microsoft Azure Cosmos DB prend en charge l’interrogation de documents à l’aide du langage SQL en tant que langage de requête JSON. Cosmos DB n’utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires. 
 
-Lors de la conception du langage de requête pour DocumentDB, nous avions deux objectifs à l'esprit :
+Lors de la conception du langage de requête pour Cosmos DB, nous avions deux objectifs à l’esprit :
 
-* Au lieu d’inventer un langage de requête JSON, nous voulions prendre en charge SQL. SQL est l’un des langages de requête les plus conviviaux et populaires. SQL de DocumentDB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
-* Comme une base de données de documents JSON peut exécuter JavaScript directement dans le moteur de base de données, nous avons voulu utiliser le modèle de programmation de JavaScript comme base pour notre langage de requête. SQL de DocumentDB est inclus dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
+* Au lieu d’inventer un langage de requête JSON, nous voulions prendre en charge SQL. SQL est l’un des langages de requête les plus conviviaux et populaires. Le langage SQL de Cosmos DB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
+* Comme une base de données de documents JSON peut exécuter JavaScript directement dans le moteur de base de données, nous avons voulu utiliser le modèle de programmation de JavaScript comme base pour notre langage de requête. Le langage SQL de l’API DocumentDB est inclus dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
 
 Nous pensons que ces capacités sont la clé pour réduire la friction entre l'application et la base de données et sont cruciales pour la productivité des développeurs.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran présente les fonctionnalités d’interrogation de DocumentDB, puis d’utiliser notre [Query Playground](http://www.documentdb.com/sql/demo)pour essayer DocumentDB et exécuter des requêtes SQL sur notre jeu de données.
+Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran présente les fonctionnalités d’interrogation de Cosmos DB, puis d’utiliser notre [Query Playground](http://www.documentdb.com/sql/demo)pour essayer Cosmos DB et exécuter des requêtes SQL sur notre jeu de données.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
@@ -40,8 +41,8 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 
 Revenez ensuite à cet article où nous commencerons avec un didacticiel sur les requêtes SQL pour vous montrer quelques documents JSON et commandes SQL simples.
 
-## <a id="GettingStarted"></a>Prise en main des commandes du langage SQL (Structured Query Language) dans DocumentDB
-Pour voir comment le langage SQL de DocumentDB fonctionne, nous allons commencer par quelques documents JSON simples sur lesquels nous allons appliquer certaines requêtes simples. Prenez ces deux documents JSON relatifs à deux familles. Notez qu'avec DocumentDB, nous n'avons pas besoin de créer de schéma ou d'index secondaire de façon explicite. Nous devons simplement insérer les documents JSON dans une collection DocumentDB et ensuite les interroger. Nous avons ici un document JSON simple pour la famille Andersen, les parents, les enfants (et leurs animaux), l'adresse et les informations d'enregistrement. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées. 
+## <a id="GettingStarted"></a>Prise en main des commandes du langage SQL dans Cosmos DB
+Pour voir comment le langage SQL de Cosmos DB fonctionne, nous allons commencer par quelques documents JSON simples sur lesquels nous allons appliquer certaines requêtes simples. Prenez ces deux documents JSON relatifs à deux familles. Avec Cosmos DB, nous n’avons pas besoin de créer de schéma ou d’index secondaire de façon explicite. Nous devons simplement insérer les documents JSON dans une collection Cosmos DB et ensuite les interroger. Nous avons ici un document JSON simple pour la famille Andersen, les parents, les enfants (et leurs animaux), l'adresse et les informations d'enregistrement. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées. 
 
 **Document**  
 
@@ -100,7 +101,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
 }
 ```
 
-À présent, appliquons quelques requêtes sur ces données pour comprendre certains aspects clés du langage SQL de DocumentDB. Par exemple, la requête suivante va retourner les documents dans lesquels le champ ID correspond à `AndersenFamily`. Comme il s’agit d’un `SELECT *`, le résultat de la requête est le document JSON complet :
+À présent, appliquons quelques requêtes sur ces données pour comprendre certains aspects clés du langage SQL de l’API DocumentDB. Par exemple, la requête suivante va retourner les documents dans lesquels le champ ID correspond à `AndersenFamily`. Comme il s’agit d’un `SELECT *`, le résultat de la requête est le document JSON complet :
 
 **Requête**
 
@@ -165,29 +166,29 @@ La requête suivante retourne tous les noms donnés des enfants de la famille do
     ]
 
 
-Nous aimerions attirer votre attention sur quelques aspects importants du langage de requête DocumentDB à travers les exemples que nous venons de voir :  
+Nous aimerions attirer votre attention sur quelques aspects importants du langage de requête Cosmos DB à travers les exemples que nous venons de voir :  
 
-* Comme le langage SQL de DocumentDB fonctionne avec les valeurs JSON, il traite des entités d'arborescence au lieu des lignes et des colonnes. C’est pourquoi ce langage vous permet de faire référence aux nœuds de l’arborescence à n’importe quel niveau arbitraire, comme `Node1.Node2.Node3…..Nodem`, tout comme le SQL relationnel se rattachant à la référence en deux parties de `<table>.<column>`.   
+* Comme le langage SQL de l’API DocumentDB fonctionne avec les valeurs JSON, il traite des entités d’arborescence au lieu des lignes et des colonnes. C’est pourquoi ce langage vous permet de faire référence aux nœuds de l’arborescence à n’importe quel niveau arbitraire, comme `Node1.Node2.Node3…..Nodem`, tout comme le SQL relationnel se rattachant à la référence en deux parties de `<table>.<column>`.   
 * Le langage SQL fonctionne avec des données sans schéma. C'est pourquoi le système de type doit être lié de façon dynamique. La même expression peut engendrer différents types sur différents documents. Le résultat d'une requête est une valeur JSON valide, mais n'est pas forcément un schéma fixe.  
-* DocumentDB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](http://www.json.org/) pour plus de détails.  
-* Une collection DocumentDB est un conteneur sans schéma pour vos documents JSON. Les relations des entités de données dans et entre les documents d'une collection sont capturées de façon implicite par le contenant et non par les relations de clé primaire et de clé étrangère. Cet aspect est important dans le cadre des liaisons entre documents (ce sujet est abordé plus loin dans cet article).
+* Cosmos DB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](http://www.json.org/) pour plus de détails.  
+* Une collection Cosmos DB est un conteneur sans schéma pour vos documents JSON. Les relations des entités de données dans et entre les documents d'une collection sont capturées de façon implicite par le contenant et non par les relations de clé primaire et de clé étrangère. Cet aspect est important dans le cadre des liaisons entre documents (ce sujet est abordé plus loin dans cet article).
 
-## <a id="Indexing"></a> Indexation DocumentDB
-Avant d’aborder la syntaxe SQL de DocumentDB, nous allons présenter la conception de l’indexation de DocumentDB. 
+## <a id="Indexing"></a> Indexation Cosmos DB
+Avant d’aborder la syntaxe SQL de l’API DocumentDB, nous allons présenter la conception de l’indexation de l’API Cosmos DB. 
 
 L'objectif des index de base de données est de servir les requêtes dans leurs différents formulaires et formes tout en consommant un minimum de ressources (comme le temps processeur ou les E/S) et en fournissant un bon débit et une faible latence. Souvent, le choix des index adéquats pour l'interrogation d'une base de données requiert une planification et une expérimentation importantes. Cette approche constitue un défi pour les bases de données sans schéma, où les données ne sont pas conformes à un schéma strict et évoluent rapidement. 
 
-C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de DocumentDB, nous avons fixé les objectifs suivants :
+C’est pourquoi, lorsque nous avons conçu le sous-système d’indexation de Cosmos DB, nous avons fixé les objectifs suivants :
 
 * Indexer les documents sans requérir un schéma : Le sous-système d’indexation ne requiert pas d’informations de schéma ou n’établit pas d’hypothèse sur les schémas des documents. 
-* Prendre en charge des requêtes hiérarchiques et relationnelles enrichies et efficaces : L’index prend en charge le langage de requête DocumentDB de manière efficace, notamment la prise en charge des projections hiérarchiques et relationnelles.
+* Prendre en charge des requêtes hiérarchiques et relationnelles enrichies et efficaces : l’index prend en charge le langage de requête Cosmos DB de manière efficace, notamment la prise en charge des projections hiérarchiques et relationnelles.
 * Prendre en charge des requêtes cohérentes en dépit de volumes soutenus d’écritures : Dans le cas des charges de travail à débits d’écriture élevés avec des requêtes cohérentes, l’index est mis à jour de manière incrémentielle, efficacement et en ligne, en dépit de volumes soutenus d’écritures. La mise à jour d'index cohérente est cruciale pour servir les requêtes en respectant le niveau de cohérence défini par l'utilisateur pour le service du document.
 * Prendre en charge l’infrastructure multilocataire : Étant donné le modèle basé sur la réservation pour la gouvernance des ressources sur les locataires, les mises à jour d’index sont effectuées dans le budget des ressources système (processeur, mémoire, opérations d’E/S par seconde) allouées par réplica. 
-* Efficacité du stockage : Pour des raisons économiques, la surcharge de stockage sur disque de l’index est limitée et prévisible. Ceci est très important, car DocumentDB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d'index et les performances des requêtes.  
+* Efficacité du stockage : Pour des raisons économiques, la surcharge de stockage sur disque de l’index est limitée et prévisible. C’est très important, car Cosmos DB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d’index et les performances des requêtes.  
 
-Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la syntaxe SQL de DocumentDB.
+Reportez-vous aux [exemples Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la syntaxe SQL d’Azure Cosmos DB.
 
-## <a id="Basics"></a>Principes de base d’une requête SQL DocumentDB
+## <a id="Basics"></a>Principes de base d’une requête SQL Azure Cosmos DB
 Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée.
 
     SELECT <select_list> 
@@ -281,7 +282,7 @@ La requête suivante demande des documents qui contiennent une propriété name 
     }]
 
 
-L'exemple précédent illustrait une simple requête d'égalité. Le langage SQL de DocumentDB prend également en charge plusieurs expressions scalaires. Les plus répandues sont les expressions binaires et unaires. Les références de propriété de l'objet JSON source sont également des expressions valides. 
+L'exemple précédent illustrait une simple requête d'égalité. Le langage SQL de l’API DocumentDB prend également en charge plusieurs expressions scalaires. Les plus répandues sont les expressions binaires et unaires. Les références de propriété de l'objet JSON source sont également des expressions valides. 
 
 Les opérateurs binaires suivants sont actuellement pris en charge et peuvent être utilisés dans les requêtes, comme indiqué dans les exemples suivants :  
 
@@ -339,7 +340,7 @@ Les opérateurs unaires +,-, ~ et NOT sont également pris en charge et peuvent 
 En plus des opérateurs binaires et unaires, les références de propriétés sont également autorisées. Par exemple, `SELECT * FROM Families f WHERE f.isRegistered` retourne le document JSON qui contient la propriété `isRegistered` dont la valeur est égale à la valeur `true` JSON. Toutes les autres valeurs (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) entraînent l'exclusion du document source du résultat. 
 
 ### <a name="equality-and-comparison-operators"></a>Opérateurs d'égalité et de comparaison
-Le tableau suivant répertorie les résultats des comparaisons d'égalité dans le langage SQL de DocumentDB entre deux types JSON.
+Le tableau suivant répertorie les résultats des comparaisons d’égalité dans le langage SQL de l’API DocumentDB entre deux types JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -534,7 +535,7 @@ Contrairement à SQL ANSI, vous pouvez également utiliser la clause BETWEEN dan
 
 Pour accélérer le temps d'exécution de requête, pensez à créer une stratégie d'indexation qui utilise un type d'index de plage sur tous les chemins d'accès/propriétés numériques qui sont filtrés dans la clause BETWEEN. 
 
-La principale différence entre l'utilisation de BETWEEN dans DocumentDB et ANSI SQL est que vous pouvez exprimer des requêtes de plage sur des propriétés de types mixtes. Vous pourriez par exemple faire en sorte que « grade » soit un nombre (5) dans certains documents et des chaînes dans d'autres (« grade4 »). Dans ces cas-là, comme dans JavaScript, une comparaison entre deux types différents a comme résultat « undefined » et le document est ignoré.
+La principale différence entre l’utilisation de BETWEEN dans l’API DocumentDB et ANSI SQL est que vous pouvez exprimer des requêtes de plage sur des propriétés de types mixtes. Vous pourriez par exemple faire en sorte que « grade » soit un nombre (5) dans certains documents et des chaînes dans d’autres (« grade4 »). Dans ces cas-là, comme dans JavaScript, une comparaison entre deux types différents a comme résultat « undefined » et le document est ignoré.
 
 ### <a name="logical-and-or-and-not-operators"></a>Opérateurs logiques (AND, OR et NOT)
 Les opérateurs logiques interviennent sur des valeurs booléennes. Les tables de vérité logiques de ces opérateurs sont présentées dans les tableaux suivants.
@@ -751,7 +752,7 @@ Dans l'exemple suivant, le résultat de l'expression scalaire est un booléen.
 
 
 ### <a name="object-and-array-creation"></a>Création d'objet et de tableau
-Une autre fonctionnalité clé du langage SQL de DocumentDB est la possibilité de créer un tableau ou un objet. Dans l'exemple précédent, notez que nous avons créé un objet JSON. De même, on peut également construire des tableaux comme indiqué dans les exemples suivants.
+Une autre fonctionnalité clé du langage SQL de l’API DocumentDB est la possibilité de créer un tableau ou un objet. Dans l'exemple précédent, notez que nous avons créé un objet JSON. De même, on peut également construire des tableaux comme indiqué dans les exemples suivants.
 
 **Requête**
 
@@ -924,7 +925,7 @@ Vous pouvez également effectuer des agrégations en appliquant des filtres simu
         "$1": 1
     }]
 
-Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans DocumentDB. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null. 
+Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans l’API DocumentDB. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null. 
 
 | Usage | Description |
 |-------|-------------|
@@ -990,7 +991,7 @@ Et voici une requête qui récupère les familles suivant l'ordre de la date de 
 ## <a id="Advanced"></a>Concepts avancés de base de données et requêtes SQL
 
 ### <a id="Iteration"></a>Itération
-Une nouvelle construction a été ajoutée via le mot clé **IN** de SQL DocumentDB pour prendre en charge l’itération sur les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
+Une nouvelle construction a été ajoutée par le biais du mot clé **IN** du langage SQL de l’API DocumentDB pour prendre en charge l’itération sur les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
 
 **Requête**
 
@@ -1084,7 +1085,7 @@ Vous pouvez également effectuer une agrégation sur le résultat de l’itérat
     ]
 
 ### <a id="Joins"></a>Jointures
-Dans une base de données relationnelle, il est très important de joindre les tables. Ceci est la conséquence logique de la conception de schémas normalisés. Au contraire, DocumentDB traite les modèles de données dénormalisés de documents sans schéma. Il s'agit de l'équivalent logique d'une « jointure réflexive ».
+Dans une base de données relationnelle, il est très important de joindre les tables. Ceci est la conséquence logique de la conception de schémas normalisés. Au contraire, l’API DocumentDB traite les modèles de données dénormalisés de documents sans schéma. Il s'agit de l'équivalent logique d'une « jointure réflexive ».
 
 La syntaxe prise en charge par le langage est la suivante : <from_source1> JOIN <from_source2> JOIN… JOIN <from_sourceN>. D’une façon générale, ceci renvoie un ensemble de **N**-tuples (un tuple avec **N** valeurs). Les valeurs de chaque tuple sont produites par l'itération de tous les alias de la collection sur leurs ensembles respectifs. En d'autres termes, il s'agit d'un produit croisé complet des ensembles participants à la jointure.
 
@@ -1233,17 +1234,17 @@ L’exemple suivant ajoute un filtre supplémentaire sur `pet`. Ceci exclut tous
 
 
 ## <a id="JavaScriptIntegration"></a>Intégration JavaScript
-DocumentDB fournit un modèle de programmation pour l'exécution de la logique d'application JavaScript directement sur les collections en termes de procédures stockées et de déclencheurs. Ceci permet pour les deux :
+Azure Cosmos DB fournit un modèle de programmation pour l’exécution de la logique d’application JavaScript directement sur les collections en termes de procédures stockées et de déclencheurs. Ceci permet pour les deux :
 
 * La possibilité d'effectuer des CRUD transactionnels à hautes performances et d'interroger les documents d'une collection grâce à l'intégration approfondie de l'exécution JavaScript directement dans le moteur de base de données. 
-* Une modélisation naturelle du flux de contrôle, de l'étendue des variables, de l'attribution et de l'intégration des primitives de gestion d'exception avec des transactions de base de données. Pour plus de détails sur la prise en charge DocumentDB pour l'intégration JavaScript, veuillez consulter la documentation sur la programmation côté serveur de JavaScript.
+* Une modélisation naturelle du flux de contrôle, de l'étendue des variables, de l'attribution et de l'intégration des primitives de gestion d'exception avec des transactions de base de données. Pour plus de détails sur la prise en charge Azure Cosmos DB dans le cadre de l’intégration JavaScript, veuillez consulter la documentation sur la programmation côté serveur de JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Fonctions définies par l’utilisateur
-En plus des types déjà définis dans cet article, SQL de DocumentDB prend en charge les fonctions définies par l'utilisateur. En particulier, les fonctions définies par l'utilisateur scalaires sont prises en charge pour que les développeurs puissent transmettre de nombreux arguments ou aucun, puis renvoyer un seul argument en retour. La légalité des valeurs JSON de chacun de ces arguments est vérifiée.  
+En plus des types déjà définis dans cet article, le langage SQL de l’API DocumentDB prend en charge les fonctions définies par l’utilisateur. En particulier, les fonctions définies par l'utilisateur scalaires sont prises en charge pour que les développeurs puissent transmettre de nombreux arguments ou aucun, puis renvoyer un seul argument en retour. La légalité des valeurs JSON de chacun de ces arguments est vérifiée.  
 
-La syntaxe du langage SQL de DocumentDB est étendue pour prendre en charge la logique d’application personnalisée à l’aide de ces fonctions définies par l’utilisateur. Ces dernières peuvent être enregistrées avec DocumentDB, puis référencées dans le cadre d'une requête SQL. En fait, les fonctions définies par l'utilisateur sont conçues avec soin pour pouvoir être appelées par des requêtes. En conséquence, les fonctions définies par l'utilisateur ne peuvent pas accéder à l'objet de contexte que possèdent les autres types JavaScript (procédures stockées, déclencheurs). Comme les requêtes s'exécutent en lecture seule, elles peuvent démarrer sur des réplicas principaux ou secondaires. Par conséquent, les fonctions définies par l'utilisateur sont conçues pour être exécutées sur des réplicas secondaires, contrairement à d'autres types JavaScript.
+La syntaxe du langage SQL de l’API DocumentDB est étendue pour prendre en charge la logique d’application personnalisée à l’aide de ces fonctions définies par l’utilisateur. Ces dernières peuvent être enregistrées avec l’API DocumentDB, puis référencées dans le cadre d’une requête SQL. En fait, les fonctions définies par l'utilisateur sont conçues avec soin pour pouvoir être appelées par des requêtes. En conséquence, les fonctions définies par l'utilisateur ne peuvent pas accéder à l'objet de contexte que possèdent les autres types JavaScript (procédures stockées, déclencheurs). Comme les requêtes s'exécutent en lecture seule, elles peuvent démarrer sur des réplicas principaux ou secondaires. Par conséquent, les fonctions définies par l'utilisateur sont conçues pour être exécutées sur des réplicas secondaires, contrairement à d'autres types JavaScript.
 
-Voici un exemple de méthode d'enregistrement de fonction définie par l'utilisateur sur la base de données DocumentDB, plus précisément sous une collection de documents.
+Voici un exemple de méthode d’enregistrement de fonction définie par l’utilisateur sur la base de données Cosmos DB, plus précisément sous une collection de documents.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1262,7 +1263,7 @@ L’exemple ci-dessus crée une fonction définie par l’utilisateur dont le no
 Nous pouvons maintenant utiliser cette fonction définie par l'utilisateur dans une requête, dans une projection. Les fonctions définies par l’utilisateur doivent être qualifiées par le préfixe respectant la casse « udf.» quand elles sont appelées à partir de requêtes. 
 
 > [!NOTE]
-> Jusqu’au 17 mars 2015, DocumentDB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf. comme SELECT REGEX_MATCH(). Ce modèle d'appel est maintenant déconseillé.  
+> Jusqu’au 17 mars 2015, Cosmos DB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf ». comme SELECT REGEX_MATCH(). Ce modèle d'appel est maintenant déconseillé.  
 > 
 > 
 
@@ -1344,21 +1345,21 @@ L'exemple ci-dessous utilise les fonctions définies par l'utilisateur.
     ]
 
 
-Les exemples suivants illustrent l'aptitude des fonctions définies par l'utilisateur à intégrer la puissance du langage JavaScript dans le SQL de DocumentDB afin de fournir une interface programmable enrichie pour mener à bien des procédures complexes et employer une logique conditionnelle en exploitant les capacités intégrées de l'exécution JavaScript.
+Les exemples suivants illustrent l’aptitude des fonctions définies par l’utilisateur à intégrer la puissance du langage JavaScript dans le langage SQL de l’API DocumentDB afin de fournir une interface programmable enrichie pour mener à bien des procédures complexes et employer une logique conditionnelle en exploitant les capacités intégrées de l’exécution JavaScript.
 
-Le langage SQL de DocumentDB fournit les arguments aux fonctions définies par l'utilisateur pour chaque document de la source lors de l'étape actuelle (clause WHERE ou SELECT) du traitement des fonctions définies par l'utilisateur. Le résultat est intégré au pipeline d'exécution générale en toute transparence. Si les propriétés de référence des paramètres des fonctions définies par l'utilisateur ne sont pas disponibles dans la valeur JSON, les paramètres sont considérés comme non définis et l'appel des fonctions définies par l'utilisateur est entièrement ignoré. De même, si le résultat des fonctions définies par l'utilisateur est indéfini, il n'est pas inclus dans le résultat. 
+Le langage SQL de l’API DocumentDB fournit les arguments aux fonctions définies par l’utilisateur pour chaque document de la source lors de l’étape actuelle (clause WHERE ou SELECT) du traitement des fonctions définies par l’utilisateur. Le résultat est intégré au pipeline d'exécution générale en toute transparence. Si les propriétés de référence des paramètres des fonctions définies par l'utilisateur ne sont pas disponibles dans la valeur JSON, les paramètres sont considérés comme non définis et l'appel des fonctions définies par l'utilisateur est entièrement ignoré. De même, si le résultat des fonctions définies par l'utilisateur est indéfini, il n'est pas inclus dans le résultat. 
 
 En résumé, les fonctions définies par l'utilisateur sont des outils efficaces pour mener à bien des logiques métier complexes dans le cadre d'une requête.
 
 ### <a name="operator-evaluation"></a>Évaluation d'opérateur
-DocumentDB, en étant une base de données JSON, peut établir des correspondances entre les opérateurs JavaScript et ses sémantiques d'évaluation. Même si DocumentDB tente de préserver les sémantiques JavaScript dans le cadre de la prise en charge JSON, l'opération d'évaluation dévie dans certains cas.
+Cosmos DB, en sa qualité de base de données JSON, peut établir des correspondances entre les opérateurs JavaScript et sa sémantique d’évaluation. Même si Cosmos DB tente de préserver la sémantique JavaScript dans le cadre de la prise en charge JSON, l’opération d’évaluation dévie dans certains cas.
 
-Dans SQL de DocumentDB, contrairement au SQL classique, les types de valeur sont souvent inconnus jusqu’à ce que les valeurs soient réellement extraites de la base de données. Afin d'exécuter les requêtes de manière efficace, la plupart des opérateurs ont des exigences de type strictes. 
+Dans le langage SQL de l’API DocumentDB, contrairement au langage SQL classique, les types de valeur sont souvent inconnus jusqu’à ce que les valeurs soient réellement extraites de la base de données. Afin d'exécuter les requêtes de manière efficace, la plupart des opérateurs ont des exigences de type strictes. 
 
-Le langage SQL de DocumentDB n'effectue pas de conversions implicites, contrairement à JavaScript. Par exemple, une requête comme `SELECT * FROM Person p WHERE p.Age = 21` correspond à des documents qui contiennent une propriété Age dont la valeur est 21. Tout autre document dont la propriété Age correspond à la chaîne « 21 » ou à l'une de ses multiples variantes telles que « 021 », « 21.0 », « 0021 », « 00021 », etc. ne sera pas mis en correspondance. Ce comportement contraste avec celui de JavaScript où les valeurs de chaîne sont implicitement converties en nombres (à partir de l’opérateur, par exemple :==). Ce choix est crucial pour une correspondance d'index efficace dans le langage SQL de DocumentDB. 
+Le langage SQL de l’API DocumentDB n’effectue pas de conversions implicites, contrairement à JavaScript. Par exemple, une requête comme `SELECT * FROM Person p WHERE p.Age = 21` correspond à des documents qui contiennent une propriété Age dont la valeur est 21. Tout autre document dont la propriété Age correspond à la chaîne « 21 » ou à l'une de ses multiples variantes telles que « 021 », « 21.0 », « 0021 », « 00021 », etc. ne sera pas mis en correspondance. Ce comportement contraste avec celui de JavaScript où les valeurs de chaîne sont implicitement converties en nombres (à partir de l’opérateur, par exemple :==). Ce choix est crucial pour une correspondance d’index efficace dans le langage SQL de l’API DocumentDB. 
 
 ## <a name="parameterized-sql-queries"></a>Requêtes SQL paramétrables
-DocumentDB prend en charge les requêtes avec des paramètres exprimées avec la notation @ classique. SQL paramétré fournit une gestion et un échappement robustes de l'entrée utilisateur et empêche l'exposition accidentelle des données par l'intermédiaire de l'injection SQL. 
+Cosmos DB prend en charge les requêtes avec des paramètres, exprimées avec la notation @ classique. SQL paramétré fournit une gestion et un échappement robustes de l'entrée utilisateur et empêche l'exposition accidentelle des données par l'intermédiaire de l'injection SQL. 
 
 Par exemple, vous pouvez écrire une requête qui prend le nom et l'état de l'adresse comme paramètres, puis l'exécuter pour différentes valeurs de nom et d'état d'adresse en fonction de l'entrée utilisateur.
 
@@ -1366,7 +1367,7 @@ Par exemple, vous pouvez écrire une requête qui prend le nom et l'état de l'a
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Cette demande peut ensuite être envoyée à DocumentDB comme requête JSON paramétrable, comme indiqué ci-dessous.
+Cette demande peut ensuite être envoyée à Cosmos DB comme requête JSON paramétrable, tel qu’indiqué ci-dessous.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1385,10 +1386,10 @@ L'argument de l’opérateur TOP peut être défini à l'aide de requêtes param
         ] 
     }
 
-Les valeurs de paramètres peuvent être n'importe quel format JSON valide (chaînes, nombres, valeurs booléennes, null, même des tableaux ou des valeurs JSON imbriquées). De plus, comme DocumentDB est sans schéma, les paramètres ne sont pas validés par rapport à un type.
+Les valeurs de paramètres peuvent être n'importe quel format JSON valide (chaînes, nombres, valeurs booléennes, null, même des tableaux ou des valeurs JSON imbriquées). De plus, comme Cosmos DB est sans schéma, les paramètres ne sont pas validés par rapport à un type.
 
 ## <a id="BuiltinFunctions"></a>Fonctions intégrées
-DocumentDB prend également en charge plusieurs fonctions intégrées pour des opérations courantes. Ces fonctions s'utilisent dans les requêtes comme les fonctions définies par l'utilisateur.
+Cosmos DB prend également en charge plusieurs fonctions intégrées pour des opérations courantes. Ces fonctions s’utilisent dans les requêtes comme les fonctions définies par l’utilisateur.
 
 | Groupe de fonctions          | Opérations                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1440,7 +1441,7 @@ Par exemple, vous pouvez désormais exécuter des requêtes similaires à celle-
 
     [4]
 
-La principale différence entre les fonctions de DocumentDB et le langage SQL ANSI est que les fonctions sont conçues pour s'exécuter avec des données sans schéma et des données avec un schéma mixte. Par exemple, si vous avez un document pour lequel la propriété Size est manquante ou a une valeur non numérique (de type « inconnu »), le document est ignoré, et aucune erreur n'est retournée.
+La principale différence entre les fonctions de Cosmos DB et le langage SQL ANSI est que les fonctions sont conçues pour s’exécuter avec des données sans schéma et des données avec un schéma mixte. Par exemple, si vous avez un document pour lequel la propriété Size est manquante ou a une valeur non numérique (de type « inconnu »), le document est ignoré, et aucune erreur n'est retournée.
 
 ### <a name="type-checking-functions"></a>Fonctions de vérification du type
 Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL. Elles peuvent être utilisées pour déterminer instantanément le type variable ou inconnu des propriétés dans les documents. Le tableau répertorie les fonctions de vérification du type intégrées qui sont prises en charge.
@@ -1608,7 +1609,7 @@ Voici un autre exemple dans lequel la fonction ARRAY_LENGTH est utilisée pour o
     }]
 
 ### <a name="spatial-functions"></a>Fonctions spatiales
-DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. 
+Cosmos DB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. 
 
 <table>
 <tr>
@@ -1651,14 +1652,14 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
       "id": "WakefieldFamily"
     }]
 
-Pour plus d’informations sur la prise en charge géospatiale dans DocumentDB, consultez [Utilisation de données géospatiales dans Azure DocumentDB](documentdb-geospatial.md). Cela inclut les fonctions spatiales et la syntaxe SQL pour DocumentDB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la syntaxe que nous avons vue jusqu’à présent.
+Pour plus d’informations sur la prise en charge géospatiale dans Cosmos DB, consultez [Working with geospatial data in Azure Cosmos DB (Utilisation de données géospatiales dans Azure Cosmos DB)](documentdb-geospatial.md). Cela inclut les fonctions spatiales et la syntaxe SQL pour Cosmos DB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la syntaxe que nous avons vue jusqu’à présent.
 
-## <a id="Linq"></a>LINQ vers le langage SQL de DocumentDB
-LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requête sur des flux d'objets. DocumentDB fournit une bibliothèque côté client pour interagir avec LINQ en facilitant la conversion entre les objets JSON et .NET et un mappage à partir d'un sous-ensemble de requêtes LINQ vers des requêtes DocumentDB. 
+## <a id="Linq"></a>LINQ vers le langage SQL de l’API DocumentDB
+LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requête sur des flux d'objets. Cosmos DB fournit une bibliothèque côté client pour interagir avec LINQ en facilitant la conversion entre les objets JSON et .NET, ainsi qu’un mappage à partir d’un sous-ensemble de requêtes LINQ vers des requêtes Cosmos DB. 
 
-L'image suivante illustre l'architecture de prise en charge des requêtes LINQ à l'aide de DocumentDB.  En utilisant le client DocumentDB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de DocumentDB, qui traduit alors les requêtes LINQ en requêtes DocumentDB. Ces requêtes sont ensuite transmises au serveur DocumentDB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
+L’image suivante illustre l’architecture de prise en charge des requêtes LINQ à l’aide de Cosmos DB.  En utilisant le client Cosmos DB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de Cosmos DB, qui traduit alors les requêtes LINQ en requêtes Cosmos DB. Ces requêtes sont ensuite transmises au serveur Cosmos DB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
 
-![Architecture de prise en charge des requêtes LINQ avec DocumentDB - Syntaxe SQL, langage de requête JSON, concepts de bases de données et requêtes SQL][1]
+![Architecture de prise en charge des requêtes LINQ avec l’API DocumentDB - Syntaxe SQL, langage de requête JSON, concepts de bases de données et requêtes SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mappage .NET et JSON
 Le mappage entre les objets .NET et les documents JSON est naturel : chaque champ de membre de données est mappé vers un objet JSON, où le nom du champ est mappé vers la partie « clé » de l'objet tandis que la partie « valeur » est mappée de façon récursive vers la partie de valeur de l'objet. Considérez l'exemple suivant. L'objet Family créé est mappé vers le document JSON, comme indiqué ci-dessous. À l'inverse, le document JSON est mappé vers un objet .NET.
@@ -1743,7 +1744,7 @@ Le mappage entre les objets .NET et les documents JSON est naturel : chaque cha
 
 
 ### <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
-Le fournisseur de requêtes de DocumentDB effectue le meilleur mappage possible entre une requête LINQ et une requête SQL DocumentDB. Dans la description suivante, nous partons du principe que le lecteur connaît les principes de base de LINQ.
+Le fournisseur de requêtes de Cosmos DB effectue le meilleur mappage possible entre une requête LINQ et une requête SQL Cosmos DB. Dans la description suivante, nous partons du principe que le lecteur connaît les principes de base de LINQ.
 
 D'abord, pour le système de type, nous prenons en charge tous les types JSON primitifs : numérique, booléen, chaîne et Null. Seuls ces types JSON sont pris en charge. Les expressions scalaires suivantes sont prises en charge.
 
@@ -1780,7 +1781,7 @@ Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inc
 * **Miscellaneous**: prend en charge la traduction des opérateurs conditionnels et coalesce. Peut traduire Contains en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
 
 ### <a name="sql-query-operators"></a>Opérateurs de requête SQL
-Voici certains exemples illustrant comment certains des opérateurs de requête LINQ standard sont traduits en requêtes DocumentDB.
+Voici quelques exemples illustrant comment certains opérateurs de requête LINQ standard sont traduits en requêtes Cosmos DB.
 
 #### <a name="select-operator"></a>Opérateur Select
 La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
@@ -1869,7 +1870,7 @@ La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui
 
 
 ### <a name="composite-sql-queries"></a>Requêtes SQL composites
-Les opérateurs suivants peuvent être composés pour former des requêtes plus puissantes. Comme DocumentDB prend en charge les collections imbriquées, la composition peut être concaténée ou imbriquée.
+Les opérateurs suivants peuvent être composés pour former des requêtes plus puissantes. Étant donné que Cosmos DB prend en charge les collections imbriquées, la composition peut être concaténée ou imbriquée.
 
 #### <a name="concatenation"></a>Concaténation
 La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête concaténée peut commencer par une requête `SelectMany` facultative suivie de plusieurs opérateurs `Select` ou `Where`.
@@ -1971,16 +1972,16 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
 
 
 ## <a id="ExecutingSqlQueries"></a>Exécution de requêtes SQL
-DocumentDB expose les ressources via une API REST qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, DocumentDB offre des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le kit SDK .NET prend en charge l'interrogation LINQ en plus du SQL.
+Cosmos DB expose les ressources par le biais d’une API REST qui peut être appelée par n’importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, Cosmos DB propose des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le kit SDK .NET prend en charge l'interrogation LINQ en plus du SQL.
 
-Les exemples suivants montrent comment créer une requête et la soumettre par rapport à un compte de base de données DocumentDB.
+Les exemples suivants montrent comment créer une requête et la soumettre à un compte de base de données Cosmos DB.
 
 ### <a id="RestAPI"></a>API REST
-DocumentDB fournit un modèle de programmation RESTful ouvert sur HTTP. Vous pouvez approvisionner vos comptes de bases de données en utilisant un abonnement Azure. Le modèle de ressource de DocumentDB se compose d’ensembles de ressources sous un compte de base de données, toutes adressables via un URI stable et logique. Dans ce document, de tels ensembles de ressources sont désignés sous le nom de « flux ». Un compte de base de données se compose d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections et chaque collection contient des documents, des fonctions définies par l'utilisateur et d'autres types de ressources.
+Cosmos DB fournit un modèle de programmation RESTful ouvert sur HTTP. Vous pouvez approvisionner vos comptes de bases de données en utilisant un abonnement Azure. Le modèle de ressource de Cosmos DB se compose d’ensembles de ressources sous un compte de base de données, toutes adressables par le biais d’un URI stable et logique. Dans ce document, de tels ensembles de ressources sont désignés sous le nom de « flux ». Un compte de base de données se compose d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections et chaque collection contient des documents, des fonctions définies par l'utilisateur et d'autres types de ressources.
 
-Le modèle d'interaction de base avec ces ressources consiste à utiliser des verbes HTTP, tels que GET, PUT, POST et DELETE avec leur interprétation standard. Le verbe POST permet de créer une ressource, d'exécuter une procédure stockée ou d'émettre une requête DocumentDB. Les requêtes sont toujours des opérations en lecture seule sans effets secondaires.
+Le modèle d'interaction de base avec ces ressources consiste à utiliser des verbes HTTP, tels que GET, PUT, POST et DELETE avec leur interprétation standard. Le verbe POST permet de créer une ressource, d’exécuter une procédure stockée ou d’émettre une requête Cosmos DB. Les requêtes sont toujours des opérations en lecture seule sans effets secondaires.
 
-Les exemples suivants illustrent l'utilisation d'une action POST pour une requête DocumentDB appliquée sur une collection contenant les deux exemples de documents utilisés jusqu'à présent. La requête contient un simple filtre sur la propriété de nom JSON. Notez l’utilisation des en-têtes `x-ms-documentdb-isquery` et Content-Type: `application/query+json` pour indiquer que l’opération est une requête.
+Les exemples suivants illustrent l’utilisation d’une action POST pour une requête API DocumentDB appliquée sur une collection contenant les deux exemples de documents utilisés jusqu’à présent. La requête contient un simple filtre sur la propriété de nom JSON. Notez l’utilisation des en-têtes `x-ms-documentdb-isquery` et Content-Type: `application/query+json` pour indiquer que l’opération est une requête.
 
 **Requête**
 
@@ -2104,9 +2105,9 @@ Le deuxième exemple illustre une requête plus complexe qui renvoie plusieurs r
 
 Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de liaison via l’en-tête de réponse `x-ms-continuation-token` . Les clients peuvent paginer les résultats en incluant l'en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l'en-tête de nombre `x-ms-max-item-count` . Si la requête spécifiée inclut une fonction d’agrégation telle que `COUNT`, la page de requête peut renvoyer une valeur partiellement agrégée sur la page de résultats. Les clients doivent effectuer une agrégation de deuxième niveau sur ces résultats pour produire les résultats finaux, par exemple, effectuer la somme des nombres renvoyés dans les pages individuelles pour renvoyer le nombre total.
 
-Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme pour toutes les requêtes d’API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. Notez que la stratégie d'indexation de la collection interrogée peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d'indexation par défaut, les collections de l'index sont toujours actualisées par rapport aux contenus du document et les résultats de la requête correspondront à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour plus d’informations, consultez la rubrique [Niveaux de cohérence dans DocumentDB][consistency-levels].
+Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme pour toutes les requêtes d’API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. Notez que la stratégie d'indexation de la collection interrogée peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d'indexation par défaut, les collections de l'index sont toujours actualisées par rapport aux contenus du document et les résultats de la requête correspondront à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour plus d’informations, consultez la rubrique [Niveaux de cohérence de base Azure Cosmos DB][consistency-levels].
 
-Si la stratégie d'indexation configurée pour la collection ne peut pas prendre en charge la requête spécifiée, le serveur DocumentDB renvoie le code d'état 400 « Demande incorrecte ». Ce code est renvoyé pour les requêtes de plage par rapport aux chemins d'accès configurés pour les recherches (d'égalité) de hachage et pour les chemins d'accès explicitement exclus de l'indexation. L’en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
+Si la stratégie d’indexation configurée pour la collection ne peut pas prendre en charge la requête spécifiée, le serveur Azure Cosmos DB renvoie le code d’état 400 « Demande incorrecte ». Ce code est renvoyé pour les requêtes de plage par rapport aux chemins d'accès configurés pour les recherches (d'égalité) de hachage et pour les chemins d'accès explicitement exclus de l'indexation. L’en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
 
 ### <a id="DotNetSdk"></a>Kit de développement logiciel (SDK) C# (.NET)
 Le Kit de développement logiciel (SDK) .NET prend en charge l'interrogation LINQ et SQL. L'exemple suivant illustre l'exécution d'une simple requête de filtre présentée précédemment dans ce document.
@@ -2195,16 +2196,16 @@ Le prochain exemple illustre des jointures, exprimées via l'opérateur LINQ Sel
 
 Le client .NET effectue une itération automatique à travers l'ensemble des pages des résultats de la requête dans les blocs foreach, comme indiqué précédemment. Les options de requête présentées dans la section sur l’API REST sont également disponibles dans le Kit de développement logiciel (SDK) .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode CreateDocumentQuery. Vous pouvez aussi contrôler le nombre de pages en utilisant le paramètre `MaxItemCount` . 
 
-Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête. Dans le cas les collections partitionnées, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (bien que DocumentDB puisse extraire automatiquement cet élément du texte de la requête), et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions. 
+Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête. Dans le cas des collections partitionnées, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (bien que Cosmos DB puisse extraire automatiquement cet élément du texte de la requête) et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions. 
 
-Reportez-vous aux [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net) pour obtenir plus d’exemples de requête. 
+Reportez-vous aux [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) pour obtenir plus d’exemples de requête. 
 
 > [!NOTE]
 > Pour effectuer des requêtes d’agrégation, vous avez besoin du SDK 1.12.0 ou version ultérieure. LINQ n’est pas pris en charge pour les fonctions d’agrégation mais il le sera dans le SDK .NET 1.13.0.
 >
 
 ### <a id="JavaScriptServerSideApi"></a>API JavaScript côté serveur
-DocumentDB fournit un modèle de programmation pour l'exécution de la logique d'application JavaScript directement sur les collections utilisant des procédures stockées et des déclencheurs. La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données sur les opérations des documents d'une collection donnée. Ces opérations sont encapsulées dans les transactions ACID ambiantes.
+Cosmos DB fournit un modèle de programmation pour l’exécution de la logique d’application JavaScript directement sur les collections par le biais de procédures stockées et de déclencheurs. La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données sur les opérations des documents d'une collection donnée. Ces opérations sont encapsulées dans les transactions ACID ambiantes.
 
 L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript côté serveur pour créer des requêtes depuis l'intérieur des procédures stockées et des déclencheurs.
 
@@ -2239,10 +2240,10 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
     }
 
 ## <a id="References"></a>Références
-1. [Présentation d’Azure DocumentDB][introduction]
-2. [Spécification du langage SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
-4. [Niveaux de cohérence dans DocumentDB][consistency-levels]
+1. [Présentation d’Azure Cosmos DB][introduction]
+2. [Spécification SQL Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net)
+4. [Niveaux de cohérence de base Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 

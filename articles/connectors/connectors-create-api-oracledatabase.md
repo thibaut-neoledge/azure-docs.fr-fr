@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1d7574110d616643c67b19e9a4bf21ee9187503d
-ms.lasthandoff: 03/31/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,8 @@ Cette rubrique décrit comment utiliser le connecteur de base de données Oracle
 * Toute table avec des clés composites
 * Types d’objet imbriqués dans des tables
  
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Obtenir de l’aide
 

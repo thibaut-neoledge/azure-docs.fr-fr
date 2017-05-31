@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e8efc3204512b7213c44a15c25b38287465975df
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -122,7 +123,7 @@ Vous avez activé avec succès la connexion entre le SensorTag et la passerelle 
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Exécutez un exemple d’application BLE pour envoyer des données du SensorTag à votre IoT Hub
 
-L’exemple d’application BLE (Bluetooth Low Energy) est fourni par le SDK Gateway Azure IoT. L’exemple d’application collecte les données de la connexion BLE et les envoie à votre IoT Hub. Pour exécuter l’exemple d’application, vous devez suivre la procédure suivante :
+L’exemple d’application BLE (Bluetooth Low Energy) est fourni par Azure IoT Edge. L’exemple d’application collecte les données de la connexion BLE et les envoie à votre IoT Hub. Pour exécuter l’exemple d’application, vous devez suivre la procédure suivante :
 
 1. Configurez l’exemple d’application.
 1. Exécutez l’exemple d’application sur la passerelle IoT.
@@ -170,5 +171,5 @@ L’exemple d’application BLE (Bluetooth Low Energy) est fourni par le SDK Gat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utilisation de la passerelle IoT pour la transformation des données de capteur avec le SDK Azure IoT Gateway](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+[Utiliser une passerelle IoT pour la transformation des données de capteur avec Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 

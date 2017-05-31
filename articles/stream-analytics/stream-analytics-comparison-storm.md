@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -334,7 +334,7 @@ Un travail de diffusion en continu peut avoir plusieurs sorties. Sorties prises 
             </td>
             <td width="246" valign="top">
                 <p>
-Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL et HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
+Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL et HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
             </td>
         </tr>
@@ -570,7 +570,7 @@ Données de référence disponibles à partir des objets blob Azure avec une tai
             </td>
             <td width="246" valign="top">
                 <p>
-Aucune limitation de la taille des données. Connecteurs disponibles pour HBase, DocumentDB, SQL Server et Azure. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
+Aucune limitation de la taille des données. Connecteurs disponibles pour HBase, Azure Cosmos DB, SQL Server et Azure. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
                 <p>
 L’actualisation des données de référence doit être gérée par du code personnalisé.

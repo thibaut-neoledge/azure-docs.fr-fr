@@ -1,15 +1,16 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 51bed95b47f08cb9ba6c0785d9ac8bb1c9f1ad4c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sorting-documentdb-data-using-order-by"></a>Tri de données DocumentDB à l'aide de la clause Order By
-Microsoft Azure DocumentDB prend en charge l'interrogation de documents à l'aide du langage SQL sur les documents JSON. Il est possible de trier les résultats de la requête à l'aide de la clause ORDER BY dans les instructions de requête SQL.
+# <a name="sorting-azure-cosmos-db-data-using-order-by"></a>Tri des données Azure Cosmos DB à l’aide d’Order By
+Microsoft Azure Cosmos DB prend en charge l’interrogation de documents à l’aide du langage SQL sur les documents JSON. Il est possible de trier les résultats de la requête à l'aide de la clause ORDER BY dans les instructions de requête SQL.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes : 
 
@@ -19,10 +20,10 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 Des [exemples](#samples) et un [FAQ](#faq) sont également fournis.
 
-Pour obtenir une référence complète sur les requêtes SQL, consultez le [didacticiel sur les requêtes DocumentDB](documentdb-sql-query.md).
+Pour obtenir une référence complète sur les requêtes SQL, consultez le [didacticiel sur les requêtes Azure Cosmos DB](documentdb-sql-query.md).
 
 ## <a name="how-to-query-with-order-by"></a>Interrogation avec la clause Order By
-Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative dans les instructions SQL lors de l'interrogation de DocumentDB. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. 
+Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative dans les instructions SQL lors de l’interrogation de Cosmos DB. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. 
 
 ### <a name="ordering-using-sql"></a>Classement à l'aide de SQL
 Par exemple, voici une requête pour récupérer les 10 premiers livres dans l’ordre décroissant de leurs titres. 
@@ -49,10 +50,10 @@ Vous pouvez classer à l'aide de n'importe quelle propriété imbriquée au sein
         // Iterate through books
     }
 
-DocumentDB prend en charge le tri avec une chaîne numérique unique ou une propriété booléenne par requête, avec des types de requêtes supplémentaires prochainement disponibles. Pour plus de détails, consultez la section [Quelles sont les étapes suivantes ?](#Whats_coming_next) .
+Cosmos DB prend en charge le tri avec une chaîne numérique unique ou une propriété booléenne par requête, avec des types de requêtes supplémentaires prochainement disponibles. Pour plus de détails, consultez la section [Quelles sont les étapes suivantes ?](#Whats_coming_next) .
 
 ## <a name="configure-an-indexing-policy-for-order-by"></a>Configurer une stratégie d'indexation pour la clause Order By
-Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et la plage), qui peuvent être définis pour des chemins d'accès ou des propriétés spécifiques, des types de données (chaînes ou numéros) et à des valeurs de précision différentes (précision maximale ou une valeur de précision fixe). Étant donné que DocumentDB utilise le hachage indexation par défaut, vous devez créer une nouvelle collection avec une stratégie d'indexation personnalisée avec une plage de nombres, de chaînes ou les deux, pour pouvoir utiliser Order By. 
+Rappelez-vous que Cosmos DB prend en charge deux types d’index (le hachage et la plage), qui peuvent être définis pour des chemins d’accès ou des propriétés spécifiques, pour des types de données (chaînes ou numéros) et à des valeurs de précisions différentes (précision maximale ou précision fixe). Étant donné que Cosmos DB utilise l’indexation de hachage par défaut, vous devez créer une collection avec une stratégie d’indexation personnalisée par le biais d’une plage de nombres et/ou de chaînes pour utiliser Order By. 
 
 > [!NOTE]
 > Les index de plage de chaîne ont été introduits le 7 juillet 2015 avec la version 2015-06-03 de l'API REST. Pour créer des stratégies pour Order By sur les chaînes, vous devez utiliser la version 1.2.0 du Kit de développement logiciel (SDK) .NET ou la version 1.1.0 du Kit de développement logiciel (SDK) Python, Node.js ou Java.
@@ -61,7 +62,7 @@ Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et l
 > 
 > 
 
-Pour plus d'informations, consultez [Stratégies d'indexation de DocumentDB](documentdb-indexing-policies.md).
+Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](documentdb-indexing-policies.md).
 
 ### <a name="indexing-for-order-by-against-all-properties"></a>Indexation pour la clause Order By sur toutes les propriétés numériques
 Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, nous remplaçons le type d’index par défaut pour les valeurs de chaîne par le type Plage, et nous définissons la précision maximale (-1).
@@ -96,13 +97,13 @@ Examinez ce [projet d’exemples GitHub](https://github.com/Azure/azure-document
 ## <a name="faq"></a>FAQ
 **Quelle est la consommation d'unités de demande (RU) des requêtes Order By ?**
 
-Étant donné que la clause Order By utilise l'index DocumentDB pour les recherches, le nombre d'unités de demande consommées par les requêtes Order By sera semblable aux requêtes équivalentes sans Order By. Comme toute autre opération sur DocumentDB, le nombre d'unités de demande dépend de la taille/forme des documents, ainsi que de la complexité de la requête. 
+Étant donné que la clause Order By utilise l’index Cosmos DB pour les recherches, le nombre d’unités de demande consommées par les requêtes Order By sera semblable aux requêtes équivalentes sans Order By. Comme toute autre opération sur Cosmos DB, le nombre d’unités de demande dépend de la taille/forme des documents, ainsi que de la complexité de la requête. 
 
 **Quelle est la surcharge d'index attendue pour Order By ?**
 
 La surcharge de stockage de l'indexation sera proportionnelle au nombre de propriétés. Dans le pire des cas, la surcharge d'index représentera 100 % des données. Il n'existe aucune différence en termes de surcharge de débit (unités de demande) entre l'indexation Range/Order By et l'indexation de hachage par défaut.
 
-**Comment puis-je interroger mes données existantes dans DocumentDB à l'aide de la clause Order By ?**
+**Comment puis-je interroger mes données existantes dans Cosmos DB à l’aide de la clause Order By ?**
 
 Pour trier les résultats de la requête à l’aide de la clause Order By, vous devez modifier la stratégie d’indexation de la collection afin d’utiliser un type d’index de plage (Range) par rapport à la propriété utilisée pour le tri. Consultez [Modification de la stratégie d’indexation](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
 
@@ -127,9 +128,9 @@ Si vous recevez une erreur signalant qu’Order By n’est pas prise en charge, 
 Répliquez le [projet d’exemples GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) et classez vos données ! 
 
 ## <a name="references"></a>Références
-* [Référence de requête DocumentDB](documentdb-sql-query.md)
-* [Référence de stratégie d'indexation de DocumentDB](documentdb-indexing-policies.md)
-* [Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+* [Référence de requête Azure Cosmos DB](documentdb-sql-query.md)
+* [Référence de stratégie d’indexation Azure Cosmos DB](documentdb-indexing-policies.md)
+* [Référence SQL Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [Exemples de clause Order By dans Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
 
 

@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
-ms.lasthandoff: 02/16/2017
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -271,133 +272,6 @@ Vous pouvez définir une action d’application logique pour qu’elle supprime 
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Détails techniques
-## <a name="actions"></a>Actions
-Une action est une opération effectuée par le flux de travail défini dans une application logique. Le connecteur de base de données DB2 inclut les actions ci-après. 
-
-| Action | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-db2.md#get-row) |Récupère une ligne unique d’une table DB2 |
-| [GetRows](connectors-create-api-db2.md#get-rows) |Récupère les lignes d’une table DB2 |
-| [InsertRow](connectors-create-api-db2.md#insert-row) |Insère une nouvelle ligne dans une table DB2 |
-| [DeleteRow](connectors-create-api-db2.md#delete-row) |Supprime une ligne d’une table DB2 |
-| [GetTables](connectors-create-api-db2.md#get-tables) |Récupère les tables d’une base de données DB2 |
-| [UpdateRow](connectors-create-api-db2.md#update-row) |Met à jour une ligne existante d’une table DB2 |
-
-### <a name="action-details"></a>Détails de l’action
-Dans cette section, consultez les détails relatifs à chaque action, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
-
-#### <a name="get-row"></a>Obtenir une ligne
-Récupère une ligne unique d’une table DB2.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table * |Nom de la table |Nom de la table DB2 |
-| id * |ID de la ligne |Identificateur unique de la ligne à récupérer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtenir des lignes
-Récupère les lignes d’une table DB2.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table DB2 |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
-| $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insérer une ligne
-Insère une nouvelle ligne dans une table DB2.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table DB2 |
-| item* |Ligne |Ligne à insérer dans la table DB2 spécifiée |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Supprimer la ligne
-Supprime une ligne d’une table DB2.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table DB2 |
-| id* |ID de la ligne |Identificateur unique de la ligne à supprimer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-#### <a name="get-tables"></a>Obtenir des tables
-Récupère les tables d’une base de données DB2.  
-
-Il n'existe aucun paramètre pour cet appel. 
-
-##### <a name="output-details"></a>Détails des résultats
-TablesList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Mettre à jour une ligne
-Met à jour une ligne existante d’une table DB2.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table DB2 |
-| id* |ID de la ligne |Identificateur unique de la ligne à mettre à jour |
-| item* |Ligne |Ligne avec valeurs mises à jour |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Réponses HTTP
-Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. Le tableau suivant présente les réponses et leurs descriptions :  
-
-| Nom | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Acceptée |
-| 400 |Demande incorrecte |
-| 401 |Non autorisé |
-| 403 |Interdit |
-| 404 |Introuvable |
-| 500 |Erreur interne du serveur. Une erreur inconnue s'est produite |
-| default |L’opération a échoué. |
-
 ## <a name="supported-db2-platforms-and-versions"></a>Plateformes et versions DB2 prises en charge
 Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ainsi que les produits IBM DB2 compatibles (par exemple, IBM Bluemix dashDB) qui prennent en charge les versions 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
 
@@ -408,6 +282,9 @@ Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ain
 * IBM DB2 pour i 7.1
 * IBM DB2 pour LUW 11
 * IBM DB2 pour LUW 10.5
+
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

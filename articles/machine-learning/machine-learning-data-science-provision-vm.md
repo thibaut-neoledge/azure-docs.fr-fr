@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -160,7 +159,7 @@ Plusieurs outils Azure sont installés sur la machine virtuelle :
 * **AzCopy**: permet de déplacer des données vers et à partir de votre compte de stockage Microsoft Azure. Il suffit de taper **Azcopy** dans une invite de commandes pour afficher l’utilisation. 
 * **Explorateur de stockage Microsoft Azure**: permet de parcourir les objets que vous avez stockés dans votre compte de stockage Azure et de transférer des données vers et à partir du stockage Azure. Vous pouvez taper **Explorateur de stockage** dans la recherche ou utiliser le menu Démarrer de Windows pour accéder à cet outil. 
 * **Adlcopy**: permet de déplacer des données vers Azure Data Lake. Il suffit de taper **adlcopy** dans une invite de commandes pour afficher l’utilisation. 
-* **dtui**: permet de déplacer des données vers et à partir d’Azure DocumentDB, une base de données NoSQL sur le cloud. Il suffit de taper **dtui** dans une invite de commandes. 
+* **dtui** : permet de déplacer des données en direction et en provenance d’Azure Cosmos DB, une base de données NoSQL sur le cloud. Il suffit de taper **dtui** dans une invite de commandes. 
 * **Passerelle de gestion des données de Microsoft** : permet le déplacement des données entre des sources de données locales et le cloud. Elle est utilisée dans les outils tels que Azure Data Factory. 
 * **Microsoft Azure PowerShell** : un outil qui permet de gérer vos ressources Azure dans le langage de script PowerShell est également installé sur votre machine virtuelle. 
 

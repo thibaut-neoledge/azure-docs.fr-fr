@@ -4,7 +4,7 @@ description: "Vue d’ensemble du connecteur Informix avec les paramètres d’A
 services: 
 documentationcenter: 
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
-ms.lasthandoff: 02/16/2017
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ca7a62338740e39647b39f2221bc5ac7321ba4fd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -271,138 +272,14 @@ Vous pouvez créer une action d’application logique pour supprimer une ligne d
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Détails techniques
-## <a name="actions"></a>Actions
-Une action est une opération effectuée par le flux de travail défini dans une application logique. Le connecteur de base de données Informix inclut les actions suivantes. 
-
-| Action | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Récupère une ligne unique d’une table Informix |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Récupère les lignes d’une table Informix |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Insère une nouvelle ligne dans une table Informix |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Supprime une ligne d’une table Informix |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Récupère les tables d’une base de données Informix |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Met à jour une ligne existante dans une table Informix |
-
-### <a name="action-details"></a>Détails de l’action
-Dans cette section, consultez les détails relatifs à chaque action, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
-
-#### <a name="get-row"></a>Obtenir une ligne
-Récupère une ligne unique d’une table Informix.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table * |Nom de la table |Nom de la table Informix |
-| id * |ID de la ligne |Identificateur unique de la ligne à récupérer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtenir des lignes
-Récupère les lignes d’une table Informix.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table Informix |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
-| $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insérer une ligne
-Insère une nouvelle ligne dans une table Informix.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table Informix |
-| item* |Ligne |Ligne à insérer dans la table Informix spécifiée |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Supprimer la ligne
-Supprime une ligne d’une table Informix.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table Informix |
-| id* |ID de la ligne |Identificateur unique de la ligne à supprimer |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-#### <a name="get-tables"></a>Obtenir des tables
-Récupère les tables d’une base de données Informix.  
-
-Il n'existe aucun paramètre pour cet appel. 
-
-##### <a name="output-details"></a>Détails des résultats
-TablesList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Mettre à jour une ligne
-Met à jour une ligne existante dans une table Informix.  
-
-| Nom de la propriété | Display Name | Description |
-| --- | --- | --- |
-| table* |Nom de la table |Nom de la table Informix |
-| id* |ID de la ligne |Identificateur unique de la ligne à mettre à jour |
-| item* |Ligne |Ligne avec valeurs mises à jour |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Item
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Réponses HTTP
-Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. Le tableau suivant présente les réponses et leurs descriptions :  
-
-| Nom | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Acceptée |
-| 400 |Demande incorrecte |
-| 401 |Non autorisé |
-| 403 |Interdit |
-| 404 |Introuvable |
-| 500 |Erreur interne du serveur. Une erreur inconnue s'est produite |
-| default |L’opération a échoué. |
-
 ## <a name="supported-informix-platforms-and-versions"></a>Plateformes et versions Informix prises en charge
 Ce connecteur prend en charge les versions IBM Informix ci-après en cas de configuration pour la prise en charge des connexions client DRDA (Distributed Relational Database Architecture).
 
 * IBM Informix 12.1
 * IBM Informix 11.7
+
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
