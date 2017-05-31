@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPops Gremlin | Microsoft Docs"
 description: "Présente des instructions pour configurer et exécuter des analyses graphiques, ainsi que le parallélisme Azure Cosmos DB avec Spark GraphX"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: khdang
 manager: shireest
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -46,11 +46,11 @@ Pour plus d’informations sur la configuration d’un cluster Azure HDInsight S
 
 Tout d’abord, nous créons un compte de base de données avec l’API Graph.
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Ajouter une collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="get-apache-tinkerpop"></a>Obtenir Apache TinkerPop
 

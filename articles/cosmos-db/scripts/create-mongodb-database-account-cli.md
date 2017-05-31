@@ -1,14 +1,14 @@
 ---
 title: "Script d’Azure CLI - Créer une collection, une base de données et un compte d’API MongoDB Azure Cosmos DB | Microsoft Docs"
 description: "Exemple de script d’Azure CLI - Créer une collection, une base de données et un compte d’API MongoDB Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample
